@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ <title>오픈 클로 AI 리포트</title>
+ <style>
+ @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+ * { box-sizing: border-box; }
+ body { font-family: 'Pretendard', -apple-system, sans-serif; background-color: #F2F4F6; color: #333D4B; margin: 0; padding: 0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+ .app-container { max-width: 920px; margin: 0 auto; background-color: #F2F4F6; min-height: 100vh; position: relative; display:flex; }
+ /* left calendar */
+ #leftPanel { width: 220px; background:#fff; border-right:1px solid #E5E8EB; padding:12px; box-sizing:border-box; }
+ #leftPanel button { background:transparent; border:1px solid #E5E8EB; border-radius:6px; padding:4px 8px; cursor:pointer; }
+ #calendar { margin-top:12px; }
+ /* main */
+ .main { flex:1; padding:0; }
+ .top-nav { padding: 24px 20px 16px 20px; background-color: #FFFFFF; position:sticky; top:0; z-index:100; border-bottom:1px solid #E5E8EB; }
+ .top-nav h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px 0; color: #191F28; display: flex; align-items: center; gap: 6px; }
+ .top-nav .sub-text { font-size: 13px; color: #8B95A1; }
+ .tab-menu { display: flex; overflow-x: auto; scrollbar-width: none; margin-top: 16px; gap: 16px; }
+ .tab-menu::-webkit-scrollbar { display: none; }
+ .tab-item { font-size: 15px; font-weight: 600; color: #8B95A1; padding-bottom: 8px; white-space: nowrap; cursor: pointer; position: relative; transition: color 0.2s ease; }
+ .tab-item.active { color: #191F28; font-weight: 700; }
+ .tab-item.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background-color: #191F28; border-radius: 3px 3px 0 0; }
+ .tab-content { padding: 20px 0 40px 0; }
+ .tab-pane { display: none; animation: fadeIn 0.3s ease; }
+ .tab-pane.active { display: block; }
+ @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+ .card { background-color: #FFFFFF; border-radius: 12px; padding: 20px; margin: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+ .badge-category { background-color: #E8F3FF; color: #1B64DA; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; display: inline-block; white-space: nowrap;}
+ .chip { background-color: #F2F4F6; color: #4E5968; font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 8px; }
+ .empty-state { text-align:center; padding:40px 20px; color:#8B95A1; }
+ </style>
+</head>
+<body>
+<div class="app-container">
+ <aside id="leftPanel">
+   <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+     <button id="prevMonth" aria-label="이전월">&lt;</button>
+     <div id="monthLabel" style="font-weight:700; font-size:14px; text-align:center;"></div>
+     <button id="nextMonth" aria-label="다음월">&gt;</button>
+   </div>
+   <div style="text-align:right; margin-top:8px;"><button id="todayBtn">오늘</button></div>
+   <div id="calendar"></div>
+   <hr />
+   <div style="font-size:13px; color:#6B7684; margin-top:8px;">날짜를 클릭하면 해당 날짜의 리포트를 엽니다.</div>
+ </aside>
+ <main class="main">
+ <div class="top-nav">
+ <h1>✨ 오픈 클로 모닝 리포트</h1>
+ <div class="sub-text" id="report-date">날짜 로딩중...</div>
+ <div class="tab-menu" id="tabMenu">
+ <div class="tab-item active" onclick="switchTab('briefing')">데일리 브리핑</div>
+ <div class="tab-item" onclick="switchTab('news')">뉴스 및 시황</div>
+ <div class="tab-item" onclick="switchTab('portfolio')">포트폴리오 리뷰</div>
+ <div class="tab-item" onclick="switchTab('recommend')">종목 추천</div>
+ </div>
+ </div>
+ <div class="tab-content">
+ <div class="tab-pane active" id="tab-briefing"></div>
+ <div class="tab-pane" id="tab-news"></div>
+ <div class="tab-pane" id="tab-portfolio"></div>
+ <div class="tab-pane" id="tab-recommend"></div>
+ </div>
+ </main>
+</div>
+
+<script>
+// Template expects site/<YYYY-MM-DD>/result.json next to index.html
+async function loadData(datePath = './result.json') {
+  try { const res = await fetch(datePath, {cache:'no-store'}); if(!res.ok) throw new Error(); return await res.json(); } catch(e){ console.warn('loadData failed', e); return null; }
+}
+async function loadDates(){ try{ const res = await fetch('../dates.json', {cache:'no-store'}); if(!res.ok) throw new Error(); return await res.json(); }catch(e){ return []; } }
+function defaultData(){ return { date: new Date().toLocaleString('ko-KR'), briefing:{insights:[],indices:[]}, newsList:[], portfolio:{accountAlert:'',accountDetail:'',weeklyReview:{},planDesc:'',allocations:[]}, recommendations:[] }; }
+
+async function renderApp(){ const dates = await loadDates(); initCalendar(dates);
+  const parts = window.location.pathname.split('/').filter(p=>p);
+  const maybeDate = parts[parts.length-1] || null;
+  const dateToLoad = /^\d{4}-\d{2}-\d{2}$/.test(maybeDate) ? maybeDate : (new Date()).toISOString().slice(0,10);
+  const data = await loadData('./result.json') || defaultData();
+  if(maybeDate && /^\d{4}-\d{2}-\d{2}$/.test(maybeDate)){ const d = await loadData('./result.json') || data; renderForDate(d, maybeDate); highlightCalendarDate(maybeDate);} else { renderForDate(data, dateToLoad); highlightCalendarDate(dateToLoad); }
+}
+function renderForDate(reportData, dateStr){ const merged = Object.assign({}, defaultData(), reportData); merged.date = merged.date || (new Date(dateStr)).toLocaleDateString('ko-KR'); document.getElementById('report-date').innerText = merged.date || ''; renderBriefing(merged); renderNews(merged); renderPortfolio(merged); renderRecommend(merged); }
+
+function renderBriefing(reportData){ const container = document.getElementById('tab-briefing'); let html=''; if(reportData.briefing && reportData.briefing.insights && reportData.briefing.insights.length>0){ html += `<div class="card"><div class="card-title">오늘의 핵심 인사이트 💡</div><ul class="insight-list">`; reportData.briefing.insights.forEach(ins=>{ html += `<li class="insight-item"><span class="badge-category">${ins.category||''}</span><div class="insight-text">${ins.text||''}</div></li>`; }); html += `</ul></div>`; } if(reportData.briefing && reportData.briefing.indices && reportData.briefing.indices.length>0){ html += `<div class="card"><div class="card-title">글로벌 마감 지수</div>`; reportData.briefing.indices.forEach(idx=>{ const colorClass = idx.isUp ? 'text-up':'text-down'; html += `<div class="index-row"><div class="index-name">${idx.name}</div><div class="index-value"><div class="index-price">${idx.price}</div><div class="${colorClass}">${idx.change}</div></div></div>`; }); html += `</div>`; } container.innerHTML = html || `<div class="empty-state">데이터가 없습니다.</div>`; }
+function renderNews(reportData){ const container = document.getElementById('tab-news'); if(!reportData.newsList || reportData.newsList.length===0){ container.innerHTML = `<div class="empty-state">오늘은 주목할 만한 특보가 없습니다.</div>`; return; } let html=''; reportData.newsList.forEach(news=>{ const tags = (news.tags||[]).map(t=>`<div class="chip">${t}</div>`).join(''); let impacts=''; if(news.impacts && news.impacts.length>0){ impacts += `<div class="impact-tree"><div class="impact-tree-title">섹터별 영향도 분석</div>`; news.impacts.forEach(imp=>{ const dot = imp.isPositive? 'dot-red':'dot-blue'; const badge = imp.isPositive? 'badge-positive':'badge-negative'; const text = imp.isPositive? '긍정':'부정'; impacts += `<div class="impact-node"><div class="node-header"><div class="node-dot ${dot}">●</div><div class="node-title">${imp.sector} <span class="badge ${badge}">${text}</span></div></div><div class="node-desc">${imp.desc}</div></div>`; }); impacts += `</div>`; } html += `<div class="card"><div class="card-title" style="font-size:20px">${news.title}</div><div class="chip-group">${tags}</div><p style="font-size:15px;color:#4E5968;margin-bottom:24px">${news.summary}</p>${impacts}</div>`; }); container.innerHTML = html; }
+function renderPortfolio(reportData){ const container = document.getElementById('tab-portfolio'); const p = reportData.portfolio||{}; let html = `<div class="account-card"><div class="account-alert">${p.accountAlert||''}</div><div class="account-detail">${p.accountDetail||''}</div></div>`; html += `<div class="card"><div class="card-title">📊 지난주 운용 데이터 리뷰</div><div style="font-size:13px;color:#8B95A1;margin-bottom:4px">포트폴리오 주간 수익률</div><div style="font-size:16px;font-weight:700;color:#3182F6;margin-bottom:16px">${(p.weeklyReview||{}).returnRate||''}</div><p style="font-size:14px;color:#4E5968">${(p.weeklyReview||{}).desc||''}</p></div>`; if(p.allocations && p.allocations.length>0){ let bar=''; let list=''; p.allocations.forEach(a=>{ bar += `<div style="width:${a.percent}%;background-color:${a.color}"></div>`; list += `<div class="alloc-item"><div class="alloc-dot" style="background-color:${a.color}"></div><div><div class="alloc-name">${a.name} (${a.percent}%)</div><div class="alloc-desc">${a.desc}</div></div></div>`; }); html += `<div class="card"><div class="card-title">📅 다음 달 적립식 운용 방향</div><p style="font-size:14px;color:#4E5968;margin-bottom:16px">${p.planDesc||''}</p><div class="allocation-bar">${bar}</div>${list}</div>`; } container.innerHTML = html; }
+function renderRecommend(reportData){ const container = document.getElementById('tab-recommend'); if(!reportData.recommendations || reportData.recommendations.length===0){ container.innerHTML = `<div class="empty-state">오늘은 신규 진입할 만한 추천 종목이 없습니다. 현금 관망을 유지하세요.</div>`; return; } let html = `<div class="card" style="background-color:transparent;box-shadow:none;padding:0;margin:0 12px"><div class="card-title" style="padding-left:4px">💡 오늘의 투자 아이디어</div>`; reportData.recommendations.forEach(rec=>{ html += `<div style="margin-bottom:20px"><div class="stock-item" style="margin-bottom:0;border-bottom-left-radius:0;border-bottom-right-radius:0"><div class="stock-info"><div class="stock-logo">${rec.logo||''}</div><div><div class="stock-name">${rec.name||''}</div><div class="stock-ticker">${rec.ticker||''}</div></div></div><div class="stock-action">${rec.action||''}</div></div><div class="stock-reason-box"><div class="badge-issue">🔗 연관 이슈: ${rec.linkedIssue||''}</div><div style="font-size:14px;color:#4E5968;line-height:1.5">${rec.reason||''}</div></div></div>`; }); html += `</div>`; container.innerHTML = html; }
+function switchTab(tabId){ document.querySelectorAll('.tab-item').forEach(i=>i.classList.remove('active')); const clicked = Array.from(document.querySelectorAll('.tab-item')).find(item=>item.getAttribute('onclick').includes(tabId)); if(clicked) clicked.classList.add('active'); document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active')); const ap = document.getElementById('tab-'+tabId); if(ap) ap.classList.add('active'); if(clicked) clicked.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'}); }
+
+// Calendar UI
+function initCalendar(availableDates){ const cal = document.getElementById('calendar'); const monthLabel = document.getElementById('monthLabel'); const prev = document.getElementById('prevMonth'); const next = document.getElementById('nextMonth'); const todayBtn = document.getElementById('todayBtn'); let view = new Date(); function render(){ const year=view.getFullYear(), month=view.getMonth(); monthLabel.innerText = `${year} ${String(month+1).padStart(2,'0')}`; const first=new Date(year,month,1); const last=new Date(year,month+1,0); const startWeekday=first.getDay(); let html = '<div style="display:grid; grid-template-columns: repeat(7, 1fr); gap:6px; font-size:12px;">'; const weekdays=['일','월','화','수','목','금','토']; weekdays.forEach(w=> html += `<div style="text-align:center; font-weight:700; color:#8B95A1;">${w}</div>`); for(let i=0;i<startWeekday;i++) html += '<div></div>'; for(let d=1; d<=last.getDate(); d++){ const dt=new Date(year,month,d); const iso=dt.toISOString().slice(0,10); const has = availableDates.includes(iso); const cls = has ? 'badge-category' : 'chip'; html += `<div style="text-align:center;"><button data-date="${iso}" class="cal-day" style="width:100%; padding:6px; border-radius:8px; border:none; background:transparent; cursor:pointer;"><div class=\"${cls}\">${d}</div></button></div>`; } html += '</div>'; cal.innerHTML = html; cal.querySelectorAll('.cal-day').forEach(btn=>{ btn.addEventListener('click', e=>{ const date = e.currentTarget.getAttribute('data-date'); goToDate(date); }); }); }
+ function gotoToday(){ view = new Date(); render(); }
+ function prevMonth(){ view = new Date(view.getFullYear(), view.getMonth()-1, 1); render(); }
+ function nextMonth(){ view = new Date(view.getFullYear(), view.getMonth()+1, 1); render(); }
+ prev.addEventListener('click', prevMonth); next.addEventListener('click', nextMonth); todayBtn.addEventListener('click', ()=>{ gotoToday(); const iso = (new Date()).toISOString().slice(0,10); goToDate(iso); }); render(); }
+function highlightCalendarDate(dateStr){ document.querySelectorAll('.cal-day').forEach(b=>{ if(b.getAttribute('data-date')===dateStr) b.style.outline='2px solid #1B64DA'; else b.style.outline='none'; }); }
+function goToDate(dateStr){ const parts = window.location.pathname.split('/'); const idx = parts.indexOf('site'); if(idx!==-1){ const base = parts.slice(0, idx+2).join('/'); window.location.href = base + dateStr + '/'; } else { const base = window.location.origin + window.location.pathname.replace(/index.html$/,''); window.location.href = base + 'site/' + dateStr + '/'; } }
+
+window.onload = renderApp;
+</script>
+</body>
+</html>

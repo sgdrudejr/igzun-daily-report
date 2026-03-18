@@ -1,0 +1,27 @@
+{
+  "description": "igzun daily report data schema. Raw sources (news, reports, market data) should be normalized into per-day JSON files under site/YYYY-MM-DD/result.json",
+  "fields": {
+    "date": { "type": "string", "format": "YYYY-MM-DD or localized string" },
+    "title": { "type": "string" },
+    "generated_at": { "type": "string", "format": "ISO-8601" },
+    "briefing": {
+      "insights": [{ "category": "string", "text": "string" }],
+      "indices": [{ "name": "string", "price": "string", "change": "string", "isUp": "boolean" }]
+    },
+    "newsList": [{ "title": "string", "tags": ["string"], "summary": "string", "impacts": [{ "sector": "string", "isPositive": "boolean", "desc": "string" }] }],
+    "portfolio": {
+      "accountAlert": "string",
+      "accountDetail": "string",
+      "weeklyReview": { "returnRate": "string", "desc": "string" },
+      "planDesc": "string",
+      "allocations": [{ "name": "string", "percent": "number", "color": "#hex", "desc": "string" }]
+    },
+    "recommendations": [{ "logo": "string", "name": "string", "ticker": "string", "action": "string", "linkedIssue": "string", "reason": "string" }],
+    "raw_sources": {
+      "news_raw": "path/or/identifier for raw news input",
+      "reports_raw": "path/or/identifier for raw reports input",
+      "market_raw": "path/or/identifier for raw market data input"
+    }
+  },
+  "notes": "A daily ETL should normalize raw inputs into this schema and write site/YYYY-MM-DD/result.json. deploy.sh copies that JSON to the public site folder."
+}
