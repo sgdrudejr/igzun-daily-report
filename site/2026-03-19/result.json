@@ -1,41 +1,27 @@
 {
-  "date": "2026년 3월 19일 (목)",
+  "date": "2026-03-19",
   "title": "오픈 클로 AI 리포트",
-  "generated_at": "2026-03-19T04:18:41Z",
+  "generated_at": "2026-03-18T19:41:37.543752Z",
   "briefing": {
     "insights": [
-      { "category": "시황", "text": "미국 증시는 혼조세로 마감. 금리과 민감업종 주목." },
-      { "category": "섹터", "text": "IT 섹터가 강세였지만 금융주는 소폭 하락." },
-      { "category": "매크로", "text": "원유 가격 상승과 환율 변동에 유의." }
+      {
+        "category": "요약",
+        "text": "자동생성 요약 없음 - ETL을 구성하세요."
+      }
     ],
-    "indices": [
-      { "name": "S&P 500", "price": "4,200.00", "change": "▲ 0.45%", "isUp": true },
-      { "name": "나스닥", "price": "13,500.00", "change": "▲ 0.78%", "isUp": true }
-    ]
+    "indices": []
   },
-  "newsList": [
-    {
-      "title": "중요 경제 지표 발표",
-      "tags": ["경제", "지표"],
-      "summary": "이번 분기 GDP 성장률이 예상치를 소폭 상회했습니다.",
-      "impacts": [
-        { "sector": "금융", "isPositive": false, "desc": "금리상승 우려로 일부 은행업종 압박" },
-        { "sector": "IT", "isPositive": true, "desc": "수익성 개선 기대감으로 강세" }
-      ]
-    }
-  ],
+  "newsList": [],
   "portfolio": {
-    "accountAlert": "포트폴리오 점검: 방어 비중 확대 권장",
-    "accountDetail": "최근 변동성 확대에 따라 현금 비중을 20% 확보하세요.",
-    "weeklyReview": { "returnRate": "+0.8% (시장 대비 +0.3%)", "desc": "IT 포지션이 초과수익을 견인" },
-    "planDesc": "다음 달은 분할매수 중심으로 운용합니다.",
-    "allocations": [
-      { "name": "KODEX 200", "percent": 50, "color": "#3182F6", "desc": "기초지수 노출" },
-      { "name": "개별주 A", "percent": 30, "color": "#F04452", "desc": "성장 기대" },
-      { "name": "현금", "percent": 20, "color": "#E5E8EB", "desc": "대응 여력" }
-    ]
+    "accountAlert": "",
+    "accountDetail": "",
+    "weeklyReview": {},
+    "planDesc": "",
+    "allocations": []
   },
-  "recommendations": [
-    { "logo": "📈", "name": "기업A", "ticker": "A001", "action": "분할 매수", "linkedIssue": "신제품 출시", "reason": "신제품 수요가 확대될 것으로 전망" }
-  ]
+  "recommendations": [],
+  "raw_sources": {
+    "news_raw": "data/raw/news/",
+    "market_raw": "data/raw/market/"
+  }
 }
