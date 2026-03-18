@@ -1,18 +1,225 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>오픈 클로 AI 리포트</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ <title>오픈 클로 AI 리포트</title>
+ <style>
+ @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+ * { box-sizing: border-box; }
+ body { font-family: 'Pretendard', -apple-system, sans-serif; background-color: #F2F4F6; color: #333D4B; margin: 0; padding: 0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+ .app-container { max-width: 480px; margin: 0 auto; background-color: #F2F4F6; min-height: 100vh; position: relative; }
+ .top-nav { padding: 24px 20px 16px 20px; background-color: #FFFFFF; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #E5E8EB; }
+ .top-nav h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px 0; color: #191F28; display: flex; align-items: center; gap: 6px; }
+ .top-nav .sub-text { font-size: 13px; color: #8B95A1; }
+ .tab-menu { display: flex; overflow-x: auto; scrollbar-width: none; margin-top: 16px; gap: 16px; }
+ .tab-menu::-webkit-scrollbar { display: none; }
+ .tab-item { font-size: 15px; font-weight: 600; color: #8B95A1; padding-bottom: 8px; white-space: nowrap; cursor: pointer; position: relative; transition: color 0.2s ease; }
+ .tab-item.active { color: #191F28; font-weight: 700; }
+ .tab-item.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background-color: #191F28; border-radius: 3px 3px 0 0; }
+ .tab-content { padding: 20px 0 40px 0; }
+ .tab-pane { display: none; animation: fadeIn 0.3s ease; }
+ .tab-pane.active { display: block; }
+ @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+ .card { background-color: #FFFFFF; border-radius: 20px; padding: 24px; margin: 0 20px 16px 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02); }
+ .card-title { font-size: 18px; font-weight: 700; color: #191F28; margin: 0 0 16px 0; }
+ .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+ .chip { background-color: #F2F4F6; color: #4E5968; font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 8px; }
+ .badge { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; padding: 3px 6px; border-radius: 6px; margin-left: 6px; }
+ .badge-positive { background-color: #FCEBED; color: #F04452; }
+ .badge-negative { background-color: #E8F3FF; color: #3182F6; }
+ .badge-issue { background-color: #F2F4F6; color: #333D4B; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 8px; display: inline-block;}
+ .badge-category { background-color: #E8F3FF; color: #1B64DA; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; display: inline-block; white-space: nowrap;}
+ .insight-list { list-style: none; padding: 0; margin: 0; }
+ .insight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px dashed #F2F4F6; }
+ .insight-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+ .insight-text { font-size: 14.5px; color: #4E5968; line-height: 1.5; margin-top: 2px; }
+ .index-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #F2F4F6; }
+ .index-row:last-child { border-bottom: none; }
+ .index-name { font-size: 15px; font-weight: 600; color: #333D4B; }
+ .index-value { text-align: right; }
+ .index-price { font-size: 15px; font-weight: 700; color: #191F28; }
+ .text-up { color: #F04452; font-size: 13px; font-weight: 600; }
+ .text-down { color: #3182F6; font-size: 13px; font-weight: 600; }
+ .impact-tree { margin-top: 20px; position: relative; }
+ .impact-tree-title { font-size: 14px; font-weight: 700; margin-bottom: 16px; color: #8B95A1; }
+ .impact-node { margin-bottom: 20px; position: relative; }
+ .impact-node::before { content: ''; position: absolute; left: 11px; top: 24px; bottom: -20px; width: 2px; background-color: #F2F4F6; }
+ .impact-node:last-child::before { display: none; }
+ .node-header { display: flex; align-items: center; margin-bottom: 8px; position: relative; z-index: 1; }
+ .node-dot { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-right: 12px; background-color: #FFFFFF; }
+ .dot-red { border: 2px solid #F04452; color: #F04452; }
+ .dot-blue { border: 2px solid #3182F6; color: #3182F6; }
+ .node-title { font-size: 15px; font-weight: 700; color: #333D4B; }
+ .node-desc { font-size: 14px; color: #6B7684; padding-left: 36px; margin-bottom: 12px; line-height: 1.4; }
+ .account-card { background: linear-gradient(135deg, #3182F6 0%, #1B64DA 100%); color: white; border-radius: 20px; padding: 24px; margin: 0 20px 16px 20px; box-shadow: 0 4px 12px rgba(49, 130, 246, 0.2); }
+ .account-alert { font-size: 18px; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+ .account-detail { font-size: 14px; opacity: 0.9; background: rgba(255,255,255,0.15); padding: 12px; border-radius: 12px; line-height: 1.5; }
+ .allocation-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+ .alloc-item { display: flex; align-items: flex-start; margin-bottom: 12px; }
+ .alloc-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 4px; margin-right: 12px; flex-shrink: 0; }
+ .alloc-name { font-size: 14px; font-weight: 700; color: #191F28; }
+ .alloc-desc { font-size: 13px; color: #6B7684; }
+ .stock-item { display: flex; align-items: center; justify-content: space-between; padding: 16px; background-color: #F9FAFB; border-radius: 12px; border: 1px solid #E5E8EB; }
+ .stock-info { display: flex; align-items: center; gap: 12px; }
+ .stock-logo { font-size: 24px; }
+ .stock-name { font-size: 15px; font-weight: 700; color: #191F28; }
+ .stock-ticker { font-size: 12px; color: #8B95A1; margin-top: 2px; }
+ .stock-action { background-color: #FCEBED; color: #F04452; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; }
+ .stock-reason-box { background-color: #FFFFFF; border: 1px solid #E5E8EB; border-top: none; padding: 16px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; margin-bottom: 20px; }
+ .empty-state { text-align: center; padding: 40px 20px; color: #8B95A1; font-size: 15px; }
+ </style>
 </head>
 <body>
-  <h1>오픈 클로 AI 리포트</h1>
-  <p>Generated at: Thu Mar 19 04:16:44 KST 2026</p>
-  <p>Replace templates/report.html with your full design to render a richer report.</p>
-  <pre>JSON: {
-  "title": "오픈 클로 AI 리포트",
-  "generated_at": "2026-03-18T19:16:44Z",
-  "path_date": "2026-03-19" 
-}</pre>
+<div class="app-container">
+ <div class="top-nav">
+ <h1>✨ 오픈 클로 모닝 리포트</h1>
+ <div class="sub-text" id="report-date">날짜 로딩중...</div>
+ <div class="tab-menu" id="tabMenu">
+ <div class="tab-item active" onclick="switchTab('briefing')">데일리 브리핑</div>
+ <div class="tab-item" onclick="switchTab('news')">뉴스 및 시황</div>
+ <div class="tab-item" onclick="switchTab('portfolio')">포트폴리오 리뷰</div>
+ <div class="tab-item" onclick="switchTab('recommend')">종목 추천</div>
+ </div>
+ </div>
+ <div class="tab-content">
+ <div class="tab-pane active" id="tab-briefing"></div>
+ <div class="tab-pane" id="tab-news"></div>
+ <div class="tab-pane" id="tab-portfolio"></div>
+ <div class="tab-pane" id="tab-recommend"></div>
+ </div>
+</div>
+
+<script>
+// This template expects a result.json in the same folder with the report data.
+// deploy.sh places result.json alongside this index.html (site/YYYY-MM-DD/result.json).
+
+async function loadData() {
+  try {
+    const res = await fetch('./result.json', {cache: 'no-store'});
+    if (!res.ok) throw new Error('result.json not found');
+    const data = await res.json();
+    return data;
+  } catch (e) {
+    console.warn('Failed to load result.json, falling back to empty data', e);
+    return null;
+  }
+}
+
+function defaultData() {
+  return {
+    date: new Date().toLocaleString('ko-KR'),
+    briefing: { insights: [], indices: [] },
+    newsList: [],
+    portfolio: {
+      accountAlert: '계좌 데이터 없음',
+      accountDetail: '',
+      weeklyReview: { returnRate: '', desc: '' },
+      planDesc: '',
+      allocations: []
+    },
+    recommendations: []
+  };
+}
+
+async function renderApp() {
+  const data = await loadData() || defaultData();
+  // map legacy keys if present
+  const reportData = Object.assign({}, defaultData(), data);
+  document.getElementById('report-date').innerText = reportData.date || '';
+  renderBriefing(reportData);
+  renderNews(reportData);
+  renderPortfolio(reportData);
+  renderRecommend(reportData);
+}
+
+function renderBriefing(reportData) {
+  const container = document.getElementById('tab-briefing');
+  let html = '';
+  if (reportData.briefing && reportData.briefing.insights && reportData.briefing.insights.length > 0) {
+    html += `<div class="card"><div class="card-title">오늘의 핵심 인사이트 💡</div><ul class="insight-list">`;
+    reportData.briefing.insights.forEach(insight => {
+      html += `<li class="insight-item"><span class="badge-category">${insight.category || ''}</span><div class="insight-text">${insight.text || ''}</div></li>`;
+    });
+    html += `</ul></div>`;
+  }
+  if (reportData.briefing && reportData.briefing.indices && reportData.briefing.indices.length > 0) {
+    html += `<div class="card"><div class="card-title">글로벌 마감 지수</div>`;
+    reportData.briefing.indices.forEach(idx => {
+      const colorClass = idx.isUp ? 'text-up' : 'text-down';
+      html += `<div class="index-row"><div class="index-name">${idx.name}</div><div class="index-value"><div class="index-price">${idx.price}</div><div class="${colorClass}">${idx.change}</div></div></div>`;
+    });
+    html += `</div>`;
+  }
+  container.innerHTML = html || `<div class="empty-state">데이터가 없습니다.</div>`;
+}
+
+function renderNews(reportData) {
+  const container = document.getElementById('tab-news');
+  if (!reportData.newsList || reportData.newsList.length === 0) {
+    container.innerHTML = `<div class="empty-state">오늘은 주목할 만한 특보가 없습니다.</div>`; return;
+  }
+  let html = '';
+  reportData.newsList.forEach(news => {
+    let tagsHtml = (news.tags||[]).map(tag => `<div class="chip">${tag}</div>`).join('');
+    let impactsHtml = '';
+    if(news.impacts && news.impacts.length > 0) {
+      impactsHtml += `<div class="impact-tree"><div class="impact-tree-title">섹터별 영향도 분석</div>`;
+      news.impacts.forEach(impact => {
+        const dotClass = impact.isPositive ? 'dot-red' : 'dot-blue';
+        const badgeClass = impact.isPositive ? 'badge-positive' : 'badge-negative';
+        const badgeText = impact.isPositive ? '긍정' : '부정';
+        impactsHtml += `<div class="impact-node"><div class="node-header"><div class="node-dot ${dotClass}">●</div><div class="node-title">${impact.sector} <span class="badge ${badgeClass}">${badgeText}</span></div></div><div class="node-desc">${impact.desc}</div></div>`;
+      });
+      impactsHtml += `</div>`;
+    }
+    html += `<div class="card"><div class="card-title" style="font-size: 20px;">${news.title}</div><div class="chip-group">${tagsHtml}</div><p style="font-size: 15px; color: #4E5968; margin-bottom: 24px;">${news.summary}</p>${impactsHtml}</div>`;
+  });
+  container.innerHTML = html;
+}
+
+function renderPortfolio(reportData) {
+  const container = document.getElementById('tab-portfolio');
+  const p = reportData.portfolio || {};
+  let html = `<div class="account-card"><div class="account-alert">${p.accountAlert || ''}</div><div class="account-detail">${p.accountDetail || ''}</div></div>`;
+  html += `<div class="card"><div class="card-title">📊 지난주 운용 데이터 리뷰</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 4px;">포트폴리오 주간 수익률</div><div style="font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 16px; color: #3182F6;">${(p.weeklyReview||{}).returnRate||''}</div><p style="font-size: 14px; color: #4E5968;">${(p.weeklyReview||{}).desc||''}</p></div>`;
+  if (p.allocations && p.allocations.length > 0) {
+    let barHtml = ''; let listHtml = '';
+    p.allocations.forEach(alloc => {
+      barHtml += `<div style="width: ${alloc.percent}%; background-color: ${alloc.color};"></div>`;
+      listHtml += `<div class="alloc-item"><div class="alloc-dot" style="background-color: ${alloc.color};"></div><div><div class="alloc-name">${alloc.name} (${alloc.percent}%)</div><div class="alloc-desc">${alloc.desc}</div></div></div>`;
+    });
+    html += `<div class="card"><div class="card-title">📅 다음 달 적립식 운용 방향</div><p style="font-size: 14px; color: #4E5968; margin-bottom: 16px;">${p.planDesc || ''}</p><div class="allocation-bar">${barHtml}</div>${listHtml}</div>`;
+  }
+  container.innerHTML = html;
+}
+
+function renderRecommend(reportData) {
+  const container = document.getElementById('tab-recommend');
+  if (!reportData.recommendations || reportData.recommendations.length === 0) {
+    container.innerHTML = `<div class="empty-state">오늘은 신규 진입할 만한 추천 종목이 없습니다. 현금 관망을 유지하세요.</div>`; return;
+  }
+  let html = `<div class="card" style="background-color: transparent; box-shadow: none; padding: 0; margin: 0 20px;"><div class="card-title" style="padding-left: 4px;">💡 오늘의 투자 아이디어</div>`;
+  reportData.recommendations.forEach(rec => {
+    html += `<div style="margin-bottom: 20px;"><div class="stock-item" style="margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"><div class="stock-info"><div class="stock-logo">${rec.logo||''}</div><div><div class="stock-name">${rec.name||''}</div><div class="stock-ticker">${rec.ticker||''}</div></div></div><div class="stock-action">${rec.action||''}</div></div><div class="stock-reason-box"><div class="badge-issue">🔗 연관 이슈: ${rec.linkedIssue||''}</div><div style="font-size: 14px; color: #4E5968; line-height: 1.5;">${rec.reason||''}</div></div></div>`;
+  });
+  html += `</div>`;
+  container.innerHTML = html;
+}
+
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
+  const clickedTab = Array.from(document.querySelectorAll('.tab-item')).find(item => item.getAttribute('onclick').includes(tabId));
+  if(clickedTab) clickedTab.classList.add('active');
+
+  document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+  const activePane = document.getElementById('tab-' + tabId);
+  if(activePane) activePane.classList.add('active');
+  
+  if(clickedTab) clickedTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+}
+
+window.onload = renderApp;
+</script>
 </body>
 </html>
