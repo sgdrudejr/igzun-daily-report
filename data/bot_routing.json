@@ -1,0 +1,9 @@
+{
+  "input_bot": "admin_bot",
+  "output_bot": "eco_report_bot",
+  "notes": [
+    "계좌 캡쳐/스냅샷 인입은 admin_bot 기준",
+    "완료 보고 및 리포트 송출은 eco_report_bot 기준",
+    "현재 세션에서는 직접 Telegram 송출 라우팅이 열려 있지 않아, 운영상 연결 시 이 파일 기준으로 붙이면 됨"
+  ]
+}
