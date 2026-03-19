@@ -20,7 +20,8 @@ python3 "$ROOT/scripts/integrate_refined_insights.py" || true
 python3 "$ROOT/scripts/generate_date_reports.py" || true
 python3 "$ROOT/scripts/build_date_status.py" || true
 
-# 5) portfolio snapshot apply if available
+# 5) admin_bot image intake -> OCR -> snapshot -> portfolio apply
+bash "$ROOT/scripts/ingest_admin_bot_pipeline.sh" || true
 python3 "$ROOT/scripts/update_portfolio_from_snapshot.py" || true
 
 echo "daily update done: $TODAY"
