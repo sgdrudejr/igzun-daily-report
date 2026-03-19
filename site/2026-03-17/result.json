@@ -4,24 +4,24 @@
     "1일": {
       "briefing": {
         "sentiment": {
-          "score": 50,
+          "score": 45,
           "status": "중립",
-          "desc": "2026-03-17 수집 원문 2건 기준 자동 생성된 기본 브리핑입니다."
+          "desc": "인플레이션 부담, 금리 인하 기대, 유가 부담, 성장 기대"
         },
         "forecast": {
-          "title": "해당 날짜 자동 브리핑",
-          "text": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "title": "거시/시장 리포트 요약",
+          "text": "1. 데일리에 수록된 자료는 각 리포트의 요약본이므로 상세한 내용은 원본을 참조하시기 바랍니다.<br>2. 지수 등락 (%, bp) 코스피 지수 5,549.85 1.14 코스닥 지수 1,138.29 -1.27 코스피200 선물 825.10 1.96 중국 상해종합 4,084.79 -0.26 중국 심천종합 2,705.65 0.16 일본 니케이225 53,751...<br>3. 그 직전 주의 크레딧 스프레드 축소는 국고채 금리 급등에 따라 기술적으로 변한 부분이 있었던 점을 감안하면, 지난주의 크레딧 스프레드 변동이 유통시장의 실제 거래를 반영한 움직임이라고 볼 수 있다.",
           "sources": [
             {
-              "label": "KR/kb_research",
-              "source": "kb_research",
-              "title": "KR/kb_research",
+              "label": "2026-03-17_kb_research_broker_report_2026년_3월_17일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-17_kb_research_broker_report_2026년_3월_17일__화___kb_데일리.pdf",
               "published_at": "2026-03-17"
             },
             {
-              "label": "KR/mirae_research",
-              "source": "mirae_research",
-              "title": "KR/mirae_research",
+              "label": "2026-03-17_mirae_research_broker_report_fixed_income_issue_미국_사모신용_리스크와_국내_금융업_영향_점검_민지희.pdf",
+              "source": "KR",
+              "title": "2026-03-17_mirae_research_broker_report_fixed_income_issue_미국_사모신용_리스크와_국내_금융업_영향_점검_민지희.pdf",
               "published_at": "2026-03-17"
             }
           ]
@@ -50,31 +50,69 @@
       },
       "newsList": [
         {
-          "title": "해당 날짜 수집 이슈 요약",
+          "title": "거시/시장 리포트 요약",
           "tags": [
-            "자동생성",
-            "원문기반",
-            "수집완료"
+            "정제인사이트",
+            "원문분석",
+            "자동추출"
           ],
-          "summary": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "summary": "데일리에 수록된 자료는 각 리포트의 요약본이므로 상세한 내용은 원본을 참조하시기 바랍니다. / 지수 등락 (%, bp) 코스피 지수 5,549.85 1.14 코스닥 지수 1,138.29 -1.27 코스피200 선물 825.10 1.96 중국 상해종합 4,084.79 -0.26 중국 심천종합 2,705.65 0.16 일본 니케이225 53,751...",
           "impacts": [
             {
-              "sector": "시장 전반",
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "약세 가능"
+            },
+            {
+              "sector": "Bonds",
               "isPositive": true,
-              "desc": "상세 영향은 후속 정교화 예정"
+              "desc": "가격 상승 가능"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": true,
+              "desc": "완화적"
             }
           ],
           "sources": [
             {
-              "label": "KR/kb_research",
-              "source": "kb_research",
-              "title": "KR/kb_research",
+              "label": "2026-03-17_kb_research_broker_report_2026년_3월_17일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-17_kb_research_broker_report_2026년_3월_17일__화___kb_데일리.pdf",
               "published_at": "2026-03-17"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "원문분석",
+            "자동추출"
+          ],
+          "summary": "\u0001 नਊ 1SJWBUF\u0001DSFEJU \u0001 ੉ग\u0001 ੼Ѩ\u0001 ୹\u0001 BOL\u0001 -FOEJOH\u0001 UP\u0001 1SJWBUF\u0001 $SFEJU\u001b\u0001 4J[F \u0001 2\u0001 \u0001\u000f׮ ੉റ\u0001 \"*\u0001 מ \u0001۽ \u0001ח \u0001\u000f׮ ై যթ \u0001\u000f \u0012ܿ ੢\u0001 #%$\u0001 ઱о\u0001 ୶੉\u0001 \u0001 ఠ\u0001 \u0001 \u0001 *...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
             },
             {
-              "label": "KR/mirae_research",
-              "source": "mirae_research",
-              "title": "KR/mirae_research",
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-17_mirae_research_broker_report_fixed_income_issue_미국_사모신용_리스크와_국내_금융업_영향_점검_민지희.pdf",
+              "source": "KR",
+              "title": "2026-03-17_mirae_research_broker_report_fixed_income_issue_미국_사모신용_리스크와_국내_금융업_영향_점검_민지희.pdf",
               "published_at": "2026-03-17"
             }
           ]
@@ -108,5 +146,6 @@
         "portfolio": []
       }
     }
-  }
+  },
+  "dataStatus": "full"
 }

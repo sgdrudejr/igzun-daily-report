@@ -6,16 +6,16 @@
         "sentiment": {
           "score": 50,
           "status": "중립",
-          "desc": "2026-03-07 수집 원문 1건 기준 자동 생성된 기본 브리핑입니다."
+          "desc": "원문 기반 중립 판정"
         },
         "forecast": {
-          "title": "해당 날짜 자동 브리핑",
-          "text": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "title": "거시/시장 리포트 요약",
+          "text": "1. \u0001 *OWFTUNFOU\u00014USBUFHZ\u0001M\u0001\u0013\u0011\u0013\u0017\u000f\u0014\u000f\u0017\u0001 \u0001 \u0001 8FFL\u0001\"IFBE\u00014OBQTIPU\u0001 \u0001 ೡ\u0001 Әਲ਼द੢\u0001 ੉ग \u0014\u0010\u001a_\u0012\u0014 \u0001 р\u0001\u0001\u0001 NZPVOHHBO\u000fZPP!NJSBFBTTFU\u000fDPN\u0001 Ӕ\u0001 TVOHLFVO\u000fLJN!NJSBFBT...<br>2. C h a i r P o w e l l O - 1 0000 VC of Board Jefferson O -1 0 0 0 0 VC for Supervision Bowman O 0 -2 -2 -2 -1 B a r r O 00000 W a l l e rO -...<br>3. Louis Musalem X +1 +1 +1 +1 +1 Dallas Logan O +2 +1 +1 +1 +1 A t l a n t a B o s t i cX 0000 + 1 Kansas City Schmid X +1 +1 +2 +2 +2 Minneap...",
           "sources": [
             {
-              "label": "KR/mirae_research",
-              "source": "mirae_research",
-              "title": "KR/mirae_research",
+              "label": "2026-03-07_mirae_research_broker_report_earnings_revision__3월_2주차_week_ahead_snapshot_다음_주_주목할_금융시장_이슈_3_9_13__민지희.pdf",
+              "source": "KR",
+              "title": "2026-03-07_mirae_research_broker_report_earnings_revision__3월_2주차_week_ahead_snapshot_다음_주_주목할_금융시장_이슈_3_9_13__민지희.pdf",
               "published_at": "2026-03-07"
             }
           ]
@@ -38,25 +38,35 @@
       },
       "newsList": [
         {
-          "title": "해당 날짜 수집 이슈 요약",
+          "title": "거시/시장 리포트 요약",
           "tags": [
-            "자동생성",
-            "원문기반",
-            "수집완료"
+            "정제인사이트",
+            "원문분석",
+            "자동추출"
           ],
-          "summary": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "summary": "\u0001 *OWFTUNFOU\u00014USBUFHZ\u0001M\u0001\u0013\u0011\u0013\u0017\u000f\u0014\u000f\u0017\u0001 \u0001 \u0001 8FFL\u0001\"IFBE\u00014OBQTIPU\u0001 \u0001 ೡ\u0001 Әਲ਼द੢\u0001 ੉ग \u0014\u0010\u001a_\u0012\u0014 \u0001 р\u0001\u0001\u0001 NZPVOHHBO\u000fZPP!NJSBFBTTFU\u000fDPN\u0001 Ӕ\u0001 TVOHLFVO\u000fLJN!NJSBFBT... / C h a i r P o w e l l O - 1 0000 VC of Board Jefferson O -1 0 0 0 0 VC for Supervision Bowman O 0 -2 -2 -2 -1 B a r r O 00000 W a l l e rO -...",
           "impacts": [
             {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "상세 영향은 후속 정교화 예정"
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
             }
           ],
           "sources": [
             {
-              "label": "KR/mirae_research",
-              "source": "mirae_research",
-              "title": "KR/mirae_research",
+              "label": "2026-03-07_mirae_research_broker_report_earnings_revision__3월_2주차_week_ahead_snapshot_다음_주_주목할_금융시장_이슈_3_9_13__민지희.pdf",
+              "source": "KR",
+              "title": "2026-03-07_mirae_research_broker_report_earnings_revision__3월_2주차_week_ahead_snapshot_다음_주_주목할_금융시장_이슈_3_9_13__민지희.pdf",
               "published_at": "2026-03-07"
             }
           ]
@@ -88,5 +98,6 @@
         "portfolio": []
       }
     }
-  }
+  },
+  "dataStatus": "full"
 }

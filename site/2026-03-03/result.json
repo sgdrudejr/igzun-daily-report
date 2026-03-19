@@ -4,24 +4,24 @@
     "1일": {
       "briefing": {
         "sentiment": {
-          "score": 50,
-          "status": "중립",
-          "desc": "2026-03-03 수집 원문 2건 기준 자동 생성된 기본 브리핑입니다."
+          "score": 35,
+          "status": "매파/부정",
+          "desc": "금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담, 성장 기대"
         },
         "forecast": {
-          "title": "해당 날짜 자동 브리핑",
-          "text": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "title": "거시/시장 리포트 요약",
+          "text": "1. 데일리에 수록된 자료는 각 리포트의 요약본이므로 상세한 내용은 원본을 참조하시기 바랍니다.<br>2. 지수 등락 (%, bp) 코스피 지수 6,244.13 -1.00 코스닥 지수 1,192.78 0.39 코스피200 선물 937.80 -0.96 중국 상해종합 4,162.88 0.39 중국 심천종합 2,763.59 0.30 일본 니케이225 58,850...<br>3. New Economy 2.0의 조건 3월 국내주식 전략: 코스피 랠리, 역사상 가장 강했던 ‘3저 호황’을 넘어서다 3월 아시아주식 전략: AI 사이클 변동성 확대를 기회로 [기업분석 & 산업분석] ESG: 고배출 산업의 갈림길 - 자본조달과 소송 리...",
           "sources": [
             {
-              "label": "KR/kb_research",
-              "source": "kb_research",
-              "title": "KR/kb_research",
+              "label": "2026-03-03_kb_research_broker_report_2026년_3월_3일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-03_kb_research_broker_report_2026년_3월_3일__화___kb_데일리.pdf",
               "published_at": "2026-03-03"
             },
             {
-              "label": "KR/mirae_research",
-              "source": "mirae_research",
-              "title": "KR/mirae_research",
+              "label": "2026-03-03_mirae_research_broker_report_market_issue_이란_전쟁_시나리오와_대응_전략_김성근.pdf",
+              "source": "KR",
+              "title": "2026-03-03_mirae_research_broker_report_market_issue_이란_전쟁_시나리오와_대응_전략_김성근.pdf",
               "published_at": "2026-03-03"
             }
           ]
@@ -50,31 +50,69 @@
       },
       "newsList": [
         {
-          "title": "해당 날짜 수집 이슈 요약",
+          "title": "거시/시장 리포트 요약",
           "tags": [
-            "자동생성",
-            "원문기반",
-            "수집완료"
+            "정제인사이트",
+            "원문분석",
+            "자동추출"
           ],
-          "summary": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "summary": "데일리에 수록된 자료는 각 리포트의 요약본이므로 상세한 내용은 원본을 참조하시기 바랍니다. / 지수 등락 (%, bp) 코스피 지수 6,244.13 -1.00 코스닥 지수 1,192.78 0.39 코스피200 선물 937.80 -0.96 중국 상해종합 4,162.88 0.39 중국 심천종합 2,763.59 0.30 일본 니케이225 58,850...",
           "impacts": [
             {
-              "sector": "시장 전반",
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "약세 가능"
+            },
+            {
+              "sector": "Bonds",
               "isPositive": true,
-              "desc": "상세 영향은 후속 정교화 예정"
+              "desc": "가격 상승 가능"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": true,
+              "desc": "완화적"
             }
           ],
           "sources": [
             {
-              "label": "KR/kb_research",
-              "source": "kb_research",
-              "title": "KR/kb_research",
+              "label": "2026-03-03_kb_research_broker_report_2026년_3월_3일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-03_kb_research_broker_report_2026년_3월_3일__화___kb_데일리.pdf",
               "published_at": "2026-03-03"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "원문분석",
+            "자동추출"
+          ],
+          "summary": "\u0001 \u0001ܨޛ \u0001؍غ ۆ ਸ\u0001 ನ ੋੋ\u0001 \u0001\u0001\u000f׮ ݺ 6\"& \u0001 ੌ੄\u0001 )BQBH\u000e Ҋ \u0001 ੹ \u0001\u0001\u000f׮ \u0001ࢿز߸\u0001\u0001ࢿ \u0001 \u0001 \u0001 ఠ\u0001 \u0001 \u0001 *OWFTUNFOU\u00014USBUFHZ\u0001 \u0013\u0011\u0013\u0017\u000f\u0014\u000f\u0014\u0001 \u0001 \u0001>ۚ р\u0001 NZPVOHHBO\u000fZPP!NJSBFBTTF... / झ ध ಿ \u0001 ী ց ૑ઁ ৻௏ য1 1 * .BSLFU\u0001*TTVF\u0001 \u0017\u0001 \u0001 \u0001 .JSBF\u0001\"TTFU\u00014FDVSJUJFT\u00013FTFBSDI\u0001 \u0013\u0011\u0013\u0017\u000f\u0014\u000f\u0014 \u001bݎ\u0001ݴغ \u0001ػ \u0001ח جغ\u0001ܻ ࢚ ੑ੢ਸ\u0001 ਬ૑ೡ\u0001 Ѫ\u0001 \u001bۚউ Ҋ଱ച\u0001 ৘ ೱ\u0001 ઑ੿ \u0001 ୶...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
             },
             {
-              "label": "KR/mirae_research",
-              "source": "mirae_research",
-              "title": "KR/mirae_research",
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-03_mirae_research_broker_report_market_issue_이란_전쟁_시나리오와_대응_전략_김성근.pdf",
+              "source": "KR",
+              "title": "2026-03-03_mirae_research_broker_report_market_issue_이란_전쟁_시나리오와_대응_전략_김성근.pdf",
               "published_at": "2026-03-03"
             }
           ]
@@ -108,5 +146,6 @@
         "portfolio": []
       }
     }
-  }
+  },
+  "dataStatus": "full"
 }

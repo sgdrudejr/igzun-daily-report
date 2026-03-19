@@ -4,18 +4,18 @@
     "1일": {
       "briefing": {
         "sentiment": {
-          "score": 50,
+          "score": 45,
           "status": "중립",
-          "desc": "2026-03-12 수집 원문 1건 기준 자동 생성된 기본 브리핑입니다."
+          "desc": "인플레이션 부담, 금리 인하 기대, 유가 부담, 성장 기대"
         },
         "forecast": {
-          "title": "해당 날짜 자동 브리핑",
-          "text": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "title": "거시/시장 리포트 요약",
+          "text": "1. 데일리에 수록된 자료는 각 리포트의 요약본이므로 상세한 내용은 원본을 참조하시기 바랍니다.<br>2. 지수 등락 (%, bp) 코스피 지수 5,609.95 1.40 코스닥 지수 1,136.83 -0.07 코스피200 선물 837.50 1.87 중국 상해종합 4,133.43 0.25 중국 심천종합 2,744.02 0.52 일본 니케이225 55,025....<br>3. 줄곧 중국 수입이 부진한 흐름을 나타냈기 때문에 이번 수입 증가는 내수경기 호전 기대를 불러일으킬 수 있다.",
           "sources": [
             {
-              "label": "KR/kb_research",
-              "source": "kb_research",
-              "title": "KR/kb_research",
+              "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
               "published_at": "2026-03-12"
             }
           ]
@@ -38,25 +38,35 @@
       },
       "newsList": [
         {
-          "title": "해당 날짜 수집 이슈 요약",
+          "title": "거시/시장 리포트 요약",
           "tags": [
-            "자동생성",
-            "원문기반",
-            "수집완료"
+            "정제인사이트",
+            "원문분석",
+            "자동추출"
           ],
-          "summary": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "summary": "데일리에 수록된 자료는 각 리포트의 요약본이므로 상세한 내용은 원본을 참조하시기 바랍니다. / 지수 등락 (%, bp) 코스피 지수 5,609.95 1.40 코스닥 지수 1,136.83 -0.07 코스피200 선물 837.50 1.87 중국 상해종합 4,133.43 0.25 중국 심천종합 2,744.02 0.52 일본 니케이225 55,025....",
           "impacts": [
             {
-              "sector": "시장 전반",
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "약세 가능"
+            },
+            {
+              "sector": "Bonds",
               "isPositive": true,
-              "desc": "상세 영향은 후속 정교화 예정"
+              "desc": "가격 상승 가능"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": true,
+              "desc": "완화적"
             }
           ],
           "sources": [
             {
-              "label": "KR/kb_research",
-              "source": "kb_research",
-              "title": "KR/kb_research",
+              "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
               "published_at": "2026-03-12"
             }
           ]
@@ -88,5 +98,6 @@
         "portfolio": []
       }
     }
-  }
+  },
+  "dataStatus": "full"
 }
