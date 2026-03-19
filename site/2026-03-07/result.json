@@ -4,13 +4,13 @@
     "1일": {
       "briefing": {
         "sentiment": {
-          "score": 50,
-          "status": "중립",
-          "desc": "원문 기반 중립 판정"
+          "score": 35,
+          "status": "매파/부정",
+          "desc": "인플레이션 부담, 금리 인하 기대, 유가 부담"
         },
         "forecast": {
           "title": "거시/시장 리포트 요약",
-          "text": "1. \u0001 *OWFTUNFOU\u00014USBUFHZ\u0001M\u0001\u0013\u0011\u0013\u0017\u000f\u0014\u000f\u0017\u0001 \u0001 \u0001 8FFL\u0001\"IFBE\u00014OBQTIPU\u0001 \u0001 ೡ\u0001 Әਲ਼द੢\u0001 ੉ग \u0014\u0010\u001a_\u0012\u0014 \u0001 р\u0001\u0001\u0001 NZPVOHHBO\u000fZPP!NJSBFBTTFU\u000fDPN\u0001 Ӕ\u0001 TVOHLFVO\u000fLJN!NJSBFBT...<br>2. C h a i r P o w e l l O - 1 0000 VC of Board Jefferson O -1 0 0 0 0 VC for Supervision Bowman O 0 -2 -2 -2 -1 B a r r O 00000 W a l l e rO -...<br>3. Louis Musalem X +1 +1 +1 +1 +1 Dallas Logan O +2 +1 +1 +1 +1 A t l a n t a B o s t i cX 0000 + 1 Kansas City Schmid X +1 +1 +2 +2 +2 Minneap...",
+          "text": "1. Investment Strategy l 2026.3.6 다음 주 주목할 금융시장 이슈(3/9~13) (전략/퀀트) 유명간 myounggan.yoo@miraeasset.com (선진국 전략) 김성근 sungkeun.kim@miraeasset.com (채...<br>2. 유가 급등으로 미 국채 10년 금리도 전주 대비 20bp 이상 상승 서비스PPI: 중간재(Stage4) (% YoY) 주거비제외코어서비스CPI 서비스PPI: 최종재 • 다음 주 미국 2월 CPI(3/11), 1월 PCE 인플레(3/13) 발표 예정.<br>3. 1월 PPI에서 유통서비스 마진 물가 급등했고, 연초부터 이어진 유가 상승세는 인플레 상승을 견인할 전망.",
           "sources": [
             {
               "label": "2026-03-07_mirae_research_broker_report_earnings_revision__3월_2주차_week_ahead_snapshot_다음_주_주목할_금융시장_이슈_3_9_13__민지희.pdf",
@@ -44,22 +44,22 @@
             "원문분석",
             "자동추출"
           ],
-          "summary": "\u0001 *OWFTUNFOU\u00014USBUFHZ\u0001M\u0001\u0013\u0011\u0013\u0017\u000f\u0014\u000f\u0017\u0001 \u0001 \u0001 8FFL\u0001\"IFBE\u00014OBQTIPU\u0001 \u0001 ೡ\u0001 Әਲ਼द੢\u0001 ੉ग \u0014\u0010\u001a_\u0012\u0014 \u0001 р\u0001\u0001\u0001 NZPVOHHBO\u000fZPP!NJSBFBTTFU\u000fDPN\u0001 Ӕ\u0001 TVOHLFVO\u000fLJN!NJSBFBT... / C h a i r P o w e l l O - 1 0000 VC of Board Jefferson O -1 0 0 0 0 VC for Supervision Bowman O 0 -2 -2 -2 -1 B a r r O 00000 W a l l e rO -...",
+          "summary": "Investment Strategy l 2026.3.6 다음 주 주목할 금융시장 이슈(3/9~13) (전략/퀀트) 유명간 myounggan.yoo@miraeasset.com (선진국 전략) 김성근 sungkeun.kim@miraeasset.com (채... / 유가 급등으로 미 국채 10년 금리도 전주 대비 20bp 이상 상승 서비스PPI: 중간재(Stage4) (% YoY) 주거비제외코어서비스CPI 서비스PPI: 최종재 • 다음 주 미국 2월 CPI(3/11), 1월 PCE 인플레(3/13) 발표 예정.",
           "impacts": [
             {
               "sector": "USD",
-              "isPositive": false,
-              "desc": "중립"
+              "isPositive": true,
+              "desc": "강세"
             },
             {
               "sector": "Bonds",
-              "isPositive": false,
-              "desc": "중립"
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
             },
             {
               "sector": "Stocks",
               "isPositive": false,
-              "desc": "중립"
+              "desc": "약세"
             }
           ],
           "sources": [

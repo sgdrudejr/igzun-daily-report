@@ -4,13 +4,13 @@
     "1일": {
       "briefing": {
         "sentiment": {
-          "score": 45,
-          "status": "중립",
-          "desc": "인플레이션 부담, 금리 인하 기대, 유가 부담, 성장 기대"
+          "score": 35,
+          "status": "매파/부정",
+          "desc": "인플레이션 부담, 금리 인하 기대, 유가 부담"
         },
         "forecast": {
           "title": "거시/시장 리포트 요약",
-          "text": "1. 데일리에 수록된 자료는 각 리포트의 요약본이므로 상세한 내용은 원본을 참조하시기 바랍니다.<br>2. 지수 등락 (%, bp) 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 코스피200 선물 887.20 2.28 중국 상해종합 4,117.41 0.87 중국 심천종합 2,713.38 1.23 일본 니케이225 57,321.0...<br>3. 앤트로픽은 Claude Cowork의 Agents Plug-in을 통해 기업 내부에서 사용하는 도구들과 데이터에 직접 연결해서 자율적으로 업무를 수행하는 Enterprise Agents를 공개.",
+          "text": "1. FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업...<br>2. 크로스에셋/해외주식 Strategist 김일혁, CFA, FRM holistic@kbfg.com Global Insights 아직도 AI가 미칠 산업과 고용시장 충격을 과소평가하고 있다는 걸 보여준 Citrini 리서치의 보고서 정교하게 설계해서 믿고...<br>3. 앤트로픽은 Claude Cowork의 Agents Plug-in을 통해 기업 내부에서 사용하는 도구들과 데이터에 직접 연결해서 자율적으로 업무를 수행하는 Enterprise Agents를 공개.",
           "sources": [
             {
               "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
@@ -44,22 +44,22 @@
             "원문분석",
             "자동추출"
           ],
-          "summary": "데일리에 수록된 자료는 각 리포트의 요약본이므로 상세한 내용은 원본을 참조하시기 바랍니다. / 지수 등락 (%, bp) 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 코스피200 선물 887.20 2.28 중국 상해종합 4,117.41 0.87 중국 심천종합 2,713.38 1.23 일본 니케이225 57,321.0...",
+          "summary": "FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업... / 크로스에셋/해외주식 Strategist 김일혁, CFA, FRM holistic@kbfg.com Global Insights 아직도 AI가 미칠 산업과 고용시장 충격을 과소평가하고 있다는 걸 보여준 Citrini 리서치의 보고서 정교하게 설계해서 믿고...",
           "impacts": [
             {
               "sector": "USD",
-              "isPositive": false,
-              "desc": "약세 가능"
+              "isPositive": true,
+              "desc": "강세"
             },
             {
               "sector": "Bonds",
               "isPositive": true,
-              "desc": "가격 상승 가능"
+              "desc": "금리 상승/가격 하락"
             },
             {
               "sector": "Stocks",
-              "isPositive": true,
-              "desc": "완화적"
+              "isPositive": false,
+              "desc": "약세"
             }
           ],
           "sources": [
