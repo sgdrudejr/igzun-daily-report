@@ -949,6 +949,207 @@
         "ideas": [],
         "etfRanking": []
       }
+    },
+    "6개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 30,
+          "status": "매파/부정",
+          "desc": "인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 6개월 거시 구조 변화 분석",
+          "text": "1. 6개월 누적 기준 구조 변화: 고금리/정책 민감 구조, 지정학/에너지 리스크 상시화<br>2. 정책·인플레·성장 변수의 조합이 자산군 기대수익률을 재배치하는 국면으로 해석됨<br>3. 장기 관점에서는 단기 노이즈보다 구조적 테마와 펀더멘털의 지속성이 더 중요해짐",
+          "sources": [
+            {
+              "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "published_at": "2026-02-24"
+            },
+            {
+              "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "published_at": "2026-02-23"
+            },
+            {
+              "label": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "published_at": "2026-02-20"
+            },
+            {
+              "label": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+              "published_at": "2026-02-19"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "Regime Shift",
+            "text": "6개월 누적 기준 구조 변화: 고금리/정책 민감 구조, 지정학/에너지 리스크 상시화",
+            "sources": [
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              },
+              {
+                "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+                "published_at": "2026-02-23"
+              },
+              {
+                "label": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+                "published_at": "2026-02-20"
+              },
+              {
+                "label": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+                "published_at": "2026-02-19"
+              }
+            ]
+          },
+          {
+            "category": "Macro Trend",
+            "text": "정책·인플레·성장 변수의 조합이 자산군 기대수익률을 재배치하는 국면으로 해석됨",
+            "sources": [
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              },
+              {
+                "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+                "published_at": "2026-02-23"
+              },
+              {
+                "label": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+                "published_at": "2026-02-20"
+              },
+              {
+                "label": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+                "published_at": "2026-02-19"
+              }
+            ]
+          },
+          {
+            "category": "Fundamental",
+            "text": "장기 관점에서는 단기 노이즈보다 구조적 테마와 펀더멘털의 지속성이 더 중요해짐",
+            "sources": [
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              },
+              {
+                "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+                "published_at": "2026-02-23"
+              },
+              {
+                "label": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+                "published_at": "2026-02-20"
+              },
+              {
+                "label": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+                "published_at": "2026-02-19"
+              }
+            ]
+          }
+        ],
+        "indices": []
+      },
+      "newsList": [
+        {
+          "title": "6개월 구조 변화 요약",
+          "tags": [
+            "장기구조",
+            "매크로",
+            "펀더멘털"
+          ],
+          "summary": "6개월 누적 기준 구조 변화: 고금리/정책 민감 구조, 지정학/에너지 리스크 상시화 / 정책·인플레·성장 변수의 조합이 자산군 기대수익률을 재배치하는 국면으로 해석됨",
+          "impacts": [
+            {
+              "sector": "주식",
+              "isPositive": false,
+              "desc": "성장주 내 차별화, 테마 선택 중요"
+            },
+            {
+              "sector": "채권",
+              "isPositive": false,
+              "desc": "정책과 물가 기대가 장기금리에 지속 영향"
+            },
+            {
+              "sector": "실물/인프라",
+              "isPositive": true,
+              "desc": "구조적 투자/실물 테마 상대 강세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "published_at": "2026-02-24"
+            },
+            {
+              "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "published_at": "2026-02-23"
+            },
+            {
+              "label": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "published_at": "2026-02-20"
+            },
+            {
+              "label": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+              "published_at": "2026-02-19"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "6개월 구간은 구조적 자산배분 판단이 우선입니다.",
+        "accountDetail": "실계좌 미연결 상태입니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷 필요"
+        },
+        "holdings": [],
+        "planDesc": "6개월 누적 구조 변화 기준 자산배분",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      }
     }
   },
   "dataStatus": "sparse"

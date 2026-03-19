@@ -1273,6 +1273,315 @@
         "ideas": [],
         "etfRanking": []
       }
+    },
+    "6개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 30,
+          "status": "매파/부정",
+          "desc": "인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 6개월 거시 구조 변화 분석",
+          "text": "1. 6개월 누적 기준 구조 변화: 고금리/정책 민감 구조, AI·인프라 CAPEX 장기 확대, 지정학/에너지 리스크 상시화<br>2. 정책·인플레·성장 변수의 조합이 자산군 기대수익률을 재배치하는 국면으로 해석됨<br>3. 장기 관점에서는 단기 노이즈보다 구조적 테마와 펀더멘털의 지속성이 더 중요해짐",
+          "sources": [
+            {
+              "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "published_at": "2026-03-12"
+            },
+            {
+              "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "published_at": "2026-03-11"
+            },
+            {
+              "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "published_at": "2026-03-10"
+            },
+            {
+              "label": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+              "source": "KR",
+              "title": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+              "published_at": "2026-03-10"
+            },
+            {
+              "label": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+              "published_at": "2026-03-09"
+            },
+            {
+              "label": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+              "source": "KR",
+              "title": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+              "published_at": "2026-03-09"
+            },
+            {
+              "label": "2026-03-07_mirae_research_broker_report_earnings_revision__3월_2주차_week_ahead_snapshot_다음_주_주목할_금융시장_이슈_3_9_13__민지희.pdf",
+              "source": "KR",
+              "title": "2026-03-07_mirae_research_broker_report_earnings_revision__3월_2주차_week_ahead_snapshot_다음_주_주목할_금융시장_이슈_3_9_13__민지희.pdf",
+              "published_at": "2026-03-07"
+            },
+            {
+              "label": "2026-03-06_kb_research_broker_report_2026년_3월_6일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-06_kb_research_broker_report_2026년_3월_6일__금___kb_데일리.pdf",
+              "published_at": "2026-03-06"
+            },
+            {
+              "label": "2026-03-05_kb_research_broker_report_2026년_3월_5일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-05_kb_research_broker_report_2026년_3월_5일__목___kb_데일리.pdf",
+              "published_at": "2026-03-05"
+            },
+            {
+              "label": "2026-03-04_kb_research_broker_report_2026년_3월_4일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-04_kb_research_broker_report_2026년_3월_4일__수___kb_데일리.pdf",
+              "published_at": "2026-03-04"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "Regime Shift",
+            "text": "6개월 누적 기준 구조 변화: 고금리/정책 민감 구조, AI·인프라 CAPEX 장기 확대, 지정학/에너지 리스크 상시화",
+            "sources": [
+              {
+                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "published_at": "2026-03-12"
+              },
+              {
+                "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "published_at": "2026-03-11"
+              },
+              {
+                "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "published_at": "2026-03-10"
+              },
+              {
+                "label": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+                "source": "KR",
+                "title": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+                "published_at": "2026-03-10"
+              },
+              {
+                "label": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+                "published_at": "2026-03-09"
+              },
+              {
+                "label": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+                "source": "KR",
+                "title": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+                "published_at": "2026-03-09"
+              }
+            ]
+          },
+          {
+            "category": "Macro Trend",
+            "text": "정책·인플레·성장 변수의 조합이 자산군 기대수익률을 재배치하는 국면으로 해석됨",
+            "sources": [
+              {
+                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "published_at": "2026-03-12"
+              },
+              {
+                "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "published_at": "2026-03-11"
+              },
+              {
+                "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "published_at": "2026-03-10"
+              },
+              {
+                "label": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+                "source": "KR",
+                "title": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+                "published_at": "2026-03-10"
+              },
+              {
+                "label": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+                "published_at": "2026-03-09"
+              },
+              {
+                "label": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+                "source": "KR",
+                "title": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+                "published_at": "2026-03-09"
+              }
+            ]
+          },
+          {
+            "category": "Fundamental",
+            "text": "장기 관점에서는 단기 노이즈보다 구조적 테마와 펀더멘털의 지속성이 더 중요해짐",
+            "sources": [
+              {
+                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "published_at": "2026-03-12"
+              },
+              {
+                "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "published_at": "2026-03-11"
+              },
+              {
+                "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "published_at": "2026-03-10"
+              },
+              {
+                "label": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+                "source": "KR",
+                "title": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+                "published_at": "2026-03-10"
+              },
+              {
+                "label": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+                "published_at": "2026-03-09"
+              },
+              {
+                "label": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+                "source": "KR",
+                "title": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+                "published_at": "2026-03-09"
+              }
+            ]
+          }
+        ],
+        "indices": []
+      },
+      "newsList": [
+        {
+          "title": "6개월 구조 변화 요약",
+          "tags": [
+            "장기구조",
+            "매크로",
+            "펀더멘털"
+          ],
+          "summary": "6개월 누적 기준 구조 변화: 고금리/정책 민감 구조, AI·인프라 CAPEX 장기 확대, 지정학/에너지 리스크 상시화 / 정책·인플레·성장 변수의 조합이 자산군 기대수익률을 재배치하는 국면으로 해석됨",
+          "impacts": [
+            {
+              "sector": "주식",
+              "isPositive": false,
+              "desc": "성장주 내 차별화, 테마 선택 중요"
+            },
+            {
+              "sector": "채권",
+              "isPositive": false,
+              "desc": "정책과 물가 기대가 장기금리에 지속 영향"
+            },
+            {
+              "sector": "실물/인프라",
+              "isPositive": true,
+              "desc": "구조적 투자/실물 테마 상대 강세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "published_at": "2026-03-12"
+            },
+            {
+              "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "published_at": "2026-03-11"
+            },
+            {
+              "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "published_at": "2026-03-10"
+            },
+            {
+              "label": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+              "source": "KR",
+              "title": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+              "published_at": "2026-03-10"
+            },
+            {
+              "label": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+              "published_at": "2026-03-09"
+            },
+            {
+              "label": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+              "source": "KR",
+              "title": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+              "published_at": "2026-03-09"
+            },
+            {
+              "label": "2026-03-07_mirae_research_broker_report_earnings_revision__3월_2주차_week_ahead_snapshot_다음_주_주목할_금융시장_이슈_3_9_13__민지희.pdf",
+              "source": "KR",
+              "title": "2026-03-07_mirae_research_broker_report_earnings_revision__3월_2주차_week_ahead_snapshot_다음_주_주목할_금융시장_이슈_3_9_13__민지희.pdf",
+              "published_at": "2026-03-07"
+            },
+            {
+              "label": "2026-03-06_kb_research_broker_report_2026년_3월_6일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-06_kb_research_broker_report_2026년_3월_6일__금___kb_데일리.pdf",
+              "published_at": "2026-03-06"
+            },
+            {
+              "label": "2026-03-05_kb_research_broker_report_2026년_3월_5일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-05_kb_research_broker_report_2026년_3월_5일__목___kb_데일리.pdf",
+              "published_at": "2026-03-05"
+            },
+            {
+              "label": "2026-03-04_kb_research_broker_report_2026년_3월_4일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-04_kb_research_broker_report_2026년_3월_4일__수___kb_데일리.pdf",
+              "published_at": "2026-03-04"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "6개월 구간은 구조적 자산배분 판단이 우선입니다.",
+        "accountDetail": "실계좌 미연결 상태입니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷 필요"
+        },
+        "holdings": [],
+        "planDesc": "6개월 누적 구조 변화 기준 자산배분",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      }
     }
   },
   "dataStatus": "sparse"

@@ -147,7 +147,6 @@ def aggregate_mid(label, items):
 
 def aggregate_long_3m(items):
     title = '최근 3개월 거시 구조 변화 분석'
-    # regime shift / macro trend / fundamentals 방향성 중심
     texts = ' '.join([x.get('core_subject','') + ' ' + ' '.join(x.get('key_takeaways', [])) + ' ' + x.get('sentiment',{}).get('rationale','') for x in items])
     regime = '중립'
     if any(k in texts for k in ['인플레이션', '유가', '전쟁', '긴축', '금리 동결']):
@@ -186,6 +185,45 @@ def aggregate_long_3m(items):
     }
 
 
+def aggregate_long_6m(items):
+    texts = ' '.join([x.get('core_subject','') + ' ' + ' '.join(x.get('key_takeaways', [])) + ' ' + x.get('sentiment',{}).get('rationale','') for x in items])
+    structural = []
+    if any(k in texts for k in ['인플레이션', '금리', '연준']): structural.append('고금리/정책 민감 구조')
+    if any(k in texts for k in ['AI', '전력망', '인프라']): structural.append('AI·인프라 CAPEX 장기 확대')
+    if any(k in texts for k in ['유가', '전쟁', '중동']): structural.append('지정학/에너지 리스크 상시화')
+    if not structural: structural = ['중립적 거시 레짐']
+    takeaways = [
+        f'6개월 누적 기준 구조 변화: {", ".join(structural)}',
+        '정책·인플레·성장 변수의 조합이 자산군 기대수익률을 재배치하는 국면으로 해석됨',
+        '장기 관점에서는 단기 노이즈보다 구조적 테마와 펀더멘털의 지속성이 더 중요해짐'
+    ]
+    return {
+        'briefing': {
+            'sentiment': score_to_ui(items),
+            'forecast': {'title': '최근 6개월 거시 구조 변화 분석', 'text': '<br>'.join([f'{i+1}. {t}' for i, t in enumerate(takeaways)]), 'sources': sources_from_items(items, 10)},
+            'insights': [
+                {'category': 'Regime Shift', 'text': takeaways[0], 'sources': sources_from_items(items, 6)},
+                {'category': 'Macro Trend', 'text': takeaways[1], 'sources': sources_from_items(items, 6)},
+                {'category': 'Fundamental', 'text': takeaways[2], 'sources': sources_from_items(items, 6)}
+            ],
+            'indices': []
+        },
+        'newsList': [{
+            'title': '6개월 구조 변화 요약',
+            'tags': ['장기구조', '매크로', '펀더멘털'],
+            'summary': ' / '.join(takeaways[:2]),
+            'impacts': [
+                {'sector': '주식', 'isPositive': False, 'desc': '성장주 내 차별화, 테마 선택 중요'},
+                {'sector': '채권', 'isPositive': False, 'desc': '정책과 물가 기대가 장기금리에 지속 영향'},
+                {'sector': '실물/인프라', 'isPositive': True, 'desc': '구조적 투자/실물 테마 상대 강세'}
+            ],
+            'sources': sources_from_items(items, 10)
+        }],
+        'portfolio': {'accountAlert': '6개월 구간은 구조적 자산배분 판단이 우선입니다.', 'accountDetail': '실계좌 미연결 상태입니다.', 'weeklyReview': {'returnRate': '실계좌 미연결', 'desc': '계좌 스냅샷 필요'}, 'holdings': [], 'planDesc': '6개월 누적 구조 변화 기준 자산배분', 'allocations': []},
+        'recommendations': {'ideas': [], 'etfRanking': []}
+    }
+
+
 def integrate(date_str, path, by_date):
     obj = json.loads(path.read_text())
     p1 = date_range_items(by_date, date_str, 1)
@@ -193,12 +231,14 @@ def integrate(date_str, path, by_date):
     p7 = date_range_items(by_date, date_str, 7)
     p30 = date_range_items(by_date, date_str, 30)
     p90 = date_range_items(by_date, date_str, 90)
+    p180 = date_range_items(by_date, date_str, 180)
     obj['dataByPeriod'] = obj.get('dataByPeriod', {})
     if p1: obj['dataByPeriod']['1일'] = aggregate_short('1일', p1)
     if p3: obj['dataByPeriod']['3일'] = aggregate_short('3일', p3)
     if p7: obj['dataByPeriod']['1주'] = aggregate_short('1주', p7)
     if p30: obj['dataByPeriod']['1개월'] = aggregate_mid('1개월', p30)
     if p90: obj['dataByPeriod']['3개월'] = aggregate_long_3m(p90)
+    if p180: obj['dataByPeriod']['6개월'] = aggregate_long_6m(p180)
     obj['dataStatus'] = status_from_count(len(p1))
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2))
     return True
