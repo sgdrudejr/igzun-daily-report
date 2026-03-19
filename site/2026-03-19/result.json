@@ -6,7 +6,7 @@
         "sentiment": {
           "score": 40,
           "status": "매파/부정",
-          "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정"
+          "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정 / 인플레이션 부담, 유가 부담 / 인플레이션 부담, 유가 부담"
         },
         "forecast": {
           "title": "당일 핵심 인사이트",
@@ -415,7 +415,7 @@
         "sentiment": {
           "score": 42,
           "status": "중립",
-          "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정"
+          "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정 / 인플레이션 부담, 유가 부담 / 인플레이션 부담, 유가 부담"
         },
         "forecast": {
           "title": "최근 3일 누적 인사이트",
@@ -824,7 +824,7 @@
         "sentiment": {
           "score": 42,
           "status": "중립",
-          "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정"
+          "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정 / 인플레이션 부담, 유가 부담 / 인플레이션 부담, 유가 부담"
         },
         "forecast": {
           "title": "최근 1주 누적 인사이트",
@@ -1233,11 +1233,11 @@
         "sentiment": {
           "score": 42,
           "status": "중립",
-          "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정"
+          "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정 / 인플레이션 부담, 유가 부담 / 인플레이션 부담, 유가 부담"
         },
         "forecast": {
           "title": "최근 1개월 누적 인사이트",
-          "text": "1. The Future of Asia: Can it remain the engine of global growth?1 Keynote speech by Rhee, Chang Yong Governor of the Bank of Korea Asia in 205...<br>2. Fabio Panetta: Closing remarks - Financial Stability Board cross- border payments summit Closing remarks by Mr Fabio Panetta, Governor of th...<br>3. Forum Future of Finance – 12 March 2026 “Private markets: Three conditions to get the Good without the Bad or the Ugly” Speech by François V...",
+          "text": "1. 거시/시장 리포트 요약 관련 인사이트 190건 축적<br>2. 인플레이션 및 금리 경로 점검 관련 인사이트 33건 축적<br>3. 거시 및 시장 전망 관련 인사이트 15건 축적",
           "sources": [
             {
               "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
@@ -1268,13 +1268,19 @@
               "source": "INTL",
               "title": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
               "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_michelle_w_bowman__liquidity_resiliency__financial_stability__and_the_role_of_the_federal_reserve.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_michelle_w_bowman__liquidity_resiliency__financial_stability__and_the_role_of_the_federal_reserve.pdf",
+              "published_at": "2026-03-19"
             }
           ]
         },
         "insights": [
           {
-            "category": "1개월",
-            "text": "The Future of Asia: Can it remain the engine of global growth?1 Keynote speech by Rhee, Chang Yong Governor of the Bank of Korea Asia in 205...",
+            "category": "내러티브",
+            "text": "거시/시장 리포트 요약 관련 인사이트 190건 축적",
             "sources": [
               {
                 "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
@@ -1292,13 +1298,19 @@
                 "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
                 "source": "INTL",
                 "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
                 "published_at": "2026-03-19"
               }
             ]
           },
           {
-            "category": "1개월",
-            "text": "Fabio Panetta: Closing remarks - Financial Stability Board cross- border payments summit Closing remarks by Mr Fabio Panetta, Governor of th...",
+            "category": "내러티브",
+            "text": "인플레이션 및 금리 경로 점검 관련 인사이트 33건 축적",
             "sources": [
               {
                 "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
@@ -1316,13 +1328,19 @@
                 "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
                 "source": "INTL",
                 "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
                 "published_at": "2026-03-19"
               }
             ]
           },
           {
-            "category": "1개월",
-            "text": "Forum Future of Finance – 12 March 2026 “Private markets: Three conditions to get the Good without the Bad or the Ugly” Speech by François V...",
+            "category": "내러티브",
+            "text": "거시 및 시장 전망 관련 인사이트 15건 축적",
             "sources": [
               {
                 "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
@@ -1340,6 +1358,12 @@
                 "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
                 "source": "INTL",
                 "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
                 "published_at": "2026-03-19"
               }
             ]
@@ -1349,13 +1373,13 @@
       },
       "newsList": [
         {
-          "title": "거시/시장 리포트 요약",
+          "title": "1개월 핵심 내러티브 변화",
           "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
+            "내러티브",
+            "자산군 방향성",
+            "누적분석"
           ],
-          "summary": "The Future of Asia: Can it remain the engine of global growth?1 Keynote speech by Rhee, Chang Yong Governor of the Bank of Korea Asia in 205... / I’d like to thank Yongsung Chang, Dongchul Cho, Gee Hee Hong, Joong Shik Kang, Jae Won Lee, Jong-Wha Lee, Soohyung Lee, and Wonhyuk Lim for ...",
+          "summary": "거시/시장 리포트 요약 관련 인사이트 190건 축적 / 인플레이션 및 금리 경로 점검 관련 인사이트 33건 축적",
           "impacts": [
             {
               "sector": "USD",
@@ -1379,137 +1403,25 @@
               "source": "INTL",
               "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
               "published_at": "2026-03-19"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "Fabio Panetta: Closing remarks - Financial Stability Board cross- border payments summit Closing remarks by Mr Fabio Panetta, Governor of th... / * * * Ladies and gentlemen, Thank you to everyone who has contributed to today's meeting.",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": false,
-              "desc": "중립"
             },
-            {
-              "sector": "Bonds",
-              "isPositive": false,
-              "desc": "중립"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "중립"
-            }
-          ],
-          "sources": [
             {
               "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
               "source": "INTL",
               "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
               "published_at": "2026-03-19"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "Forum Future of Finance – 12 March 2026 “Private markets: Three conditions to get the Good without the Bad or the Ugly” Speech by François V... / Your Forum underscores the interest of financial players in the Paris financial centre, which remains the leading centre in the European Uni...",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": false,
-              "desc": "중립"
             },
-            {
-              "sector": "Bonds",
-              "isPositive": false,
-              "desc": "중립"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "중립"
-            }
-          ],
-          "sources": [
             {
               "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
               "source": "INTL",
               "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
               "published_at": "2026-03-19"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "Jorgovanka Tabakovi: Industrial policy supporting Serbia's long-term economic growth Speech by Dr Jorgovanka Tabakovi, Governor of the Natio... / * * * For those who do not know me – I am Jorgovanka Tabakovi, Governor of the National Bank of Serbia, now in my fourteenth year in that ro...",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
             },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "약세"
-            }
-          ],
-          "sources": [
             {
               "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
               "source": "INTL",
               "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
               "published_at": "2026-03-19"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "Luke Forau: 2026 Monetary Policy Stance Statement by Mr Luke Forau, Governor of the Central Bank of Solomon Islands, at the March 2026 Monet... / * * * Good afternoon, ladies and gentlemen, members of the media.",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
             },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "약세"
-            }
-          ],
-          "sources": [
             {
               "label": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
               "source": "INTL",
@@ -1517,101 +1429,266 @@
               "published_at": "2026-03-19"
             }
           ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "1개월 누적 원문을 기준으로 자산군 방향성을 우선 반영합니다.",
+        "accountDetail": "실계좌 미연결 상태입니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷 필요"
         },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "Michelle W Bowman: Liquidity resiliency, financial stability, and the role of the Federal Reserve Speech by Ms Michelle W Bowman, Vice Chair... / It's a pleasure to be with you this morning to open our discussion on the bank liquidity framework.",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": false,
-              "desc": "중립"
-            },
-            {
-              "sector": "Bonds",
-              "isPositive": false,
-              "desc": "중립"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "중립"
-            }
-          ],
+        "holdings": [],
+        "planDesc": "1개월 내러티브 변화 기준 자산배분 해석",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      }
+    },
+    "3개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 42,
+          "status": "중립",
+          "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정 / 인플레이션 부담, 유가 부담 / 인플레이션 부담, 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 3개월 거시 구조 변화 분석",
+          "text": "1. 3개월 누적 기준 거시 레짐은 \"인플레/긴축 레짐 + 구조적 투자 확대\" 성격이 강했음<br>2. 단기 뉴스가 아니라 누적된 리포트/정책/뉴스를 종합하면 금리·유가·정책 불확실성이 구조적 변수로 반복 확인됨<br>3. 펀더멘털 방향성은 성장주 내 차별화, 인프라/에너지/방어자산 선호 강화 쪽으로 해석됨",
           "sources": [
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+              "published_at": "2026-03-19"
+            },
             {
               "label": "2026-03-19_bis_research_central_bank_research_michelle_w_bowman__liquidity_resiliency__financial_stability__and_the_role_of_the_federal_reserve.pdf",
               "source": "INTL",
               "title": "2026-03-19_bis_research_central_bank_research_michelle_w_bowman__liquidity_resiliency__financial_stability__and_the_role_of_the_federal_reserve.pdf",
               "published_at": "2026-03-19"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "Olaf Sleijpen: Standing with Ukraine, strengthening Europe - resilience, growth and stability Speech by Mr Olaf Sleijpen, President of De Ne... / * * * It is a great honour to speak here today.",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": false,
-              "desc": "중립"
             },
-            {
-              "sector": "Bonds",
-              "isPositive": false,
-              "desc": "중립"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "중립"
-            }
-          ],
-          "sources": [
             {
               "label": "2026-03-19_bis_research_central_bank_research_olaf_sleijpen__standing_with_ukraine__strengthening_europe___resilience__growth_and_stability.pdf",
               "source": "INTL",
               "title": "2026-03-19_bis_research_central_bank_research_olaf_sleijpen__standing_with_ukraine__strengthening_europe___resilience__growth_and_stability.pdf",
               "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "published_at": "2026-03-19"
             }
           ]
         },
+        "insights": [
+          {
+            "category": "Regime Shift",
+            "text": "3개월 누적 기준 거시 레짐은 \"인플레/긴축 레짐 + 구조적 투자 확대\" 성격이 강했음",
+            "sources": [
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+                "published_at": "2026-03-19"
+              }
+            ]
+          },
+          {
+            "category": "Macro Trend",
+            "text": "단기 뉴스가 아니라 누적된 리포트/정책/뉴스를 종합하면 금리·유가·정책 불확실성이 구조적 변수로 반복 확인됨",
+            "sources": [
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+                "published_at": "2026-03-19"
+              }
+            ]
+          },
+          {
+            "category": "Fundamental",
+            "text": "펀더멘털 방향성은 성장주 내 차별화, 인프라/에너지/방어자산 선호 강화 쪽으로 해석됨",
+            "sources": [
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+                "published_at": "2026-03-19"
+              },
+              {
+                "label": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+                "source": "INTL",
+                "title": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+                "published_at": "2026-03-19"
+              }
+            ]
+          }
+        ],
+        "indices": []
+      },
+      "newsList": [
         {
-          "title": "연준 금리 동결 및 향후 전망",
+          "title": "3개월 구조 변화 요약",
           "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
+            "Regime Shift",
+            "매크로",
+            "펀더멘털"
           ],
-          "summary": "MAR 19 [자산배분전략] 지수 등락 (%, bp) FOMC: 전쟁이 길어지면 인하가 아닌 인상을 걱정할 수밖에 없는 시장 코스피 지수 5,925.03 5.04 유럽경제: 빠르게 반영된 ECB 인상 전망. / 장기금리의 하방 경직성이 더 클 환경 코스닥 지수 1,164.38 2.41 이슈 플러스: RIA가 불러올 수급 대이동 코스피200 선물 890.70 5.50 중국 상해종합 4,062.98 0.32 디지털자산: SEC·CFTC 공동 지침, 주요 코인 ‘...",
+          "summary": "3개월 누적 기준 거시 레짐은 \"인플레/긴축 레짐 + 구조적 투자 확대\" 성격이 강했음 / 단기 뉴스가 아니라 누적된 리포트/정책/뉴스를 종합하면 금리·유가·정책 불확실성이 구조적 변수로 반복 확인됨",
           "impacts": [
             {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
-            },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
+              "sector": "주식",
               "isPositive": false,
-              "desc": "약세"
+              "desc": "성장주 전반보다는 차별화 장세"
+            },
+            {
+              "sector": "채권",
+              "isPositive": false,
+              "desc": "금리/물가 변수에 민감한 구간 지속"
+            },
+            {
+              "sector": "실물/인프라",
+              "isPositive": true,
+              "desc": "구조적 투자 테마 지속"
             }
           ],
           "sources": [
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_michelle_w_bowman__liquidity_resiliency__financial_stability__and_the_role_of_the_federal_reserve.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_michelle_w_bowman__liquidity_resiliency__financial_stability__and_the_role_of_the_federal_reserve.pdf",
+              "published_at": "2026-03-19"
+            },
+            {
+              "label": "2026-03-19_bis_research_central_bank_research_olaf_sleijpen__standing_with_ukraine__strengthening_europe___resilience__growth_and_stability.pdf",
+              "source": "INTL",
+              "title": "2026-03-19_bis_research_central_bank_research_olaf_sleijpen__standing_with_ukraine__strengthening_europe___resilience__growth_and_stability.pdf",
+              "published_at": "2026-03-19"
+            },
             {
               "label": "2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
               "source": "KR",
@@ -1622,14 +1699,14 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "1개월 기간은 정제 리포트 기반 해석 우선",
-        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "accountAlert": "3개월 구간은 구조적 레짐 변화 중심 해석이 우선입니다.",
+        "accountDetail": "실계좌 미연결 상태입니다.",
         "weeklyReview": {
           "returnRate": "실계좌 미연결",
-          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
+          "desc": "계좌 스냅샷 필요"
         },
         "holdings": [],
-        "planDesc": "1개월 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
+        "planDesc": "3개월 누적 거시 트렌드 기준 자산배분",
         "allocations": []
       },
       "recommendations": {

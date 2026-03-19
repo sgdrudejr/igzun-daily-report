@@ -344,7 +344,7 @@
         "sentiment": {
           "score": 32,
           "status": "매파/부정",
-          "desc": "유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담"
+          "desc": "유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담"
         },
         "forecast": {
           "title": "최근 1주 누적 인사이트",
@@ -753,11 +753,11 @@
         "sentiment": {
           "score": 31,
           "status": "매파/부정",
-          "desc": "유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담"
+          "desc": "유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담"
         },
         "forecast": {
           "title": "최근 1개월 누적 인사이트",
-          "text": "1. Investment Strategy | 2026.3.16 유명간 myounggan.yoo@miraeasset.com 한국 기업들의 이익 변화와 밸류에이션  국내기업 합산 2026, 1Q26 영업이익은 최근 1주일간 각각 +1.4%, +0.7% 조정(...<br>2. MAR 13 [자산배분전략] 지수 등락 (%, bp) Asia Monitor: 인도 에너지 수급 현황 팩트 체크 코스피 지수 5,583.25 -0.48 코스닥 지수 1,148.40 1.02 [기업분석 & 산업분석] 코스피200 선물 825.80 -1....<br>3. MAR 12 [자산배분전략] 지수 등락 (%, bp) 아시아주식: Asia Monitor - 중국 공급과잉 해소, 오픈클로 활성화는 수출 확대로 연결될 가능성 코스피 지수 5,609.95 1.40 코스닥 지수 1,136.83 -0.07 [기업분석 & ...",
+          "text": "1. 거시/시장 리포트 요약 관련 인사이트 19건 축적<br>2. 연준 금리 동결 및 향후 전망 관련 인사이트 1건 축적<br>3. 일일 시장 브리핑 관련 인사이트 1건 축적",
           "sources": [
             {
               "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
@@ -788,282 +788,7 @@
               "source": "KR",
               "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
               "published_at": "2026-03-10"
-            }
-          ]
-        },
-        "insights": [
-          {
-            "category": "1개월",
-            "text": "Investment Strategy | 2026.3.16 유명간 myounggan.yoo@miraeasset.com 한국 기업들의 이익 변화와 밸류에이션  국내기업 합산 2026, 1Q26 영업이익은 최근 1주일간 각각 +1.4%, +0.7% 조정(...",
-            "sources": [
-              {
-                "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
-                "source": "KR",
-                "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
-                "published_at": "2026-03-14"
-              },
-              {
-                "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
-                "source": "KR",
-                "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
-                "published_at": "2026-03-13"
-              },
-              {
-                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
-                "source": "KR",
-                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
-                "published_at": "2026-03-12"
-              }
-            ]
-          },
-          {
-            "category": "1개월",
-            "text": "MAR 13 [자산배분전략] 지수 등락 (%, bp) Asia Monitor: 인도 에너지 수급 현황 팩트 체크 코스피 지수 5,583.25 -0.48 코스닥 지수 1,148.40 1.02 [기업분석 & 산업분석] 코스피200 선물 825.80 -1....",
-            "sources": [
-              {
-                "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
-                "source": "KR",
-                "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
-                "published_at": "2026-03-14"
-              },
-              {
-                "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
-                "source": "KR",
-                "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
-                "published_at": "2026-03-13"
-              },
-              {
-                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
-                "source": "KR",
-                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
-                "published_at": "2026-03-12"
-              }
-            ]
-          },
-          {
-            "category": "1개월",
-            "text": "MAR 12 [자산배분전략] 지수 등락 (%, bp) 아시아주식: Asia Monitor - 중국 공급과잉 해소, 오픈클로 활성화는 수출 확대로 연결될 가능성 코스피 지수 5,609.95 1.40 코스닥 지수 1,136.83 -0.07 [기업분석 & ...",
-            "sources": [
-              {
-                "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
-                "source": "KR",
-                "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
-                "published_at": "2026-03-14"
-              },
-              {
-                "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
-                "source": "KR",
-                "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
-                "published_at": "2026-03-13"
-              },
-              {
-                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
-                "source": "KR",
-                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
-                "published_at": "2026-03-12"
-              }
-            ]
-          }
-        ],
-        "indices": []
-      },
-      "newsList": [
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "Investment Strategy | 2026.3.16 유명간 myounggan.yoo@miraeasset.com 한국 기업들의 이익 변화와 밸류에이션  국내기업 합산 2026, 1Q26 영업이익은 최근 1주일간 각각 +1.4%, +0.7% 조정(... / 1Q26 영업이익 컨센서스 추이 1Q26F 한국기업영업이익컨센서스변화 (-3M=100) 2026F 한국기업영업이익컨센서스변화 (-3M=100) 1W / 1M 변화율 전체: +1.4% / +8.3% 반도체제외: +0.4% / +3.0% 반도체: +2.2...",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
             },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "약세"
-            }
-          ],
-          "sources": [
-            {
-              "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
-              "source": "KR",
-              "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
-              "published_at": "2026-03-14"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "MAR 13 [자산배분전략] 지수 등락 (%, bp) Asia Monitor: 인도 에너지 수급 현황 팩트 체크 코스피 지수 5,583.25 -0.48 코스닥 지수 1,148.40 1.02 [기업분석 & 산업분석] 코스피200 선물 825.80 -1.... / 한국) 달러/원 환율 1,481.2 1.00 현대건설: New Clear Valuation for the Nuclear Era (2) 국고채 (3년물) 3.27 1.80 삼성물산: 출발점이 다른 원전 금수저 미 10년물 국채 4.23 0.00 한전기술...",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
-            },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "약세"
-            }
-          ],
-          "sources": [
-            {
-              "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
-              "source": "KR",
-              "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
-              "published_at": "2026-03-13"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "MAR 12 [자산배분전략] 지수 등락 (%, bp) 아시아주식: Asia Monitor - 중국 공급과잉 해소, 오픈클로 활성화는 수출 확대로 연결될 가능성 코스피 지수 5,609.95 1.40 코스닥 지수 1,136.83 -0.07 [기업분석 & ... / 아시아주식 Strategist 박수현 shpark@kbfg.com KB Asia Monitor 중국 공급과잉 해소, 오픈클로 활성화는 수출 확대로 연결될 가능성 중국 무역지표 서프라이즈는 AI 인프라 투자 확대 영향 전일 (3/10) 발표된 중국 1~...",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
-            },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "약세"
-            }
-          ],
-          "sources": [
-            {
-              "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
-              "source": "KR",
-              "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
-              "published_at": "2026-03-12"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "MAR 11 [자산배분전략] 지수 등락 (%, bp) 경제분석: 유가로 인한 물가 충격 우려, 전쟁의 장기화 가능성을 낮춤 코스피 지수 5,532.59 5.35 코스닥 지수 1,137.68 3.21 [기업분석 & 산업분석] 코스피200 선물 822.1... / Economist 권희진 heejin.gweon@kbfg.com KB Macro 유가로 인한 물가 충격 우려, 전쟁의 장기화 가능성을 낮춤 비싸고 변동성 심한 유가로 인한 물가 불안, 전쟁 장기화를 부담스럽게 함 중동 곳곳에서 크고 작은 피해가 발생하...",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
-            },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "약세"
-            }
-          ],
-          "sources": [
-            {
-              "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
-              "source": "KR",
-              "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
-              "published_at": "2026-03-11"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "MAR 10 [자산배분전략] 지수 등락 (%, bp) 원자재: 원자재 이슈 - 국제유가 100달러/배럴 돌파 코스피 지수 5,251.87 -5.96 국내크레딧: Credit Weekly - 2022년 사례로 비추어 본 미국-이란 전쟁의 크레딧 영향 코... / 일본 니케이225 52,728.72 -5.20 기계: 1월 중국 굴착기 내수 판매량 YoY 61.3% 증가 달러/원 환율 1,495.5 1.29 국고채 (3년물) 3.42 19.30 [해외주식분석] 미 10년물 국채 4.19 5.04 글로벌기업: 포트...",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
-            },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "약세"
-            }
-          ],
-          "sources": [
-            {
-              "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
-              "source": "KR",
-              "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
-              "published_at": "2026-03-10"
-            }
-          ]
-        },
-        {
-          "title": "거시/시장 리포트 요약",
-          "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
-          ],
-          "summary": "Fixed Income Issue 이란 전쟁 이슈 반영한 국내 인플레 경로 재점검  이란 사태로 유가, 환율 변동성 확대되며 공급측 인플레 충격 발생. / 유가와 달러환율은 1% 상승할 때 헤드라인 CPI에 각각 0.017%p, 0.12%p 정도의 상승을 초래 Investment Strategy 2026.3.10  당사 베이스 시나리오는 4~5주 내 이란 사태 마무리 가정.",
-          "impacts": [
-            {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
-            },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
-              "isPositive": false,
-              "desc": "약세"
-            }
-          ],
-          "sources": [
             {
               "label": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
               "source": "KR",
@@ -1072,14 +797,109 @@
             }
           ]
         },
+        "insights": [
+          {
+            "category": "내러티브",
+            "text": "거시/시장 리포트 요약 관련 인사이트 19건 축적",
+            "sources": [
+              {
+                "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "source": "KR",
+                "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "published_at": "2026-03-14"
+              },
+              {
+                "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "published_at": "2026-03-13"
+              },
+              {
+                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "published_at": "2026-03-12"
+              },
+              {
+                "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "published_at": "2026-03-11"
+              }
+            ]
+          },
+          {
+            "category": "내러티브",
+            "text": "연준 금리 동결 및 향후 전망 관련 인사이트 1건 축적",
+            "sources": [
+              {
+                "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "source": "KR",
+                "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "published_at": "2026-03-14"
+              },
+              {
+                "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "published_at": "2026-03-13"
+              },
+              {
+                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "published_at": "2026-03-12"
+              },
+              {
+                "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "published_at": "2026-03-11"
+              }
+            ]
+          },
+          {
+            "category": "내러티브",
+            "text": "일일 시장 브리핑 관련 인사이트 1건 축적",
+            "sources": [
+              {
+                "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "source": "KR",
+                "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "published_at": "2026-03-14"
+              },
+              {
+                "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "published_at": "2026-03-13"
+              },
+              {
+                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "published_at": "2026-03-12"
+              },
+              {
+                "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "published_at": "2026-03-11"
+              }
+            ]
+          }
+        ],
+        "indices": []
+      },
+      "newsList": [
         {
-          "title": "거시/시장 리포트 요약",
+          "title": "1개월 핵심 내러티브 변화",
           "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
+            "내러티브",
+            "자산군 방향성",
+            "누적분석"
           ],
-          "summary": "MAR 9 [자산배분전략] 지수 등락 (%, bp) 일본경제: 미국의 이란 공습 파급효과로 중-일 갈등 장기화 전망 코스피 지수 5,584.87 0.02 원자재 이슈: 카타르 LNG 시설 중단의 천연가스 가격 영향과 아시아 피해 코스닥 지수 1,154... / Economist 류진이 jinleecon@kbfg.com KB Macro 일본: 미국의 이란 공습 파급효과로 중-일 갈등 장기화 전망 글로벌 지정학 긴장감 높아지는 가운데 일본의 안보관도 ‘방어’ 위주에서 ‘반격 능력’으로 변화 중의원 선거에서 평화...",
+          "summary": "거시/시장 리포트 요약 관련 인사이트 19건 축적 / 연준 금리 동결 및 향후 전망 관련 인사이트 1건 축적",
           "impacts": [
             {
               "sector": "USD",
@@ -1098,40 +918,297 @@
             }
           ],
           "sources": [
+            {
+              "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+              "source": "KR",
+              "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+              "published_at": "2026-03-14"
+            },
+            {
+              "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+              "published_at": "2026-03-13"
+            },
+            {
+              "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "published_at": "2026-03-12"
+            },
+            {
+              "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "published_at": "2026-03-11"
+            },
+            {
+              "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "published_at": "2026-03-10"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "1개월 누적 원문을 기준으로 자산군 방향성을 우선 반영합니다.",
+        "accountDetail": "실계좌 미연결 상태입니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷 필요"
+        },
+        "holdings": [],
+        "planDesc": "1개월 내러티브 변화 기준 자산배분 해석",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      }
+    },
+    "3개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 31,
+          "status": "매파/부정",
+          "desc": "유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 3개월 거시 구조 변화 분석",
+          "text": "1. 3개월 누적 기준 거시 레짐은 \"인플레/긴축 레짐 + 구조적 투자 확대\" 성격이 강했음<br>2. 단기 뉴스가 아니라 누적된 리포트/정책/뉴스를 종합하면 금리·유가·정책 불확실성이 구조적 변수로 반복 확인됨<br>3. 펀더멘털 방향성은 성장주 내 차별화, 인프라/에너지/방어자산 선호 강화 쪽으로 해석됨",
+          "sources": [
+            {
+              "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+              "source": "KR",
+              "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+              "published_at": "2026-03-14"
+            },
+            {
+              "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+              "published_at": "2026-03-13"
+            },
+            {
+              "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "published_at": "2026-03-12"
+            },
+            {
+              "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "published_at": "2026-03-11"
+            },
+            {
+              "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "published_at": "2026-03-10"
+            },
+            {
+              "label": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+              "source": "KR",
+              "title": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+              "published_at": "2026-03-10"
+            },
             {
               "label": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
               "source": "KR",
               "title": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
               "published_at": "2026-03-09"
+            },
+            {
+              "label": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+              "source": "KR",
+              "title": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
+              "published_at": "2026-03-09"
             }
           ]
         },
+        "insights": [
+          {
+            "category": "Regime Shift",
+            "text": "3개월 누적 기준 거시 레짐은 \"인플레/긴축 레짐 + 구조적 투자 확대\" 성격이 강했음",
+            "sources": [
+              {
+                "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "source": "KR",
+                "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "published_at": "2026-03-14"
+              },
+              {
+                "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "published_at": "2026-03-13"
+              },
+              {
+                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "published_at": "2026-03-12"
+              },
+              {
+                "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "published_at": "2026-03-11"
+              },
+              {
+                "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "published_at": "2026-03-10"
+              }
+            ]
+          },
+          {
+            "category": "Macro Trend",
+            "text": "단기 뉴스가 아니라 누적된 리포트/정책/뉴스를 종합하면 금리·유가·정책 불확실성이 구조적 변수로 반복 확인됨",
+            "sources": [
+              {
+                "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "source": "KR",
+                "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "published_at": "2026-03-14"
+              },
+              {
+                "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "published_at": "2026-03-13"
+              },
+              {
+                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "published_at": "2026-03-12"
+              },
+              {
+                "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "published_at": "2026-03-11"
+              },
+              {
+                "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "published_at": "2026-03-10"
+              }
+            ]
+          },
+          {
+            "category": "Fundamental",
+            "text": "펀더멘털 방향성은 성장주 내 차별화, 인프라/에너지/방어자산 선호 강화 쪽으로 해석됨",
+            "sources": [
+              {
+                "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "source": "KR",
+                "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+                "published_at": "2026-03-14"
+              },
+              {
+                "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+                "published_at": "2026-03-13"
+              },
+              {
+                "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+                "published_at": "2026-03-12"
+              },
+              {
+                "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+                "published_at": "2026-03-11"
+              },
+              {
+                "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+                "published_at": "2026-03-10"
+              }
+            ]
+          }
+        ],
+        "indices": []
+      },
+      "newsList": [
         {
-          "title": "거시/시장 리포트 요약",
+          "title": "3개월 구조 변화 요약",
           "tags": [
-            "정제인사이트",
-            "1개월",
-            "원문기반"
+            "Regime Shift",
+            "매크로",
+            "펀더멘털"
           ],
-          "summary": "트럼프행정부에게는이란전쟁을빠르게마무리할인센티브충분미국과이스라엘의합동군사작전(Operation Epic ▪ 휘발유가격상승을저지해야하는트럼프행정부: 이란전쟁장기화는최대한피할필 ▪ 전쟁중단기유가및정제마진추가상승전망. / 화석연료대비신재생에너지매력도상승 Investment Strategy2026.3.9[선진국전략]김성근sungkeun.kim@miraeasset.com이진호jinho.lee.a@ 지난8일미국에너지장관도휘발유가격관련해유권자들을안심시키려는목적의기자회견을열었다...",
+          "summary": "3개월 누적 기준 거시 레짐은 \"인플레/긴축 레짐 + 구조적 투자 확대\" 성격이 강했음 / 단기 뉴스가 아니라 누적된 리포트/정책/뉴스를 종합하면 금리·유가·정책 불확실성이 구조적 변수로 반복 확인됨",
           "impacts": [
             {
-              "sector": "USD",
-              "isPositive": true,
-              "desc": "강세"
-            },
-            {
-              "sector": "Bonds",
-              "isPositive": true,
-              "desc": "금리 상승/가격 하락"
-            },
-            {
-              "sector": "Stocks",
+              "sector": "주식",
               "isPositive": false,
-              "desc": "약세"
+              "desc": "성장주 전반보다는 차별화 장세"
+            },
+            {
+              "sector": "채권",
+              "isPositive": false,
+              "desc": "금리/물가 변수에 민감한 구간 지속"
+            },
+            {
+              "sector": "실물/인프라",
+              "isPositive": true,
+              "desc": "구조적 투자 테마 지속"
             }
           ],
           "sources": [
+            {
+              "label": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+              "source": "KR",
+              "title": "2026-03-14_mirae_research_broker_report_earnings_revision__3월_3주차.pdf",
+              "published_at": "2026-03-14"
+            },
+            {
+              "label": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-13_kb_research_broker_report_2026년_3월_13일__금___kb_데일리.pdf",
+              "published_at": "2026-03-13"
+            },
+            {
+              "label": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-12_kb_research_broker_report_2026년_3월_12일__목___kb_데일리.pdf",
+              "published_at": "2026-03-12"
+            },
+            {
+              "label": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-11_kb_research_broker_report_2026년_3월_11일__수___kb_데일리.pdf",
+              "published_at": "2026-03-11"
+            },
+            {
+              "label": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-10_kb_research_broker_report_2026년_3월_10일__화___kb_데일리.pdf",
+              "published_at": "2026-03-10"
+            },
+            {
+              "label": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+              "source": "KR",
+              "title": "2026-03-10_mirae_research_broker_report_fixed_income_issue_이란_전쟁_이슈_반영한_국내_인플레_경로_재점검_김성근.pdf",
+              "published_at": "2026-03-10"
+            },
+            {
+              "label": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-03-09_kb_research_broker_report_2026년_3월_9일__월___kb_데일리.pdf",
+              "published_at": "2026-03-09"
+            },
             {
               "label": "2026-03-09_mirae_research_broker_report_market_issue_트럼프도_불편한_유가_상승_김성근.pdf",
               "source": "KR",
@@ -1142,14 +1219,14 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "1개월 기간은 정제 리포트 기반 해석 우선",
-        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "accountAlert": "3개월 구간은 구조적 레짐 변화 중심 해석이 우선입니다.",
+        "accountDetail": "실계좌 미연결 상태입니다.",
         "weeklyReview": {
           "returnRate": "실계좌 미연결",
-          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
+          "desc": "계좌 스냅샷 필요"
         },
         "holdings": [],
-        "planDesc": "1개월 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
+        "planDesc": "3개월 누적 거시 트렌드 기준 자산배분",
         "allocations": []
       },
       "recommendations": {
