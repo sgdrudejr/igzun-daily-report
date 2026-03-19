@@ -1,0 +1,202 @@
+{
+  "date": "2026-03-18 기준 업데이트",
+  "dataByPeriod": {
+    "1일": {
+      "briefing": {
+        "sentiment": {
+          "score": 50,
+          "status": "중립",
+          "desc": "2026-03-18 수집 원문 164건 기준 자동 생성된 기본 브리핑입니다."
+        },
+        "forecast": {
+          "title": "해당 날짜 자동 브리핑",
+          "text": "Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Speech by Christine Lagarde, President of the ECB, at the Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Brussels, 26 February 2026 It is a pleasure to retur...",
+          "sources": [
+            {
+              "label": "JP/boj_whatsnew",
+              "source": "boj_whatsnew",
+              "title": "JP/boj_whatsnew",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "US/yahoo_finance",
+              "source": "yahoo_finance",
+              "title": "US/yahoo_finance",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "US/federal_reserve_press",
+              "source": "federal_reserve_press",
+              "title": "US/federal_reserve_press",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "EU/ecb_press",
+              "source": "ecb_press",
+              "title": "EU/ecb_press",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "US/jpm_public",
+              "source": "jpm_public",
+              "title": "US/jpm_public",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "원문수집",
+            "text": "해당 날짜 raw 파일 164건 확보. 상위 출처: JP/boj_whatsnew(65), US/yahoo_finance(46), US/federal_reserve_press(18), EU/ecb_press(15), US/jpm_public(12)",
+            "sources": [
+              {
+                "label": "JP/boj_whatsnew",
+                "source": "boj_whatsnew",
+                "title": "JP/boj_whatsnew",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "US/yahoo_finance",
+                "source": "yahoo_finance",
+                "title": "US/yahoo_finance",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "US/federal_reserve_press",
+                "source": "federal_reserve_press",
+                "title": "US/federal_reserve_press",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "EU/ecb_press",
+                "source": "ecb_press",
+                "title": "EU/ecb_press",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "US/jpm_public",
+                "source": "jpm_public",
+                "title": "US/jpm_public",
+                "published_at": "2026-03-18"
+              }
+            ]
+          }
+        ],
+        "indices": []
+      },
+      "newsList": [
+        {
+          "title": "해당 날짜 수집 이슈 요약",
+          "tags": [
+            "자동생성",
+            "원문기반",
+            "수집완료"
+          ],
+          "summary": "Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Speech by Christine Lagarde, President of the ECB, at the Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Brussels, 26 February 2026 It is a pleasure to retur...",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "상세 영향은 후속 정교화 예정"
+            }
+          ],
+          "sources": [
+            {
+              "label": "JP/boj_whatsnew",
+              "source": "boj_whatsnew",
+              "title": "JP/boj_whatsnew",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "US/yahoo_finance",
+              "source": "yahoo_finance",
+              "title": "US/yahoo_finance",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "US/federal_reserve_press",
+              "source": "federal_reserve_press",
+              "title": "US/federal_reserve_press",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "EU/ecb_press",
+              "source": "ecb_press",
+              "title": "EU/ecb_press",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "US/jpm_public",
+              "source": "jpm_public",
+              "title": "US/jpm_public",
+              "published_at": "2026-03-18"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "과거 날짜 포트폴리오 원본 미연결",
+        "accountDetail": "해당 날짜는 우선 원문 수집 결과와 시장 해석만 제공합니다.",
+        "weeklyReview": {
+          "returnRate": "데이터 미연결",
+          "desc": "계좌 스냅샷 필요"
+        },
+        "holdings": [],
+        "planDesc": "과거 날짜는 전략 설명만 임시 제공",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      },
+      "raw_sources": {
+        "news": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__hearing_of_the_committee_on_economic_and_monetary_affairs_of_the_european_parliament.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__interview_with_elle_magazine.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__technology__fragmentation_and_the_new_uncertainty.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_decisions_taken_by_the_governing_council_of_the_ecb__in_addition_to_decisions_setting_interest_rates.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_ecb_consumer_expectations_survey_results___january_2026.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_ecb_welcomes_decision_on_new_site_for_european_school_frankfurt.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_eurosystem_unveils_appia_roadmap_for_europe_s_tokenised_finance.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_financial_statements_of_the_ecb_for_2025.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_frank_elderson__nature_in_decline__economy_on_the_line__the_importance_of_international_cooperation_for_managing_nature_related_risks.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_isabel_schnabel__navigating_inflation_and_employment_in_an_era_of_supply_shocks_and_ai.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_meeting_of_4_5_february_2026.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_number_of_counterfeit_euro_banknotes_remains_low_in_2025.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_philip_r__lane__interview_with_financial_times.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_president_lagarde_launches_eurosteps_walking_challenge_at_event_promoting_women_s_financial_literacy.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260131_htm.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260210_htm.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260220_htm.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260228_htm.txt"
+        ],
+        "market": [],
+        "reports": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__hearing_of_the_committee_on_economic_and_monetary_affairs_of_the_european_parliament.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__interview_with_elle_magazine.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__technology__fragmentation_and_the_new_uncertainty.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_decisions_taken_by_the_governing_council_of_the_ecb__in_addition_to_decisions_setting_interest_rates.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_ecb_consumer_expectations_survey_results___january_2026.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_ecb_welcomes_decision_on_new_site_for_european_school_frankfurt.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_eurosystem_unveils_appia_roadmap_for_europe_s_tokenised_finance.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_financial_statements_of_the_ecb_for_2025.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_frank_elderson__nature_in_decline__economy_on_the_line__the_importance_of_international_cooperation_for_managing_nature_related_risks.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_isabel_schnabel__navigating_inflation_and_employment_in_an_era_of_supply_shocks_and_ai.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_meeting_of_4_5_february_2026.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_number_of_counterfeit_euro_banknotes_remains_low_in_2025.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_philip_r__lane__interview_with_financial_times.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_president_lagarde_launches_eurosteps_walking_challenge_at_event_promoting_women_s_financial_literacy.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260131_htm.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260210_htm.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260220_htm.txt",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260228_htm.txt"
+        ],
+        "portfolio": []
+      }
+    }
+  }
+}

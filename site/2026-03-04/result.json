@@ -1,0 +1,92 @@
+{
+  "date": "2026-03-04 기준 업데이트",
+  "dataByPeriod": {
+    "1일": {
+      "briefing": {
+        "sentiment": {
+          "score": 50,
+          "status": "중립",
+          "desc": "2026-03-04 수집 원문 1건 기준 자동 생성된 기본 브리핑입니다."
+        },
+        "forecast": {
+          "title": "해당 날짜 자동 브리핑",
+          "text": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "sources": [
+            {
+              "label": "KR/kb_research",
+              "source": "kb_research",
+              "title": "KR/kb_research",
+              "published_at": "2026-03-04"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "원문수집",
+            "text": "해당 날짜 raw 파일 1건 확보. 상위 출처: KR/kb_research(1)",
+            "sources": [
+              {
+                "label": "KR/kb_research",
+                "source": "kb_research",
+                "title": "KR/kb_research",
+                "published_at": "2026-03-04"
+              }
+            ]
+          }
+        ],
+        "indices": []
+      },
+      "newsList": [
+        {
+          "title": "해당 날짜 수집 이슈 요약",
+          "tags": [
+            "자동생성",
+            "원문기반",
+            "수집완료"
+          ],
+          "summary": "해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "상세 영향은 후속 정교화 예정"
+            }
+          ],
+          "sources": [
+            {
+              "label": "KR/kb_research",
+              "source": "kb_research",
+              "title": "KR/kb_research",
+              "published_at": "2026-03-04"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "과거 날짜 포트폴리오 원본 미연결",
+        "accountDetail": "해당 날짜는 우선 원문 수집 결과와 시장 해석만 제공합니다.",
+        "weeklyReview": {
+          "returnRate": "데이터 미연결",
+          "desc": "계좌 스냅샷 필요"
+        },
+        "holdings": [],
+        "planDesc": "과거 날짜는 전략 설명만 임시 제공",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      },
+      "raw_sources": {
+        "news": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-04/2026-03-04_kb_research_broker_report_2026년_3월_4일__수___kb_데일리.pdf"
+        ],
+        "market": [],
+        "reports": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-04/2026-03-04_kb_research_broker_report_2026년_3월_4일__수___kb_데일리.pdf"
+        ],
+        "portfolio": []
+      }
+    }
+  }
+}
