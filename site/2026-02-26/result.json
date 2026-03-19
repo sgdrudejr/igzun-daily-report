@@ -9,8 +9,8 @@
           "desc": "금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담"
         },
         "forecast": {
-          "title": "거시/시장 리포트 요약",
-          "text": "1. FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ...<br>2. Economist 류진이 jinleecon@kbfg.com KB Macro 일본: 비둘기적 BOJ를 선호한다는 다카이치 총리 다카이치 정부, BOJ 후임 심의위원으로 리플레이션 선호하는 2명의 후보 제시 2026년 2월 25일, 일본 정부는 차기 일본...<br>3. 두 후보는 모두 확장적 정책을 선호하는 리플레이션 옹호자 (Reflationist)로 평가되며, 다카이치 정부의 부양 의지를 다시 한 번 확인시켜주는 인사였다.",
+          "title": "당일 핵심 인사이트",
+          "text": "1. FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ...<br>2. 정제 인사이트 추가 수집 필요<br>3. 정제 인사이트 추가 수집 필요",
           "sources": [
             {
               "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
@@ -22,13 +22,37 @@
         },
         "insights": [
           {
-            "category": "원문수집",
-            "text": "해당 날짜 raw 파일 1건 확보. 상위 출처: KR/kb_research(1)",
+            "category": "1일",
+            "text": "FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ...",
             "sources": [
               {
-                "label": "KR/kb_research",
-                "source": "kb_research",
-                "title": "KR/kb_research",
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              }
+            ]
+          },
+          {
+            "category": "1일",
+            "text": "정제 인사이트 추가 수집 필요",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              }
+            ]
+          },
+          {
+            "category": "1일",
+            "text": "정제 인사이트 추가 수집 필요",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
                 "published_at": "2026-02-26"
               }
             ]
@@ -41,8 +65,8 @@
           "title": "거시/시장 리포트 요약",
           "tags": [
             "정제인사이트",
-            "원문분석",
-            "자동추출"
+            "1일",
+            "원문기반"
           ],
           "summary": "FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ... / Economist 류진이 jinleecon@kbfg.com KB Macro 일본: 비둘기적 BOJ를 선호한다는 다카이치 총리 다카이치 정부, BOJ 후임 심의위원으로 리플레이션 선호하는 2명의 후보 제시 2026년 2월 25일, 일본 정부는 차기 일본...",
           "impacts": [
@@ -73,31 +97,896 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "과거 날짜 포트폴리오 원본 미연결",
-        "accountDetail": "해당 날짜는 우선 원문 수집 결과와 시장 해석만 제공합니다.",
+        "accountAlert": "1일 기간은 정제 리포트 기반 해석 우선",
+        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
         "weeklyReview": {
-          "returnRate": "데이터 미연결",
-          "desc": "계좌 스냅샷 필요"
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
         },
         "holdings": [],
-        "planDesc": "과거 날짜는 전략 설명만 임시 제공",
+        "planDesc": "1일 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
         "allocations": []
       },
       "recommendations": {
         "ideas": [],
         "etfRanking": []
+      }
+    },
+    "3일": {
+      "briefing": {
+        "sentiment": {
+          "score": 32,
+          "status": "매파/부정",
+          "desc": "금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 3일 누적 인사이트",
+          "text": "1. FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ...<br>2. FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업...<br>3. FEB 24 [자산배분전략] 지수 등락 (%, bp) 디지털자산: 국내 디지털자산기본법, 정책 분기점은 시행령 코스피 지수 5,846.09 0.65 코스닥 지수 1,151.99 -0.17 [기업분석 & 산업분석] 코스피200 선물 867.45 0.91...",
+          "sources": [
+            {
+              "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "published_at": "2026-02-26"
+            },
+            {
+              "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "published_at": "2026-02-25"
+            },
+            {
+              "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "published_at": "2026-02-24"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "3일",
+            "text": "FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ...",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              },
+              {
+                "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "published_at": "2026-02-25"
+              },
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              }
+            ]
+          },
+          {
+            "category": "3일",
+            "text": "FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업...",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              },
+              {
+                "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "published_at": "2026-02-25"
+              },
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              }
+            ]
+          },
+          {
+            "category": "3일",
+            "text": "FEB 24 [자산배분전략] 지수 등락 (%, bp) 디지털자산: 국내 디지털자산기본법, 정책 분기점은 시행령 코스피 지수 5,846.09 0.65 코스닥 지수 1,151.99 -0.17 [기업분석 & 산업분석] 코스피200 선물 867.45 0.91...",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              },
+              {
+                "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "published_at": "2026-02-25"
+              },
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              }
+            ]
+          }
+        ],
+        "indices": []
       },
-      "raw_sources": {
-        "news": [
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-02-26/2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf"
+      "newsList": [
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ... / Economist 류진이 jinleecon@kbfg.com KB Macro 일본: 비둘기적 BOJ를 선호한다는 다카이치 총리 다카이치 정부, BOJ 후임 심의위원으로 리플레이션 선호하는 2명의 후보 제시 2026년 2월 25일, 일본 정부는 차기 일본...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "published_at": "2026-02-26"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업... / 크로스에셋/해외주식 Strategist 김일혁, CFA, FRM holistic@kbfg.com Global Insights 아직도 AI가 미칠 산업과 고용시장 충격을 과소평가하고 있다는 걸 보여준 Citrini 리서치의 보고서 정교하게 설계해서 믿고...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "published_at": "2026-02-25"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "FEB 24 [자산배분전략] 지수 등락 (%, bp) 디지털자산: 국내 디지털자산기본법, 정책 분기점은 시행령 코스피 지수 5,846.09 0.65 코스닥 지수 1,151.99 -0.17 [기업분석 & 산업분석] 코스피200 선물 867.45 0.91... / 다음 단계는 미 10년물 국채 4.07 -0.39 ESG: [지배구조] 주총 시즌, 지배구조 환경 변화가 만드는 투자 기회 유가 (WTI) 65.63 -1.25 금 (GOLD) 5,080.9 1.67 전일 16:30 기준 (환율은 15:30 기준) [...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "published_at": "2026-02-24"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "3일 기간은 정제 리포트 기반 해석 우선",
+        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
+        },
+        "holdings": [],
+        "planDesc": "3일 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      }
+    },
+    "1주": {
+      "briefing": {
+        "sentiment": {
+          "score": 29,
+          "status": "매파/부정",
+          "desc": "금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 1주 누적 인사이트",
+          "text": "1. FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ...<br>2. FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업...<br>3. FEB 24 [자산배분전략] 지수 등락 (%, bp) 디지털자산: 국내 디지털자산기본법, 정책 분기점은 시행령 코스피 지수 5,846.09 0.65 코스닥 지수 1,151.99 -0.17 [기업분석 & 산업분석] 코스피200 선물 867.45 0.91...",
+          "sources": [
+            {
+              "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "published_at": "2026-02-26"
+            },
+            {
+              "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "published_at": "2026-02-25"
+            },
+            {
+              "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "published_at": "2026-02-24"
+            },
+            {
+              "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "published_at": "2026-02-23"
+            },
+            {
+              "label": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "published_at": "2026-02-20"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "1주",
+            "text": "FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ...",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              },
+              {
+                "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "published_at": "2026-02-25"
+              },
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              }
+            ]
+          },
+          {
+            "category": "1주",
+            "text": "FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업...",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              },
+              {
+                "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "published_at": "2026-02-25"
+              },
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              }
+            ]
+          },
+          {
+            "category": "1주",
+            "text": "FEB 24 [자산배분전략] 지수 등락 (%, bp) 디지털자산: 국내 디지털자산기본법, 정책 분기점은 시행령 코스피 지수 5,846.09 0.65 코스닥 지수 1,151.99 -0.17 [기업분석 & 산업분석] 코스피200 선물 867.45 0.91...",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              },
+              {
+                "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "published_at": "2026-02-25"
+              },
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              }
+            ]
+          }
         ],
-        "market": [],
-        "reports": [
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-02-26/2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf"
+        "indices": []
+      },
+      "newsList": [
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ... / Economist 류진이 jinleecon@kbfg.com KB Macro 일본: 비둘기적 BOJ를 선호한다는 다카이치 총리 다카이치 정부, BOJ 후임 심의위원으로 리플레이션 선호하는 2명의 후보 제시 2026년 2월 25일, 일본 정부는 차기 일본...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "published_at": "2026-02-26"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업... / 크로스에셋/해외주식 Strategist 김일혁, CFA, FRM holistic@kbfg.com Global Insights 아직도 AI가 미칠 산업과 고용시장 충격을 과소평가하고 있다는 걸 보여준 Citrini 리서치의 보고서 정교하게 설계해서 믿고...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "published_at": "2026-02-25"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "FEB 24 [자산배분전략] 지수 등락 (%, bp) 디지털자산: 국내 디지털자산기본법, 정책 분기점은 시행령 코스피 지수 5,846.09 0.65 코스닥 지수 1,151.99 -0.17 [기업분석 & 산업분석] 코스피200 선물 867.45 0.91... / 다음 단계는 미 10년물 국채 4.07 -0.39 ESG: [지배구조] 주총 시즌, 지배구조 환경 변화가 만드는 투자 기회 유가 (WTI) 65.63 -1.25 금 (GOLD) 5,080.9 1.67 전일 16:30 기준 (환율은 15:30 기준) [...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "published_at": "2026-02-24"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "FEB 23 [자산배분전략] 지수 등락 (%, bp) [관세 판결 영향] 글로벌경제: IEEPA 관세 위헌 판결의 국가별 영향과 트럼프의 선택지 코스피 지수 5,808.53 2.31 [관세 판결 영향] 한국경제: IEEPA 관세 위헌에 따른 영향 코스... / Let’s Go [해외주식분석] 페라리 (RACE IT): 질적 성장으로 이어지는 매출 상승, 운용 비중 확대 [모델 포트폴리오와 추천종목] KB 리서치 모델 포트폴리오 KB WM 액티브: HD현대에너지솔루션, 두산에너빌리티, HD현대일렉트릭, POS...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "published_at": "2026-02-23"
+            }
+          ]
+        },
+        {
+          "title": "연준 금리 동결 및 향후 전망",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "FEB 20 [자산배분전략] 지수 등락 (%, bp) 채권분석: 1월 FOMC 의사록. / 추가 인하에 신중하지만, 바뀔 수 있는 상황 코스피 지수 5,677.25 3.09 코스닥 지수 1,160.71 4.94 [기업분석 & 산업분석] 코스피200 선물 840.25 3.22 RFHIC: 수주로 증명하는 경쟁력 중국 상해종합 4,082.07 ...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "published_at": "2026-02-20"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "1주 기간은 정제 리포트 기반 해석 우선",
+        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
+        },
+        "holdings": [],
+        "planDesc": "1주 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      }
+    },
+    "1개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 30,
+          "status": "매파/부정",
+          "desc": "금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 1개월 누적 인사이트",
+          "text": "1. FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ...<br>2. FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업...<br>3. FEB 24 [자산배분전략] 지수 등락 (%, bp) 디지털자산: 국내 디지털자산기본법, 정책 분기점은 시행령 코스피 지수 5,846.09 0.65 코스닥 지수 1,151.99 -0.17 [기업분석 & 산업분석] 코스피200 선물 867.45 0.91...",
+          "sources": [
+            {
+              "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "published_at": "2026-02-26"
+            },
+            {
+              "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "published_at": "2026-02-25"
+            },
+            {
+              "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "published_at": "2026-02-24"
+            },
+            {
+              "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "published_at": "2026-02-23"
+            },
+            {
+              "label": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "published_at": "2026-02-20"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "1개월",
+            "text": "FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ...",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              },
+              {
+                "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "published_at": "2026-02-25"
+              },
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              }
+            ]
+          },
+          {
+            "category": "1개월",
+            "text": "FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업...",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              },
+              {
+                "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "published_at": "2026-02-25"
+              },
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              }
+            ]
+          },
+          {
+            "category": "1개월",
+            "text": "FEB 24 [자산배분전략] 지수 등락 (%, bp) 디지털자산: 국내 디지털자산기본법, 정책 분기점은 시행령 코스피 지수 5,846.09 0.65 코스닥 지수 1,151.99 -0.17 [기업분석 & 산업분석] 코스피200 선물 867.45 0.91...",
+            "sources": [
+              {
+                "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+                "published_at": "2026-02-26"
+              },
+              {
+                "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+                "published_at": "2026-02-25"
+              },
+              {
+                "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "source": "KR",
+                "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+                "published_at": "2026-02-24"
+              }
+            ]
+          }
         ],
-        "portfolio": []
+        "indices": []
+      },
+      "newsList": [
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "FEB 26 [자산배분전략] 지수 등락 (%, bp) 3월 미국주식 전략: 한동안 진행될 반도체/장비 비중확대와 소프트웨어 비중축소 코스피 지수 6,083.86 1.91 코스닥 지수 1,165.25 0.02 [기업분석 & 산업분석] 코스피200 선물 ... / Economist 류진이 jinleecon@kbfg.com KB Macro 일본: 비둘기적 BOJ를 선호한다는 다카이치 총리 다카이치 정부, BOJ 후임 심의위원으로 리플레이션 선호하는 2명의 후보 제시 2026년 2월 25일, 일본 정부는 차기 일본...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+              "published_at": "2026-02-26"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "FEB 25 [자산배분전략] 지수 등락 (%, bp) 미국주식: 아직도 AI의 산업/고용시장 충격을 과소평가하고 있음을 보여준 Citrini 리서치의 보고서 코스피 지수 5,969.64 2.11 코스닥 지수 1,165.00 1.13 [기업분석 & 산업... / 크로스에셋/해외주식 Strategist 김일혁, CFA, FRM holistic@kbfg.com Global Insights 아직도 AI가 미칠 산업과 고용시장 충격을 과소평가하고 있다는 걸 보여준 Citrini 리서치의 보고서 정교하게 설계해서 믿고...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+              "published_at": "2026-02-25"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "FEB 24 [자산배분전략] 지수 등락 (%, bp) 디지털자산: 국내 디지털자산기본법, 정책 분기점은 시행령 코스피 지수 5,846.09 0.65 코스닥 지수 1,151.99 -0.17 [기업분석 & 산업분석] 코스피200 선물 867.45 0.91... / 다음 단계는 미 10년물 국채 4.07 -0.39 ESG: [지배구조] 주총 시즌, 지배구조 환경 변화가 만드는 투자 기회 유가 (WTI) 65.63 -1.25 금 (GOLD) 5,080.9 1.67 전일 16:30 기준 (환율은 15:30 기준) [...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+              "published_at": "2026-02-24"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "FEB 23 [자산배분전략] 지수 등락 (%, bp) [관세 판결 영향] 글로벌경제: IEEPA 관세 위헌 판결의 국가별 영향과 트럼프의 선택지 코스피 지수 5,808.53 2.31 [관세 판결 영향] 한국경제: IEEPA 관세 위헌에 따른 영향 코스... / Let’s Go [해외주식분석] 페라리 (RACE IT): 질적 성장으로 이어지는 매출 상승, 운용 비중 확대 [모델 포트폴리오와 추천종목] KB 리서치 모델 포트폴리오 KB WM 액티브: HD현대에너지솔루션, 두산에너빌리티, HD현대일렉트릭, POS...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+              "published_at": "2026-02-23"
+            }
+          ]
+        },
+        {
+          "title": "연준 금리 동결 및 향후 전망",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "FEB 20 [자산배분전략] 지수 등락 (%, bp) 채권분석: 1월 FOMC 의사록. / 추가 인하에 신중하지만, 바뀔 수 있는 상황 코스피 지수 5,677.25 3.09 코스닥 지수 1,160.71 4.94 [기업분석 & 산업분석] 코스피200 선물 840.25 3.22 RFHIC: 수주로 증명하는 경쟁력 중국 상해종합 4,082.07 ...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-20_kb_research_broker_report_2026년_2월_20일__금___kb_데일리.pdf",
+              "published_at": "2026-02-20"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "FEB 19 [자산배분전략] 지수 등락 (%, bp) 경제분석: 케빈 워시의 전망이 아직 광범위한 지지를 받기 어려운 이유 코스피 지수 5,507.01 -0.28 원자재 이슈: 금&은 변동성 지속, 2011년 CME 증거금 인상시기와 비교 코스닥 지수... / 통제는 본토에서, 실험은 홍콩에서 코스피200 선물 814.00 -0.33 중국 상해종합 4,082.07 -1.26 중국 심천종합 2,680.39 -1.05 [기업분석 & 산업분석] 일본 니케이225 56,941.97 -1.21 Global ESG B...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+              "source": "KR",
+              "title": "2026-02-19_kb_research_broker_report_2026년_2월_19일__목___kb_데일리.pdf",
+              "published_at": "2026-02-19"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "1개월 기간은 정제 리포트 기반 해석 우선",
+        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
+        },
+        "holdings": [],
+        "planDesc": "1개월 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
       }
     }
   },
-  "dataStatus": "full"
+  "dataStatus": "sparse"
 }

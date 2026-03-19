@@ -4,13 +4,13 @@
     "1일": {
       "briefing": {
         "sentiment": {
-          "score": 50,
+          "score": 44,
           "status": "중립",
-          "desc": "원문 기반 중립 판정"
+          "desc": "원문 기반 중립 판정 / 원문 기반 중립 판정 / 유가 부담"
         },
         "forecast": {
-          "title": "거시/시장 리포트 요약",
-          "text": "1. Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W...<br>2. Supporting the legislative process Preparation through testing and experimentation Concept definition, technical exploration and design prop...<br>3. We aim to be ready for a potential first issuance of the digital euro during 2029.",
+          "title": "당일 핵심 인사이트",
+          "text": "1. Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W...<br>2. March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2...<br>3. Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M.",
           "sources": [
             {
               "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
@@ -46,37 +46,73 @@
         },
         "insights": [
           {
-            "category": "원문수집",
-            "text": "해당 날짜 raw 파일 164건 확보. 상위 출처: JP/boj_whatsnew(65), US/yahoo_finance(46), US/federal_reserve_press(18), EU/ecb_press(15), US/jpm_public(12)",
+            "category": "1일",
+            "text": "Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W...",
             "sources": [
               {
-                "label": "JP/boj_whatsnew",
-                "source": "boj_whatsnew",
-                "title": "JP/boj_whatsnew",
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
                 "published_at": "2026-03-18"
               },
               {
-                "label": "US/yahoo_finance",
-                "source": "yahoo_finance",
-                "title": "US/yahoo_finance",
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
                 "published_at": "2026-03-18"
               },
               {
-                "label": "US/federal_reserve_press",
-                "source": "federal_reserve_press",
-                "title": "US/federal_reserve_press",
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          },
+          {
+            "category": "1일",
+            "text": "March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2...",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
                 "published_at": "2026-03-18"
               },
               {
-                "label": "EU/ecb_press",
-                "source": "ecb_press",
-                "title": "EU/ecb_press",
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
                 "published_at": "2026-03-18"
               },
               {
-                "label": "US/jpm_public",
-                "source": "jpm_public",
-                "title": "US/jpm_public",
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          },
+          {
+            "category": "1일",
+            "text": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M.",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
                 "published_at": "2026-03-18"
               }
             ]
@@ -89,8 +125,8 @@
           "title": "거시/시장 리포트 요약",
           "tags": [
             "정제인사이트",
-            "원문분석",
-            "자동추출"
+            "1일",
+            "원문기반"
           ],
           "summary": "Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W... / Supporting the legislative process Preparation through testing and experimentation Concept definition, technical exploration and design prop...",
           "impacts": [
@@ -123,8 +159,8 @@
           "title": "거시/시장 리포트 요약",
           "tags": [
             "정제인사이트",
-            "원문분석",
-            "자동추출"
+            "1일",
+            "원문기반"
           ],
           "summary": "March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2... / Bond Market Functioning（Answer the following questions considering the secondary JGB market.） (1) The degree of bond market functioning from...",
           "impacts": [
@@ -157,8 +193,8 @@
           "title": "거시/시장 리포트 요약",
           "tags": [
             "정제인사이트",
-            "원문분석",
-            "자동추출"
+            "1일",
+            "원문기반"
           ],
           "summary": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M. / Thursday, February 12, 2026 Monthly Report on the Corporate Goods Price Index ❖The Producer Price Index rose 0.2 percent from the previous m...",
           "impacts": [
@@ -191,8 +227,8 @@
           "title": "거시/시장 리포트 요약",
           "tags": [
             "정제인사이트",
-            "원문분석",
-            "자동추출"
+            "1일",
+            "원문기반"
           ],
           "summary": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M. / Wednesday, March 11, 2026 Monthly Report on the Corporate Goods Price Index ❖The Producer Price Index fell 0.1 percent from the previous mon...",
           "impacts": [
@@ -225,8 +261,8 @@
           "title": "거시/시장 리포트 요약",
           "tags": [
             "정제인사이트",
-            "원문분석",
-            "자동추출"
+            "1일",
+            "원문기반"
           ],
           "summary": "本件の対外公表は2月9日 8時50分 Not to be released until 8:50 a.m. / Bank of Japan ２０２６年２月９日 Financial System and Bank Examination Department 日本銀行金融機構局 貸出・預金動向 速報（ ） Principal Figures of Financial Institutions...",
           "impacts": [
@@ -259,8 +295,8 @@
           "title": "거시/시장 리포트 요약",
           "tags": [
             "정제인사이트",
-            "원문분석",
-            "자동추출"
+            "1일",
+            "원문기반"
           ],
           "summary": "本件の対外公表は3月9日 8時50分 Not to be released until 8:50 a.m. / Bank of Japan ２０２６年３月９日 Financial System and Bank Examination Department 日本銀行金融機構局 貸出・預金動向 速報（ ） Principal Figures of Financial Institutions...",
           "impacts": [
@@ -293,8 +329,8 @@
           "title": "거시/시장 리포트 요약",
           "tags": [
             "정제인사이트",
-            "원문분석",
-            "자동추출"
+            "1일",
+            "원문기반"
           ],
           "summary": "本件の対外公表は2月27日(金)11時 Not to be released until 11:00 am. / February 27, 2026 2026年2月27日 Payment and Settlement Systems Department Bank of Japan 日本銀行 決済機構局 決済動向（２０２６年１月） PAYMENT AND SETTLEMENT STATIST...",
           "impacts": [
@@ -327,8 +363,8 @@
           "title": "거시/시장 리포트 요약",
           "tags": [
             "정제인사이트",
-            "원문분석",
-            "자동추출"
+            "1일",
+            "원문기반"
           ],
           "summary": "March 10, 2026 Bank of Japan On-Site Examination Policy for Fiscal 2026 1. / Introduction The Bank of Japan (hereafter, the Bank) formulates the on-site examination policy every fiscal year based on the decision of th...",
           "impacts": [
@@ -359,67 +395,1246 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "과거 날짜 포트폴리오 원본 미연결",
-        "accountDetail": "해당 날짜는 우선 원문 수집 결과와 시장 해석만 제공합니다.",
+        "accountAlert": "1일 기간은 정제 리포트 기반 해석 우선",
+        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
         "weeklyReview": {
-          "returnRate": "데이터 미연결",
-          "desc": "계좌 스냅샷 필요"
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
         },
         "holdings": [],
-        "planDesc": "과거 날짜는 전략 설명만 임시 제공",
+        "planDesc": "1일 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
         "allocations": []
       },
       "recommendations": {
         "ideas": [],
         "etfRanking": []
+      }
+    },
+    "3일": {
+      "briefing": {
+        "sentiment": {
+          "score": 44,
+          "status": "중립",
+          "desc": "원문 기반 중립 판정 / 원문 기반 중립 판정 / 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 3일 누적 인사이트",
+          "text": "1. Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W...<br>2. March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2...<br>3. Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M.",
+          "sources": [
+            {
+              "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "source": "EU",
+              "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "3일",
+            "text": "Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W...",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          },
+          {
+            "category": "3일",
+            "text": "March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2...",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          },
+          {
+            "category": "3일",
+            "text": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M.",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          }
+        ],
+        "indices": []
       },
-      "raw_sources": {
-        "news": [
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__hearing_of_the_committee_on_economic_and_monetary_affairs_of_the_european_parliament.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__interview_with_elle_magazine.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__technology__fragmentation_and_the_new_uncertainty.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_decisions_taken_by_the_governing_council_of_the_ecb__in_addition_to_decisions_setting_interest_rates.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_ecb_consumer_expectations_survey_results___january_2026.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_ecb_welcomes_decision_on_new_site_for_european_school_frankfurt.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_eurosystem_unveils_appia_roadmap_for_europe_s_tokenised_finance.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_financial_statements_of_the_ecb_for_2025.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_frank_elderson__nature_in_decline__economy_on_the_line__the_importance_of_international_cooperation_for_managing_nature_related_risks.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_isabel_schnabel__navigating_inflation_and_employment_in_an_era_of_supply_shocks_and_ai.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_meeting_of_4_5_february_2026.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_number_of_counterfeit_euro_banknotes_remains_low_in_2025.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_philip_r__lane__interview_with_financial_times.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_president_lagarde_launches_eurosteps_walking_challenge_at_event_promoting_women_s_financial_literacy.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260131_htm.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260210_htm.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260220_htm.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260228_htm.txt"
+      "newsList": [
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W... / Supporting the legislative process Preparation through testing and experimentation Concept definition, technical exploration and design prop...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "source": "EU",
+              "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2... / Bond Market Functioning（Answer the following questions considering the secondary JGB market.） (1) The degree of bond market functioning from...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M. / Thursday, February 12, 2026 Monthly Report on the Corporate Goods Price Index ❖The Producer Price Index rose 0.2 percent from the previous m...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M. / Wednesday, March 11, 2026 Monthly Report on the Corporate Goods Price Index ❖The Producer Price Index fell 0.1 percent from the previous mon...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "本件の対外公表は2月9日 8時50分 Not to be released until 8:50 a.m. / Bank of Japan ２０２６年２月９日 Financial System and Bank Examination Department 日本銀行金融機構局 貸出・預金動向 速報（ ） Principal Figures of Financial Institutions...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "本件の対外公表は3月9日 8時50分 Not to be released until 8:50 a.m. / Bank of Japan ２０２６年３月９日 Financial System and Bank Examination Department 日本銀行金融機構局 貸出・預金動向 速報（ ） Principal Figures of Financial Institutions...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kasi2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kasi2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "本件の対外公表は2月27日(金)11時 Not to be released until 11:00 am. / February 27, 2026 2026年2月27日 Payment and Settlement Systems Department Bank of Japan 日本銀行 決済機構局 決済動向（２０２６年１月） PAYMENT AND SETTLEMENT STATIST...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kess2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kess2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "3일",
+            "원문기반"
+          ],
+          "summary": "March 10, 2026 Bank of Japan On-Site Examination Policy for Fiscal 2026 1. / Introduction The Bank of Japan (hereafter, the Bank) formulates the on-site examination policy every fiscal year based on the decision of th...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kpolicy26_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kpolicy26_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "3일 기간은 정제 리포트 기반 해석 우선",
+        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
+        },
+        "holdings": [],
+        "planDesc": "3일 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      }
+    },
+    "1주": {
+      "briefing": {
+        "sentiment": {
+          "score": 44,
+          "status": "중립",
+          "desc": "원문 기반 중립 판정 / 원문 기반 중립 판정 / 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 1주 누적 인사이트",
+          "text": "1. Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W...<br>2. March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2...<br>3. Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M.",
+          "sources": [
+            {
+              "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "source": "EU",
+              "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "1주",
+            "text": "Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W...",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          },
+          {
+            "category": "1주",
+            "text": "March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2...",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          },
+          {
+            "category": "1주",
+            "text": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M.",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          }
         ],
-        "market": [],
-        "reports": [
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__hearing_of_the_committee_on_economic_and_monetary_affairs_of_the_european_parliament.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__interview_with_elle_magazine.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_christine_lagarde__technology__fragmentation_and_the_new_uncertainty.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_decisions_taken_by_the_governing_council_of_the_ecb__in_addition_to_decisions_setting_interest_rates.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_ecb_consumer_expectations_survey_results___january_2026.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_ecb_welcomes_decision_on_new_site_for_european_school_frankfurt.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_eurosystem_unveils_appia_roadmap_for_europe_s_tokenised_finance.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_financial_statements_of_the_ecb_for_2025.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_frank_elderson__nature_in_decline__economy_on_the_line__the_importance_of_international_cooperation_for_managing_nature_related_risks.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_isabel_schnabel__navigating_inflation_and_employment_in_an_era_of_supply_shocks_and_ai.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_meeting_of_4_5_february_2026.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_number_of_counterfeit_euro_banknotes_remains_low_in_2025.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_philip_r__lane__interview_with_financial_times.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/EU/ecb_press/2026-03-18/2026-03-18_ecb_press_macro_policy_president_lagarde_launches_eurosteps_walking_challenge_at_event_promoting_women_s_financial_literacy.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260131_htm.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260210_htm.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260220_htm.txt",
-          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/JP/boj_whatsnew/2026-03-18/2026-03-18_boj_whatsnew_macro_policy_ac260228_htm.txt"
+        "indices": []
+      },
+      "newsList": [
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W... / Supporting the legislative process Preparation through testing and experimentation Concept definition, technical exploration and design prop...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "source": "EU",
+              "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2... / Bond Market Functioning（Answer the following questions considering the secondary JGB market.） (1) The degree of bond market functioning from...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M. / Thursday, February 12, 2026 Monthly Report on the Corporate Goods Price Index ❖The Producer Price Index rose 0.2 percent from the previous m...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M. / Wednesday, March 11, 2026 Monthly Report on the Corporate Goods Price Index ❖The Producer Price Index fell 0.1 percent from the previous mon...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "本件の対外公表は2月9日 8時50分 Not to be released until 8:50 a.m. / Bank of Japan ２０２６年２月９日 Financial System and Bank Examination Department 日本銀行金融機構局 貸出・預金動向 速報（ ） Principal Figures of Financial Institutions...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "本件の対外公表は3月9日 8時50分 Not to be released until 8:50 a.m. / Bank of Japan ２０２６年３月９日 Financial System and Bank Examination Department 日本銀行金融機構局 貸出・預金動向 速報（ ） Principal Figures of Financial Institutions...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kasi2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kasi2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "本件の対外公表は2月27日(金)11時 Not to be released until 11:00 am. / February 27, 2026 2026年2月27日 Payment and Settlement Systems Department Bank of Japan 日本銀行 決済機構局 決済動向（２０２６年１月） PAYMENT AND SETTLEMENT STATIST...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kess2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kess2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1주",
+            "원문기반"
+          ],
+          "summary": "March 10, 2026 Bank of Japan On-Site Examination Policy for Fiscal 2026 1. / Introduction The Bank of Japan (hereafter, the Bank) formulates the on-site examination policy every fiscal year based on the decision of th...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kpolicy26_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kpolicy26_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "1주 기간은 정제 리포트 기반 해석 우선",
+        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
+        },
+        "holdings": [],
+        "planDesc": "1주 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
+      }
+    },
+    "1개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 42,
+          "status": "중립",
+          "desc": "원문 기반 중립 판정 / 원문 기반 중립 판정 / 유가 부담"
+        },
+        "forecast": {
+          "title": "최근 1개월 누적 인사이트",
+          "text": "1. Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W...<br>2. March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2...<br>3. Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M.",
+          "sources": [
+            {
+              "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "source": "EU",
+              "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            },
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "1개월",
+            "text": "Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W...",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          },
+          {
+            "category": "1개월",
+            "text": "March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2...",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          },
+          {
+            "category": "1개월",
+            "text": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M.",
+            "sources": [
+              {
+                "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "source": "EU",
+                "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+                "published_at": "2026-03-18"
+              },
+              {
+                "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "source": "JP",
+                "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+                "published_at": "2026-03-18"
+              }
+            ]
+          }
         ],
-        "portfolio": []
+        "indices": []
+      },
+      "newsList": [
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "Digital euro European Banking Federation Executive Committee Meeting 6 March 2026 Piero Cipollone Member of the Executive Board of the ECB W... / Supporting the legislative process Preparation through testing and experimentation Concept definition, technical exploration and design prop...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "source": "EU",
+              "title": "2026-03-18_ecb_press_macro_policy_piero_cipollone__digital_euro.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "March 2, 2026 Financial Markets Department, Bank of Japan Bond Market Survey (February 2026) Survey period: From February 2 to February 6, 2... / Bond Market Functioning（Answer the following questions considering the secondary JGB market.） (1) The degree of bond market functioning from...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_bond2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M. / Thursday, February 12, 2026 Monthly Report on the Corporate Goods Price Index ❖The Producer Price Index rose 0.2 percent from the previous m...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "Bank of Japan Research and Statistics Department FOR RELEASE 8:50 A.M. / Wednesday, March 11, 2026 Monthly Report on the Corporate Goods Price Index ❖The Producer Price Index fell 0.1 percent from the previous mon...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_cgpi2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "本件の対外公表は2月9日 8時50分 Not to be released until 8:50 a.m. / Bank of Japan ２０２６年２月９日 Financial System and Bank Examination Department 日本銀行金融機構局 貸出・預金動向 速報（ ） Principal Figures of Financial Institutions...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kasi2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "本件の対外公表は3月9日 8時50分 Not to be released until 8:50 a.m. / Bank of Japan ２０２６年３月９日 Financial System and Bank Examination Department 日本銀行金融機構局 貸出・預金動向 速報（ ） Principal Figures of Financial Institutions...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kasi2602_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kasi2602_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "本件の対外公表は2月27日(金)11時 Not to be released until 11:00 am. / February 27, 2026 2026年2月27日 Payment and Settlement Systems Department Bank of Japan 日本銀行 決済機構局 決済動向（２０２６年１月） PAYMENT AND SETTLEMENT STATIST...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": false,
+              "desc": "중립"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "중립"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kess2601_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kess2601_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "title": "거시/시장 리포트 요약",
+          "tags": [
+            "정제인사이트",
+            "1개월",
+            "원문기반"
+          ],
+          "summary": "March 10, 2026 Bank of Japan On-Site Examination Policy for Fiscal 2026 1. / Introduction The Bank of Japan (hereafter, the Bank) formulates the on-site examination policy every fiscal year based on the decision of th...",
+          "impacts": [
+            {
+              "sector": "USD",
+              "isPositive": true,
+              "desc": "강세"
+            },
+            {
+              "sector": "Bonds",
+              "isPositive": true,
+              "desc": "금리 상승/가격 하락"
+            },
+            {
+              "sector": "Stocks",
+              "isPositive": false,
+              "desc": "약세"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026-03-18_boj_whatsnew_macro_policy_kpolicy26_pdf.pdf",
+              "source": "JP",
+              "title": "2026-03-18_boj_whatsnew_macro_policy_kpolicy26_pdf.pdf",
+              "published_at": "2026-03-18"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "1개월 기간은 정제 리포트 기반 해석 우선",
+        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "weeklyReview": {
+          "returnRate": "실계좌 미연결",
+          "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
+        },
+        "holdings": [],
+        "planDesc": "1개월 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": []
       }
     }
   },

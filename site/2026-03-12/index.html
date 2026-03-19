@@ -32,7 +32,12 @@
  .calendar-date.empty { cursor: default; }
  .top-nav { padding: 24px 20px 0 20px; background-color: #FFFFFF; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #E5E8EB; }
  .top-nav h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px 0; color: #191F28; display: flex; align-items: center; gap: 6px; }
- .top-nav .sub-text { font-size: 13px; color: #8B95A1; margin-bottom: 16px; }
+ .top-nav .sub-text { font-size: 13px; color: #8B95A1; margin-bottom: 16px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+ .status-badge { display:inline-flex; align-items:center; gap:4px; padding:4px 8px; border-radius:999px; font-size:11px; font-weight:700; }
+ .status-full { background:#E8F7ED; color:#137333; }
+ .status-partial { background:#FFF4E5; color:#B06000; }
+ .status-sparse { background:#E8F3FF; color:#1B64DA; }
+ .status-empty { background:#F2F4F6; color:#6B7684; }
  .period-selector { display: flex; overflow-x: auto; scrollbar-width: none; gap: 8px; margin-bottom: 16px; padding-bottom: 4px; }
  .period-selector::-webkit-scrollbar { display: none; }
  .period-chip { padding: 6px 14px; background-color: #F2F4F6; color: #6B7684; border-radius: 16px; font-size: 13px; font-weight: 600; white-space: nowrap; transition: all 0.2s; cursor: pointer; }
@@ -163,7 +168,7 @@
 <div class="app-container">
  <div class="top-nav">
  <h1>✨ 오픈 클로 투자 비서</h1>
- <div class="sub-text" id="report-date">날짜 로딩중...</div>
+ <div class="sub-text"><span id="report-date">날짜 로딩중...</span><span id="data-status-badge"></span></div>
  <div class="period-selector" id="periodSelector"></div>
  <div class="tab-menu" id="tabMenu">
  <div class="tab-item active" onclick="switchTab('briefing')">시장 브리핑</div>
@@ -188,7 +193,8 @@ function renderCalendar(year,month){const grid=document.getElementById('calendar
 function changeMonth(offset){currentMonth+=offset;if(currentMonth<0){currentMonth=11;currentYear--;} else if(currentMonth>11){currentMonth=0;currentYear++;}renderCalendar(currentYear,currentMonth);}
 function goToToday(){initCalendar();updateReportTitle();}
 async function loadReportForDate(year,month,day,event){document.querySelectorAll('.calendar-date').forEach(el=>{el.classList.remove('active');const dayNum=parseInt(el.innerText);if(dayNum){const dayOfWeek=new Date(year,month,dayNum).getDay();if(dayOfWeek===0) el.style.color='#F04452'; else if(dayOfWeek===6) el.style.color='#3182F6'; else el.style.color='#333D4B';}}); if(event){event.target.classList.add('active');event.target.style.color='#FFFFFF';} selectedDateInfo={year:year,month:month,date:day}; updateReportTitle(); const ds=`${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`; try { const r=await fetch(`/igzun-daily-report/site/${ds}/result.json`, {cache:'no-store'}); if(r.ok){ const incoming=await r.json(); if(incoming && incoming.dataByPeriod){ reportData.date = incoming.date || reportData.date; reportData.dataByPeriod = incoming.dataByPeriod; const periods=Object.keys(reportData.dataByPeriod); currentPeriod = periods.includes('1일') ? '1일' : periods[0]; renderPeriodSelector(periods); updateAllViews(); } else { alert(`${ds} 데이터 구조가 올바르지 않습니다.`); } } else { alert(`${ds} 데이터가 없습니다.`); } } catch(e){ alert(`${ds} 데이터를 불러오지 못했습니다.`); } toggleCalendar();}
-function updateReportTitle(){if(!selectedDateInfo) return; document.getElementById('report-date').innerText=`${selectedDateInfo.year}년 ${selectedDateInfo.month+1}월 ${selectedDateInfo.date}일 기준 업데이트`;}
+function updateReportTitle(){if(!selectedDateInfo) return; document.getElementById('report-date').innerText=`${selectedDateInfo.year}년 ${selectedDateInfo.month+1}월 ${selectedDateInfo.date}일 기준 업데이트`; renderDataStatusBadge(reportData.dataStatus || 'partial');}
+function renderDataStatusBadge(status){ const el=document.getElementById('data-status-badge'); if(!el) return; const map={full:'status-full', partial:'status-partial', sparse:'status-sparse', empty:'status-empty'}; el.className=`status-badge ${map[status]||'status-empty'}`; el.textContent=`${status}`; }
 const reportData = {
   "date": "2026년 3월 19일 기준 업데이트",
   "generated_at": "2026-03-19T03:31:29.743715+00:00",
@@ -1850,7 +1856,8 @@ const reportData = {
     }
   }
 };
-function renderApp(){initCalendar();updateReportTitle();const periodsFromData=Object.keys(reportData.dataByPeriod);if(periodsFromData.length===0){document.querySelector('.tab-content').innerHTML=`<div style="padding: 40px 20px; text-align: center; color: #8B95A1;">데이터가 없습니다.</div>`;return;}currentPeriod=periodsFromData[0];renderPeriodSelector(periodsFromData);updateAllViews();}
+async function renderApp(){initCalendar(); await syncInitialResult(); updateReportTitle(); const periodsFromData=Object.keys(reportData.dataByPeriod||{}); if(periodsFromData.length===0){document.querySelector('.tab-content').innerHTML=`<div style="padding: 40px 20px; text-align: center; color: #8B95A1;">데이터가 없습니다.</div>`; renderDataStatusBadge('empty'); return;} currentPeriod=periodsFromData[0]; renderPeriodSelector(periodsFromData); updateAllViews(); renderDataStatusBadge(reportData.dataStatus || 'partial');}
+async function syncInitialResult(){ try { const pathParts=window.location.pathname.split('/').filter(Boolean); const datePart=pathParts[pathParts.length-1]?.match(/^2026-\d{2}-\d{2}$/) ? pathParts[pathParts.length-1] : null; const url = datePart ? './result.json' : `/igzun-daily-report/site/${new Date().toISOString().slice(0,10)}/result.json`; const r = await fetch(url, {cache:'no-store'}); if(!r.ok) return; const incoming = await r.json(); if(incoming && incoming.dataByPeriod){ Object.assign(reportData, incoming); } } catch(e) { /* ignore and use inline fallback */ } }
 function renderPeriodSelector(periods){const container=document.getElementById('periodSelector');let html='';periods.forEach(period=>{const isActive=(period===currentPeriod)?'active':'';html+=`<div class="period-chip ${isActive}" onclick="changePeriod('${period}')">${period}</div>`;});container.innerHTML=html;}
 function changePeriod(period){if(!reportData.dataByPeriod[period])return;currentPeriod=period;renderPeriodSelector(Object.keys(reportData.dataByPeriod));updateAllViews();}
 function updateAllViews(){renderBriefing();renderNews();renderPortfolio();renderRecommend();}
