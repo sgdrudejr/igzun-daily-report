@@ -9,6 +9,27 @@
  * { box-sizing: border-box; }
  body { font-family: 'Pretendard', -apple-system, sans-serif; background-color: #F2F4F6; color: #333D4B; margin: 0; padding: 0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
  .app-container { max-width: 480px; margin: 0 auto; background-color: #F2F4F6; min-height: 100vh; position: relative; display: flex; flex-direction: column; }
+ .calendar-fab { position: fixed; bottom: 24px; left: 24px; width: 56px; height: 56px; border-radius: 50%; background-color: #191F28; color: #FFFFFF; font-size: 24px; display: flex; align-items: center; justify-content: center; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; z-index: 90; transition: transform 0.2s; }
+ .calendar-fab:hover { transform: scale(1.05); }
+ .calendar-popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; align-items: center; justify-content: center; animation: fadeIn 0.2s ease; }
+ .calendar-popup-overlay.active { display: flex; }
+ .calendar-card { background-color: #FFFFFF; border-radius: 20px; padding: 24px; width: 340px; max-width: 90%; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); position: relative; animation: slideUp 0.3s ease; }
+ @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+ .btn-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 18px; color: #8B95A1; cursor: pointer; padding: 4px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background-color 0.2s; }
+ .btn-close:hover { background-color: #F2F4F6; color: #191F28; }
+ .calendar-header { display: flex; align-items: center; justify-content: center; position: relative; margin-bottom: 20px; }
+ .calendar-nav { display: flex; align-items: center; gap: 16px; }
+ .calendar-nav button { background: none; border: none; font-size: 14px; color: #8B95A1; cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: background-color 0.2s;}
+ .calendar-nav button:hover { background-color: #F2F4F6; color: #191F28; }
+ .calendar-month-year { font-size: 18px; font-weight: 700; color: #191F28; min-width: 80px; text-align: center; font-variant-numeric: tabular-nums; }
+ .btn-today { position: absolute; right: 36px; background-color: #F2F4F6; color: #4E5968; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
+ .btn-today:hover { background-color: #E5E8EB; color: #191F28;}
+ .calendar-day-names { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 13px; font-weight: 600; color: #8B95A1; margin-bottom: 12px; }
+ .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+ .calendar-date { padding: 10px 0; text-align: center; font-size: 14px; color: #333D4B; font-weight: 500; cursor: pointer; border-radius: 10px; transition: all 0.2s ease; }
+ .calendar-date:not(.empty):hover { background-color: #F2F4F6; }
+ .calendar-date.active { background-color: #3182F6; color: #FFFFFF; font-weight: 700; box-shadow: 0 2px 8px rgba(49,130,246,0.3); }
+ .calendar-date.empty { cursor: default; }
  .top-nav { padding: 24px 20px 0 20px; background-color: #FFFFFF; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #E5E8EB; }
  .top-nav h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px 0; color: #191F28; display: flex; align-items: center; gap: 6px; }
  .top-nav .sub-text { font-size: 13px; color: #8B95A1; margin-bottom: 16px; }
@@ -46,7 +67,7 @@
  .forecast-title span { background-color: #191F28; color: white; border-radius: 4px; padding: 2px 6px; font-size: 11px; margin-right: 8px; }
  .forecast-text { font-size: 14px; color: #4E5968; line-height: 1.6; text-align: justify; }
  .insight-list { list-style: none; padding: 0; margin: 0; }
- .insight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px dashed #F2FF6; }
+ .insight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px dashed #F2F4F6; }
  .insight-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
  .insight-text { font-size: 14.5px; color: #4E5968; line-height: 1.5; margin-top: 2px; }
  .index-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #F2F4F6; }
@@ -91,7 +112,7 @@
  .signal-bar-track { flex: 1; height: 6px; border-radius: 3px; background: linear-gradient(to right, #1B64DA, #3182F6, #E5E8EB, #F04452, #D9042B); position: relative; }
  .signal-bar-marker { position: absolute; top: -5px; width: 16px; height: 16px; border-radius: 50%; background-color: white; border: 3px solid; transform: translateX(-50%); box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: left 0.5s ease; }
  .signal-indicators { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
- .sig-ind { font-size: 11px; background-color: #FFFFFF; border: 1px solid #E5E8EB; color: #4E5968; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+ .sig-ind { font-size: 11px; background-color: #FFFFFF; border: 1px solid #E5E8EB; color: #4E5968; padding: 2px 6px; border-radius: 4px; font-weight: 600;}
  .signal-reason { font-size: 13px; color: #4E5968; line-height: 1.4; background-color: #FFFFFF; padding: 10px; border-radius: 8px; }
  .stock-item { display: flex; align-items: center; justify-content: space-between; padding: 16px; background-color: #F9FAFB; border-radius: 12px; border: 1px solid #E5E8EB; }
  .stock-info { display: flex; align-items: center; gap: 12px; }
@@ -100,7 +121,7 @@
  .stock-ticker { font-size: 12px; color: #8B95A1; margin-top: 2px; }
  .stock-action { background-color: #FCEBED; color: #F04452; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; }
  .stock-reason-box { background-color: #FFFFFF; border: 1px solid #E5E8EB; border-top: none; padding: 16px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; margin-bottom: 20px; }
- .ranking-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+ .ranking-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px;}
  .rank-item { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #F2F4F6; }
  .rank-item:last-child { border-bottom: none; }
  .rank-num { width: 28px; font-size: 16px; font-weight: 800; color: #8B95A1; font-style: italic; }
@@ -113,9 +134,28 @@
  .rank-bar-bg { width: 100%; height: 6px; background-color: #E5E8EB; border-radius: 3px; overflow: hidden; }
  .rank-bar-fill { height: 100%; border-radius: 3px; background-color: #3182F6; transition: width 0.5s ease; }
  .empty-state { text-align: center; padding: 40px 20px; color: #8B95A1; font-size: 15px; }
+ @media (max-width: 800px) { .calendar-fab { left: 16px; bottom: 16px; width: 50px; height: 50px; font-size: 20px; } }
  </style>
 </head>
 <body>
+<button class="calendar-fab" onclick="toggleCalendar()">📅</button>
+<div class="calendar-popup-overlay" id="calendarPopup" onclick="closeCalendarOnOutsideClick(event)">
+ <div class="calendar-card">
+ <button class="btn-close" onclick="toggleCalendar()">✕</button>
+ <div class="calendar-header">
+ <div class="calendar-nav">
+ <button onclick="changeMonth(-1)">◀</button>
+ <span class="calendar-month-year" id="calendar-month-year">2026 01</span>
+ <button onclick="changeMonth(1)">▶</button>
+ </div>
+ <button class="btn-today" onclick="goToToday()">오늘</button>
+ </div>
+ <div class="calendar-day-names">
+ <span style="color:#F04452;">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span style="color:#3182F6;">토</span>
+ </div>
+ <div class="calendar-grid" id="calendar-grid"></div>
+ </div>
+</div>
 <div class="app-container">
  <div class="top-nav">
  <h1>✨ 오픈 클로 투자 비서</h1>
@@ -136,110 +176,27 @@
  </div>
 </div>
 <script>
-const reportData = {
- date: "2026년 3월 19일 (목) 업데이트",
- dataByPeriod: {
- "1일": {
- briefing: {
- sentiment: { score: 45, status: "중립", desc: "단기적으로 시장이 숨 고르기에 들어갔습니다." },
- forecast: { title: "단기 수급 및 모멘텀 전망", text: "어젯밤 발표된 물가 지표 충격으로 기술주 위주의 단기 매물이 출회되었습니다. 내일 고용 지표 발표 전까지는 변동성이 높은 관망 장세가 예상됩니다." },
- insights: [
- { category: "일일 시황", text: "나스닥은 소폭 하락했으나, 에너지 섹터로 단기 수급이 쏠리며 다우 지수는 방어에 성공했습니다." },
- { category: "당일 수급", text: "외국인과 기관의 쌍끌이 매도가 이어지며 지수 하방 압력을 높였습니다." }
- ],
- indices: [
- { name: "S&P 500", price: "5,123.45", change: "▼ 0.82%", isUp: false }
- ]
- },
- newsList: [
- {
- title: "미국 2월 PPI 예상치 상회, 인플레이션 우려 재점화",
- tags: ["물가 지표", "단기 변동성", "매파적 연준"],
- summary: "생산자물가지수가 시장 예상을 웃돌면서, 채권 금리가 급등하고 주식 시장의 차익 실현 빌미로 작용했습니다.",
- impacts: [ { sector: "기술 / 성장주", isPositive: false, desc: "금리 상승에 취약한 고퍼(High-PER) 주식들 투심 악화" } ]
- }
- ],
- portfolio: {
- accountAlert: "어제 하루 계좌 방어력이 훌륭합니다.<br>현금 비중이 큰 역할을 했어요.",
- accountDetail: "💡 <b>단기 대응:</b> 당장 보유 주식을 던질 필요는 없으나, 추가 하락 시 현금(60%)을 활용한 분할 매수 기회를 노려보세요.",
- weeklyReview: { returnRate: "-0.2% (전일 대비)", desc: "시장 하락 폭 대비 계좌 손실 방어에 성공했습니다." },
- holdings: [
- { name: "테슬라", ticker: "TSLA", returnRate: "-2.5%", score: -30, indicators: ["RSI 30 이탈", "단기 매물대 저항", "논문: 모멘텀 둔화"], reason: "어젯밤 중국 내 판매 부진 뉴스로 단기 지지선이 무너졌습니다. 단기적으로는 매도 관점입니다." },
- { name: "SPDR S&P 500 ETF", ticker: "SPY", returnRate: "-0.8%", score: 10, indicators: ["이평선 수렴", "관망 시그널"], reason: "단기 방향성이 없으므로 홀딩(보유)하며 시장의 방향성을 확인하세요." }
- ],
- planDesc: "내일 장을 대비한 단기 전술적 자산 배분(TAA) 팁입니다.",
- allocations: [
- { name: "현금 대기", percent: 60, color: "#E5E8EB", desc: "단기 변동성 회피용 방어" },
- { name: "S&P 500", percent: 40, color: "#3182F6", desc: "핵심 자산 유지" }
- ]
- },
- recommendations: {
- ideas: [ { logo: "📉", name: "ProShares Short S&P500", ticker: "SH", action: "단기 헷지 매수", linkedIssue: "단기 금리 상승 우려", reason: "지수 하방 압력에 대비해 포트폴리오의 5% 미만으로 단기 인버스 헷지를 고려해 보세요." } ],
- etfRanking: [
- { rank: 1, name: "Energy Select Sector SPDR", ticker: "XLE", score: 85 },
- { rank: 2, name: "SPDR Gold Trust", ticker: "GLD", score: 78 }
- ]
- }
- },
- "1개월": {
- briefing: {
- sentiment: { score: 78, status: "탐욕", desc: "최근 1개월간 펀더멘털 기반의 랠리가 지속되며 투자 심리가 긍정적입니다." },
- forecast: { title: "1개월 데이터 누적 기반 거시 전망", text: "지난 한 달간 경제 기표와 기업 실적(EPS) 데이터를 취합한 결과, 경제 연착륙 시나리오가 현실화되고 있습니다. 금리 인하 기대는 후퇴했지만 기업들이 스스로 실적을 증명하며 지수의 하단을 견고하게 다지고 있습니다. 다음 달도 완만한 우상향이 기대됩니다." },
- insights: [
- { category: "실적 장세", text: "빅테크 및 인프라 관련주들의 1분기 영업이익이 전년 대비 큰 폭으로 상승했습니다." },
- { category: "자금 이동", text: "지난 한 달간 투기적 자본이 줄어들고, 배당 및 가치주로 스마트 머니가 유입되는 흐름이 포착되었습니다." }
- ],
- indices: [
- { name: "S&P 500 (1개월)", price: "5,123.45", change: "▲ 4.50%", isUp: true }
- ]
- },
- newsList: [
- {
- title: "1개월 핵심 메가 트렌드: AI 전력망 인프라 부족",
- tags: ["인프라 슈퍼사이클", "CAPEX 투자", "구조적 성장"],
- summary: "한 달 내내 글로벌 빅테크 기업들이 AI 데이터센터 구동을 위한 전력 확보 경쟁에 뛰어들었다는 경제 리포트들이 쏟아졌습니다.",
- impacts: [ { sector: "전력 / 변압기 / 원전", isPositive: true, desc: "수주 잔고 폭증 데이터가 확인되며 1개월간 강력한 우상향 추세 형성" } ]
- }
- ],
- portfolio: {
- accountAlert: "지난 1개월간 계좌가 단단하게 성장했어요!<br>구조적 성장주 중심의 세팅이 주효했습니다.",
- accountDetail: "💡 <b>기간 누적 피드백:</b> 거시 경제 흐름에 맞게 인프라 섹터 비중을 늘려둔 것이 매우 훌륭했습니다. 수익 실현을 서두르지 말고 장기 추세를 따라가세요.",
- weeklyReview: { returnRate: "+5.4% (시장 대비 +0.9% 초과)", desc: "1개월 누적 수익률입니다. 단기 노이즈를 무시한 펀더멘털 투자가 빛을 발했습니다." },
- holdings: [
- { name: "테슬라", ticker: "TSLA", returnRate: "-12.5%", score: -65, indicators: ["월봉 MACD 역배열", "수요 둔화 지표", "논문: EPS 하향"], reason: "지난 한 달간 전기차 침투율 성장세가 꺾였다는 매크로 데이터가 누적되었습니다. 장기 가치투자의 근거가 훼손되었으므로 반등 시 풀매도(비중 대폭 축소)를 권장합니다." },
- { name: "SPDR S&P 500 ETF", ticker: "SPY", returnRate: "+4.5%", score: 50, indicators: ["200일 이평선 상회", "기업 실적 상향", "논문: 우상향"], reason: "거시 경제가 탄탄합니다. 핵심 코어 자산으로서 적립식 매수를 계속 진행하세요." }
- ],
- planDesc: "위 1개월 매크로 데이터를 반영한 전략적 자산 배분(SAA) 비율입니다.",
- allocations: [
- { name: "S&P 500", percent: 50, color: "#191F28", desc: "안정적인 패시브 코어 자산" },
- { name: "인프라 관련 ETF", percent: 30, color: "#F04452", desc: "구조적 메가 트렌드 알파 수익 추구" },
- { name: "현금", percent: 20, color: "#E5E8EB", desc: "위기 대응 롱텀 헷지" }
- ]
- },
- recommendations: {
- ideas: [ { logo: "🔌", name: "Eaton Corporation", ticker: "ETN", action: "장기 모아가기", linkedIssue: "북미 전력망 교체 사이클", reason: "월간 리포트 분석 결과, 장기적인 정부 보조금과 민간 투자를 독식하고 있는 거시적 메가 트렌드의 최대 수혜주로 분석되었습니다." } ],
- etfRanking: [
- { rank: 1, name: "Global X U.S. Infrastructure", ticker: "PAVE", score: 96 },
- { rank: 2, name: "Vanguard Dividend Appreciation", ticker: "VIG", score: 88 },
- { rank: 3, name: "Invesco QQQ Trust", ticker: "QQQ", score: 82 }
- ]
- }
- }
- }
-};
-let currentPeriod = "";
-function renderApp(){document.getElementById('report-date').innerText=reportData.date;const periodsFromData=Object.keys(reportData.dataByPeriod);if(periodsFromData.length===0){document.querySelector('.app-container').innerHTML=`<div style="padding:40px 20px;text-align:center;color:#8B95A1;">LLM에서 기간 데이터를 수신하지 못했습니다.</div>`;return;}currentPeriod=periodsFromData[0];renderPeriodSelector(periodsFromData);updateAllViews();}
+let currentYear, currentMonth; let selectedDateInfo = null; let currentPeriod = "";
+function toggleCalendar(){document.getElementById('calendarPopup').classList.toggle('active');}
+function closeCalendarOnOutsideClick(event){if(event.target.id==='calendarPopup') toggleCalendar();}
+function initCalendar(){const today=new Date();currentYear=today.getFullYear();currentMonth=today.getMonth();selectedDateInfo={year:today.getFullYear(),month:today.getMonth(),date:today.getDate()};renderCalendar(currentYear,currentMonth);}
+function renderCalendar(year,month){const grid=document.getElementById('calendar-grid');const monthYearLabel=document.getElementById('calendar-month-year');grid.innerHTML='';monthYearLabel.innerText=`${year} ${String(month+1).padStart(2,'0')}`;const firstDay=new Date(year,month,1).getDay();const daysInMonth=new Date(year,month+1,0).getDate();for(let i=0;i<firstDay;i++){const emptyDiv=document.createElement('div');emptyDiv.className='calendar-date empty';grid.appendChild(emptyDiv);}const today=new Date();const isCurrentMonth=today.getFullYear()===year&&today.getMonth()===month;for(let i=1;i<=daysInMonth;i++){const dateDiv=document.createElement('div');dateDiv.className='calendar-date';dateDiv.innerText=i;const dayOfWeek=(firstDay+i-1)%7;if(dayOfWeek===0) dateDiv.style.color='#F04452'; if(dayOfWeek===6) dateDiv.style.color='#3182F6'; if(selectedDateInfo&&selectedDateInfo.year===year&&selectedDateInfo.month===month&&selectedDateInfo.date===i){dateDiv.classList.add('active');dateDiv.style.color='#FFFFFF';} else if(isCurrentMonth&&i===today.getDate()&&!selectedDateInfo){dateDiv.classList.add('active');dateDiv.style.color='#FFFFFF';} dateDiv.onclick=(e)=>loadReportForDate(year,month,i,e); grid.appendChild(dateDiv);} }
+function changeMonth(offset){currentMonth+=offset;if(currentMonth<0){currentMonth=11;currentYear--;} else if(currentMonth>11){currentMonth=0;currentYear++;}renderCalendar(currentYear,currentMonth);}
+function goToToday(){initCalendar();updateReportTitle();}
+function loadReportForDate(year,month,day,event){document.querySelectorAll('.calendar-date').forEach(el=>{el.classList.remove('active');const dayNum=parseInt(el.innerText);if(dayNum){const dayOfWeek=new Date(year,month,dayNum).getDay();if(dayOfWeek===0) el.style.color='#F04452'; else if(dayOfWeek===6) el.style.color='#3182F6'; else el.style.color='#333D4B';}}); if(event){event.target.classList.add('active');event.target.style.color='#FFFFFF';} selectedDateInfo={year:year,month:month,date:day}; updateReportTitle(); if(reportData.dataByPeriod&&reportData.dataByPeriod['1일']) changePeriod('1일'); toggleCalendar(); alert(`${year}년 ${month+1}월 ${day}일의 데이터를 불러옵니다.\n(실제 서비스에서는 이 시점에 API를 통해 JSON을 Fetch합니다.)`);}
+function updateReportTitle(){if(!selectedDateInfo) return; document.getElementById('report-date').innerText=`${selectedDateInfo.year}년 ${selectedDateInfo.month+1}월 ${selectedDateInfo.date}일 기준 업데이트`;}
+const reportData={dataByPeriod:{"1일":{"briefing":{"sentiment":{"score":45,"status":"중립","desc":"단기적으로 시장이 숨 고르기에 들어갔습니다."},"forecast":{"title":"단기 수급 및 모멘텀 전망","text":"어젯밤 발표된 물가 지표 충격으로 기술주 위주의 단기 매물이 출회되었습니다. 내일 고용 지표 발표 전까지는 변동성이 높은 관망 장세가 예상됩니다."},"insights":[{"category":"일일 시황","text":"나스닥은 소폭 하락했으나, 에너지 섹터로 단기 수급이 쏠리며 다우 지수는 방어에 성공했습니다."},{"category":"당일 수급","text":"외국인과 기관의 쌍끌이 매도가 이어지며 지수 하방 압력을 높였습니다."}],"indices":[{"name":"S&P 500","price":"5,123.45","change":"▼ 0.82%","isUp":false}]},"newsList":[{"title":"미국 2월 PPI 예상치 상회, 인플레이션 우려 재점화","tags":["물가 지표","단기 변동성","매파적 연준"],"summary":"생산자물가지수가 시장 예상을 웃돌면서, 채권 금리가 급등하고 주식 시장의 차익 실현 빌미로 작용했습니다.","impacts":[{"sector":"기술 / 성장주","isPositive":false,"desc":"금리 상승에 취약한 고퍼(High-PER) 주식들 투심 악화"}]}],"portfolio":{"accountAlert":"오늘 하루 계좌 방어력 요약 (2줄)","accountDetail":"💡 <b>단기 대응:</b> 당장 보유 주식을 던질 필요는 없으나, 추가 하락 시 현금(60%)을 활용한 분할 매수 기회를 노려보세요.","weeklyReview":{"returnRate":"-0.2% (전일 대비)","desc":"시장 하락 폭 대비 계좌 손실 방어에 성공했습니다."},"holdings":[{"name":"테슬라","ticker":"TSLA","returnRate":"-2.5%","score":-30,"indicators":["RSI 30 이탈","단기 매물대 저항","논문: 모멘텀 둔화"],"reason":"어젯밤 중국 내 판매 부진 뉴스로 단기 지지선이 무너졌습니다. 단기적으로는 매도 관점입니다."},{"name":"SPDR S&P 500 ETF","ticker":"SPY","returnRate":"-0.8%","score":10,"indicators":["이평선 수렴","관망 시그널"],"reason":"단기 방향성이 없으므로 홀딩(보유)하며 시장의 방향성을 확인하세요."}],"planDesc":"내일 장을 대비한 단기 전술적 자산 배분(TAA) 팁입니다.","allocations":[{"name":"현금 대기","percent":60,"color":"#E5E8EB","desc":"단기 변동성 회피용 방어"},{"name":"S&P 500","percent":40,"color":"#3182F6","desc":"핵심 자산 유지"}]},"recommendations":{"ideas":[{"logo":"📉","name":"ProShares Short S&P500","ticker":"SH","action":"단기 헷지 매수","linkedIssue":"단기 금리 상승 우려","reason":"지수 하방 압력에 대비해 포트폴리오의 5% 미만으로 단기 인버스 헷지를 고려해 보세요."}],"etfRanking":[{"rank":1,"name":"Energy Select Sector SPDR","ticker":"XLE","score":85},{"rank":2,"name":"SPDR Gold Trust","ticker":"GLD","score":78}]}},"1개월":{"briefing":{"sentiment":{"score":78,"status":"탐욕","desc":"최근 1개월간 펀더멘털 기반의 랠리가 지속되며 투자 심리가 긍정적입니다."},"forecast":{"title":"1개월 데이터 누적 기반 거시 전망","text":"지난 한 달간 경제 지표와 기업 실적 데이터를 취합한 결과, 경제 연착륙 시나리오가 현실화되고 있습니다. 기업들이 스스로 실적을 증명하며 지수의 하단을 견고하게 다지고 있습니다."},"insights":[{"category":"실적 장세","text":"빅테크 및 인프라 관련주들의 1분기 영업이익이 전년 대비 큰 폭으로 상승했습니다."}],"indices":[{"name":"S&P 500 (1개월)","price":"5,123.45","change":"▲ 4.50%","isUp":true}]},"newsList":[{"title":"1개월 핵심 메가 트렌드: AI 전력망 인프라 부족","tags":["인프라 슈퍼사이클","CAPEX 투자","구조적 성장"],"summary":"한 달 내내 글로벌 빅테크 기업들이 AI 데이터센터 구동을 위한 전력 확보 경쟁에 뛰어들었다는 경제 리포트들이 쏟아졌습니다.","impacts":[{"sector":"전력 / 변압기 / 원전","isPositive":true,"desc":"수주 잔고 폭증 데이터가 확인되며 1개월간 강력한 우상향 추세 형성"}]}],"portfolio":{"accountAlert":"지난 1개월간 계좌가 단단하게 성장했어요!","accountDetail":"💡 <b>기간 누적 피드백:</b> 거시 경제 흐름에 맞게 인프라 섹터 비중을 늘려둔 것이 매우 훌륭했습니다. 수익 실현을 서두르지 말고 장기 추세를 따라가세요.","weeklyReview":{"returnRate":"+5.4% (시장 대비 +0.9% 초과)","desc":"1개월 누적 수익률입니다. 단기 노이즈를 무시한 펀더멘털 투자가 빛을 발했습니다."},"holdings":[{"name":"테슬라","ticker":"TSLA","returnRate":"-12.5%","score":-65,"indicators":["월봉 MACD 역배열","수요 둔화 지표","논문: EPS 하향"],"reason":"지난 한 달간 전기차 침투율 성장세가 꺾였다는 매크로 데이터가 누적되었습니다. 장기 가치투자의 근거가 훼손되었으므로 반등 시 풀매도(비중 대폭 축소)를 권장합니다."},{"name":"SPDR S&P 500 ETF","ticker":"SPY","returnRate":"+4.5%","score":50,"indicators":["200일 이평선 상회","기업 실적 상향","논문: 우상향"],"reason":"거시 경제가 탄탄합니다. 핵심 코어 자산으로서 적립식 매수를 계속 진행하세요."}],"planDesc":"위 1개월 매크로 데이터를 반영한 전략적 자산 배분(SAA) 비율입니다.","allocations":[{"name":"S&P 500","percent":50,"color":"#191F28","desc":"안정적인 패시브 코어 자산"},{"name":"인프라 관련 ETF","percent":30,"color":"#F04452","desc":"구조적 메가 트렌드 알파 수익 추구"},{"name":"현금","percent":20,"color":"#E5E8EB","desc":"위기 대응 롱텀 헷지"}]},"recommendations":{"ideas":[{"logo":"🔌","name":"Eaton Corporation","ticker":"ETN","action":"장기 모아가기","linkedIssue":"북미 전력망 교체 사이클","reason":"월간 리포트 분석 결과, 장기적인 정부 보조금과 민간 투자를 독식하고 있는 거시적 메가 트렌드의 최대 수혜주로 분석되었습니다."}],"etfRanking":[{"rank":1,"name":"Global X U.S. Infrastructure","ticker":"PAVE","score":96},{"rank":2,"name":"Vanguard Dividend Appreciation","ticker":"VIG","score":88},{"rank":3,"name":"Invesco QQQ Trust","ticker":"QQQ","score":82}]}}}};
+function renderApp(){initCalendar();updateReportTitle();const periodsFromData=Object.keys(reportData.dataByPeriod);if(periodsFromData.length===0){document.querySelector('.tab-content').innerHTML=`<div style="padding: 40px 20px; text-align: center; color: #8B95A1;">데이터가 없습니다.</div>`;return;}currentPeriod=periodsFromData[0];renderPeriodSelector(periodsFromData);updateAllViews();}
 function renderPeriodSelector(periods){const container=document.getElementById('periodSelector');let html='';periods.forEach(period=>{const isActive=(period===currentPeriod)?'active':'';html+=`<div class="period-chip ${isActive}" onclick="changePeriod('${period}')">${period}</div>`;});container.innerHTML=html;}
-function changePeriod(period){if(!reportData.dataByPeriod[period]) return; currentPeriod=period; renderPeriodSelector(Object.keys(reportData.dataByPeriod)); updateAllViews();}
+function changePeriod(period){if(!reportData.dataByPeriod[period])return;currentPeriod=period;renderPeriodSelector(Object.keys(reportData.dataByPeriod));updateAllViews();}
 function updateAllViews(){renderBriefing();renderNews();renderPortfolio();renderRecommend();}
-function getCurrentData(){return reportData.dataByPeriod[currentPeriod]||{};}
-function isMacroPeriod(){return currentPeriod.includes('월')||currentPeriod.includes('년');}
-function getSignalData(score){if(score<=-60)return{text:"🧊 풀매도",cls:"sig-ss",color:"#1B64DA"}; if(score<=-20)return{text:"📉 매도",cls:"sig-s",color:"#3182F6"}; if(score<=19)return{text:"⏸️ 보유",cls:"sig-h",color:"#6B7684"}; if(score<=59)return{text:"📈 매수",cls:"sig-b",color:"#F04452"}; return{text:"🔥 풀매수",cls:"sig-sb",color:"#D9042B"};}
-function renderBriefing(){const container=document.getElementById('tab-briefing');const data=getCurrentData().briefing;if(!data){container.innerHTML=`<div class="empty-state">해당 기간의 브리핑 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(data.sentiment){const s=data.sentiment;let barColor=s.score>50?'#F04452':'#3182F6';let statusColor=s.score>50?'#F04452':'#3182F6';const titleText=macro?`${currentPeriod} 시장 과열/침체 온도 🌡️`:"오늘의 단기 시장 온도 🌡️";html+=`<div class="card"><div class="card-title">${titleText}</div><div class="sentiment-container"><div class="sentiment-header"><div class="sentiment-score">${s.score}<span style="font-size:14px; color:#8B95A1;"> / 100</span></div><div class="sentiment-status" style="color:${statusColor};">${s.status}</div></div><div class="sentiment-bar-bg"><div class="sentiment-bar-fill" style="width: ${s.score}%; background-color: ${barColor};"></div></div><div class="sentiment-desc">${s.desc}</div></div></div>`;}if(data.forecast){const f=data.forecast;html+=`<div class="card" style="padding:0; box-shadow:none; background:transparent;"><div class="forecast-box"><div class="forecast-title"><span>${currentPeriod} 전망</span>${f.title}</div><div class="forecast-text">${f.text}</div></div></div>`;}if(data.insights&&data.insights.length>0){const titleText=macro?`${currentPeriod} 거시경제 핵심 인사이트 💡`:`${currentPeriod} 단기 시황 브리핑 💡`;html+=`<div class="card"><div class="card-title">${titleText}</div><ul class="insight-list">`;data.insights.forEach(insight=>{html+=`<li class="insight-item"><span class="badge-category">${insight.category}</span><div class="insight-text">${insight.text}</div></li>`;});html+=`</ul></div>`;}if(data.indices&&data.indices.length>0){html+=`<div class="card"><div class="card-title">${currentPeriod} 누적 지수 성과</div>`;data.indices.forEach(idx=>{const colorClass=idx.isUp?'text-up':'text-down';html+=`<div class="index-row"><div class="index-name">${idx.name}</div><div class="index-value"><div class="index-price">${idx.price}</div><div class="${colorClass}">${idx.change}</div></div></div>`;});html+=`</div>`;}container.innerHTML=html;}
-function renderNews(){const container=document.getElementById('tab-news');const data=getCurrentData().newsList;if(!data||data.length===0){container.innerHTML=`<div class="empty-state">해당 기간의 주목할 만한 이슈 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();data.forEach(news=>{let tagsHtml=news.tags.map(tag=>`<div class="chip">${tag}</div>`).join('');let impactsHtml='';if(news.impacts&&news.impacts.length>0){const impactTitle=macro?`${currentPeriod} 누적 펀더멘털 영향도`:`단기 섹터 투심 영향도`;impactsHtml+=`<div class="impact-tree"><div class="impact-tree-title">${impactTitle}</div>`;news.impacts.forEach(impact=>{const dotClass=impact.isPositive?'dot-red':'dot-blue';const badgeClass=impact.isPositive?'badge-positive':'badge-negative';const badgeText=impact.isPositive?'긍정':'부정';impactsHtml+=`<div class="impact-node"><div class="node-header"><div class="node-dot ${dotClass}">●</div><div class="node-title">${impact.sector} <span class="badge ${badgeClass}">${badgeText}</span></div></div><div class="node-desc">${impact.desc}</div></div>`;});impactsHtml+=`</div>`;}html+=`<div class="card"><div class="card-title" style="font-size: 20px;">${news.title}</div><div class="chip-group">${tagsHtml}</div><p style="font-size: 15px; color: #4E5968; margin-bottom: 24px;">${news.summary}</p>${impactsHtml}</div>`;});container.innerHTML=html;}
-function renderPortfolio(){const container=document.getElementById('tab-portfolio');const p=getCurrentData().portfolio;if(!p){container.innerHTML=`<div class="empty-state">포트폴리오 분석 데이터가 없습니다.</div>`;return;}const macro=isMacroPeriod();let html=`<div class="account-card"><div class="account-alert">${p.accountAlert}</div><div class="account-detail">${p.accountDetail}</div></div>`;if(p.holdings&&p.holdings.length>0){const signalDesc=macro?"장기 이평선 및 논문 알고리즘 기반 펀더멘털 중장기 시그널입니다.":"RSI, 볼린저밴드 등 단기 기술적 지표 및 수급 기반 시그널입니다.";html+=`<div class="card"><div class="card-title">🎯 내 보유 종목 AI 시그널</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${signalDesc}</div>`;p.holdings.forEach(item=>{const sig=getSignalData(item.score);const returnColor=item.returnRate.includes('+')?'#F04452':'#3182F6';const markerPos=(item.score+100)/2;const indHtml=item.indicators.map(ind=>`<span class="sig-ind">${ind}</span>`).join('');html+=`<div class="signal-box"><div class="signal-header"><div class="signal-stock-info"><span class="signal-stock-name">${item.name}</span><span class="signal-stock-ticker">${item.ticker} <span style="font-weight:700; color:${returnColor}; margin-left:6px;">${item.returnRate}</span></span></div><div class="signal-badge ${sig.cls}">${sig.text}</div></div><div class="signal-bar-wrap"><div class="signal-bar-label">-100</div><div class="signal-bar-track"><div class="signal-bar-marker" style="left: ${markerPos}%; border-color: ${sig.color};"></div></div><div class="signal-bar-label">+100</div></div><div class="signal-indicators">${indHtml}</div><div class="signal-reason">${item.reason}</div></div>`;});html+=`</div>`;}html+=`<div class="card"><div class="card-title">📊 ${currentPeriod} 포트폴리오 성과</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 4px;">해당 기간 누적 수익률</div><div style="font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 16px; color: #3182F6;">${p.weeklyReview.returnRate}</div><p style="font-size: 14px; color: #4E5968;">${p.weeklyReview.desc}</p></div>`;if(p.allocations&&p.allocations.length>0){let barHtml='';let listHtml='';p.allocations.forEach(alloc=>{barHtml+=`<div style="width: ${alloc.percent}%; background-color: ${alloc.color};"></div>`;listHtml+=`<div class="alloc-item"><div class="alloc-dot" style="background-color: ${alloc.color};"></div><div><div class="alloc-name">${alloc.name} (${alloc.percent}%)</div><div class="alloc-desc">${alloc.desc}</div></div></div>`;});const allocTitle=macro?"장기 전략적 자산 배분 (SAA)":"단기 전술적 자산 배분 (TAA)";html+=`<div class="card"><div class="card-title">📅 ${allocTitle}</div><p style="font-size: 14px; color: #4E5968; margin-bottom: 16px;">${p.planDesc}</p><div class="allocation-bar">${barHtml}</div>${listHtml}</div>`;}container.innerHTML=html;}
+function getCurrentData(){return reportData.dataByPeriod[currentPeriod]||{};} function isMacroPeriod(){return currentPeriod.includes('월')||currentPeriod.includes('년');}
+function getSignalData(score){if(score<=-60)return{text:"🧊 풀매도",cls:"sig-ss",color:"#1B64DA"};if(score<=-20)return{text:"📉 매도",cls:"sig-s",color:"#3182F6"};if(score<=19)return{text:"⏸️ 보유",cls:"sig-h",color:"#6B7684"};if(score<=59)return{text:"📈 매수",cls:"sig-b",color:"#F04452"};return{text:"🔥 풀매수",cls:"sig-sb",color:"#D9042B"};}
+function renderBriefing(){const container=document.getElementById('tab-briefing');const data=getCurrentData().briefing;if(!data){container.innerHTML=`<div class="empty-state">해당 기간의 브리핑 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(data.sentiment){const s=data.sentiment;let barColor=s.score>50?'#F04452':'#3182F6';let statusColor=s.score>50?'#F04452':'#3182F6';const titleText=macro?`${currentPeriod} 시장 과열/침체 온도 🌡️`:'오늘의 단기 시장 온도 🌡️';html+=`<div class="card"><div class="card-title">${titleText}</div><div class="sentiment-container"><div class="sentiment-header"><div class="sentiment-score">${s.score}<span style="font-size:14px; color:#8B95A1;"> / 100</span></div><div class="sentiment-status" style="color:${statusColor};">${s.status}</div></div><div class="sentiment-bar-bg"><div class="sentiment-bar-fill" style="width: ${s.score}%; background-color: ${barColor};"></div></div><div class="sentiment-desc">${s.desc}</div></div></div>`;}if(data.forecast){const f=data.forecast;html+=`<div class="card" style="padding:0; box-shadow:none; background:transparent;"><div class="forecast-box"><div class="forecast-title"><span>${currentPeriod} 전망</span>${f.title}</div><div class="forecast-text">${f.text}</div></div></div>`;}if(data.insights&&data.insights.length>0){const titleText=macro?`${currentPeriod} 거시경제 핵심 인사이트 💡`:`${currentPeriod} 단기 시황 브리핑 💡`;html+=`<div class="card"><div class="card-title">${titleText}</div><ul class="insight-list">`;data.insights.forEach(insight=>{html+=`<li class="insight-item"><span class="badge-category">${insight.category}</span><div class="insight-text">${insight.text}</div></li>`;});html+=`</ul></div>`;}if(data.indices&&data.indices.length>0){html+=`<div class="card"><div class="card-title">${currentPeriod} 누적 지수 성과</div>`;data.indices.forEach(idx=>{const colorClass=idx.isUp?'text-up':'text-down';html+=`<div class="index-row"><div class="index-name">${idx.name}</div><div class="index-value"><div class="index-price">${idx.price}</div><div class="${colorClass}">${idx.change}</div></div></div>`;});html+=`</div>`;}container.innerHTML=html;}
+function renderNews(){const container=document.getElementById('tab-news');const data=getCurrentData().newsList;if(!data||data.length===0){container.innerHTML=`<div class="empty-state">해당 기간의 이슈 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();data.forEach(news=>{let tagsHtml=news.tags.map(tag=>`<div class="chip">${tag}</div>`).join('');let impactsHtml='';if(news.impacts&&news.impacts.length>0){const impactTitle=macro?`${currentPeriod} 누적 펀더멘털 영향도`:`단기 섹터 투심 영향도`;impactsHtml+=`<div class="impact-tree"><div class="impact-tree-title">${impactTitle}</div>`;news.impacts.forEach(impact=>{const dotClass=impact.isPositive?'dot-red':'dot-blue';const badgeClass=impact.isPositive?'badge-positive':'badge-negative';const badgeText=impact.isPositive?'긍정':'부정';impactsHtml+=`<div class="impact-node"><div class="node-header"><div class="node-dot ${dotClass}">●</div><div class="node-title">${impact.sector} <span class="badge ${badgeClass}">${badgeText}</span></div></div><div class="node-desc">${impact.desc}</div></div>`;});impactsHtml+=`</div>`;}html+=`<div class="card"><div class="card-title" style="font-size: 20px;">${news.title}</div><div class="chip-group">${tagsHtml}</div><p style="font-size: 15px; color: #4E5968; margin-bottom: 24px;">${news.summary}</p>${impactsHtml}</div>`;});container.innerHTML=html;}
+function renderPortfolio(){const container=document.getElementById('tab-portfolio');const p=getCurrentData().portfolio;if(!p){container.innerHTML=`<div class="empty-state">포트폴리오 분석 데이터가 없습니다.</div>`;return;}const macro=isMacroPeriod();let html=`<div class="account-card"><div class="account-alert">${p.accountAlert}</div><div class="account-detail">${p.accountDetail}</div></div>`;if(p.holdings&&p.holdings.length>0){const signalDesc=macro?"장기 이평선 및 기업 펀더멘털 알고리즘 기반 중장기 시그널입니다.":"RSI, 볼린저밴드 등 단기 수급 및 기술적 지표 기반 시그널입니다.";html+=`<div class="card"><div class="card-title">🎯 내 보유 종목 AI 시그널</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${signalDesc}</div>`;p.holdings.forEach(item=>{const sig=getSignalData(item.score);const returnColor=item.returnRate.includes('+')?'#F04452':'#3182F6';const markerPos=(item.score+100)/2;const indHtml=item.indicators.map(ind=>`<span class="sig-ind">${ind}</span>`).join('');html+=`<div class="signal-box"><div class="signal-header"><div class="signal-stock-info"><span class="signal-stock-name">${item.name}</span><span class="signal-stock-ticker">${item.ticker} <span style="font-weight:700; color:${returnColor}; margin-left:6px;">${item.returnRate}</span></span></div><div class="signal-badge ${sig.cls}">${sig.text}</div></div><div class="signal-bar-wrap"><div class="signal-bar-label">-100</div><div class="signal-bar-track"><div class="signal-bar-marker" style="left: ${markerPos}%; border-color: ${sig.color};"></div></div><div class="signal-bar-label">+100</div></div><div class="signal-indicators">${indHtml}</div><div class="signal-reason">${item.reason}</div></div>`;});html+=`</div>`;}html+=`<div class="card"><div class="card-title">📊 ${currentPeriod} 포트폴리오 성과</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 4px;">해당 기간 누적 수익률</div><div style="font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 16px; color: #3182F6;">${p.weeklyReview.returnRate}</div><p style="font-size: 14px; color: #4E5968;">${p.weeklyReview.desc}</p></div>`;if(p.allocations&&p.allocations.length>0){let barHtml='';let listHtml='';p.allocations.forEach(alloc=>{barHtml+=`<div style="width: ${alloc.percent}%; background-color: ${alloc.color};"></div>`;listHtml+=`<div class="alloc-item"><div class="alloc-dot" style="background-color: ${alloc.color};"></div><div><div class="alloc-name">${alloc.name} (${alloc.percent}%)</div><div class="alloc-desc">${alloc.desc}</div></div></div>`;});const allocTitle=macro?"장기 전략적 자산 배분 (SAA)":"단기 전술적 자산 배분 (TAA)";html+=`<div class="card"><div class="card-title">📅 ${allocTitle}</div><p style="font-size: 14px; color: #4E5968; margin-bottom: 16px;">${p.planDesc}</p><div class="allocation-bar">${barHtml}</div>${listHtml}</div>`;}container.innerHTML=html;}
 function renderRecommend(){const container=document.getElementById('tab-recommend');const r=getCurrentData().recommendations;if(!r){container.innerHTML=`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(r.ideas&&r.ideas.length>0){const ideaTitle=macro?"장기 메가 트렌드 투자 아이디어":"단기 모멘텀 투자 아이디어";html+=`<div class="card" style="background-color: transparent; box-shadow: none; padding: 0; margin: 0 20px 24px 20px;"><div class="card-title" style="padding-left: 4px;">💡 ${ideaTitle}</div>`;r.ideas.forEach(rec=>{html+=`<div style="margin-bottom: 20px;"><div class="stock-item" style="margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"><div class="stock-info"><div class="stock-logo">${rec.logo}</div><div><div class="stock-name">${rec.name}</div><div class="stock-ticker">${rec.ticker}</div></div></div><div class="stock-action">${rec.action}</div></div><div class="stock-reason-box"><div class="badge-issue">🔗 연관 테마: ${rec.linkedIssue}</div><div style="font-size: 14px; color: #4E5968; line-height: 1.5;">${rec.reason}</div></div></div>`;});html+=`</div>`;}if(r.etfRanking&&r.etfRanking.length>0){const rankDesc=macro?"EPS 성장, 장기 거래량, 200일선 지표를 종합한 장기 펀더멘털 점수입니다.":"일일 변동성, RSI, 단기 수급을 종합한 단기 트레이딩 점수입니다.";html+=`<div class="card"><div class="card-title">🔥 AI 모멘텀 ETF 랭킹</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${rankDesc}</div><div class="ranking-list">`;r.etfRanking.forEach(etf=>{const rankClass=etf.rank<=3?'top-rank':'';const barColor=etf.score>=80?'#F04452':(etf.score>=50?'#3182F6':'#8B95A1');html+=`<div class="rank-item"><div class="rank-num ${rankClass}">${etf.rank}</div><div class="rank-info"><div class="rank-title-box"><div><span class="rank-name">${etf.name}</span><span class="rank-ticker">${etf.ticker}</span></div><div class="rank-score-text">${etf.score}점</div></div><div class="rank-bar-bg"><div class="rank-bar-fill" style="width: ${etf.score}%; background-color: ${barColor};"></div></div></div></div>`;});html+=`</div></div>`;}container.innerHTML=html===''?`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`:html;}
-function switchTab(tabId){document.querySelectorAll('.tab-item').forEach(item=>item.classList.remove('active'));const clickedTab=Array.from(document.querySelectorAll('.tab-item')).find(item=>item.getAttribute('onclick').includes(tabId));if(clickedTab) clickedTab.classList.add('active');document.querySelectorAll('.tab-pane').forEach(pane=>pane.classList.remove('active'));const activePane=document.getElementById('tab-'+tabId);if(activePane) activePane.classList.add('active');if(clickedTab) clickedTab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});} 
+function switchTab(tabId){document.querySelectorAll('.tab-item').forEach(item=>item.classList.remove('active'));const clickedTab=Array.from(document.querySelectorAll('.tab-item')).find(item=>item.getAttribute('onclick').includes(tabId));if(clickedTab) clickedTab.classList.add('active');document.querySelectorAll('.tab-pane').forEach(pane=>pane.classList.remove('active'));const activePane=document.getElementById('tab-'+tabId);if(activePane) activePane.classList.add('active');if(clickedTab) clickedTab.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });}
 window.onload=renderApp;
 </script>
 </body>

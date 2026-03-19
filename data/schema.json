@@ -1,59 +1,99 @@
 {
-  "description": "Daily investment assistant report schema for igzun-daily-report. Each generated report should populate the HTML-compatible reportData structure.",
-  "root": {
-    "date": "string",
-    "dataByPeriod": {
-      "<period>": {
-        "briefing": {
-          "sentiment": { "score": "number(0-100)", "status": "string", "desc": "string" },
-          "forecast": { "title": "string", "text": "string" },
-          "insights": [{ "category": "string", "text": "string" }],
-          "indices": [{ "name": "string", "price": "string", "change": "string", "isUp": "boolean" }]
+  "date": "string",
+  "dataByPeriod": {
+    "<period>": {
+      "briefing": {
+        "sentiment": {
+          "score": "number(0-100)",
+          "status": "string",
+          "desc": "string"
         },
-        "newsList": [{
+        "forecast": {
+          "title": "string",
+          "text": "string"
+        },
+        "insights": [
+          {
+            "category": "string",
+            "text": "string"
+          }
+        ],
+        "indices": [
+          {
+            "name": "string",
+            "price": "string",
+            "change": "string",
+            "isUp": "boolean"
+          }
+        ]
+      },
+      "newsList": [
+        {
           "title": "string",
           "tags": ["string"],
           "summary": "string",
-          "impacts": [{ "sector": "string", "isPositive": "boolean", "desc": "string" }]
-        }],
-        "portfolio": {
-          "accountAlert": "string(html allowed)",
-          "accountDetail": "string(html allowed)",
-          "weeklyReview": { "returnRate": "string", "desc": "string" },
-          "holdings": [{
+          "impacts": [
+            {
+              "sector": "string",
+              "isPositive": "boolean",
+              "desc": "string"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "string(html allowed)",
+        "accountDetail": "string(html allowed)",
+        "weeklyReview": {
+          "returnRate": "string",
+          "desc": "string"
+        },
+        "holdings": [
+          {
             "name": "string",
             "ticker": "string",
             "returnRate": "string",
             "score": "number(-100..100)",
             "indicators": ["string"],
             "reason": "string"
-          }],
-          "planDesc": "string",
-          "allocations": [{ "name": "string", "percent": "number", "color": "string", "desc": "string" }]
-        },
-        "recommendations": {
-          "ideas": [{
+          }
+        ],
+        "planDesc": "string",
+        "allocations": [
+          {
+            "name": "string",
+            "percent": "number",
+            "color": "string",
+            "desc": "string"
+          }
+        ]
+      },
+      "recommendations": {
+        "ideas": [
+          {
             "logo": "string",
             "name": "string",
             "ticker": "string",
             "action": "string",
             "linkedIssue": "string",
             "reason": "string"
-          }],
-          "etfRanking": [{ "rank": "number", "name": "string", "ticker": "string", "score": "number" }]
-        },
-        "raw_sources": {
-          "news": ["string"],
-          "market": ["string"],
-          "reports": ["string"],
-          "portfolio": ["string"]
-        }
+          }
+        ],
+        "etfRanking": [
+          {
+            "rank": "number",
+            "name": "string",
+            "ticker": "string",
+            "score": "number"
+          }
+        ]
+      },
+      "raw_sources": {
+        "news": ["string"],
+        "market": ["string"],
+        "reports": ["string"],
+        "portfolio": ["string"]
       }
     }
-  },
-  "notes": [
-    "ETL should output site/YYYY-MM-DD/result.json in this exact shape or transform raw data into this shape before publishing.",
-    "Periods can include 1일, 3일, 1주, 1개월, 1년, etc.",
-    "Missing values should use empty arrays, empty strings, or omit optional sections safely."
-  ]
+  }
 }
