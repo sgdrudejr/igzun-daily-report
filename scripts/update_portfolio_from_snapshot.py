@@ -66,7 +66,14 @@ def main():
     result_path = SITE / ds / 'result.json'
     if result_path.exists():
         update_result(result_path, snap)
+        update_dashboard_status(result_path, source='main_session')
         print('updated', result_path)
+    else:
+        print('missing result', result_path)
+
+if __name__ == '__main__':
+    main()
+'updated', result_path)
     else:
         print('missing result', result_path)
 

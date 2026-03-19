@@ -395,15 +395,41 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "1일 기간은 정제 리포트 기반 해석 우선",
-        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "accountAlert": "총 예수금 50,000,000원 / 현금 18,000,000원 / 투자금 0원",
+        "accountDetail": "증권사: admin_bot_ocr · 기준일: 2026-03-19",
         "weeklyReview": {
           "returnRate": "실계좌 미연결",
           "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
         },
-        "holdings": [],
-        "planDesc": "1일 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
-        "allocations": []
+        "holdings": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "ticker": "SOXX",
+            "returnRate": "+1.8%",
+            "score": 10,
+            "indicators": [
+              "수량 12.0",
+              "평단 210.5",
+              "현재가 214.2"
+            ],
+            "reason": "평가손익 44 / 비중 11.6% 기반 자동 생성"
+          }
+        ],
+        "planDesc": "실계좌 스냅샷 기준 자동 반영된 포트폴리오 비중입니다.",
+        "allocations": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "percent": 11.6,
+            "color": "#3182F6",
+            "desc": "SOXX / 평가금액 2,570"
+          },
+          {
+            "name": "현금",
+            "percent": 88.4,
+            "color": "#E5E8EB",
+            "desc": "현금 18,000,000원"
+          }
+        ]
       },
       "recommendations": {
         "ideas": [],
@@ -804,15 +830,41 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "3일 기간은 정제 리포트 기반 해석 우선",
-        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "accountAlert": "총 예수금 50,000,000원 / 현금 18,000,000원 / 투자금 0원",
+        "accountDetail": "증권사: admin_bot_ocr · 기준일: 2026-03-19",
         "weeklyReview": {
           "returnRate": "실계좌 미연결",
           "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
         },
-        "holdings": [],
-        "planDesc": "3일 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
-        "allocations": []
+        "holdings": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "ticker": "SOXX",
+            "returnRate": "+1.8%",
+            "score": 10,
+            "indicators": [
+              "수량 12.0",
+              "평단 210.5",
+              "현재가 214.2"
+            ],
+            "reason": "평가손익 44 / 비중 11.6% 기반 자동 생성"
+          }
+        ],
+        "planDesc": "실계좌 스냅샷 기준 자동 반영된 포트폴리오 비중입니다.",
+        "allocations": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "percent": 11.6,
+            "color": "#3182F6",
+            "desc": "SOXX / 평가금액 2,570"
+          },
+          {
+            "name": "현금",
+            "percent": 88.4,
+            "color": "#E5E8EB",
+            "desc": "현금 18,000,000원"
+          }
+        ]
       },
       "recommendations": {
         "ideas": [],
@@ -1213,15 +1265,41 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "1주 기간은 정제 리포트 기반 해석 우선",
-        "accountDetail": "실계좌 데이터 미연결 상태로 모델 코멘트만 유지합니다.",
+        "accountAlert": "총 예수금 50,000,000원 / 현금 18,000,000원 / 투자금 0원",
+        "accountDetail": "증권사: admin_bot_ocr · 기준일: 2026-03-19",
         "weeklyReview": {
           "returnRate": "실계좌 미연결",
           "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다."
         },
-        "holdings": [],
-        "planDesc": "1주 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
-        "allocations": []
+        "holdings": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "ticker": "SOXX",
+            "returnRate": "+1.8%",
+            "score": 10,
+            "indicators": [
+              "수량 12.0",
+              "평단 210.5",
+              "현재가 214.2"
+            ],
+            "reason": "평가손익 44 / 비중 11.6% 기반 자동 생성"
+          }
+        ],
+        "planDesc": "실계좌 스냅샷 기준 자동 반영된 포트폴리오 비중입니다.",
+        "allocations": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "percent": 11.6,
+            "color": "#3182F6",
+            "desc": "SOXX / 평가금액 2,570"
+          },
+          {
+            "name": "현금",
+            "percent": 88.4,
+            "color": "#E5E8EB",
+            "desc": "현금 18,000,000원"
+          }
+        ]
       },
       "recommendations": {
         "ideas": [],
@@ -1432,15 +1510,41 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "1개월 누적 원문을 기준으로 자산군 방향성을 우선 반영합니다.",
-        "accountDetail": "실계좌 미연결 상태입니다.",
+        "accountAlert": "총 예수금 50,000,000원 / 현금 18,000,000원 / 투자금 0원",
+        "accountDetail": "증권사: admin_bot_ocr · 기준일: 2026-03-19",
         "weeklyReview": {
           "returnRate": "실계좌 미연결",
           "desc": "계좌 스냅샷 필요"
         },
-        "holdings": [],
-        "planDesc": "1개월 내러티브 변화 기준 자산배분 해석",
-        "allocations": []
+        "holdings": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "ticker": "SOXX",
+            "returnRate": "+1.8%",
+            "score": 10,
+            "indicators": [
+              "수량 12.0",
+              "평단 210.5",
+              "현재가 214.2"
+            ],
+            "reason": "평가손익 44 / 비중 11.6% 기반 자동 생성"
+          }
+        ],
+        "planDesc": "실계좌 스냅샷 기준 자동 반영된 포트폴리오 비중입니다.",
+        "allocations": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "percent": 11.6,
+            "color": "#3182F6",
+            "desc": "SOXX / 평가금액 2,570"
+          },
+          {
+            "name": "현금",
+            "percent": 88.4,
+            "color": "#E5E8EB",
+            "desc": "현금 18,000,000원"
+          }
+        ]
       },
       "recommendations": {
         "ideas": [],
@@ -1711,15 +1815,41 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "3개월 구간은 구조적 레짐 변화 중심 해석이 우선입니다.",
-        "accountDetail": "실계좌 미연결 상태입니다.",
+        "accountAlert": "총 예수금 50,000,000원 / 현금 18,000,000원 / 투자금 0원",
+        "accountDetail": "증권사: admin_bot_ocr · 기준일: 2026-03-19",
         "weeklyReview": {
           "returnRate": "실계좌 미연결",
           "desc": "계좌 스냅샷 필요"
         },
-        "holdings": [],
-        "planDesc": "3개월 누적 거시 트렌드 기준 자산배분",
-        "allocations": []
+        "holdings": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "ticker": "SOXX",
+            "returnRate": "+1.8%",
+            "score": 10,
+            "indicators": [
+              "수량 12.0",
+              "평단 210.5",
+              "현재가 214.2"
+            ],
+            "reason": "평가손익 44 / 비중 11.6% 기반 자동 생성"
+          }
+        ],
+        "planDesc": "실계좌 스냅샷 기준 자동 반영된 포트폴리오 비중입니다.",
+        "allocations": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "percent": 11.6,
+            "color": "#3182F6",
+            "desc": "SOXX / 평가금액 2,570"
+          },
+          {
+            "name": "현금",
+            "percent": 88.4,
+            "color": "#E5E8EB",
+            "desc": "현금 18,000,000원"
+          }
+        ]
       },
       "recommendations": {
         "ideas": [],
@@ -2032,15 +2162,41 @@
         }
       ],
       "portfolio": {
-        "accountAlert": "6개월 구간은 구조적 자산배분 판단이 우선입니다.",
-        "accountDetail": "실계좌 미연결 상태입니다.",
+        "accountAlert": "총 예수금 50,000,000원 / 현금 18,000,000원 / 투자금 0원",
+        "accountDetail": "증권사: admin_bot_ocr · 기준일: 2026-03-19",
         "weeklyReview": {
           "returnRate": "실계좌 미연결",
           "desc": "계좌 스냅샷 필요"
         },
-        "holdings": [],
-        "planDesc": "6개월 누적 구조 변화 기준 자산배분",
-        "allocations": []
+        "holdings": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "ticker": "SOXX",
+            "returnRate": "+1.8%",
+            "score": 10,
+            "indicators": [
+              "수량 12.0",
+              "평단 210.5",
+              "현재가 214.2"
+            ],
+            "reason": "평가손익 44 / 비중 11.6% 기반 자동 생성"
+          }
+        ],
+        "planDesc": "실계좌 스냅샷 기준 자동 반영된 포트폴리오 비중입니다.",
+        "allocations": [
+          {
+            "name": "iShares Semiconductor ETF",
+            "percent": 11.6,
+            "color": "#3182F6",
+            "desc": "SOXX / 평가금액 2,570"
+          },
+          {
+            "name": "현금",
+            "percent": 88.4,
+            "color": "#E5E8EB",
+            "desc": "현금 18,000,000원"
+          }
+        ]
       },
       "recommendations": {
         "ideas": [],

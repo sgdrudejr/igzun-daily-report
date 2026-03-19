@@ -1,0 +1,11 @@
+{
+  "account_date": null,
+  "broker": null,
+  "currency": "KRW",
+  "total_deposit": 0,
+  "cash": 0,
+  "total_equity": 0,
+  "positions": [],
+  "source": "admin_bot",
+  "updated_at": null
+}

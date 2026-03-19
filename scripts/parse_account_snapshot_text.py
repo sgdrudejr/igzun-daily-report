@@ -6,6 +6,7 @@ from datetime import date
 ROOT = Path('/Users/seo/.openclaw/workspace/igzun-daily-report')
 INBOX = ROOT / 'data/account_snapshot_inbox'
 OUT = INBOX / f"{date.today().isoformat()}_snapshot.json"
+LATEST = ROOT / 'data/account_snapshot_latest.json'
 
 
 def parse_money(s):
@@ -65,6 +66,11 @@ def main():
     result = parse_text(txt)
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2))
     print('wrote', OUT)
+
+if __name__ == '__main__':
+    main()
+n()
+'updated latest', LATEST)
 
 if __name__ == '__main__':
     main()
