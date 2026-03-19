@@ -1,0 +1,25 @@
+{
+  "account_date": "2026-03-19",
+  "broker": "sample-broker",
+  "cash": 25000,
+  "positions": [
+    {
+      "ticker": "SOXX",
+      "name": "iShares Semiconductor ETF",
+      "quantity": 12,
+      "avg_price": 210.5,
+      "current_price": 214.2,
+      "allocation": 35,
+      "currency": "USD"
+    },
+    {
+      "ticker": "TLT",
+      "name": "iShares 20+ Year Treasury Bond ETF",
+      "quantity": 18,
+      "avg_price": 91.3,
+      "current_price": 92.1,
+      "allocation": 25,
+      "currency": "USD"
+    }
+  ]
+}

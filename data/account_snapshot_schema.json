@@ -1,0 +1,16 @@
+{
+  "account_date": "YYYY-MM-DD",
+  "broker": "string",
+  "cash": 0,
+  "positions": [
+    {
+      "ticker": "string",
+      "name": "string",
+      "quantity": 0,
+      "avg_price": 0,
+      "current_price": 0,
+      "allocation": 0,
+      "currency": "USD"
+    }
+  ]
+}
