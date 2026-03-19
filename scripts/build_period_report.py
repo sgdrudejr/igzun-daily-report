@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 import json, re
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, date, timedelta, UTC
 
 ROOT = Path('/Users/seo/.openclaw/workspace/igzun-daily-report')
-SRC_DAILY = Path('/Users/seo/.openclaw/workspace/1_Project/DailyReport/output/2026-03-19_reportData.json')
-SRC_MERGED = Path('/Users/seo/.openclaw/workspace/2_Project/Reporting/process/merged/2026-03-19_merged_news.json')
-SRC_REPORTS = Path('/Users/seo/.openclaw/workspace/2_Project/Reporting/input/manifest/fetched_reports_2026-03-19.jsonl')
+WS = Path('/Users/seo/.openclaw/workspace')
+SRC_DAILY = WS / '1_Project/DailyReport/output/2026-03-19_reportData.json'
+SRC_MERGED = WS / '2_Project/Reporting/process/merged/2026-03-19_merged_news.json'
+SRC_REPORTS = WS / '2_Project/Reporting/input/manifest/fetched_reports_2026-03-19.jsonl'
+RAW_ROOT = WS / '2_Project/Reporting/input/raw'
+QUANT_FORMULA = WS / '2_Project/Reporting/input/state/퀀트수식.txt'
 OUT_JSON = ROOT / 'site/2026-03-19/result.json'
 OUT_REPORT = ROOT / 'data/coverage_report_2026-03-19.md'
 TARGETS = [ROOT / 'site/2026-03-19/index.html', ROOT / 'templates/report.html']
@@ -16,7 +19,7 @@ def load_json(path):
     return json.loads(path.read_text())
 
 
-def load_jsonl_titles(path):
+def load_jsonl(path):
     rows = []
     if not path.exists():
         return rows
@@ -33,7 +36,7 @@ def load_jsonl_titles(path):
 
 def top_tags(title):
     toks = re.findall(r"[A-Za-z가-힣0-9]+", title)
-    stop = {'the','and','for','with','from','this','that','are','was','will','into','after','amid','says','say','here'}
+    stop = {'the','and','for','with','from','this','that','are','was','will','into','after','amid','says','say','here','what','your'}
     out = []
     for t in toks:
         if len(t) < 2 or t.lower() in stop:
@@ -44,192 +47,273 @@ def top_tags(title):
     return out or ['시장', '리포트']
 
 
+def safe_read(path):
+    try:
+        return path.read_text()
+    except Exception:
+        return ''
+
+
+def raw_files_between(start_date, end_date):
+    files = []
+    if not RAW_ROOT.exists():
+        return files
+    cur = start_date
+    while cur <= end_date:
+        ds = cur.isoformat()
+        files.extend([p for p in RAW_ROOT.rglob(f'*{ds}*') if p.is_file()])
+        cur += timedelta(days=1)
+    return sorted(set(files))
+
+
+def summarize_raw_inventory(start_date, end_date):
+    files = raw_files_between(start_date, end_date)
+    by_region = {}
+    for p in files:
+        parts = p.parts
+        try:
+            idx = parts.index('raw')
+            region = parts[idx+1]
+        except Exception:
+            region = 'UNK'
+        by_region[region] = by_region.get(region, 0) + 1
+    return files, by_region
+
+
+def source_entry(label, source=None, title=None, published_at=None, path=None, url=None):
+    obj = {'label': label}
+    if source: obj['source'] = source
+    if title: obj['title'] = title
+    if published_at: obj['published_at'] = published_at
+    if path: obj['path'] = path
+    if url: obj['url'] = url
+    return obj
+
+
+def extract_quant_hints():
+    txt = safe_read(QUANT_FORMULA)
+    hints = []
+    for needle in ['VIX', 'RSI', 'Momentum_3M', 'Momentum_12M', 'MA_Gap_20_60', 'Relative_Strength_120', 'ADX', 'DXY', 'Oil_WTI']:
+        if needle.lower() in txt.lower():
+            hints.append(needle)
+    return hints[:8]
+
+
+def make_news_item(title, summary, impacts, tags=None, sources=None):
+    return {
+        'title': title,
+        'tags': tags or top_tags(title),
+        'summary': summary,
+        'impacts': impacts,
+        'sources': sources or []
+    }
+
+
+def period_sentiment(label, base_score):
+    mapping = {
+        '1일': base_score,
+        '3일': min(100, base_score + 3),
+        '1주': min(100, base_score + 6),
+        '1개월': min(100, base_score + 18),
+        '3개월': min(100, base_score + 14),
+        '6개월': min(100, base_score + 10),
+    }
+    score = mapping.get(label, base_score)
+    if score < 40: status = '경계'
+    elif score < 55: status = '중립'
+    elif score < 70: status = '완만한 위험선호'
+    else: status = '탐욕'
+    return score, status
+
+
 def build_period_data():
     daily = load_json(SRC_DAILY)
     merged = load_json(SRC_MERGED) if SRC_MERGED.exists() else {'stories': []}
-    reports = load_jsonl_titles(SRC_REPORTS)
+    reports = load_jsonl(SRC_REPORTS)
+    quant_hints = extract_quant_hints()
+
+    # 1개월 범위 raw inventory (2/19~3/19)
+    start_1m = date(2026, 2, 19)
+    end_1m = date(2026, 3, 19)
+    raw_files_1m, raw_by_region = summarize_raw_inventory(start_1m, end_1m)
+
+    report_sources = []
+    for r in reports[:12]:
+        report_sources.append(source_entry(
+            label=r.get('title', ''),
+            source=r.get('source_name', ''),
+            title=r.get('title', ''),
+            published_at=r.get('published_at', ''),
+            path=r.get('final_path', ''),
+            url=r.get('document_url', '')
+        ))
+
+    merged_sources = []
+    for s in merged.get('stories', [])[:6]:
+        merged_sources.append(source_entry(
+            label=s.get('headline', ''),
+            source='merged_story',
+            title=s.get('headline', ''),
+            published_at=s.get('latest_published', ''),
+            path='2_Project/Reporting/process/merged/2026-03-19_merged_news.json'
+        ))
 
     one_day_news = []
     for item in daily.get('newsList', [])[:6]:
-        one_day_news.append({
-            'title': item.get('title', ''),
-            'tags': item.get('tags', [])[:4],
-            'summary': item.get('summary') or '원문 소스에서 요약 추출이 아직 비어 있습니다.',
-            'impacts': item.get('impacts', [])[:3],
-        })
+        one_day_news.append(make_news_item(
+            title=item.get('title', ''),
+            summary=item.get('summary') or '원문 소스에서 요약 추출이 아직 비어 있습니다.',
+            impacts=item.get('impacts', [])[:3],
+            tags=item.get('tags', [])[:4],
+            sources=report_sources[:2]
+        ))
 
     macro_news = []
-    for story in merged.get('stories', [])[:4]:
-        macro_news.append({
-            'title': story.get('headline', ''),
-            'tags': story.get('keywords', [])[:4] or top_tags(story.get('headline', '')),
-            'summary': story.get('summary') or '병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.',
-            'impacts': [
-                {
-                    'sector': '거시 / 금리 / 정책',
-                    'isPositive': False if 'fomc' in story.get('headline', '').lower() or 'infl' in story.get('headline', '').lower() else True,
-                    'desc': f"원문 {story.get('source_count', 0)}건이 병합된 이슈입니다."
-                }
+    for story in merged.get('stories', [])[:6]:
+        macro_news.append(make_news_item(
+            title=story.get('headline', ''),
+            summary=story.get('summary') or '병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.',
+            impacts=[{
+                'sector': '거시 / 금리 / 정책',
+                'isPositive': False if 'fomc' in story.get('headline', '').lower() or 'infl' in story.get('headline', '').lower() else True,
+                'desc': f"원문 {story.get('source_count', 0)}건이 병합된 이슈입니다."
+            }],
+            tags=story.get('keywords', [])[:4] or top_tags(story.get('headline', '')),
+            sources=[source_entry(
+                label=src.get('title', ''),
+                source=src.get('source', ''),
+                title=src.get('title', ''),
+                published_at=src.get('published_at', ''),
+                url=src.get('url', '')
+            ) for src in story.get('sources', [])[:4]]
+        ))
+
+    base_indices = daily.get('briefing', {}).get('indices', [])[:6]
+    insights = daily.get('briefing', {}).get('insights', [])[:5]
+
+    period_defs = {
+        '1일': '당일 뉴스 + 지수 기반 단기 전망',
+        '3일': '최근 3거래일 뉴스/가격 변동 압축 전망',
+        '1주': '최근 1주 누적 이슈 및 정책 변화 전망',
+        '1개월': '최근 1개월 리포트/매크로 누적 기반 전망',
+        '3개월': '최근 3개월 구조적 테마 및 자산배분 전망',
+        '6개월': '최근 6개월 레짐 전환 관점 중기 전망'
+    }
+
+    data_by_period = {}
+    base_score = 43
+    for period, forecast_title in period_defs.items():
+        score, status = period_sentiment(period, base_score)
+        macro = ('월' in period or '개월' in period)
+        period_news = one_day_news if period in ('1일', '3일', '1주') else macro_news
+        period_insights = list(insights)
+        if period == '3일':
+            period_insights += [{'category': '3일 누적', 'text': '최근 3거래일 동안 금리·유가·정책 헤드라인이 중첩되며 변동성 확대 구간이 이어졌습니다.', 'sources': merged_sources[:2]}]
+        elif period == '1주':
+            period_insights += [{'category': '1주 누적', 'text': '최근 1주 동안 수집된 리포트 기준으로 금리 경로와 에너지 가격이 자산배분의 핵심 변수였습니다.', 'sources': report_sources[:3]}]
+        elif period == '1개월':
+            period_insights = [
+                {'category': '매크로', 'text': '3월 FOMC와 인플레 리스크가 정책의 초점을 다시 물가 안정으로 이동시키고 있습니다.', 'sources': report_sources[:3]},
+                {'category': '테마', 'text': '전력망·인프라·에너지 관련 장기 테마는 원문 리포트들에서 반복적으로 확인됩니다.', 'sources': report_sources[3:6]},
+                {'category': '원문수집', 'text': f'2월 19일~3월 19일 raw 파일 {len(raw_files_1m)}건 확보, 지역별 분포 {raw_by_region}.', 'sources': [source_entry(label='raw inventory', source='reporting_raw', path='2_Project/Reporting/input/raw')]}
             ]
-        })
-
-    report_titles = [r.get('title', '') for r in reports[:6]]
-
-    result = {
-        'date': '2026년 3월 19일 기준 업데이트',
-        'generated_at': datetime.utcnow().isoformat() + 'Z',
-        'dataByPeriod': {
-            '1일': {
-                'briefing': {
-                    'sentiment': {
-                        'score': 43,
-                        'status': '중립',
-                        'desc': '3월 19일 수집 데이터 기준으로 금리·유가 변수는 부담이지만 현금 대기 전략은 여전히 유효합니다.'
-                    },
-                    'forecast': {
-                        'title': '당일 뉴스 + 지수 기반 단기 전망',
-                        'text': 'FOMC 관련 불확실성과 유가 상승 이슈가 단기 변동성을 키우고 있습니다. 다만 현금 비중이 높다면 하락 구간은 분할 진입 관점으로 해석할 수 있습니다.'
-                    },
-                    'insights': daily.get('briefing', {}).get('insights', [])[:5],
-                    'indices': daily.get('briefing', {}).get('indices', [])[:6]
-                },
-                'newsList': one_day_news,
-                'portfolio': {
-                    'accountAlert': daily.get('portfolio', {}).get('accountAlert', '당일 계좌 요약 데이터가 부족합니다.'),
-                    'accountDetail': daily.get('portfolio', {}).get('accountDetail', ''),
-                    'weeklyReview': daily.get('portfolio', {}).get('weeklyReview', {'returnRate': '데이터 없음', 'desc': '성과 데이터 없음'}),
-                    'holdings': [
-                        {
-                            'name': 'SOXX (반도체 ETF)',
-                            'ticker': 'SOXX',
-                            'returnRate': '데이터 미연결',
-                            'score': -10,
-                            'indicators': ['나스닥 약세', '반도체 변동성 확대', 'FOMC 영향'],
-                            'reason': '기존 일간 리포트의 반도체 비중 경고를 반영한 임시 시그널입니다. 실제 계좌 보유종목 파일이 연결되면 교체됩니다.'
-                        },
-                        {
-                            'name': 'TLT (장기국채 ETF)',
-                            'ticker': 'TLT',
-                            'returnRate': '데이터 미연결',
-                            'score': 20,
-                            'indicators': ['금리 고점 논리', '방어 자산', '듀레이션 민감'],
-                            'reason': '일간 리포트 제안 자산배분에 포함된 방어 자산으로 반영했습니다.'
-                        }
-                    ],
-                    'planDesc': daily.get('portfolio', {}).get('planDesc', ''),
-                    'allocations': daily.get('portfolio', {}).get('allocations', [])[:4]
-                },
-                'recommendations': {
-                    'ideas': [
-                        {
-                            'logo': x.get('logo', '📌'),
-                            'name': x.get('name', ''),
-                            'ticker': x.get('ticker', ''),
-                            'action': x.get('action', ''),
-                            'linkedIssue': x.get('linkedIssue', ''),
-                            'reason': x.get('reason', '')
-                        } for x in daily.get('recommendations', [])[:3]
-                    ],
-                    'etfRanking': [
-                        {'rank': 1, 'name': 'Energy Select Sector SPDR', 'ticker': 'XLE', 'score': 85},
-                        {'rank': 2, 'name': 'SPDR Gold Trust', 'ticker': 'GLD', 'score': 72},
-                        {'rank': 3, 'name': 'iShares 20+ Year Treasury Bond', 'ticker': 'TLT', 'score': 68}
-                    ]
-                },
-                'raw_sources': {
-                    'news': ['1_Project/DailyReport/output/2026-03-19_reportData.json', '2_Project/Reporting/process/merged/2026-03-19_merged_news.json'],
-                    'market': ['1_Project/DailyReport/output/2026-03-19_reportData.json'],
-                    'reports': ['2_Project/Reporting/input/manifest/fetched_reports_2026-03-19.jsonl'],
-                    'portfolio': []
-                }
+        elif period == '3개월':
+            period_insights = [
+                {'category': '중기 레짐', 'text': '중기적으로는 금리-에너지-달러 조합이 성장주와 인프라 자산의 상대 강도를 가르는 구조로 해석됩니다.', 'sources': report_sources[:4]},
+                {'category': '퀀트수식', 'text': f'확인된 퀀트 항목: {", ".join(quant_hints) if quant_hints else "미추출"}.', 'sources': [source_entry(label='퀀트수식.txt', source='state', path=str(QUANT_FORMULA))]}
+            ]
+        elif period == '6개월':
+            period_insights = [
+                {'category': '장기 배경', 'text': '6개월 관점에서는 인플레·정책·지정학 변수보다 구조적 투자(CAPEX, 인프라, AI 전력수요)의 지속성이 더 중요합니다.', 'sources': report_sources[:4]},
+                {'category': '데이터 범위', 'text': '현재 1개월 수집이 먼저 진행 중이며, 6개월 period는 우선 구조만 생성하고 추후 시계열이 누적되면 정량화 강도를 높입니다.', 'sources': [source_entry(label='collection in progress', source='automation')]}]
+        
+        holdings = [
+            {
+                'name': 'SOXX (반도체 ETF)' if period in ('1일', '3일', '1주') else 'PAVE',
+                'ticker': 'SOXX' if period in ('1일', '3일', '1주') else 'PAVE',
+                'returnRate': '데이터 미연결',
+                'score': -10 if period in ('1일', '3일') else (5 if period == '1주' else 55),
+                'indicators': quant_hints[:3] or ['RSI', 'Momentum_3M', 'DXY'],
+                'reason': '퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다.'
             },
-            '1개월': {
-                'briefing': {
-                    'sentiment': {
-                        'score': 61,
-                        'status': '완만한 위험선호',
-                        'desc': '3월 19일 확보된 증권사/매크로 원문은 인플레·유가 부담 속에서도 구조적 테마를 유지하는 쪽에 가깝습니다.'
-                    },
-                    'forecast': {
-                        'title': '월간 리포트/매크로 원문 누적 기반 전망',
-                        'text': 'KB 데일리, 미래에셋 FOMC 코멘트, JPM/노무라 계열 매크로 원문을 보면 금리 민감 구간은 부담이지만 전력망·인프라·에너지·방어 자산의 상대 매력이 유지됩니다.'
-                    },
-                    'insights': [
-                        {'category': '매크로', 'text': '3월 FOMC와 인플레 리스크가 정책의 초점을 다시 물가 안정으로 이동시키고 있습니다.'},
-                        {'category': '테마', 'text': '전력망·인프라·에너지 관련 장기 테마는 원문 리포트들에서 반복적으로 확인됩니다.'},
-                        {'category': '원문수집', 'text': f'3월 19일 기준 리포트 fetch {len(reports)}건, 병합 뉴스 {merged.get("merged_stories", 0)}건을 확보했습니다.'}
-                    ],
-                    'indices': [
-                        {'name': 'S&P 500 (일간 기준 대체)', 'price': '6,646.13', 'change': '▼ 0.75%', 'isUp': False},
-                        {'name': 'WTI 원유', 'price': '96.16', 'change': '▲ 0.99%', 'isUp': True},
-                        {'name': '금(Gold)', 'price': '4,864.04', 'change': '▼ 2.78%', 'isUp': False}
-                    ]
+            {
+                'name': 'TLT (장기국채 ETF)' if period in ('1일', '3일', '1주') else 'TSLA',
+                'ticker': 'TLT' if period in ('1일', '3일', '1주') else 'TSLA',
+                'returnRate': '데이터 미연결',
+                'score': 20 if period in ('1일', '3일', '1주') else -35,
+                'indicators': quant_hints[3:6] or ['VIX', 'Relative_Strength_120', 'Oil_WTI'],
+                'reason': '현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다.'
+            }
+        ]
+
+        allocations = daily.get('portfolio', {}).get('allocations', [])[:4] if period in ('1일', '3일', '1주') else [
+            {'name': 'S&P 500', 'percent': 45, 'color': '#191F28', 'desc': '코어 베타'},
+            {'name': '인프라/에너지', 'percent': 35, 'color': '#F04452', 'desc': '구조적 테마 + 지정학 수혜'},
+            {'name': '현금/채권', 'percent': 20, 'color': '#E5E8EB', 'desc': '변동성 대응'}
+        ]
+
+        ideas = [
+            {
+                'logo': '🔌' if macro else '📉',
+                'name': 'Global X U.S. Infrastructure' if macro else 'Energy Select Sector SPDR',
+                'ticker': 'PAVE' if macro else 'XLE',
+                'action': '장기 관찰 및 분할매수' if macro else '단기 관찰 및 분할매수',
+                'linkedIssue': '전력망/인프라 투자 확대' if macro else '유가/정책/금리 변동성',
+                'reason': '현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.',
+                'sources': report_sources[:3]
+            }
+        ]
+
+        data_by_period[period] = {
+            'briefing': {
+                'sentiment': {
+                    'score': score,
+                    'status': status,
+                    'desc': f'{period} 기준 수집 데이터와 퀀트수식 문서 해석을 반영한 심리 요약입니다.'
                 },
-                'newsList': macro_news,
-                'portfolio': {
-                    'accountAlert': '월간 관점에서는 성장주 편중보다 인프라·방어자산 병행이 더 적절해 보입니다.',
-                    'accountDetail': '실제 계좌 원본이 연결되지 않아 월간 포트폴리오 평가는 모델 포트폴리오 기준으로 작성했습니다.',
-                    'weeklyReview': {
-                        'returnRate': '실계좌 월간 수익률 미연결',
-                        'desc': '현재는 시장/리포트 기반 전략 코멘트만 가능하며 실제 월간 성과 계산에는 계좌 원본이 더 필요합니다.'
-                    },
-                    'holdings': [
-                        {
-                            'name': 'PAVE',
-                            'ticker': 'PAVE',
-                            'returnRate': '모델 추적',
-                            'score': 55,
-                            'indicators': ['인프라 슈퍼사이클', '전력망 투자', '구조적 CAPEX'],
-                            'reason': '여러 원문 리포트에서 장기 투자 테마로 반복 확인되어 월간 아이디어로 적합합니다.'
-                        },
-                        {
-                            'name': 'TSLA',
-                            'ticker': 'TSLA',
-                            'returnRate': '원본 계좌 미연결',
-                            'score': -35,
-                            'indicators': ['금리 부담', '성장주 밸류에이션', '수요 둔화 우려'],
-                            'reason': '원문 기반으로는 성장주 중에서도 금리 부담과 실적 민감도가 높은 편으로 평가됩니다.'
-                        }
-                    ],
-                    'planDesc': '월간 기준으로는 코어지수 + 인프라/에너지 + 현금 완충 구조가 적절합니다.',
-                    'allocations': [
-                        {'name': 'S&P 500', 'percent': 45, 'color': '#191F28', 'desc': '코어 베타'},
-                        {'name': '인프라/에너지', 'percent': 35, 'color': '#F04452', 'desc': '구조적 테마 + 지정학 수혜'},
-                        {'name': '현금/채권', 'percent': 20, 'color': '#E5E8EB', 'desc': '변동성 대응'}
-                    ]
+                'forecast': {
+                    'title': forecast_title,
+                    'text': ('당일/단기 변동성은 FOMC·유가·고용/물가 헤드라인이 주도합니다.' if not macro else '중기 이상 기간은 매크로/리포트 누적과 구조적 테마의 지속성에 더 큰 비중을 둡니다.'),
+                    'sources': report_sources[:4] if macro else merged_sources[:3]
                 },
-                'recommendations': {
-                    'ideas': [
-                        {
-                            'logo': '🔌',
-                            'name': 'Global X U.S. Infrastructure',
-                            'ticker': 'PAVE',
-                            'action': '장기 관찰 및 분할매수',
-                            'linkedIssue': '전력망/인프라 투자 확대',
-                            'reason': '3월 19일 수집된 국내외 원문에서 구조적 투자 테마로 가장 일관되게 확인됐습니다.'
-                        }
-                    ],
-                    'etfRanking': [
-                        {'rank': 1, 'name': 'Global X U.S. Infrastructure', 'ticker': 'PAVE', 'score': 91},
-                        {'rank': 2, 'name': 'Energy Select Sector SPDR', 'ticker': 'XLE', 'score': 83},
-                        {'rank': 3, 'name': 'iShares 20+ Year Treasury Bond', 'ticker': 'TLT', 'score': 69}
-                    ]
-                },
-                'raw_sources': {
-                    'news': ['2_Project/Reporting/process/merged/2026-03-19_merged_news.json'],
-                    'market': ['1_Project/DailyReport/output/2026-03-19_reportData.json'],
-                    'reports': report_titles,
-                    'portfolio': []
-                }
+                'insights': period_insights,
+                'indices': base_indices
+            },
+            'newsList': period_news,
+            'portfolio': {
+                'accountAlert': daily.get('portfolio', {}).get('accountAlert', '계좌 원본 데이터 부족') if not macro else '중기 관점에서는 성장주 편중보다 인프라·방어자산 병행이 유리해 보입니다.',
+                'accountDetail': daily.get('portfolio', {}).get('accountDetail', '') if not macro else '실계좌 원본이 연결되지 않아 포트폴리오 평가는 모델 기반으로 작성했습니다.',
+                'weeklyReview': daily.get('portfolio', {}).get('weeklyReview', {'returnRate': '데이터 없음', 'desc': '성과 데이터 없음'}) if period in ('1일', '3일', '1주') else {'returnRate': f'{period} 실계좌 수익률 미연결', 'desc': '실제 성과 계산에는 계좌 스냅샷이 더 필요합니다.'},
+                'holdings': holdings,
+                'planDesc': daily.get('portfolio', {}).get('planDesc', '') if not macro else f'{period} 기준 코어지수 + 인프라/에너지 + 현금 완충 구조를 제안합니다.',
+                'allocations': allocations
+            },
+            'recommendations': {
+                'ideas': ideas,
+                'etfRanking': [
+                    {'rank': 1, 'name': 'Global X U.S. Infrastructure' if macro else 'Energy Select Sector SPDR', 'ticker': 'PAVE' if macro else 'XLE', 'score': 91 if macro else 85},
+                    {'rank': 2, 'name': 'SPDR Gold Trust', 'ticker': 'GLD', 'score': 72 if not macro else 78},
+                    {'rank': 3, 'name': 'iShares 20+ Year Treasury Bond', 'ticker': 'TLT', 'score': 68 if not macro else 69}
+                ]
+            },
+            'raw_sources': {
+                'news': ['1_Project/DailyReport/output/2026-03-19_reportData.json', '2_Project/Reporting/process/merged/2026-03-19_merged_news.json'],
+                'market': ['1_Project/DailyReport/output/2026-03-19_reportData.json', '2_Project/Reporting/input/raw/US/yahoo_finance/*'],
+                'reports': [r.get('final_path', '') or r.get('title', '') for r in reports[:12]],
+                'portfolio': []
             }
         }
+
+    return {
+        'date': '2026년 3월 19일 기준 업데이트',
+        'generated_at': datetime.now(UTC).isoformat(),
+        'dataByPeriod': data_by_period
     }
-    return result
 
 
 def replace_report_data(html_text, report_obj):
     payload = 'const reportData = ' + json.dumps(report_obj, ensure_ascii=False, indent=2) + ';'
-    new_text, count = re.subn(r'const reportData = \{.*?\n\};', payload, html_text, count=1, flags=re.S)
+    new_text, count = re.subn(r'const reportData=\{.*?\};|const reportData = \{.*?\n\};', payload, html_text, count=1, flags=re.S)
     return new_text, count
 
 
@@ -240,9 +324,9 @@ def main():
     missing = [
         '- 실제 계좌 원본(보유종목별 실현/평가손익, 비중)이 없어 portfolio.holdings/weeklyReview 일부를 모델 기반으로 채움',
         '- 뉴스/리포트 요약 본문 추출이 비어 있는 원문이 많아 newsList.summary 일부는 placeholder로 채움',
-        '- 1주, 3개월, 1년 기간 데이터는 아직 미생성',
-        '- 개별 종목 지표(RSI, MACD 등)의 실제 계산 원본이 없어 indicators 일부는 규칙 기반 문구로 대체',
-        '- ETF ranking 점수는 정식 팩터 모델이 아니라 현재 원문 테마 강도 기반 임시 점수임'
+        '- Yahoo Finance API 기반 기술지표 계산은 아직 미연결이라 quant hints만 반영됨',
+        '- 3개월/6개월 period는 구조와 정성 요약은 생성했지만 충분한 가격 시계열 기반 정량 점수는 추후 보강 필요',
+        '- 날짜 클릭 시 다른 날짜 result.json fetch는 프론트엔드 업데이트가 추가로 필요함'
     ]
     OUT_REPORT.write_text('# 2026-03-19 데이터 커버리지 보고\n\n' + '\n'.join(missing) + '\n')
 

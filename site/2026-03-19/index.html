@@ -134,6 +134,10 @@
  .rank-bar-bg { width: 100%; height: 6px; background-color: #E5E8EB; border-radius: 3px; overflow: hidden; }
  .rank-bar-fill { height: 100%; border-radius: 3px; background-color: #3182F6; transition: width 0.5s ease; }
  .empty-state { text-align: center; padding: 40px 20px; color: #8B95A1; font-size: 15px; }
+ .source-toggle { margin-top: 12px; background: #F2F4F6; border: none; border-radius: 8px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #4E5968; cursor: pointer; }
+ .source-box { margin-top: 10px; padding: 12px; background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px; font-size: 12px; color: #6B7684; }
+ .source-item { margin-bottom: 8px; }
+ .source-item:last-child { margin-bottom: 0; }
  @media (max-width: 800px) { .calendar-fab { left: 16px; bottom: 16px; width: 50px; height: 50px; font-size: 20px; } }
  </style>
 </head>
@@ -180,22 +184,2232 @@ let currentYear, currentMonth; let selectedDateInfo = null; let currentPeriod = 
 function toggleCalendar(){document.getElementById('calendarPopup').classList.toggle('active');}
 function closeCalendarOnOutsideClick(event){if(event.target.id==='calendarPopup') toggleCalendar();}
 function initCalendar(){const today=new Date();currentYear=today.getFullYear();currentMonth=today.getMonth();selectedDateInfo={year:today.getFullYear(),month:today.getMonth(),date:today.getDate()};renderCalendar(currentYear,currentMonth);}
-function renderCalendar(year,month){const grid=document.getElementById('calendar-grid');const monthYearLabel=document.getElementById('calendar-month-year');grid.innerHTML='';const formattedMonth=String(month+1).padStart(2,'0');monthYearLabel.innerText=`${year} ${formattedMonth}`;const firstDay=new Date(year,month,1).getDay();const daysInMonth=new Date(year,month+1,0).getDate();for(let i=0;i<firstDay;i++){const emptyDiv=document.createElement('div');emptyDiv.className='calendar-date empty';grid.appendChild(emptyDiv);}const today=new Date();const isCurrentMonth=today.getFullYear()===year&&today.getMonth()===month;for(let i=1;i<=daysInMonth;i++){const dateDiv=document.createElement('div');dateDiv.className='calendar-date';dateDiv.innerText=i;const dayOfWeek=(firstDay+i-1)%7;if(dayOfWeek===0) dateDiv.style.color='#F04452';if(dayOfWeek===6) dateDiv.style.color='#3182F6';if(selectedDateInfo&&selectedDateInfo.year===year&&selectedDateInfo.month===month&&selectedDateInfo.date===i){dateDiv.classList.add('active');dateDiv.style.color='#FFFFFF';}else if(isCurrentMonth&&i===today.getDate()&&!selectedDateInfo){dateDiv.classList.add('active');dateDiv.style.color='#FFFFFF';}dateDiv.onclick=(e)=>loadReportForDate(year,month,i,e);grid.appendChild(dateDiv);}}
-function changeMonth(offset){currentMonth+=offset;if(currentMonth<0){currentMonth=11;currentYear--;}else if(currentMonth>11){currentMonth=0;currentYear++;}renderCalendar(currentYear,currentMonth);}
+function renderCalendar(year,month){const grid=document.getElementById('calendar-grid');const monthYearLabel=document.getElementById('calendar-month-year');grid.innerHTML='';monthYearLabel.innerText=`${year} ${String(month+1).padStart(2,'0')}`;const firstDay=new Date(year,month,1).getDay();const daysInMonth=new Date(year,month+1,0).getDate();for(let i=0;i<firstDay;i++){const emptyDiv=document.createElement('div');emptyDiv.className='calendar-date empty';grid.appendChild(emptyDiv);}const today=new Date();const isCurrentMonth=today.getFullYear()===year&&today.getMonth()===month;for(let i=1;i<=daysInMonth;i++){const dateDiv=document.createElement('div');dateDiv.className='calendar-date';dateDiv.innerText=i;const dayOfWeek=(firstDay+i-1)%7;if(dayOfWeek===0) dateDiv.style.color='#F04452'; if(dayOfWeek===6) dateDiv.style.color='#3182F6'; if(selectedDateInfo&&selectedDateInfo.year===year&&selectedDateInfo.month===month&&selectedDateInfo.date===i){dateDiv.classList.add('active');dateDiv.style.color='#FFFFFF';} else if(isCurrentMonth&&i===today.getDate()&&!selectedDateInfo){dateDiv.classList.add('active');dateDiv.style.color='#FFFFFF';} dateDiv.onclick=(e)=>loadReportForDate(year,month,i,e); grid.appendChild(dateDiv);} }
+function changeMonth(offset){currentMonth+=offset;if(currentMonth<0){currentMonth=11;currentYear--;} else if(currentMonth>11){currentMonth=0;currentYear++;}renderCalendar(currentYear,currentMonth);}
 function goToToday(){initCalendar();updateReportTitle();}
-function loadReportForDate(year,month,day,event){document.querySelectorAll('.calendar-date').forEach(el=>{el.classList.remove('active');const dayNum=parseInt(el.innerText);if(dayNum){const dayOfWeek=new Date(year,month,dayNum).getDay();if(dayOfWeek===0) el.style.color='#F04452';else if(dayOfWeek===6) el.style.color='#3182F6';else el.style.color='#333D4B';}});if(event){event.target.classList.add('active');event.target.style.color='#FFFFFF';}selectedDateInfo={year:year,month:month,date:day};updateReportTitle();if(reportData.dataByPeriod&&reportData.dataByPeriod['1일']){changePeriod('1일');}toggleCalendar();alert(`${year}년 ${month + 1}월 ${day}일의 데이터를 불러옵니다.\n(실제 서비스에서는 이 시점에 API를 통해 JSON을 Fetch합니다.)`);}
-function updateReportTitle(){if(!selectedDateInfo) return;const formattedDate=`${selectedDateInfo.year}년 ${selectedDateInfo.month + 1}월 ${selectedDateInfo.date}일 기준 업데이트`;document.getElementById('report-date').innerText=formattedDate;}
-const reportData={dataByPeriod:{"1일":{"briefing":{"sentiment":{"score":45,"status":"중립","desc":"단기적으로 시장이 숨 고르기에 들어갔습니다."},"forecast":{"title":"단기 수급 및 모멘텀 전망","text":"어젯밤 발표된 물가 지표 충격으로 기술주 위주의 단기 매물이 출회되었습니다. 내일 고용 지표 발표 전까지는 변동성이 높은 관망 장세가 예상됩니다."},"insights":[{"category":"일일 시황","text":"나스닥은 소폭 하락했으나, 에너지 섹터로 단기 수급이 쏠리며 다우 지수는 방어에 성공했습니다."},{"category":"당일 수급","text":"외국인과 기관의 쌍끌이 매도가 이어지며 지수 하방 압력을 높였습니다."}],"indices":[{"name":"S&P 500","price":"5,123.45","change":"▼ 0.82%","isUp":false}]},"newsList":[{"title":"미국 2월 PPI 예상치 상회, 인플레이션 우려 재점화","tags":["물가 지표","단기 변동성","매파적 연준"],"summary":"생산자물가지수가 시장 예상을 웃돌면서, 채권 금리가 급등하고 주식 시장의 차익 실현 빌미로 작용했습니다.","impacts":[{"sector":"기술 / 성장주","isPositive":false,"desc":"금리 상승에 취약한 고퍼(High-PER) 주식들 투심 악화"}]}],"portfolio":{"accountAlert":"오늘 하루 계좌 방어력 요약 (2줄)","accountDetail":"💡 <b>단기 대응:</b> 당장 보유 주식을 던질 필요는 없으나, 추가 하락 시 현금(60%)을 활용한 분할 매수 기회를 노려보세요.","weeklyReview":{"returnRate":"-0.2% (전일 대비)","desc":"시장 하락 폭 대비 계좌 손실 방어에 성공했습니다."},"holdings":[{"name":"테슬라","ticker":"TSLA","returnRate":"-2.5%","score":-30,"indicators":["RSI 30 이탈","단기 매물대 저항","논문: 모멘텀 둔화"],"reason":"어젯밤 중국 내 판매 부진 뉴스로 단기 지지선이 무너졌습니다. 단기적으로는 매도 관점입니다."},{"name":"SPDR S&P 500 ETF","ticker":"SPY","returnRate":"-0.8%","score":10,"indicators":["이평선 수렴","관망 시그널"],"reason":"단기 방향성이 없으므로 홀딩(보유)하며 시장의 방향성을 확인하세요."}],"planDesc":"내일 장을 대비한 단기 전술적 자산 배분(TAA) 팁입니다.","allocations":[{"name":"현금 대기","percent":60,"color":"#E5E8EB","desc":"단기 변동성 회피용 방어"},{"name":"S&P 500","percent":40,"color":"#3182F6","desc":"핵심 자산 유지"}]},"recommendations":{"ideas":[{"logo":"📉","name":"ProShares Short S&P500","ticker":"SH","action":"단기 헷지 매수","linkedIssue":"단기 금리 상승 우려","reason":"지수 하방 압력에 대비해 포트폴리오의 5% 미만으로 단기 인버스 헷지를 고려해 보세요."}],"etfRanking":[{"rank":1,"name":"Energy Select Sector SPDR","ticker":"XLE","score":85},{"rank":2,"name":"SPDR Gold Trust","ticker":"GLD","score":78}]}},"1개월":{"briefing":{"sentiment":{"score":78,"status":"탐욕","desc":"최근 1개월간 펀더멘털 기반의 랠리가 지속되며 투자 심리가 긍정적입니다."},"forecast":{"title":"1개월 데이터 누적 기반 거시 전망","text":"지난 한 달간 경제 지표와 기업 실적 데이터를 취합한 결과, 경제 연착륙 시나리오가 현실화되고 있습니다. 기업들이 스스로 실적을 증명하며 지수의 하단을 견고하게 다지고 있습니다."},"insights":[{"category":"실적 장세","text":"빅테크 및 인프라 관련주들의 1분기 영업이익이 전년 대비 큰 폭으로 상승했습니다."}],"indices":[{"name":"S&P 500 (1개월)","price":"5,123.45","change":"▲ 4.50%","isUp":true}]},"newsList":[{"title":"1개월 핵심 메가 트렌드: AI 전력망 인프라 부족","tags":["인프라 슈퍼사이클","CAPEX 투자","구조적 성장"],"summary":"한 달 내내 글로벌 빅테크 기업들이 AI 데이터센터 구동을 위한 전력 확보 경쟁에 뛰어들었다는 경제 리포트들이 쏟아졌습니다.","impacts":[{"sector":"전력 / 변압기 / 원전","isPositive":true,"desc":"수주 잔고 폭증 데이터가 확인되며 1개월간 강력한 우상향 추세 형성"}]}],"portfolio":{"accountAlert":"지난 1개월간 계좌가 단단하게 성장했어요!","accountDetail":"💡 <b>기간 누적 피드백:</b> 거시 경제 흐름에 맞게 인프라 섹터 비중을 늘려둔 것이 매우 훌륭했습니다. 수익 실현을 서두르지 말고 장기 추세를 따라가세요.","weeklyReview":{"returnRate":"+5.4% (시장 대비 +0.9% 초과)","desc":"1개월 누적 수익률입니다. 단기 노이즈를 무시한 펀더멘털 투자가 빛을 발했습니다."},"holdings":[{"name":"테슬라","ticker":"TSLA","returnRate":"-12.5%","score":-65,"indicators":["월봉 MACD 역배열","수요 둔화 지표","논문: EPS 하향"],"reason":"지난 한 달간 전기차 침투율 성장세가 꺾였다는 매크로 데이터가 누적되었습니다. 장기 가치투자의 근거가 훼손되었으므로 반등 시 풀매도(비중 대폭 축소)를 권장합니다."},{"name":"SPDR S&P 500 ETF","ticker":"SPY","returnRate":"+4.5%","score":50,"indicators":["200일 이평선 상회","기업 실적 상향","논문: 우상향"],"reason":"거시 경제가 탄탄합니다. 핵심 코어 자산으로서 적립식 매수를 계속 진행하세요."}],"planDesc":"위 1개월 매크로 데이터를 반영한 전략적 자산 배분(SAA) 비율입니다.","allocations":[{"name":"S&P 500","percent":50,"color":"#191F28","desc":"안정적인 패시브 코어 자산"},{"name":"인프라 관련 ETF","percent":30,"color":"#F04452","desc":"구조적 메가 트렌드 알파 수익 추구"},{"name":"현금","percent":20,"color":"#E5E8EB","desc":"위기 대응 롱텀 헷지"}]},"recommendations":{"ideas":[{"logo":"🔌","name":"Eaton Corporation","ticker":"ETN","action":"장기 모아가기","linkedIssue":"북미 전력망 교체 사이클","reason":"월간 리포트 분석 결과, 장기적인 정부 보조금과 민간 투자를 독식하고 있는 거시적 메가 트렌드의 최대 수혜주로 분석되었습니다."}],"etfRanking":[{"rank":1,"name":"Global X U.S. Infrastructure","ticker":"PAVE","score":96},{"rank":2,"name":"Vanguard Dividend Appreciation","ticker":"VIG","score":88},{"rank":3,"name":"Invesco QQQ Trust","ticker":"QQQ","score":82}]}}}};
+async function loadReportForDate(year,month,day,event){document.querySelectorAll('.calendar-date').forEach(el=>{el.classList.remove('active');const dayNum=parseInt(el.innerText);if(dayNum){const dayOfWeek=new Date(year,month,dayNum).getDay();if(dayOfWeek===0) el.style.color='#F04452'; else if(dayOfWeek===6) el.style.color='#3182F6'; else el.style.color='#333D4B';}}); if(event){event.target.classList.add('active');event.target.style.color='#FFFFFF';} selectedDateInfo={year:year,month:month,date:day}; updateReportTitle(); const ds=`${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`; try { const r=await fetch(`/igzun-daily-report/site/${ds}/result.json`, {cache:'no-store'}); if(r.ok){ const incoming=await r.json(); if(incoming && incoming.dataByPeriod){ reportData.date = incoming.date || reportData.date; reportData.dataByPeriod = incoming.dataByPeriod; const periods=Object.keys(reportData.dataByPeriod); currentPeriod = periods.includes('1일') ? '1일' : periods[0]; renderPeriodSelector(periods); updateAllViews(); } else { alert(`${ds} 데이터 구조가 올바르지 않습니다.`); } } else { alert(`${ds} 데이터가 없습니다.`); } } catch(e){ alert(`${ds} 데이터를 불러오지 못했습니다.`); } toggleCalendar();}
+function updateReportTitle(){if(!selectedDateInfo) return; document.getElementById('report-date').innerText=`${selectedDateInfo.year}년 ${selectedDateInfo.month+1}월 ${selectedDateInfo.date}일 기준 업데이트`;}
+const reportData = {
+  "date": "2026년 3월 19일 기준 업데이트",
+  "generated_at": "2026-03-19T03:01:16.011575+00:00",
+  "dataByPeriod": {
+    "1일": {
+      "briefing": {
+        "sentiment": {
+          "score": 43,
+          "status": "중립",
+          "desc": "1일 기준 수집 데이터와 퀀트수식 문서 해석을 반영한 심리 요약입니다."
+        },
+        "forecast": {
+          "title": "당일 뉴스 + 지수 기반 단기 전망",
+          "text": "당일/단기 변동성은 FOMC·유가·고용/물가 헤드라인이 주도합니다.",
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "merged_story",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "merged_story",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "시황",
+            "text": "S&P 500 6,646.13으로 마감, 전일 대비 ▼ 0.75%. 미국 증시 하락 마감."
+          },
+          {
+            "category": "매크로",
+            "text": "WTI 원유 $96.16 급등. 중동 긴장 지속으로 에너지 변동성 확대."
+          },
+          {
+            "category": "자산배분",
+            "text": "금 $4,864.04. 위험선호 회복 조짐."
+          },
+          {
+            "category": "환율",
+            "text": "원/달러 1,485.50원. 원화 강세 전환 — 외국인 자금 유입 가능성."
+          },
+          {
+            "category": "섹터",
+            "text": "나스닥 22,233.23 (▼ 0.82%). 기술주 약세 — 반도체 비중 40% 포트폴리오 주의 필요."
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "price": "6,646.13",
+            "change": "▼ 0.75%",
+            "isUp": false
+          },
+          {
+            "name": "나스닥",
+            "price": "22,233.23",
+            "change": "▼ 0.82%",
+            "isUp": false
+          },
+          {
+            "name": "다우존스",
+            "price": "46,338.25",
+            "change": "▼ 0.96%",
+            "isUp": false
+          },
+          {
+            "name": "원/달러",
+            "price": "1,485.50",
+            "change": "▼ 0.09%",
+            "isUp": false
+          },
+          {
+            "name": "WTI 원유",
+            "price": "96.16",
+            "change": "▲ 0.99%",
+            "isUp": true
+          },
+          {
+            "name": "금(Gold)",
+            "price": "4,864.04",
+            "change": "▼ 2.78%",
+            "isUp": false
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "Fed Holds Rates Steady, Still Projects One Rate Cut in 2026",
+          "tags": [
+            "2026",
+            "Rates",
+            "Projects"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "채권/국채",
+              "isPositive": false,
+              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
+            },
+            {
+              "sector": "성장주/기술주",
+              "isPositive": false,
+              "desc": "고금리 지속으로 밸류에이션 부담"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Federal Reserve issues FOMC statement",
+          "tags": [
+            "Reserve",
+            "Statement",
+            "Fomc"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "채권/국채",
+              "isPositive": false,
+              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
+            },
+            {
+              "sector": "성장주/기술주",
+              "isPositive": false,
+              "desc": "고금리 지속으로 밸류에이션 부담"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Federal Reserve Board and Federal Open Market Committee rele",
+          "tags": [
+            "Reserve",
+            "Market",
+            "Board"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "채권/국채",
+              "isPositive": false,
+              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
+            },
+            {
+              "sector": "성장주/기술주",
+              "isPositive": false,
+              "desc": "고금리 지속으로 밸류에이션 부담"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "UK Oil, Gas Lobby Group Urges Tax Reform to Reduce LNG Impor",
+          "tags": [
+            "Reform",
+            "Reduce",
+            "Urges"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "관련 분석 참고"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Fed Leaves Rates Unchanged After War Scrambles Outlook",
+          "tags": [
+            "Unchanged",
+            "Rates",
+            "Outlook"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "관련 분석 참고"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Spinoff Stocks Beat the S&amp;P 500 While Conglomerate Share",
+          "tags": [
+            "Spinoff",
+            "Shares",
+            "Fall"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "관련 분석 참고"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "나스닥 하락으로 반도체 포지션 손실 가능 / 유가 상승 → 인플레이션 우려 → 성장주 압박",
+        "accountDetail": "현금 60% / 반도체 40% 포트폴리오 기준 — 나스닥 하락에 따른 반도체 포지션 단기 손실 예상. 현금 비중이 높아 추가 하락 시 분할 매수 기회 활용 가능.",
+        "weeklyReview": {
+          "returnRate": "데이터 수집 중",
+          "desc": "주간 수익률은 금요일 마감 후 자동 업데이트됩니다."
+        },
+        "holdings": [
+          {
+            "name": "SOXX (반도체 ETF)",
+            "ticker": "SOXX",
+            "returnRate": "데이터 미연결",
+            "score": -10,
+            "indicators": [
+              "VIX",
+              "RSI",
+              "Momentum_3M"
+            ],
+            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
+          },
+          {
+            "name": "TLT (장기국채 ETF)",
+            "ticker": "TLT",
+            "returnRate": "데이터 미연결",
+            "score": 20,
+            "indicators": [
+              "Momentum_12M",
+              "ADX",
+              "DXY"
+            ],
+            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
+          }
+        ],
+        "planDesc": "현재 매크로 환경과 포트폴리오 비중을 고려한 다음 달 적립식 투자 제안",
+        "allocations": [
+          {
+            "name": "SOXX (반도체 ETF)",
+            "percent": 40,
+            "color": "#3182F6",
+            "desc": "AI/반도체 성장 모멘텀 유지, 기존 비중 유지"
+          },
+          {
+            "name": "TLT (장기국채 ETF)",
+            "percent": 20,
+            "color": "#F04452",
+            "desc": "금리 인하 사이클 대비 — 채권 가격 상승 잠재력"
+          },
+          {
+            "name": "현금 (MMF)",
+            "percent": 40,
+            "color": "#E5E8EB",
+            "desc": "변동성 대비 유동성 확보, 하락 시 분할 매수 재원"
+          }
+        ]
+      },
+      "recommendations": {
+        "ideas": [
+          {
+            "logo": "📉",
+            "name": "Energy Select Sector SPDR",
+            "ticker": "XLE",
+            "action": "단기 관찰 및 분할매수",
+            "linkedIssue": "유가/정책/금리 변동성",
+            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          }
+        ],
+        "etfRanking": [
+          {
+            "rank": 1,
+            "name": "Energy Select Sector SPDR",
+            "ticker": "XLE",
+            "score": 85
+          },
+          {
+            "rank": 2,
+            "name": "SPDR Gold Trust",
+            "ticker": "GLD",
+            "score": 72
+          },
+          {
+            "rank": 3,
+            "name": "iShares 20+ Year Treasury Bond",
+            "ticker": "TLT",
+            "score": 68
+          }
+        ]
+      },
+      "raw_sources": {
+        "news": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+        ],
+        "market": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
+        ],
+        "reports": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf"
+        ],
+        "portfolio": []
+      }
+    },
+    "3일": {
+      "briefing": {
+        "sentiment": {
+          "score": 46,
+          "status": "중립",
+          "desc": "3일 기준 수집 데이터와 퀀트수식 문서 해석을 반영한 심리 요약입니다."
+        },
+        "forecast": {
+          "title": "최근 3거래일 뉴스/가격 변동 압축 전망",
+          "text": "당일/단기 변동성은 FOMC·유가·고용/물가 헤드라인이 주도합니다.",
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "merged_story",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "merged_story",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "시황",
+            "text": "S&P 500 6,646.13으로 마감, 전일 대비 ▼ 0.75%. 미국 증시 하락 마감."
+          },
+          {
+            "category": "매크로",
+            "text": "WTI 원유 $96.16 급등. 중동 긴장 지속으로 에너지 변동성 확대."
+          },
+          {
+            "category": "자산배분",
+            "text": "금 $4,864.04. 위험선호 회복 조짐."
+          },
+          {
+            "category": "환율",
+            "text": "원/달러 1,485.50원. 원화 강세 전환 — 외국인 자금 유입 가능성."
+          },
+          {
+            "category": "섹터",
+            "text": "나스닥 22,233.23 (▼ 0.82%). 기술주 약세 — 반도체 비중 40% 포트폴리오 주의 필요."
+          },
+          {
+            "category": "3일 누적",
+            "text": "최근 3거래일 동안 금리·유가·정책 헤드라인이 중첩되며 변동성 확대 구간이 이어졌습니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "merged_story",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "merged_story",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "price": "6,646.13",
+            "change": "▼ 0.75%",
+            "isUp": false
+          },
+          {
+            "name": "나스닥",
+            "price": "22,233.23",
+            "change": "▼ 0.82%",
+            "isUp": false
+          },
+          {
+            "name": "다우존스",
+            "price": "46,338.25",
+            "change": "▼ 0.96%",
+            "isUp": false
+          },
+          {
+            "name": "원/달러",
+            "price": "1,485.50",
+            "change": "▼ 0.09%",
+            "isUp": false
+          },
+          {
+            "name": "WTI 원유",
+            "price": "96.16",
+            "change": "▲ 0.99%",
+            "isUp": true
+          },
+          {
+            "name": "금(Gold)",
+            "price": "4,864.04",
+            "change": "▼ 2.78%",
+            "isUp": false
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "Fed Holds Rates Steady, Still Projects One Rate Cut in 2026",
+          "tags": [
+            "2026",
+            "Rates",
+            "Projects"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "채권/국채",
+              "isPositive": false,
+              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
+            },
+            {
+              "sector": "성장주/기술주",
+              "isPositive": false,
+              "desc": "고금리 지속으로 밸류에이션 부담"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Federal Reserve issues FOMC statement",
+          "tags": [
+            "Reserve",
+            "Statement",
+            "Fomc"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "채권/국채",
+              "isPositive": false,
+              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
+            },
+            {
+              "sector": "성장주/기술주",
+              "isPositive": false,
+              "desc": "고금리 지속으로 밸류에이션 부담"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Federal Reserve Board and Federal Open Market Committee rele",
+          "tags": [
+            "Reserve",
+            "Market",
+            "Board"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "채권/국채",
+              "isPositive": false,
+              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
+            },
+            {
+              "sector": "성장주/기술주",
+              "isPositive": false,
+              "desc": "고금리 지속으로 밸류에이션 부담"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "UK Oil, Gas Lobby Group Urges Tax Reform to Reduce LNG Impor",
+          "tags": [
+            "Reform",
+            "Reduce",
+            "Urges"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "관련 분석 참고"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Fed Leaves Rates Unchanged After War Scrambles Outlook",
+          "tags": [
+            "Unchanged",
+            "Rates",
+            "Outlook"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "관련 분석 참고"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Spinoff Stocks Beat the S&amp;P 500 While Conglomerate Share",
+          "tags": [
+            "Spinoff",
+            "Shares",
+            "Fall"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "관련 분석 참고"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "나스닥 하락으로 반도체 포지션 손실 가능 / 유가 상승 → 인플레이션 우려 → 성장주 압박",
+        "accountDetail": "현금 60% / 반도체 40% 포트폴리오 기준 — 나스닥 하락에 따른 반도체 포지션 단기 손실 예상. 현금 비중이 높아 추가 하락 시 분할 매수 기회 활용 가능.",
+        "weeklyReview": {
+          "returnRate": "데이터 수집 중",
+          "desc": "주간 수익률은 금요일 마감 후 자동 업데이트됩니다."
+        },
+        "holdings": [
+          {
+            "name": "SOXX (반도체 ETF)",
+            "ticker": "SOXX",
+            "returnRate": "데이터 미연결",
+            "score": -10,
+            "indicators": [
+              "VIX",
+              "RSI",
+              "Momentum_3M"
+            ],
+            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
+          },
+          {
+            "name": "TLT (장기국채 ETF)",
+            "ticker": "TLT",
+            "returnRate": "데이터 미연결",
+            "score": 20,
+            "indicators": [
+              "Momentum_12M",
+              "ADX",
+              "DXY"
+            ],
+            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
+          }
+        ],
+        "planDesc": "현재 매크로 환경과 포트폴리오 비중을 고려한 다음 달 적립식 투자 제안",
+        "allocations": [
+          {
+            "name": "SOXX (반도체 ETF)",
+            "percent": 40,
+            "color": "#3182F6",
+            "desc": "AI/반도체 성장 모멘텀 유지, 기존 비중 유지"
+          },
+          {
+            "name": "TLT (장기국채 ETF)",
+            "percent": 20,
+            "color": "#F04452",
+            "desc": "금리 인하 사이클 대비 — 채권 가격 상승 잠재력"
+          },
+          {
+            "name": "현금 (MMF)",
+            "percent": 40,
+            "color": "#E5E8EB",
+            "desc": "변동성 대비 유동성 확보, 하락 시 분할 매수 재원"
+          }
+        ]
+      },
+      "recommendations": {
+        "ideas": [
+          {
+            "logo": "📉",
+            "name": "Energy Select Sector SPDR",
+            "ticker": "XLE",
+            "action": "단기 관찰 및 분할매수",
+            "linkedIssue": "유가/정책/금리 변동성",
+            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          }
+        ],
+        "etfRanking": [
+          {
+            "rank": 1,
+            "name": "Energy Select Sector SPDR",
+            "ticker": "XLE",
+            "score": 85
+          },
+          {
+            "rank": 2,
+            "name": "SPDR Gold Trust",
+            "ticker": "GLD",
+            "score": 72
+          },
+          {
+            "rank": 3,
+            "name": "iShares 20+ Year Treasury Bond",
+            "ticker": "TLT",
+            "score": 68
+          }
+        ]
+      },
+      "raw_sources": {
+        "news": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+        ],
+        "market": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
+        ],
+        "reports": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf"
+        ],
+        "portfolio": []
+      }
+    },
+    "1주": {
+      "briefing": {
+        "sentiment": {
+          "score": 49,
+          "status": "중립",
+          "desc": "1주 기준 수집 데이터와 퀀트수식 문서 해석을 반영한 심리 요약입니다."
+        },
+        "forecast": {
+          "title": "최근 1주 누적 이슈 및 정책 변화 전망",
+          "text": "당일/단기 변동성은 FOMC·유가·고용/물가 헤드라인이 주도합니다.",
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "merged_story",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "merged_story",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "시황",
+            "text": "S&P 500 6,646.13으로 마감, 전일 대비 ▼ 0.75%. 미국 증시 하락 마감."
+          },
+          {
+            "category": "매크로",
+            "text": "WTI 원유 $96.16 급등. 중동 긴장 지속으로 에너지 변동성 확대."
+          },
+          {
+            "category": "자산배분",
+            "text": "금 $4,864.04. 위험선호 회복 조짐."
+          },
+          {
+            "category": "환율",
+            "text": "원/달러 1,485.50원. 원화 강세 전환 — 외국인 자금 유입 가능성."
+          },
+          {
+            "category": "섹터",
+            "text": "나스닥 22,233.23 (▼ 0.82%). 기술주 약세 — 반도체 비중 40% 포트폴리오 주의 필요."
+          },
+          {
+            "category": "1주 누적",
+            "text": "최근 1주 동안 수집된 리포트 기준으로 금리 경로와 에너지 가격이 자산배분의 핵심 변수였습니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "price": "6,646.13",
+            "change": "▼ 0.75%",
+            "isUp": false
+          },
+          {
+            "name": "나스닥",
+            "price": "22,233.23",
+            "change": "▼ 0.82%",
+            "isUp": false
+          },
+          {
+            "name": "다우존스",
+            "price": "46,338.25",
+            "change": "▼ 0.96%",
+            "isUp": false
+          },
+          {
+            "name": "원/달러",
+            "price": "1,485.50",
+            "change": "▼ 0.09%",
+            "isUp": false
+          },
+          {
+            "name": "WTI 원유",
+            "price": "96.16",
+            "change": "▲ 0.99%",
+            "isUp": true
+          },
+          {
+            "name": "금(Gold)",
+            "price": "4,864.04",
+            "change": "▼ 2.78%",
+            "isUp": false
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "Fed Holds Rates Steady, Still Projects One Rate Cut in 2026",
+          "tags": [
+            "2026",
+            "Rates",
+            "Projects"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "채권/국채",
+              "isPositive": false,
+              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
+            },
+            {
+              "sector": "성장주/기술주",
+              "isPositive": false,
+              "desc": "고금리 지속으로 밸류에이션 부담"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Federal Reserve issues FOMC statement",
+          "tags": [
+            "Reserve",
+            "Statement",
+            "Fomc"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "채권/국채",
+              "isPositive": false,
+              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
+            },
+            {
+              "sector": "성장주/기술주",
+              "isPositive": false,
+              "desc": "고금리 지속으로 밸류에이션 부담"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Federal Reserve Board and Federal Open Market Committee rele",
+          "tags": [
+            "Reserve",
+            "Market",
+            "Board"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "채권/국채",
+              "isPositive": false,
+              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
+            },
+            {
+              "sector": "성장주/기술주",
+              "isPositive": false,
+              "desc": "고금리 지속으로 밸류에이션 부담"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "UK Oil, Gas Lobby Group Urges Tax Reform to Reduce LNG Impor",
+          "tags": [
+            "Reform",
+            "Reduce",
+            "Urges"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "관련 분석 참고"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Fed Leaves Rates Unchanged After War Scrambles Outlook",
+          "tags": [
+            "Unchanged",
+            "Rates",
+            "Outlook"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "관련 분석 참고"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        {
+          "title": "Spinoff Stocks Beat the S&amp;P 500 While Conglomerate Share",
+          "tags": [
+            "Spinoff",
+            "Shares",
+            "Fall"
+          ],
+          "summary": "원문 소스에서 요약 추출이 아직 비어 있습니다.",
+          "impacts": [
+            {
+              "sector": "시장 전반",
+              "isPositive": true,
+              "desc": "관련 분석 참고"
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "나스닥 하락으로 반도체 포지션 손실 가능 / 유가 상승 → 인플레이션 우려 → 성장주 압박",
+        "accountDetail": "현금 60% / 반도체 40% 포트폴리오 기준 — 나스닥 하락에 따른 반도체 포지션 단기 손실 예상. 현금 비중이 높아 추가 하락 시 분할 매수 기회 활용 가능.",
+        "weeklyReview": {
+          "returnRate": "데이터 수집 중",
+          "desc": "주간 수익률은 금요일 마감 후 자동 업데이트됩니다."
+        },
+        "holdings": [
+          {
+            "name": "SOXX (반도체 ETF)",
+            "ticker": "SOXX",
+            "returnRate": "데이터 미연결",
+            "score": 5,
+            "indicators": [
+              "VIX",
+              "RSI",
+              "Momentum_3M"
+            ],
+            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
+          },
+          {
+            "name": "TLT (장기국채 ETF)",
+            "ticker": "TLT",
+            "returnRate": "데이터 미연결",
+            "score": 20,
+            "indicators": [
+              "Momentum_12M",
+              "ADX",
+              "DXY"
+            ],
+            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
+          }
+        ],
+        "planDesc": "현재 매크로 환경과 포트폴리오 비중을 고려한 다음 달 적립식 투자 제안",
+        "allocations": [
+          {
+            "name": "SOXX (반도체 ETF)",
+            "percent": 40,
+            "color": "#3182F6",
+            "desc": "AI/반도체 성장 모멘텀 유지, 기존 비중 유지"
+          },
+          {
+            "name": "TLT (장기국채 ETF)",
+            "percent": 20,
+            "color": "#F04452",
+            "desc": "금리 인하 사이클 대비 — 채권 가격 상승 잠재력"
+          },
+          {
+            "name": "현금 (MMF)",
+            "percent": 40,
+            "color": "#E5E8EB",
+            "desc": "변동성 대비 유동성 확보, 하락 시 분할 매수 재원"
+          }
+        ]
+      },
+      "recommendations": {
+        "ideas": [
+          {
+            "logo": "📉",
+            "name": "Energy Select Sector SPDR",
+            "ticker": "XLE",
+            "action": "단기 관찰 및 분할매수",
+            "linkedIssue": "유가/정책/금리 변동성",
+            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          }
+        ],
+        "etfRanking": [
+          {
+            "rank": 1,
+            "name": "Energy Select Sector SPDR",
+            "ticker": "XLE",
+            "score": 85
+          },
+          {
+            "rank": 2,
+            "name": "SPDR Gold Trust",
+            "ticker": "GLD",
+            "score": 72
+          },
+          {
+            "rank": 3,
+            "name": "iShares 20+ Year Treasury Bond",
+            "ticker": "TLT",
+            "score": 68
+          }
+        ]
+      },
+      "raw_sources": {
+        "news": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+        ],
+        "market": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
+        ],
+        "reports": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf"
+        ],
+        "portfolio": []
+      }
+    },
+    "1개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 61,
+          "status": "완만한 위험선호",
+          "desc": "1개월 기준 수집 데이터와 퀀트수식 문서 해석을 반영한 심리 요약입니다."
+        },
+        "forecast": {
+          "title": "최근 1개월 리포트/매크로 누적 기반 전망",
+          "text": "중기 이상 기간은 매크로/리포트 누적과 구조적 테마의 지속성에 더 큰 비중을 둡니다.",
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "매크로",
+            "text": "3월 FOMC와 인플레 리스크가 정책의 초점을 다시 물가 안정으로 이동시키고 있습니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          },
+          {
+            "category": "테마",
+            "text": "전력망·인프라·에너지 관련 장기 테마는 원문 리포트들에서 반복적으로 확인됩니다.",
+            "sources": []
+          },
+          {
+            "category": "원문수집",
+            "text": "2월 19일~3월 19일 raw 파일 268건 확보, 지역별 분포 {'EU': 16, 'INTL': 36, 'JP': 111, 'KR': 15, 'US': 90}.",
+            "sources": [
+              {
+                "label": "raw inventory",
+                "source": "reporting_raw",
+                "path": "2_Project/Reporting/input/raw"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "price": "6,646.13",
+            "change": "▼ 0.75%",
+            "isUp": false
+          },
+          {
+            "name": "나스닥",
+            "price": "22,233.23",
+            "change": "▼ 0.82%",
+            "isUp": false
+          },
+          {
+            "name": "다우존스",
+            "price": "46,338.25",
+            "change": "▼ 0.96%",
+            "isUp": false
+          },
+          {
+            "name": "원/달러",
+            "price": "1,485.50",
+            "change": "▼ 0.09%",
+            "isUp": false
+          },
+          {
+            "name": "WTI 원유",
+            "price": "96.16",
+            "change": "▲ 0.99%",
+            "isUp": true
+          },
+          {
+            "name": "금(Gold)",
+            "price": "4,864.04",
+            "change": "▼ 2.78%",
+            "isUp": false
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "2026년 3월 19일 (목): KB 데일리",
+          "tags": [
+            "2026년"
+          ],
+          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
+          "impacts": [
+            {
+              "sector": "거시 / 금리 / 정책",
+              "isPositive": true,
+              "desc": "원문 2건이 병합된 이슈입니다."
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            }
+          ]
+        },
+        {
+          "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+          "tags": [
+            "comment",
+            "fixed",
+            "fomc",
+            "income"
+          ],
+          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
+          "impacts": [
+            {
+              "sector": "거시 / 금리 / 정책",
+              "isPositive": false,
+              "desc": "원문 2건이 병합된 이슈입니다."
+            }
+          ],
+          "sources": [
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "중기 관점에서는 성장주 편중보다 인프라·방어자산 병행이 유리해 보입니다.",
+        "accountDetail": "실계좌 원본이 연결되지 않아 포트폴리오 평가는 모델 기반으로 작성했습니다.",
+        "weeklyReview": {
+          "returnRate": "1개월 실계좌 수익률 미연결",
+          "desc": "실제 성과 계산에는 계좌 스냅샷이 더 필요합니다."
+        },
+        "holdings": [
+          {
+            "name": "PAVE",
+            "ticker": "PAVE",
+            "returnRate": "데이터 미연결",
+            "score": 55,
+            "indicators": [
+              "VIX",
+              "RSI",
+              "Momentum_3M"
+            ],
+            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
+          },
+          {
+            "name": "TSLA",
+            "ticker": "TSLA",
+            "returnRate": "데이터 미연결",
+            "score": -35,
+            "indicators": [
+              "Momentum_12M",
+              "ADX",
+              "DXY"
+            ],
+            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
+          }
+        ],
+        "planDesc": "1개월 기준 코어지수 + 인프라/에너지 + 현금 완충 구조를 제안합니다.",
+        "allocations": [
+          {
+            "name": "S&P 500",
+            "percent": 45,
+            "color": "#191F28",
+            "desc": "코어 베타"
+          },
+          {
+            "name": "인프라/에너지",
+            "percent": 35,
+            "color": "#F04452",
+            "desc": "구조적 테마 + 지정학 수혜"
+          },
+          {
+            "name": "현금/채권",
+            "percent": 20,
+            "color": "#E5E8EB",
+            "desc": "변동성 대응"
+          }
+        ]
+      },
+      "recommendations": {
+        "ideas": [
+          {
+            "logo": "🔌",
+            "name": "Global X U.S. Infrastructure",
+            "ticker": "PAVE",
+            "action": "장기 관찰 및 분할매수",
+            "linkedIssue": "전력망/인프라 투자 확대",
+            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          }
+        ],
+        "etfRanking": [
+          {
+            "rank": 1,
+            "name": "Global X U.S. Infrastructure",
+            "ticker": "PAVE",
+            "score": 91
+          },
+          {
+            "rank": 2,
+            "name": "SPDR Gold Trust",
+            "ticker": "GLD",
+            "score": 78
+          },
+          {
+            "rank": 3,
+            "name": "iShares 20+ Year Treasury Bond",
+            "ticker": "TLT",
+            "score": 69
+          }
+        ]
+      },
+      "raw_sources": {
+        "news": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+        ],
+        "market": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
+        ],
+        "reports": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf"
+        ],
+        "portfolio": []
+      }
+    },
+    "3개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 57,
+          "status": "완만한 위험선호",
+          "desc": "3개월 기준 수집 데이터와 퀀트수식 문서 해석을 반영한 심리 요약입니다."
+        },
+        "forecast": {
+          "title": "최근 3개월 구조적 테마 및 자산배분 전망",
+          "text": "중기 이상 기간은 매크로/리포트 누적과 구조적 테마의 지속성에 더 큰 비중을 둡니다.",
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "중기 레짐",
+            "text": "중기적으로는 금리-에너지-달러 조합이 성장주와 인프라 자산의 상대 강도를 가르는 구조로 해석됩니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          },
+          {
+            "category": "퀀트수식",
+            "text": "확인된 퀀트 항목: VIX, RSI, Momentum_3M, Momentum_12M, ADX, DXY, Oil_WTI.",
+            "sources": [
+              {
+                "label": "퀀트수식.txt",
+                "source": "state",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/state/퀀트수식.txt"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "price": "6,646.13",
+            "change": "▼ 0.75%",
+            "isUp": false
+          },
+          {
+            "name": "나스닥",
+            "price": "22,233.23",
+            "change": "▼ 0.82%",
+            "isUp": false
+          },
+          {
+            "name": "다우존스",
+            "price": "46,338.25",
+            "change": "▼ 0.96%",
+            "isUp": false
+          },
+          {
+            "name": "원/달러",
+            "price": "1,485.50",
+            "change": "▼ 0.09%",
+            "isUp": false
+          },
+          {
+            "name": "WTI 원유",
+            "price": "96.16",
+            "change": "▲ 0.99%",
+            "isUp": true
+          },
+          {
+            "name": "금(Gold)",
+            "price": "4,864.04",
+            "change": "▼ 2.78%",
+            "isUp": false
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "2026년 3월 19일 (목): KB 데일리",
+          "tags": [
+            "2026년"
+          ],
+          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
+          "impacts": [
+            {
+              "sector": "거시 / 금리 / 정책",
+              "isPositive": true,
+              "desc": "원문 2건이 병합된 이슈입니다."
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            }
+          ]
+        },
+        {
+          "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+          "tags": [
+            "comment",
+            "fixed",
+            "fomc",
+            "income"
+          ],
+          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
+          "impacts": [
+            {
+              "sector": "거시 / 금리 / 정책",
+              "isPositive": false,
+              "desc": "원문 2건이 병합된 이슈입니다."
+            }
+          ],
+          "sources": [
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "중기 관점에서는 성장주 편중보다 인프라·방어자산 병행이 유리해 보입니다.",
+        "accountDetail": "실계좌 원본이 연결되지 않아 포트폴리오 평가는 모델 기반으로 작성했습니다.",
+        "weeklyReview": {
+          "returnRate": "3개월 실계좌 수익률 미연결",
+          "desc": "실제 성과 계산에는 계좌 스냅샷이 더 필요합니다."
+        },
+        "holdings": [
+          {
+            "name": "PAVE",
+            "ticker": "PAVE",
+            "returnRate": "데이터 미연결",
+            "score": 55,
+            "indicators": [
+              "VIX",
+              "RSI",
+              "Momentum_3M"
+            ],
+            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
+          },
+          {
+            "name": "TSLA",
+            "ticker": "TSLA",
+            "returnRate": "데이터 미연결",
+            "score": -35,
+            "indicators": [
+              "Momentum_12M",
+              "ADX",
+              "DXY"
+            ],
+            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
+          }
+        ],
+        "planDesc": "3개월 기준 코어지수 + 인프라/에너지 + 현금 완충 구조를 제안합니다.",
+        "allocations": [
+          {
+            "name": "S&P 500",
+            "percent": 45,
+            "color": "#191F28",
+            "desc": "코어 베타"
+          },
+          {
+            "name": "인프라/에너지",
+            "percent": 35,
+            "color": "#F04452",
+            "desc": "구조적 테마 + 지정학 수혜"
+          },
+          {
+            "name": "현금/채권",
+            "percent": 20,
+            "color": "#E5E8EB",
+            "desc": "변동성 대응"
+          }
+        ]
+      },
+      "recommendations": {
+        "ideas": [
+          {
+            "logo": "🔌",
+            "name": "Global X U.S. Infrastructure",
+            "ticker": "PAVE",
+            "action": "장기 관찰 및 분할매수",
+            "linkedIssue": "전력망/인프라 투자 확대",
+            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          }
+        ],
+        "etfRanking": [
+          {
+            "rank": 1,
+            "name": "Global X U.S. Infrastructure",
+            "ticker": "PAVE",
+            "score": 91
+          },
+          {
+            "rank": 2,
+            "name": "SPDR Gold Trust",
+            "ticker": "GLD",
+            "score": 78
+          },
+          {
+            "rank": 3,
+            "name": "iShares 20+ Year Treasury Bond",
+            "ticker": "TLT",
+            "score": 69
+          }
+        ]
+      },
+      "raw_sources": {
+        "news": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+        ],
+        "market": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
+        ],
+        "reports": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf"
+        ],
+        "portfolio": []
+      }
+    },
+    "6개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 53,
+          "status": "중립",
+          "desc": "6개월 기준 수집 데이터와 퀀트수식 문서 해석을 반영한 심리 요약입니다."
+        },
+        "forecast": {
+          "title": "최근 6개월 레짐 전환 관점 중기 전망",
+          "text": "중기 이상 기간은 매크로/리포트 누적과 구조적 테마의 지속성에 더 큰 비중을 둡니다.",
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "장기 배경",
+            "text": "6개월 관점에서는 인플레·정책·지정학 변수보다 구조적 투자(CAPEX, 인프라, AI 전력수요)의 지속성이 더 중요합니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          },
+          {
+            "category": "데이터 범위",
+            "text": "현재 1개월 수집이 먼저 진행 중이며, 6개월 period는 우선 구조만 생성하고 추후 시계열이 누적되면 정량화 강도를 높입니다.",
+            "sources": [
+              {
+                "label": "collection in progress",
+                "source": "automation"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "price": "6,646.13",
+            "change": "▼ 0.75%",
+            "isUp": false
+          },
+          {
+            "name": "나스닥",
+            "price": "22,233.23",
+            "change": "▼ 0.82%",
+            "isUp": false
+          },
+          {
+            "name": "다우존스",
+            "price": "46,338.25",
+            "change": "▼ 0.96%",
+            "isUp": false
+          },
+          {
+            "name": "원/달러",
+            "price": "1,485.50",
+            "change": "▼ 0.09%",
+            "isUp": false
+          },
+          {
+            "name": "WTI 원유",
+            "price": "96.16",
+            "change": "▲ 0.99%",
+            "isUp": true
+          },
+          {
+            "name": "금(Gold)",
+            "price": "4,864.04",
+            "change": "▼ 2.78%",
+            "isUp": false
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "2026년 3월 19일 (목): KB 데일리",
+          "tags": [
+            "2026년"
+          ],
+          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
+          "impacts": [
+            {
+              "sector": "거시 / 금리 / 정책",
+              "isPositive": true,
+              "desc": "원문 2건이 병합된 이슈입니다."
+            }
+          ],
+          "sources": [
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            },
+            {
+              "label": "2026년 3월 19일 (목): KB 데일리",
+              "source": "kb_research",
+              "title": "2026년 3월 19일 (목): KB 데일리",
+              "published_at": "2026-03-19",
+              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+            }
+          ]
+        },
+        {
+          "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+          "tags": [
+            "comment",
+            "fixed",
+            "fomc",
+            "income"
+          ],
+          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
+          "impacts": [
+            {
+              "sector": "거시 / 금리 / 정책",
+              "isPositive": false,
+              "desc": "원문 2건이 병합된 이슈입니다."
+            }
+          ],
+          "sources": [
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            },
+            {
+              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "source": "mirae_research",
+              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+              "published_at": "2026-03-19",
+              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "중기 관점에서는 성장주 편중보다 인프라·방어자산 병행이 유리해 보입니다.",
+        "accountDetail": "실계좌 원본이 연결되지 않아 포트폴리오 평가는 모델 기반으로 작성했습니다.",
+        "weeklyReview": {
+          "returnRate": "6개월 실계좌 수익률 미연결",
+          "desc": "실제 성과 계산에는 계좌 스냅샷이 더 필요합니다."
+        },
+        "holdings": [
+          {
+            "name": "PAVE",
+            "ticker": "PAVE",
+            "returnRate": "데이터 미연결",
+            "score": 55,
+            "indicators": [
+              "VIX",
+              "RSI",
+              "Momentum_3M"
+            ],
+            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
+          },
+          {
+            "name": "TSLA",
+            "ticker": "TSLA",
+            "returnRate": "데이터 미연결",
+            "score": -35,
+            "indicators": [
+              "Momentum_12M",
+              "ADX",
+              "DXY"
+            ],
+            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
+          }
+        ],
+        "planDesc": "6개월 기준 코어지수 + 인프라/에너지 + 현금 완충 구조를 제안합니다.",
+        "allocations": [
+          {
+            "name": "S&P 500",
+            "percent": 45,
+            "color": "#191F28",
+            "desc": "코어 베타"
+          },
+          {
+            "name": "인프라/에너지",
+            "percent": 35,
+            "color": "#F04452",
+            "desc": "구조적 테마 + 지정학 수혜"
+          },
+          {
+            "name": "현금/채권",
+            "percent": 20,
+            "color": "#E5E8EB",
+            "desc": "변동성 대응"
+          }
+        ]
+      },
+      "recommendations": {
+        "ideas": [
+          {
+            "logo": "🔌",
+            "name": "Global X U.S. Infrastructure",
+            "ticker": "PAVE",
+            "action": "장기 관찰 및 분할매수",
+            "linkedIssue": "전력망/인프라 투자 확대",
+            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
+            "sources": [
+              {
+                "label": "2026년 3월 19일 (목): KB 데일리",
+                "source": "kb_research",
+                "title": "2026년 3월 19일 (목): KB 데일리",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+                "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
+              },
+              {
+                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "source": "mirae_research",
+                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
+                "published_at": "2026-03-19",
+                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf",
+                "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
+              }
+            ]
+          }
+        ],
+        "etfRanking": [
+          {
+            "rank": 1,
+            "name": "Global X U.S. Infrastructure",
+            "ticker": "PAVE",
+            "score": 91
+          },
+          {
+            "rank": 2,
+            "name": "SPDR Gold Trust",
+            "ticker": "GLD",
+            "score": 78
+          },
+          {
+            "rank": 3,
+            "name": "iShares 20+ Year Treasury Bond",
+            "ticker": "TLT",
+            "score": 69
+          }
+        ]
+      },
+      "raw_sources": {
+        "news": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
+        ],
+        "market": [
+          "1_Project/DailyReport/output/2026-03-19_reportData.json",
+          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
+        ],
+        "reports": [
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/kb_research/2026-03-19/2026-03-19_kb_research_broker_report_2026년_3월_19일__목___kb_데일리.pdf",
+          "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw/KR/mirae_research/2026-03-19/2026-03-19_mirae_research_broker_report_fixed_income_comment__3월_fomc__인플레_위험에_맞춰진_정책_초점.pdf"
+        ],
+        "portfolio": []
+      }
+    }
+  }
+};
 function renderApp(){initCalendar();updateReportTitle();const periodsFromData=Object.keys(reportData.dataByPeriod);if(periodsFromData.length===0){document.querySelector('.tab-content').innerHTML=`<div style="padding: 40px 20px; text-align: center; color: #8B95A1;">데이터가 없습니다.</div>`;return;}currentPeriod=periodsFromData[0];renderPeriodSelector(periodsFromData);updateAllViews();}
 function renderPeriodSelector(periods){const container=document.getElementById('periodSelector');let html='';periods.forEach(period=>{const isActive=(period===currentPeriod)?'active':'';html+=`<div class="period-chip ${isActive}" onclick="changePeriod('${period}')">${period}</div>`;});container.innerHTML=html;}
-function changePeriod(period){if(!reportData.dataByPeriod[period]) return;currentPeriod=period;renderPeriodSelector(Object.keys(reportData.dataByPeriod));updateAllViews();}
+function changePeriod(period){if(!reportData.dataByPeriod[period])return;currentPeriod=period;renderPeriodSelector(Object.keys(reportData.dataByPeriod));updateAllViews();}
 function updateAllViews(){renderBriefing();renderNews();renderPortfolio();renderRecommend();}
 function getCurrentData(){return reportData.dataByPeriod[currentPeriod]||{};} function isMacroPeriod(){return currentPeriod.includes('월')||currentPeriod.includes('년');}
 function getSignalData(score){if(score<=-60)return{text:"🧊 풀매도",cls:"sig-ss",color:"#1B64DA"};if(score<=-20)return{text:"📉 매도",cls:"sig-s",color:"#3182F6"};if(score<=19)return{text:"⏸️ 보유",cls:"sig-h",color:"#6B7684"};if(score<=59)return{text:"📈 매수",cls:"sig-b",color:"#F04452"};return{text:"🔥 풀매수",cls:"sig-sb",color:"#D9042B"};}
-function renderBriefing(){const container=document.getElementById('tab-briefing');const data=getCurrentData().briefing;if(!data){container.innerHTML=`<div class="empty-state">해당 기간의 브리핑 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(data.sentiment){const s=data.sentiment;let barColor=s.score>50?'#F04452':'#3182F6';let statusColor=s.score>50?'#F04452':'#3182F6';const titleText=macro?`${currentPeriod} 시장 과열/침체 온도 🌡️`:'오늘의 단기 시장 온도 🌡️';html+=`<div class="card"><div class="card-title">${titleText}</div><div class="sentiment-container"><div class="sentiment-header"><div class="sentiment-score">${s.score}<span style="font-size:14px; color:#8B95A1;"> / 100</span></div><div class="sentiment-status" style="color:${statusColor};">${s.status}</div></div><div class="sentiment-bar-bg"><div class="sentiment-bar-fill" style="width: ${s.score}%; background-color: ${barColor};"></div></div><div class="sentiment-desc">${s.desc}</div></div></div>`;}if(data.forecast){const f=data.forecast;html+=`<div class="card" style="padding:0; box-shadow:none; background:transparent;"><div class="forecast-box"><div class="forecast-title"><span>${currentPeriod} 전망</span>${f.title}</div><div class="forecast-text">${f.text}</div></div></div>`;}if(data.insights&&data.insights.length>0){const titleText=macro?`${currentPeriod} 거시경제 핵심 인사이트 💡`:`${currentPeriod} 단기 시황 브리핑 💡`;html+=`<div class="card"><div class="card-title">${titleText}</div><ul class="insight-list">`;data.insights.forEach(insight=>{html+=`<li class="insight-item"><span class="badge-category">${insight.category}</span><div class="insight-text">${insight.text}</div></li>`;});html+=`</ul></div>`;}if(data.indices&&data.indices.length>0){html+=`<div class="card"><div class="card-title">${currentPeriod} 누적 지수 성과</div>`;data.indices.forEach(idx=>{const colorClass=idx.isUp?'text-up':'text-down';html+=`<div class="index-row"><div class="index-name">${idx.name}</div><div class="index-value"><div class="index-price">${idx.price}</div><div class="${colorClass}">${idx.change}</div></div></div>`;});html+=`</div>`;}container.innerHTML=html;}
-function renderNews(){const container=document.getElementById('tab-news');const data=getCurrentData().newsList;if(!data||data.length===0){container.innerHTML=`<div class="empty-state">해당 기간의 이슈 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();data.forEach(news=>{let tagsHtml=news.tags.map(tag=>`<div class="chip">${tag}</div>`).join('');let impactsHtml='';if(news.impacts&&news.impacts.length>0){const impactTitle=macro?`${currentPeriod} 누적 펀더멘털 영향도`:`단기 섹터 투심 영향도`;impactsHtml+=`<div class="impact-tree"><div class="impact-tree-title">${impactTitle}</div>`;news.impacts.forEach(impact=>{const dotClass=impact.isPositive?'dot-red':'dot-blue';const badgeClass=impact.isPositive?'badge-positive':'badge-negative';const badgeText=impact.isPositive?'긍정':'부정';impactsHtml+=`<div class="impact-node"><div class="node-header"><div class="node-dot ${dotClass}">●</div><div class="node-title">${impact.sector} <span class="badge ${badgeClass}">${badgeText}</span></div></div><div class="node-desc">${impact.desc}</div></div>`;});impactsHtml+=`</div>`;}html+=`<div class="card"><div class="card-title" style="font-size: 20px;">${news.title}</div><div class="chip-group">${tagsHtml}</div><p style="font-size: 15px; color: #4E5968; margin-bottom: 24px;">${news.summary}</p>${impactsHtml}</div>`;});container.innerHTML=html;}
+function renderSources(sources, id){ if(!sources || !sources.length) return ''; const items=sources.map(s=>`<div class="source-item"><b>${s.source||s.label||'source'}</b>${s.title?` — ${s.title}`:''}${s.published_at?` (${s.published_at})`:''}${s.url?`<div><a href="${s.url}" target="_blank">원문 링크</a></div>`:''}${s.path?`<div>${s.path}</div>`:''}</div>`).join(''); return `<button class="source-toggle" onclick="toggleSourceBox('${id}')">출처 보기</button><div class="source-box" id="${id}" style="display:none;">${items}</div>`; }
+function toggleSourceBox(id){ const el=document.getElementById(id); if(!el) return; el.style.display = el.style.display==='none' ? 'block' : 'none'; }
+function renderBriefing(){const container=document.getElementById('tab-briefing');const data=getCurrentData().briefing;if(!data){container.innerHTML=`<div class="empty-state">해당 기간의 브리핑 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(data.sentiment){const s=data.sentiment;let barColor=s.score>50?'#F04452':'#3182F6';let statusColor=s.score>50?'#F04452':'#3182F6';const titleText=macro?`${currentPeriod} 시장 과열/침체 온도 🌡️`:'오늘의 단기 시장 온도 🌡️';html+=`<div class="card"><div class="card-title">${titleText}</div><div class="sentiment-container"><div class="sentiment-header"><div class="sentiment-score">${s.score}<span style="font-size:14px; color:#8B95A1;"> / 100</span></div><div class="sentiment-status" style="color:${statusColor};">${s.status}</div></div><div class="sentiment-bar-bg"><div class="sentiment-bar-fill" style="width: ${s.score}%; background-color: ${barColor};"></div></div><div class="sentiment-desc">${s.desc}</div></div></div>`;}if(data.forecast){const f=data.forecast;html+=`<div class="card" style="padding:0; box-shadow:none; background:transparent;"><div class="forecast-box"><div class="forecast-title"><span>${currentPeriod} 전망</span>${f.title}</div><div class="forecast-text">${f.text}</div>${renderSources(f.sources,'src-forecast')}</div></div>`;}if(data.insights&&data.insights.length>0){const titleText=macro?`${currentPeriod} 거시경제 핵심 인사이트 💡`:`${currentPeriod} 단기 시황 브리핑 💡`;html+=`<div class="card"><div class="card-title">${titleText}</div><ul class="insight-list">`;data.insights.forEach((insight,i)=>{html+=`<li class="insight-item"><span class="badge-category">${insight.category}</span><div class="insight-text">${insight.text}${renderSources(insight.sources, 'src-ins-'+i)}</div></li>`;});html+=`</ul></div>`;}if(data.indices&&data.indices.length>0){html+=`<div class="card"><div class="card-title">${currentPeriod} 누적 지수 성과</div>`;data.indices.forEach(idx=>{const colorClass=idx.isUp?'text-up':'text-down';html+=`<div class="index-row"><div class="index-name">${idx.name}</div><div class="index-value"><div class="index-price">${idx.price}</div><div class="${colorClass}">${idx.change}</div></div></div>`;});html+=`</div>`;}container.innerHTML=html;}
+function renderNews(){const container=document.getElementById('tab-news');const data=getCurrentData().newsList;if(!data||data.length===0){container.innerHTML=`<div class="empty-state">해당 기간의 이슈 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();data.forEach((news,i)=>{let tagsHtml=(news.tags||[]).map(tag=>`<div class="chip">${tag}</div>`).join('');let impactsHtml='';if(news.impacts&&news.impacts.length>0){const impactTitle=macro?`${currentPeriod} 누적 펀더멘털 영향도`:`단기 섹터 투심 영향도`;impactsHtml+=`<div class="impact-tree"><div class="impact-tree-title">${impactTitle}</div>`;news.impacts.forEach(impact=>{const dotClass=impact.isPositive?'dot-red':'dot-blue';const badgeClass=impact.isPositive?'badge-positive':'badge-negative';const badgeText=impact.isPositive?'긍정':'부정';impactsHtml+=`<div class="impact-node"><div class="node-header"><div class="node-dot ${dotClass}">●</div><div class="node-title">${impact.sector} <span class="badge ${badgeClass}">${badgeText}</span></div></div><div class="node-desc">${impact.desc}</div></div>`;});impactsHtml+=`</div>`;}html+=`<div class="card"><div class="card-title" style="font-size: 20px;">${news.title}</div><div class="chip-group">${tagsHtml}</div><p style="font-size: 15px; color: #4E5968; margin-bottom: 24px;">${news.summary}</p>${renderSources(news.sources,'src-news-'+i)}${impactsHtml}</div>`;});container.innerHTML=html;}
 function renderPortfolio(){const container=document.getElementById('tab-portfolio');const p=getCurrentData().portfolio;if(!p){container.innerHTML=`<div class="empty-state">포트폴리오 분석 데이터가 없습니다.</div>`;return;}const macro=isMacroPeriod();let html=`<div class="account-card"><div class="account-alert">${p.accountAlert}</div><div class="account-detail">${p.accountDetail}</div></div>`;if(p.holdings&&p.holdings.length>0){const signalDesc=macro?"장기 이평선 및 기업 펀더멘털 알고리즘 기반 중장기 시그널입니다.":"RSI, 볼린저밴드 등 단기 수급 및 기술적 지표 기반 시그널입니다.";html+=`<div class="card"><div class="card-title">🎯 내 보유 종목 AI 시그널</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${signalDesc}</div>`;p.holdings.forEach(item=>{const sig=getSignalData(item.score);const returnColor=item.returnRate.includes('+')?'#F04452':'#3182F6';const markerPos=(item.score+100)/2;const indHtml=item.indicators.map(ind=>`<span class="sig-ind">${ind}</span>`).join('');html+=`<div class="signal-box"><div class="signal-header"><div class="signal-stock-info"><span class="signal-stock-name">${item.name}</span><span class="signal-stock-ticker">${item.ticker} <span style="font-weight:700; color:${returnColor}; margin-left:6px;">${item.returnRate}</span></span></div><div class="signal-badge ${sig.cls}">${sig.text}</div></div><div class="signal-bar-wrap"><div class="signal-bar-label">-100</div><div class="signal-bar-track"><div class="signal-bar-marker" style="left: ${markerPos}%; border-color: ${sig.color};"></div></div><div class="signal-bar-label">+100</div></div><div class="signal-indicators">${indHtml}</div><div class="signal-reason">${item.reason}</div></div>`;});html+=`</div>`;}html+=`<div class="card"><div class="card-title">📊 ${currentPeriod} 포트폴리오 성과</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 4px;">해당 기간 누적 수익률</div><div style="font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 16px; color: #3182F6;">${p.weeklyReview.returnRate}</div><p style="font-size: 14px; color: #4E5968;">${p.weeklyReview.desc}</p></div>`;if(p.allocations&&p.allocations.length>0){let barHtml='';let listHtml='';p.allocations.forEach(alloc=>{barHtml+=`<div style="width: ${alloc.percent}%; background-color: ${alloc.color};"></div>`;listHtml+=`<div class="alloc-item"><div class="alloc-dot" style="background-color: ${alloc.color};"></div><div><div class="alloc-name">${alloc.name} (${alloc.percent}%)</div><div class="alloc-desc">${alloc.desc}</div></div></div>`;});const allocTitle=macro?"장기 전략적 자산 배분 (SAA)":"단기 전술적 자산 배분 (TAA)";html+=`<div class="card"><div class="card-title">📅 ${allocTitle}</div><p style="font-size: 14px; color: #4E5968; margin-bottom: 16px;">${p.planDesc}</p><div class="allocation-bar">${barHtml}</div>${listHtml}</div>`;}container.innerHTML=html;}
-function renderRecommend(){const container=document.getElementById('tab-recommend');const r=getCurrentData().recommendations;if(!r){container.innerHTML=`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(r.ideas&&r.ideas.length>0){const ideaTitle=macro?"장기 메가 트렌드 투자 아이디어":"단기 모멘텀 투자 아이디어";html+=`<div class="card" style="background-color: transparent; box-shadow: none; padding: 0; margin: 0 20px 24px 20px;"><div class="card-title" style="padding-left: 4px;">💡 ${ideaTitle}</div>`;r.ideas.forEach(rec=>{html+=`<div style="margin-bottom: 20px;"><div class="stock-item" style="margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"><div class="stock-info"><div class="stock-logo">${rec.logo}</div><div><div class="stock-name">${rec.name}</div><div class="stock-ticker">${rec.ticker}</div></div></div><div class="stock-action">${rec.action}</div></div><div class="stock-reason-box"><div class="badge-issue">🔗 연관 테마: ${rec.linkedIssue}</div><div style="font-size: 14px; color: #4E5968; line-height: 1.5;">${rec.reason}</div></div></div>`;});html+=`</div>`;}if(r.etfRanking&&r.etfRanking.length>0){const rankDesc=macro?"EPS 성장, 장기 거래량, 200일선 지표를 종합한 장기 펀더멘털 점수입니다.":"일일 변동성, RSI, 단기 수급을 종합한 단기 트레이딩 점수입니다.";html+=`<div class="card"><div class="card-title">🔥 AI 모멘텀 ETF 랭킹</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${rankDesc}</div><div class="ranking-list">`;r.etfRanking.forEach(etf=>{const rankClass=etf.rank<=3?'top-rank':'';const barColor=etf.score>=80?'#F04452':(etf.score>=50?'#3182F6':'#8B95A1');html+=`<div class="rank-item"><div class="rank-num ${rankClass}">${etf.rank}</div><div class="rank-info"><div class="rank-title-box"><div><span class="rank-name">${etf.name}</span><span class="rank-ticker">${etf.ticker}</span></div><div class="rank-score-text">${etf.score}점</div></div><div class="rank-bar-bg"><div class="rank-bar-fill" style="width: ${etf.score}%; background-color: ${barColor};"></div></div></div></div>`;});html+=`</div></div>`;}if(html==='')container.innerHTML=`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`;else container.innerHTML=html;}
+function renderRecommend(){const container=document.getElementById('tab-recommend');const r=getCurrentData().recommendations;if(!r){container.innerHTML=`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(r.ideas&&r.ideas.length>0){const ideaTitle=macro?"장기 메가 트렌드 투자 아이디어":"단기 모멘텀 투자 아이디어";html+=`<div class="card" style="background-color: transparent; box-shadow: none; padding: 0; margin: 0 20px 24px 20px;"><div class="card-title" style="padding-left: 4px;">💡 ${ideaTitle}</div>`;r.ideas.forEach(rec=>{html+=`<div style="margin-bottom: 20px;"><div class="stock-item" style="margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"><div class="stock-info"><div class="stock-logo">${rec.logo}</div><div><div class="stock-name">${rec.name}</div><div class="stock-ticker">${rec.ticker}</div></div></div><div class="stock-action">${rec.action}</div></div><div class="stock-reason-box"><div class="badge-issue">🔗 연관 테마: ${rec.linkedIssue}</div><div style="font-size: 14px; color: #4E5968; line-height: 1.5;">${rec.reason}</div></div></div>`;});html+=`</div>`;}if(r.etfRanking&&r.etfRanking.length>0){const rankDesc=macro?"EPS 성장, 장기 거래량, 200일선 지표를 종합한 장기 펀더멘털 점수입니다.":"일일 변동성, RSI, 단기 수급을 종합한 단기 트레이딩 점수입니다.";html+=`<div class="card"><div class="card-title">🔥 AI 모멘텀 ETF 랭킹</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${rankDesc}</div><div class="ranking-list">`;r.etfRanking.forEach(etf=>{const rankClass=etf.rank<=3?'top-rank':'';const barColor=etf.score>=80?'#F04452':(etf.score>=50?'#3182F6':'#8B95A1');html+=`<div class="rank-item"><div class="rank-num ${rankClass}">${etf.rank}</div><div class="rank-info"><div class="rank-title-box"><div><span class="rank-name">${etf.name}</span><span class="rank-ticker">${etf.ticker}</span></div><div class="rank-score-text">${etf.score}점</div></div><div class="rank-bar-bg"><div class="rank-bar-fill" style="width: ${etf.score}%; background-color: ${barColor};"></div></div></div></div>`;});html+=`</div></div>`;}container.innerHTML=html===''?`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`:html;}
 function switchTab(tabId){document.querySelectorAll('.tab-item').forEach(item=>item.classList.remove('active'));const clickedTab=Array.from(document.querySelectorAll('.tab-item')).find(item=>item.getAttribute('onclick').includes(tabId));if(clickedTab) clickedTab.classList.add('active');document.querySelectorAll('.tab-pane').forEach(pane=>pane.classList.remove('active'));const activePane=document.getElementById('tab-'+tabId);if(activePane) activePane.classList.add('active');if(clickedTab) clickedTab.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });}
 window.onload=renderApp;
 </script>

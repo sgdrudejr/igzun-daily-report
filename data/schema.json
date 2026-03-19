@@ -1,5 +1,6 @@
 {
   "date": "string",
+  "generated_at": "string(ISO-8601, optional)",
   "dataByPeriod": {
     "<period>": {
       "briefing": {
@@ -10,12 +11,32 @@
         },
         "forecast": {
           "title": "string",
-          "text": "string"
+          "text": "string",
+          "sources": [
+            {
+              "label": "string",
+              "source": "string",
+              "title": "string",
+              "published_at": "string",
+              "path": "string",
+              "url": "string"
+            }
+          ]
         },
         "insights": [
           {
             "category": "string",
-            "text": "string"
+            "text": "string",
+            "sources": [
+              {
+                "label": "string",
+                "source": "string",
+                "title": "string",
+                "published_at": "string",
+                "path": "string",
+                "url": "string"
+              }
+            ]
           }
         ],
         "indices": [
@@ -37,6 +58,16 @@
               "sector": "string",
               "isPositive": "boolean",
               "desc": "string"
+            }
+          ],
+          "sources": [
+            {
+              "label": "string",
+              "source": "string",
+              "title": "string",
+              "published_at": "string",
+              "path": "string",
+              "url": "string"
             }
           ]
         }
@@ -76,7 +107,17 @@
             "ticker": "string",
             "action": "string",
             "linkedIssue": "string",
-            "reason": "string"
+            "reason": "string",
+            "sources": [
+              {
+                "label": "string",
+                "source": "string",
+                "title": "string",
+                "published_at": "string",
+                "path": "string",
+                "url": "string"
+              }
+            ]
           }
         ],
         "etfRanking": [

@@ -18,7 +18,7 @@ HTML이 바뀌면 이 문서와 `data/schema.json`도 같이 업데이트해야 
 ```
 
 ## period key 규칙
-- 예: `1일`, `3일`, `1주`, `1개월`, `3개월`, `1년`
+- 예: `1일`, `3일`, `1주`, `1개월`, `3개월`, `6개월`, `1년`
 - HTML은 `Object.keys(dataByPeriod)`를 그대로 period chip으로 렌더링함.
 - `월`, `년`이 포함되면 거시 분석 모드(`isMacroPeriod`)로 분기함.
 
@@ -34,10 +34,13 @@ HTML이 바뀌면 이 문서와 `data/schema.json`도 같이 업데이트해야 
     },
     "forecast": {
       "title": "단기 수급 및 모멘텀 전망",
-      "text": "전망 본문"
+      "text": "전망 본문",
+      "sources": [
+        { "label": "FOMC statement", "source": "federal_reserve_press", "published_at": "2026-03-19", "url": "https://..." }
+      ]
     },
     "insights": [
-      { "category": "일일 시황", "text": "요약 문장" }
+      { "category": "일일 시황", "text": "요약 문장", "sources": [{ "label": "KB 데일리", "source": "kb_research" }] }
     ],
     "indices": [
       { "name": "S&P 500", "price": "5,123.45", "change": "▼ 0.82%", "isUp": false }
@@ -50,6 +53,9 @@ HTML이 바뀌면 이 문서와 `data/schema.json`도 같이 업데이트해야 
       "summary": "기사/리포트 요약",
       "impacts": [
         { "sector": "기술 / 성장주", "isPositive": false, "desc": "영향 설명" }
+      ],
+      "sources": [
+        { "label": "기사 원문", "source": "financial_news_multi", "title": "기사 제목" }
       ]
     }
   ],
