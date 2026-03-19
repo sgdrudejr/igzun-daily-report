@@ -9,29 +9,22 @@
  * { box-sizing: border-box; }
  body { font-family: 'Pretendard', -apple-system, sans-serif; background-color: #F2F4F6; color: #333D4B; margin: 0; padding: 0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
  .app-container { max-width: 480px; margin: 0 auto; background-color: #F2F4F6; min-height: 100vh; position: relative; display: flex; flex-direction: column; }
- 
  .top-nav { padding: 24px 20px 0 20px; background-color: #FFFFFF; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #E5E8EB; }
  .top-nav h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px 0; color: #191F28; display: flex; align-items: center; gap: 6px; }
  .top-nav .sub-text { font-size: 13px; color: #8B95A1; margin-bottom: 16px; }
- 
- /* [LLM 동적 렌더링] 기간 선택기 */
  .period-selector { display: flex; overflow-x: auto; scrollbar-width: none; gap: 8px; margin-bottom: 16px; padding-bottom: 4px; }
  .period-selector::-webkit-scrollbar { display: none; }
  .period-chip { padding: 6px 14px; background-color: #F2F4F6; color: #6B7684; border-radius: 16px; font-size: 13px; font-weight: 600; white-space: nowrap; transition: all 0.2s; cursor: pointer; }
  .period-chip.active { background-color: #333D4B; color: #FFFFFF; }
- 
  .tab-menu { display: flex; overflow-x: auto; scrollbar-width: none; gap: 16px; }
  .tab-menu::-webkit-scrollbar { display: none; }
  .tab-item { font-size: 15px; font-weight: 600; color: #8B95A1; padding-bottom: 8px; white-space: nowrap; cursor: pointer; position: relative; transition: color 0.2s ease; }
  .tab-item.active { color: #191F28; font-weight: 700; }
  .tab-item.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background-color: #191F28; border-radius: 3px 3px 0 0; }
- 
  .tab-content { padding: 20px 0 40px 0; flex: 1; }
  .tab-pane { display: none; animation: fadeIn 0.3s ease; }
  .tab-pane.active { display: block; }
  @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
- 
- /* 공통 UI 컴포넌트 */
  .card { background-color: #FFFFFF; border-radius: 20px; padding: 24px; margin: 0 20px 16px 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02); }
  .card-title { font-size: 18px; font-weight: 700; color: #191F28; margin: 0 0 16px 0; }
  .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
@@ -39,9 +32,8 @@
  .badge { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; padding: 3px 6px; border-radius: 6px; margin-left: 6px; }
  .badge-positive { background-color: #FCEBED; color: #F04452; }
  .badge-negative { background-color: #E8F3FF; color: #3182F6; }
+ .badge-issue { background-color: #F2F4F6; color: #333D4B; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 8px; display: inline-block;}
  .badge-category { background-color: #E8F3FF; color: #1B64DA; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; display: inline-block; white-space: nowrap;}
- 
- /* 브리핑 */
  .sentiment-container { margin-bottom: 24px; }
  .sentiment-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px; }
  .sentiment-score { font-size: 24px; font-weight: 800; color: #191F28; line-height: 1; }
@@ -49,17 +41,14 @@
  .sentiment-bar-bg { height: 8px; background-color: #E5E8EB; border-radius: 4px; overflow: hidden; position: relative; }
  .sentiment-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
  .sentiment-desc { font-size: 13px; color: #6B7684; margin-top: 8px; }
- 
  .forecast-box { background-color: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px; padding: 16px; margin-bottom: 20px; }
  .forecast-title { display: flex; align-items: center; font-size: 15px; font-weight: 700; color: #191F28; margin-bottom: 12px; }
  .forecast-title span { background-color: #191F28; color: white; border-radius: 4px; padding: 2px 6px; font-size: 11px; margin-right: 8px; }
  .forecast-text { font-size: 14px; color: #4E5968; line-height: 1.6; text-align: justify; }
-
  .insight-list { list-style: none; padding: 0; margin: 0; }
- .insight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px dashed #F2F4F6; }
+ .insight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px dashed #F2FF6; }
  .insight-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
  .insight-text { font-size: 14.5px; color: #4E5968; line-height: 1.5; margin-top: 2px; }
- 
  .index-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #F2F4F6; }
  .index-row:last-child { border-bottom: none; }
  .index-name { font-size: 15px; font-weight: 600; color: #333D4B; }
@@ -67,8 +56,6 @@
  .index-price { font-size: 15px; font-weight: 700; color: #191F28; }
  .text-up { color: #F04452; font-size: 13px; font-weight: 600; }
  .text-down { color: #3182F6; font-size: 13px; font-weight: 600; }
- 
- /* 뉴스 & 임팩트 */
  .impact-tree { margin-top: 20px; position: relative; }
  .impact-tree-title { font-size: 14px; font-weight: 700; margin-bottom: 16px; color: #8B95A1; }
  .impact-node { margin-bottom: 20px; position: relative; }
@@ -80,8 +67,6 @@
  .dot-blue { border: 2px solid #3182F6; color: #3182F6; }
  .node-title { font-size: 15px; font-weight: 700; color: #333D4B; }
  .node-desc { font-size: 14px; color: #6B7684; padding-left: 36px; margin-bottom: 12px; line-height: 1.4; }
- 
- /* 포트폴리오 */
  .account-card { background: linear-gradient(135deg, #191F28 0%, #333D4B 100%); color: white; border-radius: 20px; padding: 24px; margin: 0 20px 16px 20px; box-shadow: 0 4px 12px rgba(25, 31, 40, 0.2); }
  .account-alert { font-size: 18px; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
  .account-detail { font-size: 14px; opacity: 0.9; background: rgba(255,255,255,0.15); padding: 12px; border-radius: 12px; line-height: 1.5; }
@@ -90,28 +75,24 @@
  .alloc-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 4px; margin-right: 12px; flex-shrink: 0; }
  .alloc-name { font-size: 14px; font-weight: 700; color: #191F28; }
  .alloc-desc { font-size: 13px; color: #6B7684; }
- 
- /* 포트폴리오 AI 시그널 */
  .signal-box { background-color: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
  .signal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
  .signal-stock-info { display: flex; flex-direction: column; }
  .signal-stock-name { font-size: 16px; font-weight: 700; color: #191F28; }
  .signal-stock-ticker { font-size: 12px; color: #8B95A1; }
  .signal-badge { padding: 4px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
- .sig-ss { background-color: #E8F3FF; color: #1B64DA; border: 1px solid #1B64DA; } /* 풀매도 */
- .sig-s { background-color: #F2F4F6; color: #3182F6; } /* 매도 */
- .sig-h { background-color: #F2F4F6; color: #6B7684; } /* 보유 */
- .sig-b { background-color: #FCEBED; color: #F04452; } /* 매수 */
- .sig-sb { background-color: #FCEBED; color: #D9042B; border: 1px solid #D9042B; } /* 풀매수 */
+ .sig-ss { background-color: #E8F3FF; color: #1B64DA; border: 1px solid #1B64DA; }
+ .sig-s { background-color: #F2F4F6; color: #3182F6; }
+ .sig-h { background-color: #F2F4F6; color: #6B7684; }
+ .sig-b { background-color: #FCEBED; color: #F04452; }
+ .sig-sb { background-color: #FCEBED; color: #D9042B; border: 1px solid #D9042B; }
  .signal-bar-wrap { display: flex; align-items: center; gap: 8px; margin: 16px 0 12px 0; }
  .signal-bar-label { font-size: 11px; font-weight: 700; color: #8B95A1; min-width: 32px; text-align: center; }
  .signal-bar-track { flex: 1; height: 6px; border-radius: 3px; background: linear-gradient(to right, #1B64DA, #3182F6, #E5E8EB, #F04452, #D9042B); position: relative; }
  .signal-bar-marker { position: absolute; top: -5px; width: 16px; height: 16px; border-radius: 50%; background-color: white; border: 3px solid; transform: translateX(-50%); box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: left 0.5s ease; }
  .signal-indicators { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
- .sig-ind { font-size: 11px; background-color: #FFFFFF; border: 1px solid #E5E8EB; color: #4E5968; padding: 2px 6px; border-radius: 4px; font-weight: 600;}
+ .sig-ind { font-size: 11px; background-color: #FFFFFF; border: 1px solid #E5E8EB; color: #4E5968; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
  .signal-reason { font-size: 13px; color: #4E5968; line-height: 1.4; background-color: #FFFFFF; padding: 10px; border-radius: 8px; }
- 
- /* 랭킹 탭 */
  .stock-item { display: flex; align-items: center; justify-content: space-between; padding: 16px; background-color: #F9FAFB; border-radius: 12px; border: 1px solid #E5E8EB; }
  .stock-info { display: flex; align-items: center; gap: 12px; }
  .stock-logo { font-size: 24px; }
@@ -119,8 +100,7 @@
  .stock-ticker { font-size: 12px; color: #8B95A1; margin-top: 2px; }
  .stock-action { background-color: #FCEBED; color: #F04452; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; }
  .stock-reason-box { background-color: #FFFFFF; border: 1px solid #E5E8EB; border-top: none; padding: 16px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; margin-bottom: 20px; }
- 
- .ranking-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px;}
+ .ranking-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
  .rank-item { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #F2F4F6; }
  .rank-item:last-child { border-bottom: none; }
  .rank-num { width: 28px; font-size: 16px; font-weight: 800; color: #8B95A1; font-style: italic; }
@@ -140,10 +120,7 @@
  <div class="top-nav">
  <h1>✨ 오픈 클로 투자 비서</h1>
  <div class="sub-text" id="report-date">날짜 로딩중...</div>
- 
- <!-- LLM이 보내준 데이터에 따라 탭이 자동 생성되는 공간 -->
  <div class="period-selector" id="periodSelector"></div>
-
  <div class="tab-menu" id="tabMenu">
  <div class="tab-item active" onclick="switchTab('briefing')">시장 브리핑</div>
  <div class="tab-item" onclick="switchTab('news')">주요 이슈</div>
@@ -151,7 +128,6 @@
  <div class="tab-item" onclick="switchTab('recommend')">종목 랭킹</div>
  </div>
  </div>
- 
  <div class="tab-content">
  <div class="tab-pane active" id="tab-briefing"></div>
  <div class="tab-pane" id="tab-news"></div>
@@ -159,23 +135,10 @@
  <div class="tab-pane" id="tab-recommend"></div>
  </div>
 </div>
-
 <script>
- // =========================================================================
- // [오픈 클로 데이터 입력 규칙] 
- // LLM은 경제 기사와 리포트를 읽은 뒤, 아래 dataByPeriod 객체 내부에
- // 원하는 기간들(예: "1일", "1주", "1개월", "1년")을 Key 값으로 하여 데이터를 채웁니다.
- // 1일, 3일 같은 짧은 기간은 '단기 뉴스/차트/수급' 기반으로,
- // 1개월, 1년 같은 긴 기간은 '실적/매크로/경제 사이클' 기반으로 분석 내용을 채워주세요.
- // =========================================================================
- 
- const reportData = {
+const reportData = {
  date: "2026년 3월 19일 (목) 업데이트",
  dataByPeriod: {
- 
- // ----------------------------------------------------
- // [기간 1] 최근 24시간 분석 (1일)
- // ----------------------------------------------------
  "1일": {
  briefing: {
  sentiment: { score: 45, status: "중립", desc: "단기적으로 시장이 숨 고르기에 들어갔습니다." },
@@ -218,10 +181,6 @@
  ]
  }
  },
- 
- // ----------------------------------------------------
- // [기간 2] 최근 1개월 분석 (1개월)
- // ----------------------------------------------------
  "1개월": {
  briefing: {
  sentiment: { score: 78, status: "탐욕", desc: "최근 1개월간 펀더멘털 기반의 랠리가 지속되며 투자 심리가 긍정적입니다." },
@@ -266,249 +225,22 @@
  ]
  }
  }
- 
- // LLM은 위 형식에 맞춰 "3일", "1년" 등 다른 기간 데이터도 자유롭게 추가 생성할 수 있습니다.
  }
- };
- // =========================================================================
-
- // 글로벌 변수
- let currentPeriod = ""; 
-
- function renderApp() {
- document.getElementById('report-date').innerText = reportData.date;
- 
- // LLM이 보내준 데이터의 Key 값들("1일", "1개월" 등)을 가져와서 탭을 자동 생성
- const periodsFromData = Object.keys(reportData.dataByPeriod);
- 
- // 데이터가 없으면 앱 중단
- if (periodsFromData.length === 0) {
- document.querySelector('.app-container').innerHTML = `<div style="padding: 40px 20px; text-align: center; color: #8B95A1;">LLM에서 기간 데이터를 수신하지 못했습니다.</div>`;
- return;
- }
-
- // 초기 화면은 가장 첫 번째 기간으로 설정
- currentPeriod = periodsFromData[0];
- 
- renderPeriodSelector(periodsFromData);
- updateAllViews(); // 하단 콘텐츠들 렌더링
- }
-
- // ★ [LLM 동적 UI] 기간 탭을 자동으로 그려주는 함수
- function renderPeriodSelector(periods) {
- const container = document.getElementById('periodSelector');
- let html = '';
- periods.forEach(period => {
- const isActive = (period === currentPeriod) ? 'active' : '';
- html += `<div class="period-chip ${isActive}" onclick="changePeriod('${period}')">${period}</div>`;
- });
- container.innerHTML = html;
- }
-
- // 기간 변경 시 호출되는 함수
- function changePeriod(period) {
- if (!reportData.dataByPeriod[period]) return;
- currentPeriod = period;
- renderPeriodSelector(Object.keys(reportData.dataByPeriod));
- updateAllViews();
- }
-
- // 4개의 탭 콘텐츠를 모두 업데이트
- function updateAllViews() {
- renderBriefing();
- renderNews();
- renderPortfolio();
- renderRecommend();
- }
-
- // 현재 선택된 기간의 JSON 데이터를 반환
- function getCurrentData() {
- return reportData.dataByPeriod[currentPeriod] || {};
- }
-
- // 1개월 이상이면 '거시적(Macro)'으로 판단하여 텍스트 분기
- function isMacroPeriod() {
- return currentPeriod.includes('월') || currentPeriod.includes('년');
- }
-
- // AI 신호 점수 변환기 (-100 ~ 100)
- function getSignalData(score) {
- if (score <= -60) return { text: "🧊 풀매도", cls: "sig-ss", color: "#1B64DA" };
- if (score <= -20) return { text: "📉 매도", cls: "sig-s", color: "#3182F6" };
- if (score <= 19) return { text: "⏸️ 보유", cls: "sig-h", color: "#6B7684" };
- if (score <= 59) return { text: "📈 매수", cls: "sig-b", color: "#F04452" };
- return { text: "🔥 풀매수", cls: "sig-sb", color: "#D9042B" };
- }
-
- // ------ 아래부터는 각 탭별 HTML 렌더링 함수 ------
-
- function renderBriefing() {
- const container = document.getElementById('tab-briefing');
- const data = getCurrentData().briefing;
- if(!data) { container.innerHTML = `<div class="empty-state">해당 기간의 브리핑 데이터가 없습니다.</div>`; return; }
-
- let html = '';
- const macro = isMacroPeriod();
- 
- if (data.sentiment) {
- const s = data.sentiment;
- let barColor = s.score > 50 ? '#F04452' : '#3182F6'; 
- let statusColor = s.score > 50 ? '#F04452' : '#3182F6';
- const titleText = macro ? `${currentPeriod} 시장 과열/침체 온도 🌡️` : "오늘의 단기 시장 온도 🌡️";
- html += `<div class="card"><div class="card-title">${titleText}</div><div class="sentiment-container"><div class="sentiment-header"><div class="sentiment-score">${s.score}<span style="font-size:14px; color:#8B95A1;"> / 100</span></div><div class="sentiment-status" style="color:${statusColor};">${s.status}</div></div><div class="sentiment-bar-bg"><div class="sentiment-bar-fill" style="width: ${s.score}%; background-color: ${barColor};"></div></div><div class="sentiment-desc">${s.desc}</div></div></div>`;
- }
- if (data.forecast) {
- const f = data.forecast;
- html += `<div class="card" style="padding:0; box-shadow:none; background:transparent;"></div><div class="forecast-box"><div class="forecast-title"><span>${currentPeriod} 전망</span>${f.title}</div><div class="forecast-text">${f.text}</div></div>`;
- }
- if (data.insights && data.insights.length > 0) {
- const titleText = macro ? `${currentPeriod} 거시경제 핵심 인사이트 💡` : `${currentPeriod} 단기 시황 브리핑 💡`;
- html += `<div class="card"><div class="card-title">${titleText}</div><ul class="insight-list">`;
- data.insights.forEach(insight => {
- html += `<li class="insight-item"><span class="badge-category">${insight.category}</span><div class="insight-text">${insight.text}</div></li>`;
- });
- html += `</ul></div>`;
- }
- if (data.indices && data.indices.length > 0) {
- html += `<div class="card"><div class="card-title">${currentPeriod} 누적 지수 성과</div>`;
- data.indices.forEach(idx => {
- const colorClass = idx.isUp ? 'text-up' : 'text-down';
- html += `<div class="index-row"><div class="index-name">${idx.name}</div><div class="index-value"><div class="index-price">${idx.price}</div><div class="${colorClass}">${idx.change}</div></div></div>`;
- });
- html += `</div>`;
- }
- container.innerHTML = html;
- }
-
- function renderNews() {
- const container = document.getElementById('tab-news');
- const data = getCurrentData().newsList;
- if (!data || data.length === 0) { container.innerHTML = `<div class="empty-state">해당 기간의 주목할 만한 이슈 데이터가 없습니다.</div>`; return; }
-
- let html = '';
- const macro = isMacroPeriod();
-
- data.forEach(news => {
- let tagsHtml = news.tags.map(tag => `<div class="chip">${tag}</div>`).join('');
- let impactsHtml = '';
- if(news.impacts && news.impacts.length > 0) {
- const impactTitle = macro ? `${currentPeriod} 누적 펀더멘털 영향도` : `단기 섹터 투심 영향도`;
- impactsHtml += `<div class="impact-tree"><div class="impact-tree-title">${impactTitle}</div>`;
- news.impacts.forEach(impact => {
- const dotClass = impact.isPositive ? 'dot-red' : 'dot-blue';
- const badgeClass = impact.isPositive ? 'badge-positive' : 'badge-negative';
- const badgeText = impact.isPositive ? '긍정' : '부정';
- impactsHtml += `<div class="impact-node"><div class="node-header"><div class="node-dot ${dotClass}">●</div><div class="node-title">${impact.sector} <span class="badge ${badgeClass}">${badgeText}</span></div></div><div class="node-desc">${impact.desc}</div></div>`;
- });
- impactsHtml += `</div>`;
- }
- html += `<div class="card"><div class="card-title" style="font-size: 20px;">${news.title}</div><div class="chip-group">${tagsHtml}</div><p style="font-size: 15px; color: #4E5968; margin-bottom: 24px;">${news.summary}</p>${impactsHtml}</div>`;
- });
- container.innerHTML = html;
- }
-
- function renderPortfolio() {
- const container = document.getElementById('tab-portfolio');
- const p = getCurrentData().portfolio;
- if(!p) { container.innerHTML = `<div class="empty-state">포트폴리오 분석 데이터가 없습니다.</div>`; return; }
-
- const macro = isMacroPeriod();
- 
- let html = `<div class="account-card"><div class="account-alert">${p.accountAlert}</div><div class="account-detail">${p.accountDetail}</div></div>`;
- 
- if (p.holdings && p.holdings.length > 0) {
- const signalDesc = macro ? "장기 이평선 및 논문 알고리즘 기반 펀더멘털 중장기 시그널입니다." : "RSI, 볼린저밴드 등 단기 기술적 지표 및 수급 기반 시그널입니다.";
- html += `<div class="card"><div class="card-title">🎯 내 보유 종목 AI 시그널</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${signalDesc}</div>`;
- 
- p.holdings.forEach(item => {
- const sig = getSignalData(item.score);
- const returnColor = item.returnRate.includes('+') ? '#F04452' : '#3182F6';
- const markerPos = (item.score + 100) / 2;
- const indHtml = item.indicators.map(ind => `<span class="sig-ind">${ind}</span>`).join('');
-
- html += `
- <div class="signal-box">
- <div class="signal-header">
- <div class="signal-stock-info">
- <span class="signal-stock-name">${item.name}</span>
- <span class="signal-stock-ticker">${item.ticker} <span style="font-weight:700; color:${returnColor}; margin-left:6px;">${item.returnRate}</span></span>
- </div>
- <div class="signal-badge ${sig.cls}">${sig.text}</div>
- </div>
- <div class="signal-bar-wrap">
- <div class="signal-bar-label">-100</div>
- <div class="signal-bar-track">
- <div class="signal-bar-marker" style="left: ${markerPos}%; border-color: ${sig.color};"></div>
- </div>
- <div class="signal-bar-label">+100</div>
- </div>
- <div class="signal-indicators">${indHtml}</div>
- <div class="signal-reason">${item.reason}</div>
- </div>`;
- });
- html += `</div>`;
- }
-
- html += `<div class="card"><div class="card-title">📊 ${currentPeriod} 포트폴리오 성과</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 4px;">해당 기간 누적 수익률</div><div style="font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 16px; color: #3182F6;">${p.weeklyReview.returnRate}</div><p style="font-size: 14px; color: #4E5968;">${p.weeklyReview.desc}</p></div>`;
- 
- if (p.allocations && p.allocations.length > 0) {
- let barHtml = ''; let listHtml = '';
- p.allocations.forEach(alloc => {
- barHtml += `<div style="width: ${alloc.percent}%; background-color: ${alloc.color};"></div>`;
- listHtml += `<div class="alloc-item"><div class="alloc-dot" style="background-color: ${alloc.color};"></div><div><div class="alloc-name">${alloc.name} (${alloc.percent}%)</div><div class="alloc-desc">${alloc.desc}</div></div></div>`;
- });
- const allocTitle = macro ? "장기 전략적 자산 배분 (SAA)" : "단기 전술적 자산 배분 (TAA)";
- html += `<div class="card"><div class="card-title">📅 ${allocTitle}</div><p style="font-size: 14px; color: #4E5968; margin-bottom: 16px;">${p.planDesc}</p><div class="allocation-bar">${barHtml}</div>${listHtml}</div>`;
- }
- container.innerHTML = html;
- }
-
- function renderRecommend() {
- const container = document.getElementById('tab-recommend');
- const r = getCurrentData().recommendations;
- if(!r) { container.innerHTML = `<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`; return; }
-
- let html = '';
- const macro = isMacroPeriod();
-
- if (r.ideas && r.ideas.length > 0) {
- const ideaTitle = macro ? "장기 메가 트렌드 투자 아이디어" : "단기 모멘텀 투자 아이디어";
- html += `<div class="card" style="background-color: transparent; box-shadow: none; padding: 0; margin: 0 20px 24px 20px;"><div class="card-title" style="padding-left: 4px;">💡 ${ideaTitle}</div>`;
- r.ideas.forEach(rec => {
- html += `<div style="margin-bottom: 20px;"><div class="stock-item" style="margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"><div class="stock-info"><div class="stock-logo">${rec.logo}</div><div><div class="stock-name">${rec.name}</div><div class="stock-ticker">${rec.ticker}</div></div></div><div class="stock-action">${rec.action}</div></div><div class="stock-reason-box"><div class="badge-issue">🔗 연관 테마: ${rec.linkedIssue}</div><div style="font-size: 14px; color: #4E5968; line-height: 1.5;">${rec.reason}</div></div></div>`;
- });
- html += `</div>`;
- }
-
- if (r.etfRanking && r.etfRanking.length > 0) {
- const rankDesc = macro ? "EPS 성장, 장기 거래량, 200일선 지표를 종합한 장기 펀더멘털 점수입니다." : "일일 변동성, RSI, 단기 수급을 종합한 단기 트레이딩 점수입니다.";
- html += `<div class="card"><div class="card-title">🔥 AI 모멘텀 ETF 랭킹</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${rankDesc}</div><div class="ranking-list">`;
- r.etfRanking.forEach(etf => {
- const rankClass = etf.rank <= 3 ? 'top-rank' : '';
- const barColor = etf.score >= 80 ? '#F04452' : (etf.score >= 50 ? '#3182F6' : '#8B95A1');
- html += `<div class="rank-item"><div class="rank-num ${rankClass}">${etf.rank}</div><div class="rank-info"><div class="rank-title-box"><div><span class="rank-name">${etf.name}</span><span class="rank-ticker">${etf.ticker}</span></div><div class="rank-score-text">${etf.score}점</div></div><div class="rank-bar-bg"><div class="rank-bar-fill" style="width: ${etf.score}%; background-color: ${barColor};"></div></div></div></div>`;
- });
- html += `</div></div>`;
- }
-
- if(html === '') container.innerHTML = `<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`;
- else container.innerHTML = html;
- }
-
- // 메인 하단 탭(시장 브리핑, 주요 이슈 등) 스위칭
- function switchTab(tabId) {
- document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
- const clickedTab = Array.from(document.querySelectorAll('.tab-item')).find(item => item.getAttribute('onclick').includes(tabId));
- if(clickedTab) clickedTab.classList.add('active');
-
- document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
- const activePane = document.getElementById('tab-' + tabId);
- if(activePane) activePane.classList.add('active');
- 
- if(clickedTab) clickedTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
- }
-
- window.onload = renderApp;
+};
+let currentPeriod = "";
+function renderApp(){document.getElementById('report-date').innerText=reportData.date;const periodsFromData=Object.keys(reportData.dataByPeriod);if(periodsFromData.length===0){document.querySelector('.app-container').innerHTML=`<div style="padding:40px 20px;text-align:center;color:#8B95A1;">LLM에서 기간 데이터를 수신하지 못했습니다.</div>`;return;}currentPeriod=periodsFromData[0];renderPeriodSelector(periodsFromData);updateAllViews();}
+function renderPeriodSelector(periods){const container=document.getElementById('periodSelector');let html='';periods.forEach(period=>{const isActive=(period===currentPeriod)?'active':'';html+=`<div class="period-chip ${isActive}" onclick="changePeriod('${period}')">${period}</div>`;});container.innerHTML=html;}
+function changePeriod(period){if(!reportData.dataByPeriod[period]) return; currentPeriod=period; renderPeriodSelector(Object.keys(reportData.dataByPeriod)); updateAllViews();}
+function updateAllViews(){renderBriefing();renderNews();renderPortfolio();renderRecommend();}
+function getCurrentData(){return reportData.dataByPeriod[currentPeriod]||{};}
+function isMacroPeriod(){return currentPeriod.includes('월')||currentPeriod.includes('년');}
+function getSignalData(score){if(score<=-60)return{text:"🧊 풀매도",cls:"sig-ss",color:"#1B64DA"}; if(score<=-20)return{text:"📉 매도",cls:"sig-s",color:"#3182F6"}; if(score<=19)return{text:"⏸️ 보유",cls:"sig-h",color:"#6B7684"}; if(score<=59)return{text:"📈 매수",cls:"sig-b",color:"#F04452"}; return{text:"🔥 풀매수",cls:"sig-sb",color:"#D9042B"};}
+function renderBriefing(){const container=document.getElementById('tab-briefing');const data=getCurrentData().briefing;if(!data){container.innerHTML=`<div class="empty-state">해당 기간의 브리핑 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(data.sentiment){const s=data.sentiment;let barColor=s.score>50?'#F04452':'#3182F6';let statusColor=s.score>50?'#F04452':'#3182F6';const titleText=macro?`${currentPeriod} 시장 과열/침체 온도 🌡️`:"오늘의 단기 시장 온도 🌡️";html+=`<div class="card"><div class="card-title">${titleText}</div><div class="sentiment-container"><div class="sentiment-header"><div class="sentiment-score">${s.score}<span style="font-size:14px; color:#8B95A1;"> / 100</span></div><div class="sentiment-status" style="color:${statusColor};">${s.status}</div></div><div class="sentiment-bar-bg"><div class="sentiment-bar-fill" style="width: ${s.score}%; background-color: ${barColor};"></div></div><div class="sentiment-desc">${s.desc}</div></div></div>`;}if(data.forecast){const f=data.forecast;html+=`<div class="card" style="padding:0; box-shadow:none; background:transparent;"><div class="forecast-box"><div class="forecast-title"><span>${currentPeriod} 전망</span>${f.title}</div><div class="forecast-text">${f.text}</div></div></div>`;}if(data.insights&&data.insights.length>0){const titleText=macro?`${currentPeriod} 거시경제 핵심 인사이트 💡`:`${currentPeriod} 단기 시황 브리핑 💡`;html+=`<div class="card"><div class="card-title">${titleText}</div><ul class="insight-list">`;data.insights.forEach(insight=>{html+=`<li class="insight-item"><span class="badge-category">${insight.category}</span><div class="insight-text">${insight.text}</div></li>`;});html+=`</ul></div>`;}if(data.indices&&data.indices.length>0){html+=`<div class="card"><div class="card-title">${currentPeriod} 누적 지수 성과</div>`;data.indices.forEach(idx=>{const colorClass=idx.isUp?'text-up':'text-down';html+=`<div class="index-row"><div class="index-name">${idx.name}</div><div class="index-value"><div class="index-price">${idx.price}</div><div class="${colorClass}">${idx.change}</div></div></div>`;});html+=`</div>`;}container.innerHTML=html;}
+function renderNews(){const container=document.getElementById('tab-news');const data=getCurrentData().newsList;if(!data||data.length===0){container.innerHTML=`<div class="empty-state">해당 기간의 주목할 만한 이슈 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();data.forEach(news=>{let tagsHtml=news.tags.map(tag=>`<div class="chip">${tag}</div>`).join('');let impactsHtml='';if(news.impacts&&news.impacts.length>0){const impactTitle=macro?`${currentPeriod} 누적 펀더멘털 영향도`:`단기 섹터 투심 영향도`;impactsHtml+=`<div class="impact-tree"><div class="impact-tree-title">${impactTitle}</div>`;news.impacts.forEach(impact=>{const dotClass=impact.isPositive?'dot-red':'dot-blue';const badgeClass=impact.isPositive?'badge-positive':'badge-negative';const badgeText=impact.isPositive?'긍정':'부정';impactsHtml+=`<div class="impact-node"><div class="node-header"><div class="node-dot ${dotClass}">●</div><div class="node-title">${impact.sector} <span class="badge ${badgeClass}">${badgeText}</span></div></div><div class="node-desc">${impact.desc}</div></div>`;});impactsHtml+=`</div>`;}html+=`<div class="card"><div class="card-title" style="font-size: 20px;">${news.title}</div><div class="chip-group">${tagsHtml}</div><p style="font-size: 15px; color: #4E5968; margin-bottom: 24px;">${news.summary}</p>${impactsHtml}</div>`;});container.innerHTML=html;}
+function renderPortfolio(){const container=document.getElementById('tab-portfolio');const p=getCurrentData().portfolio;if(!p){container.innerHTML=`<div class="empty-state">포트폴리오 분석 데이터가 없습니다.</div>`;return;}const macro=isMacroPeriod();let html=`<div class="account-card"><div class="account-alert">${p.accountAlert}</div><div class="account-detail">${p.accountDetail}</div></div>`;if(p.holdings&&p.holdings.length>0){const signalDesc=macro?"장기 이평선 및 논문 알고리즘 기반 펀더멘털 중장기 시그널입니다.":"RSI, 볼린저밴드 등 단기 기술적 지표 및 수급 기반 시그널입니다.";html+=`<div class="card"><div class="card-title">🎯 내 보유 종목 AI 시그널</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${signalDesc}</div>`;p.holdings.forEach(item=>{const sig=getSignalData(item.score);const returnColor=item.returnRate.includes('+')?'#F04452':'#3182F6';const markerPos=(item.score+100)/2;const indHtml=item.indicators.map(ind=>`<span class="sig-ind">${ind}</span>`).join('');html+=`<div class="signal-box"><div class="signal-header"><div class="signal-stock-info"><span class="signal-stock-name">${item.name}</span><span class="signal-stock-ticker">${item.ticker} <span style="font-weight:700; color:${returnColor}; margin-left:6px;">${item.returnRate}</span></span></div><div class="signal-badge ${sig.cls}">${sig.text}</div></div><div class="signal-bar-wrap"><div class="signal-bar-label">-100</div><div class="signal-bar-track"><div class="signal-bar-marker" style="left: ${markerPos}%; border-color: ${sig.color};"></div></div><div class="signal-bar-label">+100</div></div><div class="signal-indicators">${indHtml}</div><div class="signal-reason">${item.reason}</div></div>`;});html+=`</div>`;}html+=`<div class="card"><div class="card-title">📊 ${currentPeriod} 포트폴리오 성과</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 4px;">해당 기간 누적 수익률</div><div style="font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 16px; color: #3182F6;">${p.weeklyReview.returnRate}</div><p style="font-size: 14px; color: #4E5968;">${p.weeklyReview.desc}</p></div>`;if(p.allocations&&p.allocations.length>0){let barHtml='';let listHtml='';p.allocations.forEach(alloc=>{barHtml+=`<div style="width: ${alloc.percent}%; background-color: ${alloc.color};"></div>`;listHtml+=`<div class="alloc-item"><div class="alloc-dot" style="background-color: ${alloc.color};"></div><div><div class="alloc-name">${alloc.name} (${alloc.percent}%)</div><div class="alloc-desc">${alloc.desc}</div></div></div>`;});const allocTitle=macro?"장기 전략적 자산 배분 (SAA)":"단기 전술적 자산 배분 (TAA)";html+=`<div class="card"><div class="card-title">📅 ${allocTitle}</div><p style="font-size: 14px; color: #4E5968; margin-bottom: 16px;">${p.planDesc}</p><div class="allocation-bar">${barHtml}</div>${listHtml}</div>`;}container.innerHTML=html;}
+function renderRecommend(){const container=document.getElementById('tab-recommend');const r=getCurrentData().recommendations;if(!r){container.innerHTML=`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(r.ideas&&r.ideas.length>0){const ideaTitle=macro?"장기 메가 트렌드 투자 아이디어":"단기 모멘텀 투자 아이디어";html+=`<div class="card" style="background-color: transparent; box-shadow: none; padding: 0; margin: 0 20px 24px 20px;"><div class="card-title" style="padding-left: 4px;">💡 ${ideaTitle}</div>`;r.ideas.forEach(rec=>{html+=`<div style="margin-bottom: 20px;"><div class="stock-item" style="margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"><div class="stock-info"><div class="stock-logo">${rec.logo}</div><div><div class="stock-name">${rec.name}</div><div class="stock-ticker">${rec.ticker}</div></div></div><div class="stock-action">${rec.action}</div></div><div class="stock-reason-box"><div class="badge-issue">🔗 연관 테마: ${rec.linkedIssue}</div><div style="font-size: 14px; color: #4E5968; line-height: 1.5;">${rec.reason}</div></div></div>`;});html+=`</div>`;}if(r.etfRanking&&r.etfRanking.length>0){const rankDesc=macro?"EPS 성장, 장기 거래량, 200일선 지표를 종합한 장기 펀더멘털 점수입니다.":"일일 변동성, RSI, 단기 수급을 종합한 단기 트레이딩 점수입니다.";html+=`<div class="card"><div class="card-title">🔥 AI 모멘텀 ETF 랭킹</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${rankDesc}</div><div class="ranking-list">`;r.etfRanking.forEach(etf=>{const rankClass=etf.rank<=3?'top-rank':'';const barColor=etf.score>=80?'#F04452':(etf.score>=50?'#3182F6':'#8B95A1');html+=`<div class="rank-item"><div class="rank-num ${rankClass}">${etf.rank}</div><div class="rank-info"><div class="rank-title-box"><div><span class="rank-name">${etf.name}</span><span class="rank-ticker">${etf.ticker}</span></div><div class="rank-score-text">${etf.score}점</div></div><div class="rank-bar-bg"><div class="rank-bar-fill" style="width: ${etf.score}%; background-color: ${barColor};"></div></div></div></div>`;});html+=`</div></div>`;}container.innerHTML=html===''?`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`:html;}
+function switchTab(tabId){document.querySelectorAll('.tab-item').forEach(item=>item.classList.remove('active'));const clickedTab=Array.from(document.querySelectorAll('.tab-item')).find(item=>item.getAttribute('onclick').includes(tabId));if(clickedTab) clickedTab.classList.add('active');document.querySelectorAll('.tab-pane').forEach(pane=>pane.classList.remove('active'));const activePane=document.getElementById('tab-'+tabId);if(activePane) activePane.classList.add('active');if(clickedTab) clickedTab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});} 
+window.onload=renderApp;
 </script>
 </body>
 </html>
