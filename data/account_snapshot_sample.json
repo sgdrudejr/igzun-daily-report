@@ -1,7 +1,10 @@
 {
   "account_date": "2026-03-19",
   "broker": "sample-broker",
-  "cash": 25000,
+  "currency": "KRW",
+  "total_deposit": 50000000,
+  "cash": 18000000,
+  "total_equity": 32000000,
   "positions": [
     {
       "ticker": "SOXX",
@@ -9,7 +12,10 @@
       "quantity": 12,
       "avg_price": 210.5,
       "current_price": 214.2,
-      "allocation": 35,
+      "market_value": 3700000,
+      "pnl_amount": 65000,
+      "pnl_pct": 1.8,
+      "allocation": 11.6,
       "currency": "USD"
     },
     {
@@ -18,7 +24,10 @@
       "quantity": 18,
       "avg_price": 91.3,
       "current_price": 92.1,
-      "allocation": 25,
+      "market_value": 2300000,
+      "pnl_amount": 32000,
+      "pnl_pct": 1.4,
+      "allocation": 7.2,
       "currency": "USD"
     }
   ]

@@ -1,7 +1,10 @@
 {
   "account_date": "YYYY-MM-DD",
   "broker": "string",
+  "currency": "KRW",
+  "total_deposit": 0,
   "cash": 0,
+  "total_equity": 0,
   "positions": [
     {
       "ticker": "string",
@@ -9,8 +12,12 @@
       "quantity": 0,
       "avg_price": 0,
       "current_price": 0,
+      "market_value": 0,
+      "pnl_amount": 0,
+      "pnl_pct": 0,
       "allocation": 0,
-      "currency": "USD"
+      "currency": "KRW"
     }
-  ]
+  ],
+  "notes": "admin_bot로 받은 캡쳐본을 OCR/수동정리해 이 구조로 저장"
 }
