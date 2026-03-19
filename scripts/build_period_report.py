@@ -35,6 +35,20 @@ def load_jsonl(path):
 
 
 def top_tags(title):
+    low = title.lower()
+    mapped = []
+    keymap = [
+        ('fomc', 'FOMC'), ('fed', '연준'), ('inflation', '인플레이션'), ('ppi', '생산자물가'),
+        ('oil', '유가'), ('iran', '이란'), ('war', '전쟁'), ('rate', '금리'),
+        ('market', '시장'), ('infrastructure', '인프라'), ('ai', 'AI'), ('power', '전력망')
+    ]
+    for en, ko in keymap:
+        if en in low and ko not in mapped:
+            mapped.append(ko)
+        if len(mapped) == 3:
+            break
+    if mapped:
+        return mapped
     toks = re.findall(r"[A-Za-z가-힣0-9]+", title)
     stop = {'the','and','for','with','from','this','that','are','was','will','into','after','amid','says','say','here','what','your'}
     out = []
@@ -45,6 +59,30 @@ def top_tags(title):
         if len(out) == 3:
             break
     return out or ['시장', '리포트']
+
+
+def translate_title(title):
+    low = title.lower()
+    mapping = [
+        ('fed holds rates steady', '연준, 금리 동결 유지'),
+        ('federal reserve issues fomc statement', '연준 FOMC 성명 발표'),
+        ('release economic projections', '연준 경제전망 발표'),
+        ('oil prices top', '유가 급등'),
+        ('iran war oil shock', '이란 전쟁발 유가 충격'),
+        ('consumer prices rose', '소비자물가 상승'),
+        ('private credit market not in crisis', '민간신용 시장은 아직 위기 아님'),
+        ('bitcoin retreats', '비트코인, 금리 결정 앞두고 후퇴'),
+        ('ai power', 'AI 전력 인프라 테마'),
+        ('market outlook', '시장 전망'),
+        ('fed rate cuts', '연준 금리인하 전망'),
+        ('us housing market outlook', '미국 주택시장 전망'),
+        ('recession probability', '경기침체 가능성'),
+        ('mid_year outlook', '중간 점검 전망')
+    ]
+    for k, v in mapping:
+        if k in low:
+            return v
+    return title
 
 
 def safe_read(path):
@@ -161,24 +199,24 @@ def build_period_data():
     one_day_news = []
     for item in daily.get('newsList', [])[:6]:
         one_day_news.append(make_news_item(
-            title=item.get('title', ''),
+            title=translate_title(item.get('title', '')),
             summary=item.get('summary') or '원문 소스에서 요약 추출이 아직 비어 있습니다.',
             impacts=item.get('impacts', [])[:3],
-            tags=item.get('tags', [])[:4],
+            tags=[t if re.search(r'[가-힣]', t) else top_tags(item.get('title', ''))[(i if i < len(top_tags(item.get('title', ''))) else -1)] for i, t in enumerate((item.get('tags', [])[:4] or top_tags(item.get('title', ''))))],
             sources=report_sources[:2]
         ))
 
     macro_news = []
     for story in merged.get('stories', [])[:6]:
         macro_news.append(make_news_item(
-            title=story.get('headline', ''),
+            title=translate_title(story.get('headline', '')),
             summary=story.get('summary') or '병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.',
             impacts=[{
                 'sector': '거시 / 금리 / 정책',
                 'isPositive': False if 'fomc' in story.get('headline', '').lower() or 'infl' in story.get('headline', '').lower() else True,
                 'desc': f"원문 {story.get('source_count', 0)}건이 병합된 이슈입니다."
             }],
-            tags=story.get('keywords', [])[:4] or top_tags(story.get('headline', '')),
+            tags=top_tags(story.get('headline', '')),
             sources=[source_entry(
                 label=src.get('title', ''),
                 source=src.get('source', ''),
