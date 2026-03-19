@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
-import json, re
+import json, re, sys
 from pathlib import Path
 from datetime import datetime, date, timedelta, UTC
+
+SCRIPT_DIR = Path('/Users/seo/.openclaw/workspace/igzun-daily-report/scripts')
+sys.path.insert(0, str(SCRIPT_DIR))
+from scoring_engine import sentiment_from_indices, score_holding, etf_rank_score
+from summarize_raws import summarize_file
 
 ROOT = Path('/Users/seo/.openclaw/workspace/igzun-daily-report')
 WS = Path('/Users/seo/.openclaw/workspace')
@@ -196,11 +201,13 @@ def build_period_data():
             path='2_Project/Reporting/process/merged/2026-03-19_merged_news.json'
         ))
 
+    raw_txt_candidates = [p for p in raw_files_1m if p.suffix.lower() == '.txt']
     one_day_news = []
-    for item in daily.get('newsList', [])[:6]:
+    for idx, item in enumerate(daily.get('newsList', [])[:6]):
+        fallback_summary = summarize_file(str(raw_txt_candidates[idx])) if idx < len(raw_txt_candidates) else ''
         one_day_news.append(make_news_item(
             title=translate_title(item.get('title', '')),
-            summary=item.get('summary') or '원문 소스에서 요약 추출이 아직 비어 있습니다.',
+            summary=item.get('summary') or fallback_summary or '원문 소스에서 요약 추출이 아직 비어 있습니다.',
             impacts=item.get('impacts', [])[:3],
             tags=[t if re.search(r'[가-힣]', t) else top_tags(item.get('title', ''))[(i if i < len(top_tags(item.get('title', ''))) else -1)] for i, t in enumerate((item.get('tags', [])[:4] or top_tags(item.get('title', ''))))],
             sources=report_sources[:2]
@@ -228,6 +235,7 @@ def build_period_data():
 
     base_indices = daily.get('briefing', {}).get('indices', [])[:6]
     insights = daily.get('briefing', {}).get('insights', [])[:5]
+    base_sent_score, base_sent_status = sentiment_from_indices(base_indices)
 
     period_defs = {
         '1일': '당일 뉴스 + 지수 기반 단기 전망',
@@ -239,7 +247,7 @@ def build_period_data():
     }
 
     data_by_period = {}
-    base_score = 43
+    base_score = base_sent_score
     for period, forecast_title in period_defs.items():
         score, status = period_sentiment(period, base_score)
         macro = ('월' in period or '개월' in period)
@@ -265,21 +273,23 @@ def build_period_data():
                 {'category': '장기 배경', 'text': '6개월 관점에서는 인플레·정책·지정학 변수보다 구조적 투자(CAPEX, 인프라, AI 전력수요)의 지속성이 더 중요합니다.', 'sources': report_sources[:4]},
                 {'category': '데이터 범위', 'text': '현재 1개월 수집이 먼저 진행 중이며, 6개월 period는 우선 구조만 생성하고 추후 시계열이 누적되면 정량화 강도를 높입니다.', 'sources': [source_entry(label='collection in progress', source='automation')]}]
         
+        h1_ind = quant_hints[:3] or ['RSI', 'Momentum_3M', 'DXY']
+        h2_ind = quant_hints[3:6] or ['VIX', 'Relative_Strength_120', 'Oil_WTI']
         holdings = [
             {
                 'name': 'SOXX (반도체 ETF)' if period in ('1일', '3일', '1주') else 'PAVE',
                 'ticker': 'SOXX' if period in ('1일', '3일', '1주') else 'PAVE',
                 'returnRate': '데이터 미연결',
-                'score': -10 if period in ('1일', '3일') else (5 if period == '1주' else 55),
-                'indicators': quant_hints[:3] or ['RSI', 'Momentum_3M', 'DXY'],
+                'score': score_holding('SOXX' if period in ('1일','3일','1주') else 'PAVE', h1_ind, macro_bias=(10 if macro else -5)),
+                'indicators': h1_ind,
                 'reason': '퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다.'
             },
             {
                 'name': 'TLT (장기국채 ETF)' if period in ('1일', '3일', '1주') else 'TSLA',
                 'ticker': 'TLT' if period in ('1일', '3일', '1주') else 'TSLA',
                 'returnRate': '데이터 미연결',
-                'score': 20 if period in ('1일', '3일', '1주') else -35,
-                'indicators': quant_hints[3:6] or ['VIX', 'Relative_Strength_120', 'Oil_WTI'],
+                'score': score_holding('TLT' if period in ('1일','3일','1주') else 'TSLA', h2_ind, macro_bias=(5 if not macro else -15)),
+                'indicators': h2_ind,
                 'reason': '현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다.'
             }
         ]
@@ -307,7 +317,7 @@ def build_period_data():
                 'sentiment': {
                     'score': score,
                     'status': status,
-                    'desc': f'{period} 기준 수집 데이터와 퀀트수식 문서 해석을 반영한 심리 요약입니다.'
+                    'desc': f'{period} 기준 지수 흐름, 수집 데이터, 퀀트수식 문서 해석을 반영한 심리 요약입니다.'
                 },
                 'forecast': {
                     'title': forecast_title,
@@ -329,9 +339,9 @@ def build_period_data():
             'recommendations': {
                 'ideas': ideas,
                 'etfRanking': [
-                    {'rank': 1, 'name': 'Global X U.S. Infrastructure' if macro else 'Energy Select Sector SPDR', 'ticker': 'PAVE' if macro else 'XLE', 'score': 91 if macro else 85},
-                    {'rank': 2, 'name': 'SPDR Gold Trust', 'ticker': 'GLD', 'score': 72 if not macro else 78},
-                    {'rank': 3, 'name': 'iShares 20+ Year Treasury Bond', 'ticker': 'TLT', 'score': 68 if not macro else 69}
+                    {'rank': 1, 'name': 'Global X U.S. Infrastructure' if macro else 'Energy Select Sector SPDR', 'ticker': 'PAVE' if macro else 'XLE', 'score': etf_rank_score(78 if macro else 75, thematic=15 if macro else 8, risk=2)},
+                    {'rank': 2, 'name': 'SPDR Gold Trust', 'ticker': 'GLD', 'score': etf_rank_score(70, thematic=8, risk=0 if macro else 4)},
+                    {'rank': 3, 'name': 'iShares 20+ Year Treasury Bond', 'ticker': 'TLT', 'score': etf_rank_score(66, thematic=4, risk=1)}
                 ]
             },
             'raw_sources': {

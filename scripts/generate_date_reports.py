@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-import json, re
+import json, re, sys
 from pathlib import Path
 from datetime import date, timedelta
+
+ROOT_DIR = Path('/Users/seo/.openclaw/workspace/igzun-daily-report/scripts')
+sys.path.insert(0, str(ROOT_DIR))
+from summarize_raws import summarize_file
 
 WS = Path('/Users/seo/.openclaw/workspace')
 ROOT = Path('/Users/seo/.openclaw/workspace/igzun-daily-report')
@@ -25,14 +29,9 @@ def files_for_day(ds):
 
 def first_text_summary(paths):
     for p in paths:
-        if p.suffix.lower() == '.txt':
-            try:
-                txt = p.read_text(errors='ignore')
-            except Exception:
-                continue
-            txt = re.sub(r'\s+', ' ', txt).strip()
-            if txt:
-                return txt[:280] + ('...' if len(txt) > 280 else '')
+        summary = summarize_file(str(p))
+        if summary:
+            return summary
     return '해당 날짜의 원문은 존재하지만 자동 요약 본문 추출은 아직 제한적입니다.'
 
 
