@@ -2,4 +2,4 @@
 # install with: ./scripts/install_cron.sh
 
 # Daily full dashboard/report update at 11:00 Asia/Seoul local machine time
-0 11 * * * /Users/seo/.openclaw/workspace/igzun-daily-report/scripts/daily_update.sh >> /Users/seo/.openclaw/workspace/igzun-daily-report/output/last_cron.log 2>&1
+0 11 * * * /Users/seo/igzun-daily-report/scripts/daily_update.sh >> /Users/seo/igzun-daily-report/output/last_cron.log 2>&1

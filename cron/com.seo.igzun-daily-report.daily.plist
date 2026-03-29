@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.seo.igzun-daily-report.daily</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/seo/igzun-daily-report/scripts/daily_update.sh</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>TZ</key>
+    <string>Asia/Seoul</string>
+  </dict>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>11</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/Users/seo/igzun-daily-report/output/launchd.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/seo/igzun-daily-report/output/launchd.err.log</string>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/seo/igzun-daily-report</string>
+
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

@@ -2,7 +2,10 @@
 set -euo pipefail
 ROOT="/Users/seo/igzun-daily-report"
 VENV="$ROOT/.venv/bin"
-TODAY=$(date +%F)
+export TZ="Asia/Seoul"
+TODAY=$(TZ=Asia/Seoul date +%F)
+
+mkdir -p "$ROOT/output"
 
 # 0) 자동 수집 파이프라인 (collectors)
 "$VENV/python" -m collectors.runner --date "$TODAY" --base-dir "$ROOT" || true
@@ -13,8 +16,8 @@ TODAY=$(date +%F)
 
 # 2) process PDFs / refine insights / integrate
 "$VENV/python" "$ROOT/scripts/process_pdfs.py" || true
-python3 "$ROOT/scripts/refine_insights.py" || true
-python3 "$ROOT/scripts/integrate_refined_insights.py" || true
+"$VENV/python" "$ROOT/scripts/refine_insights.py" || true
+"$VENV/python" "$ROOT/scripts/integrate_refined_insights.py" || true
 
 # 3) market data + quant
 "$VENV/python" "$ROOT/scripts/load_market_data.py" || true
@@ -31,7 +34,7 @@ python3 "$ROOT/scripts/integrate_refined_insights.py" || true
 
 # 5) admin_bot image intake -> OCR -> snapshot -> portfolio apply
 bash "$ROOT/scripts/ingest_admin_bot_pipeline.sh" || true
-python3 "$ROOT/scripts/update_portfolio_from_snapshot.py" || true
+"$VENV/python" "$ROOT/scripts/update_portfolio_from_snapshot.py" || true
 
 # 6) GitHub Pages 자동 배포
 cd "$ROOT"

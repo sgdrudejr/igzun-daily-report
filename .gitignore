@@ -23,3 +23,8 @@ data/etf_price_history/
 # IDE
 .vscode/
 .idea/
+
+# Runtime logs
+output/*.log
+data/eco_report_bot_outbox_latest.json
+data/global_state.json

@@ -64,6 +64,9 @@
 - [x] Q1 백필 결과로 `site/` 일간/주간/월간/분기/반기 버킷 재생성
 - [x] 오래된 raw/normalized 1차 archive + summary 생성
 - [x] `daily_update.sh` 에 retention 훅 추가
+- [x] `daily_update.sh` 를 KST 날짜 기준으로 보정
+- [x] `11:00 KST` launch agent 설치 스크립트 추가 및 로컬 설치
+- [x] cron/launchd 경로를 현재 저장소(`/Users/seo/igzun-daily-report`) 기준으로 정리
 
 ## 현재 진행 중
 
@@ -112,6 +115,7 @@
 - [ ] GitHub Pages 자동 배포 상태 점검
 - [x] `daily_update.sh` 로 `build_horizon_views.py` 자동 반영 연결
 - [x] `daily_update.sh` 로 `storage_retention.py` 자동 반영 연결
+- [x] `11:00 KST` launch agent 로컬 설치 완료
 - [ ] 작업 종료 시 `HANDOFF.md` 와 `TASKS.md` 갱신 자동 습관화
 
 ## 현재 작업 트리 체크

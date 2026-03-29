@@ -26,6 +26,9 @@
 - 백필 실행기는 [`scripts/backfill_history.py`](/Users/seo/igzun-daily-report/scripts/backfill_history.py) 이며, 현재 기준 Q1 백필 요약은 [`data/backfills/2026-01-01_to_2026-03-30.json`](/Users/seo/igzun-daily-report/data/backfills/2026-01-01_to_2026-03-30.json) 에 기록된다.
 - 저장공간 정리기는 [`scripts/storage_retention.py`](/Users/seo/igzun-daily-report/scripts/storage_retention.py) 이며, 상태는 [`data/storage_retention/status.json`](/Users/seo/igzun-daily-report/data/storage_retention/status.json) 에 기록된다.
 - `scripts/daily_update.sh` 에 수집/분석/사이트 생성/배포 흐름이 연결되어 있다.
+- `scripts/daily_update.sh` 는 이제 `TZ=Asia/Seoul` 기준 날짜를 사용한다.
+- `11:00 KST` 자동 실행용 launch agent 가 설치되어 있다.
+- launch agent 템플릿은 [`cron/com.seo.igzun-daily-report.daily.plist`](/Users/seo/igzun-daily-report/cron/com.seo.igzun-daily-report.daily.plist), 설치 스크립트는 [`scripts/install_launch_agent.sh`](/Users/seo/igzun-daily-report/scripts/install_launch_agent.sh) 이다.
 - `scripts/macro_analysis.py`, `scripts/etf_recommender.py`, `scripts/build_site_report.py` 작업이 시작되어 있다.
 - [`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py) 가 `dataByPeriod` 호환 구조를 유지한 채 한국어 인사이트 중심 리포트로 재작성되었다.
 - `site/{date}/result.json` 에 1일/1주/1개월/3개월/6개월 구간별 브리핑, 주요 이슈, 포트폴리오, ETF 아이디어가 들어가도록 정리되었다.
@@ -122,8 +125,13 @@
 │   ├── market_data_latest.json
 │   ├── market_quant_snapshot.json
 │   └── portfolio_state.json
+├── cron/
+│   ├── jobs.cron
+│   └── com.seo.igzun-daily-report.daily.plist
 ├── scripts/
 │   ├── daily_update.sh
+│   ├── install_cron.sh
+│   ├── install_launch_agent.sh
 │   ├── process_pdfs.py
 │   ├── refine_insights.py
 │   ├── integrate_refined_insights.py
@@ -161,6 +169,7 @@
 - 2026년 1월~3월 weekday 기준 63개 날짜에 대해 Q1 백필을 수행했고, 사이트에는 총 66개 일간 버킷이 존재한다.
 - `site/horizon_index.json` 에 storage retention 상태와 backfill run 메타가 추가되었다.
 - `daily_update.sh` 에 retention 훅이 추가되어 오래된 raw/normalized/manifests 를 요약+압축 대상으로 보낼 수 있다.
+- `daily_update.sh` 가 cron/launchd 환경에서도 깨지지 않도록 KST 날짜와 절대 python 경로를 사용하도록 보정했다.
 
 ### 아직 미구현 또는 미완료
 

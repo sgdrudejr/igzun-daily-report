@@ -1,82 +1,86 @@
 #!/usr/bin/env python3
-import json, re
+import json
+import os
+import re
 from pathlib import Path
+
 import fitz
 
-RAW_BASE = Path('/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw')
-OUT = Path('/Users/seo/.openclaw/workspace/igzun-daily-report/data/processed_pdf_texts.json')
+ROOT = Path(__file__).resolve().parent.parent
+RAW_BASE = Path(os.getenv("IGZUN_REPORTING_RAW_BASE", "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw"))
+OUT = ROOT / "data/processed_pdf_texts.json"
 
 HEADER_PATTERNS = [
-    r'^\s*page\s+\d+\s*$', r'^\s*\d+\s*/\s*\d+\s*$', r'^\s*\d+\s*$',
-    r'^\s*KB\s*데일리\s*$', r'^\s*NH.*리서치.*$', r'^\s*미래에셋.*$',
+    r"^\s*page\s+\d+\s*$",
+    r"^\s*\d+\s*/\s*\d+\s*$",
+    r"^\s*\d+\s*$",
+    r"^\s*KB\s*데일리\s*$",
+    r"^\s*NH.*리서치.*$",
+    r"^\s*미래에셋.*$",
 ]
-NOISE_PATTERNS = [
-    r'https?://\S+', r'www\.\S+', r'\bPage\s+\d+\b', r'\bBloomberg\b'
-]
+NOISE_PATTERNS = [r"https?://\S+", r"www\.\S+", r"\bPage\s+\d+\b", r"\bBloomberg\b"]
 
 
 def normalize_blocks(page):
-    blocks = page.get_text('blocks')
-    blocks = sorted(blocks, key=lambda b: (round(b[1], 1), round(b[0], 1)))
+    blocks = page.get_text("blocks")
+    blocks = sorted(blocks, key=lambda block: (round(block[1], 1), round(block[0], 1)))
     lines = []
-    for b in blocks:
-        txt = b[4].strip()
-        if not txt:
+    for block in blocks:
+        text = block[4].strip()
+        if not text:
             continue
-        txt = txt.replace('\u00a0', ' ')
-        parts = [x.strip() for x in txt.splitlines() if x.strip()]
-        lines.extend(parts)
+        text = text.replace("\u00a0", " ")
+        lines.extend(part.strip() for part in text.splitlines() if part.strip())
     return lines
 
 
 def clean_lines(lines):
-    out = []
+    cleaned = []
     prev_blank = False
     seen = {}
     for line in lines:
         raw = line.strip()
-        if any(re.match(p, raw, flags=re.I) for p in HEADER_PATTERNS):
+        if any(re.match(pattern, raw, flags=re.I) for pattern in HEADER_PATTERNS):
             continue
-        for pat in NOISE_PATTERNS:
-            raw = re.sub(pat, '', raw, flags=re.I)
-        raw = re.sub(r'\s+', ' ', raw).strip()
+        for pattern in NOISE_PATTERNS:
+            raw = re.sub(pattern, "", raw, flags=re.I)
+        raw = re.sub(r"\s+", " ", raw).strip()
         if not raw:
             if not prev_blank:
-                out.append('')
+                cleaned.append("")
             prev_blank = True
             continue
         prev_blank = False
         seen[raw] = seen.get(raw, 0) + 1
-        out.append(raw)
-    # remove repeated header/footer-ish lines that appear too often
-    out2 = []
-    for line in out:
+        cleaned.append(raw)
+
+    filtered = []
+    for line in cleaned:
         if line and seen.get(line, 0) >= 4 and len(line) < 80:
             continue
-        out2.append(line)
-    return out2
+        filtered.append(line)
+    return filtered
 
 
 def stitch_paragraphs(lines):
-    paras = []
-    buf = []
+    paragraphs = []
+    buffer = []
     for line in lines:
         if not line:
-            if buf:
-                paras.append(' '.join(buf))
-                buf = []
+            if buffer:
+                paragraphs.append(" ".join(buffer))
+                buffer = []
             continue
-        # keep bullet-ish starts as new paragraph
-        if re.match(r'^[•\-\d\)]', line) and buf:
-            paras.append(' '.join(buf))
-            buf = [line]
+        if re.match(r"^[•\-\d\)]", line) and buffer:
+            paragraphs.append(" ".join(buffer))
+            buffer = [line]
         else:
-            buf.append(line)
-    if buf:
-        paras.append(' '.join(buf))
-    text = '\n\n'.join(paras)
-    text = re.sub(r'\s+', ' ', text)
-    text = re.sub(r'\n\s+', '\n', text)
+            buffer.append(line)
+    if buffer:
+        paragraphs.append(" ".join(buffer))
+    text = "\n\n".join(paragraphs)
+    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r"\n\s+", "\n", text)
     return text.strip()
 
 
@@ -86,31 +90,32 @@ def extract_pdf(path: Path):
         lines = []
         for page in doc:
             lines.extend(normalize_blocks(page))
-            lines.append('')
-        raw = '\n'.join(lines)
+            lines.append("")
+        raw = "\n".join(lines)
         clean = stitch_paragraphs(clean_lines(lines))
         return {
-            'source_file': path.name,
-            'source_path': str(path),
-            'page_count': len(doc),
-            'raw_text_len': len(raw),
-            'clean_text_len': len(clean),
-            'clean_text': clean
+            "source_file": path.name,
+            "source_path": str(path),
+            "page_count": len(doc),
+            "raw_text_len": len(raw),
+            "clean_text_len": len(clean),
+            "clean_text": clean,
         }
-    except Exception as e:
+    except Exception as exc:
         return {
-            'source_file': path.name,
-            'source_path': str(path),
-            'error': str(e),
-            'clean_text': ''
+            "source_file": path.name,
+            "source_path": str(path),
+            "error": str(exc),
+            "clean_text": "",
         }
 
 
 def main():
-    pdfs = sorted(RAW_BASE.rglob('*.pdf'))
-    results = [extract_pdf(p) for p in pdfs]
+    pdfs = sorted(RAW_BASE.rglob("*.pdf")) if RAW_BASE.exists() else []
+    results = [extract_pdf(path) for path in pdfs]
     OUT.write_text(json.dumps(results, ensure_ascii=False, indent=2))
-    print('wrote', OUT, 'count=', len(results))
+    print("wrote", OUT, "count=", len(results))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
