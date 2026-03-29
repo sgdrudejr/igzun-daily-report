@@ -15,7 +15,12 @@ ASSETS = {
     'US10Y': '^TNX',
     'WTI': 'CL=F',
     'GOLD': 'GC=F',
-    'NASDAQ': '^IXIC'
+    'NASDAQ': '^IXIC',
+    # 지역 확장
+    'Nikkei': '^N225',
+    'DAX': '^GDAXI',
+    'USDJPY': 'JPY=X',
+    'EURUSD': 'EURUSD=X',
 }
 
 

@@ -1,15 +1,15 @@
 {
-  "date": "2026-03-27 기준 업데이트",
-  "generatedAt": "2026-03-27",
+  "date": "2026-03-29 기준 업데이트",
+  "generatedAt": "2026-03-29",
   "dataStatus": "full",
   "regime": "Neutral",
   "regimeKr": "중립 횡보 국면",
-  "totalScore": 47.61,
+  "totalScore": 46.22,
   "dataByPeriod": {
     "1일": {
       "briefing": {
         "sentiment": {
-          "score": 48,
+          "score": 46,
           "status": "중립",
           "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다."
         },
@@ -20,37 +20,59 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
+            },
+            {
+              "label": "네이버 금융 리서치",
+              "source": "naver_research",
+              "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+              "published_at": "2026-03-27",
+              "region": "KR",
+              "sector": "macro",
+              "doc_type": "research_meta",
+              "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+              "count": 60
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
         "insights": [
           {
             "category": "레짐",
-            "text": "1일 기준 시장 레짐은 중립 횡보 국면입니다. 총점 47.6 / 매크로 50.5 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
+            "text": "1일 기준 시장 레짐은 중립 횡보 국면입니다. 총점 46.2 / 매크로 46.0 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
             "sources": [
               {
                 "label": "퀀트 레짐",
                 "source": "macro_analysis",
                 "title": "1일 레짐 분석",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -61,108 +83,119 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
           {
             "category": "한국",
-            "text": "한국 시장은 1일 기준 KOSPI -0.4%입니다. 원/달러 데이터 없음원, 기준금리 데이터 없음%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
+            "text": "한국 시장은 1일 기준 KOSPI -0.4%입니다. 원/달러 1508원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
-              },
-              {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
+              },
+              {
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+                "published_at": "2026-03-27",
+                "region": "KR",
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
+              },
+              {
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
           {
             "category": "환율",
-            "text": "달러인덱스 DXY 120.3, 원/달러 데이터 없음원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
+            "text": "달러인덱스 DXY 120.3, 원/달러 1508원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "time_series",
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
               }
             ]
           },
           {
             "category": "금리",
-            "text": "연준 기준금리 5.30%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
+            "text": "연준 기준금리 3.64%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
@@ -173,24 +206,35 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
+              },
+              {
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               }
             ]
           },
@@ -199,26 +243,26 @@
             "text": "일본 데이터 없음, 유럽 DAX 데이터 없음 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               },
               {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
                 "sector": "macro",
-                "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
@@ -230,7 +274,7 @@
                 "label": "ETF 추천",
                 "source": "etf_recommender",
                 "title": "1일 ETF 아이디어",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -294,7 +338,7 @@
             "정책",
             "1일"
           ],
-          "summary": "현재 금리 축은 연준 5.30%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
+          "summary": "현재 금리 축은 연준 3.64%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
           "impacts": [
             {
               "sector": "장기채",
@@ -316,24 +360,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "연준 보도자료",
+              "source": "fed_press_rss",
+              "title": "연준 보도자료 20건 수집 · 예시: Federal Reserve Board announces it has m",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm",
+              "count": 20
+            },
+            {
+              "label": "연준 연설",
+              "source": "fed_speeches_rss",
+              "title": "연준 연설 14건 수집 · 예시: Barr, Brief Remarks on the Economic Outl",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.federalreserve.gov/newsevents/speech/barr20260326a.htm",
+              "count": 14
             }
           ]
         },
@@ -344,7 +399,7 @@
             "달러",
             "1일"
           ],
-          "summary": "DXY 120.3, 원/달러 데이터 없음원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
+          "summary": "DXY 120.3, 원/달러 1508원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
           "impacts": [
             {
               "sector": "한국 증시",
@@ -366,24 +421,24 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
             }
           ]
         },
@@ -416,24 +471,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "Investing.com 뉴스",
+              "source": "investing_com_rss",
+              "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+              "published_at": "2026-03-29",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+              "count": 1
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
@@ -467,7 +533,7 @@
               "label": "ETF 추천",
               "source": "etf_recommender",
               "title": "ETF 랭킹 산출",
-              "published_at": "2026-03-27"
+              "published_at": "2026-03-29"
             }
           ]
         }
@@ -549,31 +615,31 @@
             "ticker": "XLE",
             "action": "우선 검토",
             "linkedIssue": "에너지 강세",
-            "reason": "1일 기준 점수 72점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1일 기준 점수 79점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "1일 기준 점수 65점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1일 기준 점수 64점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "1일 기준 점수 65점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1일 기준 점수 64점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🏦",
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "방어형 채권",
-            "reason": "1일 기준 점수 65점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1일 기준 점수 64점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립 | 3M ▲42.7% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 81% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           }
         ],
         "etfRanking": [
@@ -581,49 +647,49 @@
             "rank": 1,
             "name": "미국 에너지 섹터 ETF",
             "ticker": "XLE",
-            "score": 72
+            "score": 79
           },
           {
             "rank": 2,
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 3,
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 4,
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 5,
             "name": "TIGER 200 IT",
             "ticker": "371460.KS",
-            "score": 58
+            "score": 63
           },
           {
             "rank": 6,
-            "name": "금 ETF",
-            "ticker": "GLD",
-            "score": 54
+            "name": "TIGER 일본니케이225",
+            "ticker": "241180.KS",
+            "score": 58
           },
           {
             "rank": 7,
-            "name": "이머징 ETF",
-            "ticker": "EEM",
-            "score": 50
+            "name": "일본 ETF",
+            "ticker": "EWJ",
+            "score": 54
           },
           {
             "rank": 8,
-            "name": "KODEX 골드선물(H)",
-            "ticker": "132030.KS",
-            "score": 49
+            "name": "금 ETF",
+            "ticker": "GLD",
+            "score": 53
           }
         ]
       }
@@ -631,7 +697,7 @@
     "1주": {
       "briefing": {
         "sentiment": {
-          "score": 48,
+          "score": 46,
           "status": "중립",
           "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다."
         },
@@ -642,37 +708,59 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
+            },
+            {
+              "label": "네이버 금융 리서치",
+              "source": "naver_research",
+              "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+              "published_at": "2026-03-27",
+              "region": "KR",
+              "sector": "macro",
+              "doc_type": "research_meta",
+              "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+              "count": 60
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
         "insights": [
           {
             "category": "레짐",
-            "text": "1주 기준 시장 레짐은 중립 횡보 국면입니다. 총점 47.6 / 매크로 50.5 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
+            "text": "1주 기준 시장 레짐은 중립 횡보 국면입니다. 총점 46.2 / 매크로 46.0 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
             "sources": [
               {
                 "label": "퀀트 레짐",
                 "source": "macro_analysis",
                 "title": "1주 레짐 분석",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -683,108 +771,119 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
           {
             "category": "한국",
-            "text": "한국 시장은 1주 기준 KOSPI -5.9%입니다. 원/달러 데이터 없음원, 기준금리 데이터 없음%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
+            "text": "한국 시장은 1주 기준 KOSPI -5.9%입니다. 원/달러 1508원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
-              },
-              {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
+              },
+              {
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+                "published_at": "2026-03-27",
+                "region": "KR",
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
+              },
+              {
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
           {
             "category": "환율",
-            "text": "달러인덱스 DXY 120.3, 원/달러 데이터 없음원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
+            "text": "달러인덱스 DXY 120.3, 원/달러 1508원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "time_series",
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
               }
             ]
           },
           {
             "category": "금리",
-            "text": "연준 기준금리 5.30%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
+            "text": "연준 기준금리 3.64%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
@@ -795,24 +894,35 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
+              },
+              {
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               }
             ]
           },
@@ -821,26 +931,26 @@
             "text": "일본 데이터 없음, 유럽 DAX 데이터 없음 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               },
               {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
                 "sector": "macro",
-                "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
@@ -852,7 +962,7 @@
                 "label": "ETF 추천",
                 "source": "etf_recommender",
                 "title": "1주 ETF 아이디어",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -916,7 +1026,7 @@
             "정책",
             "1주"
           ],
-          "summary": "현재 금리 축은 연준 5.30%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
+          "summary": "현재 금리 축은 연준 3.64%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
           "impacts": [
             {
               "sector": "장기채",
@@ -938,24 +1048,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "연준 보도자료",
+              "source": "fed_press_rss",
+              "title": "연준 보도자료 20건 수집 · 예시: Federal Reserve Board announces it has m",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm",
+              "count": 20
+            },
+            {
+              "label": "연준 연설",
+              "source": "fed_speeches_rss",
+              "title": "연준 연설 14건 수집 · 예시: Barr, Brief Remarks on the Economic Outl",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.federalreserve.gov/newsevents/speech/barr20260326a.htm",
+              "count": 14
             }
           ]
         },
@@ -966,7 +1087,7 @@
             "달러",
             "1주"
           ],
-          "summary": "DXY 120.3, 원/달러 데이터 없음원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
+          "summary": "DXY 120.3, 원/달러 1508원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
           "impacts": [
             {
               "sector": "한국 증시",
@@ -988,24 +1109,24 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
             }
           ]
         },
@@ -1038,24 +1159,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "Investing.com 뉴스",
+              "source": "investing_com_rss",
+              "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+              "published_at": "2026-03-29",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+              "count": 1
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
@@ -1089,7 +1221,7 @@
               "label": "ETF 추천",
               "source": "etf_recommender",
               "title": "ETF 랭킹 산출",
-              "published_at": "2026-03-27"
+              "published_at": "2026-03-29"
             }
           ]
         }
@@ -1171,31 +1303,31 @@
             "ticker": "XLE",
             "action": "우선 검토",
             "linkedIssue": "에너지 강세",
-            "reason": "1주 기준 점수 72점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1주 기준 점수 79점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "1주 기준 점수 65점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1주 기준 점수 64점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "1주 기준 점수 65점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1주 기준 점수 64점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🏦",
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "방어형 채권",
-            "reason": "1주 기준 점수 65점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1주 기준 점수 64점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립 | 3M ▲42.7% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 81% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           }
         ],
         "etfRanking": [
@@ -1203,49 +1335,49 @@
             "rank": 1,
             "name": "미국 에너지 섹터 ETF",
             "ticker": "XLE",
-            "score": 72
+            "score": 79
           },
           {
             "rank": 2,
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 3,
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 4,
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 5,
             "name": "TIGER 200 IT",
             "ticker": "371460.KS",
-            "score": 58
+            "score": 63
           },
           {
             "rank": 6,
-            "name": "금 ETF",
-            "ticker": "GLD",
-            "score": 54
+            "name": "TIGER 일본니케이225",
+            "ticker": "241180.KS",
+            "score": 58
           },
           {
             "rank": 7,
-            "name": "이머징 ETF",
-            "ticker": "EEM",
-            "score": 50
+            "name": "일본 ETF",
+            "ticker": "EWJ",
+            "score": 54
           },
           {
             "rank": 8,
-            "name": "KODEX 골드선물(H)",
-            "ticker": "132030.KS",
-            "score": 49
+            "name": "금 ETF",
+            "ticker": "GLD",
+            "score": 53
           }
         ]
       }
@@ -1253,7 +1385,7 @@
     "1개월": {
       "briefing": {
         "sentiment": {
-          "score": 48,
+          "score": 46,
           "status": "중립",
           "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다."
         },
@@ -1264,37 +1396,59 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
+            },
+            {
+              "label": "네이버 금융 리서치",
+              "source": "naver_research",
+              "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+              "published_at": "2026-03-27",
+              "region": "KR",
+              "sector": "macro",
+              "doc_type": "research_meta",
+              "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+              "count": 60
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
         "insights": [
           {
             "category": "레짐",
-            "text": "1개월 기준 시장 레짐은 중립 횡보 국면입니다. 총점 47.6 / 매크로 50.5 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
+            "text": "1개월 기준 시장 레짐은 중립 횡보 국면입니다. 총점 46.2 / 매크로 46.0 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
             "sources": [
               {
                 "label": "퀀트 레짐",
                 "source": "macro_analysis",
                 "title": "1개월 레짐 분석",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -1305,108 +1459,119 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
           {
             "category": "한국",
-            "text": "한국 시장은 1개월 기준 KOSPI -10.6%입니다. 원/달러 데이터 없음원, 기준금리 데이터 없음%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
+            "text": "한국 시장은 1개월 기준 KOSPI -10.6%입니다. 원/달러 1508원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
-              },
-              {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
+              },
+              {
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+                "published_at": "2026-03-27",
+                "region": "KR",
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
+              },
+              {
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
           {
             "category": "환율",
-            "text": "달러인덱스 DXY 120.3, 원/달러 데이터 없음원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
+            "text": "달러인덱스 DXY 120.3, 원/달러 1508원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "time_series",
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
               }
             ]
           },
           {
             "category": "금리",
-            "text": "연준 기준금리 5.30%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
+            "text": "연준 기준금리 3.64%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
@@ -1417,24 +1582,35 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
+              },
+              {
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               }
             ]
           },
@@ -1443,26 +1619,26 @@
             "text": "일본 데이터 없음, 유럽 DAX 데이터 없음 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               },
               {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
                 "sector": "macro",
-                "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
@@ -1474,7 +1650,7 @@
                 "label": "ETF 추천",
                 "source": "etf_recommender",
                 "title": "1개월 ETF 아이디어",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -1538,7 +1714,7 @@
             "정책",
             "1개월"
           ],
-          "summary": "현재 금리 축은 연준 5.30%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
+          "summary": "현재 금리 축은 연준 3.64%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
           "impacts": [
             {
               "sector": "장기채",
@@ -1560,24 +1736,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "연준 보도자료",
+              "source": "fed_press_rss",
+              "title": "연준 보도자료 20건 수집 · 예시: Federal Reserve Board announces it has m",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm",
+              "count": 20
+            },
+            {
+              "label": "연준 연설",
+              "source": "fed_speeches_rss",
+              "title": "연준 연설 14건 수집 · 예시: Barr, Brief Remarks on the Economic Outl",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.federalreserve.gov/newsevents/speech/barr20260326a.htm",
+              "count": 14
             }
           ]
         },
@@ -1588,7 +1775,7 @@
             "달러",
             "1개월"
           ],
-          "summary": "DXY 120.3, 원/달러 데이터 없음원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
+          "summary": "DXY 120.3, 원/달러 1508원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
           "impacts": [
             {
               "sector": "한국 증시",
@@ -1610,24 +1797,24 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
             }
           ]
         },
@@ -1660,24 +1847,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "Investing.com 뉴스",
+              "source": "investing_com_rss",
+              "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+              "published_at": "2026-03-29",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+              "count": 1
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
@@ -1711,7 +1909,7 @@
               "label": "ETF 추천",
               "source": "etf_recommender",
               "title": "ETF 랭킹 산출",
-              "published_at": "2026-03-27"
+              "published_at": "2026-03-29"
             }
           ]
         }
@@ -1793,31 +1991,31 @@
             "ticker": "XLE",
             "action": "우선 검토",
             "linkedIssue": "에너지 강세",
-            "reason": "1개월 기준 점수 72점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1개월 기준 점수 79점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "1개월 기준 점수 65점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1개월 기준 점수 64점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "1개월 기준 점수 65점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1개월 기준 점수 64점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🏦",
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "방어형 채권",
-            "reason": "1개월 기준 점수 65점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "1개월 기준 점수 64점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립 | 3M ▲42.7% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 81% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           }
         ],
         "etfRanking": [
@@ -1825,49 +2023,49 @@
             "rank": 1,
             "name": "미국 에너지 섹터 ETF",
             "ticker": "XLE",
-            "score": 72
+            "score": 79
           },
           {
             "rank": 2,
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 3,
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 4,
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 5,
             "name": "TIGER 200 IT",
             "ticker": "371460.KS",
-            "score": 58
+            "score": 63
           },
           {
             "rank": 6,
-            "name": "금 ETF",
-            "ticker": "GLD",
-            "score": 54
+            "name": "TIGER 일본니케이225",
+            "ticker": "241180.KS",
+            "score": 58
           },
           {
             "rank": 7,
-            "name": "이머징 ETF",
-            "ticker": "EEM",
-            "score": 50
+            "name": "일본 ETF",
+            "ticker": "EWJ",
+            "score": 54
           },
           {
             "rank": 8,
-            "name": "KODEX 골드선물(H)",
-            "ticker": "132030.KS",
-            "score": 49
+            "name": "금 ETF",
+            "ticker": "GLD",
+            "score": 53
           }
         ]
       }
@@ -1875,7 +2073,7 @@
     "3개월": {
       "briefing": {
         "sentiment": {
-          "score": 48,
+          "score": 46,
           "status": "중립",
           "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다."
         },
@@ -1886,37 +2084,59 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
+            },
+            {
+              "label": "네이버 금융 리서치",
+              "source": "naver_research",
+              "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+              "published_at": "2026-03-27",
+              "region": "KR",
+              "sector": "macro",
+              "doc_type": "research_meta",
+              "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+              "count": 60
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
         "insights": [
           {
             "category": "레짐",
-            "text": "3개월 기준 시장 레짐은 중립 횡보 국면입니다. 총점 47.6 / 매크로 50.5 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
+            "text": "3개월 기준 시장 레짐은 중립 횡보 국면입니다. 총점 46.2 / 매크로 46.0 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
             "sources": [
               {
                 "label": "퀀트 레짐",
                 "source": "macro_analysis",
                 "title": "3개월 레짐 분석",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -1927,108 +2147,119 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
           {
             "category": "한국",
-            "text": "한국 시장은 3개월 기준 KOSPI +35.3%입니다. 원/달러 데이터 없음원, 기준금리 데이터 없음%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
+            "text": "한국 시장은 3개월 기준 KOSPI +35.3%입니다. 원/달러 1508원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
-              },
-              {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
+              },
+              {
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+                "published_at": "2026-03-27",
+                "region": "KR",
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
+              },
+              {
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
           {
             "category": "환율",
-            "text": "달러인덱스 DXY 120.3, 원/달러 데이터 없음원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
+            "text": "달러인덱스 DXY 120.3, 원/달러 1508원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "time_series",
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
               }
             ]
           },
           {
             "category": "금리",
-            "text": "연준 기준금리 5.30%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
+            "text": "연준 기준금리 3.64%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
@@ -2039,24 +2270,35 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
+              },
+              {
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               }
             ]
           },
@@ -2065,26 +2307,26 @@
             "text": "일본 데이터 없음, 유럽 DAX 데이터 없음 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               },
               {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
                 "sector": "macro",
-                "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
@@ -2096,7 +2338,7 @@
                 "label": "ETF 추천",
                 "source": "etf_recommender",
                 "title": "3개월 ETF 아이디어",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -2119,24 +2361,35 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "time_series",
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
+              },
+              {
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+                "published_at": "2026-03-27",
+                "region": "KR",
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           }
@@ -2188,7 +2441,7 @@
             "정책",
             "3개월"
           ],
-          "summary": "현재 금리 축은 연준 5.30%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
+          "summary": "현재 금리 축은 연준 3.64%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
           "impacts": [
             {
               "sector": "장기채",
@@ -2210,24 +2463,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "연준 보도자료",
+              "source": "fed_press_rss",
+              "title": "연준 보도자료 20건 수집 · 예시: Federal Reserve Board announces it has m",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm",
+              "count": 20
+            },
+            {
+              "label": "연준 연설",
+              "source": "fed_speeches_rss",
+              "title": "연준 연설 14건 수집 · 예시: Barr, Brief Remarks on the Economic Outl",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.federalreserve.gov/newsevents/speech/barr20260326a.htm",
+              "count": 14
             }
           ]
         },
@@ -2238,7 +2502,7 @@
             "달러",
             "3개월"
           ],
-          "summary": "DXY 120.3, 원/달러 데이터 없음원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
+          "summary": "DXY 120.3, 원/달러 1508원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
           "impacts": [
             {
               "sector": "한국 증시",
@@ -2260,24 +2524,24 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
             }
           ]
         },
@@ -2310,24 +2574,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "Investing.com 뉴스",
+              "source": "investing_com_rss",
+              "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+              "published_at": "2026-03-29",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+              "count": 1
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
@@ -2361,7 +2636,7 @@
               "label": "ETF 추천",
               "source": "etf_recommender",
               "title": "ETF 랭킹 산출",
-              "published_at": "2026-03-27"
+              "published_at": "2026-03-29"
             }
           ]
         }
@@ -2443,31 +2718,31 @@
             "ticker": "XLE",
             "action": "우선 검토",
             "linkedIssue": "에너지 강세",
-            "reason": "3개월 기준 점수 72점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "3개월 기준 점수 79점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "3개월 기준 점수 65점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "3개월 기준 점수 64점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "3개월 기준 점수 65점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "3개월 기준 점수 64점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🏦",
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "방어형 채권",
-            "reason": "3개월 기준 점수 65점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "3개월 기준 점수 64점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립 | 3M ▲42.7% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 81% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           }
         ],
         "etfRanking": [
@@ -2475,49 +2750,49 @@
             "rank": 1,
             "name": "미국 에너지 섹터 ETF",
             "ticker": "XLE",
-            "score": 72
+            "score": 79
           },
           {
             "rank": 2,
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 3,
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 4,
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 5,
             "name": "TIGER 200 IT",
             "ticker": "371460.KS",
-            "score": 58
+            "score": 63
           },
           {
             "rank": 6,
-            "name": "금 ETF",
-            "ticker": "GLD",
-            "score": 54
+            "name": "TIGER 일본니케이225",
+            "ticker": "241180.KS",
+            "score": 58
           },
           {
             "rank": 7,
-            "name": "이머징 ETF",
-            "ticker": "EEM",
-            "score": 50
+            "name": "일본 ETF",
+            "ticker": "EWJ",
+            "score": 54
           },
           {
             "rank": 8,
-            "name": "KODEX 골드선물(H)",
-            "ticker": "132030.KS",
-            "score": 49
+            "name": "금 ETF",
+            "ticker": "GLD",
+            "score": 53
           }
         ]
       }
@@ -2525,7 +2800,7 @@
     "6개월": {
       "briefing": {
         "sentiment": {
-          "score": 48,
+          "score": 46,
           "status": "중립",
           "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다."
         },
@@ -2536,37 +2811,59 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
+            },
+            {
+              "label": "네이버 금융 리서치",
+              "source": "naver_research",
+              "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+              "published_at": "2026-03-27",
+              "region": "KR",
+              "sector": "macro",
+              "doc_type": "research_meta",
+              "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+              "count": 60
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
         "insights": [
           {
             "category": "레짐",
-            "text": "6개월 기준 시장 레짐은 중립 횡보 국면입니다. 총점 47.6 / 매크로 50.5 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
+            "text": "6개월 기준 시장 레짐은 중립 횡보 국면입니다. 총점 46.2 / 매크로 46.0 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
             "sources": [
               {
                 "label": "퀀트 레짐",
                 "source": "macro_analysis",
                 "title": "6개월 레짐 분석",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -2577,108 +2874,119 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
           {
             "category": "한국",
-            "text": "한국 시장은 6개월 기준 KOSPI +57.7%입니다. 원/달러 데이터 없음원, 기준금리 데이터 없음%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
+            "text": "한국 시장은 6개월 기준 KOSPI +57.7%입니다. 원/달러 1508원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
-              },
-              {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
+              },
+              {
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+                "published_at": "2026-03-27",
+                "region": "KR",
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
+              },
+              {
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
           {
             "category": "환율",
-            "text": "달러인덱스 DXY 120.3, 원/달러 데이터 없음원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
+            "text": "달러인덱스 DXY 120.3, 원/달러 1508원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "time_series",
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
               }
             ]
           },
           {
             "category": "금리",
-            "text": "연준 기준금리 5.30%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
+            "text": "연준 기준금리 3.64%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
             "sources": [
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           },
@@ -2689,24 +2997,35 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
+              },
+              {
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               }
             ]
           },
@@ -2715,26 +3034,26 @@
             "text": "일본 데이터 없음, 유럽 DAX 데이터 없음 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
             "sources": [
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-                "published_at": "2026-03-27",
-                "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "label": "Investing.com 뉴스",
+                "source": "investing_com_rss",
+                "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+                "published_at": "2026-03-29",
+                "region": "Global",
+                "sector": "macro",
+                "doc_type": "news",
+                "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+                "count": 1
               },
               {
-                "label": "FRED 거시지표",
-                "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-                "published_at": "2026-03-27",
-                "region": "US",
+                "label": "BIS 연설",
+                "source": "bis_speeches",
+                "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+                "published_at": "2026-03-25",
+                "region": "Global",
                 "sector": "macro",
-                "doc_type": "time_series",
-                "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "doc_type": "speech",
+                "url": "https://www.bis.org/review/r260325g.htm",
+                "count": 25
               }
             ]
           },
@@ -2746,7 +3065,7 @@
                 "label": "ETF 추천",
                 "source": "etf_recommender",
                 "title": "6개월 ETF 아이디어",
-                "published_at": "2026-03-27"
+                "published_at": "2026-03-29"
               }
             ]
           },
@@ -2769,24 +3088,35 @@
               {
                 "label": "FRED 거시지표",
                 "source": "fred_api",
-                "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+                "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
                 "published_at": "2026-03-27",
                 "region": "US",
                 "sector": "macro",
                 "doc_type": "time_series",
                 "url": "https://fred.stlouisfed.org/series/VIXCLS",
-                "count": 6
+                "count": 10
               },
               {
-                "label": "OpenDART 공시",
-                "source": "opendart",
-                "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+                "label": "한국은행 ECOS",
+                "source": "ecos_api",
+                "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
                 "published_at": "2026-03-27",
                 "region": "KR",
-                "sector": "equity",
-                "doc_type": "filing",
-                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-                "count": 50
+                "sector": "macro",
+                "doc_type": "time_series",
+                "url": "https://ecos.bok.or.kr/",
+                "count": 11
+              },
+              {
+                "label": "네이버 금융 리서치",
+                "source": "naver_research",
+                "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
+                "published_at": "2026-03-27",
+                "region": "KR",
+                "sector": "macro",
+                "doc_type": "research_meta",
+                "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+                "count": 60
               }
             ]
           }
@@ -2838,7 +3168,7 @@
             "정책",
             "6개월"
           ],
-          "summary": "현재 금리 축은 연준 5.30%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
+          "summary": "현재 금리 축은 연준 3.64%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
           "impacts": [
             {
               "sector": "장기채",
@@ -2860,24 +3190,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "연준 보도자료",
+              "source": "fed_press_rss",
+              "title": "연준 보도자료 20건 수집 · 예시: Federal Reserve Board announces it has m",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm",
+              "count": 20
+            },
+            {
+              "label": "연준 연설",
+              "source": "fed_speeches_rss",
+              "title": "연준 연설 14건 수집 · 예시: Barr, Brief Remarks on the Economic Outl",
+              "published_at": "2026-03-26",
+              "region": "US",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.federalreserve.gov/newsevents/speech/barr20260326a.htm",
+              "count": 14
             }
           ]
         },
@@ -2888,7 +3229,7 @@
             "달러",
             "6개월"
           ],
-          "summary": "DXY 120.3, 원/달러 데이터 없음원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
+          "summary": "DXY 120.3, 원/달러 1508원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
           "impacts": [
             {
               "sector": "한국 증시",
@@ -2910,24 +3251,24 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+              "label": "한국은행 ECOS",
+              "source": "ecos_api",
+              "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
               "published_at": "2026-03-27",
               "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "sector": "macro",
+              "doc_type": "time_series",
+              "url": "https://ecos.bok.or.kr/",
+              "count": 11
             }
           ]
         },
@@ -2960,24 +3301,35 @@
             {
               "label": "FRED 거시지표",
               "source": "fred_api",
-              "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+              "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
               "published_at": "2026-03-27",
               "region": "US",
               "sector": "macro",
               "doc_type": "time_series",
               "url": "https://fred.stlouisfed.org/series/VIXCLS",
-              "count": 6
+              "count": 10
             },
             {
-              "label": "OpenDART 공시",
-              "source": "opendart",
-              "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
-              "published_at": "2026-03-27",
-              "region": "KR",
-              "sector": "equity",
-              "doc_type": "filing",
-              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-              "count": 50
+              "label": "Investing.com 뉴스",
+              "source": "investing_com_rss",
+              "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+              "published_at": "2026-03-29",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "news",
+              "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+              "count": 1
+            },
+            {
+              "label": "BIS 연설",
+              "source": "bis_speeches",
+              "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+              "published_at": "2026-03-25",
+              "region": "Global",
+              "sector": "macro",
+              "doc_type": "speech",
+              "url": "https://www.bis.org/review/r260325g.htm",
+              "count": 25
             }
           ]
         },
@@ -3011,7 +3363,7 @@
               "label": "ETF 추천",
               "source": "etf_recommender",
               "title": "ETF 랭킹 산출",
-              "published_at": "2026-03-27"
+              "published_at": "2026-03-29"
             }
           ]
         }
@@ -3093,31 +3445,31 @@
             "ticker": "XLE",
             "action": "우선 검토",
             "linkedIssue": "에너지 강세",
-            "reason": "6개월 기준 점수 72점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "6개월 기준 점수 79점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "6개월 기준 점수 65점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "6개월 기준 점수 64점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🇰🇷",
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "한국 주식",
-            "reason": "6개월 기준 점수 65점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "6개월 기준 점수 64점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           },
           {
             "logo": "🏦",
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "action": "우선 검토",
+            "action": "관심 확대",
             "linkedIssue": "방어형 채권",
-            "reason": "6개월 기준 점수 65점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+            "reason": "6개월 기준 점수 64점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립 | 3M ▲42.7% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 81% 高' 입니다. 레짐과 잘 맞는 후보입니다."
           }
         ],
         "etfRanking": [
@@ -3125,87 +3477,145 @@
             "rank": 1,
             "name": "미국 에너지 섹터 ETF",
             "ticker": "XLE",
-            "score": 72
+            "score": 79
           },
           {
             "rank": 2,
             "name": "TIGER 200",
             "ticker": "069500.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 3,
             "name": "KODEX 반도체",
             "ticker": "091160.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 4,
             "name": "KODEX 미국채울트라30년(H)",
             "ticker": "148020.KS",
-            "score": 65
+            "score": 64
           },
           {
             "rank": 5,
             "name": "TIGER 200 IT",
             "ticker": "371460.KS",
-            "score": 58
+            "score": 63
           },
           {
             "rank": 6,
-            "name": "금 ETF",
-            "ticker": "GLD",
-            "score": 54
+            "name": "TIGER 일본니케이225",
+            "ticker": "241180.KS",
+            "score": 58
           },
           {
             "rank": 7,
-            "name": "이머징 ETF",
-            "ticker": "EEM",
-            "score": 50
+            "name": "일본 ETF",
+            "ticker": "EWJ",
+            "score": 54
           },
           {
             "rank": 8,
-            "name": "KODEX 골드선물(H)",
-            "ticker": "132030.KS",
-            "score": 49
+            "name": "금 ETF",
+            "ticker": "GLD",
+            "score": 53
           }
         ]
       }
     }
   },
   "meta": {
-    "docsCount": 56,
+    "docsCount": 141,
     "sourceCatalog": [
       {
-        "label": "OpenDART 공시",
-        "source": "opendart",
-        "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+        "label": "네이버 금융 리서치",
+        "source": "naver_research",
+        "title": "네이버 금융 리서치 60건 수집 · 예시: 마켓레이더(3월 27일, 오전)",
         "published_at": "2026-03-27",
         "region": "KR",
-        "sector": "equity",
-        "doc_type": "filing",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
-        "count": 50
+        "sector": "macro",
+        "doc_type": "research_meta",
+        "url": "https://finance.naver.com/research/market_info_read.naver?nid=35487&page=1",
+        "count": 60
+      },
+      {
+        "label": "BIS 연설",
+        "source": "bis_speeches",
+        "title": "BIS 연설 25건 수집 · 예시: José Luis Escrivá: Inauguration of the A",
+        "published_at": "2026-03-25",
+        "region": "Global",
+        "sector": "macro",
+        "doc_type": "speech",
+        "url": "https://www.bis.org/review/r260325g.htm",
+        "count": 25
+      },
+      {
+        "label": "연준 보도자료",
+        "source": "fed_press_rss",
+        "title": "연준 보도자료 20건 수집 · 예시: Federal Reserve Board announces it has m",
+        "published_at": "2026-03-26",
+        "region": "US",
+        "sector": "macro",
+        "doc_type": "news",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260326a.htm",
+        "count": 20
+      },
+      {
+        "label": "연준 연설",
+        "source": "fed_speeches_rss",
+        "title": "연준 연설 14건 수집 · 예시: Barr, Brief Remarks on the Economic Outl",
+        "published_at": "2026-03-26",
+        "region": "US",
+        "sector": "macro",
+        "doc_type": "speech",
+        "url": "https://www.federalreserve.gov/newsevents/speech/barr20260326a.htm",
+        "count": 14
+      },
+      {
+        "label": "한국은행 ECOS",
+        "source": "ecos_api",
+        "title": "한국은행 ECOS 11건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+        "published_at": "2026-03-27",
+        "region": "KR",
+        "sector": "macro",
+        "doc_type": "time_series",
+        "url": "https://ecos.bok.or.kr/",
+        "count": 11
       },
       {
         "label": "FRED 거시지표",
         "source": "fred_api",
-        "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+        "title": "FRED 거시지표 10건 수집 · 예시: VIX (VIXCLS)",
         "published_at": "2026-03-27",
         "region": "US",
         "sector": "macro",
         "doc_type": "time_series",
         "url": "https://fred.stlouisfed.org/series/VIXCLS",
-        "count": 6
+        "count": 10
+      },
+      {
+        "label": "Investing.com 뉴스",
+        "source": "investing_com_rss",
+        "title": "Investing.com 뉴스 1건 수집 · 예시: Pakistan hosts regional powers for Iran ",
+        "published_at": "2026-03-29",
+        "region": "Global",
+        "sector": "macro",
+        "doc_type": "news",
+        "url": "https://www.investing.com/news/world-news/pakistan-hosts-regional-powers-for-iran-talks-with-focus-on-hormuz-proposals-4586591",
+        "count": 1
       }
     ],
     "byRegion": {
-      "US": 6,
-      "KR": 50
+      "US": 44,
+      "KR": 71,
+      "Global": 26
     },
     "byDocumentType": {
-      "time_series": 6,
-      "filing": 50
+      "speech": 39,
+      "research_meta": 60,
+      "news": 21,
+      "time_series": 21
     },
     "portfolioUpdated": "2026-03-30",
     "macroAvailable": true,

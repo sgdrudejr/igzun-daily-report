@@ -1,0 +1,31 @@
+{
+  "accounts": {
+    "ISA": {
+      "label": "ISA (한국투자증권)",
+      "cash": 8392660,
+      "holdings": [],
+      "note": "세제혜택 — 국내ETF/채권 중심"
+    },
+    "TOSS": {
+      "label": "토스증권",
+      "cash": 4309720,
+      "holdings": [],
+      "note": "해외ETF 가능 — 미국/글로벌 자산"
+    },
+    "PENSION": {
+      "label": "연금저축",
+      "cash": 5565201,
+      "holdings": [],
+      "note": "연금저축ETF — 해외지수 장기투자"
+    }
+  },
+  "total_cash": 18267581,
+  "total_invested": 0,
+  "investment_profile": {
+    "horizon": "3-6개월",
+    "style": "펀더멘탈 중심, 기술적 보조",
+    "preferred_vehicles": ["ETF", "섹터/테마"],
+    "risk_tolerance": "중간"
+  },
+  "updated": "2026-03-30"
+}
