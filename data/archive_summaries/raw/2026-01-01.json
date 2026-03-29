@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-01",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2025-12-31",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2025-12-31",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "document_type": "time_series"
+        },
+        {
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2025-12-31",
+          "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 50,
+      "examples": [
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(삼성평생알아서분할매매EMP증권투자신탁[혼합-재간접형])",
+          "published_date": "2025-12-31",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251231000206",
+          "document_type": "filing"
+        },
+        {
+          "title": "[변경등록]자산유동화계획의등록신청서(유동화전문회사)",
+          "published_date": "2025-12-31",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251231000664",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(삼성한국형TDF2040증권투자신탁H[주식혼합-재간접형])",
+          "published_date": "2025-12-31",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251231000272",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 56
+}

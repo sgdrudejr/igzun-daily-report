@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-03-30T01:50:01.790948",
+  "start_date": "2026-01-05",
+  "end_date": "2026-01-06",
+  "dates_requested": [
+    "2026-01-05",
+    "2026-01-06"
+  ],
+  "dates_processed": [
+    "2026-01-05",
+    "2026-01-06"
+  ],
+  "dates_skipped": [],
+  "collect_sources": [
+    "fred_api",
+    "opendart"
+  ],
+  "skipped_snapshot_only_sources": [
+    "fed_speeches_rss",
+    "fed_press_rss",
+    "ecos_api",
+    "naver_research",
+    "kr_brokerage_kb",
+    "kr_brokerage_mirae",
+    "bis_speeches",
+    "investing_com_rss"
+  ],
+  "market_cache": "/Users/seo/igzun-daily-report/data/market_data_history/2026-01-05_to_2026-01-06.json",
+  "etf_price_cache": "/Users/seo/igzun-daily-report/data/etf_price_history/2026-01-05_to_2026-01-06.json",
+  "commands": [
+    {
+      "date": "2026-01-06",
+      "step": "load_market_data.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/market_data_history/2026-01-05_to_2026-01-06.json"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "ETF 가격 데이터 수집 중 (19개)…\nwrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-06.json\nRegime: Neutral | Macro: 50.0\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲39.0% 강한 모멘텀 | RSI 76 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲39.0% 강한 모멘텀 | RSI 76 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲53.8% 강한 모멘텀 | RSI 80 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:50:11 [runner] INFO: Starting collection for 2026-01-05 — 1 sources\n01:50:14 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-05\n01:50:14 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-05_run.json\n01:50:14 [runner] INFO: === Collection Manifest: 2026-01-05 ===\n  fred_api: success | docs=10 dupes=0 errors=0\n  TOTAL: 10 documents"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:50:14 [runner] INFO: Starting collection for 2026-01-05 — 1 sources\n01:50:14 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-05\n01:50:14 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-05_run.json\n01:50:14 [runner] INFO: === Collection Manifest: 2026-01-05 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-05.json\nRegime: Neutral | Total: 48.87"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-05.json\nRegime: Neutral | Macro: 48.87\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲38.6% 강한 모멘텀 | RSI 76 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲38.8% 강한 모멘텀 | RSI 76 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲52.1% 강한 모멘텀 | RSI 77 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-05/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:50:15 [runner] INFO: Starting collection for 2026-01-06 — 1 sources\n01:50:17 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-06\n01:50:17 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-06_run.json\n01:50:17 [runner] INFO: === Collection Manifest: 2026-01-06 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:50:18 [runner] INFO: Starting collection for 2026-01-06 — 1 sources\n01:50:18 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-06\n01:50:18 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-06_run.json\n01:50:18 [runner] INFO: === Collection Manifest: 2026-01-06 ===\n  opendart: success | docs=48 dupes=2 errors=0\n  TOTAL: 48 documents"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-06.json\nRegime: Neutral | Total: 50.55"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-06.json\nRegime: Neutral | Macro: 50.55\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲39.0% 강한 모멘텀 | RSI 76 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲39.0% 강한 모멘텀 | RSI 76 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲53.8% 강한 모멘텀 | RSI 80 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-06/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "build_horizon_views.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/horizon_index.json\n1일: 27 buckets\n1주: 8 buckets\n1개월: 3 buckets\n3개월: 1 buckets\n6개월: 1 buckets"
+    }
+  ]
+}

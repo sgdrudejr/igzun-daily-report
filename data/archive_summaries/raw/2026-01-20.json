@@ -1,0 +1,30 @@
+{
+  "date": "2026-01-20",
+  "sources": [
+    {
+      "source_id": "opendart",
+      "count": 43,
+      "examples": [
+        {
+          "title": "[기재정정]자산양도등의등록신청서",
+          "published_date": "2026-01-20",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260120000095",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서(집합투자증권)(AB셀렉트미국증권투자신탁(주식-재간접형))",
+          "published_date": "2026-01-20",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260120000047",
+          "document_type": "filing"
+        },
+        {
+          "title": "주식등의대량보유상황보고서(약식)",
+          "published_date": "2026-01-20",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260120000385",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 43
+}

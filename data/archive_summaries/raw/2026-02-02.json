@@ -1,0 +1,54 @@
+{
+  "date": "2026-02-02",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 10,
+      "examples": [
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-02-02",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-02-02",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "document_type": "time_series"
+        },
+        {
+          "title": "Unemployment Rate (UNRATE)",
+          "published_date": "2026-02-01",
+          "url": "https://fred.stlouisfed.org/series/UNRATE",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 50,
+      "examples": [
+        {
+          "title": "증권발행실적보고서(집합투자증권)(흥국미국배당우선주증권자투자신탁2호[주식])",
+          "published_date": "2026-02-02",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202000494",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(IBKITF200증권상장지수투자신탁[주식])",
+          "published_date": "2026-02-02",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202000769",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서(집합투자증권)(NH-AmundiHANARO반도체핵심공정주도주증권상장지수투자신탁[주식])",
+          "published_date": "2026-02-02",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202000208",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 60
+}

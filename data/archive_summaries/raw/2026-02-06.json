@@ -1,0 +1,54 @@
+{
+  "date": "2026-02-06",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+          "published_date": "2026-02-06",
+          "url": "https://fred.stlouisfed.org/series/T10Y2Y",
+          "document_type": "time_series"
+        },
+        {
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-02-06",
+          "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+          "document_type": "time_series"
+        },
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-02-06",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 43,
+      "examples": [
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(KB글로벌스마트알파증권자투자신탁(주식))",
+          "published_date": "2026-02-06",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260206000073",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(한화PLUS미국다우존스고배당주증권상장지수투자신탁(주식-파생형)(합성H))",
+          "published_date": "2026-02-06",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260206002064",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(KB중소형주포커스증권자투자신탁(주식))",
+          "published_date": "2026-02-06",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260206000150",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 49
+}

@@ -690,6 +690,7 @@
     ],
     "planDesc": "중립 횡보 국면 기준 권장 배분은 주식 45% / 채권 20% / 원자재 10% / 현금 25% 입니다. ISA는 국내 ETF, 토스증권은 미국 ETF, 연금저축은 장기 분산형 ETF에 우선 배분합니다."
   },
+  "rebalancing": {},
   "recommendations": {
     "ideas": [
       {

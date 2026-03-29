@@ -35,6 +35,7 @@ sources.yaml
     -> macro_analysis.py
     -> etf_recommender.py
     -> build_site_report.py
+    -> storage_retention.py
     -> build_horizon_views.py
   -> site/{date}/result.json, index.html
   -> site/horizon_index.json
@@ -79,6 +80,11 @@ sources.yaml
 - `--source`
 - `--dry-run`
 - `--base-dir`
+
+주의:
+
+- `runner.py` 자체를 날짜 범위 루프로 확장하지 않는다.
+- historical range 실행은 [`scripts/backfill_history.py`](/Users/seo/igzun-daily-report/scripts/backfill_history.py) 가 날짜 루프를 돌면서 내부적으로 `runner.py` 를 반복 호출하는 방식으로 유지한다.
 
 ### 3. fetcher 구조
 
@@ -209,6 +215,8 @@ data/index/content_hashes.json
 
 - 현재는 `content` 기반 전역 dedup 이다.
 - 향후 source별 dedup 전략을 넣고 싶더라도 현재 구조를 깨지 말고 확장해야 한다.
+- historical backfill 시 dedup 때문에 특정 날짜 raw 폴더가 비어 있을 수 있다.
+- 이 경우 [`scripts/macro_analysis.py`](/Users/seo/igzun-daily-report/scripts/macro_analysis.py) 는 해당 날짜 이전의 가장 최근 raw snapshot을 찾아 참고한다.
 
 ## bridge 호환 설계
 
@@ -236,6 +244,38 @@ data/index/content_hashes.json
 
 현 시점에서는 하나의 `daily_update.sh` 로도 실행 가능하다.
 
+현재 daily update 추가 단계:
+
+- `storage_retention.py --delete-originals`
+- `build_horizon_views.py`
+
+즉, 매일 배치가 끝나면 오래된 raw/normalized/manifests 를 요약+압축 대상으로 넘기고, 그 뒤 1일/1주/1개월/3개월/6개월 뷰를 다시 집계한다.
+
+## historical backfill 레이어
+
+[`scripts/backfill_history.py`](/Users/seo/igzun-daily-report/scripts/backfill_history.py) 는 과거 날짜를 현재 구조에 맞춰 재생성하는 래퍼다.
+
+역할:
+
+- `load_market_data.py` 로 긴 구간 시장데이터 캐시 생성
+- `etf_recommender.py` 로 ETF 가격 history cache 생성
+- 날짜별로 `collectors.runner -> macro_analysis.py -> etf_recommender.py -> build_site_report.py` 순서 실행
+- 마지막에 `build_horizon_views.py` 를 다시 돌려 1일/1주/1개월/3개월/6개월 누적 버킷 재생성
+
+현재 기본 historical-safe source:
+
+- `fred_api`
+- `opendart`
+
+현재 snapshot-only source로 간주하는 항목:
+
+- RSS 계열
+- `ecos_api`
+- `naver_research`
+- `kr_brokerage_*`
+
+이 snapshot-only source들은 과거 시점 그대로 재현하기 어려우므로, 현재는 `data/backfills/*.json` 에 skipped 목록으로만 남긴다.
+
 ## 기간별 집계 레이어
 
 [`scripts/build_horizon_views.py`](/Users/seo/igzun-daily-report/scripts/build_horizon_views.py) 는 누적된 일간 결과를 다시 읽어 기간별 뷰 파일을 만든다.
@@ -257,12 +297,65 @@ data/index/content_hashes.json
 - [`site/horizons/quarterly/`](/Users/seo/igzun-daily-report/site/horizons/quarterly/)
 - [`site/horizons/halfyearly/`](/Users/seo/igzun-daily-report/site/horizons/halfyearly/)
 
+추가 메타:
+
+- `site/horizon_index.json` 에 `storageRetention`, `backfillRuns` 메타를 함께 저장한다.
+- 현재 프론트가 이 메타를 직접 렌더링하지는 않지만, 웹 레이어에서 읽을 수 있게 보존한다.
+
 집계 원칙:
 
 - 가장 최근 일간 결과를 해당 버킷의 기본 본문으로 사용한다.
 - `updateCount`, `docsTotal`, `avgScore`, `sourceLabels` 를 누적 계산해 버킷 헤더와 본문에 다시 주입한다.
 - 주간/월간/분기/반기 버킷은 단순 date alias 가 아니라 누적 요약 레이어다.
 - `site/template/index.html` 은 `기간 유형 탭 -> 기간 선택 탭 -> 섹션 탭` 구조로 이 집계 파일들을 읽는다.
+
+## 보고서/프론트 구조
+
+### result.json 주요 블록
+
+현재 일간 `site/{date}/result.json` 의 각 period 섹션은 아래 블록을 가진다.
+
+- `briefing`
+- `newsList`
+- `portfolio`
+- `rebalancing`
+- `recommendations`
+
+`briefing` 내부에는 아래 세부 블록이 포함된다.
+
+- `sentiment`
+- `scoreChips`
+- `metricChips`
+- `forecast`
+- `strategy`
+- `insights`
+- `indices`
+
+### UI 구조
+
+[`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 는 다음 규칙으로 동작한다.
+
+- 상단은 `기간 유형 칩 + 기간 선택 드롭다운` 1행 구조
+- 새로고침 시 항상 `1일 / 최신 날짜` 로 진입
+- 본문은 `포트폴리오 -> 실행 가이드 -> 시장 브리핑 -> 핵심 이슈 -> ETF 아이디어` 탭 구조
+- 각 탭은 독립적인 scroll pane 으로 동작
+- 출처 메타데이터는 본문 중간 삽입이 아니라 카드/아이템 하단의 고정 slot 에 렌더
+
+### 기간별 해석 원칙
+
+동일한 현재 포트폴리오라도 기간에 따라 질문이 달라진다.
+
+- 1일: 오늘 바로 진입할 근거가 있는가
+- 1주: 이번 주의 반응이 추세로 이어질 수 있는가
+- 1개월: 월간 레짐을 기준으로 어떤 자산군을 중심에 둘 것인가
+- 3개월: 3개월 후를 보며 어떤 포트폴리오를 만들어 둘 것인가
+- 6개월: 6개월 보유를 전제로 어떤 비중을 유지해야 하는가
+
+이 차이를 반영하기 위해:
+
+- `briefing.metricChips` 는 period별로 서로 다른 지표를 노출
+- `briefing.strategy` 는 period별 질문 중심 서술을 사용
+- `rebalancing` 은 period별 실행 예산 비율과 액션 강도를 다르게 계산
 
 생성 파일:
 
@@ -304,6 +397,25 @@ data/index/content_hashes.json
 - 일부 source 실패는 전체 배치를 막지 않는다.
 - manifest 기준으로 실패/빈 결과/중복률을 확인한다.
 - 동일 source가 3일 이상 `empty` 또는 `error` 인 경우 stale 경고를 주는 로직을 추가할 예정
+
+## 스토리지 정리 레이어
+
+[`scripts/storage_retention.py`](/Users/seo/igzun-daily-report/scripts/storage_retention.py) 는 오래된 재생산 가능 산출물을 요약/압축/삭제하는 레이어다.
+
+대상:
+
+- `data/raw/{date}/`
+- `data/normalized/{date}/`
+- `data/manifests/{date}_run.json`
+
+정리 원칙:
+
+- `site/{date}/result.json` 이 존재하는 날짜만 정리 대상으로 삼는다.
+- raw는 `data/archive_summaries/raw/{date}.json` summary + `data/archives/raw/{date}.tar.gz`
+- normalized는 `data/archive_summaries/normalized/{date}.json` summary + `data/archives/normalized/{date}.jsonl.gz`
+- manifests는 `data/archives/manifests/{date}_run.json.gz`
+- archive 파일은 로컬 보관용이며 `.gitignore` 대상이다.
+- 요약 상태는 `data/storage_retention/status.json` 에 기록하고 Git 에 포함할 수 있다.
 
 ## 현재 아키텍처의 핵심 제약
 

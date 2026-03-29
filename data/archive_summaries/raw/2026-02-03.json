@@ -1,0 +1,54 @@
+{
+  "date": "2026-02-03",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-02-03",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-02-03",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "document_type": "time_series"
+        },
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-02-03",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 45,
+      "examples": [
+        {
+          "title": "주주명부폐쇄기간또는기준일설정              ",
+          "published_date": "2026-02-03",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260203901200",
+          "document_type": "filing"
+        },
+        {
+          "title": "파생상품거래손실발생              ",
+          "published_date": "2026-02-03",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260203901142",
+          "document_type": "filing"
+        },
+        {
+          "title": "기업설명회(IR)개최(안내공시)              ",
+          "published_date": "2026-02-03",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260203801154",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 51
+}

@@ -22,6 +22,9 @@
 - `content_hash` 기반 중복 제거가 구현되어 있다.
 - 수집 URL 로깅은 manifest의 `fetched_urls` 에 기록된다.
 - `2026-03-30` 기준 일배치가 다시 실행되었고, 수집 -> 분석 -> 사이트 생성 -> horizon 집계까지 재생성되었다.
+- `2026-01-01 ~ 2026-03-30` 구간에 대해 historical-safe source 기반 백필이 추가되었다.
+- 백필 실행기는 [`scripts/backfill_history.py`](/Users/seo/igzun-daily-report/scripts/backfill_history.py) 이며, 현재 기준 Q1 백필 요약은 [`data/backfills/2026-01-01_to_2026-03-30.json`](/Users/seo/igzun-daily-report/data/backfills/2026-01-01_to_2026-03-30.json) 에 기록된다.
+- 저장공간 정리기는 [`scripts/storage_retention.py`](/Users/seo/igzun-daily-report/scripts/storage_retention.py) 이며, 상태는 [`data/storage_retention/status.json`](/Users/seo/igzun-daily-report/data/storage_retention/status.json) 에 기록된다.
 - `scripts/daily_update.sh` 에 수집/분석/사이트 생성/배포 흐름이 연결되어 있다.
 - `scripts/macro_analysis.py`, `scripts/etf_recommender.py`, `scripts/build_site_report.py` 작업이 시작되어 있다.
 - [`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py) 가 `dataByPeriod` 호환 구조를 유지한 채 한국어 인사이트 중심 리포트로 재작성되었다.
@@ -35,9 +38,19 @@
 - [`scripts/build_horizon_views.py`](/Users/seo/igzun-daily-report/scripts/build_horizon_views.py) 가 추가되었다.
 - 이 스크립트는 누적된 일간 `site/*/result.json` 을 읽어 `site/horizon_index.json` 과 `site/horizons/` 아래 기간별 집계 파일을 생성한다.
 - UI는 더 이상 좌하단 플로팅 달력이 아니라 `기간 유형 탭 -> 기간 선택 탭 -> 섹션 탭` 구조다.
+- 상단 UI는 `기간 유형 칩 + 기간 선택 드롭다운` 1행 압축 구조로 다시 정리되었다.
+- 새로고침 시 기본 진입값은 항상 `1일 / 최신 날짜` 이다.
+- 각 섹션 탭은 개별 스크롤 pane 으로 동작하도록 바뀌었다.
+- 섹션 순서는 `포트폴리오 -> 실행 가이드 -> 시장 브리핑 -> 핵심 이슈 -> ETF 아이디어` 다.
 - 상단 헤더에 `누적 업데이트 수 / 누적 문서 수 / 평균 점수 / 주요 출처` 요약 pill 이 추가되었다.
 - 현재 생성된 누적 버킷 수는 일간 25개, 주간 7개, 월간 2개, 분기 1개, 반기 1개다.
+- Q1 백필 이후 현재 생성된 누적 버킷 수는 일간 66개, 주간 14개, 월간 3개, 분기 1개, 반기 1개다.
 - `site/` 아래 HTML/JSON 검색 기준 `undefined`/`None` 문자열이 남지 않도록 다시 검증했다.
+- `briefing.strategy`, `rebalancing`, `briefing.scoreChips`, `briefing.metricChips`, `portfolio.scoreChips` 블록이 추가되었다.
+- 1일/1주/1개월/3개월/6개월은 각 기간의 질문과 지표가 다르게 보이도록 다시 정리되었다.
+- `load_market_data.py`, `macro_analysis.py`, `etf_recommender.py` 는 특정 날짜 기준 as-of 계산이 가능하도록 보정되었다.
+- 백필은 현재 `fred_api`, `opendart` 중심으로 수행된다. RSS/스크래퍼/ECOS 는 snapshot 성격이 강해 Q1 백필 기본 대상에서 제외된다.
+- 저장공간 정리 1차 적용 결과: raw 32일치, normalized 10일치를 summary+archive 로 넘겼다.
 
 ### 현재 작업 트리 상태
 
@@ -47,6 +60,9 @@
 - [`scripts/build_horizon_views.py`](/Users/seo/igzun-daily-report/scripts/build_horizon_views.py) 는 새로 추가된 누적 집계 레이어다.
 - [`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 와 날짜별 `site/*/index.html` 은 같은 탭형 UI를 공유한다.
 - [`data/portfolio_state.json`](/Users/seo/igzun-daily-report/data/portfolio_state.json) 는 현재 전액 현금 상태를 반영한다.
+- 브라우저 실기기 검증은 아직 남아 있다. 특히 Galaxy S25 Ultra 기준 줄바꿈, 칩 높이, 상단 드롭다운 폭을 확인해야 한다.
+- `data/market_data_history/` 와 `data/etf_price_history/` 는 로컬 캐시이며 `.gitignore` 대상이다.
+- `data/archives/` 는 로컬 압축본 저장소이며 Git 에 올리지 않는다.
 
 ### 현재 확인된 산출물
 
@@ -60,8 +76,12 @@
 - [`site/2026-03-27/index.html`](/Users/seo/igzun-daily-report/site/2026-03-27/index.html)
 - [`site/2026-03-30/result.json`](/Users/seo/igzun-daily-report/site/2026-03-30/result.json)
 - [`site/2026-03-30/index.html`](/Users/seo/igzun-daily-report/site/2026-03-30/index.html)
+- [`site/2026-01-02/result.json`](/Users/seo/igzun-daily-report/site/2026-01-02/result.json)
+- [`site/2026-02-12/result.json`](/Users/seo/igzun-daily-report/site/2026-02-12/result.json)
 - [`site/horizon_index.json`](/Users/seo/igzun-daily-report/site/horizon_index.json)
 - [`site/horizons/weekly/2026-03-w5.json`](/Users/seo/igzun-daily-report/site/horizons/weekly/2026-03-w5.json)
+- [`data/backfills/2026-01-01_to_2026-03-30.json`](/Users/seo/igzun-daily-report/data/backfills/2026-01-01_to_2026-03-30.json)
+- [`data/storage_retention/status.json`](/Users/seo/igzun-daily-report/data/storage_retention/status.json)
 
 ## 현재 디렉토리 구조
 
@@ -95,6 +115,9 @@
 │   ├── index/
 │   ├── macro_analysis/
 │   ├── etf_recommendations/
+│   ├── backfills/
+│   ├── archive_summaries/
+│   ├── storage_retention/
 │   ├── refined_insights_inventory.json
 │   ├── market_data_latest.json
 │   ├── market_quant_snapshot.json
@@ -108,6 +131,8 @@
 │   ├── apply_market_quant.py
 │   ├── macro_analysis.py
 │   ├── etf_recommender.py
+│   ├── backfill_history.py
+│   ├── storage_retention.py
 │   ├── build_site_report.py
 │   └── build_horizon_views.py
 ├── site/
@@ -133,10 +158,15 @@
 - `2026-03-30` 기준 batch 실행 및 사이트 산출물 생성
 - 일간 결과를 다시 주간/월간/분기/반기 버킷으로 집계하는 레이어가 들어갔다.
 - 1일/1주/1개월/3개월/6개월마다 누적 문서 수, 평균 점수, 주요 출처를 따로 보여준다.
+- 2026년 1월~3월 weekday 기준 63개 날짜에 대해 Q1 백필을 수행했고, 사이트에는 총 66개 일간 버킷이 존재한다.
+- `site/horizon_index.json` 에 storage retention 상태와 backfill run 메타가 추가되었다.
+- `daily_update.sh` 에 retention 훅이 추가되어 오래된 raw/normalized/manifests 를 요약+압축 대상으로 보낼 수 있다.
 
 ### 아직 미구현 또는 미완료
 
 - 브라우저에서 실제 `site/{date}/index.html` 렌더링 검증
+- 탭 간 개별 스크롤 동작 검증
+- Galaxy S25 Ultra 기준 줄바꿈 / 상단 드롭다운 UI 검증
 - 포트폴리오 시사점 로직 정교화
 - 포트폴리오 점수 산식 고도화
 - ETF/섹터 아이디어를 지역/레짐/리스크와 더 강하게 연결하는 설명 강화
@@ -151,6 +181,8 @@
 - `site/{date}/index.html` 에서 기간 유형 탭 -> 기간 선택 탭 -> 섹션 탭 흐름 확인
 - 모바일/데스크톱에서 chip overflow 및 탭 전환 UX 확인
 - `undefined`/`None` 가 실제 화면에도 보이지 않는지 확인
+- 각 섹션 pane 스크롤이 독립적으로 유지되는지 확인
+- 새로고침 시 항상 `1일 / 최신 날짜` 로 초기화되는지 확인
 
 2. 인사이트 품질 강화
 - 1일은 뉴스/변동성 중심
@@ -170,6 +202,9 @@
 5. horizon 데이터 고도화
 - `site/horizons/*` 버킷별로 더 다른 메트릭과 서술을 넣기
 - 주간/월간/분기별 비교형 지표 추가
+- 실제 보유 종목이 들어오면 신규 매수뿐 아니라 비중 축소/교체 액션까지 계산 확장
+- snapshot-only source의 역사적 백필 전략 별도 설계
+- archive 복원 스크립트 또는 raw 재수집 절차 문서화
 
 ## 삭제된 이전 우선순위 메모
 
@@ -205,6 +240,10 @@
 
 7. 불확실한 경우 구조를 새로 만들지 말 것
 - `TODO` 로 명시하고 남길 것
+
+8. historical backfill은 current snapshot source와 분리해서 다룰 것
+- `fred_api`, `opendart` 같은 historical-safe source와 RSS/스크래퍼를 혼용해 과거를 재현했다고 가정하면 안 됨
+- snapshot-only source는 `data/backfills/*.json` 에 skipped 로 남기는 현재 정책 유지
 
 8. 문서 갱신 필수
 - 작업 후 반드시 이 파일과 [`TASKS.md`](/Users/seo/igzun-daily-report/TASKS.md) 를 업데이트

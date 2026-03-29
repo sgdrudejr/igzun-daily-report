@@ -1,0 +1,30 @@
+{
+  "date": "2026-01-21",
+  "sources": [
+    {
+      "source_id": "opendart",
+      "count": 30,
+      "examples": [
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(iM에셋ALL바른인덱스알파증권투자신탁(주식))",
+          "published_date": "2026-01-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260121000310",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(흥국글로벌AI이코노미증권자투자신탁1호(H)[주식])",
+          "published_date": "2026-01-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260121000065",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(흥국TDF2050증권자투자신탁2호(UH)[혼합-재간접형])",
+          "published_date": "2026-01-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260121000112",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 30
+}

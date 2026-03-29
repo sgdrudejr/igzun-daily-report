@@ -7,102 +7,572 @@
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Pretendard', -apple-system, sans-serif; background: #eef2f7; color: #1f2937; }
-    .app { max-width: 560px; margin: 0 auto; min-height: 100vh; background: #f6f8fb; }
-    .top { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e5e7eb; padding: 20px 18px 14px; }
-    .title { font-size: 22px; font-weight: 800; color: #111827; margin: 0 0 6px; }
-    .sub { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #6b7280; font-size: 13px; margin-bottom: 16px; }
-    .status-badge { display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+    body {
+      margin: 0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #eef2f7;
+      color: #1f2937;
+      overflow: hidden;
+    }
+    .app {
+      max-width: 560px;
+      margin: 0 auto;
+      height: 100dvh;
+      background: #f6f8fb;
+      display: flex;
+      flex-direction: column;
+    }
+    .top {
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px 14px 10px;
+    }
+    .title {
+      font-size: 21px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+    #contextText {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .status-badge {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
     .status-full { background: #e8f7ed; color: #137333; }
     .status-partial { background: #fff4e5; color: #b06000; }
     .status-sparse { background: #e8f3ff; color: #1b64da; }
     .status-empty { background: #f3f4f6; color: #6b7280; }
-    .selector-block { margin-bottom: 14px; }
-    .selector-title { font-size: 12px; font-weight: 700; color: #6b7280; margin-bottom: 8px; }
-    .selector-row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
-    .selector-row::-webkit-scrollbar { display: none; }
-    .summary-strip { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-bottom: 14px; }
+    .summary-strip {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      margin-bottom: 10px;
+    }
     .summary-strip::-webkit-scrollbar { display: none; }
-    .summary-pill { display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 999px; background: #f3f4f6; color: #374151; font-size: 12px; font-weight: 700; white-space: nowrap; }
-    .chip { border: none; background: #e5e7eb; color: #4b5563; border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+    .summary-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .control-line {
+      display: grid;
+      grid-template-columns: 1fr 138px;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .selector-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .selector-row::-webkit-scrollbar { display: none; }
+    .chip {
+      border: none;
+      background: #e5e7eb;
+      color: #4b5563;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
     .chip.active { background: #111827; color: #ffffff; }
-    .chip.soft { background: #f3f4f6; }
-    .chip.soft.active { background: #2563eb; color: #ffffff; }
-    .tab-row { display: flex; gap: 14px; overflow-x: auto; scrollbar-width: none; }
+    .bucket-select {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      background: #f3f4f6;
+      color: #111827;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      outline: none;
+    }
+    .tab-row {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
     .tab-row::-webkit-scrollbar { display: none; }
-    .tab { border: none; background: transparent; color: #9ca3af; font-size: 15px; font-weight: 700; padding: 0 0 8px; cursor: pointer; position: relative; white-space: nowrap; }
+    .tab {
+      border: none;
+      background: transparent;
+      color: #9ca3af;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 0 0 8px;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+    }
     .tab.active { color: #111827; }
-    .tab.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #111827; border-radius: 999px; }
-    .content { padding: 18px 0 40px; }
-    .pane { display: none; }
+    .tab.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: #111827;
+      border-radius: 999px;
+    }
+    .content {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .pane {
+      display: none;
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 16px 0 28px;
+    }
     .pane.active { display: block; }
-    .card { background: #ffffff; border-radius: 20px; box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04); margin: 0 18px 16px; padding: 20px; }
-    .card-title { font-size: 18px; font-weight: 800; color: #111827; margin: 0 0 14px; }
-    .muted { font-size: 13px; color: #6b7280; }
-    .score-wrap { margin-bottom: 18px; }
-    .score-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 8px; }
-    .score-num { font-size: 28px; font-weight: 800; color: #111827; }
-    .score-status { font-size: 14px; font-weight: 800; }
-    .score-track { height: 8px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+    .card, .idea, .action-card, .hero {
+      margin: 0 12px 12px;
+    }
+    .card, .action-card, .idea {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+    }
+    .card, .action-card { padding: 16px; }
+    .hero {
+      background: linear-gradient(135deg, #111827 0%, #334155 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 18px;
+    }
+    .card-title, .hero-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 12px;
+      line-height: 1.4;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .hero-title { color: #ffffff; margin-bottom: 8px; }
+    .muted, .body-text, .forecast-text, .hero-text, .detail-item, .impact-desc, .source-item, .alloc-desc {
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .muted {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.55;
+    }
+    .body-text, .forecast-text, .hero-text {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .body-text, .forecast-text { color: #4b5563; }
+    .hero-text { color: rgba(255,255,255,0.92); }
+    .score-wrap { margin-bottom: 16px; }
+    .score-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .score-num {
+      font-size: 26px;
+      font-weight: 800;
+      color: #111827;
+      white-space: nowrap;
+    }
+    .score-status { font-size: 13px; font-weight: 800; }
+    .score-track {
+      height: 8px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
     .score-fill { height: 100%; border-radius: 999px; }
-    .forecast-box { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 16px; padding: 16px; }
-    .forecast-label { display: inline-flex; align-items: center; gap: 6px; background: #111827; color: #ffffff; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 800; margin-bottom: 10px; }
-    .forecast-text { font-size: 14px; line-height: 1.65; color: #4b5563; }
-    .list { list-style: none; margin: 0; padding: 0; }
-    .list-item { display: flex; gap: 10px; padding: 14px 0; border-bottom: 1px dashed #e5e7eb; }
+    .forecast-box {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .forecast-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #111827;
+      color: #ffffff;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .stat-chip-group, .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .stat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .stat-chip .label { opacity: 0.75; }
+    .tone-score { background: #eef2ff; color: #1d4ed8; }
+    .tone-market { background: #eff6ff; color: #2563eb; }
+    .tone-risk { background: #fff7ed; color: #c2410c; }
+    .tone-signal { background: #f0fdf4; color: #15803d; }
+    .tone-macro { background: #f5f3ff; color: #6d28d9; }
+    .tone-default { background: #f3f4f6; color: #374151; }
+    .list, .detail-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .list-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 14px 0;
+      border-bottom: 1px dashed #e5e7eb;
+    }
     .list-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .badge { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 8px; background: #e8f3ff; color: #1b64da; font-size: 12px; font-weight: 800; flex-shrink: 0; }
-    .body-text { font-size: 14.5px; line-height: 1.6; color: #4b5563; }
-    .index-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eef2f7; }
-    .index-row:last-child { border-bottom: none; }
-    .index-name { font-size: 14px; font-weight: 700; color: #111827; }
-    .index-value { text-align: right; }
-    .index-price { font-size: 15px; font-weight: 800; color: #111827; }
-    .text-up { color: #e11d48; font-size: 13px; font-weight: 700; }
-    .text-down { color: #2563eb; font-size: 13px; font-weight: 700; }
-    .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-    .tag { display: inline-flex; padding: 6px 10px; border-radius: 999px; background: #f3f4f6; color: #4b5563; font-size: 12px; font-weight: 700; }
-    .impact-title { font-size: 13px; font-weight: 800; color: #6b7280; margin: 18px 0 10px; }
-    .impact-item { padding: 10px 0; border-bottom: 1px dashed #e5e7eb; }
+    .detail-item {
+      font-size: 13px;
+      color: #4b5563;
+      padding: 10px 0;
+      border-top: 1px dashed #e5e7eb;
+      line-height: 1.68;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #1d4ed8;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .metric-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      background: #ffffff;
+      padding: 12px;
+    }
+    .metric-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+    .metric-price {
+      font-size: 15px;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .text-up { color: #e11d48; font-size: 12px; font-weight: 800; }
+    .text-down { color: #2563eb; font-size: 12px; font-weight: 800; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .impact-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #6b7280;
+      margin: 14px 0 8px;
+    }
+    .impact-item {
+      padding: 10px 0;
+      border-bottom: 1px dashed #e5e7eb;
+    }
     .impact-item:last-child { border-bottom: none; }
-    .impact-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-    .impact-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .impact-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .impact-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
     .impact-dot.pos { background: #e11d48; }
     .impact-dot.neg { background: #2563eb; }
-    .impact-name { font-size: 14px; font-weight: 800; color: #111827; }
-    .impact-desc { font-size: 13.5px; line-height: 1.55; color: #6b7280; }
-    .hero { background: linear-gradient(135deg, #111827 0%, #334155 100%); color: #ffffff; border-radius: 20px; margin: 0 18px 16px; padding: 20px; }
-    .hero-title { font-size: 18px; font-weight: 800; margin: 0 0 10px; }
-    .hero-text { font-size: 14px; line-height: 1.6; opacity: 0.92; }
-    .alloc-bar { display: flex; height: 12px; border-radius: 999px; overflow: hidden; margin: 14px 0 16px; }
-    .alloc-item { display: flex; align-items: start; gap: 10px; margin-bottom: 12px; }
-    .alloc-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 4px; }
-    .alloc-name { font-size: 14px; font-weight: 800; color: #111827; }
-    .alloc-desc { font-size: 13px; line-height: 1.5; color: #6b7280; }
-    .idea { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 18px; margin: 0 18px 16px; overflow: hidden; }
-    .idea-top { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #f8fafc; }
-    .idea-left { display: flex; gap: 12px; align-items: center; }
-    .idea-logo { font-size: 24px; }
-    .idea-name { font-size: 15px; font-weight: 800; color: #111827; }
-    .idea-ticker { font-size: 12px; color: #6b7280; }
-    .idea-action { background: #eff6ff; color: #1d4ed8; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; }
-    .idea-body { padding: 14px 16px 16px; }
-    .issue-badge { display: inline-flex; padding: 5px 8px; border-radius: 999px; background: #f3f4f6; color: #4b5563; font-size: 12px; font-weight: 700; margin-bottom: 10px; }
-    .rank-item { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px dashed #e5e7eb; }
+    .impact-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #111827;
+    }
+    .impact-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #6b7280;
+    }
+    .alloc-bar {
+      display: flex;
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 14px 0 16px;
+    }
+    .alloc-item {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .alloc-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-top: 4px;
+    }
+    .alloc-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .alloc-desc {
+      font-size: 12px;
+      line-height: 1.55;
+      color: #6b7280;
+    }
+    .idea {
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    .idea-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 10px;
+      padding: 14px;
+      background: #f8fafc;
+    }
+    .idea-left {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+    }
+    .idea-logo { font-size: 22px; }
+    .idea-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.4;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .idea-ticker {
+      font-size: 11px;
+      color: #6b7280;
+      line-height: 1.4;
+      word-break: break-all;
+    }
+    .idea-action {
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .idea-body { padding: 14px; }
+    .issue-badge {
+      display: inline-flex;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .rank-item {
+      display: flex;
+      gap: 10px;
+      align-items: start;
+      padding: 12px 0;
+      border-bottom: 1px dashed #e5e7eb;
+    }
     .rank-item:last-child { border-bottom: none; }
-    .rank-num { width: 24px; font-size: 16px; font-weight: 800; color: #9ca3af; }
-    .rank-info { flex: 1; }
-    .rank-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 8px; }
-    .rank-name { font-size: 14px; font-weight: 800; color: #111827; }
-    .rank-ticker { font-size: 11px; color: #6b7280; background: #f3f4f6; border-radius: 999px; padding: 2px 8px; margin-left: 6px; }
-    .rank-score { font-size: 13px; font-weight: 800; color: #2563eb; }
-    .rank-track { height: 6px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
-    .rank-fill { height: 100%; background: #2563eb; border-radius: 999px; }
-    .source-toggle { margin-top: 12px; border: none; background: #f3f4f6; color: #4b5563; padding: 8px 10px; border-radius: 10px; font-size: 12px; font-weight: 800; cursor: pointer; }
-    .source-box { display: none; margin-top: 10px; background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px; }
-    .source-item { font-size: 12px; color: #6b7280; line-height: 1.6; margin-bottom: 8px; }
+    .rank-num {
+      width: 24px;
+      font-size: 15px;
+      font-weight: 800;
+      color: #9ca3af;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .rank-info { flex: 1; min-width: 0; }
+    .rank-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: start;
+      margin-bottom: 6px;
+    }
+    .rank-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.5;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .rank-ticker {
+      display: inline-flex;
+      font-size: 10px;
+      color: #6b7280;
+      background: #f3f4f6;
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin-left: 6px;
+      word-break: break-all;
+    }
+    .rank-score {
+      font-size: 12px;
+      font-weight: 800;
+      color: #2563eb;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .rank-track {
+      height: 6px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .rank-fill {
+      height: 100%;
+      background: #2563eb;
+      border-radius: 999px;
+    }
+    .source-slot { margin-top: 12px; }
+    .source-toggle {
+      border: none;
+      background: #f3f4f6;
+      color: #4b5563;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .source-box {
+      display: none;
+      margin-top: 10px;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .source-item {
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
     .source-item:last-child { margin-bottom: 0; }
-    .empty { text-align: center; padding: 48px 20px; color: #9ca3af; font-size: 15px; }
+    .action-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .action-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #111827;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .empty {
+      text-align: center;
+      padding: 48px 20px;
+      color: #9ca3af;
+      font-size: 15px;
+    }
+    @media (max-width: 430px) {
+      .title { font-size: 19px; }
+      .control-line { grid-template-columns: 1fr 126px; }
+      .tab { font-size: 13px; }
+      .card, .idea, .action-card, .hero { margin: 0 10px 10px; }
+      .card, .action-card, .hero { padding: 15px; }
+      .body-text, .forecast-text, .hero-text { font-size: 13.5px; line-height: 1.74; }
+      .metric-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -114,25 +584,28 @@
         <span id="statusBadge"></span>
       </div>
       <div id="summaryStrip" class="summary-strip"></div>
-      <div class="selector-block">
-        <div class="selector-title">기간 유형</div>
-        <div id="horizonSelector" class="selector-row"></div>
+      <div class="control-line">
+        <div class="control-horizon">
+          <div id="horizonSelector" class="selector-row"></div>
+        </div>
+        <div class="control-bucket">
+          <select id="bucketSelect" class="bucket-select" onchange="changeBucket(this.value)"></select>
+        </div>
       </div>
-      <div class="selector-block">
-        <div class="selector-title">기간 선택</div>
-        <div id="bucketSelector" class="selector-row"></div>
-      </div>
-      <div class="tab-row" id="sectionTabs">
-        <button class="tab active" data-tab="briefing" onclick="switchSection('briefing')">시장 브리핑</button>
+      <div class="tab-row">
+        <button class="tab active" data-tab="portfolio" onclick="switchSection('portfolio')">포트폴리오</button>
+        <button class="tab" data-tab="rebalancing" onclick="switchSection('rebalancing')">실행 가이드</button>
+        <button class="tab" data-tab="briefing" onclick="switchSection('briefing')">시장 브리핑</button>
         <button class="tab" data-tab="news" onclick="switchSection('news')">핵심 이슈</button>
-        <button class="tab" data-tab="portfolio" onclick="switchSection('portfolio')">포트폴리오</button>
         <button class="tab" data-tab="recommendations" onclick="switchSection('recommendations')">ETF 아이디어</button>
       </div>
     </div>
+
     <div class="content">
-      <div id="pane-briefing" class="pane active"></div>
+      <div id="pane-portfolio" class="pane active"></div>
+      <div id="pane-rebalancing" class="pane"></div>
+      <div id="pane-briefing" class="pane"></div>
       <div id="pane-news" class="pane"></div>
-      <div id="pane-portfolio" class="pane"></div>
       <div id="pane-recommendations" class="pane"></div>
     </div>
   </div>
@@ -145,7 +618,7 @@
       currentHorizon: '1일',
       currentBucketId: '',
       currentView: null,
-      currentSection: 'briefing',
+      currentSection: 'portfolio',
     };
 
     function statusClass(status) {
@@ -187,6 +660,17 @@
       el.textContent = statusText(status);
     }
 
+    async function loadIndex() {
+      const res = await fetch(`${SITE_BASE}/horizon_index.json?t=${Date.now()}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error('index load failed');
+      state.index = await res.json();
+    }
+
+    function resolveInitialSelection() {
+      state.currentHorizon = '1일';
+      state.currentBucketId = state.index?.latestDailyDate || defaultBucketForHorizon('1일');
+    }
+
     function renderHorizonSelector() {
       const container = document.getElementById('horizonSelector');
       const horizons = Object.keys(state.index?.horizons || {});
@@ -197,30 +681,80 @@
     }
 
     function renderBucketSelector() {
-      const container = document.getElementById('bucketSelector');
+      const select = document.getElementById('bucketSelect');
       const buckets = (state.index?.horizons?.[state.currentHorizon]) || [];
-      container.innerHTML = buckets.map(bucket => {
-        const active = bucket.id === state.currentBucketId ? 'active' : '';
-        return `<button class="chip soft ${active}" onclick="changeBucket('${bucket.id}')">${bucket.label}</button>`;
-      }).join('');
+      select.innerHTML = buckets.map(bucket => `
+        <option value="${bucket.id}" ${bucket.id === state.currentBucketId ? 'selected' : ''}>${bucket.label}</option>
+      `).join('');
     }
 
-    async function loadIndex() {
-      const res = await fetch(`${SITE_BASE}/horizon_index.json?t=${Date.now()}`, { cache: 'no-store' });
-      if (!res.ok) throw new Error('index load failed');
-      state.index = await res.json();
-    }
-
-    function resolveInitialSelection() {
-      const parts = window.location.pathname.split('/').filter(Boolean);
-      const datePart = parts.find(part => /^\d{4}-\d{2}-\d{2}$/.test(part));
-      if (datePart && (state.index?.horizons?.['1일'] || []).some(item => item.id === datePart)) {
-        state.currentHorizon = '1일';
-        state.currentBucketId = datePart;
+    function renderSummaryStrip() {
+      const strip = document.getElementById('summaryStrip');
+      const view = state.currentView;
+      if (!view) {
+        strip.innerHTML = '';
         return;
       }
-      state.currentHorizon = '1일';
-      state.currentBucketId = defaultBucketForHorizon('1일');
+      const pills = [];
+      if (view.updateCount) pills.push(`누적 업데이트 ${view.updateCount}회`);
+      if (view.meta?.docsTotal) pills.push(`누적 문서 ${view.meta.docsTotal}건`);
+      if (Number.isFinite(Number(view.avgScore))) pills.push(`평균 점수 ${view.avgScore}`);
+      (view.meta?.sourceLabels || []).slice(0, 2).forEach(label => pills.push(label));
+      strip.innerHTML = pills.map(text => `<span class="summary-pill">${text}</span>`).join('');
+    }
+
+    function renderStatChips(items) {
+      if (!items || !items.length) return '';
+      return `
+        <div class="stat-chip-group">
+          ${items.map(item => `
+            <span class="stat-chip tone-${item.tone || 'default'}">
+              <span class="label">${item.label || ''}</span>
+              <span class="value">${item.value || ''}</span>
+            </span>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderSources(sources, id) {
+      if (!sources || !sources.length) return '';
+      const items = sources.map(item => {
+        const label = item.label || item.source || '출처';
+        const title = item.title ? ` — ${item.title}` : '';
+        const date = item.published_at ? ` (${item.published_at})` : '';
+        const meta = [item.region, item.sector].filter(Boolean).join(' · ');
+        const url = item.url ? ` · <a href="${item.url}" target="_blank" rel="noreferrer">원문</a>` : '';
+        return `<div class="source-item"><b>${label}</b>${title}${date}${meta ? ` · ${meta}` : ''}${url}</div>`;
+      }).join('');
+      return `<div class="source-slot"><button class="source-toggle" onclick="toggleSource('${id}')">출처·메타데이터</button><div class="source-box" id="${id}">${items}</div></div>`;
+    }
+
+    function toggleSource(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function resetPaneScrolls() {
+      document.querySelectorAll('.pane').forEach(pane => {
+        pane.scrollTop = 0;
+      });
+    }
+
+    function updateHeader() {
+      const bucket = currentBucket();
+      document.getElementById('contextText').textContent = formatContext(state.currentView, bucket);
+      renderStatus(state.currentView?.dataStatus || 'empty');
+      renderSummaryStrip();
+      document.title = bucket ? `${bucket.label} · 글로벌 매크로·ETF 리포트` : '글로벌 매크로·ETF 리포트';
+    }
+
+    function syncUrl() {
+      const latest = state.index?.latestDailyDate || state.currentBucketId;
+      if (!latest) return;
+      const url = `${REPO_PREFIX}/site/${latest}/`;
+      window.history.replaceState({}, '', url);
     }
 
     async function changeHorizon(horizon) {
@@ -250,53 +784,14 @@
       state.currentView = await res.json();
       updateHeader();
       renderAll();
-    }
-
-    function updateHeader() {
-      const bucket = currentBucket();
-      document.getElementById('contextText').textContent = formatContext(state.currentView, bucket);
-      renderStatus(state.currentView?.dataStatus || 'empty');
-      renderSummaryStrip();
-      document.title = bucket ? `${bucket.label} · 글로벌 매크로·ETF 리포트` : '글로벌 매크로·ETF 리포트';
-    }
-
-    function renderSummaryStrip() {
-      const strip = document.getElementById('summaryStrip');
-      const view = state.currentView;
-      if (!view) {
-        strip.innerHTML = '';
-        return;
-      }
-      const pills = [];
-      if (view.updateCount) pills.push(`누적 업데이트 ${view.updateCount}회`);
-      if (view.meta?.docsTotal) pills.push(`누적 문서 ${view.meta.docsTotal}건`);
-      if (Number.isFinite(Number(view.avgScore))) pills.push(`평균 점수 ${view.avgScore}`);
-      (view.meta?.sourceLabels || []).slice(0, 2).forEach(label => pills.push(label));
-      strip.innerHTML = pills.map(text => `<span class="summary-pill">${text}</span>`).join('');
+      resetPaneScrolls();
+      syncUrl();
     }
 
     function switchSection(section) {
       state.currentSection = section;
       document.querySelectorAll('.tab').forEach(tab => tab.classList.toggle('active', tab.dataset.tab === section));
       document.querySelectorAll('.pane').forEach(pane => pane.classList.toggle('active', pane.id === `pane-${section}`));
-    }
-
-    function renderSources(sources, id) {
-      if (!sources || !sources.length) return '';
-      const items = sources.map(item => {
-        const label = item.label || item.source || '출처';
-        const title = item.title ? ` — ${item.title}` : '';
-        const date = item.published_at ? ` (${item.published_at})` : '';
-        const meta = [item.region, item.sector].filter(Boolean).join(' · ');
-        return `<div class="source-item"><b>${label}</b>${title}${date}${meta ? ` · ${meta}` : ''}</div>`;
-      }).join('');
-      return `<button class="source-toggle" onclick="toggleSource('${id}')">출처·메타데이터</button><div class="source-box" id="${id}">${items}</div>`;
-    }
-
-    function toggleSource(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.style.display = el.style.display === 'block' ? 'none' : 'block';
     }
 
     function renderBriefing() {
@@ -307,21 +802,27 @@
         pane.innerHTML = '<div class="empty">시장 브리핑 데이터가 없습니다.</div>';
         return;
       }
+
       const score = data.sentiment?.score ?? 50;
       const scoreColor = score >= 65 ? '#0f9f6e' : (score >= 50 ? '#2563eb' : '#f59e0b');
       const insights = (data.insights || []).map((item, idx) => `
         <li class="list-item">
           <span class="badge">${item.category || '인사이트'}</span>
-          <div class="body-text">${item.text || ''}${renderSources(item.sources, `briefing-src-${idx}`)}</div>
+          <div class="body-text">${item.text || ''}</div>
+          ${renderSources(item.sources, `briefing-src-${idx}`)}
+        </li>
+      `).join('');
+      const strategyList = (data.strategy?.considerations || []).map((item, idx) => `
+        <li class="list-item">
+          <span class="badge">${item.title || '변수'}</span>
+          <div class="body-text">${item.text || ''}</div>
         </li>
       `).join('');
       const indices = (data.indices || []).map(item => `
-        <div class="index-row">
-          <div class="index-name">${item.name || '-'}</div>
-          <div class="index-value">
-            <div class="index-price">${item.price || '-'}</div>
-            <div class="${item.isUp ? 'text-up' : 'text-down'}">${item.change || '-'}</div>
-          </div>
+        <div class="metric-card">
+          <div class="metric-name">${item.name || '-'}</div>
+          <div class="metric-price">${item.price || '-'}</div>
+          <div class="${item.isUp ? 'text-up' : 'text-down'}">${item.change || '-'}</div>
         </div>
       `).join('');
 
@@ -335,6 +836,7 @@
             </div>
             <div class="score-track"><div class="score-fill" style="width:${score}%; background:${scoreColor};"></div></div>
             <div class="muted" style="margin-top:8px;">${data.sentiment?.desc || ''}</div>
+            ${renderStatChips(data.scoreChips || [])}
           </div>
           ${data.forecast ? `
             <div class="forecast-box">
@@ -344,14 +846,23 @@
               ${renderSources(data.forecast.sources, 'forecast-src')}
             </div>
           ` : ''}
+          ${renderStatChips(data.metricChips || [])}
         </div>
         <div class="card">
           <div class="card-title">${bucket?.label || ''} 핵심 인사이트</div>
           <ul class="list">${insights}</ul>
         </div>
+        ${data.strategy ? `
+          <div class="card">
+            <div class="card-title">${data.strategy.title || '현재 고려할 변수와 투자 방향'}</div>
+            <div class="body-text">${data.strategy.summary || ''}</div>
+            <ul class="list" style="margin-top:12px;">${strategyList}</ul>
+            ${renderSources(data.strategy.sources, 'briefing-strategy-src')}
+          </div>
+        ` : ''}
         <div class="card">
-          <div class="card-title">${bucket?.label || ''} 주요 자산 흐름</div>
-          ${indices || '<div class="empty">자산 흐름 데이터가 없습니다.</div>'}
+          <div class="card-title">${bucket?.label || ''} 주요 지표</div>
+          <div class="metric-grid">${indices || ''}</div>
         </div>
       `;
     }
@@ -368,7 +879,11 @@
           <div class="card-title">${item.title || '이슈'}</div>
           <div class="chip-group">${(item.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
           <div class="body-text">${item.summary || ''}</div>
-          ${renderSources(item.sources, `news-src-${idx}`)}
+          ${(item.detailPoints || []).length ? `
+            <ul class="detail-list">
+              ${(item.detailPoints || []).map(point => `<li class="detail-item">${point}</li>`).join('')}
+            </ul>
+          ` : ''}
           <div class="impact-title">섹터·자산 영향</div>
           ${(item.impacts || []).map(impact => `
             <div class="impact-item">
@@ -379,6 +894,7 @@
               <div class="impact-desc">${impact.desc || ''}</div>
             </div>
           `).join('')}
+          ${renderSources(item.sources, `news-src-${idx}`)}
         </div>
       `).join('');
     }
@@ -393,12 +909,10 @@
       const score = data.portfolioScore || null;
       const scoreColor = !score ? '#2563eb' : (score.score >= 65 ? '#0f9f6e' : (score.score >= 50 ? '#2563eb' : '#f59e0b'));
       const compareRows = score ? Object.keys(score.currentPct || {}).map(key => `
-        <div class="index-row">
-          <div class="index-name">${key}</div>
-          <div class="index-value">
-            <div class="index-price">현재 ${score.currentPct[key]}%</div>
-            <div class="text-down" style="color:#6b7280;">목표 ${score.targetPct[key]}%</div>
-          </div>
+        <div class="metric-card">
+          <div class="metric-name">${key}</div>
+          <div class="metric-price">현재 ${score.currentPct[key]}%</div>
+          <div class="muted">목표 ${score.targetPct[key]}%</div>
         </div>
       `).join('') : '';
       const allocBar = (data.allocations || []).map(item => `<div style="width:${item.percent}%; background:${item.color};"></div>`).join('');
@@ -413,7 +927,13 @@
       `).join('');
       const reasons = (score?.reasons || []).map(item => `
         <li class="list-item">
-          <span class="badge">점수</span>
+          <span class="badge">점수 근거</span>
+          <div class="body-text">${item}</div>
+        </li>
+      `).join('');
+      const notes = (data.notes || []).map(item => `
+        <li class="list-item">
+          <span class="badge">해석</span>
           <div class="body-text">${item}</div>
         </li>
       `).join('');
@@ -433,10 +953,18 @@
               </div>
               <div class="score-track"><div class="score-fill" style="width:${score.score}%; background:${scoreColor};"></div></div>
               <div class="muted" style="margin-top:8px;">${score.summary || ''}</div>
+              ${renderStatChips(data.scoreChips || [])}
             </div>
-            <div class="card-title" style="font-size:16px;">현재 배분 vs 목표 배분</div>
-            ${compareRows}
-            <ul class="list" style="margin-top:14px;">${reasons}</ul>
+            <div class="card-title" style="font-size:15px;">현재 배분 vs 목표 배분</div>
+            <div class="metric-grid">${compareRows}</div>
+            <ul class="list" style="margin-top:12px;">${reasons}</ul>
+          </div>
+        ` : ''}
+        ${data.horizonView ? `
+          <div class="card">
+            <div class="card-title">${data.horizonView.title || '기간별 포트폴리오 해석'}</div>
+            <div class="body-text">${data.horizonView.desc || ''}</div>
+            ${renderSources(data.horizonView.sources, 'portfolio-horizon-src')}
           </div>
         ` : ''}
         <div class="card">
@@ -450,6 +978,63 @@
           <div class="body-text">${data.planDesc || ''}</div>
           <div class="alloc-bar">${allocBar}</div>
           ${allocList}
+          ${renderSources(data.sources, 'portfolio-main-src')}
+        </div>
+        ${notes ? `
+          <div class="card">
+            <div class="card-title">왜 이 해석이 나왔는가</div>
+            <ul class="list">${notes}</ul>
+          </div>
+        ` : ''}
+      `;
+    }
+
+    function renderRebalancing() {
+      const pane = document.getElementById('pane-rebalancing');
+      const data = state.currentView?.rebalancing;
+      if (!data) {
+        pane.innerHTML = '<div class="empty">실행 가이드 데이터가 없습니다.</div>';
+        return;
+      }
+      const actions = (data.actions || []).map((item, idx) => `
+        <div class="action-card">
+          <div class="action-top">
+            <div>
+              <div class="card-title" style="font-size:15px; margin-bottom:6px;">${item.account || '-'} · ${item.name || '-'}</div>
+              <div class="muted">${item.ticker || '-'} · ${item.amount || '-'} · ${item.weightHint || ''}</div>
+            </div>
+            <div class="action-badge">${item.action || '보류'}</div>
+          </div>
+          <div class="chip-group">
+            <span class="tag">${state.currentHorizon}</span>
+            <span class="tag">${state.currentView.bucketLabel || ''}</span>
+          </div>
+          <div class="body-text"><b>이유:</b> ${item.reason || ''}</div>
+          <div class="body-text" style="margin-top:10px;"><b>주의:</b> ${item.caution || ''}</div>
+          ${renderSources(item.sources, `rebalance-action-src-${idx}`)}
+        </div>
+      `).join('');
+      const footnotes = (data.footnotes || []).map(item => `
+        <li class="list-item">
+          <span class="badge">주석</span>
+          <div class="body-text">${item}</div>
+        </li>
+      `).join('');
+
+      pane.innerHTML = `
+        <div class="hero">
+          <div class="hero-title">${data.title || '실행 가이드'}</div>
+          <div class="hero-text">${data.summary || ''}</div>
+        </div>
+        <div class="card">
+          <div class="card-title">기간별 해석 차이</div>
+          <div class="body-text">${data.horizonNote || ''}</div>
+          ${renderSources(data.sources, 'rebalance-main-src')}
+        </div>
+        ${actions || '<div class="empty">실행 액션 데이터가 없습니다.</div>'}
+        <div class="card">
+          <div class="card-title">주석 및 실행 원칙</div>
+          <ul class="list">${footnotes}</ul>
         </div>
       `;
     }
@@ -461,24 +1046,6 @@
         pane.innerHTML = '<div class="empty">ETF 아이디어 데이터가 없습니다.</div>';
         return;
       }
-      const ideas = (data.ideas || []).map(item => `
-        <div class="idea">
-          <div class="idea-top">
-            <div class="idea-left">
-              <div class="idea-logo">${item.logo || '📌'}</div>
-              <div>
-                <div class="idea-name">${item.name || '-'}</div>
-                <div class="idea-ticker">${item.ticker || '-'}</div>
-              </div>
-            </div>
-            <div class="idea-action">${item.action || '관찰'}</div>
-          </div>
-          <div class="idea-body">
-            <div class="issue-badge">연결 이슈: ${item.linkedIssue || '-'}</div>
-            <div class="body-text">${item.reason || ''}</div>
-          </div>
-        </div>
-      `).join('');
       const ranking = (data.etfRanking || []).map(item => `
         <div class="rank-item">
           <div class="rank-num">${item.rank || '-'}</div>
@@ -488,6 +1055,29 @@
               <div class="rank-score">${item.score || 0}점</div>
             </div>
             <div class="rank-track"><div class="rank-fill" style="width:${item.score || 0}%;"></div></div>
+            <div class="muted" style="margin-top:6px;">${item.commentary || ''}</div>
+          </div>
+        </div>
+      `).join('');
+      const ideas = (data.ideas || []).map((item, idx) => `
+        <div class="idea">
+          <div class="idea-top">
+            <div class="idea-left">
+              <div class="idea-logo">${item.logo || '📌'}</div>
+              <div>
+                <div class="idea-name">${item.name || '-'}</div>
+                <div class="idea-ticker">${item.ticker || '-'} · ${item.scoreText || ''}</div>
+              </div>
+            </div>
+            <div class="idea-action">${item.action || '관찰'}</div>
+          </div>
+          <div class="idea-body">
+            <div class="issue-badge">연결 이슈: ${item.linkedIssue || '-'}</div>
+            <div class="body-text">${item.reason || ''}</div>
+            <div class="body-text" style="margin-top:10px;"><b>왜 살 수 있는가:</b> ${item.whyBuy || ''}</div>
+            <div class="body-text" style="margin-top:10px;"><b>우려 지점:</b> ${item.risk || ''}</div>
+            <div class="body-text" style="margin-top:10px;"><b>집행 방식:</b> ${item.execution || ''}</div>
+            ${renderSources(item.sources, `idea-src-${idx}`)}
           </div>
         </div>
       `).join('');
@@ -497,19 +1087,20 @@
           <div class="card-title">${state.currentView.bucketLabel || ''} ETF·테마 아이디어</div>
           <div class="muted">기간별 누적 흐름과 현재 레짐을 함께 반영한 아이디어입니다.</div>
         </div>
-        ${ideas}
         <div class="card">
           <div class="card-title">ETF 우선순위 랭킹</div>
           <div class="muted" style="margin-bottom:12px;">현재 기간의 모멘텀, 리스크, 레짐 적합도를 함께 반영했습니다.</div>
           ${ranking || '<div class="empty">랭킹 데이터가 없습니다.</div>'}
         </div>
+        ${ideas}
       `;
     }
 
     function renderAll() {
+      renderPortfolio();
+      renderRebalancing();
       renderBriefing();
       renderNews();
-      renderPortfolio();
       renderRecommendations();
       switchSection(state.currentSection);
     }

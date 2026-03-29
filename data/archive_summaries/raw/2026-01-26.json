@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-26",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-01-26",
+          "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+          "document_type": "time_series"
+        },
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-01-26",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2026-01-26",
+          "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 50,
+      "examples": [
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(한화PLUS태양광&ESS증권상장지수투자신탁(주식))",
+          "published_date": "2026-01-26",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260126000132",
+          "document_type": "filing"
+        },
+        {
+          "title": "투자설명서(집합투자증권)(신한지수연계증권투자신탁K-32호[채권])",
+          "published_date": "2026-01-26",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260126000038",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서(집합투자증권)(브이코리아국가대표증권자투자신탁7호(주식))",
+          "published_date": "2026-01-26",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260126000088",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 56
+}

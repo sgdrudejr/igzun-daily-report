@@ -1,0 +1,54 @@
+{
+  "date": "2026-02-05",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-02-05",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-02-05",
+          "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+          "document_type": "time_series"
+        },
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-02-05",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 28,
+      "examples": [
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(한국투자TDF알아서2040증권투자신탁(주식혼합-재간접형))",
+          "published_date": "2026-02-05",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260205000014",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(한국투자TDF알아서2050증권자투자신탁UH(주식혼합-재간접형))",
+          "published_date": "2026-02-05",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260205000017",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(한국투자TIF알아서평생소득증권자투자신탁(채권혼합-재간접형))",
+          "published_date": "2026-02-05",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260205000004",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 34
+}

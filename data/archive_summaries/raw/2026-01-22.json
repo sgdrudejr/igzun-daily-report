@@ -1,0 +1,30 @@
+{
+  "date": "2026-01-22",
+  "sources": [
+    {
+      "source_id": "opendart",
+      "count": 49,
+      "examples": [
+        {
+          "title": "증권발행실적보고서(집합투자증권)(한국투자ACE국고채10년증권상장지수투자신탁(채권))",
+          "published_date": "2026-01-22",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260122000541",
+          "document_type": "filing"
+        },
+        {
+          "title": "자산양도등의등록신청서",
+          "published_date": "2026-01-22",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260122000116",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서(집합투자증권)(한국투자ACEKRX금현물특별자산상장지수투자신탁(금))",
+          "published_date": "2026-01-22",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260122000545",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 49
+}

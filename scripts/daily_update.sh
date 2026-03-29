@@ -26,6 +26,7 @@ python3 "$ROOT/scripts/integrate_refined_insights.py" || true
 
 # 4) site report 생성 (result.json + date_status.json)
 "$VENV/python" "$ROOT/scripts/build_site_report.py" --date "$TODAY" --base-dir "$ROOT" || true
+"$VENV/python" "$ROOT/scripts/storage_retention.py" --base-dir "$ROOT" --today "$TODAY" --delete-originals || true
 "$VENV/python" "$ROOT/scripts/build_horizon_views.py" --base-dir "$ROOT" || true
 
 # 5) admin_bot image intake -> OCR -> snapshot -> portfolio apply
@@ -39,6 +40,7 @@ if git diff --quiet && git diff --cached --quiet; then
 else
     git add data/macro_analysis/ data/etf_recommendations/ data/manifests/ \
             data/normalized/ data/market_data_latest.json data/market_quant_snapshot.json \
+            data/archive_summaries/ data/backfills/ data/storage_retention/ \
             site/ || true
     git commit -m "daily: $TODAY" || true
     git push || true

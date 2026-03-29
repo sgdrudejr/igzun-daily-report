@@ -1,0 +1,54 @@
+{
+  "date": "2026-02-09",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-02-09",
+          "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+          "document_type": "time_series"
+        },
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-02-09",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-02-09",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 50,
+      "examples": [
+        {
+          "title": "[변경등록]자산유동화계획의등록신청서(유동화전문회사)",
+          "published_date": "2026-02-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260209000213",
+          "document_type": "filing"
+        },
+        {
+          "title": "기타시장안내              (실질심사 대상여부 결정을 위한 조사기간 연장 안내)",
+          "published_date": "2026-02-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260209901783",
+          "document_type": "filing"
+        },
+        {
+          "title": "주주총회소집결의              ",
+          "published_date": "2026-02-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260209901743",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 56
+}

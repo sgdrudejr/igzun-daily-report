@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-08",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+          "published_date": "2026-01-08",
+          "url": "https://fred.stlouisfed.org/series/T10Y2Y",
+          "document_type": "time_series"
+        },
+        {
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2026-01-08",
+          "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+          "document_type": "time_series"
+        },
+        {
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-01-08",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 46,
+      "examples": [
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(한화중국본토증권자투자신탁H(주식))",
+          "published_date": "2026-01-07",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260107000143",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]자산양도등의등록신청서",
+          "published_date": "2026-01-08",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260108000467",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]자산양도등의등록신청서",
+          "published_date": "2026-01-08",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260108000257",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 52
+}

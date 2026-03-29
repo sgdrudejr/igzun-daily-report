@@ -1,0 +1,30 @@
+{
+  "date": "2026-02-13",
+  "sources": [
+    {
+      "source_id": "opendart",
+      "count": 20,
+      "examples": [
+        {
+          "title": "[기재정정]투자설명서(집합투자증권)(삼성KODEX배당가치증권상장지수투자신탁[주식])",
+          "published_date": "2026-02-13",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260213001139",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]투자설명서(집합투자증권)(삼성KODEX2차전지산업증권상장지수투자신탁[주식])",
+          "published_date": "2026-02-13",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260213000973",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]투자설명서(집합투자증권)(삼성KODEX코스피대형주증권상장지수투자신탁[주식])",
+          "published_date": "2026-02-13",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260213001458",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 20
+}

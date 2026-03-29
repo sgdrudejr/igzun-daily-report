@@ -197,6 +197,89 @@
 - UI는 `site/horizon_index.json` 만 읽어도 기간 선택 탭을 구성할 수 있다.
 - 추후 horizon별 지표 차별화 로직을 넣어도 일간 결과와 분리해서 진화시킬 수 있다.
 
+### 17. 같은 포트폴리오도 기간마다 다른 질문으로 해석한다
+
+결정:
+
+- 동일한 현재 자산배분이라도 1일/1주/1개월/3개월/6개월에서 다른 판단 문장과 실행 가이드를 만든다.
+
+이유:
+
+- 사용자는 "1일로 보면 매수, 6개월로 보면 비중 조절" 같은 복수 해석이 가능해야 한다고 명시했다.
+- 그래서 포트폴리오 탭은 상태 해석, 실행 가이드는 매수/보류/비중조절 액션으로 분리했다.
+- 기간마다 `question`, `deploy_ratio`, `action_label` 을 다르게 두는 편이 목적에 맞다.
+
+### 18. 탭 스크롤은 섹션별로 분리한다
+
+결정:
+
+- 전역 window scroll 이 아니라 각 섹션 탭을 독립 pane scroll 로 운영한다.
+
+이유:
+
+- 사용자는 시장 브리핑에서 내린 스크롤 위치가 핵심 이슈 탭에 그대로 이어지는 현재 동작을 문제로 지적했다.
+- 탭별 개별 scroll pane 이 가장 단순하고 안정적인 해결책이다.
+
+### 19. 상단 컨트롤은 2행보다 1행 압축을 우선한다
+
+결정:
+
+- `기간 유형 칩 + 기간 선택 드롭다운` 조합으로 상단 컨트롤을 1행에 압축한다.
+
+이유:
+
+- 모바일에서 2행 헤더는 본문 가시 영역을 줄인다.
+- 기간 선택은 option 이 많아질 수 있어 드롭다운이 칩열보다 공간 효율이 좋다.
+
+### 20. 점수와 핵심 지표는 텍스트보다 칩 우선으로 노출한다
+
+결정:
+
+- 총점, 매크로/기술/퀀트/FX 점수와 VIX, RSI, DXY 같은 핵심 지표는 칩으로 먼저 보여준다.
+
+이유:
+
+- 사용자는 숫자 가독성과 시인성을 원했다.
+- 모바일에서는 짧은 수치 요약을 칩으로 먼저 보여주고, 설명은 본문에서 풀어주는 편이 더 읽기 쉽다.
+
+### 21. historical backfill은 current snapshot source와 분리해 취급한다
+
+결정:
+
+- 과거 날짜 재생성은 [`scripts/backfill_history.py`](/Users/seo/igzun-daily-report/scripts/backfill_history.py) 로 수행하되, 기본 수집 source는 `fred_api`, `opendart` 같은 historical-safe source로 제한한다.
+
+이유:
+
+- RSS/스크래퍼/ECOS 일부는 현재 시점 snapshot 성격이 강해 과거를 그대로 재현했다고 보기 어렵다.
+- 과거 데이터를 채운다는 이유로 snapshot source까지 섞으면 리포트 신뢰도가 떨어진다.
+- 따라서 “무엇을 백필했고 무엇을 건너뛰었는지”를 `data/backfills/*.json` 에 명시적으로 남기는 쪽이 안전하다.
+
+### 22. 과거 시점 계산은 as-of 기준으로 자른다
+
+결정:
+
+- [`scripts/load_market_data.py`](/Users/seo/igzun-daily-report/scripts/load_market_data.py) 는 `--start-date`, `--end-date`, `--output` 을 지원한다.
+- [`scripts/macro_analysis.py`](/Users/seo/igzun-daily-report/scripts/macro_analysis.py) 와 [`scripts/etf_recommender.py`](/Users/seo/igzun-daily-report/scripts/etf_recommender.py) 는 특정 날짜 기준으로 history를 자른 뒤 계산한다.
+
+이유:
+
+- 단순히 오늘 기준 데이터를 가지고 과거 날짜 파일만 만드는 것은 백필이 아니라 위장된 최신값 복사다.
+- 1월/2월/3월 보고서가 각각 그 시점의 시장 레짐과 ETF 모멘텀을 반영하려면 as-of slicing 이 필수다.
+
+### 23. 저장공간 정리는 archive + summary 이중 구조로 간다
+
+결정:
+
+- 오래된 `raw/normalized/manifests` 는 [`scripts/storage_retention.py`](/Users/seo/igzun-daily-report/scripts/storage_retention.py) 로 summary JSON 과 archive 파일로 넘긴다.
+- archive 파일은 로컬 보관용으로 두고 `.gitignore` 처리한다.
+- Git 에는 `data/archive_summaries/`, `data/storage_retention/status.json` 같은 작은 메타만 올린다.
+
+이유:
+
+- Mac mini 저장공간 문제를 해결하려면 원문 그대로 영구 보관하는 방식은 맞지 않다.
+- 하지만 완전 삭제만 하면 출처/메타/카운트/예시가 사라져 운영 추적성이 떨어진다.
+- summary + archive 구조면 웹과 Git 에는 가벼운 메타만 남기고, 필요 시 로컬 archive로 복원할 수 있다.
+
 ## 현재 열려 있는 결정 보류 항목
 
 - `build_site_report.py` 의 최종 result schema를 기존 site와 얼마나 맞출지

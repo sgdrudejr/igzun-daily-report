@@ -1,0 +1,136 @@
+{
+  "date": "2026-02-26",
+  "regime": "Neutral",
+  "scores": {
+    "macro": 57.23,
+    "technical": 37.43,
+    "quant": 61.2,
+    "fx": 39.65,
+    "total": 49.97
+  },
+  "macro_inputs": {
+    "vix": 18.63,
+    "us10y": 4.02,
+    "dxy": 117.9042,
+    "oil": 65.1,
+    "fedfunds": 5.3,
+    "t10y2y_spread": 0.6,
+    "hy_spread": 2.98,
+    "unrate": 4.0,
+    "cpi_level": 315.0,
+    "bok_rate": 2.5,
+    "usd_krw": 1426.9300537109375,
+    "cpi_kr": 118.0
+  },
+  "technical_inputs": {
+    "rsi_sp500": 58.75,
+    "ma_gap_sp500": 0.14,
+    "momentum_3m": 3.04,
+    "momentum_12m": 16.01,
+    "volatility_20d": 13.17,
+    "rel_strength_sp500_vs_kospi": -91.64,
+    "adx_sp500": 17.05,
+    "momentum_3m_nikkei": 17.92,
+    "momentum_3m_dax": 8.82
+  },
+  "latest_prices": {
+    "sp500": 6908.86,
+    "kospi": 6307.27,
+    "nasdaq": 22878.38,
+    "usdkrw": 1426.93,
+    "us10y": 4.02,
+    "wti": 65.1,
+    "gold": 5176.5,
+    "nikkei": 58753.39,
+    "dax": 25289.02,
+    "usdjpy": 156.2,
+    "bok_rate": 2.5
+  },
+  "periods": [
+    {
+      "label": "1일",
+      "days": 1,
+      "returns": {
+        "sp500": -0.54,
+        "kospi": 3.67,
+        "nasdaq": -1.18,
+        "gold": -0.57,
+        "wti": -0.32,
+        "usdkrw": -0.91,
+        "nikkei": 0.29,
+        "dax": 0.45,
+        "usdjpy": 0.21,
+        "us10y_yield_chg": -0.03
+      }
+    },
+    {
+      "label": "1주",
+      "days": 5,
+      "returns": {
+        "sp500": 0.68,
+        "kospi": 11.1,
+        "nasdaq": 0.86,
+        "gold": 4.03,
+        "wti": -1.84,
+        "usdkrw": -0.92,
+        "nikkei": 2.82,
+        "dax": 0.98,
+        "usdjpy": 0.97,
+        "us10y_yield_chg": -0.06
+      }
+    },
+    {
+      "label": "1개월",
+      "days": 21,
+      "returns": {
+        "sp500": -1.0,
+        "kospi": 26.4,
+        "nasdaq": -3.94,
+        "gold": 1.9,
+        "wti": 4.52,
+        "usdkrw": -0.39,
+        "nikkei": 11.1,
+        "dax": 1.88,
+        "usdjpy": 2.46,
+        "us10y_yield_chg": -0.21
+      }
+    },
+    {
+      "label": "3개월",
+      "days": 63,
+      "returns": {
+        "sp500": 3.04,
+        "kospi": 63.69,
+        "nasdaq": 0.03,
+        "gold": 26.51,
+        "wti": 10.83,
+        "usdkrw": -2.97,
+        "nikkei": 17.92,
+        "dax": 8.82,
+        "usdjpy": -0.02,
+        "us10y_yield_chg": -0.02
+      }
+    },
+    {
+      "label": "6개월",
+      "days": 126,
+      "returns": {
+        "sp500": 6.85,
+        "kospi": 100.13,
+        "nasdaq": 6.19,
+        "gold": 52.76,
+        "wti": 3.1,
+        "usdkrw": 2.74,
+        "nikkei": 34.92,
+        "dax": 5.17,
+        "usdjpy": 6.19,
+        "us10y_yield_chg": -0.24
+      }
+    }
+  ],
+  "context": {
+    "market_data_file": "/Users/seo/igzun-daily-report/data/market_data_history/2026-01-01_to_2026-03-30.json",
+    "fred_snapshot_date": "2026-02-26",
+    "ecos_snapshot_date": null
+  }
+}

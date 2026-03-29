@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-05",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 10,
+      "examples": [
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-01-05",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "Federal Funds Rate (FEDFUNDS)",
+          "published_date": "2026-01-01",
+          "url": "https://fred.stlouisfed.org/series/FEDFUNDS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+          "published_date": "2026-01-05",
+          "url": "https://fred.stlouisfed.org/series/T10Y2Y",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 50,
+      "examples": [
+        {
+          "title": "[기재정정]주요사항보고서(유상증자결정)",
+          "published_date": "2026-01-05",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260105000447",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서",
+          "published_date": "2026-01-05",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260105000440",
+          "document_type": "filing"
+        },
+        {
+          "title": "타법인주식및출자증권취득결정(종속회사의주요경영사항)              ",
+          "published_date": "2026-01-05",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260105900741",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 60
+}

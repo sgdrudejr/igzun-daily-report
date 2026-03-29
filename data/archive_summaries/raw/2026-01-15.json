@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-15",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-01-15",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "document_type": "time_series"
+        },
+        {
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2026-01-15",
+          "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+          "document_type": "time_series"
+        },
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-01-15",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 43,
+      "examples": [
+        {
+          "title": "주식등의대량보유상황보고서(일반)",
+          "published_date": "2026-01-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260115000425",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]자산양도등의등록신청서",
+          "published_date": "2026-01-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260115000012",
+          "document_type": "filing"
+        },
+        {
+          "title": "소송등의판결ㆍ결정              (신주발행금지 가처분)",
+          "published_date": "2026-01-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260115900679",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 49
+}

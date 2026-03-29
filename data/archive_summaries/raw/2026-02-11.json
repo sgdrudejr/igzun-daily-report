@@ -1,0 +1,30 @@
+{
+  "date": "2026-02-11",
+  "sources": [
+    {
+      "source_id": "opendart",
+      "count": 44,
+      "examples": [
+        {
+          "title": "[기재정정]투자설명서(집합투자증권)(에셋플러스에셋플러스글로벌대장장이액티브증권상장지수투자신탁(주식))",
+          "published_date": "2026-02-11",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211000675",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]자산양도등의등록신청서",
+          "published_date": "2026-02-11",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211000463",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]최대주주변경을수반하는주식담보제공계약체결              ",
+          "published_date": "2026-02-11",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211901838",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 44
+}

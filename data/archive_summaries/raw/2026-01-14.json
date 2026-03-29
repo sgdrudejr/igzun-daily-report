@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-14",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2026-01-14",
+          "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+          "document_type": "time_series"
+        },
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-01-14",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-01-14",
+          "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 32,
+      "examples": [
+        {
+          "title": "[기재정정]중대재해발생              ",
+          "published_date": "2026-01-14",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260114900571",
+          "document_type": "filing"
+        },
+        {
+          "title": "감사보고서 (2025.09)",
+          "published_date": "2026-01-14",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260114000402",
+          "document_type": "filing"
+        },
+        {
+          "title": "[발행조건확정]증권신고서(채무증권)",
+          "published_date": "2026-01-14",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260114000392",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 38
+}

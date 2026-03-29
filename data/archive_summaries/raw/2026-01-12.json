@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-12",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+          "published_date": "2026-01-12",
+          "url": "https://fred.stlouisfed.org/series/T10Y2Y",
+          "document_type": "time_series"
+        },
+        {
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-01-12",
+          "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+          "document_type": "time_series"
+        },
+        {
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-01-12",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 50,
+      "examples": [
+        {
+          "title": "증권발행실적보고서(집합투자증권)(KBRISEAI플랫폼증권상장지수투자신탁(주식))",
+          "published_date": "2026-01-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260112000623",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서(집합투자증권)(KBRISEKIS국고채30년Enhanced증권상장지수투자신탁(채권))",
+          "published_date": "2026-01-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260112000621",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서(집합투자증권)(BNKBNK2차전지양극재증권상장지수투자신탁(주식))",
+          "published_date": "2026-01-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260112000532",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 56
+}

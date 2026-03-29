@@ -1,0 +1,54 @@
+{
+  "date": "2026-02-10",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 4,
+      "examples": [
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-02-10",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2026-02-10",
+          "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+          "document_type": "time_series"
+        },
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-02-10",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 45,
+      "examples": [
+        {
+          "title": "증권발행실적보고서(집합투자증권)(신한더드림코브릭스증권자투자신탁제1호(H)[주식])",
+          "published_date": "2026-02-10",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260210000188",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서(집합투자증권)(신한BEST인덱스플러스알파증권자투자신탁제1호[주식-파생형])",
+          "published_date": "2026-02-10",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260210000139",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서(집합투자증권)(신한아문디멀티전략증권투자신탁(H)[주식혼합-재간접형])",
+          "published_date": "2026-02-10",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260210000207",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 49
+}

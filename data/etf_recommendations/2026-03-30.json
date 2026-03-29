@@ -15,7 +15,7 @@
       "tier": "강력매수",
       "regime_bias": 5,
       "momentum_3m": 41.0,
-      "momentum_12m": null,
+      "momentum_12m": 36.81,
       "volatility_20d": 16.96,
       "rsi": 86.8,
       "rationale": "Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의"
@@ -31,7 +31,7 @@
       "tier": "매수",
       "regime_bias": 5,
       "momentum_3m": 42.35,
-      "momentum_12m": null,
+      "momentum_12m": 141.06,
       "volatility_20d": 81.93,
       "rsi": 54.9,
       "rationale": "Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高"
@@ -47,7 +47,7 @@
       "tier": "매수",
       "regime_bias": 5,
       "momentum_3m": 72.6,
-      "momentum_12m": null,
+      "momentum_12m": 192.17,
       "volatility_20d": 103.67,
       "rsi": 53.1,
       "rationale": "Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高"
@@ -63,7 +63,7 @@
       "tier": "매수",
       "regime_bias": 5,
       "momentum_3m": 42.69,
-      "momentum_12m": null,
+      "momentum_12m": 141.68,
       "volatility_20d": 81.06,
       "rsi": 55.2,
       "rationale": "Neutral 레짐 중립 | 3M ▲42.7% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 81% 高"
@@ -79,7 +79,7 @@
       "tier": "매수",
       "regime_bias": 5,
       "momentum_3m": 10.94,
-      "momentum_12m": null,
+      "momentum_12m": 28.1,
       "volatility_20d": 22.18,
       "rsi": 70.2,
       "rationale": "Neutral 레짐 중립 | 3M ▲10.9% 모멘텀 유지 | RSI 70 과매수 주의"
@@ -95,7 +95,7 @@
       "tier": "매수",
       "regime_bias": 5,
       "momentum_3m": 7.19,
-      "momentum_12m": null,
+      "momentum_12m": 41.36,
       "volatility_20d": 35.83,
       "rsi": 54.4,
       "rationale": "Neutral 레짐 중립 | 3M ▲7.2% 모멘텀 유지 | RSI 54 정상 구간 | 변동성 36% 高"
@@ -111,7 +111,7 @@
       "tier": "중립",
       "regime_bias": 5,
       "momentum_3m": 0.53,
-      "momentum_12m": null,
+      "momentum_12m": 20.37,
       "volatility_20d": 30.67,
       "rsi": 37.6,
       "rationale": "Neutral 레짐 중립 | 3M ▲0.5% 모멘텀 약함 | RSI 38 정상 구간 | 변동성 31% 高"
@@ -127,7 +127,7 @@
       "tier": "중립",
       "regime_bias": 5,
       "momentum_3m": 0.67,
-      "momentum_12m": null,
+      "momentum_12m": 49.04,
       "volatility_20d": 36.25,
       "rsi": 26.1,
       "rationale": "Neutral 레짐 중립 | 3M ▲0.7% 모멘텀 약함 | RSI 26 과매도 — 반등 가능성 | 변동성 36% 高"
@@ -143,7 +143,7 @@
       "tier": "중립",
       "regime_bias": 5,
       "momentum_3m": -1.21,
-      "momentum_12m": null,
+      "momentum_12m": 4.08,
       "volatility_20d": 6.22,
       "rsi": 28.4,
       "rationale": "Neutral 레짐 중립 | 3M ▼1.2% 모멘텀 약함 | RSI 28 과매도 — 반등 가능성 | 변동성 6% 低"
@@ -159,7 +159,7 @@
       "tier": "중립",
       "regime_bias": 0,
       "momentum_3m": 3.3,
-      "momentum_12m": null,
+      "momentum_12m": 0.49,
       "volatility_20d": 7.31,
       "rsi": 61.9,
       "rationale": "Neutral 레짐 중립 | 3M ▲3.3% 모멘텀 약함 | RSI 62 정상 구간 | 변동성 7% 低"
@@ -175,7 +175,7 @@
       "tier": "중립",
       "regime_bias": 0,
       "momentum_3m": 3.1,
-      "momentum_12m": null,
+      "momentum_12m": 8.02,
       "volatility_20d": 14.82,
       "rsi": 55.0,
       "rationale": "Neutral 레짐 중립 | 3M ▲3.1% 모멘텀 약함 | RSI 55 정상 구간"
@@ -191,7 +191,7 @@
       "tier": "중립",
       "regime_bias": 5,
       "momentum_3m": -2.02,
-      "momentum_12m": null,
+      "momentum_12m": 0.36,
       "volatility_20d": 12.25,
       "rsi": 30.6,
       "rationale": "Neutral 레짐 중립 | 3M ▼2.0% 모멘텀 약함 | RSI 31 정상 구간"
@@ -207,7 +207,7 @@
       "tier": "중립",
       "regime_bias": 5,
       "momentum_3m": -3.13,
-      "momentum_12m": null,
+      "momentum_12m": 27.48,
       "volatility_20d": 14.64,
       "rsi": 42.4,
       "rationale": "Neutral 레짐 중립 | 3M ▼3.1% 모멘텀 약함 | RSI 42 정상 구간"
@@ -223,7 +223,7 @@
       "tier": "중립",
       "regime_bias": 0,
       "momentum_3m": 1.43,
-      "momentum_12m": null,
+      "momentum_12m": 27.38,
       "volatility_20d": 34.88,
       "rsi": 37.7,
       "rationale": "Neutral 레짐 중립 | 3M ▲1.4% 모멘텀 약함 | RSI 38 정상 구간 | 변동성 35% 高"
@@ -239,7 +239,7 @@
       "tier": "중립",
       "regime_bias": 5,
       "momentum_3m": -6.15,
-      "momentum_12m": null,
+      "momentum_12m": 14.8,
       "volatility_20d": 27.53,
       "rsi": 34.5,
       "rationale": "Neutral 레짐 중립 | 3M ▼6.2% 모멘텀 유지 | RSI 34 정상 구간"
@@ -255,7 +255,7 @@
       "tier": "중립",
       "regime_bias": 5,
       "momentum_3m": 1.23,
-      "momentum_12m": null,
+      "momentum_12m": 41.91,
       "volatility_20d": 45.22,
       "rsi": 27.4,
       "rationale": "Neutral 레짐 중립 | 3M ▲1.2% 모멘텀 약함 | RSI 27 과매도 — 반등 가능성 | 변동성 45% 高"
@@ -271,7 +271,7 @@
       "tier": "중립",
       "regime_bias": 5,
       "momentum_3m": -7.9,
-      "momentum_12m": null,
+      "momentum_12m": 12.8,
       "volatility_20d": 14.89,
       "rsi": 23.6,
       "rationale": "Neutral 레짐 중립 | 3M ▼7.9% 모멘텀 유지 | RSI 24 과매도 — 반등 가능성"
@@ -287,7 +287,7 @@
       "tier": "중립",
       "regime_bias": 5,
       "momentum_3m": -9.83,
-      "momentum_12m": null,
+      "momentum_12m": 16.56,
       "volatility_20d": 18.75,
       "rsi": 23.1,
       "rationale": "Neutral 레짐 중립 | 3M ▼9.8% 모멘텀 유지 | RSI 23 과매도 — 반등 가능성"
@@ -303,7 +303,7 @@
       "tier": "비중축소",
       "regime_bias": 5,
       "momentum_3m": -14.21,
-      "momentum_12m": null,
+      "momentum_12m": -3.94,
       "volatility_20d": 13.12,
       "rsi": 23.3,
       "rationale": "Neutral 레짐 중립 | 3M ▼14.2% 모멘텀 유지 | RSI 23 과매도 — 반등 가능성"
@@ -334,5 +334,9 @@
       "tier": "매수",
       "rationale": "Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高"
     }
-  ]
+  ],
+  "context": {
+    "price_history_file": "/Users/seo/igzun-daily-report/data/etf_price_history/2026-01-01_to_2026-03-30.json",
+    "history_end_date": "2026-03-30"
+  }
 }

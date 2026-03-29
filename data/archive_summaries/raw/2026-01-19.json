@@ -1,0 +1,42 @@
+{
+  "date": "2026-01-19",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 1,
+      "examples": [
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-01-19",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 50,
+      "examples": [
+        {
+          "title": "단일판매ㆍ공급계약체결              ",
+          "published_date": "2026-01-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260119800967",
+          "document_type": "filing"
+        },
+        {
+          "title": "투자판단관련주요경영사항(자회사의 주요경영사항)              ",
+          "published_date": "2026-01-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260119800979",
+          "document_type": "filing"
+        },
+        {
+          "title": "기업가치제고계획(자율공시)              ",
+          "published_date": "2026-01-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260119800910",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 51
+}

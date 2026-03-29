@@ -145,6 +145,7 @@
     "planDesc": "1일 기준 포트폴리오 전략 코멘트는 후속 계좌 연동 시 보강됩니다.",
     "allocations": []
   },
+  "rebalancing": {},
   "recommendations": {
     "ideas": [],
     "etfRanking": []

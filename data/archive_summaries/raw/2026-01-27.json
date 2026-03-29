@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-27",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-01-27",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2026-01-27",
+          "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+          "document_type": "time_series"
+        },
+        {
+          "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+          "published_date": "2026-01-27",
+          "url": "https://fred.stlouisfed.org/series/T10Y2Y",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 14,
+      "examples": [
+        {
+          "title": "[기재정정]자산양도등의등록신청서",
+          "published_date": "2026-01-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127000106",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(KCGI코리아연금증권전환형자투자신탁1호[주식혼합])",
+          "published_date": "2026-01-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127000286",
+          "document_type": "filing"
+        },
+        {
+          "title": "[변경등록]자산유동화계획의등록신청서(유동화전문회사)",
+          "published_date": "2026-01-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127000185",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 20
+}

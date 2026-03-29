@@ -286,6 +286,19 @@ def enrich_view(view: dict, horizon: str, bucket_label: str, entry_group: list[d
         recommendations["ideas"] = ideas
         view["recommendations"] = recommendations
 
+    rebalancing = view.get("rebalancing", {}) or {}
+    if rebalancing:
+        original_summary = rebalancing.get("summary", "")
+        note = rebalancing.get("horizonNote", "")
+        rebalancing["summary"] = (
+            f"{original_summary} {bucket_label} 동안 {summary['count']}회 업데이트, "
+            f"누적 문서 {summary['docsTotal']}건을 반영한 실행 가이드입니다."
+        ).strip()
+        rebalancing["horizonNote"] = (
+            f"{note} 또한 {bucket_label} 동안 {summary['count']}회 업데이트를 누적 반영한 가이드입니다."
+        ).strip()
+        view["rebalancing"] = rebalancing
+
     return view
 
 
@@ -307,6 +320,7 @@ def build_bucket_payload(horizon: str, bucket_id: str, bucket_label: str, entry_
         "briefing": section.get("briefing", {}),
         "newsList": section.get("newsList", []),
         "portfolio": section.get("portfolio", {}),
+        "rebalancing": section.get("rebalancing", {}),
         "recommendations": section.get("recommendations", {}),
         "meta": {
             "docsTotal": summary["docsTotal"],
@@ -328,7 +342,36 @@ def bucket_folder(horizon: str) -> str:
 
 def build_horizon_views(root: Path) -> dict:
     entries = iter_daily_results(root)
-    horizon_index = {"generatedAt": datetime.now().isoformat(), "latestDailyDate": entries[-1]["date"] if entries else "", "horizons": {}}
+    retention_status = load_json(root / "data" / "storage_retention" / "status.json") or {}
+    backfill_runs = []
+    backfill_root = root / "data" / "backfills"
+    if backfill_root.exists():
+        for path in sorted(backfill_root.glob("*.json"), reverse=True):
+            payload = load_json(path) or {}
+            backfill_runs.append(
+                {
+                    "file": path.name,
+                    "startDate": payload.get("start_date"),
+                    "endDate": payload.get("end_date"),
+                    "processedCount": len(payload.get("dates_processed", [])),
+                    "collectSources": payload.get("collect_sources", []),
+                }
+            )
+    horizon_index = {
+        "generatedAt": datetime.now().isoformat(),
+        "latestDailyDate": entries[-1]["date"] if entries else "",
+        "horizons": {},
+        "storageRetention": {
+            "generatedAt": retention_status.get("generated_at"),
+            "policy": retention_status.get("policy", {}),
+            "archivedCounts": {
+                "raw": len((retention_status.get("archived") or {}).get("raw", [])),
+                "normalized": len((retention_status.get("archived") or {}).get("normalized", [])),
+                "manifests": len((retention_status.get("archived") or {}).get("manifests", [])),
+            },
+        },
+        "backfillRuns": backfill_runs[:5],
+    }
 
     for horizon, folder in HORIZON_CONFIG:
         grouped: dict[str, dict] = {}

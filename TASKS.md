@@ -48,6 +48,22 @@
 - [x] `2026-03-30` 실제 데이터 배치 재실행
 - [x] `2026-03-30` 기준 일간/주간/월간/분기/반기 버킷 재생성
 - [x] `site/` 전체 기준 `undefined`/`None` 문자열 미포함 재검증
+- [x] 포트폴리오를 첫 탭으로 이동하고 `실행 가이드` 탭 추가
+- [x] 탭별 개별 스크롤 pane 구조 반영
+- [x] 새로고침 시 `1일 / 최신 날짜` 기본 선택 반영
+- [x] 상단 UI를 `기간 유형 칩 + 기간 선택 드롭다운` 1행 구조로 압축
+- [x] 점수/지표 칩 렌더링 추가
+- [x] 출처 메타데이터를 본문 내부가 아니라 카드 하단 고정 위치로 재배치
+- [x] 1일/1주/1개월/3개월/6개월별 질문과 메트릭 차별화 2차 반영
+- [x] [`scripts/load_market_data.py`](/Users/seo/igzun-daily-report/scripts/load_market_data.py) 에 `--start-date/--end-date/--output` 추가
+- [x] [`scripts/macro_analysis.py`](/Users/seo/igzun-daily-report/scripts/macro_analysis.py) 에 as-of 날짜 슬라이싱 추가
+- [x] [`scripts/etf_recommender.py`](/Users/seo/igzun-daily-report/scripts/etf_recommender.py) 에 ETF price history cache 지원 추가
+- [x] [`scripts/backfill_history.py`](/Users/seo/igzun-daily-report/scripts/backfill_history.py) 추가
+- [x] [`scripts/storage_retention.py`](/Users/seo/igzun-daily-report/scripts/storage_retention.py) 추가
+- [x] `2026-01-01 ~ 2026-03-30` Q1 백필 실행
+- [x] Q1 백필 결과로 `site/` 일간/주간/월간/분기/반기 버킷 재생성
+- [x] 오래된 raw/normalized 1차 archive + summary 생성
+- [x] `daily_update.sh` 에 retention 훅 추가
 
 ## 현재 진행 중
 
@@ -56,6 +72,8 @@
 - [ ] 포트폴리오 점수 산식 고도화
 - [ ] ETF/테마 아이디어 설명 품질 개선
 - [ ] 기간별 지표 차별화 로직 추가 고도화
+- [ ] Galaxy S25 Ultra 실기기 줄바꿈 / 칩 높이 확인
+- [ ] `site/horizon_index.json` 의 retention/backfill 메타를 UI에 노출할지 결정
 
 ## 남은 작업
 
@@ -66,13 +84,15 @@
 - [ ] 일본/유럽 리서치 소스 추가
 - [ ] source health check 리포트 추가
 - [ ] 3일 이상 무수집 source stale 경고 추가
+- [ ] snapshot-only source의 historical backfill 전략 설계
 
 ### 분석
 
 - [x] 일간 데이터를 바탕으로 주간/월간/분기/반기 집계 스크립트 추가
 - [ ] 리포트에서 단기 뉴스와 중기 방향성 분리
 - [ ] 펀더멘털/기술적 시그널 동시 반영 설명 강화
-- [ ] 계좌별 현금/투입 가능 금액 반영
+- [x] 계좌별 현금/투입 가능 금액 반영 1차
+- [x] horizon별 실행 예산 차등 반영 1차
 
 ### 보고서
 
@@ -81,6 +101,9 @@
 - [x] 모든 필드 한국어화 1차 반영
 - [x] 빈값 fallback 처리 1차 반영
 - [x] 주간/월간/분기/반기 보고서 섹션 설계 1차 반영
+- [x] `rebalancing` 블록 추가
+- [x] `briefing.strategy`, `briefing.scoreChips`, `briefing.metricChips`, `portfolio.scoreChips` 추가
+- [x] 핵심 이슈 상세 설명 포인트(`detailPoints`) 추가
 
 ### 운영
 
@@ -88,6 +111,7 @@
 - [ ] 실패 시 재시도/부분성공 로그 기준 정리
 - [ ] GitHub Pages 자동 배포 상태 점검
 - [x] `daily_update.sh` 로 `build_horizon_views.py` 자동 반영 연결
+- [x] `daily_update.sh` 로 `storage_retention.py` 자동 반영 연결
 - [ ] 작업 종료 시 `HANDOFF.md` 와 `TASKS.md` 갱신 자동 습관화
 
 ## 현재 작업 트리 체크
@@ -96,4 +120,6 @@
 - [x] [`scripts/etf_recommender.py`](/Users/seo/igzun-daily-report/scripts/etf_recommender.py) 결과 검증
 - [x] [`scripts/load_market_data.py`](/Users/seo/igzun-daily-report/scripts/load_market_data.py) 출력 검증
 - [x] [`data/portfolio_state.json`](/Users/seo/igzun-daily-report/data/portfolio_state.json) 포맷 검증
+- [x] [`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 새 UI 구조 반영
+- [x] [`site/2026-03-30/result.json`](/Users/seo/igzun-daily-report/site/2026-03-30/result.json) 새 필드 검증
 - [ ] 커밋 전 `git status --short` 재확인

@@ -1,0 +1,30 @@
+{
+  "date": "2026-02-12",
+  "sources": [
+    {
+      "source_id": "opendart",
+      "count": 43,
+      "examples": [
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(다올VIP밸류30증권자투자신탁[채권혼합])",
+          "published_date": "2026-02-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212000327",
+          "document_type": "filing"
+        },
+        {
+          "title": "증권발행실적보고서(집합투자증권)(IBK퇴직연금액티브40증권자투자신탁[채권혼합])",
+          "published_date": "2026-02-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212001781",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(다올VIP밸류50증권자투자신탁[채권혼합])",
+          "published_date": "2026-02-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212000318",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 43
+}

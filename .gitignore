@@ -13,6 +13,9 @@ data/raw/
 data/normalized/
 data/manifests/
 data/index/
+data/archives/
+data/market_data_history/
+data/etf_price_history/
 
 # OS
 .DS_Store

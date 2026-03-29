@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-28",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+          "published_date": "2026-01-28",
+          "url": "https://fred.stlouisfed.org/series/T10Y2Y",
+          "document_type": "time_series"
+        },
+        {
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-01-28",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "document_type": "time_series"
+        },
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-01-28",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 36,
+      "examples": [
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(KCGI코리아퇴직연금증권자투자신탁[채권혼합])",
+          "published_date": "2026-01-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127000329",
+          "document_type": "filing"
+        },
+        {
+          "title": "일괄신고서(집합투자증권-신탁형)(삼성KODEX금융채1~2년(AA-이상)PLUS액티브증권상장지수투자신탁[채권])",
+          "published_date": "2026-01-28",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260128000125",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]증권신고서(집합투자증권-신탁형)(KCGI코리아목표전환형증권투자신탁2호[채권혼합](운용전환일이후)KCGI코리아목표전환형증권투자신탁2호[채권])",
+          "published_date": "2026-01-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127000360",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 42
+}

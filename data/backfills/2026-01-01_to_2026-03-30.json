@@ -1,0 +1,2380 @@
+{
+  "generated_at": "2026-03-30T01:50:49.675224",
+  "start_date": "2026-01-01",
+  "end_date": "2026-03-30",
+  "dates_requested": [
+    "2026-01-01",
+    "2026-01-02",
+    "2026-01-05",
+    "2026-01-06",
+    "2026-01-07",
+    "2026-01-08",
+    "2026-01-09",
+    "2026-01-12",
+    "2026-01-13",
+    "2026-01-14",
+    "2026-01-15",
+    "2026-01-16",
+    "2026-01-19",
+    "2026-01-20",
+    "2026-01-21",
+    "2026-01-22",
+    "2026-01-23",
+    "2026-01-26",
+    "2026-01-27",
+    "2026-01-28",
+    "2026-01-29",
+    "2026-01-30",
+    "2026-02-02",
+    "2026-02-03",
+    "2026-02-04",
+    "2026-02-05",
+    "2026-02-06",
+    "2026-02-09",
+    "2026-02-10",
+    "2026-02-11",
+    "2026-02-12",
+    "2026-02-13",
+    "2026-02-16",
+    "2026-02-17",
+    "2026-02-18",
+    "2026-02-19",
+    "2026-02-20",
+    "2026-02-23",
+    "2026-02-24",
+    "2026-02-25",
+    "2026-02-26",
+    "2026-02-27",
+    "2026-03-02",
+    "2026-03-03",
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-11",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-16",
+    "2026-03-17",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-20",
+    "2026-03-23",
+    "2026-03-24",
+    "2026-03-25",
+    "2026-03-26",
+    "2026-03-27",
+    "2026-03-30"
+  ],
+  "dates_processed": [
+    "2026-01-01",
+    "2026-01-02",
+    "2026-01-05",
+    "2026-01-06",
+    "2026-01-07",
+    "2026-01-08",
+    "2026-01-09",
+    "2026-01-12",
+    "2026-01-13",
+    "2026-01-14",
+    "2026-01-15",
+    "2026-01-16",
+    "2026-01-19",
+    "2026-01-20",
+    "2026-01-21",
+    "2026-01-22",
+    "2026-01-23",
+    "2026-01-26",
+    "2026-01-27",
+    "2026-01-28",
+    "2026-01-29",
+    "2026-01-30",
+    "2026-02-02",
+    "2026-02-03",
+    "2026-02-04",
+    "2026-02-05",
+    "2026-02-06",
+    "2026-02-09",
+    "2026-02-10",
+    "2026-02-11",
+    "2026-02-12",
+    "2026-02-13",
+    "2026-02-16",
+    "2026-02-17",
+    "2026-02-18",
+    "2026-02-19",
+    "2026-02-20",
+    "2026-02-23",
+    "2026-02-24",
+    "2026-02-25",
+    "2026-02-26",
+    "2026-02-27",
+    "2026-03-02",
+    "2026-03-03",
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-11",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-16",
+    "2026-03-17",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-20",
+    "2026-03-23",
+    "2026-03-24",
+    "2026-03-25",
+    "2026-03-26",
+    "2026-03-27",
+    "2026-03-30"
+  ],
+  "dates_skipped": [],
+  "collect_sources": [
+    "fred_api",
+    "opendart"
+  ],
+  "skipped_snapshot_only_sources": [
+    "fed_speeches_rss",
+    "fed_press_rss",
+    "ecos_api",
+    "naver_research",
+    "kr_brokerage_kb",
+    "kr_brokerage_mirae",
+    "bis_speeches",
+    "investing_com_rss"
+  ],
+  "market_cache": "/Users/seo/igzun-daily-report/data/market_data_history/2026-01-01_to_2026-03-30.json",
+  "etf_price_cache": "/Users/seo/igzun-daily-report/data/etf_price_history/2026-01-01_to_2026-03-30.json",
+  "commands": [
+    {
+      "date": "2026-03-30",
+      "step": "load_market_data.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/market_data_history/2026-01-01_to_2026-03-30.json"
+    },
+    {
+      "date": "2026-03-30",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "ETF 가격 데이터 수집 중 (19개)…\nwrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-30.json\nRegime: Neutral | Macro: 47.61\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의\n  2. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高\n  3. [매수] KODEX 반도체 (KODEX_SEMI) 64점 — Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高"
+    },
+    {
+      "date": "2026-01-01",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:50:59 [runner] INFO: Starting collection for 2026-01-01 — 1 sources\n01:51:02 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-01\n01:51:02 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-01_run.json\n01:51:02 [runner] INFO: === Collection Manifest: 2026-01-01 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-01",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:02 [runner] INFO: Starting collection for 2026-01-01 — 1 sources\n01:51:02 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-01\n01:51:02 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-01_run.json\n01:51:02 [runner] INFO: === Collection Manifest: 2026-01-01 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-01-01",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-01.json\nRegime: Neutral | Total: 48.73"
+    },
+    {
+      "date": "2026-01-01",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-01.json\nRegime: Neutral | Macro: 48.73\nTop 3:\n  1. [강력매수] KODEX 반도체 (KODEX_SEMI) 79점 — Neutral 레짐 중립 | 3M ▲30.0% 강한 모멘텀 | RSI 63 정상 구간 | 변동성 33% 高\n  2. [강력매수] TIGER 200 (TIGER200) 76점 — Neutral 레짐 중립 | 3M ▲26.7% 강한 모멘텀 | RSI 61 정상 구간\n  3. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 76점 — Neutral 레짐 중립 | 3M ▲26.8% 강한 모멘텀 | RSI 61 정상 구간"
+    },
+    {
+      "date": "2026-01-01",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-01/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-02",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:03 [runner] INFO: Starting collection for 2026-01-02 — 1 sources\n01:51:06 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-02\n01:51:06 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-02_run.json\n01:51:06 [runner] INFO: === Collection Manifest: 2026-01-02 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-02",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:06 [runner] INFO: Starting collection for 2026-01-02 — 1 sources\n01:51:06 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-02\n01:51:06 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-02_run.json\n01:51:06 [runner] INFO: === Collection Manifest: 2026-01-02 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-01-02",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-02.json\nRegime: Neutral | Total: 48.7"
+    },
+    {
+      "date": "2026-01-02",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-02.json\nRegime: Neutral | Macro: 48.7\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲30.3% 강한 모멘텀 | RSI 67 정상 구간\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲30.4% 강한 모멘텀 | RSI 67 정상 구간\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 75점 — Neutral 레짐 중립 | 3M ▲40.5% 강한 모멘텀 | RSI 71 과매수 주의 | 변동성 40% 高"
+    },
+    {
+      "date": "2026-01-02",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-02/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:07 [runner] INFO: Starting collection for 2026-01-05 — 1 sources\n01:51:10 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-05\n01:51:10 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-05_run.json\n01:51:10 [runner] INFO: === Collection Manifest: 2026-01-05 ===\n  fred_api: all_duplicates | docs=0 dupes=10 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:10 [runner] INFO: Starting collection for 2026-01-05 — 1 sources\n01:51:10 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-05\n01:51:10 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-05_run.json\n01:51:10 [runner] INFO: === Collection Manifest: 2026-01-05 ===\n  opendart: all_duplicates | docs=0 dupes=50 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-05.json\nRegime: Neutral | Total: 48.87"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-05.json\nRegime: Neutral | Macro: 48.87\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲38.6% 강한 모멘텀 | RSI 76 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲38.8% 강한 모멘텀 | RSI 76 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲52.1% 강한 모멘텀 | RSI 77 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-05",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-05/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:11 [runner] INFO: Starting collection for 2026-01-06 — 1 sources\n01:51:13 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-06\n01:51:13 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-06_run.json\n01:51:13 [runner] INFO: === Collection Manifest: 2026-01-06 ===\n  fred_api: all_duplicates | docs=0 dupes=10 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:13 [runner] INFO: Starting collection for 2026-01-06 — 1 sources\n01:51:14 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-06\n01:51:14 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-06_run.json\n01:51:14 [runner] INFO: === Collection Manifest: 2026-01-06 ===\n  opendart: all_duplicates | docs=0 dupes=50 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-06.json\nRegime: Neutral | Total: 50.55"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-06.json\nRegime: Neutral | Macro: 50.55\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲39.0% 강한 모멘텀 | RSI 76 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲39.0% 강한 모멘텀 | RSI 76 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲53.8% 강한 모멘텀 | RSI 80 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-06",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-06/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-07",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:14 [runner] INFO: Starting collection for 2026-01-07 — 1 sources\n01:51:17 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-07\n01:51:17 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-07_run.json\n01:51:17 [runner] INFO: === Collection Manifest: 2026-01-07 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-07",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:17 [runner] INFO: Starting collection for 2026-01-07 — 1 sources\n01:51:17 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-07\n01:51:17 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-07_run.json\n01:51:17 [runner] INFO: === Collection Manifest: 2026-01-07 ===\n  opendart: success | docs=4 dupes=46 errors=0\n  TOTAL: 4 documents"
+    },
+    {
+      "date": "2026-01-07",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-07.json\nRegime: Neutral | Total: 49.94"
+    },
+    {
+      "date": "2026-01-07",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-07.json\nRegime: Neutral | Macro: 49.94\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲40.4% 강한 모멘텀 | RSI 85 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲40.5% 강한 모멘텀 | RSI 85 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲52.9% 강한 모멘텀 | RSI 83 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-07",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-07/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-08",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:18 [runner] INFO: Starting collection for 2026-01-08 — 1 sources\n01:51:21 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-08\n01:51:21 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-08_run.json\n01:51:21 [runner] INFO: === Collection Manifest: 2026-01-08 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-08",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:21 [runner] INFO: Starting collection for 2026-01-08 — 1 sources\n01:51:21 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-08\n01:51:21 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-08_run.json\n01:51:21 [runner] INFO: === Collection Manifest: 2026-01-08 ===\n  opendart: success | docs=46 dupes=4 errors=0\n  TOTAL: 46 documents"
+    },
+    {
+      "date": "2026-01-08",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-08.json\nRegime: Neutral | Total: 47.45"
+    },
+    {
+      "date": "2026-01-08",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-08.json\nRegime: Neutral | Macro: 47.45\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲38.7% 강한 모멘텀 | RSI 93 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲38.9% 강한 모멘텀 | RSI 94 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲48.8% 강한 모멘텀 | RSI 90 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-08",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-08/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-09",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:22 [runner] INFO: Starting collection for 2026-01-09 — 1 sources\n01:51:24 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-09\n01:51:24 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-09_run.json\n01:51:24 [runner] INFO: === Collection Manifest: 2026-01-09 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-09",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:25 [runner] INFO: Starting collection for 2026-01-09 — 1 sources\n01:51:25 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-09\n01:51:25 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-09_run.json\n01:51:25 [runner] INFO: === Collection Manifest: 2026-01-09 ===\n  opendart: success | docs=29 dupes=21 errors=0\n  TOTAL: 29 documents"
+    },
+    {
+      "date": "2026-01-09",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-09.json\nRegime: Neutral | Total: 48.21"
+    },
+    {
+      "date": "2026-01-09",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-09.json\nRegime: Neutral | Macro: 48.21\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲35.9% 강한 모멘텀 | RSI 93 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲36.0% 강한 모멘텀 | RSI 94 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲40.3% 강한 모멘텀 | RSI 85 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-09",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-09/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-12",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:25 [runner] INFO: Starting collection for 2026-01-12 — 1 sources\n01:51:28 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-12\n01:51:28 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-12_run.json\n01:51:28 [runner] INFO: === Collection Manifest: 2026-01-12 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-12",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:28 [runner] INFO: Starting collection for 2026-01-12 — 1 sources\n01:51:28 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-12\n01:51:28 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-12_run.json\n01:51:28 [runner] INFO: === Collection Manifest: 2026-01-12 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-01-12",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-12.json\nRegime: Neutral | Total: 51.72"
+    },
+    {
+      "date": "2026-01-12",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-12.json\nRegime: Neutral | Macro: 51.72\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲33.3% 강한 모멘텀 | RSI 99 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲33.4% 강한 모멘텀 | RSI 100 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲32.9% 강한 모멘텀 | RSI 87 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-12",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-12/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-13",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:29 [runner] INFO: Starting collection for 2026-01-13 — 1 sources\n01:51:32 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-13\n01:51:32 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-13_run.json\n01:51:32 [runner] INFO: === Collection Manifest: 2026-01-13 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-13",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:32 [runner] INFO: Starting collection for 2026-01-13 — 1 sources\n01:51:32 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-13\n01:51:32 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-13_run.json\n01:51:32 [runner] INFO: === Collection Manifest: 2026-01-13 ===\n  opendart: success | docs=47 dupes=3 errors=0\n  TOTAL: 47 documents"
+    },
+    {
+      "date": "2026-01-13",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-13.json\nRegime: Neutral | Total: 51.04"
+    },
+    {
+      "date": "2026-01-13",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-13.json\nRegime: Neutral | Macro: 51.04\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲36.3% 강한 모멘텀 | RSI 99 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲36.5% 강한 모멘텀 | RSI 100 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲32.8% 강한 모멘텀 | RSI 88 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-13",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-13/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-14",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:33 [runner] INFO: Starting collection for 2026-01-14 — 1 sources\n01:51:36 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-14\n01:51:36 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-14_run.json\n01:51:36 [runner] INFO: === Collection Manifest: 2026-01-14 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-14",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:36 [runner] INFO: Starting collection for 2026-01-14 — 1 sources\n01:51:36 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-14\n01:51:36 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-14_run.json\n01:51:36 [runner] INFO: === Collection Manifest: 2026-01-14 ===\n  opendart: success | docs=32 dupes=18 errors=0\n  TOTAL: 32 documents"
+    },
+    {
+      "date": "2026-01-14",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-14.json\nRegime: Neutral | Total: 49.5"
+    },
+    {
+      "date": "2026-01-14",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-14.json\nRegime: Neutral | Macro: 49.5\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲38.4% 강한 모멘텀 | RSI 99 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲38.5% 강한 모멘텀 | RSI 100 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 74점 — Neutral 레짐 중립 | 3M ▲38.7% 강한 모멘텀 | RSI 87 과매수 주의 | 변동성 42% 高"
+    },
+    {
+      "date": "2026-01-14",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-14/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-15",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:36 [runner] INFO: Starting collection for 2026-01-15 — 1 sources\n01:51:39 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-15\n01:51:39 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-15_run.json\n01:51:39 [runner] INFO: === Collection Manifest: 2026-01-15 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-15",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:39 [runner] INFO: Starting collection for 2026-01-15 — 1 sources\n01:51:39 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-15\n01:51:39 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-15_run.json\n01:51:39 [runner] INFO: === Collection Manifest: 2026-01-15 ===\n  opendart: success | docs=43 dupes=7 errors=0\n  TOTAL: 43 documents"
+    },
+    {
+      "date": "2026-01-15",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-15.json\nRegime: Neutral | Total: 49.53"
+    },
+    {
+      "date": "2026-01-15",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-15.json\nRegime: Neutral | Macro: 49.53\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲37.0% 강한 모멘텀 | RSI 99 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲37.1% 강한 모멘텀 | RSI 100 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 75점 — Neutral 레짐 중립 | 3M ▲34.4% 강한 모멘텀 | RSI 87 과매수 주의 | 변동성 40% 高"
+    },
+    {
+      "date": "2026-01-15",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-15/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-16",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:40 [runner] INFO: Starting collection for 2026-01-16 — 1 sources\n01:51:43 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-16\n01:51:43 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-16_run.json\n01:51:43 [runner] INFO: === Collection Manifest: 2026-01-16 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-16",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:43 [runner] INFO: Starting collection for 2026-01-16 — 1 sources\n01:51:43 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-16\n01:51:43 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-16_run.json\n01:51:43 [runner] INFO: === Collection Manifest: 2026-01-16 ===\n  opendart: success | docs=45 dupes=5 errors=0\n  TOTAL: 45 documents"
+    },
+    {
+      "date": "2026-01-16",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-16.json\nRegime: Neutral | Total: 49.04"
+    },
+    {
+      "date": "2026-01-16",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-16.json\nRegime: Neutral | Macro: 49.04\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲34.9% 강한 모멘텀 | RSI 99 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲35.1% 강한 모멘텀 | RSI 100 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 77점 — Neutral 레짐 중립 | 3M ▲32.6% 강한 모멘텀 | RSI 90 과매수 주의 | 변동성 36% 高"
+    },
+    {
+      "date": "2026-01-16",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-16/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-19",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:45 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-20&observation_end=2026-01-19\n01:51:46 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-20&observation_end=2026-01-19\n01:51:46 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-20&observation_end=2026-01-19\n01:51:46 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-20&observation_end=2026-01-19\n01:51:47 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-20&observation_end=2026-01-19\n01:51:47 [fetcher.fred_api] INFO: [fred_api] fetched 1 docs for 2026-01-19\n01:51:47 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-19_run.json\n01:51:47 [runner] INFO: === Collection Manifest: 2026-01-19 ===\n  fred_api: success | docs=1 dupes=0 errors=0\n  TOTAL: 1 documents"
+    },
+    {
+      "date": "2026-01-19",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:47 [runner] INFO: Starting collection for 2026-01-19 — 1 sources\n01:51:47 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-19\n01:51:47 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-19_run.json\n01:51:47 [runner] INFO: === Collection Manifest: 2026-01-19 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-01-19",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-19.json\nRegime: Neutral | Total: 53.7"
+    },
+    {
+      "date": "2026-01-19",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-19.json\nRegime: Neutral | Macro: 53.7\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲36.4% 강한 모멘텀 | RSI 99 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲36.7% 강한 모멘텀 | RSI 100 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 78점 — Neutral 레짐 중립 | 3M ▲34.2% 강한 모멘텀 | RSI 90 과매수 주의 | 변동성 35% 高"
+    },
+    {
+      "date": "2026-01-19",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-19/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-20",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:49 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-21&observation_end=2026-01-20\n01:51:50 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-21&observation_end=2026-01-20\n01:51:50 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-21&observation_end=2026-01-20\n01:51:50 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-21&observation_end=2026-01-20\n01:51:50 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-21&observation_end=2026-01-20\n01:51:50 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-01-20\n01:51:50 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-20_run.json\n01:51:50 [runner] INFO: === Collection Manifest: 2026-01-20 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-01-20",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:50 [runner] INFO: Starting collection for 2026-01-20 — 1 sources\n01:51:51 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-20\n01:51:51 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-20_run.json\n01:51:51 [runner] INFO: === Collection Manifest: 2026-01-20 ===\n  opendart: success | docs=43 dupes=7 errors=0\n  TOTAL: 43 documents"
+    },
+    {
+      "date": "2026-01-20",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-20.json\nRegime: Neutral | Total: 51.11"
+    },
+    {
+      "date": "2026-01-20",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-20.json\nRegime: Neutral | Macro: 51.11\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲32.9% 강한 모멘텀 | RSI 94 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲33.1% 강한 모멘텀 | RSI 95 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 75점 — Neutral 레짐 중립 | 3M ▲27.8% 강한 모멘텀 | RSI 79 과매수 주의 | 변동성 37% 高"
+    },
+    {
+      "date": "2026-01-20",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-20/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-21",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:53 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-22&observation_end=2026-01-21\n01:51:53 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-22&observation_end=2026-01-21\n01:51:53 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-22&observation_end=2026-01-21\n01:51:54 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-22&observation_end=2026-01-21\n01:51:54 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-22&observation_end=2026-01-21\n01:51:54 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-01-21\n01:51:54 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-21_run.json\n01:51:54 [runner] INFO: === Collection Manifest: 2026-01-21 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-01-21",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:54 [runner] INFO: Starting collection for 2026-01-21 — 1 sources\n01:51:54 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-21\n01:51:54 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-21_run.json\n01:51:54 [runner] INFO: === Collection Manifest: 2026-01-21 ===\n  opendart: success | docs=30 dupes=20 errors=0\n  TOTAL: 30 documents"
+    },
+    {
+      "date": "2026-01-21",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-21.json\nRegime: Neutral | Total: 52.29"
+    },
+    {
+      "date": "2026-01-21",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-21.json\nRegime: Neutral | Macro: 52.29\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲33.7% 강한 모멘텀 | RSI 94 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲33.8% 강한 모멘텀 | RSI 95 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 77점 — Neutral 레짐 중립 | 3M ▲29.6% 강한 모멘텀 | RSI 79 과매수 주의 | 변동성 36% 高"
+    },
+    {
+      "date": "2026-01-21",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-21/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-22",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:56 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-23&observation_end=2026-01-22\n01:51:57 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-23&observation_end=2026-01-22\n01:51:57 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-23&observation_end=2026-01-22\n01:51:57 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-23&observation_end=2026-01-22\n01:51:57 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-23&observation_end=2026-01-22\n01:51:57 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-01-22\n01:51:57 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-22_run.json\n01:51:57 [runner] INFO: === Collection Manifest: 2026-01-22 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-01-22",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:58 [runner] INFO: Starting collection for 2026-01-22 — 1 sources\n01:51:58 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-22\n01:51:58 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-22_run.json\n01:51:58 [runner] INFO: === Collection Manifest: 2026-01-22 ===\n  opendart: success | docs=49 dupes=1 errors=0\n  TOTAL: 49 documents"
+    },
+    {
+      "date": "2026-01-22",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-22.json\nRegime: Neutral | Total: 53.27"
+    },
+    {
+      "date": "2026-01-22",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-22.json\nRegime: Neutral | Macro: 53.27\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲33.6% 강한 모멘텀 | RSI 94 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲33.7% 강한 모멘텀 | RSI 94 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 78점 — Neutral 레짐 중립 | 3M ▲30.8% 강한 모멘텀 | RSI 74 과매수 주의 | 변동성 34% 高"
+    },
+    {
+      "date": "2026-01-22",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-22/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-23",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:51:58 [runner] INFO: Starting collection for 2026-01-23 — 1 sources\n01:51:59 [fetcher.fred_api] ERROR: Failed to fetch VIXCLS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=VIXCLS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-24&observation_end=2026-01-23\n01:51:59 [fetcher.fred_api] ERROR: Failed to fetch DGS10: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-24&observation_end=2026-01-23\n01:51:59 [fetcher.fred_api] ERROR: Failed to fetch DTWEXBGS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=DTWEXBGS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-24&observation_end=2026-01-23\n01:51:59 [fetcher.fred_api] ERROR: Failed to fetch DCOILWTICO: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=DCOILWTICO&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2025-12-24&observation_end=2026-01-23\n01:52:01 [fetcher.fred_api] INFO: [fred_api] fetched 6 docs for 2026-01-23\n01:52:01 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-23_run.json\n01:52:01 [runner] INFO: === Collection Manifest: 2026-01-23 ===\n  fred_api: success | docs=2 dupes=4 errors=0\n  TOTAL: 2 documents"
+    },
+    {
+      "date": "2026-01-23",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:01 [runner] INFO: Starting collection for 2026-01-23 — 1 sources\n01:52:01 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-23\n01:52:02 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-23_run.json\n01:52:02 [runner] INFO: === Collection Manifest: 2026-01-23 ===\n  opendart: success | docs=12 dupes=38 errors=0\n  TOTAL: 12 documents"
+    },
+    {
+      "date": "2026-01-23",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-23.json\nRegime: Neutral | Total: 52.87"
+    },
+    {
+      "date": "2026-01-23",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-23.json\nRegime: Neutral | Macro: 52.87\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲35.9% 강한 모멘텀 | RSI 93 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲36.0% 강한 모멘텀 | RSI 93 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 78점 — Neutral 레짐 중립 | 3M ▲32.0% 강한 모멘텀 | RSI 67 정상 구간 | 변동성 34% 高"
+    },
+    {
+      "date": "2026-01-23",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-23/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-26",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:02 [runner] INFO: Starting collection for 2026-01-26 — 1 sources\n01:52:06 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-26\n01:52:06 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-26_run.json\n01:52:06 [runner] INFO: === Collection Manifest: 2026-01-26 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-26",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:06 [runner] INFO: Starting collection for 2026-01-26 — 1 sources\n01:52:06 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-26\n01:52:06 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-26_run.json\n01:52:06 [runner] INFO: === Collection Manifest: 2026-01-26 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-01-26",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-26.json\nRegime: Neutral | Total: 48.93"
+    },
+    {
+      "date": "2026-01-26",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-26.json\nRegime: Neutral | Macro: 48.93\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲31.2% 강한 모멘텀 | RSI 84 과매수 주의\n  2. [강력매수] KODEX 반도체 (KODEX_SEMI) 79점 — Neutral 레짐 중립 | 3M ▲30.3% 강한 모멘텀 | RSI 64 정상 구간 | 변동성 33% 高\n  3. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲31.3% 강한 모멘텀 | RSI 85 과매수 주의"
+    },
+    {
+      "date": "2026-01-26",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-26/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-27",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:07 [runner] INFO: Starting collection for 2026-01-27 — 1 sources\n01:52:09 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-27\n01:52:09 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-27_run.json\n01:52:09 [runner] INFO: === Collection Manifest: 2026-01-27 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-27",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:10 [runner] INFO: Starting collection for 2026-01-27 — 1 sources\n01:52:10 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-27\n01:52:10 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-27_run.json\n01:52:10 [runner] INFO: === Collection Manifest: 2026-01-27 ===\n  opendart: success | docs=14 dupes=36 errors=0\n  TOTAL: 14 documents"
+    },
+    {
+      "date": "2026-01-27",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-27.json\nRegime: Neutral | Total: 49.09"
+    },
+    {
+      "date": "2026-01-27",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-27.json\nRegime: Neutral | Macro: 49.09\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲32.0% 강한 모멘텀 | RSI 87 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲32.3% 강한 모멘텀 | RSI 88 과매수 주의\n  3. [강력매수] 금 ETF (GLD) 76점 — Neutral 레짐 중립 | 3M ▲26.1% 강한 모멘텀 | RSI 89 과매수 주의"
+    },
+    {
+      "date": "2026-01-27",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-27/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-28",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:10 [runner] INFO: Starting collection for 2026-01-28 — 1 sources\n01:52:13 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-28\n01:52:13 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-28_run.json\n01:52:13 [runner] INFO: === Collection Manifest: 2026-01-28 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-28",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:13 [runner] INFO: Starting collection for 2026-01-28 — 1 sources\n01:52:13 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-28\n01:52:13 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-28_run.json\n01:52:13 [runner] INFO: === Collection Manifest: 2026-01-28 ===\n  opendart: success | docs=36 dupes=14 errors=0\n  TOTAL: 36 documents"
+    },
+    {
+      "date": "2026-01-28",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-28.json\nRegime: Neutral | Total: 49.58"
+    },
+    {
+      "date": "2026-01-28",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-28.json\nRegime: Neutral | Macro: 49.58\nTop 3:\n  1. [강력매수] 금 ETF (GLD) 79점 — Neutral 레짐 중립 | 3M ▲34.8% 강한 모멘텀 | RSI 95 과매수 주의\n  2. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲35.9% 강한 모멘텀 | RSI 89 과매수 주의\n  3. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 79점 — Neutral 레짐 중립 | 3M ▲31.6% 강한 모멘텀 | RSI 91 과매수 주의"
+    },
+    {
+      "date": "2026-01-28",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-28/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-29",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:14 [runner] INFO: Starting collection for 2026-01-29 — 1 sources\n01:52:17 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-29\n01:52:17 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-29_run.json\n01:52:17 [runner] INFO: === Collection Manifest: 2026-01-29 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-29",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:17 [runner] INFO: Starting collection for 2026-01-29 — 1 sources\n01:52:17 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-29\n01:52:17 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-29_run.json\n01:52:17 [runner] INFO: === Collection Manifest: 2026-01-29 ===\n  opendart: success | docs=43 dupes=7 errors=0\n  TOTAL: 43 documents"
+    },
+    {
+      "date": "2026-01-29",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-29.json\nRegime: Neutral | Total: 49.12"
+    },
+    {
+      "date": "2026-01-29",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-29.json\nRegime: Neutral | Macro: 49.12\nTop 3:\n  1. [강력매수] 금 ETF (GLD) 79점 — Neutral 레짐 중립 | 3M ▲36.1% 강한 모멘텀 | RSI 94 과매수 주의\n  2. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲34.7% 강한 모멘텀 | RSI 90 과매수 주의\n  3. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 79점 — Neutral 레짐 중립 | 3M ▲39.2% 강한 모멘텀 | RSI 93 과매수 주의"
+    },
+    {
+      "date": "2026-01-29",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-29/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-01-30",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:18 [runner] INFO: Starting collection for 2026-01-30 — 1 sources\n01:52:21 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-01-30\n01:52:21 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-30_run.json\n01:52:21 [runner] INFO: === Collection Manifest: 2026-01-30 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-01-30",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:21 [runner] INFO: Starting collection for 2026-01-30 — 1 sources\n01:52:21 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-01-30\n01:52:21 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-01-30_run.json\n01:52:21 [runner] INFO: === Collection Manifest: 2026-01-30 ===\n  opendart: success | docs=7 dupes=43 errors=0\n  TOTAL: 7 documents"
+    },
+    {
+      "date": "2026-01-30",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-01-30.json\nRegime: Neutral | Total: 47.9"
+    },
+    {
+      "date": "2026-01-30",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-01-30.json\nRegime: Neutral | Macro: 47.9\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 79점 — Neutral 레짐 중립 | 3M ▲34.7% 강한 모멘텀 | RSI 89 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 79점 — Neutral 레짐 중립 | 3M ▲34.7% 강한 모멘텀 | RSI 89 과매수 주의\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 76점 — Neutral 레짐 중립 | 3M ▲50.8% 강한 모멘텀 | RSI 92 과매수 주의 | 변동성 37% 高"
+    },
+    {
+      "date": "2026-01-30",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-01-30/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-02",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:21 [runner] INFO: Starting collection for 2026-02-02 — 1 sources\n01:52:24 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-02\n01:52:24 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-02_run.json\n01:52:24 [runner] INFO: === Collection Manifest: 2026-02-02 ===\n  fred_api: success | docs=10 dupes=0 errors=0\n  TOTAL: 10 documents"
+    },
+    {
+      "date": "2026-02-02",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:24 [runner] INFO: Starting collection for 2026-02-02 — 1 sources\n01:52:25 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-02\n01:52:25 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-02_run.json\n01:52:25 [runner] INFO: === Collection Manifest: 2026-02-02 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-02-02",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-02.json\nRegime: Neutral | Total: 46.69"
+    },
+    {
+      "date": "2026-02-02",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-02.json\nRegime: Neutral | Macro: 46.69\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 75점 — Neutral 레짐 중립 | 3M ▲25.2% 강한 모멘텀 | RSI 63 정상 구간\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 75점 — Neutral 레짐 중립 | 3M ▲25.5% 강한 모멘텀 | RSI 64 정상 구간\n  3. [강력매수] KODEX 반도체 (KODEX_SEMI) 70점 — Neutral 레짐 중립 | 3M ▲38.3% 강한 모멘텀 | RSI 70 과매수 주의 | 변동성 48% 高"
+    },
+    {
+      "date": "2026-02-02",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-02/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-03",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:25 [runner] INFO: Starting collection for 2026-02-03 — 1 sources\n01:52:28 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-03\n01:52:28 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-03_run.json\n01:52:28 [runner] INFO: === Collection Manifest: 2026-02-03 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-03",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:28 [runner] INFO: Starting collection for 2026-02-03 — 1 sources\n01:52:28 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-03\n01:52:28 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-03_run.json\n01:52:28 [runner] INFO: === Collection Manifest: 2026-02-03 ===\n  opendart: success | docs=45 dupes=5 errors=0\n  TOTAL: 45 documents"
+    },
+    {
+      "date": "2026-02-03",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-03.json\nRegime: Neutral | Total: 47.18"
+    },
+    {
+      "date": "2026-02-03",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-03.json\nRegime: Neutral | Macro: 47.18\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 76점 — Neutral 레짐 중립 | 3M ▲30.8% 강한 모멘텀 | RSI 72 과매수 주의 | 변동성 38% 高\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 76점 — Neutral 레짐 중립 | 3M ▲30.8% 강한 모멘텀 | RSI 73 과매수 주의 | 변동성 38% 高\n  3. [강력매수] 에너지 섹터 ETF (XLE) 69점 — Neutral 레짐 중립 | 3M ▲18.3% 강한 모멘텀 | RSI 80 과매수 주의"
+    },
+    {
+      "date": "2026-02-03",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-03/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-04",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:29 [runner] INFO: Starting collection for 2026-02-04 — 1 sources\n01:52:32 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-04\n01:52:32 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-04_run.json\n01:52:32 [runner] INFO: === Collection Manifest: 2026-02-04 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-04",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:32 [runner] INFO: Starting collection for 2026-02-04 — 1 sources\n01:52:32 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-04\n01:52:32 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-04_run.json\n01:52:32 [runner] INFO: === Collection Manifest: 2026-02-04 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-02-04",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-04.json\nRegime: Neutral | Total: 47.21"
+    },
+    {
+      "date": "2026-02-04",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-04.json\nRegime: Neutral | Macro: 47.21\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 76점 — Neutral 레짐 중립 | 3M ▲36.4% 강한 모멘텀 | RSI 72 과매수 주의 | 변동성 38% 高\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 76점 — Neutral 레짐 중립 | 3M ▲36.5% 강한 모멘텀 | RSI 73 과매수 주의 | 변동성 38% 高\n  3. [강력매수] 에너지 섹터 ETF (XLE) 71점 — Neutral 레짐 중립 | 3M ▲20.9% 강한 모멘텀 | RSI 80 과매수 주의"
+    },
+    {
+      "date": "2026-02-04",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-04/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-05",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:33 [runner] INFO: Starting collection for 2026-02-05 — 1 sources\n01:52:36 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-05\n01:52:36 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-05_run.json\n01:52:36 [runner] INFO: === Collection Manifest: 2026-02-05 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-05",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:36 [runner] INFO: Starting collection for 2026-02-05 — 1 sources\n01:52:36 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-05\n01:52:36 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-05_run.json\n01:52:36 [runner] INFO: === Collection Manifest: 2026-02-05 ===\n  opendart: success | docs=28 dupes=22 errors=0\n  TOTAL: 28 documents"
+    },
+    {
+      "date": "2026-02-05",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-05.json\nRegime: Neutral | Total: 45.25"
+    },
+    {
+      "date": "2026-02-05",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-05.json\nRegime: Neutral | Macro: 45.25\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 74점 — Neutral 레짐 중립 | 3M ▲34.3% 강한 모멘텀 | RSI 61 정상 구간 | 변동성 42% 高\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 74점 — Neutral 레짐 중립 | 3M ▲34.5% 강한 모멘텀 | RSI 61 정상 구간 | 변동성 42% 高\n  3. [강력매수] 에너지 섹터 ETF (XLE) 71점 — Neutral 레짐 중립 | 3M ▲20.8% 강한 모멘텀 | RSI 79 과매수 주의"
+    },
+    {
+      "date": "2026-02-05",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-05/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-06",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:37 [runner] INFO: Starting collection for 2026-02-06 — 1 sources\n01:52:39 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-06\n01:52:39 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-06_run.json\n01:52:39 [runner] INFO: === Collection Manifest: 2026-02-06 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-06",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:39 [runner] INFO: Starting collection for 2026-02-06 — 1 sources\n01:52:40 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-06\n01:52:40 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-06_run.json\n01:52:40 [runner] INFO: === Collection Manifest: 2026-02-06 ===\n  opendart: success | docs=43 dupes=7 errors=0\n  TOTAL: 43 documents"
+    },
+    {
+      "date": "2026-02-06",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-06.json\nRegime: Neutral | Total: 47.69"
+    },
+    {
+      "date": "2026-02-06",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-06.json\nRegime: Neutral | Macro: 47.69\nTop 3:\n  1. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 74점 — Neutral 레짐 중립 | 3M ▲32.3% 강한 모멘텀 | RSI 57 정상 구간 | 변동성 42% 高\n  2. [강력매수] 에너지 섹터 ETF (XLE) 73점 — Neutral 레짐 중립 | 3M ▲22.9% 강한 모멘텀 | RSI 81 과매수 주의\n  3. [강력매수] TIGER 200 (TIGER200) 73점 — Neutral 레짐 중립 | 3M ▲32.1% 강한 모멘텀 | RSI 57 정상 구간 | 변동성 43% 高"
+    },
+    {
+      "date": "2026-02-06",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-06/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-09",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:40 [runner] INFO: Starting collection for 2026-02-09 — 1 sources\n01:52:43 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-09\n01:52:43 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-09_run.json\n01:52:43 [runner] INFO: === Collection Manifest: 2026-02-09 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-09",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:43 [runner] INFO: Starting collection for 2026-02-09 — 1 sources\n01:52:43 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-09\n01:52:43 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-09_run.json\n01:52:43 [runner] INFO: === Collection Manifest: 2026-02-09 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-02-09",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-09.json\nRegime: Neutral | Total: 49.79"
+    },
+    {
+      "date": "2026-02-09",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-09.json\nRegime: Neutral | Macro: 49.79\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 73점 — Neutral 레짐 중립 | 3M ▲22.6% 강한 모멘텀 | RSI 83 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 73점 — Neutral 레짐 중립 | 3M ▲40.4% 강한 모멘텀 | RSI 64 정상 구간 | 변동성 44% 高\n  3. [강력매수] TIGER 200 (TIGER200) 72점 — Neutral 레짐 중립 | 3M ▲40.2% 강한 모멘텀 | RSI 64 정상 구간 | 변동성 45% 高"
+    },
+    {
+      "date": "2026-02-09",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-09/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-10",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:46 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-11&observation_end=2026-02-10\n01:52:46 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-11&observation_end=2026-02-10\n01:52:46 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-11&observation_end=2026-02-10\n01:52:46 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-11&observation_end=2026-02-10\n01:52:47 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-11&observation_end=2026-02-10\n01:52:47 [fetcher.fred_api] INFO: [fred_api] fetched 4 docs for 2026-02-10\n01:52:47 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-10_run.json\n01:52:47 [runner] INFO: === Collection Manifest: 2026-02-10 ===\n  fred_api: success | docs=4 dupes=0 errors=0\n  TOTAL: 4 documents"
+    },
+    {
+      "date": "2026-02-10",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:47 [runner] INFO: Starting collection for 2026-02-10 — 1 sources\n01:52:47 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-10\n01:52:47 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-10_run.json\n01:52:47 [runner] INFO: === Collection Manifest: 2026-02-10 ===\n  opendart: success | docs=45 dupes=5 errors=0\n  TOTAL: 45 documents"
+    },
+    {
+      "date": "2026-02-10",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-10.json\nRegime: Neutral | Total: 48.99"
+    },
+    {
+      "date": "2026-02-10",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-10.json\nRegime: Neutral | Macro: 48.99\nTop 3:\n  1. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 73점 — Neutral 레짐 중립 | 3M ▲36.3% 강한 모멘텀 | RSI 63 정상 구간 | 변동성 44% 高\n  2. [강력매수] TIGER 200 (TIGER200) 72점 — Neutral 레짐 중립 | 3M ▲36.2% 강한 모멘텀 | RSI 63 정상 구간 | 변동성 45% 高\n  3. [강력매수] 에너지 섹터 ETF (XLE) 71점 — Neutral 레짐 중립 | 3M ▲20.7% 강한 모멘텀 | RSI 79 과매수 주의"
+    },
+    {
+      "date": "2026-02-10",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-10/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-11",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:49 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-12&observation_end=2026-02-11\n01:52:49 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-12&observation_end=2026-02-11\n01:52:50 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-12&observation_end=2026-02-11\n01:52:50 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-12&observation_end=2026-02-11\n01:52:50 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-12&observation_end=2026-02-11\n01:52:50 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-02-11\n01:52:50 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-11_run.json\n01:52:50 [runner] INFO: === Collection Manifest: 2026-02-11 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-02-11",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:51 [runner] INFO: Starting collection for 2026-02-11 — 1 sources\n01:52:51 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-11\n01:52:51 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-11_run.json\n01:52:51 [runner] INFO: === Collection Manifest: 2026-02-11 ===\n  opendart: success | docs=44 dupes=6 errors=0\n  TOTAL: 44 documents"
+    },
+    {
+      "date": "2026-02-11",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-11.json\nRegime: Neutral | Total: 48.28"
+    },
+    {
+      "date": "2026-02-11",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-11.json\nRegime: Neutral | Macro: 48.28\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 73점 — Neutral 레짐 중립 | 3M ▲22.7% 강한 모멘텀 | RSI 82 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 73점 — Neutral 레짐 중립 | 3M ▲36.1% 강한 모멘텀 | RSI 63 정상 구간 | 변동성 44% 高\n  3. [강력매수] TIGER 200 (TIGER200) 72점 — Neutral 레짐 중립 | 3M ▲36.1% 강한 모멘텀 | RSI 63 정상 구간 | 변동성 45% 高"
+    },
+    {
+      "date": "2026-02-11",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-11/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-12",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:53 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-13&observation_end=2026-02-12\n01:52:53 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-13&observation_end=2026-02-12\n01:52:54 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-13&observation_end=2026-02-12\n01:52:54 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-13&observation_end=2026-02-12\n01:52:54 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-13&observation_end=2026-02-12\n01:52:54 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-02-12\n01:52:54 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-12_run.json\n01:52:54 [runner] INFO: === Collection Manifest: 2026-02-12 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-02-12",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:54 [runner] INFO: Starting collection for 2026-02-12 — 1 sources\n01:52:54 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-12\n01:52:54 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-12_run.json\n01:52:54 [runner] INFO: === Collection Manifest: 2026-02-12 ===\n  opendart: success | docs=43 dupes=7 errors=0\n  TOTAL: 43 documents"
+    },
+    {
+      "date": "2026-02-12",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-12.json\nRegime: Neutral | Total: 46.7"
+    },
+    {
+      "date": "2026-02-12",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-12.json\nRegime: Neutral | Macro: 46.7\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 72점 — Neutral 레짐 중립 | 3M ▲39.6% 강한 모멘텀 | RSI 66 정상 구간 | 변동성 46% 高\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲39.6% 강한 모멘텀 | RSI 66 정상 구간 | 변동성 45% 高\n  3. [강력매수] 에너지 섹터 ETF (XLE) 70점 — Neutral 레짐 중립 | 3M ▲19.0% 강한 모멘텀 | RSI 74 과매수 주의"
+    },
+    {
+      "date": "2026-02-12",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-12/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-13",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:57 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-14&observation_end=2026-02-13\n01:52:57 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-14&observation_end=2026-02-13\n01:52:57 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-14&observation_end=2026-02-13\n01:52:58 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-14&observation_end=2026-02-13\n01:52:58 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-01-14&observation_end=2026-02-13\n01:52:58 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-02-13\n01:52:58 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-13_run.json\n01:52:58 [runner] INFO: === Collection Manifest: 2026-02-13 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-02-13",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:59 [runner] INFO: Starting collection for 2026-02-13 — 1 sources\n01:52:59 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-13\n01:52:59 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-13_run.json\n01:52:59 [runner] INFO: === Collection Manifest: 2026-02-13 ===\n  opendart: success | docs=20 dupes=30 errors=0\n  TOTAL: 20 documents"
+    },
+    {
+      "date": "2026-02-13",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-13.json\nRegime: Neutral | Total: 46.63"
+    },
+    {
+      "date": "2026-02-13",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-13.json\nRegime: Neutral | Macro: 46.63\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 72점 — Neutral 레짐 중립 | 3M ▲21.5% 강한 모멘텀 | RSI 74 과매수 주의\n  2. [강력매수] TIGER 200 (TIGER200) 72점 — Neutral 레짐 중립 | 3M ▲38.7% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高\n  3. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲38.9% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 45% 高"
+    },
+    {
+      "date": "2026-02-13",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-13/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-16",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:52:59 [runner] INFO: Starting collection for 2026-02-16 — 1 sources\n01:53:03 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-16\n01:53:03 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-16_run.json\n01:53:03 [runner] INFO: === Collection Manifest: 2026-02-16 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-16",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:03 [runner] INFO: Starting collection for 2026-02-16 — 1 sources\n01:53:03 [fetcher.opendart] WARNING: DART API returned status 013: 조회된 데이타가 없습니다.\n01:53:03 [fetcher.opendart] INFO: [opendart] fetched 0 docs for 2026-02-16\n01:53:03 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-16_run.json\n01:53:03 [runner] INFO: === Collection Manifest: 2026-02-16 ===\n  opendart: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-02-16",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-16.json\nRegime: Neutral | Total: 46.19"
+    },
+    {
+      "date": "2026-02-16",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-16.json\nRegime: Neutral | Macro: 46.19\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 72점 — Neutral 레짐 중립 | 3M ▲21.5% 강한 모멘텀 | RSI 74 과매수 주의\n  2. [강력매수] TIGER 200 (TIGER200) 72점 — Neutral 레짐 중립 | 3M ▲38.7% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高\n  3. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲38.9% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 45% 高"
+    },
+    {
+      "date": "2026-02-16",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-16/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-17",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:03 [runner] INFO: Starting collection for 2026-02-17 — 1 sources\n01:53:06 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-17\n01:53:06 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-17_run.json\n01:53:06 [runner] INFO: === Collection Manifest: 2026-02-17 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-17",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:07 [runner] INFO: Starting collection for 2026-02-17 — 1 sources\n01:53:07 [fetcher.opendart] WARNING: DART API returned status 013: 조회된 데이타가 없습니다.\n01:53:07 [fetcher.opendart] INFO: [opendart] fetched 0 docs for 2026-02-17\n01:53:07 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-17_run.json\n01:53:07 [runner] INFO: === Collection Manifest: 2026-02-17 ===\n  opendart: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-02-17",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-17.json\nRegime: Neutral | Total: 46.22"
+    },
+    {
+      "date": "2026-02-17",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-17.json\nRegime: Neutral | Macro: 46.22\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 72점 — Neutral 레짐 중립 | 3M ▲38.7% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲38.9% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 45% 高\n  3. [강력매수] 에너지 섹터 ETF (XLE) 71점 — Neutral 레짐 중립 | 3M ▲19.8% 강한 모멘텀 | RSI 69 정상 구간"
+    },
+    {
+      "date": "2026-02-17",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-17/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-18",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:07 [runner] INFO: Starting collection for 2026-02-18 — 1 sources\n01:53:11 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-18\n01:53:11 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-18_run.json\n01:53:11 [runner] INFO: === Collection Manifest: 2026-02-18 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-18",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:11 [runner] INFO: Starting collection for 2026-02-18 — 1 sources\n01:53:11 [fetcher.opendart] WARNING: DART API returned status 013: 조회된 데이타가 없습니다.\n01:53:11 [fetcher.opendart] INFO: [opendart] fetched 0 docs for 2026-02-18\n01:53:11 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-18_run.json\n01:53:11 [runner] INFO: === Collection Manifest: 2026-02-18 ===\n  opendart: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-02-18",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-18.json\nRegime: Neutral | Total: 47.39"
+    },
+    {
+      "date": "2026-02-18",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-18.json\nRegime: Neutral | Macro: 47.39\nTop 3:\n  1. [강력매수] TIGER 200 (TIGER200) 72점 — Neutral 레짐 중립 | 3M ▲38.7% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲38.9% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 45% 高\n  3. [강력매수] 에너지 섹터 ETF (XLE) 71점 — Neutral 레짐 중립 | 3M ▲20.1% 강한 모멘텀 | RSI 71 과매수 주의"
+    },
+    {
+      "date": "2026-02-18",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-18/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-19",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:12 [runner] INFO: Starting collection for 2026-02-19 — 1 sources\n01:53:15 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-19\n01:53:15 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-19_run.json\n01:53:15 [runner] INFO: === Collection Manifest: 2026-02-19 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-19",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:15 [runner] INFO: Starting collection for 2026-02-19 — 1 sources\n01:53:15 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-19\n01:53:15 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-19_run.json\n01:53:15 [runner] INFO: === Collection Manifest: 2026-02-19 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-02-19",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-19.json\nRegime: Neutral | Total: 47.23"
+    },
+    {
+      "date": "2026-02-19",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-19.json\nRegime: Neutral | Macro: 47.23\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 73점 — Neutral 레짐 중립 | 3M ▲23.2% 강한 모멘텀 | RSI 71 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲49.6% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高\n  3. [강력매수] TIGER 200 (TIGER200) 71점 — Neutral 레짐 중립 | 3M ▲49.5% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高"
+    },
+    {
+      "date": "2026-02-19",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-19/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-20",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:16 [runner] INFO: Starting collection for 2026-02-20 — 1 sources\n01:53:18 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-20\n01:53:18 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-20_run.json\n01:53:18 [runner] INFO: === Collection Manifest: 2026-02-20 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-20",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:18 [runner] INFO: Starting collection for 2026-02-20 — 1 sources\n01:53:19 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-20\n01:53:19 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-20_run.json\n01:53:19 [runner] INFO: === Collection Manifest: 2026-02-20 ===\n  opendart: success | docs=4 dupes=46 errors=0\n  TOTAL: 4 documents"
+    },
+    {
+      "date": "2026-02-20",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-20.json\nRegime: Neutral | Total: 48.36"
+    },
+    {
+      "date": "2026-02-20",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-20.json\nRegime: Neutral | Macro: 48.36\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 72점 — Neutral 레짐 중립 | 3M ▲21.6% 강한 모멘텀 | RSI 67 정상 구간\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲49.9% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高\n  3. [강력매수] TIGER 200 (TIGER200) 71점 — Neutral 레짐 중립 | 3M ▲49.7% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高"
+    },
+    {
+      "date": "2026-02-20",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-20/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-23",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:19 [runner] INFO: Starting collection for 2026-02-23 — 1 sources\n01:53:22 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-23\n01:53:22 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-23_run.json\n01:53:22 [runner] INFO: === Collection Manifest: 2026-02-23 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-23",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:22 [runner] INFO: Starting collection for 2026-02-23 — 1 sources\n01:53:22 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-23\n01:53:22 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-23_run.json\n01:53:22 [runner] INFO: === Collection Manifest: 2026-02-23 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-02-23",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-23.json\nRegime: Neutral | Total: 46.84"
+    },
+    {
+      "date": "2026-02-23",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-23.json\nRegime: Neutral | Macro: 46.84\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 74점 — Neutral 레짐 중립 | 3M ▲23.8% 강한 모멘텀 | RSI 75 과매수 주의\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲56.1% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高\n  3. [강력매수] TIGER 200 (TIGER200) 71점 — Neutral 레짐 중립 | 3M ▲56.0% 강한 모멘텀 | RSI 68 정상 구간 | 변동성 46% 高"
+    },
+    {
+      "date": "2026-02-23",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-23/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-24",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:23 [runner] INFO: Starting collection for 2026-02-24 — 1 sources\n01:53:26 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-24\n01:53:26 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-24_run.json\n01:53:26 [runner] INFO: === Collection Manifest: 2026-02-24 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-24",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:26 [runner] INFO: Starting collection for 2026-02-24 — 1 sources\n01:53:26 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-24\n01:53:26 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-24_run.json\n01:53:26 [runner] INFO: === Collection Manifest: 2026-02-24 ===\n  opendart: success | docs=3 dupes=47 errors=0\n  TOTAL: 3 documents"
+    },
+    {
+      "date": "2026-02-24",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-24.json\nRegime: Neutral | Total: 48.85"
+    },
+    {
+      "date": "2026-02-24",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-24.json\nRegime: Neutral | Macro: 48.85\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 75점 — Neutral 레짐 중립 | 3M ▲25.1% 강한 모멘텀 | RSI 70 정상 구간\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲61.2% 강한 모멘텀 | RSI 70 과매수 주의 | 변동성 46% 高\n  3. [강력매수] TIGER 200 (TIGER200) 71점 — Neutral 레짐 중립 | 3M ▲60.9% 강한 모멘텀 | RSI 70 정상 구간 | 변동성 47% 高"
+    },
+    {
+      "date": "2026-02-24",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-24/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-25",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:26 [runner] INFO: Starting collection for 2026-02-25 — 1 sources\n01:53:29 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-25\n01:53:29 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-25_run.json\n01:53:29 [runner] INFO: === Collection Manifest: 2026-02-25 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-25",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:29 [runner] INFO: Starting collection for 2026-02-25 — 1 sources\n01:53:29 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-25\n01:53:29 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-25_run.json\n01:53:29 [runner] INFO: === Collection Manifest: 2026-02-25 ===\n  opendart: success | docs=49 dupes=1 errors=0\n  TOTAL: 49 documents"
+    },
+    {
+      "date": "2026-02-25",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-25.json\nRegime: Neutral | Total: 50.07"
+    },
+    {
+      "date": "2026-02-25",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-25.json\nRegime: Neutral | Macro: 50.07\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 74점 — Neutral 레짐 중립 | 3M ▲23.8% 강한 모멘텀 | RSI 63 정상 구간\n  2. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 72점 — Neutral 레짐 중립 | 3M ▲60.9% 강한 모멘텀 | RSI 84 과매수 주의 | 변동성 46% 高\n  3. [강력매수] TIGER 200 (TIGER200) 71점 — Neutral 레짐 중립 | 3M ▲60.8% 강한 모멘텀 | RSI 84 과매수 주의 | 변동성 47% 高"
+    },
+    {
+      "date": "2026-02-25",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-25/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-26",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:30 [runner] INFO: Starting collection for 2026-02-26 — 1 sources\n01:53:33 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-26\n01:53:33 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-26_run.json\n01:53:33 [runner] INFO: === Collection Manifest: 2026-02-26 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-26",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:33 [runner] INFO: Starting collection for 2026-02-26 — 1 sources\n01:53:33 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-26\n01:53:33 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-26_run.json\n01:53:33 [runner] INFO: === Collection Manifest: 2026-02-26 ===\n  opendart: success | docs=42 dupes=8 errors=0\n  TOTAL: 42 documents"
+    },
+    {
+      "date": "2026-02-26",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-26.json\nRegime: Neutral | Total: 49.97"
+    },
+    {
+      "date": "2026-02-26",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-26.json\nRegime: Neutral | Macro: 49.97\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 74점 — Neutral 레짐 중립 | 3M ▲24.5% 강한 모멘텀 | RSI 69 정상 구간\n  2. [강력매수] TIGER 200 (TIGER200) 71점 — Neutral 레짐 중립 | 3M ▲75.4% 강한 모멘텀 | RSI 83 과매수 주의 | 변동성 47% 高\n  3. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 71점 — Neutral 레짐 중립 | 3M ▲75.7% 강한 모멘텀 | RSI 83 과매수 주의 | 변동성 47% 高"
+    },
+    {
+      "date": "2026-02-26",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-26/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-02-27",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:34 [runner] INFO: Starting collection for 2026-02-27 — 1 sources\n01:53:37 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-02-27\n01:53:37 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-27_run.json\n01:53:37 [runner] INFO: === Collection Manifest: 2026-02-27 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-02-27",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:37 [runner] INFO: Starting collection for 2026-02-27 — 1 sources\n01:53:37 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-02-27\n01:53:37 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-02-27_run.json\n01:53:37 [runner] INFO: === Collection Manifest: 2026-02-27 ===\n  opendart: success | docs=36 dupes=14 errors=0\n  TOTAL: 36 documents"
+    },
+    {
+      "date": "2026-02-27",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-02-27.json\nRegime: Neutral | Total: 48.02"
+    },
+    {
+      "date": "2026-02-27",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-02-27.json\nRegime: Neutral | Macro: 48.02\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 77점 — Neutral 레짐 중립 | 3M ▲27.3% 강한 모멘텀 | RSI 69 정상 구간\n  2. [강력매수] TIGER 200 (TIGER200) 71점 — Neutral 레짐 중립 | 3M ▲73.8% 강한 모멘텀 | RSI 79 과매수 주의 | 변동성 48% 高\n  3. [강력매수] KODEX 미국채울트라30년(H) (KODEX_US30Y) 71점 — Neutral 레짐 중립 | 3M ▲74.3% 강한 모멘텀 | RSI 80 과매수 주의 | 변동성 47% 高"
+    },
+    {
+      "date": "2026-02-27",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-02-27/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-02",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:38 [runner] INFO: Starting collection for 2026-03-02 — 1 sources\n01:53:41 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-02\n01:53:41 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-02_run.json\n01:53:41 [runner] INFO: === Collection Manifest: 2026-03-02 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-02",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:41 [runner] INFO: Starting collection for 2026-03-02 — 1 sources\n01:53:41 [fetcher.opendart] WARNING: DART API returned status 013: 조회된 데이타가 없습니다.\n01:53:41 [fetcher.opendart] INFO: [opendart] fetched 0 docs for 2026-03-02\n01:53:41 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-02_run.json\n01:53:41 [runner] INFO: === Collection Manifest: 2026-03-02 ===\n  opendart: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-02",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-02.json\nRegime: Neutral | Total: 47.64"
+    },
+    {
+      "date": "2026-03-02",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-02.json\nRegime: Neutral | Macro: 47.64\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 78점 — Neutral 레짐 중립 | 3M ▲28.9% 강한 모멘텀 | RSI 72 과매수 주의\n  2. [강력매수] 금 ETF (GLD) 73점 — Neutral 레짐 중립 | 3M ▲27.9% 강한 모멘텀 | RSI 61 정상 구간 | 변동성 41% 高\n  3. [강력매수] TIGER 200 (TIGER200) 71점 — Neutral 레짐 중립 | 3M ▲73.8% 강한 모멘텀 | RSI 79 과매수 주의 | 변동성 48% 高"
+    },
+    {
+      "date": "2026-03-02",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-02/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-03",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:41 [runner] INFO: Starting collection for 2026-03-03 — 1 sources\n01:53:44 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-03\n01:53:44 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-03_run.json\n01:53:44 [runner] INFO: === Collection Manifest: 2026-03-03 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-03",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:44 [runner] INFO: Starting collection for 2026-03-03 — 1 sources\n01:53:45 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-03\n01:53:45 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-03_run.json\n01:53:45 [runner] INFO: === Collection Manifest: 2026-03-03 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-03-03",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-03.json\nRegime: Neutral | Total: 46.04"
+    },
+    {
+      "date": "2026-03-03",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-03.json\nRegime: Neutral | Macro: 46.04\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 76점 — Neutral 레짐 중립 | 3M ▲26.0% 강한 모멘텀 | RSI 68 정상 구간\n  2. [강력매수] 금 ETF (GLD) 66점 — Neutral 레짐 중립 | 3M ▲20.7% 강한 모멘텀 | RSI 52 정상 구간 | 변동성 42% 高\n  3. [강력매수] TIGER 일본니케이225 (TIGER_JAPAN) 66점 — Neutral 레짐 중립 | 3M ▲14.1% 모멘텀 유지 | RSI 55 정상 구간"
+    },
+    {
+      "date": "2026-03-03",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-03/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-04",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:47 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-02&observation_end=2026-03-04\n01:53:47 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-02&observation_end=2026-03-04\n01:53:47 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-02&observation_end=2026-03-04\n01:53:48 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-02&observation_end=2026-03-04\n01:53:48 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-02&observation_end=2026-03-04\n01:53:48 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-03-04\n01:53:48 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-04_run.json\n01:53:48 [runner] INFO: === Collection Manifest: 2026-03-04 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-04",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:48 [runner] INFO: Starting collection for 2026-03-04 — 1 sources\n01:53:48 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-04\n01:53:48 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-04_run.json\n01:53:48 [runner] INFO: === Collection Manifest: 2026-03-04 ===\n  opendart: success | docs=30 dupes=20 errors=0\n  TOTAL: 30 documents"
+    },
+    {
+      "date": "2026-03-04",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-04.json\nRegime: Neutral | Total: 47.31"
+    },
+    {
+      "date": "2026-03-04",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-04.json\nRegime: Neutral | Macro: 47.31\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 74점 — Neutral 레짐 중립 | 3M ▲24.1% 강한 모멘텀 | RSI 58 정상 구간\n  2. [강력매수] 금 ETF (GLD) 70점 — Neutral 레짐 중립 | 3M ▲21.1% 강한 모멘텀 | RSI 52 정상 구간 | 변동성 36% 高\n  3. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲35.5% 강한 모멘텀 | RSI 51 정상 구간 | 변동성 74% 高"
+    },
+    {
+      "date": "2026-03-04",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-04/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-05",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:50 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-03&observation_end=2026-03-05\n01:53:50 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-03&observation_end=2026-03-05\n01:53:51 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-03&observation_end=2026-03-05\n01:53:51 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-03&observation_end=2026-03-05\n01:53:51 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-03&observation_end=2026-03-05\n01:53:51 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-03-05\n01:53:51 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-05_run.json\n01:53:51 [runner] INFO: === Collection Manifest: 2026-03-05 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-05",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:51 [runner] INFO: Starting collection for 2026-03-05 — 1 sources\n01:53:52 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-05\n01:53:52 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-05_run.json\n01:53:52 [runner] INFO: === Collection Manifest: 2026-03-05 ===\n  opendart: success | docs=42 dupes=8 errors=0\n  TOTAL: 42 documents"
+    },
+    {
+      "date": "2026-03-05",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-05.json\nRegime: Neutral | Total: 48.33"
+    },
+    {
+      "date": "2026-03-05",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-05.json\nRegime: Neutral | Macro: 48.33\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 76점 — Neutral 레짐 중립 | 3M ▲26.4% 강한 모멘텀 | RSI 69 정상 구간\n  2. [강력매수] 금 ETF (GLD) 69점 — Neutral 레짐 중립 | 3M ▲20.4% 강한 모멘텀 | RSI 56 정상 구간 | 변동성 36% 高\n  3. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲48.1% 강한 모멘텀 | RSI 56 정상 구간 | 변동성 82% 高"
+    },
+    {
+      "date": "2026-03-05",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-05/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-06",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:54 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-04&observation_end=2026-03-06\n01:53:54 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-04&observation_end=2026-03-06\n01:53:54 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-04&observation_end=2026-03-06\n01:53:55 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-04&observation_end=2026-03-06\n01:53:55 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-04&observation_end=2026-03-06\n01:53:55 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-03-06\n01:53:55 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-06_run.json\n01:53:55 [runner] INFO: === Collection Manifest: 2026-03-06 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-06",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:55 [runner] INFO: Starting collection for 2026-03-06 — 1 sources\n01:53:55 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-06\n01:53:55 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-06_run.json\n01:53:55 [runner] INFO: === Collection Manifest: 2026-03-06 ===\n  opendart: success | docs=27 dupes=23 errors=0\n  TOTAL: 27 documents"
+    },
+    {
+      "date": "2026-03-06",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-06.json\nRegime: Neutral | Total: 46.41"
+    },
+    {
+      "date": "2026-03-06",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-06.json\nRegime: Neutral | Macro: 46.41\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 74점 — Neutral 레짐 중립 | 3M ▲24.3% 강한 모멘텀 | RSI 68 정상 구간\n  2. [강력매수] 금 ETF (GLD) 72점 — Neutral 레짐 중립 | 3M ▲22.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 35% 高\n  3. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 67점 — Neutral 레짐 중립 | 3M ▲20.2% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 40% 高"
+    },
+    {
+      "date": "2026-03-06",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-06/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-09",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:58 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-07&observation_end=2026-03-09\n01:53:58 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-07&observation_end=2026-03-09\n01:53:58 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-07&observation_end=2026-03-09\n01:53:58 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-07&observation_end=2026-03-09\n01:53:59 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-07&observation_end=2026-03-09\n01:53:59 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-03-09\n01:53:59 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-09_run.json\n01:53:59 [runner] INFO: === Collection Manifest: 2026-03-09 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-09",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:59 [runner] INFO: Starting collection for 2026-03-09 — 1 sources\n01:53:59 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-09\n01:53:59 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-09_run.json\n01:53:59 [runner] INFO: === Collection Manifest: 2026-03-09 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-03-09",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-09.json\nRegime: Neutral | Total: 47.78"
+    },
+    {
+      "date": "2026-03-09",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-09.json\nRegime: Neutral | Macro: 47.78\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 73점 — Neutral 레짐 중립 | 3M ▲23.2% 강한 모멘텀 | RSI 72 과매수 주의\n  2. [강력매수] 금 ETF (GLD) 72점 — Neutral 레짐 중립 | 3M ▲22.1% 강한 모멘텀 | RSI 63 정상 구간 | 변동성 33% 高\n  3. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 70점 — Neutral 레짐 중립 | 3M ▲19.2% 강한 모멘텀 | RSI 54 정상 구간"
+    },
+    {
+      "date": "2026-03-09",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-09/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-10",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:53:59 [runner] INFO: Starting collection for 2026-03-10 — 1 sources\n01:54:04 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-10\n01:54:04 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-10_run.json\n01:54:04 [runner] INFO: === Collection Manifest: 2026-03-10 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-10",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:04 [runner] INFO: Starting collection for 2026-03-10 — 1 sources\n01:54:04 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-10\n01:54:04 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-10_run.json\n01:54:04 [runner] INFO: === Collection Manifest: 2026-03-10 ===\n  opendart: success | docs=42 dupes=8 errors=0\n  TOTAL: 42 documents"
+    },
+    {
+      "date": "2026-03-10",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-10.json\nRegime: Neutral | Total: 47.47"
+    },
+    {
+      "date": "2026-03-10",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-10.json\nRegime: Neutral | Macro: 47.47\nTop 3:\n  1. [강력매수] 금 ETF (GLD) 74점 — Neutral 레짐 중립 | 3M ▲23.7% 강한 모멘텀 | RSI 61 정상 구간 | 변동성 32% 高\n  2. [강력매수] 에너지 섹터 ETF (XLE) 72점 — Neutral 레짐 중립 | 3M ▲22.1% 강한 모멘텀 | RSI 57 정상 구간\n  3. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 72점 — Neutral 레짐 중립 | 3M ▲21.3% 강한 모멘텀 | RSI 58 정상 구간"
+    },
+    {
+      "date": "2026-03-10",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-10/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-11",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:05 [runner] INFO: Starting collection for 2026-03-11 — 1 sources\n01:54:07 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-11\n01:54:07 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-11_run.json\n01:54:07 [runner] INFO: === Collection Manifest: 2026-03-11 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-11",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:08 [runner] INFO: Starting collection for 2026-03-11 — 1 sources\n01:54:08 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-11\n01:54:08 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-11_run.json\n01:54:08 [runner] INFO: === Collection Manifest: 2026-03-11 ===\n  opendart: success | docs=14 dupes=36 errors=0\n  TOTAL: 14 documents"
+    },
+    {
+      "date": "2026-03-11",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-11.json\nRegime: Neutral | Total: 48.32"
+    },
+    {
+      "date": "2026-03-11",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-11.json\nRegime: Neutral | Macro: 48.32\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 76점 — Neutral 레짐 중립 | 3M ▲26.5% 강한 모멘텀 | RSI 64 정상 구간\n  2. [강력매수] 금 ETF (GLD) 74점 — Neutral 레짐 중립 | 3M ▲23.6% 강한 모멘텀 | RSI 59 정상 구간 | 변동성 32% 高\n  3. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 72점 — Neutral 레짐 중립 | 3M ▲21.9% 강한 모멘텀 | RSI 69 정상 구간"
+    },
+    {
+      "date": "2026-03-11",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-11/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-12",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:08 [runner] INFO: Starting collection for 2026-03-12 — 1 sources\n01:54:11 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-12\n01:54:11 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-12_run.json\n01:54:11 [runner] INFO: === Collection Manifest: 2026-03-12 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-12",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:11 [runner] INFO: Starting collection for 2026-03-12 — 1 sources\n01:54:11 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-12\n01:54:11 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-12_run.json\n01:54:11 [runner] INFO: === Collection Manifest: 2026-03-12 ===\n  opendart: success | docs=36 dupes=14 errors=0\n  TOTAL: 36 documents"
+    },
+    {
+      "date": "2026-03-12",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-12.json\nRegime: Neutral | Total: 46.4"
+    },
+    {
+      "date": "2026-03-12",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-12.json\nRegime: Neutral | Macro: 46.4\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 76점 — Neutral 레짐 중립 | 3M ▲26.9% 강한 모멘텀 | RSI 69 정상 구간\n  2. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 72점 — Neutral 레짐 중립 | 3M ▲21.3% 강한 모멘텀 | RSI 61 정상 구간\n  3. [강력매수] 금 ETF (GLD) 71점 — Neutral 레짐 중립 | 3M ▲20.5% 강한 모멘텀 | RSI 49 정상 구간 | 변동성 33% 高"
+    },
+    {
+      "date": "2026-03-12",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-12/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-13",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:12 [runner] INFO: Starting collection for 2026-03-13 — 1 sources\n01:54:15 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-13\n01:54:15 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-13_run.json\n01:54:15 [runner] INFO: === Collection Manifest: 2026-03-13 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-13",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:15 [runner] INFO: Starting collection for 2026-03-13 — 1 sources\n01:54:15 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-13\n01:54:15 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-13_run.json\n01:54:15 [runner] INFO: === Collection Manifest: 2026-03-13 ===\n  opendart: success | docs=39 dupes=11 errors=0\n  TOTAL: 39 documents"
+    },
+    {
+      "date": "2026-03-13",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-13.json\nRegime: Neutral | Total: 46.38"
+    },
+    {
+      "date": "2026-03-13",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-13.json\nRegime: Neutral | Macro: 46.38\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 76점 — Neutral 레짐 중립 | 3M ▲26.0% 강한 모멘텀 | RSI 69 정상 구간\n  2. [강력매수] 금 ETF (GLD) 69점 — Neutral 레짐 중립 | 3M ▲18.5% 강한 모멘텀 | RSI 38 정상 구간 | 변동성 30% 高\n  3. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 69점 — Neutral 레짐 중립 | 3M ▲18.5% 강한 모멘텀 | RSI 54 정상 구간"
+    },
+    {
+      "date": "2026-03-13",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-13/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-16",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:16 [runner] INFO: Starting collection for 2026-03-16 — 1 sources\n01:54:19 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-16\n01:54:19 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-16_run.json\n01:54:19 [runner] INFO: === Collection Manifest: 2026-03-16 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-16",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:19 [runner] INFO: Starting collection for 2026-03-16 — 1 sources\n01:54:19 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-16\n01:54:19 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-16_run.json\n01:54:19 [runner] INFO: === Collection Manifest: 2026-03-16 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-03-16",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-16.json\nRegime: Neutral | Total: 47.75"
+    },
+    {
+      "date": "2026-03-16",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-16.json\nRegime: Neutral | Macro: 47.75\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 77점 — Neutral 레짐 중립 | 3M ▲27.1% 강한 모멘텀 | RSI 70 과매수 주의\n  2. [강력매수] 금 ETF (GLD) 68점 — Neutral 레짐 중립 | 3M ▲17.1% 강한 모멘텀 | RSI 41 정상 구간\n  3. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 68점 — Neutral 레짐 중립 | 3M ▲17.1% 강한 모멘텀 | RSI 38 정상 구간"
+    },
+    {
+      "date": "2026-03-16",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-16/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-17",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:19 [runner] INFO: Starting collection for 2026-03-17 — 1 sources\n01:54:22 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-17\n01:54:22 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-17_run.json\n01:54:22 [runner] INFO: === Collection Manifest: 2026-03-17 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-17",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:22 [runner] INFO: Starting collection for 2026-03-17 — 1 sources\n01:54:23 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-17\n01:54:23 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-17_run.json\n01:54:23 [runner] INFO: === Collection Manifest: 2026-03-17 ===\n  opendart: success | docs=28 dupes=22 errors=0\n  TOTAL: 28 documents"
+    },
+    {
+      "date": "2026-03-17",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-17.json\nRegime: Neutral | Total: 47.88"
+    },
+    {
+      "date": "2026-03-17",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-17.json\nRegime: Neutral | Macro: 47.88\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲29.7% 강한 모멘텀 | RSI 75 과매수 주의\n  2. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 69점 — Neutral 레짐 중립 | 3M ▲17.9% 강한 모멘텀 | RSI 36 정상 구간\n  3. [강력매수] 금 ETF (GLD) 67점 — Neutral 레짐 중립 | 3M ▲16.1% 강한 모멘텀 | RSI 41 정상 구간"
+    },
+    {
+      "date": "2026-03-17",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-17/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-18",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:23 [runner] INFO: Starting collection for 2026-03-18 — 1 sources\n01:54:26 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-18\n01:54:26 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-18_run.json\n01:54:26 [runner] INFO: === Collection Manifest: 2026-03-18 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-18",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:26 [runner] INFO: Starting collection for 2026-03-18 — 1 sources\n01:54:26 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-18\n01:54:26 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-18_run.json\n01:54:26 [runner] INFO: === Collection Manifest: 2026-03-18 ===\n  opendart: success | docs=33 dupes=17 errors=0\n  TOTAL: 33 documents"
+    },
+    {
+      "date": "2026-03-18",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-18.json\nRegime: Neutral | Total: 49.96"
+    },
+    {
+      "date": "2026-03-18",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-18.json\nRegime: Neutral | Macro: 49.96\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲30.4% 강한 모멘텀 | RSI 74 과매수 주의\n  2. [강력매수] KODEX 골드선물(H) (KODEX_GOLD) 68점 — Neutral 레짐 중립 | 3M ▲17.1% 강한 모멘텀 | RSI 34 정상 구간\n  3. [매수] 금 ETF (GLD) 64점 — Neutral 레짐 중립 | 3M ▲12.4% 모멘텀 유지 | RSI 32 정상 구간"
+    },
+    {
+      "date": "2026-03-18",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-18/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-19",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:27 [runner] INFO: Starting collection for 2026-03-19 — 1 sources\n01:54:30 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-19\n01:54:30 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-19_run.json\n01:54:30 [runner] INFO: === Collection Manifest: 2026-03-19 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-19",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:30 [runner] INFO: Starting collection for 2026-03-19 — 1 sources\n01:54:30 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-19\n01:54:30 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-19_run.json\n01:54:30 [runner] INFO: === Collection Manifest: 2026-03-19 ===\n  opendart: success | docs=27 dupes=23 errors=0\n  TOTAL: 27 documents"
+    },
+    {
+      "date": "2026-03-19",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-19.json\nRegime: Neutral | Total: 50.3"
+    },
+    {
+      "date": "2026-03-19",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-19.json\nRegime: Neutral | Macro: 50.3\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲36.6% 강한 모멘텀 | RSI 74 과매수 주의\n  2. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲49.2% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 81% 高\n  3. [매수] KODEX 반도체 (KODEX_SEMI) 64점 — Neutral 레짐 중립 | 3M ▲80.1% 강한 모멘텀 | RSI 49 정상 구간 | 변동성 105% 高"
+    },
+    {
+      "date": "2026-03-19",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-19/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-20",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:31 [runner] INFO: Starting collection for 2026-03-20 — 1 sources\n01:54:33 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-20\n01:54:33 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-20_run.json\n01:54:33 [runner] INFO: === Collection Manifest: 2026-03-20 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-20",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:34 [runner] INFO: Starting collection for 2026-03-20 — 1 sources\n01:54:34 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-20\n01:54:34 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-20_run.json\n01:54:34 [runner] INFO: === Collection Manifest: 2026-03-20 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-03-20",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-20.json\nRegime: Neutral | Total: 49.32"
+    },
+    {
+      "date": "2026-03-20",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-20.json\nRegime: Neutral | Macro: 49.32\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲33.6% 강한 모멘텀 | RSI 68 정상 구간\n  2. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲47.0% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 80% 高\n  3. [매수] KODEX 반도체 (KODEX_SEMI) 64점 — Neutral 레짐 중립 | 3M ▲81.0% 강한 모멘텀 | RSI 49 정상 구간 | 변동성 104% 高"
+    },
+    {
+      "date": "2026-03-20",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-20/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-23",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:34 [runner] INFO: Starting collection for 2026-03-23 — 1 sources\n01:54:37 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-23\n01:54:37 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-23_run.json\n01:54:37 [runner] INFO: === Collection Manifest: 2026-03-23 ===\n  fred_api: success | docs=6 dupes=4 errors=0\n  TOTAL: 6 documents"
+    },
+    {
+      "date": "2026-03-23",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:37 [runner] INFO: Starting collection for 2026-03-23 — 1 sources\n01:54:37 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-23\n01:54:37 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-23_run.json\n01:54:37 [runner] INFO: === Collection Manifest: 2026-03-23 ===\n  opendart: success | docs=50 dupes=0 errors=0\n  TOTAL: 50 documents"
+    },
+    {
+      "date": "2026-03-23",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-23.json\nRegime: Neutral | Total: 46.77"
+    },
+    {
+      "date": "2026-03-23",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-23.json\nRegime: Neutral | Macro: 46.77\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲36.3% 강한 모멘텀 | RSI 76 과매수 주의\n  2. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲40.7% 강한 모멘텀 | RSI 44 정상 구간 | 변동성 83% 高\n  3. [매수] KODEX 반도체 (KODEX_SEMI) 64점 — Neutral 레짐 중립 | 3M ▲73.8% 강한 모멘텀 | RSI 50 정상 구간 | 변동성 107% 高"
+    },
+    {
+      "date": "2026-03-23",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-23/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-24",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:38 [runner] INFO: Starting collection for 2026-03-24 — 1 sources\n01:54:41 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-24\n01:54:41 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-24_run.json\n01:54:41 [runner] INFO: === Collection Manifest: 2026-03-24 ===\n  fred_api: success | docs=4 dupes=6 errors=0\n  TOTAL: 4 documents"
+    },
+    {
+      "date": "2026-03-24",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:41 [runner] INFO: Starting collection for 2026-03-24 — 1 sources\n01:54:41 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-24\n01:54:41 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-24_run.json\n01:54:41 [runner] INFO: === Collection Manifest: 2026-03-24 ===\n  opendart: success | docs=34 dupes=16 errors=0\n  TOTAL: 34 documents"
+    },
+    {
+      "date": "2026-03-24",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-24.json\nRegime: Neutral | Total: 54.62"
+    },
+    {
+      "date": "2026-03-24",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-24.json\nRegime: Neutral | Macro: 54.62\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲39.0% 강한 모멘텀 | RSI 84 과매수 주의\n  2. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲48.2% 강한 모멘텀 | RSI 60 정상 구간 | 변동성 84% 高\n  3. [매수] KODEX 반도체 (KODEX_SEMI) 64점 — Neutral 레짐 중립 | 3M ▲84.7% 강한 모멘텀 | RSI 64 정상 구간 | 변동성 107% 高"
+    },
+    {
+      "date": "2026-03-24",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-24/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-25",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:42 [runner] INFO: Starting collection for 2026-03-25 — 1 sources\n01:54:44 [fetcher.fred_api] INFO: [fred_api] fetched 10 docs for 2026-03-25\n01:54:44 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-25_run.json\n01:54:44 [runner] INFO: === Collection Manifest: 2026-03-25 ===\n  fred_api: success | docs=4 dupes=6 errors=0\n  TOTAL: 4 documents"
+    },
+    {
+      "date": "2026-03-25",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:45 [runner] INFO: Starting collection for 2026-03-25 — 1 sources\n01:54:45 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-25\n01:54:45 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-25_run.json\n01:54:45 [runner] INFO: === Collection Manifest: 2026-03-25 ===\n  opendart: success | docs=47 dupes=3 errors=0\n  TOTAL: 47 documents"
+    },
+    {
+      "date": "2026-03-25",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-25.json\nRegime: Neutral | Total: 51.91"
+    },
+    {
+      "date": "2026-03-25",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-25.json\nRegime: Neutral | Macro: 51.91\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲37.0% 강한 모멘텀 | RSI 80 과매수 주의\n  2. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲47.2% 강한 모멘텀 | RSI 51 정상 구간 | 변동성 84% 高\n  3. [매수] KODEX 반도체 (KODEX_SEMI) 64점 — Neutral 레짐 중립 | 3M ▲80.9% 강한 모멘텀 | RSI 51 정상 구간 | 변동성 107% 高"
+    },
+    {
+      "date": "2026-03-25",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-25/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-26",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:47 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-24&observation_end=2026-03-26\n01:54:47 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-24&observation_end=2026-03-26\n01:54:48 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-24&observation_end=2026-03-26\n01:54:48 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-24&observation_end=2026-03-26\n01:54:48 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-24&observation_end=2026-03-26\n01:54:48 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-03-26\n01:54:48 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-26_run.json\n01:54:48 [runner] INFO: === Collection Manifest: 2026-03-26 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-26",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:48 [runner] INFO: Starting collection for 2026-03-26 — 1 sources\n01:54:48 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-26\n01:54:48 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-26_run.json\n01:54:48 [runner] INFO: === Collection Manifest: 2026-03-26 ===\n  opendart: success | docs=49 dupes=1 errors=0\n  TOTAL: 49 documents"
+    },
+    {
+      "date": "2026-03-26",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-26.json\nRegime: Neutral | Total: 51.13"
+    },
+    {
+      "date": "2026-03-26",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-26.json\nRegime: Neutral | Macro: 51.13\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲38.2% 강한 모멘텀 | RSI 82 과매수 주의\n  2. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲43.8% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 84% 高\n  3. [매수] KODEX 반도체 (KODEX_SEMI) 64점 — Neutral 레짐 중립 | 3M ▲72.7% 강한 모멘텀 | RSI 43 정상 구간 | 변동성 109% 高"
+    },
+    {
+      "date": "2026-03-26",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-26/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-27",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:51 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-25&observation_end=2026-03-27\n01:54:51 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-25&observation_end=2026-03-27\n01:54:51 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-25&observation_end=2026-03-27\n01:54:51 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-25&observation_end=2026-03-27\n01:54:52 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-25&observation_end=2026-03-27\n01:54:52 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-03-27\n01:54:52 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-27_run.json\n01:54:52 [runner] INFO: === Collection Manifest: 2026-03-27 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-27",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:52 [runner] INFO: Starting collection for 2026-03-27 — 1 sources\n01:54:52 [fetcher.opendart] INFO: [opendart] fetched 50 docs for 2026-03-27\n01:54:52 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-27_run.json\n01:54:52 [runner] INFO: === Collection Manifest: 2026-03-27 ===\n  opendart: all_duplicates | docs=0 dupes=50 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-27",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-27.json\nRegime: Neutral | Total: 47.61"
+    },
+    {
+      "date": "2026-03-27",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-27.json\nRegime: Neutral | Macro: 47.61\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의\n  2. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高\n  3. [매수] KODEX 반도체 (KODEX_SEMI) 64점 — Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高"
+    },
+    {
+      "date": "2026-03-27",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-27/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-30",
+      "step": "collect:fred_api",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:54 [fetcher.fred_api] ERROR: Failed to fetch MANEMP: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=MANEMP&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-28&observation_end=2026-03-30\n01:54:55 [fetcher.fred_api] ERROR: Failed to fetch UNRATE: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-28&observation_end=2026-03-30\n01:54:55 [fetcher.fred_api] ERROR: Failed to fetch FEDFUNDS: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-28&observation_end=2026-03-30\n01:54:55 [fetcher.fred_api] ERROR: Failed to fetch T10Y2Y: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=T10Y2Y&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-28&observation_end=2026-03-30\n01:54:55 [fetcher.fred_api] ERROR: Failed to fetch BAMLH0A0HYM2: 429 Client Error: Too Many Requests for url: https://api.stlouisfed.org/fred/series/observations?series_id=BAMLH0A0HYM2&api_key=11a6322e756f7efb0d676992dd3a647a&file_type=json&observation_start=2026-02-28&observation_end=2026-03-30\n01:54:55 [fetcher.fred_api] INFO: [fred_api] fetched 0 docs for 2026-03-30\n01:54:55 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-30_run.json\n01:54:55 [runner] INFO: === Collection Manifest: 2026-03-30 ===\n  fred_api: empty | docs=0 dupes=0 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-30",
+      "step": "collect:opendart",
+      "ok": true,
+      "returncode": 0,
+      "tail": "01:54:55 [runner] INFO: Starting collection for 2026-03-30 — 1 sources\n01:54:55 [fetcher.opendart] INFO: [opendart] fetched 2 docs for 2026-03-30\n01:54:55 [runner] INFO: Manifest saved to /Users/seo/igzun-daily-report/data/manifests/2026-03-30_run.json\n01:54:55 [runner] INFO: === Collection Manifest: 2026-03-30 ===\n  opendart: all_duplicates | docs=0 dupes=2 errors=0\n  TOTAL: 0 documents"
+    },
+    {
+      "date": "2026-03-30",
+      "step": "macro_analysis.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/macro_analysis/2026-03-30.json\nRegime: Neutral | Total: 47.61"
+    },
+    {
+      "date": "2026-03-30",
+      "step": "etf_recommender.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-30.json\nRegime: Neutral | Macro: 47.61\nTop 3:\n  1. [강력매수] 에너지 섹터 ETF (XLE) 79점 — Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의\n  2. [매수] TIGER 200 (TIGER200) 64점 — Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高\n  3. [매수] KODEX 반도체 (KODEX_SEMI) 64점 — Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高"
+    },
+    {
+      "date": "2026-03-30",
+      "step": "build_site_report.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/2026-03-30/result.json\nupdated /Users/seo/igzun-daily-report/site/date_status.json"
+    },
+    {
+      "date": "2026-03-30",
+      "step": "build_horizon_views.py",
+      "ok": true,
+      "returncode": 0,
+      "tail": "wrote /Users/seo/igzun-daily-report/site/horizon_index.json\n1일: 66 buckets\n1주: 14 buckets\n1개월: 3 buckets\n3개월: 1 buckets\n6개월: 1 buckets"
+    }
+  ]
+}

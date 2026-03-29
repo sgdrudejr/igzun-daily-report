@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-29",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-01-29",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "document_type": "time_series"
+        },
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-01-29",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-01-29",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 43,
+      "examples": [
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(삼성KODEXIT증권상장지수투자신탁[주식])",
+          "published_date": "2026-01-29",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260129000124",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(삼성KODEX미국달러선물특별자산상장지수투자신탁[미국달러-파생형])",
+          "published_date": "2026-01-29",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260129000318",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(삼성KODEX모멘텀주증권상장지수투자신탁[주식])",
+          "published_date": "2026-01-29",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260129000368",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 49
+}
