@@ -35,7 +35,11 @@ sources.yaml
     -> macro_analysis.py
     -> etf_recommender.py
     -> build_site_report.py
+    -> build_horizon_views.py
   -> site/{date}/result.json, index.html
+  -> site/horizon_index.json
+  -> site/horizons/{daily,weekly,monthly,quarterly,halfyearly}/*.json
+  -> site/template/index.html 기반 horizon 탭 UI
   -> git commit / git push
 ```
 
@@ -232,6 +236,50 @@ data/index/content_hashes.json
 
 현 시점에서는 하나의 `daily_update.sh` 로도 실행 가능하다.
 
+## 기간별 집계 레이어
+
+[`scripts/build_horizon_views.py`](/Users/seo/igzun-daily-report/scripts/build_horizon_views.py) 는 누적된 일간 결과를 다시 읽어 기간별 뷰 파일을 만든다.
+
+역할:
+
+- 1일: 날짜별 버킷
+- 1주: `YYYY-MM-wN` 형태의 월별 주차 버킷
+- 1개월: 월 버킷
+- 3개월: 분기 버킷
+- 6개월: 반기 버킷
+
+생성 파일:
+
+- [`site/horizon_index.json`](/Users/seo/igzun-daily-report/site/horizon_index.json)
+- [`site/horizons/daily/`](/Users/seo/igzun-daily-report/site/horizons/daily/)
+- [`site/horizons/weekly/`](/Users/seo/igzun-daily-report/site/horizons/weekly/)
+- [`site/horizons/monthly/`](/Users/seo/igzun-daily-report/site/horizons/monthly/)
+- [`site/horizons/quarterly/`](/Users/seo/igzun-daily-report/site/horizons/quarterly/)
+- [`site/horizons/halfyearly/`](/Users/seo/igzun-daily-report/site/horizons/halfyearly/)
+
+집계 원칙:
+
+- 가장 최근 일간 결과를 해당 버킷의 기본 본문으로 사용한다.
+- `updateCount`, `docsTotal`, `avgScore`, `sourceLabels` 를 누적 계산해 버킷 헤더와 본문에 다시 주입한다.
+- 주간/월간/분기/반기 버킷은 단순 date alias 가 아니라 누적 요약 레이어다.
+- `site/template/index.html` 은 `기간 유형 탭 -> 기간 선택 탭 -> 섹션 탭` 구조로 이 집계 파일들을 읽는다.
+
+생성 파일:
+
+- [`site/horizon_index.json`](/Users/seo/igzun-daily-report/site/horizon_index.json)
+- `site/horizons/daily/*.json`
+- `site/horizons/weekly/*.json`
+- `site/horizons/monthly/*.json`
+- `site/horizons/quarterly/*.json`
+- `site/horizons/halfyearly/*.json`
+
+설계 원칙:
+
+- 일간 결과를 원본으로 유지
+- 주간/월간/분기/반기 뷰는 누적 요약 레이어로 생성
+- 최신 일간 리포트의 해당 기간 섹션을 기반으로 사용
+- 그 위에 `업데이트 횟수`, `평균 점수`, `누적 문서 수`, `주요 출처`를 덧붙여 집계 인사이트를 만든다
+
 ## 실패 처리 기준
 
 ### fetch 단계
@@ -274,4 +322,3 @@ data/index/content_hashes.json
 - 주간/월간/분기 집계 레이어 추가
 - source stale 경고 체계 추가
 - KB/Mirae scraper 안정화
-

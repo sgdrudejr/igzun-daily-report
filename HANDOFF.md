@@ -21,35 +21,47 @@
 - `raw -> normalized -> manifest -> bridge -> refined_insights_inventory.json` 흐름이 작동한다.
 - `content_hash` 기반 중복 제거가 구현되어 있다.
 - 수집 URL 로깅은 manifest의 `fetched_urls` 에 기록된다.
-- `2026-03-27` 기준 1회 배치 결과가 생성되어 있고, 마지막 커밋은 `43b4c84` 이다.
+- `2026-03-30` 기준 일배치가 다시 실행되었고, 수집 -> 분석 -> 사이트 생성 -> horizon 집계까지 재생성되었다.
 - `scripts/daily_update.sh` 에 수집/분석/사이트 생성/배포 흐름이 연결되어 있다.
 - `scripts/macro_analysis.py`, `scripts/etf_recommender.py`, `scripts/build_site_report.py` 작업이 시작되어 있다.
 - [`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py) 가 `dataByPeriod` 호환 구조를 유지한 채 한국어 인사이트 중심 리포트로 재작성되었다.
 - `site/{date}/result.json` 에 1일/1주/1개월/3개월/6개월 구간별 브리핑, 주요 이슈, 포트폴리오, ETF 아이디어가 들어가도록 정리되었다.
 - `undefined`/`None`/`null` 문자열이 결과 JSON 에 남지 않도록 fallback 처리했다.
 - [`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 를 기준 템플릿으로 추가했다.
-- 날짜별 [`site/2026-03-27/index.html`](/Users/seo/igzun-daily-report/site/2026-03-27/index.html), [`site/2026-03-29/index.html`](/Users/seo/igzun-daily-report/site/2026-03-29/index.html) 도 템플릿 기준으로 다시 생성했다.
+- 날짜별 [`site/2026-03-27/index.html`](/Users/seo/igzun-daily-report/site/2026-03-27/index.html), [`site/2026-03-29/index.html`](/Users/seo/igzun-daily-report/site/2026-03-29/index.html), [`site/2026-03-30/index.html`](/Users/seo/igzun-daily-report/site/2026-03-30/index.html) 도 템플릿 기준으로 다시 생성했다.
 - 화면 문구를 `ETF 아이디어`, `레짐 온도`, `출처·메타데이터` 중심으로 정리했다.
 - 포트폴리오 탭에 `포트폴리오 레짐 적합도` 점수 카드가 추가되었다.
 - 현재 점수는 수익률 점수가 아니라 `레짐 적합도 + 분산도 + 현금 운용` 합성 점수다.
+- [`scripts/build_horizon_views.py`](/Users/seo/igzun-daily-report/scripts/build_horizon_views.py) 가 추가되었다.
+- 이 스크립트는 누적된 일간 `site/*/result.json` 을 읽어 `site/horizon_index.json` 과 `site/horizons/` 아래 기간별 집계 파일을 생성한다.
+- UI는 더 이상 좌하단 플로팅 달력이 아니라 `기간 유형 탭 -> 기간 선택 탭 -> 섹션 탭` 구조다.
+- 상단 헤더에 `누적 업데이트 수 / 누적 문서 수 / 평균 점수 / 주요 출처` 요약 pill 이 추가되었다.
+- 현재 생성된 누적 버킷 수는 일간 25개, 주간 7개, 월간 2개, 분기 1개, 반기 1개다.
+- `site/` 아래 HTML/JSON 검색 기준 `undefined`/`None` 문자열이 남지 않도록 다시 검증했다.
 
 ### 현재 작업 트리 상태
 
-아래 파일은 아직 커밋되지 않은 작업 중 파일이다. 다음 에이전트는 이 상태를 전제로 이어받아야 한다.
+다음 에이전트는 아래 상태를 전제로 이어받아야 한다.
 
-- 수정됨: [`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py)
-- 수정됨: [`scripts/etf_recommender.py`](/Users/seo/igzun-daily-report/scripts/etf_recommender.py)
-- 수정됨: [`scripts/load_market_data.py`](/Users/seo/igzun-daily-report/scripts/load_market_data.py)
-- 수정됨: [`scripts/macro_analysis.py`](/Users/seo/igzun-daily-report/scripts/macro_analysis.py)
-- 신규 미추적: [`data/portfolio_state.json`](/Users/seo/igzun-daily-report/data/portfolio_state.json)
+- 커밋 전 변경 파일이 남아 있을 수 있으므로 반드시 `git status --short` 를 먼저 확인한다.
+- [`scripts/build_horizon_views.py`](/Users/seo/igzun-daily-report/scripts/build_horizon_views.py) 는 새로 추가된 누적 집계 레이어다.
+- [`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 와 날짜별 `site/*/index.html` 은 같은 탭형 UI를 공유한다.
+- [`data/portfolio_state.json`](/Users/seo/igzun-daily-report/data/portfolio_state.json) 는 현재 전액 현금 상태를 반영한다.
 
 ### 현재 확인된 산출물
 
 - [`data/manifests/2026-03-27_run.json`](/Users/seo/igzun-daily-report/data/manifests/2026-03-27_run.json)
+- [`data/manifests/2026-03-30_run.json`](/Users/seo/igzun-daily-report/data/manifests/2026-03-30_run.json)
 - [`data/macro_analysis/2026-03-27.json`](/Users/seo/igzun-daily-report/data/macro_analysis/2026-03-27.json)
+- [`data/macro_analysis/2026-03-30.json`](/Users/seo/igzun-daily-report/data/macro_analysis/2026-03-30.json)
 - [`data/etf_recommendations/2026-03-27.json`](/Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-27.json)
+- [`data/etf_recommendations/2026-03-30.json`](/Users/seo/igzun-daily-report/data/etf_recommendations/2026-03-30.json)
 - [`site/2026-03-27/result.json`](/Users/seo/igzun-daily-report/site/2026-03-27/result.json)
 - [`site/2026-03-27/index.html`](/Users/seo/igzun-daily-report/site/2026-03-27/index.html)
+- [`site/2026-03-30/result.json`](/Users/seo/igzun-daily-report/site/2026-03-30/result.json)
+- [`site/2026-03-30/index.html`](/Users/seo/igzun-daily-report/site/2026-03-30/index.html)
+- [`site/horizon_index.json`](/Users/seo/igzun-daily-report/site/horizon_index.json)
+- [`site/horizons/weekly/2026-03-w5.json`](/Users/seo/igzun-daily-report/site/horizons/weekly/2026-03-w5.json)
 
 ## 현재 디렉토리 구조
 
@@ -96,9 +108,12 @@
 │   ├── apply_market_quant.py
 │   ├── macro_analysis.py
 │   ├── etf_recommender.py
-│   └── build_site_report.py
+│   ├── build_site_report.py
+│   └── build_horizon_views.py
 ├── site/
-└── templates/
+│   ├── template/
+│   └── horizons/
+└── docs/
 ```
 
 ## 구현된 것 / 미구현된 것
@@ -114,17 +129,17 @@
 - bridge를 통한 기존 `refined_insights_inventory.json` 호환
 - RSS/FRED/ECOS/OpenDART/Naver Research/SEC EDGAR/BIS/Investing.com fetcher
 - `daily_update.sh` 에 collectors 단계 추가
-- `macro_analysis.py` 와 `etf_recommender.py` 의 초안
-- 2026-03-27 기준 batch 실행 및 사이트 산출물 생성
+- `macro_analysis.py`, `etf_recommender.py`, `build_site_report.py`, `build_horizon_views.py` 가 연결되었다.
+- `2026-03-30` 기준 batch 실행 및 사이트 산출물 생성
+- 일간 결과를 다시 주간/월간/분기/반기 버킷으로 집계하는 레이어가 들어갔다.
+- 1일/1주/1개월/3개월/6개월마다 누적 문서 수, 평균 점수, 주요 출처를 따로 보여준다.
 
 ### 아직 미구현 또는 미완료
 
-- 한국어 중심의 인사이트 리포트 HTML 구조 최종 확정
 - 브라우저에서 실제 `site/{date}/index.html` 렌더링 검증
 - 포트폴리오 시사점 로직 정교화
 - 포트폴리오 점수 산식 고도화
 - ETF/섹터 아이디어를 지역/레짐/리스크와 더 강하게 연결하는 설명 강화
-- 주간/월간/분기 누적 리포트 구조
 - `kr_brokerage_kb`, `kr_brokerage_mirae` 스크래퍼 안정화
 - 주요 유럽/일본 소스 추가 확장
 - source health check와 stale source 알림
@@ -132,18 +147,16 @@
 
 ## 다음 작업 우선순위
 
-1. [`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py) 완성
-- 한국어 중심
-- 단순 기사 나열 금지
-- 1일/1주/1개월/3개월/6개월 구분
-- 레짐/핵심 이슈/섹터 영향/포트폴리오 시사점/ETF 아이디어 포함
-- `undefined` 출력 금지
+1. 브라우저 렌더링 검증
+- `site/{date}/index.html` 에서 기간 유형 탭 -> 기간 선택 탭 -> 섹션 탭 흐름 확인
+- 모바일/데스크톱에서 chip overflow 및 탭 전환 UX 확인
+- `undefined`/`None` 가 실제 화면에도 보이지 않는지 확인
 
-2. 사이트 렌더링 검증
-- `site/{date}/result.json` 과 `site/{date}/index.html` 구조 일치 확인
-- 기존 HTML과 호환되는지 확인
-- `site/template/index.html` 을 기준 템플릿으로 유지
-- 필요 시 기존 HTML을 업데이트하되 데이터 흐름은 유지
+2. 인사이트 품질 강화
+- 1일은 뉴스/변동성 중심
+- 1주는 흐름과 수급 중심
+- 1개월은 월간 레짐·섹터 축 중심
+- 3개월/6개월은 자산배분·ETF 아이디어 중심으로 차별화 강화
 
 3. 포트폴리오 연결 강화
 - [`data/portfolio_state.json`](/Users/seo/igzun-daily-report/data/portfolio_state.json) 활용
@@ -154,8 +167,18 @@
 - JP/EU 리서치/매크로 소스 추가
 - 저작권 이슈가 있는 PDF는 직접 다운로드보다 메타데이터/링크 우선
 
-5. 주간/월간 확장 설계
-- 일간 산출물 누적으로 주간/월간/분기 분석이 가능하도록 집계 레이어 추가
+5. horizon 데이터 고도화
+- `site/horizons/*` 버킷별로 더 다른 메트릭과 서술을 넣기
+- 주간/월간/분기별 비교형 지표 추가
+
+## 삭제된 이전 우선순위 메모
+
+기존 `build_site_report.py 완성`, `주간/월간 확장 설계` 는 이미 1차 완료되었고, 이제는 품질 고도화와 렌더링 검증 단계다.
+
+## 참고용 렌더링 검증 포인트
+- `site/{date}/result.json` 과 `site/{date}/index.html` 구조 일치 확인
+- `site/horizon_index.json` 과 `site/horizons/*` 가 템플릿과 맞는지 확인
+- `site/template/index.html` 을 기준 템플릿으로 유지
 
 ## 절대 바꾸면 안 되는 규칙
 

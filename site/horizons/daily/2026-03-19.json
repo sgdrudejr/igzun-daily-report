@@ -1,0 +1,355 @@
+{
+  "horizonType": "1일",
+  "bucketId": "2026-03-19",
+  "bucketLabel": "3/19(목)",
+  "dataStatus": "full",
+  "memberDates": [
+    "2026-03-19"
+  ],
+  "fromDate": "2026-03-19",
+  "toDate": "2026-03-19",
+  "updateCount": 1,
+  "avgScore": null,
+  "briefing": {
+    "sentiment": {
+      "score": 40,
+      "status": "매파/부정",
+      "desc": "유가 부담 / 원문 기반 중립 판정 / 원문 기반 중립 판정 / 인플레이션 부담, 유가 부담 / 인플레이션 부담, 유가 부담 | 3/19(목) 누적 1회 업데이트, 점수 데이터가 제한적입니다."
+    },
+    "forecast": {
+      "title": "3/19(목) 누적 판단",
+      "text": "3/19(목) 동안 1회 일간 업데이트가 누적되었습니다. 점수 데이터가 제한적입니다.. 누적 문서 0건, 주요 출처 출처 정보 없음. 1. The Future of Asia: Can it remain the engine of global growth?1 Keynote speech by Rhee, Chang Yong Governor of the Bank of Korea Asia in 205...<br>2. Fabio Panetta: Closing remarks - Financial Stability Board cross- border payments summit Closing remarks by Mr Fabio Panetta, Governor of th...<br>3. Forum Future of Finance – 12 March 2026 “Private markets: Three conditions to get the Good without the Bad or the Ugly” Speech by François V...",
+      "sources": []
+    },
+    "insights": [
+      {
+        "category": "누적요약",
+        "text": "3/19(목) 구간은 2026-03-19~2026-03-19 사이 1회 업데이트를 기준으로 집계했습니다. 점수 데이터가 제한적입니다..",
+        "sources": []
+      },
+      {
+        "category": "데이터",
+        "text": "누적 문서 0건, 주요 출처는 출처 정보 없음입니다. 매일 결과를 누적해 1일 관점으로 다시 정리한 뷰입니다.",
+        "sources": []
+      },
+      {
+        "category": "1일",
+        "text": "The Future of Asia: Can it remain the engine of global growth?1 Keynote speech by Rhee, Chang Yong Governor of the Bank of Korea Asia in 205...",
+        "sources": [
+          {
+            "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+            "source": "INTL",
+            "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+            "published_at": "2026-03-19"
+          },
+          {
+            "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+            "source": "INTL",
+            "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+            "published_at": "2026-03-19"
+          },
+          {
+            "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+            "source": "INTL",
+            "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+            "published_at": "2026-03-19"
+          }
+        ]
+      },
+      {
+        "category": "1일",
+        "text": "Fabio Panetta: Closing remarks - Financial Stability Board cross- border payments summit Closing remarks by Mr Fabio Panetta, Governor of th...",
+        "sources": [
+          {
+            "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+            "source": "INTL",
+            "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+            "published_at": "2026-03-19"
+          },
+          {
+            "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+            "source": "INTL",
+            "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+            "published_at": "2026-03-19"
+          },
+          {
+            "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+            "source": "INTL",
+            "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+            "published_at": "2026-03-19"
+          }
+        ]
+      },
+      {
+        "category": "1일",
+        "text": "Forum Future of Finance – 12 March 2026 “Private markets: Three conditions to get the Good without the Bad or the Ugly” Speech by François V...",
+        "sources": [
+          {
+            "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+            "source": "INTL",
+            "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+            "published_at": "2026-03-19"
+          },
+          {
+            "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+            "source": "INTL",
+            "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+            "published_at": "2026-03-19"
+          },
+          {
+            "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+            "source": "INTL",
+            "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+            "published_at": "2026-03-19"
+          }
+        ]
+      }
+    ],
+    "indices": []
+  },
+  "newsList": [
+    {
+      "title": "3/19(목) 누적 요약",
+      "tags": [
+        "1일",
+        "누적",
+        "집계"
+      ],
+      "summary": "3/19(목) 동안 1회 업데이트가 쌓였고, 점수 데이터가 제한적입니다.. 주요 출처는 출처 정보 없음입니다.",
+      "impacts": [
+        {
+          "sector": "거시",
+          "isPositive": true,
+          "desc": "1일 관점에서 노이즈보다 추세 해석에 유리합니다."
+        },
+        {
+          "sector": "포트폴리오",
+          "isPositive": true,
+          "desc": "단일 기사보다 누적 흐름을 기준으로 자산배분 판단이 가능합니다."
+        },
+        {
+          "sector": "섹터",
+          "isPositive": false,
+          "desc": "단기 뉴스와 중기 방향성을 분리해서 해석해야 합니다."
+        }
+      ],
+      "sources": []
+    },
+    {
+      "title": "거시/시장 리포트 요약",
+      "tags": [
+        "정제인사이트",
+        "1일",
+        "원문기반"
+      ],
+      "summary": "The Future of Asia: Can it remain the engine of global growth?1 Keynote speech by Rhee, Chang Yong Governor of the Bank of Korea Asia in 205... / I’d like to thank Yongsung Chang, Dongchul Cho, Gee Hee Hong, Joong Shik Kang, Jae Won Lee, Jong-Wha Lee, Soohyung Lee, and Wonhyuk Lim for ...",
+      "impacts": [
+        {
+          "sector": "USD",
+          "isPositive": true,
+          "desc": "강세"
+        },
+        {
+          "sector": "Bonds",
+          "isPositive": true,
+          "desc": "금리 상승/가격 하락"
+        },
+        {
+          "sector": "Stocks",
+          "isPositive": false,
+          "desc": "약세"
+        }
+      ],
+      "sources": [
+        {
+          "label": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+          "source": "INTL",
+          "title": "2026-03-19_bis_research_central_bank_research_chang_yong_rhee__the_future_of_asia___can_it_remain_the_engine_of_global_growth.pdf",
+          "published_at": "2026-03-19"
+        }
+      ]
+    },
+    {
+      "title": "거시/시장 리포트 요약",
+      "tags": [
+        "정제인사이트",
+        "1일",
+        "원문기반"
+      ],
+      "summary": "Fabio Panetta: Closing remarks - Financial Stability Board cross- border payments summit Closing remarks by Mr Fabio Panetta, Governor of th... / * * * Ladies and gentlemen, Thank you to everyone who has contributed to today's meeting.",
+      "impacts": [
+        {
+          "sector": "USD",
+          "isPositive": false,
+          "desc": "중립"
+        },
+        {
+          "sector": "Bonds",
+          "isPositive": false,
+          "desc": "중립"
+        },
+        {
+          "sector": "Stocks",
+          "isPositive": false,
+          "desc": "중립"
+        }
+      ],
+      "sources": [
+        {
+          "label": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+          "source": "INTL",
+          "title": "2026-03-19_bis_research_central_bank_research_fabio_panetta__closing_remarks___financial_stability_board_cross_border_payments_summit.pdf",
+          "published_at": "2026-03-19"
+        }
+      ]
+    },
+    {
+      "title": "거시/시장 리포트 요약",
+      "tags": [
+        "정제인사이트",
+        "1일",
+        "원문기반"
+      ],
+      "summary": "Forum Future of Finance – 12 March 2026 “Private markets: Three conditions to get the Good without the Bad or the Ugly” Speech by François V... / Your Forum underscores the interest of financial players in the Paris financial centre, which remains the leading centre in the European Uni...",
+      "impacts": [
+        {
+          "sector": "USD",
+          "isPositive": false,
+          "desc": "중립"
+        },
+        {
+          "sector": "Bonds",
+          "isPositive": false,
+          "desc": "중립"
+        },
+        {
+          "sector": "Stocks",
+          "isPositive": false,
+          "desc": "중립"
+        }
+      ],
+      "sources": [
+        {
+          "label": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+          "source": "INTL",
+          "title": "2026-03-19_bis_research_central_bank_research_françois_villeroy_de_galhau__private_markets___three_conditions_to_get_the_good_without_the_bad_or_the_ugly.pdf",
+          "published_at": "2026-03-19"
+        }
+      ]
+    },
+    {
+      "title": "거시/시장 리포트 요약",
+      "tags": [
+        "정제인사이트",
+        "1일",
+        "원문기반"
+      ],
+      "summary": "Jorgovanka Tabakovi: Industrial policy supporting Serbia's long-term economic growth Speech by Dr Jorgovanka Tabakovi, Governor of the Natio... / * * * For those who do not know me – I am Jorgovanka Tabakovi, Governor of the National Bank of Serbia, now in my fourteenth year in that ro...",
+      "impacts": [
+        {
+          "sector": "USD",
+          "isPositive": true,
+          "desc": "강세"
+        },
+        {
+          "sector": "Bonds",
+          "isPositive": true,
+          "desc": "금리 상승/가격 하락"
+        },
+        {
+          "sector": "Stocks",
+          "isPositive": false,
+          "desc": "약세"
+        }
+      ],
+      "sources": [
+        {
+          "label": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+          "source": "INTL",
+          "title": "2026-03-19_bis_research_central_bank_research_jorgovanka_tabakovi__263___industrial_policy_supporting_serbia_s_long_term_economic_growth.pdf",
+          "published_at": "2026-03-19"
+        }
+      ]
+    },
+    {
+      "title": "거시/시장 리포트 요약",
+      "tags": [
+        "정제인사이트",
+        "1일",
+        "원문기반"
+      ],
+      "summary": "Luke Forau: 2026 Monetary Policy Stance Statement by Mr Luke Forau, Governor of the Central Bank of Solomon Islands, at the March 2026 Monet... / * * * Good afternoon, ladies and gentlemen, members of the media.",
+      "impacts": [
+        {
+          "sector": "USD",
+          "isPositive": true,
+          "desc": "강세"
+        },
+        {
+          "sector": "Bonds",
+          "isPositive": true,
+          "desc": "금리 상승/가격 하락"
+        },
+        {
+          "sector": "Stocks",
+          "isPositive": false,
+          "desc": "약세"
+        }
+      ],
+      "sources": [
+        {
+          "label": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+          "source": "INTL",
+          "title": "2026-03-19_bis_research_central_bank_research_luke_forau__2026_monetary_policy_stance.pdf",
+          "published_at": "2026-03-19"
+        }
+      ]
+    }
+  ],
+  "portfolio": {
+    "accountAlert": "총 예수금 50,000,000원 / 현금 18,000,000원 / 투자금 0원 | 3/19(목) 누적 1회 업데이트 기준.",
+    "accountDetail": "증권사: admin_bot_ocr · 기준일: 2026-03-19",
+    "weeklyReview": {
+      "returnRate": "실계좌 미연결",
+      "desc": "계좌 스냅샷이 들어오면 실제 성과 계산으로 교체됩니다. 또한 3/19(목) 누적 흐름 기준 점수 데이터는 아직 제한적입니다."
+    },
+    "holdings": [
+      {
+        "name": "iShares Semiconductor ETF",
+        "ticker": "SOXX",
+        "returnRate": "+1.8%",
+        "score": 10,
+        "indicators": [
+          "수량 12.0",
+          "평단 210.5",
+          "현재가 214.2"
+        ],
+        "reason": "평가손익 44 / 비중 11.6% 기반 자동 생성"
+      }
+    ],
+    "planDesc": "실계좌 스냅샷 기준 자동 반영된 포트폴리오 비중입니다.",
+    "allocations": [
+      {
+        "name": "iShares Semiconductor ETF",
+        "percent": 11.6,
+        "color": "#3182F6",
+        "desc": "SOXX / 평가금액 2,570"
+      },
+      {
+        "name": "현금",
+        "percent": 88.4,
+        "color": "#E5E8EB",
+        "desc": "현금 18,000,000원"
+      }
+    ]
+  },
+  "recommendations": {
+    "ideas": [],
+    "etfRanking": []
+  },
+  "meta": {
+    "docsTotal": 0,
+    "sourceLabels": [],
+    "latestDailyDate": "2026-03-19"
+  }
+}

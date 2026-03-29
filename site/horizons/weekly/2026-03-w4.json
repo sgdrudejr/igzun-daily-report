@@ -1,0 +1,695 @@
+{
+  "horizonType": "1주",
+  "bucketId": "2026-03-w4",
+  "bucketLabel": "2026년 3월 4주",
+  "dataStatus": "full",
+  "memberDates": [
+    "2026-03-27"
+  ],
+  "fromDate": "2026-03-27",
+  "toDate": "2026-03-27",
+  "updateCount": 1,
+  "avgScore": 47.6,
+  "briefing": {
+    "sentiment": {
+      "score": 48,
+      "status": "중립",
+      "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다. | 2026년 3월 4주 누적 1회 업데이트, 평균 점수 47.6, 최근 점수 47.6, 최고 47.6, 최저 47.6"
+    },
+    "forecast": {
+      "title": "2026년 3월 4주 누적 판단",
+      "text": "2026년 3월 4주 동안 1회 일간 업데이트가 누적되었습니다. 평균 점수 47.6, 최근 점수 47.6, 최고 47.6, 최저 47.6. 누적 문서 56건, 주요 출처 OpenDART 공시, FRED 거시지표. 1주 기준 미국 주식은 S&P500 -2.1%, NASDAQ -3.2%, 한국은 KOSPI -5.9% 흐름입니다. 동시에 금 -1.0%, 유가 +1.3%, 원/달러 +0.3%가 움직이며 위험선호보다 변동성 관리가 우선인 구간입니다. 현재 시장은 중립 횡보 국면으로 해석되며, 단기적으로는 VIX 27.4, DXY 120.3, 미 10년물 4.42%가 핵심 체크포인트입니다.",
+      "sources": [
+        {
+          "label": "OpenDART 공시",
+          "source": "opendart",
+          "title": "OpenDART 공시 누적 50건",
+          "published_at": "2026-03-27"
+        },
+        {
+          "label": "FRED 거시지표",
+          "source": "fred_api",
+          "title": "FRED 거시지표 누적 6건",
+          "published_at": "2026-03-27"
+        }
+      ]
+    },
+    "insights": [
+      {
+        "category": "누적요약",
+        "text": "2026년 3월 4주 구간은 2026-03-27~2026-03-27 사이 1회 업데이트를 기준으로 집계했습니다. 평균 점수 47.6, 최근 점수 47.6, 최고 47.6, 최저 47.6.",
+        "sources": [
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 누적 50건",
+            "published_at": "2026-03-27"
+          },
+          {
+            "label": "FRED 거시지표",
+            "source": "fred_api",
+            "title": "FRED 거시지표 누적 6건",
+            "published_at": "2026-03-27"
+          }
+        ]
+      },
+      {
+        "category": "데이터",
+        "text": "누적 문서 56건, 주요 출처는 OpenDART 공시, FRED 거시지표입니다. 매일 결과를 누적해 1주 관점으로 다시 정리한 뷰입니다.",
+        "sources": [
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 누적 50건",
+            "published_at": "2026-03-27"
+          },
+          {
+            "label": "FRED 거시지표",
+            "source": "fred_api",
+            "title": "FRED 거시지표 누적 6건",
+            "published_at": "2026-03-27"
+          }
+        ]
+      },
+      {
+        "category": "레짐",
+        "text": "1주 기준 시장 레짐은 중립 횡보 국면입니다. 총점 47.6 / 매크로 50.5 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
+        "sources": [
+          {
+            "label": "퀀트 레짐",
+            "source": "macro_analysis",
+            "title": "1주 레짐 분석",
+            "published_at": "2026-03-27"
+          }
+        ]
+      },
+      {
+        "category": "미국",
+        "text": "미국 증시는 1주 기준 S&P500 -2.1%, NASDAQ -3.2%입니다. RSI 23.8, MA 갭 -2.3%, ADX 59.3를 보면 기술적 반등 여지는 있지만 추세 전환 확인은 더 필요합니다.",
+        "sources": [
+          {
+            "label": "FRED 거시지표",
+            "source": "fred_api",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+            "published_at": "2026-03-27",
+            "region": "US",
+            "sector": "macro",
+            "doc_type": "time_series",
+            "url": "https://fred.stlouisfed.org/series/VIXCLS",
+            "count": 6
+          },
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+            "published_at": "2026-03-27",
+            "region": "KR",
+            "sector": "equity",
+            "doc_type": "filing",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
+            "count": 50
+          }
+        ]
+      },
+      {
+        "category": "한국",
+        "text": "한국 시장은 1주 기준 KOSPI -5.9%입니다. 원/달러 데이터 없음원, 기준금리 데이터 없음%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
+        "sources": [
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+            "published_at": "2026-03-27",
+            "region": "KR",
+            "sector": "equity",
+            "doc_type": "filing",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
+            "count": 50
+          },
+          {
+            "label": "FRED 거시지표",
+            "source": "fred_api",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+            "published_at": "2026-03-27",
+            "region": "US",
+            "sector": "macro",
+            "doc_type": "time_series",
+            "url": "https://fred.stlouisfed.org/series/VIXCLS",
+            "count": 6
+          }
+        ]
+      },
+      {
+        "category": "환율",
+        "text": "달러인덱스 DXY 120.3, 원/달러 데이터 없음원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
+        "sources": [
+          {
+            "label": "FRED 거시지표",
+            "source": "fred_api",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+            "published_at": "2026-03-27",
+            "region": "US",
+            "sector": "macro",
+            "doc_type": "time_series",
+            "url": "https://fred.stlouisfed.org/series/VIXCLS",
+            "count": 6
+          },
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+            "published_at": "2026-03-27",
+            "region": "KR",
+            "sector": "equity",
+            "doc_type": "filing",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
+            "count": 50
+          }
+        ]
+      },
+      {
+        "category": "금리",
+        "text": "연준 기준금리 5.30%, 미 10년물 4.42%, 하이일드 스프레드 3.21%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
+        "sources": [
+          {
+            "label": "FRED 거시지표",
+            "source": "fred_api",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+            "published_at": "2026-03-27",
+            "region": "US",
+            "sector": "macro",
+            "doc_type": "time_series",
+            "url": "https://fred.stlouisfed.org/series/VIXCLS",
+            "count": 6
+          },
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+            "published_at": "2026-03-27",
+            "region": "KR",
+            "sector": "equity",
+            "doc_type": "filing",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
+            "count": 50
+          }
+        ]
+      },
+      {
+        "category": "원자재",
+        "text": "금은 1주 -1.0%, 유가는 1주 +1.3%입니다. 유가 상승은 인플레이션 재자극과 비용 부담을 뜻하고, 금 강세는 위험회피 또는 통화가치 방어 수요를 시사합니다. 따라서 금 ETF는 헤지 자산, 에너지는 전술적 아이디어로 구분해 해석해야 합니다.",
+        "sources": [
+          {
+            "label": "FRED 거시지표",
+            "source": "fred_api",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+            "published_at": "2026-03-27",
+            "region": "US",
+            "sector": "macro",
+            "doc_type": "time_series",
+            "url": "https://fred.stlouisfed.org/series/VIXCLS",
+            "count": 6
+          },
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+            "published_at": "2026-03-27",
+            "region": "KR",
+            "sector": "equity",
+            "doc_type": "filing",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
+            "count": 50
+          }
+        ]
+      },
+      {
+        "category": "해외분산",
+        "text": "일본 데이터 없음, 유럽 DAX 데이터 없음 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
+        "sources": [
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+            "published_at": "2026-03-27",
+            "region": "KR",
+            "sector": "equity",
+            "doc_type": "filing",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
+            "count": 50
+          },
+          {
+            "label": "FRED 거시지표",
+            "source": "fred_api",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+            "published_at": "2026-03-27",
+            "region": "US",
+            "sector": "macro",
+            "doc_type": "time_series",
+            "url": "https://fred.stlouisfed.org/series/VIXCLS",
+            "count": 6
+          }
+        ]
+      },
+      {
+        "category": "ETF아이디어",
+        "text": "현재 레짐에서 우선 체크할 ETF 후보는 미국 에너지 섹터 ETF, TIGER 200, KODEX 반도체입니다. 개별 종목 추격보다 지수·섹터 ETF로 접근하면 레짐 변화에 대응하기 쉽습니다.",
+        "sources": [
+          {
+            "label": "ETF 추천",
+            "source": "etf_recommender",
+            "title": "1주 ETF 아이디어",
+            "published_at": "2026-03-27"
+          }
+        ]
+      }
+    ],
+    "indices": [
+      {
+        "name": "S&P 500",
+        "price": "6368.85",
+        "change": "▼2.12%",
+        "isUp": false
+      },
+      {
+        "name": "KOSPI",
+        "price": "5438.87",
+        "change": "▼5.92%",
+        "isUp": false
+      },
+      {
+        "name": "NASDAQ",
+        "price": "20948.36",
+        "change": "▼3.23%",
+        "isUp": false
+      },
+      {
+        "name": "금",
+        "price": "4524.30",
+        "change": "▼1.01%",
+        "isUp": false
+      },
+      {
+        "name": "WTI",
+        "price": "89.33",
+        "change": "▲1.34%",
+        "isUp": true
+      },
+      {
+        "name": "USD/KRW",
+        "price": "1508.06",
+        "change": "▲0.26%",
+        "isUp": true
+      }
+    ]
+  },
+  "newsList": [
+    {
+      "title": "2026년 3월 4주 누적 요약",
+      "tags": [
+        "1주",
+        "누적",
+        "집계"
+      ],
+      "summary": "2026년 3월 4주 동안 1회 업데이트가 쌓였고, 평균 점수 47.6, 최근 점수 47.6, 최고 47.6, 최저 47.6. 주요 출처는 OpenDART 공시, FRED 거시지표입니다.",
+      "impacts": [
+        {
+          "sector": "거시",
+          "isPositive": true,
+          "desc": "1주 관점에서 노이즈보다 추세 해석에 유리합니다."
+        },
+        {
+          "sector": "포트폴리오",
+          "isPositive": true,
+          "desc": "단일 기사보다 누적 흐름을 기준으로 자산배분 판단이 가능합니다."
+        },
+        {
+          "sector": "섹터",
+          "isPositive": false,
+          "desc": "단기 뉴스와 중기 방향성을 분리해서 해석해야 합니다."
+        }
+      ],
+      "sources": [
+        {
+          "label": "OpenDART 공시",
+          "source": "opendart",
+          "title": "OpenDART 공시 누적 50건",
+          "published_at": "2026-03-27"
+        },
+        {
+          "label": "FRED 거시지표",
+          "source": "fred_api",
+          "title": "FRED 거시지표 누적 6건",
+          "published_at": "2026-03-27"
+        }
+      ]
+    },
+    {
+      "title": "1주 금리·정책 해석",
+      "tags": [
+        "거시",
+        "정책",
+        "1주"
+      ],
+      "summary": "현재 금리 축은 연준 5.30%, 미 10년물 4.42%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다.",
+      "impacts": [
+        {
+          "sector": "장기채",
+          "isPositive": false,
+          "desc": "금리 민감도가 높아 변동성 확대 위험이 큽니다."
+        },
+        {
+          "sector": "단기채",
+          "isPositive": true,
+          "desc": "고금리 환경에서 방어적 수익률 확보가 가능합니다."
+        },
+        {
+          "sector": "성장주",
+          "isPositive": false,
+          "desc": "할인율 부담으로 밸류에이션 압박을 받기 쉽습니다."
+        }
+      ],
+      "sources": [
+        {
+          "label": "FRED 거시지표",
+          "source": "fred_api",
+          "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+          "published_at": "2026-03-27",
+          "region": "US",
+          "sector": "macro",
+          "doc_type": "time_series",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "count": 6
+        },
+        {
+          "label": "OpenDART 공시",
+          "source": "opendart",
+          "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+          "published_at": "2026-03-27",
+          "region": "KR",
+          "sector": "equity",
+          "doc_type": "filing",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
+          "count": 50
+        }
+      ]
+    },
+    {
+      "title": "1주 환율·유동성 이슈",
+      "tags": [
+        "환율",
+        "달러",
+        "1주"
+      ],
+      "summary": "DXY 120.3, 원/달러 데이터 없음원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다.",
+      "impacts": [
+        {
+          "sector": "한국 증시",
+          "isPositive": false,
+          "desc": "외국인 수급이 약해지면 지수 상단이 제한됩니다."
+        },
+        {
+          "sector": "달러 자산",
+          "isPositive": true,
+          "desc": "환노출 자산의 헤지 효과가 커집니다."
+        },
+        {
+          "sector": "수출주",
+          "isPositive": true,
+          "desc": "원화 약세가 실적에 보탬이 될 수 있습니다."
+        }
+      ],
+      "sources": [
+        {
+          "label": "FRED 거시지표",
+          "source": "fred_api",
+          "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+          "published_at": "2026-03-27",
+          "region": "US",
+          "sector": "macro",
+          "doc_type": "time_series",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "count": 6
+        },
+        {
+          "label": "OpenDART 공시",
+          "source": "opendart",
+          "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+          "published_at": "2026-03-27",
+          "region": "KR",
+          "sector": "equity",
+          "doc_type": "filing",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
+          "count": 50
+        }
+      ]
+    },
+    {
+      "title": "1주 섹터·원자재 연결",
+      "tags": [
+        "원자재",
+        "섹터",
+        "1주"
+      ],
+      "summary": "금 -1.0%, 유가 +1.3% 흐름은 단순 가격보다 인플레이션 압력과 방어 수요를 보여줍니다. 에너지·금 ETF는 동일한 '원자재'라도 역할이 다르므로 구분해 접근해야 합니다.",
+      "impacts": [
+        {
+          "sector": "에너지",
+          "isPositive": true,
+          "desc": "유가 강세 구간에서는 실적 민감도가 높아집니다."
+        },
+        {
+          "sector": "소비재",
+          "isPositive": false,
+          "desc": "원가 부담이 커질 수 있습니다."
+        },
+        {
+          "sector": "금 ETF",
+          "isPositive": true,
+          "desc": "불확실성 헤지 수요를 받을 수 있습니다."
+        }
+      ],
+      "sources": [
+        {
+          "label": "FRED 거시지표",
+          "source": "fred_api",
+          "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+          "published_at": "2026-03-27",
+          "region": "US",
+          "sector": "macro",
+          "doc_type": "time_series",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "count": 6
+        },
+        {
+          "label": "OpenDART 공시",
+          "source": "opendart",
+          "title": "OpenDART 공시 50건 수집 · 예시: 사채원리금미지급발생",
+          "published_at": "2026-03-27",
+          "region": "KR",
+          "sector": "equity",
+          "doc_type": "filing",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346",
+          "count": 50
+        }
+      ]
+    },
+    {
+      "title": "1주 ETF/테마 실행 아이디어",
+      "tags": [
+        "ETF",
+        "테마",
+        "1주"
+      ],
+      "summary": "현재 상위 ETF 후보는 미국 에너지 섹터 ETF, TIGER 200, KODEX 반도체 입니다. 레짐이 아직 중립이라면 공격적 단일 베팅보다 방어형 자산과 섹터형 자산을 섞는 접근이 더 적합합니다.",
+      "impacts": [
+        {
+          "sector": "지수 ETF",
+          "isPositive": true,
+          "desc": "개별 종목보다 레짐 대응이 쉽습니다."
+        },
+        {
+          "sector": "섹터 ETF",
+          "isPositive": true,
+          "desc": "에너지·반도체 등 강한 테마를 선별 반영할 수 있습니다."
+        },
+        {
+          "sector": "개별 종목",
+          "isPositive": false,
+          "desc": "중립 레짐에서는 종목 단위 변동성이 더 큽니다."
+        }
+      ],
+      "sources": [
+        {
+          "label": "ETF 추천",
+          "source": "etf_recommender",
+          "title": "ETF 랭킹 산출",
+          "published_at": "2026-03-27"
+        }
+      ]
+    }
+  ],
+  "portfolio": {
+    "accountAlert": "총 투자 대기 현금 18,267,581원 · 현재 레짐은 중립 횡보 국면 · 포트폴리오 점수 31점(개선 필요). | 2026년 3월 4주 누적 1회 업데이트 기준.",
+    "accountDetail": "ISA (한국투자증권) 8,392,660원 · 세제혜택 계좌로 국내 ETF 중심 배치 | 토스증권 4,309,720원 · 해외 ETF 접근성이 좋아 미국 자산 배치에 적합 | 연금저축 5,565,201원 · 연금저축은 장기 분산형 ETF 중심이 적합",
+    "portfolioScore": {
+      "score": 31,
+      "grade": "개선 필요",
+      "summary": "현금 비중이 과도하게 높아 레짐 대비 배분 점수는 낮지만, 대기 자금은 충분합니다.",
+      "currentPct": {
+        "주식": 0.0,
+        "채권": 0.0,
+        "원자재": 0.0,
+        "현금": 100.0
+      },
+      "targetPct": {
+        "주식": 45.0,
+        "채권": 20.0,
+        "원자재": 10.0,
+        "현금": 25.0
+      },
+      "gaps": {
+        "주식": 45.0,
+        "채권": 20.0,
+        "원자재": 10.0,
+        "현금": 75.0
+      },
+      "breakdown": {
+        "regimeFit": 25,
+        "diversification": 25,
+        "cashManagement": 55
+      },
+      "reasons": [
+        "레짐 적합도 25점 — 목표 배분 대비 편차를 반영",
+        "분산도 25점 — 실제 보유 자산군 수와 집중도를 반영",
+        "현금 운용 55점 — 목표 현금 비중 대비 과소·과다 여부를 반영"
+      ]
+    },
+    "holdings": [],
+    "weeklyReview": {
+      "returnRate": "현금 100% 대기",
+      "desc": "현재는 전액 현금 상태이므로 시장 하락을 직접 맞고 있지는 않습니다. 다만 중립 횡보 국면 구간에서는 현금이 단순 미투자 상태가 아니라 선택권을 보유한 전략 자산으로 작동합니다. 또한 2026년 3월 4주 누적 흐름 기준으로 최근 점수는 47.6입니다."
+    },
+    "allocations": [
+      {
+        "name": "주식",
+        "percent": 45.0,
+        "color": "#2563eb",
+        "desc": "지수·섹터 ETF 중심의 핵심 위험자산"
+      },
+      {
+        "name": "채권",
+        "percent": 20.0,
+        "color": "#0f766e",
+        "desc": "고금리 구간 방어 및 현금흐름 완충"
+      },
+      {
+        "name": "원자재",
+        "percent": 10.0,
+        "color": "#ca8a04",
+        "desc": "금·에너지로 인플레이션 및 리스크 헤지"
+      },
+      {
+        "name": "현금",
+        "percent": 25.0,
+        "color": "#6b7280",
+        "desc": "추가 조정 대응용 대기 자금"
+      }
+    ],
+    "planDesc": "중립 횡보 국면 기준 권장 배분은 주식 45% / 채권 20% / 원자재 10% / 현금 25% 입니다. ISA는 국내 ETF, 토스증권은 미국 ETF, 연금저축은 장기 분산형 ETF에 우선 배분합니다."
+  },
+  "recommendations": {
+    "ideas": [
+      {
+        "logo": "📈",
+        "name": "미국 에너지 섹터 ETF",
+        "ticker": "XLE",
+        "action": "우선 검토",
+        "linkedIssue": "에너지 강세",
+        "reason": "2026년 3월 4주 누적 기준. 1주 기준 점수 72점, 3개월 모멘텀 +41.0%, RSI 86.8, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+      },
+      {
+        "logo": "🇰🇷",
+        "name": "TIGER 200",
+        "ticker": "069500.KS",
+        "action": "우선 검토",
+        "linkedIssue": "한국 주식",
+        "reason": "1주 기준 점수 65점, 3개월 모멘텀 +42.4%, RSI 54.9, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+      },
+      {
+        "logo": "🇰🇷",
+        "name": "KODEX 반도체",
+        "ticker": "091160.KS",
+        "action": "우선 검토",
+        "linkedIssue": "한국 주식",
+        "reason": "1주 기준 점수 65점, 3개월 모멘텀 +72.6%, RSI 53.1, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+      },
+      {
+        "logo": "🏦",
+        "name": "KODEX 미국채울트라30년(H)",
+        "ticker": "148020.KS",
+        "action": "우선 검토",
+        "linkedIssue": "방어형 채권",
+        "reason": "1주 기준 점수 65점, 3개월 모멘텀 +42.7%, RSI 55.2, 해석은 'Neutral 레짐 중립' 입니다. 레짐과 잘 맞는 후보입니다."
+      }
+    ],
+    "etfRanking": [
+      {
+        "rank": 1,
+        "name": "미국 에너지 섹터 ETF",
+        "ticker": "XLE",
+        "score": 72
+      },
+      {
+        "rank": 2,
+        "name": "TIGER 200",
+        "ticker": "069500.KS",
+        "score": 65
+      },
+      {
+        "rank": 3,
+        "name": "KODEX 반도체",
+        "ticker": "091160.KS",
+        "score": 65
+      },
+      {
+        "rank": 4,
+        "name": "KODEX 미국채울트라30년(H)",
+        "ticker": "148020.KS",
+        "score": 65
+      },
+      {
+        "rank": 5,
+        "name": "TIGER 200 IT",
+        "ticker": "371460.KS",
+        "score": 58
+      },
+      {
+        "rank": 6,
+        "name": "금 ETF",
+        "ticker": "GLD",
+        "score": 54
+      },
+      {
+        "rank": 7,
+        "name": "이머징 ETF",
+        "ticker": "EEM",
+        "score": 50
+      },
+      {
+        "rank": 8,
+        "name": "KODEX 골드선물(H)",
+        "ticker": "132030.KS",
+        "score": 49
+      }
+    ]
+  },
+  "meta": {
+    "docsTotal": 56,
+    "sourceLabels": [
+      "OpenDART 공시",
+      "FRED 거시지표"
+    ],
+    "latestDailyDate": "2026-03-27"
+  }
+}

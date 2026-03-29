@@ -11562,5 +11562,215 @@
       ]
     },
     "analysis_mode": "pending"
+  },
+  {
+    "source_file": "data/raw/2026-03-30/fred_api/89a8f0507444cee3.json",
+    "date": "2026-03-26",
+    "core_subject": "VIX (VIXCLS)",
+    "sentiment": 0.0,
+    "key_takeaways": [
+      "[\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"21.44\"\n  },\n  {\n    \"date\": \"2026-03-03\",\n    \"value\": \"23.57\"\n  },\n  {\n    \"date\": \"2026-03-04\",\n    \"value\": \"21.15\"\n  },\n  {\n    \"date\": \"2026-03-05\",\n"
+    ],
+    "impact_assets": {
+      "USD": "neutral",
+      "Bonds": "neutral",
+      "Stocks": "neutral"
+    },
+    "source_meta": {
+      "source_id": "fred_api",
+      "region": "US",
+      "document_type": "time_series",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "fetched_url": "https://api.stlouisfed.org/fred/series/observations",
+      "tags": [
+        "volatility",
+        "fear_index"
+      ]
+    },
+    "analysis_mode": "pending"
+  },
+  {
+    "source_file": "data/raw/2026-03-30/fred_api/727959c330421691.json",
+    "date": "2026-03-26",
+    "core_subject": "US 10Y Treasury Yield (DGS10)",
+    "sentiment": 0.0,
+    "key_takeaways": [
+      "[\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"4.05\"\n  },\n  {\n    \"date\": \"2026-03-03\",\n    \"value\": \"4.06\"\n  },\n  {\n    \"date\": \"2026-03-04\",\n    \"value\": \"4.09\"\n  },\n  {\n    \"date\": \"2026-03-05\",\n   "
+    ],
+    "impact_assets": {
+      "USD": "neutral",
+      "Bonds": "neutral",
+      "Stocks": "neutral"
+    },
+    "source_meta": {
+      "source_id": "fred_api",
+      "region": "US",
+      "document_type": "time_series",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "fetched_url": "https://api.stlouisfed.org/fred/series/observations",
+      "tags": [
+        "bond",
+        "yield",
+        "interest_rate"
+      ]
+    },
+    "analysis_mode": "pending"
+  },
+  {
+    "source_file": "data/raw/2026-03-30/fred_api/3e8e3aff3e9c3943.json",
+    "date": "2026-03-20",
+    "core_subject": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+    "sentiment": 0.0,
+    "key_takeaways": [
+      "[\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"118.667\"\n  },\n  {\n    \"date\": \"2026-03-03\",\n    \"value\": \"119.4341\"\n  },\n  {\n    \"date\": \"2026-03-04\",\n    \"value\": \"119.0705\"\n  },\n  {\n    \"date\": \"2026-"
+    ],
+    "impact_assets": {
+      "USD": "neutral",
+      "Bonds": "neutral",
+      "Stocks": "neutral"
+    },
+    "source_meta": {
+      "source_id": "fred_api",
+      "region": "US",
+      "document_type": "time_series",
+      "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+      "fetched_url": "https://api.stlouisfed.org/fred/series/observations",
+      "tags": [
+        "fx",
+        "dollar"
+      ]
+    },
+    "analysis_mode": "pending"
+  },
+  {
+    "source_file": "data/raw/2026-03-30/fred_api/1644934143c31e9b.json",
+    "date": "2026-03-23",
+    "core_subject": "WTI Crude Oil (DCOILWTICO)",
+    "sentiment": 0.0,
+    "key_takeaways": [
+      "[\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"71.13\"\n  },\n  {\n    \"date\": \"2026-03-03\",\n    \"value\": \"74.48\"\n  },\n  {\n    \"date\": \"2026-03-04\",\n    \"value\": \"74.58\"\n  },\n  {\n    \"date\": \"2026-03-05\",\n"
+    ],
+    "impact_assets": {
+      "USD": "neutral",
+      "Bonds": "neutral",
+      "Stocks": "neutral"
+    },
+    "source_meta": {
+      "source_id": "fred_api",
+      "region": "US",
+      "document_type": "time_series",
+      "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+      "fetched_url": "https://api.stlouisfed.org/fred/series/observations",
+      "tags": [
+        "commodity",
+        "oil",
+        "energy"
+      ]
+    },
+    "analysis_mode": "pending"
+  },
+  {
+    "source_file": "data/raw/2026-03-30/fred_api/b378bcbf50e48141.json",
+    "date": "2026-03-27",
+    "core_subject": "10Y-2Y Treasury Spread (T10Y2Y)",
+    "sentiment": 0.0,
+    "key_takeaways": [
+      "[\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"0.58\"\n  },\n  {\n    \"date\": \"2026-03-03\",\n    \"value\": \"0.55\"\n  },\n  {\n    \"date\": \"2026-03-04\",\n    \"value\": \"0.55\"\n  },\n  {\n    \"date\": \"2026-03-05\",\n   "
+    ],
+    "impact_assets": {
+      "USD": "neutral",
+      "Bonds": "neutral",
+      "Stocks": "neutral"
+    },
+    "source_meta": {
+      "source_id": "fred_api",
+      "region": "US",
+      "document_type": "time_series",
+      "url": "https://fred.stlouisfed.org/series/T10Y2Y",
+      "fetched_url": "https://api.stlouisfed.org/fred/series/observations",
+      "tags": [
+        "yield_curve",
+        "recession_indicator"
+      ]
+    },
+    "analysis_mode": "pending"
+  },
+  {
+    "source_file": "data/raw/2026-03-30/fred_api/3fbf2a39b40a8b8f.json",
+    "date": "2026-03-26",
+    "core_subject": "High Yield Credit Spread (BAMLH0A0HYM2)",
+    "sentiment": 0.0,
+    "key_takeaways": [
+      "[\n  {\n    \"date\": \"2026-02-28\",\n    \"value\": \"3.12\"\n  },\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"3.03\"\n  },\n  {\n    \"date\": \"2026-03-03\",\n    \"value\": \"3.08\"\n  },\n  {\n    \"date\": \"2026-03-04\",\n   "
+    ],
+    "impact_assets": {
+      "USD": "neutral",
+      "Bonds": "neutral",
+      "Stocks": "neutral"
+    },
+    "source_meta": {
+      "source_id": "fred_api",
+      "region": "US",
+      "document_type": "time_series",
+      "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+      "fetched_url": "https://api.stlouisfed.org/fred/series/observations",
+      "tags": [
+        "credit",
+        "risk"
+      ]
+    },
+    "analysis_mode": "pending"
+  },
+  {
+    "source_file": "data/raw/2026-03-30/opendart/7859c20c9ff8bef0.json",
+    "date": "2026-03-30",
+    "core_subject": "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+    "sentiment": 0.0,
+    "key_takeaways": [
+      "{\"corp_code\": \"01276327\", \"corp_name\": \"위지윅스튜디오\", \"stock_code\": \"299900\", \"corp_cls\": \"K\", \"report_nm\": \"[기재정정]주요사항보고서(타법인주식및출자증권양수결정)\", \"rcept_no\": \"20260327001838\", \"flr_nm\": \"위지윅스튜디오\", \"rcept_dt\": "
+    ],
+    "impact_assets": {
+      "USD": "neutral",
+      "Bonds": "neutral",
+      "Stocks": "neutral"
+    },
+    "source_meta": {
+      "source_id": "opendart",
+      "region": "KR",
+      "document_type": "filing",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
+      "fetched_url": "https://opendart.fss.or.kr/api/list.json",
+      "tags": [
+        "K",
+        ""
+      ]
+    },
+    "analysis_mode": "pending"
+  },
+  {
+    "source_file": "data/raw/2026-03-30/opendart/7fe06edbeb9dce73.json",
+    "date": "2026-03-30",
+    "core_subject": "주요사항보고서(유상증자결정)",
+    "sentiment": 0.0,
+    "key_takeaways": [
+      "{\"corp_code\": \"00309831\", \"corp_name\": \"알에프텍\", \"stock_code\": \"061040\", \"corp_cls\": \"K\", \"report_nm\": \"주요사항보고서(유상증자결정)\", \"rcept_no\": \"20260327001827\", \"flr_nm\": \"알에프텍\", \"rcept_dt\": \"20260330\", \"rm\": \"\""
+    ],
+    "impact_assets": {
+      "USD": "neutral",
+      "Bonds": "neutral",
+      "Stocks": "neutral"
+    },
+    "source_meta": {
+      "source_id": "opendart",
+      "region": "KR",
+      "document_type": "filing",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001827",
+      "fetched_url": "https://opendart.fss.or.kr/api/list.json",
+      "tags": [
+        "K",
+        ""
+      ]
+    },
+    "analysis_mode": "pending"
   }
 ]

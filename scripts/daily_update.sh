@@ -26,6 +26,7 @@ python3 "$ROOT/scripts/integrate_refined_insights.py" || true
 
 # 4) site report 생성 (result.json + date_status.json)
 "$VENV/python" "$ROOT/scripts/build_site_report.py" --date "$TODAY" --base-dir "$ROOT" || true
+"$VENV/python" "$ROOT/scripts/build_horizon_views.py" --base-dir "$ROOT" || true
 
 # 5) admin_bot image intake -> OCR -> snapshot -> portfolio apply
 bash "$ROOT/scripts/ingest_admin_bot_pipeline.sh" || true

@@ -1,0 +1,340 @@
+{
+  "generatedAt": "2026-03-30T01:05:20.232648",
+  "latestDailyDate": "2026-03-30",
+  "horizons": {
+    "1일": [
+      {
+        "id": "2026-03-30",
+        "label": "3/30(월)",
+        "source": "horizons/daily/2026-03-30.json",
+        "fromDate": "2026-03-30",
+        "toDate": "2026-03-30",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
+      {
+        "id": "2026-03-29",
+        "label": "3/29(일)",
+        "source": "horizons/daily/2026-03-29.json",
+        "fromDate": "2026-03-29",
+        "toDate": "2026-03-29",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
+      {
+        "id": "2026-03-27",
+        "label": "3/27(금)",
+        "source": "horizons/daily/2026-03-27.json",
+        "fromDate": "2026-03-27",
+        "toDate": "2026-03-27",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
+      {
+        "id": "2026-03-19",
+        "label": "3/19(목)",
+        "source": "horizons/daily/2026-03-19.json",
+        "fromDate": "2026-03-19",
+        "toDate": "2026-03-19",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
+      {
+        "id": "2026-03-18",
+        "label": "3/18(수)",
+        "source": "horizons/daily/2026-03-18.json",
+        "fromDate": "2026-03-18",
+        "toDate": "2026-03-18",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
+      {
+        "id": "2026-03-17",
+        "label": "3/17(화)",
+        "source": "horizons/daily/2026-03-17.json",
+        "fromDate": "2026-03-17",
+        "toDate": "2026-03-17",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-16",
+        "label": "3/16(월)",
+        "source": "horizons/daily/2026-03-16.json",
+        "fromDate": "2026-03-16",
+        "toDate": "2026-03-16",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-14",
+        "label": "3/14(토)",
+        "source": "horizons/daily/2026-03-14.json",
+        "fromDate": "2026-03-14",
+        "toDate": "2026-03-14",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-13",
+        "label": "3/13(금)",
+        "source": "horizons/daily/2026-03-13.json",
+        "fromDate": "2026-03-13",
+        "toDate": "2026-03-13",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-12",
+        "label": "3/12(목)",
+        "source": "horizons/daily/2026-03-12.json",
+        "fromDate": "2026-03-12",
+        "toDate": "2026-03-12",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-11",
+        "label": "3/11(수)",
+        "source": "horizons/daily/2026-03-11.json",
+        "fromDate": "2026-03-11",
+        "toDate": "2026-03-11",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-10",
+        "label": "3/10(화)",
+        "source": "horizons/daily/2026-03-10.json",
+        "fromDate": "2026-03-10",
+        "toDate": "2026-03-10",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-09",
+        "label": "3/9(월)",
+        "source": "horizons/daily/2026-03-09.json",
+        "fromDate": "2026-03-09",
+        "toDate": "2026-03-09",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-07",
+        "label": "3/7(토)",
+        "source": "horizons/daily/2026-03-07.json",
+        "fromDate": "2026-03-07",
+        "toDate": "2026-03-07",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-06",
+        "label": "3/6(금)",
+        "source": "horizons/daily/2026-03-06.json",
+        "fromDate": "2026-03-06",
+        "toDate": "2026-03-06",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-05",
+        "label": "3/5(목)",
+        "source": "horizons/daily/2026-03-05.json",
+        "fromDate": "2026-03-05",
+        "toDate": "2026-03-05",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-04",
+        "label": "3/4(수)",
+        "source": "horizons/daily/2026-03-04.json",
+        "fromDate": "2026-03-04",
+        "toDate": "2026-03-04",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-03",
+        "label": "3/3(화)",
+        "source": "horizons/daily/2026-03-03.json",
+        "fromDate": "2026-03-03",
+        "toDate": "2026-03-03",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-02-27",
+        "label": "2/27(금)",
+        "source": "horizons/daily/2026-02-27.json",
+        "fromDate": "2026-02-27",
+        "toDate": "2026-02-27",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-02-26",
+        "label": "2/26(목)",
+        "source": "horizons/daily/2026-02-26.json",
+        "fromDate": "2026-02-26",
+        "toDate": "2026-02-26",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-02-25",
+        "label": "2/25(수)",
+        "source": "horizons/daily/2026-02-25.json",
+        "fromDate": "2026-02-25",
+        "toDate": "2026-02-25",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-02-24",
+        "label": "2/24(화)",
+        "source": "horizons/daily/2026-02-24.json",
+        "fromDate": "2026-02-24",
+        "toDate": "2026-02-24",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-02-23",
+        "label": "2/23(월)",
+        "source": "horizons/daily/2026-02-23.json",
+        "fromDate": "2026-02-23",
+        "toDate": "2026-02-23",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-02-20",
+        "label": "2/20(금)",
+        "source": "horizons/daily/2026-02-20.json",
+        "fromDate": "2026-02-20",
+        "toDate": "2026-02-20",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-02-19",
+        "label": "2/19(목)",
+        "source": "horizons/daily/2026-02-19.json",
+        "fromDate": "2026-02-19",
+        "toDate": "2026-02-19",
+        "updateCount": 1,
+        "dataStatus": "sparse"
+      }
+    ],
+    "1주": [
+      {
+        "id": "2026-03-w5",
+        "label": "2026년 3월 5주",
+        "source": "horizons/weekly/2026-03-w5.json",
+        "fromDate": "2026-03-29",
+        "toDate": "2026-03-30",
+        "updateCount": 2,
+        "dataStatus": "full"
+      },
+      {
+        "id": "2026-03-w4",
+        "label": "2026년 3월 4주",
+        "source": "horizons/weekly/2026-03-w4.json",
+        "fromDate": "2026-03-27",
+        "toDate": "2026-03-27",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
+      {
+        "id": "2026-03-w3",
+        "label": "2026년 3월 3주",
+        "source": "horizons/weekly/2026-03-w3.json",
+        "fromDate": "2026-03-16",
+        "toDate": "2026-03-19",
+        "updateCount": 4,
+        "dataStatus": "full"
+      },
+      {
+        "id": "2026-03-w2",
+        "label": "2026년 3월 2주",
+        "source": "horizons/weekly/2026-03-w2.json",
+        "fromDate": "2026-03-09",
+        "toDate": "2026-03-14",
+        "updateCount": 6,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-03-w1",
+        "label": "2026년 3월 1주",
+        "source": "horizons/weekly/2026-03-w1.json",
+        "fromDate": "2026-03-03",
+        "toDate": "2026-03-07",
+        "updateCount": 5,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-02-w4",
+        "label": "2026년 2월 4주",
+        "source": "horizons/weekly/2026-02-w4.json",
+        "fromDate": "2026-02-23",
+        "toDate": "2026-02-27",
+        "updateCount": 5,
+        "dataStatus": "sparse"
+      },
+      {
+        "id": "2026-02-w3",
+        "label": "2026년 2월 3주",
+        "source": "horizons/weekly/2026-02-w3.json",
+        "fromDate": "2026-02-19",
+        "toDate": "2026-02-20",
+        "updateCount": 2,
+        "dataStatus": "sparse"
+      }
+    ],
+    "1개월": [
+      {
+        "id": "2026-03",
+        "label": "2026년 3월",
+        "source": "horizons/monthly/2026-03.json",
+        "fromDate": "2026-03-03",
+        "toDate": "2026-03-30",
+        "updateCount": 18,
+        "dataStatus": "full"
+      },
+      {
+        "id": "2026-02",
+        "label": "2026년 2월",
+        "source": "horizons/monthly/2026-02.json",
+        "fromDate": "2026-02-19",
+        "toDate": "2026-02-27",
+        "updateCount": 7,
+        "dataStatus": "sparse"
+      }
+    ],
+    "3개월": [
+      {
+        "id": "2026-q1",
+        "label": "2026년 1분기",
+        "source": "horizons/quarterly/2026-q1.json",
+        "fromDate": "2026-02-19",
+        "toDate": "2026-03-30",
+        "updateCount": 25,
+        "dataStatus": "full"
+      }
+    ],
+    "6개월": [
+      {
+        "id": "2026-h1",
+        "label": "2026년 상반기",
+        "source": "horizons/halfyearly/2026-h1.json",
+        "fromDate": "2026-02-19",
+        "toDate": "2026-03-30",
+        "updateCount": 25,
+        "dataStatus": "full"
+      }
+    ]
+  }
+}

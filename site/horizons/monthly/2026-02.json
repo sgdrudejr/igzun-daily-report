@@ -1,0 +1,241 @@
+{
+  "horizonType": "1개월",
+  "bucketId": "2026-02",
+  "bucketLabel": "2026년 2월",
+  "dataStatus": "sparse",
+  "memberDates": [
+    "2026-02-19",
+    "2026-02-20",
+    "2026-02-23",
+    "2026-02-24",
+    "2026-02-25",
+    "2026-02-26",
+    "2026-02-27"
+  ],
+  "fromDate": "2026-02-19",
+  "toDate": "2026-02-27",
+  "updateCount": 7,
+  "avgScore": null,
+  "briefing": {
+    "sentiment": {
+      "score": 29,
+      "status": "매파/부정",
+      "desc": "금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 인플레이션 부담, 금리 인하 기대, 유가 부담 / 금리 동결, 인플레이션 부담, 금리 인하 기대, 유가 부담 | 2026년 2월 누적 7회 업데이트, 점수 데이터가 제한적입니다."
+    },
+    "forecast": {
+      "title": "2026년 2월 누적 판단",
+      "text": "2026년 2월 동안 7회 일간 업데이트가 누적되었습니다. 점수 데이터가 제한적입니다.. 누적 문서 0건, 주요 출처 출처 정보 없음. 1. 거시/시장 리포트 요약 관련 인사이트 6건 축적<br>2. 연준 금리 동결 및 향후 전망 관련 인사이트 1건 축적<br>3. 추가 누적 인사이트 필요",
+      "sources": []
+    },
+    "insights": [
+      {
+        "category": "누적요약",
+        "text": "2026년 2월 구간은 2026-02-19~2026-02-27 사이 7회 업데이트를 기준으로 집계했습니다. 점수 데이터가 제한적입니다..",
+        "sources": []
+      },
+      {
+        "category": "데이터",
+        "text": "누적 문서 0건, 주요 출처는 출처 정보 없음입니다. 매일 결과를 누적해 1개월 관점으로 다시 정리한 뷰입니다.",
+        "sources": []
+      },
+      {
+        "category": "내러티브",
+        "text": "거시/시장 리포트 요약 관련 인사이트 6건 축적",
+        "sources": [
+          {
+            "label": "2026-02-27_kb_research_broker_report_2026년_2월_27일__금___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-27_kb_research_broker_report_2026년_2월_27일__금___kb_데일리.pdf",
+            "published_at": "2026-02-27"
+          },
+          {
+            "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+            "published_at": "2026-02-26"
+          },
+          {
+            "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+            "published_at": "2026-02-25"
+          },
+          {
+            "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+            "published_at": "2026-02-24"
+          }
+        ]
+      },
+      {
+        "category": "내러티브",
+        "text": "연준 금리 동결 및 향후 전망 관련 인사이트 1건 축적",
+        "sources": [
+          {
+            "label": "2026-02-27_kb_research_broker_report_2026년_2월_27일__금___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-27_kb_research_broker_report_2026년_2월_27일__금___kb_데일리.pdf",
+            "published_at": "2026-02-27"
+          },
+          {
+            "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+            "published_at": "2026-02-26"
+          },
+          {
+            "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+            "published_at": "2026-02-25"
+          },
+          {
+            "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+            "published_at": "2026-02-24"
+          }
+        ]
+      },
+      {
+        "category": "내러티브",
+        "text": "추가 누적 인사이트 필요",
+        "sources": [
+          {
+            "label": "2026-02-27_kb_research_broker_report_2026년_2월_27일__금___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-27_kb_research_broker_report_2026년_2월_27일__금___kb_데일리.pdf",
+            "published_at": "2026-02-27"
+          },
+          {
+            "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+            "published_at": "2026-02-26"
+          },
+          {
+            "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+            "published_at": "2026-02-25"
+          },
+          {
+            "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+            "source": "KR",
+            "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+            "published_at": "2026-02-24"
+          }
+        ]
+      }
+    ],
+    "indices": []
+  },
+  "newsList": [
+    {
+      "title": "2026년 2월 누적 요약",
+      "tags": [
+        "1개월",
+        "누적",
+        "집계"
+      ],
+      "summary": "2026년 2월 동안 7회 업데이트가 쌓였고, 점수 데이터가 제한적입니다.. 주요 출처는 출처 정보 없음입니다.",
+      "impacts": [
+        {
+          "sector": "거시",
+          "isPositive": true,
+          "desc": "1개월 관점에서 노이즈보다 추세 해석에 유리합니다."
+        },
+        {
+          "sector": "포트폴리오",
+          "isPositive": true,
+          "desc": "단일 기사보다 누적 흐름을 기준으로 자산배분 판단이 가능합니다."
+        },
+        {
+          "sector": "섹터",
+          "isPositive": false,
+          "desc": "단기 뉴스와 중기 방향성을 분리해서 해석해야 합니다."
+        }
+      ],
+      "sources": []
+    },
+    {
+      "title": "1개월 핵심 내러티브 변화",
+      "tags": [
+        "내러티브",
+        "자산군 방향성",
+        "누적분석"
+      ],
+      "summary": "거시/시장 리포트 요약 관련 인사이트 6건 축적 / 연준 금리 동결 및 향후 전망 관련 인사이트 1건 축적",
+      "impacts": [
+        {
+          "sector": "USD",
+          "isPositive": true,
+          "desc": "강세"
+        },
+        {
+          "sector": "Bonds",
+          "isPositive": true,
+          "desc": "금리 상승/가격 하락"
+        },
+        {
+          "sector": "Stocks",
+          "isPositive": false,
+          "desc": "약세"
+        }
+      ],
+      "sources": [
+        {
+          "label": "2026-02-27_kb_research_broker_report_2026년_2월_27일__금___kb_데일리.pdf",
+          "source": "KR",
+          "title": "2026-02-27_kb_research_broker_report_2026년_2월_27일__금___kb_데일리.pdf",
+          "published_at": "2026-02-27"
+        },
+        {
+          "label": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+          "source": "KR",
+          "title": "2026-02-26_kb_research_broker_report_2026년_2월_26일__목___kb_데일리.pdf",
+          "published_at": "2026-02-26"
+        },
+        {
+          "label": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+          "source": "KR",
+          "title": "2026-02-25_kb_research_broker_report_2026년_2월_25일__수___kb_데일리.pdf",
+          "published_at": "2026-02-25"
+        },
+        {
+          "label": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+          "source": "KR",
+          "title": "2026-02-24_kb_research_broker_report_2026년_2월_24일__화___kb_데일리.pdf",
+          "published_at": "2026-02-24"
+        },
+        {
+          "label": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+          "source": "KR",
+          "title": "2026-02-23_kb_research_broker_report_2026년_2월_23일__월___kb_데일리.pdf",
+          "published_at": "2026-02-23"
+        }
+      ]
+    }
+  ],
+  "portfolio": {
+    "accountAlert": "1개월 누적 원문을 기준으로 자산군 방향성을 우선 반영합니다. | 2026년 2월 누적 7회 업데이트 기준.",
+    "accountDetail": "실계좌 미연결 상태입니다.",
+    "weeklyReview": {
+      "returnRate": "실계좌 미연결",
+      "desc": "계좌 스냅샷 필요 또한 2026년 2월 누적 흐름 기준 점수 데이터는 아직 제한적입니다."
+    },
+    "holdings": [],
+    "planDesc": "1개월 내러티브 변화 기준 자산배분 해석",
+    "allocations": []
+  },
+  "recommendations": {
+    "ideas": [],
+    "etfRanking": []
+  },
+  "meta": {
+    "docsTotal": 0,
+    "sourceLabels": [],
+    "latestDailyDate": "2026-02-27"
+  }
+}

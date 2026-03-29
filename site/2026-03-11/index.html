@@ -1,1885 +1,533 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
- <title>오픈 클로 AI 리포트</title>
- <style>
- @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
- * { box-sizing: border-box; }
- body { font-family: 'Pretendard', -apple-system, sans-serif; background-color: #F2F4F6; color: #333D4B; margin: 0; padding: 0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
- .app-container { max-width: 480px; margin: 0 auto; background-color: #F2F4F6; min-height: 100vh; position: relative; display: flex; flex-direction: column; }
- .calendar-fab { position: fixed; bottom: 24px; left: 24px; width: 56px; height: 56px; border-radius: 50%; background-color: #191F28; color: #FFFFFF; font-size: 24px; display: flex; align-items: center; justify-content: center; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; z-index: 90; transition: transform 0.2s; }
- .calendar-fab:hover { transform: scale(1.05); }
- .calendar-popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; align-items: center; justify-content: center; animation: fadeIn 0.2s ease; }
- .calendar-popup-overlay.active { display: flex; }
- .calendar-card { background-color: #FFFFFF; border-radius: 20px; padding: 24px; width: 340px; max-width: 90%; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); position: relative; animation: slideUp 0.3s ease; }
- .calendar-legend { display:flex; flex-wrap:wrap; gap:8px; margin: 12px 0 0 0; font-size:11px; color:#6B7684; }
- .legend-item { display:flex; align-items:center; gap:4px; }
- .legend-dot { width:10px; height:10px; border-radius:50%; }
- @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
- .btn-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 18px; color: #8B95A1; cursor: pointer; padding: 4px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background-color 0.2s; }
- .btn-close:hover { background-color: #F2F4F6; color: #191F28; }
- .calendar-header { display: flex; align-items: center; justify-content: center; position: relative; margin-bottom: 20px; }
- .calendar-nav { display: flex; align-items: center; gap: 16px; }
- .calendar-nav button { background: none; border: none; font-size: 14px; color: #8B95A1; cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: background-color 0.2s;}
- .calendar-nav button:hover { background-color: #F2F4F6; color: #191F28; }
- .calendar-month-year { font-size: 18px; font-weight: 700; color: #191F28; min-width: 80px; text-align: center; font-variant-numeric: tabular-nums; }
- .btn-today { position: absolute; right: 36px; background-color: #F2F4F6; color: #4E5968; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
- .btn-today:hover { background-color: #E5E8EB; color: #191F28;}
- .calendar-day-names { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 13px; font-weight: 600; color: #8B95A1; margin-bottom: 12px; }
- .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
- .calendar-date { padding: 10px 0; text-align: center; font-size: 14px; color: #333D4B; font-weight: 500; cursor: pointer; border-radius: 10px; transition: all 0.2s ease; }
- .calendar-date:not(.empty):hover { background-color: #F2F4F6; }
- .calendar-date.active { background-color: #3182F6; color: #FFFFFF; font-weight: 700; box-shadow: 0 2px 8px rgba(49,130,246,0.3); }
- .calendar-date.empty { cursor: default; }
- .calendar-date.status-full { background:#E8F7ED; }
- .calendar-date.status-partial { background:#FFF4E5; }
- .calendar-date.status-sparse { background:#E8F3FF; }
- .calendar-date.status-empty { opacity:0.45; }
- .top-nav { padding: 24px 20px 0 20px; background-color: #FFFFFF; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #E5E8EB; }
- .top-nav h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px 0; color: #191F28; display: flex; align-items: center; gap: 6px; }
- .top-nav .sub-text { font-size: 13px; color: #8B95A1; margin-bottom: 16px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
- .status-badge { display:inline-flex; align-items:center; gap:4px; padding:4px 8px; border-radius:999px; font-size:11px; font-weight:700; }
- .status-full { background:#E8F7ED; color:#137333; }
- .status-partial { background:#FFF4E5; color:#B06000; }
- .status-sparse { background:#E8F3FF; color:#1B64DA; }
- .status-empty { background:#F2F4F6; color:#6B7684; }
- .period-selector { display: flex; overflow-x: auto; scrollbar-width: none; gap: 8px; margin-bottom: 16px; padding-bottom: 4px; }
- .period-selector::-webkit-scrollbar { display: none; }
- .period-chip { padding: 6px 14px; background-color: #F2F4F6; color: #6B7684; border-radius: 16px; font-size: 13px; font-weight: 600; white-space: nowrap; transition: all 0.2s; cursor: pointer; }
- .period-chip.active { background-color: #333D4B; color: #FFFFFF; }
- .tab-menu { display: flex; overflow-x: auto; scrollbar-width: none; gap: 16px; }
- .tab-menu::-webkit-scrollbar { display: none; }
- .tab-item { font-size: 15px; font-weight: 600; color: #8B95A1; padding-bottom: 8px; white-space: nowrap; cursor: pointer; position: relative; transition: color 0.2s ease; }
- .tab-item.active { color: #191F28; font-weight: 700; }
- .tab-item.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background-color: #191F28; border-radius: 3px 3px 0 0; }
- .tab-content { padding: 20px 0 40px 0; flex: 1; }
- .tab-pane { display: none; animation: fadeIn 0.3s ease; }
- .tab-pane.active { display: block; }
- @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
- .card { background-color: #FFFFFF; border-radius: 20px; padding: 24px; margin: 0 20px 16px 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02); }
- .card-title { font-size: 18px; font-weight: 700; color: #191F28; margin: 0 0 16px 0; }
- .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
- .chip { background-color: #F2F4F6; color: #4E5968; font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 8px; }
- .badge { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; padding: 3px 6px; border-radius: 6px; margin-left: 6px; }
- .badge-positive { background-color: #FCEBED; color: #F04452; }
- .badge-negative { background-color: #E8F3FF; color: #3182F6; }
- .badge-issue { background-color: #F2F4F6; color: #333D4B; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 8px; display: inline-block;}
- .badge-category { background-color: #E8F3FF; color: #1B64DA; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; display: inline-block; white-space: nowrap;}
- .sentiment-container { margin-bottom: 24px; }
- .sentiment-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px; }
- .sentiment-score { font-size: 24px; font-weight: 800; color: #191F28; line-height: 1; }
- .sentiment-status { font-size: 14px; font-weight: 700; }
- .sentiment-bar-bg { height: 8px; background-color: #E5E8EB; border-radius: 4px; overflow: hidden; position: relative; }
- .sentiment-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
- .sentiment-desc { font-size: 13px; color: #6B7684; margin-top: 8px; }
- .forecast-box { background-color: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px; padding: 16px; margin-bottom: 20px; }
- .forecast-title { display: flex; align-items: center; font-size: 15px; font-weight: 700; color: #191F28; margin-bottom: 12px; }
- .forecast-title span { background-color: #191F28; color: white; border-radius: 4px; padding: 2px 6px; font-size: 11px; margin-right: 8px; }
- .forecast-text { font-size: 14px; color: #4E5968; line-height: 1.6; text-align: justify; }
- .insight-list { list-style: none; padding: 0; margin: 0; }
- .insight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px dashed #F2F4F6; }
- .insight-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
- .insight-text { font-size: 14.5px; color: #4E5968; line-height: 1.5; margin-top: 2px; }
- .index-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #F2F4F6; }
- .index-row:last-child { border-bottom: none; }
- .index-name { font-size: 15px; font-weight: 600; color: #333D4B; }
- .index-value { text-align: right; }
- .index-price { font-size: 15px; font-weight: 700; color: #191F28; }
- .text-up { color: #F04452; font-size: 13px; font-weight: 600; }
- .text-down { color: #3182F6; font-size: 13px; font-weight: 600; }
- .impact-tree { margin-top: 20px; position: relative; }
- .impact-tree-title { font-size: 14px; font-weight: 700; margin-bottom: 16px; color: #8B95A1; }
- .impact-node { margin-bottom: 20px; position: relative; }
- .impact-node::before { content: ''; position: absolute; left: 11px; top: 24px; bottom: -20px; width: 2px; background-color: #F2F4F6; }
- .impact-node:last-child::before { display: none; }
- .node-header { display: flex; align-items: center; margin-bottom: 8px; position: relative; z-index: 1; }
- .node-dot { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-right: 12px; background-color: #FFFFFF; }
- .dot-red { border: 2px solid #F04452; color: #F04452; }
- .dot-blue { border: 2px solid #3182F6; color: #3182F6; }
- .node-title { font-size: 15px; font-weight: 700; color: #333D4B; }
- .node-desc { font-size: 14px; color: #6B7684; padding-left: 36px; margin-bottom: 12px; line-height: 1.4; }
- .account-card { background: linear-gradient(135deg, #191F28 0%, #333D4B 100%); color: white; border-radius: 20px; padding: 24px; margin: 0 20px 16px 20px; box-shadow: 0 4px 12px rgba(25, 31, 40, 0.2); }
- .account-alert { font-size: 18px; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
- .account-detail { font-size: 14px; opacity: 0.9; background: rgba(255,255,255,0.15); padding: 12px; border-radius: 12px; line-height: 1.5; }
- .allocation-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
- .alloc-item { display: flex; align-items: flex-start; margin-bottom: 12px; }
- .alloc-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 4px; margin-right: 12px; flex-shrink: 0; }
- .alloc-name { font-size: 14px; font-weight: 700; color: #191F28; }
- .alloc-desc { font-size: 13px; color: #6B7684; }
- .signal-box { background-color: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
- .signal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
- .signal-stock-info { display: flex; flex-direction: column; }
- .signal-stock-name { font-size: 16px; font-weight: 700; color: #191F28; }
- .signal-stock-ticker { font-size: 12px; color: #8B95A1; }
- .signal-badge { padding: 4px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
- .sig-ss { background-color: #E8F3FF; color: #1B64DA; border: 1px solid #1B64DA; }
- .sig-s { background-color: #F2F4F6; color: #3182F6; }
- .sig-h { background-color: #F2F4F6; color: #6B7684; }
- .sig-b { background-color: #FCEBED; color: #F04452; }
- .sig-sb { background-color: #FCEBED; color: #D9042B; border: 1px solid #D9042B; }
- .signal-bar-wrap { display: flex; align-items: center; gap: 8px; margin: 16px 0 12px 0; }
- .signal-bar-label { font-size: 11px; font-weight: 700; color: #8B95A1; min-width: 32px; text-align: center; }
- .signal-bar-track { flex: 1; height: 6px; border-radius: 3px; background: linear-gradient(to right, #1B64DA, #3182F6, #E5E8EB, #F04452, #D9042B); position: relative; }
- .signal-bar-marker { position: absolute; top: -5px; width: 16px; height: 16px; border-radius: 50%; background-color: white; border: 3px solid; transform: translateX(-50%); box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: left 0.5s ease; }
- .signal-indicators { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
- .sig-ind { font-size: 11px; background-color: #FFFFFF; border: 1px solid #E5E8EB; color: #4E5968; padding: 2px 6px; border-radius: 4px; font-weight: 600;}
- .signal-reason { font-size: 13px; color: #4E5968; line-height: 1.4; background-color: #FFFFFF; padding: 10px; border-radius: 8px; }
- .stock-item { display: flex; align-items: center; justify-content: space-between; padding: 16px; background-color: #F9FAFB; border-radius: 12px; border: 1px solid #E5E8EB; }
- .stock-info { display: flex; align-items: center; gap: 12px; }
- .stock-logo { font-size: 24px; }
- .stock-name { font-size: 15px; font-weight: 700; color: #191F28; }
- .stock-ticker { font-size: 12px; color: #8B95A1; margin-top: 2px; }
- .stock-action { background-color: #FCEBED; color: #F04452; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; }
- .stock-reason-box { background-color: #FFFFFF; border: 1px solid #E5E8EB; border-top: none; padding: 16px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; margin-bottom: 20px; }
- .ranking-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px;}
- .rank-item { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #F2F4F6; }
- .rank-item:last-child { border-bottom: none; }
- .rank-num { width: 28px; font-size: 16px; font-weight: 800; color: #8B95A1; font-style: italic; }
- .rank-num.top-rank { color: #F04452; }
- .rank-info { flex: 1; padding-left: 8px; }
- .rank-title-box { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
- .rank-name { font-size: 14px; font-weight: 700; color: #191F28; }
- .rank-ticker { font-size: 11px; color: #8B95A1; background-color: #F2F4F6; padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
- .rank-score-text { font-size: 13px; font-weight: 800; color: #3182F6; }
- .rank-bar-bg { width: 100%; height: 6px; background-color: #E5E8EB; border-radius: 3px; overflow: hidden; }
- .rank-bar-fill { height: 100%; border-radius: 3px; background-color: #3182F6; transition: width 0.5s ease; }
- .empty-state { text-align: center; padding: 40px 20px; color: #8B95A1; font-size: 15px; }
- .source-toggle { margin-top: 12px; background: #F2F4F6; border: none; border-radius: 8px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #4E5968; cursor: pointer; }
- .source-box { margin-top: 10px; padding: 12px; background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px; font-size: 12px; color: #6B7684; }
- .source-item { margin-bottom: 8px; }
- .source-item:last-child { margin-bottom: 0; }
- @media (max-width: 800px) { .calendar-fab { left: 16px; bottom: 16px; width: 50px; height: 50px; font-size: 20px; } }
- </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>글로벌 매크로·ETF 리포트</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Pretendard', -apple-system, sans-serif; background: #eef2f7; color: #1f2937; }
+    .app { max-width: 560px; margin: 0 auto; min-height: 100vh; background: #f6f8fb; }
+    .top { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e5e7eb; padding: 20px 18px 14px; }
+    .title { font-size: 22px; font-weight: 800; color: #111827; margin: 0 0 6px; }
+    .sub { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #6b7280; font-size: 13px; margin-bottom: 16px; }
+    .status-badge { display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+    .status-full { background: #e8f7ed; color: #137333; }
+    .status-partial { background: #fff4e5; color: #b06000; }
+    .status-sparse { background: #e8f3ff; color: #1b64da; }
+    .status-empty { background: #f3f4f6; color: #6b7280; }
+    .selector-block { margin-bottom: 14px; }
+    .selector-title { font-size: 12px; font-weight: 700; color: #6b7280; margin-bottom: 8px; }
+    .selector-row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+    .selector-row::-webkit-scrollbar { display: none; }
+    .summary-strip { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-bottom: 14px; }
+    .summary-strip::-webkit-scrollbar { display: none; }
+    .summary-pill { display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 999px; background: #f3f4f6; color: #374151; font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .chip { border: none; background: #e5e7eb; color: #4b5563; border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+    .chip.active { background: #111827; color: #ffffff; }
+    .chip.soft { background: #f3f4f6; }
+    .chip.soft.active { background: #2563eb; color: #ffffff; }
+    .tab-row { display: flex; gap: 14px; overflow-x: auto; scrollbar-width: none; }
+    .tab-row::-webkit-scrollbar { display: none; }
+    .tab { border: none; background: transparent; color: #9ca3af; font-size: 15px; font-weight: 700; padding: 0 0 8px; cursor: pointer; position: relative; white-space: nowrap; }
+    .tab.active { color: #111827; }
+    .tab.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #111827; border-radius: 999px; }
+    .content { padding: 18px 0 40px; }
+    .pane { display: none; }
+    .pane.active { display: block; }
+    .card { background: #ffffff; border-radius: 20px; box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04); margin: 0 18px 16px; padding: 20px; }
+    .card-title { font-size: 18px; font-weight: 800; color: #111827; margin: 0 0 14px; }
+    .muted { font-size: 13px; color: #6b7280; }
+    .score-wrap { margin-bottom: 18px; }
+    .score-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 8px; }
+    .score-num { font-size: 28px; font-weight: 800; color: #111827; }
+    .score-status { font-size: 14px; font-weight: 800; }
+    .score-track { height: 8px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+    .score-fill { height: 100%; border-radius: 999px; }
+    .forecast-box { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 16px; padding: 16px; }
+    .forecast-label { display: inline-flex; align-items: center; gap: 6px; background: #111827; color: #ffffff; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 800; margin-bottom: 10px; }
+    .forecast-text { font-size: 14px; line-height: 1.65; color: #4b5563; }
+    .list { list-style: none; margin: 0; padding: 0; }
+    .list-item { display: flex; gap: 10px; padding: 14px 0; border-bottom: 1px dashed #e5e7eb; }
+    .list-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .badge { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 8px; background: #e8f3ff; color: #1b64da; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+    .body-text { font-size: 14.5px; line-height: 1.6; color: #4b5563; }
+    .index-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eef2f7; }
+    .index-row:last-child { border-bottom: none; }
+    .index-name { font-size: 14px; font-weight: 700; color: #111827; }
+    .index-value { text-align: right; }
+    .index-price { font-size: 15px; font-weight: 800; color: #111827; }
+    .text-up { color: #e11d48; font-size: 13px; font-weight: 700; }
+    .text-down { color: #2563eb; font-size: 13px; font-weight: 700; }
+    .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .tag { display: inline-flex; padding: 6px 10px; border-radius: 999px; background: #f3f4f6; color: #4b5563; font-size: 12px; font-weight: 700; }
+    .impact-title { font-size: 13px; font-weight: 800; color: #6b7280; margin: 18px 0 10px; }
+    .impact-item { padding: 10px 0; border-bottom: 1px dashed #e5e7eb; }
+    .impact-item:last-child { border-bottom: none; }
+    .impact-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .impact-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .impact-dot.pos { background: #e11d48; }
+    .impact-dot.neg { background: #2563eb; }
+    .impact-name { font-size: 14px; font-weight: 800; color: #111827; }
+    .impact-desc { font-size: 13.5px; line-height: 1.55; color: #6b7280; }
+    .hero { background: linear-gradient(135deg, #111827 0%, #334155 100%); color: #ffffff; border-radius: 20px; margin: 0 18px 16px; padding: 20px; }
+    .hero-title { font-size: 18px; font-weight: 800; margin: 0 0 10px; }
+    .hero-text { font-size: 14px; line-height: 1.6; opacity: 0.92; }
+    .alloc-bar { display: flex; height: 12px; border-radius: 999px; overflow: hidden; margin: 14px 0 16px; }
+    .alloc-item { display: flex; align-items: start; gap: 10px; margin-bottom: 12px; }
+    .alloc-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 4px; }
+    .alloc-name { font-size: 14px; font-weight: 800; color: #111827; }
+    .alloc-desc { font-size: 13px; line-height: 1.5; color: #6b7280; }
+    .idea { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 18px; margin: 0 18px 16px; overflow: hidden; }
+    .idea-top { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #f8fafc; }
+    .idea-left { display: flex; gap: 12px; align-items: center; }
+    .idea-logo { font-size: 24px; }
+    .idea-name { font-size: 15px; font-weight: 800; color: #111827; }
+    .idea-ticker { font-size: 12px; color: #6b7280; }
+    .idea-action { background: #eff6ff; color: #1d4ed8; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; }
+    .idea-body { padding: 14px 16px 16px; }
+    .issue-badge { display: inline-flex; padding: 5px 8px; border-radius: 999px; background: #f3f4f6; color: #4b5563; font-size: 12px; font-weight: 700; margin-bottom: 10px; }
+    .rank-item { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px dashed #e5e7eb; }
+    .rank-item:last-child { border-bottom: none; }
+    .rank-num { width: 24px; font-size: 16px; font-weight: 800; color: #9ca3af; }
+    .rank-info { flex: 1; }
+    .rank-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 8px; }
+    .rank-name { font-size: 14px; font-weight: 800; color: #111827; }
+    .rank-ticker { font-size: 11px; color: #6b7280; background: #f3f4f6; border-radius: 999px; padding: 2px 8px; margin-left: 6px; }
+    .rank-score { font-size: 13px; font-weight: 800; color: #2563eb; }
+    .rank-track { height: 6px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+    .rank-fill { height: 100%; background: #2563eb; border-radius: 999px; }
+    .source-toggle { margin-top: 12px; border: none; background: #f3f4f6; color: #4b5563; padding: 8px 10px; border-radius: 10px; font-size: 12px; font-weight: 800; cursor: pointer; }
+    .source-box { display: none; margin-top: 10px; background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px; }
+    .source-item { font-size: 12px; color: #6b7280; line-height: 1.6; margin-bottom: 8px; }
+    .source-item:last-child { margin-bottom: 0; }
+    .empty { text-align: center; padding: 48px 20px; color: #9ca3af; font-size: 15px; }
+  </style>
 </head>
 <body>
-<button class="calendar-fab" onclick="toggleCalendar()">📅</button>
-<div class="calendar-popup-overlay" id="calendarPopup" onclick="closeCalendarOnOutsideClick(event)">
- <div class="calendar-card">
- <button class="btn-close" onclick="toggleCalendar()">✕</button>
- <div class="calendar-header">
- <div class="calendar-nav">
- <button onclick="changeMonth(-1)">◀</button>
- <span class="calendar-month-year" id="calendar-month-year">2026 01</span>
- <button onclick="changeMonth(1)">▶</button>
- </div>
- <button class="btn-today" onclick="goToToday()">오늘</button>
- </div>
- <div class="calendar-day-names">
- <span style="color:#F04452;">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span style="color:#3182F6;">토</span>
- </div>
- <div class="calendar-grid" id="calendar-grid"></div>
- <div class="calendar-legend"><div class="legend-item"><span class="legend-dot" style="background:#E8F7ED"></span>full</div><div class="legend-item"><span class="legend-dot" style="background:#FFF4E5"></span>partial</div><div class="legend-item"><span class="legend-dot" style="background:#E8F3FF"></span>sparse</div><div class="legend-item"><span class="legend-dot" style="background:#F2F4F6"></span>empty</div></div>
- </div>
-</div>
-<div class="app-container">
- <div class="top-nav">
- <h1>✨ 오픈 클로 투자 비서</h1>
- <div class="sub-text"><span id="report-date">날짜 로딩중...</span><span id="data-status-badge"></span></div>
- <div class="period-selector" id="periodSelector"></div>
- <div class="tab-menu" id="tabMenu">
- <div class="tab-item active" onclick="switchTab('briefing')">시장 브리핑</div>
- <div class="tab-item" onclick="switchTab('news')">주요 이슈</div>
- <div class="tab-item" onclick="switchTab('portfolio')">포트폴리오</div>
- <div class="tab-item" onclick="switchTab('recommend')">종목 랭킹</div>
- </div>
- </div>
- <div class="tab-content">
- <div class="tab-pane active" id="tab-briefing"></div>
- <div class="tab-pane" id="tab-news"></div>
- <div class="tab-pane" id="tab-portfolio"></div>
- <div class="tab-pane" id="tab-recommend"></div>
- </div>
-</div>
-<script>
-let currentYear, currentMonth; let selectedDateInfo = null; let currentPeriod = ""; let dateStatusMap = {};
-function toggleCalendar(){document.getElementById('calendarPopup').classList.toggle('active');}
-function closeCalendarOnOutsideClick(event){if(event.target.id==='calendarPopup') toggleCalendar();}
-async function initCalendar(){const today=new Date();currentYear=today.getFullYear();currentMonth=today.getMonth();selectedDateInfo={year:today.getFullYear(),month:today.getMonth(),date:today.getDate()}; await loadDateStatuses(); renderCalendar(currentYear,currentMonth);}
-async function loadDateStatuses(){ try { const r = await fetch('/igzun-daily-report/site/date_status.json', {cache:'no-store'}); if(r.ok){ dateStatusMap = await r.json(); } } catch(e) { dateStatusMap = {}; } }
-function renderCalendar(year,month){const grid=document.getElementById('calendar-grid');const monthYearLabel=document.getElementById('calendar-month-year');grid.innerHTML='';monthYearLabel.innerText=`${year} ${String(month+1).padStart(2,'0')}`;const firstDay=new Date(year,month,1).getDay();const daysInMonth=new Date(year,month+1,0).getDate();for(let i=0;i<firstDay;i++){const emptyDiv=document.createElement('div');emptyDiv.className='calendar-date empty';grid.appendChild(emptyDiv);}const today=new Date();const isCurrentMonth=today.getFullYear()===year&&today.getMonth()===month;for(let i=1;i<=daysInMonth;i++){const dateDiv=document.createElement('div');dateDiv.className='calendar-date';dateDiv.innerText=i;const ds=`${year}-${String(month+1).padStart(2,'0')}-${String(i).padStart(2,'0')}`; const st=(dateStatusMap[ds]||{}).status||'empty'; dateDiv.classList.add(`status-${st}`); dateDiv.title = `${ds} · ${st}`; const dayOfWeek=(firstDay+i-1)%7;if(dayOfWeek===0) dateDiv.style.color='#F04452'; if(dayOfWeek===6) dateDiv.style.color='#3182F6'; if(selectedDateInfo&&selectedDateInfo.year===year&&selectedDateInfo.month===month&&selectedDateInfo.date===i){dateDiv.classList.add('active');dateDiv.style.color='#FFFFFF';} else if(isCurrentMonth&&i===today.getDate()&&!selectedDateInfo){dateDiv.classList.add('active');dateDiv.style.color='#FFFFFF';} dateDiv.onclick=(e)=>loadReportForDate(year,month,i,e); grid.appendChild(dateDiv);} }
-function changeMonth(offset){currentMonth+=offset;if(currentMonth<0){currentMonth=11;currentYear--;} else if(currentMonth>11){currentMonth=0;currentYear++;}renderCalendar(currentYear,currentMonth);}
-function goToToday(){initCalendar();updateReportTitle();}
-async function loadReportForDate(year,month,day,event){document.querySelectorAll('.calendar-date').forEach(el=>{el.classList.remove('active');const dayNum=parseInt(el.innerText);if(dayNum){const dayOfWeek=new Date(year,month,dayNum).getDay();if(dayOfWeek===0) el.style.color='#F04452'; else if(dayOfWeek===6) el.style.color='#3182F6'; else el.style.color='#333D4B';}}); if(event){event.target.classList.add('active');event.target.style.color='#FFFFFF';} selectedDateInfo={year:year,month:month,date:day}; updateReportTitle(); const ds=`${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`; try { const r=await fetch(`/igzun-daily-report/site/${ds}/result.json`, {cache:'no-store'}); if(r.ok){ const incoming=await r.json(); if(incoming && incoming.dataByPeriod){ reportData.date = incoming.date || reportData.date; reportData.dataByPeriod = incoming.dataByPeriod; const periods=Object.keys(reportData.dataByPeriod); currentPeriod = periods.includes('1일') ? '1일' : periods[0]; renderPeriodSelector(periods); updateAllViews(); } else { alert(`${ds} 데이터 구조가 올바르지 않습니다.`); } } else { alert(`${ds} 데이터가 없습니다.`); } } catch(e){ alert(`${ds} 데이터를 불러오지 못했습니다.`); } toggleCalendar();}
-function updateReportTitle(){if(!selectedDateInfo) return; document.getElementById('report-date').innerText=`${selectedDateInfo.year}년 ${selectedDateInfo.month+1}월 ${selectedDateInfo.date}일 기준 업데이트`; renderDataStatusBadge(reportData.dataStatus || 'partial');}
-function renderDataStatusBadge(status){ const el=document.getElementById('data-status-badge'); if(!el) return; const map={full:'status-full', partial:'status-partial', sparse:'status-sparse', empty:'status-empty'}; el.className=`status-badge ${map[status]||'status-empty'}`; el.textContent=`${status}`; }
-const reportData = {
-  "date": "2026년 3월 19일 기준 업데이트",
-  "generated_at": "2026-03-19T03:31:29.743715+00:00",
-  "dataByPeriod": {
-    "1일": {
-      "briefing": {
-        "sentiment": {
-          "score": 39,
-          "status": "경계",
-          "desc": "1일 기준 지수 흐름, 수집 데이터, 퀀트수식 문서 해석을 반영한 심리 요약입니다."
-        },
-        "forecast": {
-          "title": "당일 뉴스 + 지수 기반 단기 전망",
-          "text": "당일/단기 변동성은 FOMC·유가·고용/물가 헤드라인이 주도합니다.",
-          "sources": [
-            {
-              "label": "2026년 3월 19일 (목): KB 데일리",
-              "source": "merged_story",
-              "title": "2026년 3월 19일 (목): KB 데일리",
-              "published_at": "2026-03-19",
-              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-            },
-            {
-              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "source": "merged_story",
-              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "published_at": "2026-03-19",
-              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-            }
-          ]
-        },
-        "insights": [
-          {
-            "category": "시황",
-            "text": "S&P 500 6,646.13으로 마감, 전일 대비 ▼ 0.75%. 미국 증시 하락 마감."
-          },
-          {
-            "category": "매크로",
-            "text": "WTI 원유 $96.16 급등. 중동 긴장 지속으로 에너지 변동성 확대."
-          },
-          {
-            "category": "자산배분",
-            "text": "금 $4,864.04. 위험선호 회복 조짐."
-          },
-          {
-            "category": "환율",
-            "text": "원/달러 1,485.50원. 원화 강세 전환 — 외국인 자금 유입 가능성."
-          },
-          {
-            "category": "섹터",
-            "text": "나스닥 22,233.23 (▼ 0.82%). 기술주 약세 — 반도체 비중 40% 포트폴리오 주의 필요."
-          }
-        ],
-        "indices": [
-          {
-            "name": "S&P 500",
-            "price": "6,646.13",
-            "change": "▼ 0.75%",
-            "isUp": false
-          },
-          {
-            "name": "나스닥",
-            "price": "22,233.23",
-            "change": "▼ 0.82%",
-            "isUp": false
-          },
-          {
-            "name": "다우존스",
-            "price": "46,338.25",
-            "change": "▼ 0.96%",
-            "isUp": false
-          },
-          {
-            "name": "원/달러",
-            "price": "1,485.50",
-            "change": "▼ 0.09%",
-            "isUp": false
-          },
-          {
-            "name": "WTI 원유",
-            "price": "96.16",
-            "change": "▲ 0.99%",
-            "isUp": true
-          },
-          {
-            "name": "금(Gold)",
-            "price": "4,864.04",
-            "change": "▼ 2.78%",
-            "isUp": false
-          }
-        ]
-      },
-      "newsList": [
-        {
-          "title": "연준, 금리 동결 유지",
-          "tags": [
-            "연준",
-            "금리",
-            "금리"
-          ],
-          "summary": "Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Speech by Christine Lagarde, President of the ECB, at the Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Brussels, 26...",
-          "impacts": [
-            {
-              "sector": "채권/국채",
-              "isPositive": false,
-              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
-            },
-            {
-              "sector": "성장주/기술주",
-              "isPositive": false,
-              "desc": "고금리 지속으로 밸류에이션 부담"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "연준 FOMC 성명 발표",
-          "tags": [
-            "FOMC",
-            "연준",
-            "연준"
-          ],
-          "summary": "Interview with ELLE Magazine Interview with Christine Lagarde, President of the ECB, conducted by Benedetta Poletti on 12 February 2026 8 March 2026 Madame Lagarde, you were the first woman to be made partner at a major multinational law fi...",
-          "impacts": [
-            {
-              "sector": "채권/국채",
-              "isPositive": false,
-              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
-            },
-            {
-              "sector": "성장주/기술주",
-              "isPositive": false,
-              "desc": "고금리 지속으로 밸류에이션 부담"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "Federal Reserve Board and Federal Open Market Committee rele",
-          "tags": [
-            "연준",
-            "시장",
-            "시장"
-          ],
-          "summary": "Technology, fragmentation and the new uncertainty 2026 Annual Global Risk Lecture by Christine Lagarde, President of the ECB, held in honour of Robert Mundell and organised by Johns Hopkins University in Bologna, Italy Bologna, 5 March 2026...",
-          "impacts": [
-            {
-              "sector": "채권/국채",
-              "isPositive": false,
-              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
-            },
-            {
-              "sector": "성장주/기술주",
-              "isPositive": false,
-              "desc": "고금리 지속으로 밸류에이션 부담"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "UK Oil, Gas Lobby Group Urges Tax Reform to Reduce LNG Impor",
-          "tags": [
-            "유가",
-            "유가",
-            "유가"
-          ],
-          "summary": "Decisions taken by the Governing Council of the ECB (in addition to decisions setting interest rates) January-February 2026 27 February 2026 External communication Statement in support of Federal Reserve Chair Jerome H. Powell On 13 January...",
-          "impacts": [
-            {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "관련 분석 참고"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "Fed Leaves Rates Unchanged After War Scrambles Outlook",
-          "tags": [
-            "연준",
-            "전쟁",
-            "금리"
-          ],
-          "summary": "ECB Consumer Expectations Survey results - January 2026 27 February 2026 Compared with December 2025: median consumer perceptions of inflation over the past 12 months and median inflation expectations for the next 12 months decreased, while...",
-          "impacts": [
-            {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "관련 분석 참고"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "Spinoff Stocks Beat the S&amp;P 500 While Conglomerate Share",
-          "tags": [
-            "금리",
-            "금리",
-            "금리"
-          ],
-          "summary": "ECB welcomes decision on new site for European School Frankfurt Home Media Explainers Research & Publications Statistics Monetary Policy The €uro Payments & Markets Careers",
-          "impacts": [
-            {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "관련 분석 참고"
-            }
-          ],
-          "sources": []
-        }
-      ],
-      "portfolio": {
-        "accountAlert": "나스닥 하락으로 반도체 포지션 손실 가능 / 유가 상승 → 인플레이션 우려 → 성장주 압박",
-        "accountDetail": "현금 60% / 반도체 40% 포트폴리오 기준 — 나스닥 하락에 따른 반도체 포지션 단기 손실 예상. 현금 비중이 높아 추가 하락 시 분할 매수 기회 활용 가능.",
-        "weeklyReview": {
-          "returnRate": "데이터 수집 중",
-          "desc": "주간 수익률은 금요일 마감 후 자동 업데이트됩니다."
-        },
-        "holdings": [
-          {
-            "name": "SOXX (반도체 ETF)",
-            "ticker": "SOXX",
-            "returnRate": "데이터 미연결",
-            "score": -5,
-            "indicators": [
-              "VIX",
-              "RSI",
-              "Momentum_3M"
-            ],
-            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
-          },
-          {
-            "name": "TLT (장기국채 ETF)",
-            "ticker": "TLT",
-            "returnRate": "데이터 미연결",
-            "score": 5,
-            "indicators": [
-              "Momentum_12M",
-              "ADX",
-              "DXY"
-            ],
-            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
-          }
-        ],
-        "planDesc": "현재 매크로 환경과 포트폴리오 비중을 고려한 다음 달 적립식 투자 제안",
-        "allocations": [
-          {
-            "name": "SOXX (반도체 ETF)",
-            "percent": 40,
-            "color": "#3182F6",
-            "desc": "AI/반도체 성장 모멘텀 유지, 기존 비중 유지"
-          },
-          {
-            "name": "TLT (장기국채 ETF)",
-            "percent": 20,
-            "color": "#F04452",
-            "desc": "금리 인하 사이클 대비 — 채권 가격 상승 잠재력"
-          },
-          {
-            "name": "현금 (MMF)",
-            "percent": 40,
-            "color": "#E5E8EB",
-            "desc": "변동성 대비 유동성 확보, 하락 시 분할 매수 재원"
-          }
-        ]
-      },
-      "recommendations": {
-        "ideas": [
-          {
-            "logo": "📉",
-            "name": "Energy Select Sector SPDR",
-            "ticker": "XLE",
-            "action": "단기 관찰 및 분할매수",
-            "linkedIssue": "유가/정책/금리 변동성",
-            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
-            "sources": []
-          }
-        ],
-        "etfRanking": [
-          {
-            "rank": 1,
-            "name": "Energy Select Sector SPDR",
-            "ticker": "XLE",
-            "score": 81
-          },
-          {
-            "rank": 2,
-            "name": "SPDR Gold Trust",
-            "ticker": "GLD",
-            "score": 74
-          },
-          {
-            "rank": 3,
-            "name": "iShares 20+ Year Treasury Bond",
-            "ticker": "TLT",
-            "score": 69
-          }
-        ]
-      },
-      "raw_sources": {
-        "news": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-        ],
-        "market": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
-        ],
-        "reports": [],
-        "portfolio": []
+  <div class="app">
+    <div class="top">
+      <h1 class="title">글로벌 매크로·ETF 리포트</h1>
+      <div class="sub">
+        <span id="contextText">데이터 로딩 중...</span>
+        <span id="statusBadge"></span>
+      </div>
+      <div id="summaryStrip" class="summary-strip"></div>
+      <div class="selector-block">
+        <div class="selector-title">기간 유형</div>
+        <div id="horizonSelector" class="selector-row"></div>
+      </div>
+      <div class="selector-block">
+        <div class="selector-title">기간 선택</div>
+        <div id="bucketSelector" class="selector-row"></div>
+      </div>
+      <div class="tab-row" id="sectionTabs">
+        <button class="tab active" data-tab="briefing" onclick="switchSection('briefing')">시장 브리핑</button>
+        <button class="tab" data-tab="news" onclick="switchSection('news')">핵심 이슈</button>
+        <button class="tab" data-tab="portfolio" onclick="switchSection('portfolio')">포트폴리오</button>
+        <button class="tab" data-tab="recommendations" onclick="switchSection('recommendations')">ETF 아이디어</button>
+      </div>
+    </div>
+    <div class="content">
+      <div id="pane-briefing" class="pane active"></div>
+      <div id="pane-news" class="pane"></div>
+      <div id="pane-portfolio" class="pane"></div>
+      <div id="pane-recommendations" class="pane"></div>
+    </div>
+  </div>
+
+  <script>
+    const REPO_PREFIX = window.location.pathname.includes('/igzun-daily-report/') ? '/igzun-daily-report' : '';
+    const SITE_BASE = `${REPO_PREFIX}/site`;
+    const state = {
+      index: null,
+      currentHorizon: '1일',
+      currentBucketId: '',
+      currentView: null,
+      currentSection: 'briefing',
+    };
+
+    function statusClass(status) {
+      return {
+        full: 'status-badge status-full',
+        partial: 'status-badge status-partial',
+        sparse: 'status-badge status-sparse',
+        empty: 'status-badge status-empty',
+      }[status] || 'status-badge status-empty';
+    }
+
+    function statusText(status) {
+      return {
+        full: '데이터 충분',
+        partial: '데이터 부분',
+        sparse: '데이터 제한',
+        empty: '데이터 없음',
+      }[status] || status;
+    }
+
+    function currentBucket() {
+      const buckets = (state.index?.horizons?.[state.currentHorizon]) || [];
+      return buckets.find(item => item.id === state.currentBucketId) || null;
+    }
+
+    function defaultBucketForHorizon(horizon) {
+      const buckets = (state.index?.horizons?.[horizon]) || [];
+      return buckets.length ? buckets[0].id : '';
+    }
+
+    function formatContext(view, bucket) {
+      if (!view || !bucket) return '표시할 데이터가 없습니다.';
+      return `${bucket.label} · ${state.currentHorizon} 관점 · ${view.fromDate} ~ ${view.toDate}`;
+    }
+
+    function renderStatus(status) {
+      const el = document.getElementById('statusBadge');
+      el.className = statusClass(status);
+      el.textContent = statusText(status);
+    }
+
+    function renderHorizonSelector() {
+      const container = document.getElementById('horizonSelector');
+      const horizons = Object.keys(state.index?.horizons || {});
+      container.innerHTML = horizons.map(horizon => {
+        const active = horizon === state.currentHorizon ? 'active' : '';
+        return `<button class="chip ${active}" onclick="changeHorizon('${horizon}')">${horizon}</button>`;
+      }).join('');
+    }
+
+    function renderBucketSelector() {
+      const container = document.getElementById('bucketSelector');
+      const buckets = (state.index?.horizons?.[state.currentHorizon]) || [];
+      container.innerHTML = buckets.map(bucket => {
+        const active = bucket.id === state.currentBucketId ? 'active' : '';
+        return `<button class="chip soft ${active}" onclick="changeBucket('${bucket.id}')">${bucket.label}</button>`;
+      }).join('');
+    }
+
+    async function loadIndex() {
+      const res = await fetch(`${SITE_BASE}/horizon_index.json?t=${Date.now()}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error('index load failed');
+      state.index = await res.json();
+    }
+
+    function resolveInitialSelection() {
+      const parts = window.location.pathname.split('/').filter(Boolean);
+      const datePart = parts.find(part => /^\d{4}-\d{2}-\d{2}$/.test(part));
+      if (datePart && (state.index?.horizons?.['1일'] || []).some(item => item.id === datePart)) {
+        state.currentHorizon = '1일';
+        state.currentBucketId = datePart;
+        return;
       }
-    },
-    "3일": {
-      "briefing": {
-        "sentiment": {
-          "score": 42,
-          "status": "중립",
-          "desc": "3일 기준 지수 흐름, 수집 데이터, 퀀트수식 문서 해석을 반영한 심리 요약입니다."
-        },
-        "forecast": {
-          "title": "최근 3거래일 뉴스/가격 변동 압축 전망",
-          "text": "당일/단기 변동성은 FOMC·유가·고용/물가 헤드라인이 주도합니다.",
-          "sources": [
-            {
-              "label": "2026년 3월 19일 (목): KB 데일리",
-              "source": "merged_story",
-              "title": "2026년 3월 19일 (목): KB 데일리",
-              "published_at": "2026-03-19",
-              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-            },
-            {
-              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "source": "merged_story",
-              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "published_at": "2026-03-19",
-              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-            }
-          ]
-        },
-        "insights": [
-          {
-            "category": "시황",
-            "text": "S&P 500 6,646.13으로 마감, 전일 대비 ▼ 0.75%. 미국 증시 하락 마감."
-          },
-          {
-            "category": "매크로",
-            "text": "WTI 원유 $96.16 급등. 중동 긴장 지속으로 에너지 변동성 확대."
-          },
-          {
-            "category": "자산배분",
-            "text": "금 $4,864.04. 위험선호 회복 조짐."
-          },
-          {
-            "category": "환율",
-            "text": "원/달러 1,485.50원. 원화 강세 전환 — 외국인 자금 유입 가능성."
-          },
-          {
-            "category": "섹터",
-            "text": "나스닥 22,233.23 (▼ 0.82%). 기술주 약세 — 반도체 비중 40% 포트폴리오 주의 필요."
-          },
-          {
-            "category": "3일 누적",
-            "text": "최근 3거래일 동안 금리·유가·정책 헤드라인이 중첩되며 변동성 확대 구간이 이어졌습니다.",
-            "sources": [
-              {
-                "label": "2026년 3월 19일 (목): KB 데일리",
-                "source": "merged_story",
-                "title": "2026년 3월 19일 (목): KB 데일리",
-                "published_at": "2026-03-19",
-                "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-              },
-              {
-                "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-                "source": "merged_story",
-                "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-                "published_at": "2026-03-19",
-                "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-              }
-            ]
-          }
-        ],
-        "indices": [
-          {
-            "name": "S&P 500",
-            "price": "6,646.13",
-            "change": "▼ 0.75%",
-            "isUp": false
-          },
-          {
-            "name": "나스닥",
-            "price": "22,233.23",
-            "change": "▼ 0.82%",
-            "isUp": false
-          },
-          {
-            "name": "다우존스",
-            "price": "46,338.25",
-            "change": "▼ 0.96%",
-            "isUp": false
-          },
-          {
-            "name": "원/달러",
-            "price": "1,485.50",
-            "change": "▼ 0.09%",
-            "isUp": false
-          },
-          {
-            "name": "WTI 원유",
-            "price": "96.16",
-            "change": "▲ 0.99%",
-            "isUp": true
-          },
-          {
-            "name": "금(Gold)",
-            "price": "4,864.04",
-            "change": "▼ 2.78%",
-            "isUp": false
-          }
-        ]
-      },
-      "newsList": [
-        {
-          "title": "연준, 금리 동결 유지",
-          "tags": [
-            "연준",
-            "금리",
-            "금리"
-          ],
-          "summary": "Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Speech by Christine Lagarde, President of the ECB, at the Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Brussels, 26...",
-          "impacts": [
-            {
-              "sector": "채권/국채",
-              "isPositive": false,
-              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
-            },
-            {
-              "sector": "성장주/기술주",
-              "isPositive": false,
-              "desc": "고금리 지속으로 밸류에이션 부담"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "연준 FOMC 성명 발표",
-          "tags": [
-            "FOMC",
-            "연준",
-            "연준"
-          ],
-          "summary": "Interview with ELLE Magazine Interview with Christine Lagarde, President of the ECB, conducted by Benedetta Poletti on 12 February 2026 8 March 2026 Madame Lagarde, you were the first woman to be made partner at a major multinational law fi...",
-          "impacts": [
-            {
-              "sector": "채권/국채",
-              "isPositive": false,
-              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
-            },
-            {
-              "sector": "성장주/기술주",
-              "isPositive": false,
-              "desc": "고금리 지속으로 밸류에이션 부담"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "Federal Reserve Board and Federal Open Market Committee rele",
-          "tags": [
-            "연준",
-            "시장",
-            "시장"
-          ],
-          "summary": "Technology, fragmentation and the new uncertainty 2026 Annual Global Risk Lecture by Christine Lagarde, President of the ECB, held in honour of Robert Mundell and organised by Johns Hopkins University in Bologna, Italy Bologna, 5 March 2026...",
-          "impacts": [
-            {
-              "sector": "채권/국채",
-              "isPositive": false,
-              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
-            },
-            {
-              "sector": "성장주/기술주",
-              "isPositive": false,
-              "desc": "고금리 지속으로 밸류에이션 부담"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "UK Oil, Gas Lobby Group Urges Tax Reform to Reduce LNG Impor",
-          "tags": [
-            "유가",
-            "유가",
-            "유가"
-          ],
-          "summary": "Decisions taken by the Governing Council of the ECB (in addition to decisions setting interest rates) January-February 2026 27 February 2026 External communication Statement in support of Federal Reserve Chair Jerome H. Powell On 13 January...",
-          "impacts": [
-            {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "관련 분석 참고"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "Fed Leaves Rates Unchanged After War Scrambles Outlook",
-          "tags": [
-            "연준",
-            "전쟁",
-            "금리"
-          ],
-          "summary": "ECB Consumer Expectations Survey results - January 2026 27 February 2026 Compared with December 2025: median consumer perceptions of inflation over the past 12 months and median inflation expectations for the next 12 months decreased, while...",
-          "impacts": [
-            {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "관련 분석 참고"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "Spinoff Stocks Beat the S&amp;P 500 While Conglomerate Share",
-          "tags": [
-            "금리",
-            "금리",
-            "금리"
-          ],
-          "summary": "ECB welcomes decision on new site for European School Frankfurt Home Media Explainers Research & Publications Statistics Monetary Policy The €uro Payments & Markets Careers",
-          "impacts": [
-            {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "관련 분석 참고"
-            }
-          ],
-          "sources": []
-        }
-      ],
-      "portfolio": {
-        "accountAlert": "나스닥 하락으로 반도체 포지션 손실 가능 / 유가 상승 → 인플레이션 우려 → 성장주 압박",
-        "accountDetail": "현금 60% / 반도체 40% 포트폴리오 기준 — 나스닥 하락에 따른 반도체 포지션 단기 손실 예상. 현금 비중이 높아 추가 하락 시 분할 매수 기회 활용 가능.",
-        "weeklyReview": {
-          "returnRate": "데이터 수집 중",
-          "desc": "주간 수익률은 금요일 마감 후 자동 업데이트됩니다."
-        },
-        "holdings": [
-          {
-            "name": "SOXX (반도체 ETF)",
-            "ticker": "SOXX",
-            "returnRate": "데이터 미연결",
-            "score": -5,
-            "indicators": [
-              "VIX",
-              "RSI",
-              "Momentum_3M"
-            ],
-            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
-          },
-          {
-            "name": "TLT (장기국채 ETF)",
-            "ticker": "TLT",
-            "returnRate": "데이터 미연결",
-            "score": 5,
-            "indicators": [
-              "Momentum_12M",
-              "ADX",
-              "DXY"
-            ],
-            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
-          }
-        ],
-        "planDesc": "현재 매크로 환경과 포트폴리오 비중을 고려한 다음 달 적립식 투자 제안",
-        "allocations": [
-          {
-            "name": "SOXX (반도체 ETF)",
-            "percent": 40,
-            "color": "#3182F6",
-            "desc": "AI/반도체 성장 모멘텀 유지, 기존 비중 유지"
-          },
-          {
-            "name": "TLT (장기국채 ETF)",
-            "percent": 20,
-            "color": "#F04452",
-            "desc": "금리 인하 사이클 대비 — 채권 가격 상승 잠재력"
-          },
-          {
-            "name": "현금 (MMF)",
-            "percent": 40,
-            "color": "#E5E8EB",
-            "desc": "변동성 대비 유동성 확보, 하락 시 분할 매수 재원"
-          }
-        ]
-      },
-      "recommendations": {
-        "ideas": [
-          {
-            "logo": "📉",
-            "name": "Energy Select Sector SPDR",
-            "ticker": "XLE",
-            "action": "단기 관찰 및 분할매수",
-            "linkedIssue": "유가/정책/금리 변동성",
-            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
-            "sources": []
-          }
-        ],
-        "etfRanking": [
-          {
-            "rank": 1,
-            "name": "Energy Select Sector SPDR",
-            "ticker": "XLE",
-            "score": 81
-          },
-          {
-            "rank": 2,
-            "name": "SPDR Gold Trust",
-            "ticker": "GLD",
-            "score": 74
-          },
-          {
-            "rank": 3,
-            "name": "iShares 20+ Year Treasury Bond",
-            "ticker": "TLT",
-            "score": 69
-          }
-        ]
-      },
-      "raw_sources": {
-        "news": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-        ],
-        "market": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
-        ],
-        "reports": [],
-        "portfolio": []
+      state.currentHorizon = '1일';
+      state.currentBucketId = defaultBucketForHorizon('1일');
+    }
+
+    async function changeHorizon(horizon) {
+      state.currentHorizon = horizon;
+      state.currentBucketId = defaultBucketForHorizon(horizon);
+      renderHorizonSelector();
+      renderBucketSelector();
+      await loadCurrentView();
+    }
+
+    async function changeBucket(bucketId) {
+      state.currentBucketId = bucketId;
+      renderBucketSelector();
+      await loadCurrentView();
+    }
+
+    async function loadCurrentView() {
+      const bucket = currentBucket();
+      if (!bucket) {
+        state.currentView = null;
+        updateHeader();
+        renderAll();
+        return;
       }
-    },
-    "1주": {
-      "briefing": {
-        "sentiment": {
-          "score": 45,
-          "status": "중립",
-          "desc": "1주 기준 지수 흐름, 수집 데이터, 퀀트수식 문서 해석을 반영한 심리 요약입니다."
-        },
-        "forecast": {
-          "title": "최근 1주 누적 이슈 및 정책 변화 전망",
-          "text": "당일/단기 변동성은 FOMC·유가·고용/물가 헤드라인이 주도합니다.",
-          "sources": [
-            {
-              "label": "2026년 3월 19일 (목): KB 데일리",
-              "source": "merged_story",
-              "title": "2026년 3월 19일 (목): KB 데일리",
-              "published_at": "2026-03-19",
-              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-            },
-            {
-              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "source": "merged_story",
-              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "published_at": "2026-03-19",
-              "path": "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-            }
-          ]
-        },
-        "insights": [
-          {
-            "category": "시황",
-            "text": "S&P 500 6,646.13으로 마감, 전일 대비 ▼ 0.75%. 미국 증시 하락 마감."
-          },
-          {
-            "category": "매크로",
-            "text": "WTI 원유 $96.16 급등. 중동 긴장 지속으로 에너지 변동성 확대."
-          },
-          {
-            "category": "자산배분",
-            "text": "금 $4,864.04. 위험선호 회복 조짐."
-          },
-          {
-            "category": "환율",
-            "text": "원/달러 1,485.50원. 원화 강세 전환 — 외국인 자금 유입 가능성."
-          },
-          {
-            "category": "섹터",
-            "text": "나스닥 22,233.23 (▼ 0.82%). 기술주 약세 — 반도체 비중 40% 포트폴리오 주의 필요."
-          },
-          {
-            "category": "1주 누적",
-            "text": "최근 1주 동안 수집된 리포트 기준으로 금리 경로와 에너지 가격이 자산배분의 핵심 변수였습니다.",
-            "sources": []
-          }
-        ],
-        "indices": [
-          {
-            "name": "S&P 500",
-            "price": "6,646.13",
-            "change": "▼ 0.75%",
-            "isUp": false
-          },
-          {
-            "name": "나스닥",
-            "price": "22,233.23",
-            "change": "▼ 0.82%",
-            "isUp": false
-          },
-          {
-            "name": "다우존스",
-            "price": "46,338.25",
-            "change": "▼ 0.96%",
-            "isUp": false
-          },
-          {
-            "name": "원/달러",
-            "price": "1,485.50",
-            "change": "▼ 0.09%",
-            "isUp": false
-          },
-          {
-            "name": "WTI 원유",
-            "price": "96.16",
-            "change": "▲ 0.99%",
-            "isUp": true
-          },
-          {
-            "name": "금(Gold)",
-            "price": "4,864.04",
-            "change": "▼ 2.78%",
-            "isUp": false
-          }
-        ]
-      },
-      "newsList": [
-        {
-          "title": "연준, 금리 동결 유지",
-          "tags": [
-            "연준",
-            "금리",
-            "금리"
-          ],
-          "summary": "Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Speech by Christine Lagarde, President of the ECB, at the Hearing of the Committee on Economic and Monetary Affairs of the European Parliament Brussels, 26...",
-          "impacts": [
-            {
-              "sector": "채권/국채",
-              "isPositive": false,
-              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
-            },
-            {
-              "sector": "성장주/기술주",
-              "isPositive": false,
-              "desc": "고금리 지속으로 밸류에이션 부담"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "연준 FOMC 성명 발표",
-          "tags": [
-            "FOMC",
-            "연준",
-            "연준"
-          ],
-          "summary": "Interview with ELLE Magazine Interview with Christine Lagarde, President of the ECB, conducted by Benedetta Poletti on 12 February 2026 8 March 2026 Madame Lagarde, you were the first woman to be made partner at a major multinational law fi...",
-          "impacts": [
-            {
-              "sector": "채권/국채",
-              "isPositive": false,
-              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
-            },
-            {
-              "sector": "성장주/기술주",
-              "isPositive": false,
-              "desc": "고금리 지속으로 밸류에이션 부담"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "Federal Reserve Board and Federal Open Market Committee rele",
-          "tags": [
-            "연준",
-            "시장",
-            "시장"
-          ],
-          "summary": "Technology, fragmentation and the new uncertainty 2026 Annual Global Risk Lecture by Christine Lagarde, President of the ECB, held in honour of Robert Mundell and organised by Johns Hopkins University in Bologna, Italy Bologna, 5 March 2026...",
-          "impacts": [
-            {
-              "sector": "채권/국채",
-              "isPositive": false,
-              "desc": "금리 동결/인상 시 채권 가격 하락 압력"
-            },
-            {
-              "sector": "성장주/기술주",
-              "isPositive": false,
-              "desc": "고금리 지속으로 밸류에이션 부담"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "UK Oil, Gas Lobby Group Urges Tax Reform to Reduce LNG Impor",
-          "tags": [
-            "유가",
-            "유가",
-            "유가"
-          ],
-          "summary": "Decisions taken by the Governing Council of the ECB (in addition to decisions setting interest rates) January-February 2026 27 February 2026 External communication Statement in support of Federal Reserve Chair Jerome H. Powell On 13 January...",
-          "impacts": [
-            {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "관련 분석 참고"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "Fed Leaves Rates Unchanged After War Scrambles Outlook",
-          "tags": [
-            "연준",
-            "전쟁",
-            "금리"
-          ],
-          "summary": "ECB Consumer Expectations Survey results - January 2026 27 February 2026 Compared with December 2025: median consumer perceptions of inflation over the past 12 months and median inflation expectations for the next 12 months decreased, while...",
-          "impacts": [
-            {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "관련 분석 참고"
-            }
-          ],
-          "sources": []
-        },
-        {
-          "title": "Spinoff Stocks Beat the S&amp;P 500 While Conglomerate Share",
-          "tags": [
-            "금리",
-            "금리",
-            "금리"
-          ],
-          "summary": "ECB welcomes decision on new site for European School Frankfurt Home Media Explainers Research & Publications Statistics Monetary Policy The €uro Payments & Markets Careers",
-          "impacts": [
-            {
-              "sector": "시장 전반",
-              "isPositive": true,
-              "desc": "관련 분석 참고"
-            }
-          ],
-          "sources": []
-        }
-      ],
-      "portfolio": {
-        "accountAlert": "나스닥 하락으로 반도체 포지션 손실 가능 / 유가 상승 → 인플레이션 우려 → 성장주 압박",
-        "accountDetail": "현금 60% / 반도체 40% 포트폴리오 기준 — 나스닥 하락에 따른 반도체 포지션 단기 손실 예상. 현금 비중이 높아 추가 하락 시 분할 매수 기회 활용 가능.",
-        "weeklyReview": {
-          "returnRate": "데이터 수집 중",
-          "desc": "주간 수익률은 금요일 마감 후 자동 업데이트됩니다."
-        },
-        "holdings": [
-          {
-            "name": "SOXX (반도체 ETF)",
-            "ticker": "SOXX",
-            "returnRate": "데이터 미연결",
-            "score": -5,
-            "indicators": [
-              "VIX",
-              "RSI",
-              "Momentum_3M"
-            ],
-            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
-          },
-          {
-            "name": "TLT (장기국채 ETF)",
-            "ticker": "TLT",
-            "returnRate": "데이터 미연결",
-            "score": 5,
-            "indicators": [
-              "Momentum_12M",
-              "ADX",
-              "DXY"
-            ],
-            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
-          }
-        ],
-        "planDesc": "현재 매크로 환경과 포트폴리오 비중을 고려한 다음 달 적립식 투자 제안",
-        "allocations": [
-          {
-            "name": "SOXX (반도체 ETF)",
-            "percent": 40,
-            "color": "#3182F6",
-            "desc": "AI/반도체 성장 모멘텀 유지, 기존 비중 유지"
-          },
-          {
-            "name": "TLT (장기국채 ETF)",
-            "percent": 20,
-            "color": "#F04452",
-            "desc": "금리 인하 사이클 대비 — 채권 가격 상승 잠재력"
-          },
-          {
-            "name": "현금 (MMF)",
-            "percent": 40,
-            "color": "#E5E8EB",
-            "desc": "변동성 대비 유동성 확보, 하락 시 분할 매수 재원"
-          }
-        ]
-      },
-      "recommendations": {
-        "ideas": [
-          {
-            "logo": "📉",
-            "name": "Energy Select Sector SPDR",
-            "ticker": "XLE",
-            "action": "단기 관찰 및 분할매수",
-            "linkedIssue": "유가/정책/금리 변동성",
-            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
-            "sources": []
-          }
-        ],
-        "etfRanking": [
-          {
-            "rank": 1,
-            "name": "Energy Select Sector SPDR",
-            "ticker": "XLE",
-            "score": 81
-          },
-          {
-            "rank": 2,
-            "name": "SPDR Gold Trust",
-            "ticker": "GLD",
-            "score": 74
-          },
-          {
-            "rank": 3,
-            "name": "iShares 20+ Year Treasury Bond",
-            "ticker": "TLT",
-            "score": 69
-          }
-        ]
-      },
-      "raw_sources": {
-        "news": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-        ],
-        "market": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
-        ],
-        "reports": [],
-        "portfolio": []
+      const res = await fetch(`${SITE_BASE}/${bucket.source}?t=${Date.now()}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error('view load failed');
+      state.currentView = await res.json();
+      updateHeader();
+      renderAll();
+    }
+
+    function updateHeader() {
+      const bucket = currentBucket();
+      document.getElementById('contextText').textContent = formatContext(state.currentView, bucket);
+      renderStatus(state.currentView?.dataStatus || 'empty');
+      renderSummaryStrip();
+      document.title = bucket ? `${bucket.label} · 글로벌 매크로·ETF 리포트` : '글로벌 매크로·ETF 리포트';
+    }
+
+    function renderSummaryStrip() {
+      const strip = document.getElementById('summaryStrip');
+      const view = state.currentView;
+      if (!view) {
+        strip.innerHTML = '';
+        return;
       }
-    },
-    "1개월": {
-      "briefing": {
-        "sentiment": {
-          "score": 57,
-          "status": "완만한 위험선호",
-          "desc": "1개월 기준 지수 흐름, 수집 데이터, 퀀트수식 문서 해석을 반영한 심리 요약입니다."
-        },
-        "forecast": {
-          "title": "최근 1개월 리포트/매크로 누적 기반 전망",
-          "text": "중기 이상 기간은 매크로/리포트 누적과 구조적 테마의 지속성에 더 큰 비중을 둡니다.",
-          "sources": []
-        },
-        "insights": [
-          {
-            "category": "매크로",
-            "text": "3월 FOMC와 인플레 리스크가 정책의 초점을 다시 물가 안정으로 이동시키고 있습니다.",
-            "sources": []
-          },
-          {
-            "category": "테마",
-            "text": "전력망·인프라·에너지 관련 장기 테마는 원문 리포트들에서 반복적으로 확인됩니다.",
-            "sources": []
-          },
-          {
-            "category": "원문수집",
-            "text": "2월 19일~3월 19일 raw 파일 297건 확보, 지역별 분포 {'EU': 16, 'INTL': 46, 'JP': 111, 'KR': 34, 'US': 90}.",
-            "sources": [
-              {
-                "label": "raw inventory",
-                "source": "reporting_raw",
-                "path": "2_Project/Reporting/input/raw"
-              }
-            ]
-          }
-        ],
-        "indices": [
-          {
-            "name": "S&P 500",
-            "price": "6,646.13",
-            "change": "▼ 0.75%",
-            "isUp": false
-          },
-          {
-            "name": "나스닥",
-            "price": "22,233.23",
-            "change": "▼ 0.82%",
-            "isUp": false
-          },
-          {
-            "name": "다우존스",
-            "price": "46,338.25",
-            "change": "▼ 0.96%",
-            "isUp": false
-          },
-          {
-            "name": "원/달러",
-            "price": "1,485.50",
-            "change": "▼ 0.09%",
-            "isUp": false
-          },
-          {
-            "name": "WTI 원유",
-            "price": "96.16",
-            "change": "▲ 0.99%",
-            "isUp": true
-          },
-          {
-            "name": "금(Gold)",
-            "price": "4,864.04",
-            "change": "▼ 2.78%",
-            "isUp": false
-          }
-        ]
-      },
-      "newsList": [
-        {
-          "title": "2026년 3월 19일 (목): KB 데일리",
-          "tags": [
-            "2026년",
-            "3월",
-            "19일"
-          ],
-          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
-          "impacts": [
-            {
-              "sector": "거시 / 금리 / 정책",
-              "isPositive": true,
-              "desc": "원문 2건이 병합된 이슈입니다."
-            }
-          ],
-          "sources": [
-            {
-              "label": "2026년 3월 19일 (목): KB 데일리",
-              "source": "kb_research",
-              "title": "2026년 3월 19일 (목): KB 데일리",
-              "published_at": "2026-03-19",
-              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
-            },
-            {
-              "label": "2026년 3월 19일 (목): KB 데일리",
-              "source": "kb_research",
-              "title": "2026년 3월 19일 (목): KB 데일리",
-              "published_at": "2026-03-19",
-              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
-            }
-          ]
-        },
-        {
-          "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-          "tags": [
-            "FOMC"
-          ],
-          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
-          "impacts": [
-            {
-              "sector": "거시 / 금리 / 정책",
-              "isPositive": false,
-              "desc": "원문 2건이 병합된 이슈입니다."
-            }
-          ],
-          "sources": [
-            {
-              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "source": "mirae_research",
-              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "published_at": "2026-03-19",
-              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
-            },
-            {
-              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "source": "mirae_research",
-              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "published_at": "2026-03-19",
-              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
-            }
-          ]
-        }
-      ],
-      "portfolio": {
-        "accountAlert": "중기 관점에서는 성장주 편중보다 인프라·방어자산 병행이 유리해 보입니다.",
-        "accountDetail": "실계좌 원본이 연결되지 않아 포트폴리오 평가는 모델 기반으로 작성했습니다.",
-        "weeklyReview": {
-          "returnRate": "1개월 실계좌 수익률 미연결",
-          "desc": "실제 성과 계산에는 계좌 스냅샷이 더 필요합니다."
-        },
-        "holdings": [
-          {
-            "name": "PAVE",
-            "ticker": "PAVE",
-            "returnRate": "데이터 미연결",
-            "score": 10,
-            "indicators": [
-              "VIX",
-              "RSI",
-              "Momentum_3M"
-            ],
-            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
-          },
-          {
-            "name": "TSLA",
-            "ticker": "TSLA",
-            "returnRate": "데이터 미연결",
-            "score": -15,
-            "indicators": [
-              "Momentum_12M",
-              "ADX",
-              "DXY"
-            ],
-            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
-          }
-        ],
-        "planDesc": "1개월 기준 코어지수 + 인프라/에너지 + 현금 완충 구조를 제안합니다.",
-        "allocations": [
-          {
-            "name": "S&P 500",
-            "percent": 45,
-            "color": "#191F28",
-            "desc": "코어 베타"
-          },
-          {
-            "name": "인프라/에너지",
-            "percent": 35,
-            "color": "#F04452",
-            "desc": "구조적 테마 + 지정학 수혜"
-          },
-          {
-            "name": "현금/채권",
-            "percent": 20,
-            "color": "#E5E8EB",
-            "desc": "변동성 대응"
-          }
-        ]
-      },
-      "recommendations": {
-        "ideas": [
-          {
-            "logo": "🔌",
-            "name": "Global X U.S. Infrastructure",
-            "ticker": "PAVE",
-            "action": "장기 관찰 및 분할매수",
-            "linkedIssue": "전력망/인프라 투자 확대",
-            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
-            "sources": []
-          }
-        ],
-        "etfRanking": [
-          {
-            "rank": 1,
-            "name": "Global X U.S. Infrastructure",
-            "ticker": "PAVE",
-            "score": 91
-          },
-          {
-            "rank": 2,
-            "name": "SPDR Gold Trust",
-            "ticker": "GLD",
-            "score": 78
-          },
-          {
-            "rank": 3,
-            "name": "iShares 20+ Year Treasury Bond",
-            "ticker": "TLT",
-            "score": 69
-          }
-        ]
-      },
-      "raw_sources": {
-        "news": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-        ],
-        "market": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
-        ],
-        "reports": [],
-        "portfolio": []
+      const pills = [];
+      if (view.updateCount) pills.push(`누적 업데이트 ${view.updateCount}회`);
+      if (view.meta?.docsTotal) pills.push(`누적 문서 ${view.meta.docsTotal}건`);
+      if (Number.isFinite(Number(view.avgScore))) pills.push(`평균 점수 ${view.avgScore}`);
+      (view.meta?.sourceLabels || []).slice(0, 2).forEach(label => pills.push(label));
+      strip.innerHTML = pills.map(text => `<span class="summary-pill">${text}</span>`).join('');
+    }
+
+    function switchSection(section) {
+      state.currentSection = section;
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.toggle('active', tab.dataset.tab === section));
+      document.querySelectorAll('.pane').forEach(pane => pane.classList.toggle('active', pane.id === `pane-${section}`));
+    }
+
+    function renderSources(sources, id) {
+      if (!sources || !sources.length) return '';
+      const items = sources.map(item => {
+        const label = item.label || item.source || '출처';
+        const title = item.title ? ` — ${item.title}` : '';
+        const date = item.published_at ? ` (${item.published_at})` : '';
+        const meta = [item.region, item.sector].filter(Boolean).join(' · ');
+        return `<div class="source-item"><b>${label}</b>${title}${date}${meta ? ` · ${meta}` : ''}</div>`;
+      }).join('');
+      return `<button class="source-toggle" onclick="toggleSource('${id}')">출처·메타데이터</button><div class="source-box" id="${id}">${items}</div>`;
+    }
+
+    function toggleSource(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function renderBriefing() {
+      const pane = document.getElementById('pane-briefing');
+      const data = state.currentView?.briefing;
+      const bucket = currentBucket();
+      if (!data) {
+        pane.innerHTML = '<div class="empty">시장 브리핑 데이터가 없습니다.</div>';
+        return;
       }
-    },
-    "3개월": {
-      "briefing": {
-        "sentiment": {
-          "score": 53,
-          "status": "중립",
-          "desc": "3개월 기준 지수 흐름, 수집 데이터, 퀀트수식 문서 해석을 반영한 심리 요약입니다."
-        },
-        "forecast": {
-          "title": "최근 3개월 구조적 테마 및 자산배분 전망",
-          "text": "중기 이상 기간은 매크로/리포트 누적과 구조적 테마의 지속성에 더 큰 비중을 둡니다.",
-          "sources": []
-        },
-        "insights": [
-          {
-            "category": "중기 레짐",
-            "text": "중기적으로는 금리-에너지-달러 조합이 성장주와 인프라 자산의 상대 강도를 가르는 구조로 해석됩니다.",
-            "sources": []
-          },
-          {
-            "category": "퀀트수식",
-            "text": "확인된 퀀트 항목: VIX, RSI, Momentum_3M, Momentum_12M, ADX, DXY, Oil_WTI.",
-            "sources": [
-              {
-                "label": "퀀트수식.txt",
-                "source": "state",
-                "path": "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/state/퀀트수식.txt"
-              }
-            ]
-          }
-        ],
-        "indices": [
-          {
-            "name": "S&P 500",
-            "price": "6,646.13",
-            "change": "▼ 0.75%",
-            "isUp": false
-          },
-          {
-            "name": "나스닥",
-            "price": "22,233.23",
-            "change": "▼ 0.82%",
-            "isUp": false
-          },
-          {
-            "name": "다우존스",
-            "price": "46,338.25",
-            "change": "▼ 0.96%",
-            "isUp": false
-          },
-          {
-            "name": "원/달러",
-            "price": "1,485.50",
-            "change": "▼ 0.09%",
-            "isUp": false
-          },
-          {
-            "name": "WTI 원유",
-            "price": "96.16",
-            "change": "▲ 0.99%",
-            "isUp": true
-          },
-          {
-            "name": "금(Gold)",
-            "price": "4,864.04",
-            "change": "▼ 2.78%",
-            "isUp": false
-          }
-        ]
-      },
-      "newsList": [
-        {
-          "title": "2026년 3월 19일 (목): KB 데일리",
-          "tags": [
-            "2026년",
-            "3월",
-            "19일"
-          ],
-          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
-          "impacts": [
-            {
-              "sector": "거시 / 금리 / 정책",
-              "isPositive": true,
-              "desc": "원문 2건이 병합된 이슈입니다."
-            }
-          ],
-          "sources": [
-            {
-              "label": "2026년 3월 19일 (목): KB 데일리",
-              "source": "kb_research",
-              "title": "2026년 3월 19일 (목): KB 데일리",
-              "published_at": "2026-03-19",
-              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
-            },
-            {
-              "label": "2026년 3월 19일 (목): KB 데일리",
-              "source": "kb_research",
-              "title": "2026년 3월 19일 (목): KB 데일리",
-              "published_at": "2026-03-19",
-              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
-            }
-          ]
-        },
-        {
-          "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-          "tags": [
-            "FOMC"
-          ],
-          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
-          "impacts": [
-            {
-              "sector": "거시 / 금리 / 정책",
-              "isPositive": false,
-              "desc": "원문 2건이 병합된 이슈입니다."
-            }
-          ],
-          "sources": [
-            {
-              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "source": "mirae_research",
-              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "published_at": "2026-03-19",
-              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
-            },
-            {
-              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "source": "mirae_research",
-              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "published_at": "2026-03-19",
-              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
-            }
-          ]
-        }
-      ],
-      "portfolio": {
-        "accountAlert": "중기 관점에서는 성장주 편중보다 인프라·방어자산 병행이 유리해 보입니다.",
-        "accountDetail": "실계좌 원본이 연결되지 않아 포트폴리오 평가는 모델 기반으로 작성했습니다.",
-        "weeklyReview": {
-          "returnRate": "3개월 실계좌 수익률 미연결",
-          "desc": "실제 성과 계산에는 계좌 스냅샷이 더 필요합니다."
-        },
-        "holdings": [
-          {
-            "name": "PAVE",
-            "ticker": "PAVE",
-            "returnRate": "데이터 미연결",
-            "score": 10,
-            "indicators": [
-              "VIX",
-              "RSI",
-              "Momentum_3M"
-            ],
-            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
-          },
-          {
-            "name": "TSLA",
-            "ticker": "TSLA",
-            "returnRate": "데이터 미연결",
-            "score": -15,
-            "indicators": [
-              "Momentum_12M",
-              "ADX",
-              "DXY"
-            ],
-            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
-          }
-        ],
-        "planDesc": "3개월 기준 코어지수 + 인프라/에너지 + 현금 완충 구조를 제안합니다.",
-        "allocations": [
-          {
-            "name": "S&P 500",
-            "percent": 45,
-            "color": "#191F28",
-            "desc": "코어 베타"
-          },
-          {
-            "name": "인프라/에너지",
-            "percent": 35,
-            "color": "#F04452",
-            "desc": "구조적 테마 + 지정학 수혜"
-          },
-          {
-            "name": "현금/채권",
-            "percent": 20,
-            "color": "#E5E8EB",
-            "desc": "변동성 대응"
-          }
-        ]
-      },
-      "recommendations": {
-        "ideas": [
-          {
-            "logo": "🔌",
-            "name": "Global X U.S. Infrastructure",
-            "ticker": "PAVE",
-            "action": "장기 관찰 및 분할매수",
-            "linkedIssue": "전력망/인프라 투자 확대",
-            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
-            "sources": []
-          }
-        ],
-        "etfRanking": [
-          {
-            "rank": 1,
-            "name": "Global X U.S. Infrastructure",
-            "ticker": "PAVE",
-            "score": 91
-          },
-          {
-            "rank": 2,
-            "name": "SPDR Gold Trust",
-            "ticker": "GLD",
-            "score": 78
-          },
-          {
-            "rank": 3,
-            "name": "iShares 20+ Year Treasury Bond",
-            "ticker": "TLT",
-            "score": 69
-          }
-        ]
-      },
-      "raw_sources": {
-        "news": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-        ],
-        "market": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
-        ],
-        "reports": [],
-        "portfolio": []
+      const score = data.sentiment?.score ?? 50;
+      const scoreColor = score >= 65 ? '#0f9f6e' : (score >= 50 ? '#2563eb' : '#f59e0b');
+      const insights = (data.insights || []).map((item, idx) => `
+        <li class="list-item">
+          <span class="badge">${item.category || '인사이트'}</span>
+          <div class="body-text">${item.text || ''}${renderSources(item.sources, `briefing-src-${idx}`)}</div>
+        </li>
+      `).join('');
+      const indices = (data.indices || []).map(item => `
+        <div class="index-row">
+          <div class="index-name">${item.name || '-'}</div>
+          <div class="index-value">
+            <div class="index-price">${item.price || '-'}</div>
+            <div class="${item.isUp ? 'text-up' : 'text-down'}">${item.change || '-'}</div>
+          </div>
+        </div>
+      `).join('');
+
+      pane.innerHTML = `
+        <div class="card">
+          <div class="card-title">${bucket?.label || ''} 시장 브리핑</div>
+          <div class="score-wrap">
+            <div class="score-head">
+              <div class="score-num">${score}<span class="muted"> / 100</span></div>
+              <div class="score-status" style="color:${scoreColor};">${data.sentiment?.status || '중립'}</div>
+            </div>
+            <div class="score-track"><div class="score-fill" style="width:${score}%; background:${scoreColor};"></div></div>
+            <div class="muted" style="margin-top:8px;">${data.sentiment?.desc || ''}</div>
+          </div>
+          ${data.forecast ? `
+            <div class="forecast-box">
+              <div class="forecast-label">${state.currentHorizon}</div>
+              <div class="card-title" style="font-size:16px; margin-bottom:10px;">${data.forecast.title || ''}</div>
+              <div class="forecast-text">${data.forecast.text || ''}</div>
+              ${renderSources(data.forecast.sources, 'forecast-src')}
+            </div>
+          ` : ''}
+        </div>
+        <div class="card">
+          <div class="card-title">${bucket?.label || ''} 핵심 인사이트</div>
+          <ul class="list">${insights}</ul>
+        </div>
+        <div class="card">
+          <div class="card-title">${bucket?.label || ''} 주요 자산 흐름</div>
+          ${indices || '<div class="empty">자산 흐름 데이터가 없습니다.</div>'}
+        </div>
+      `;
+    }
+
+    function renderNews() {
+      const pane = document.getElementById('pane-news');
+      const list = state.currentView?.newsList || [];
+      if (!list.length) {
+        pane.innerHTML = '<div class="empty">핵심 이슈 데이터가 없습니다.</div>';
+        return;
       }
-    },
-    "6개월": {
-      "briefing": {
-        "sentiment": {
-          "score": 49,
-          "status": "중립",
-          "desc": "6개월 기준 지수 흐름, 수집 데이터, 퀀트수식 문서 해석을 반영한 심리 요약입니다."
-        },
-        "forecast": {
-          "title": "최근 6개월 레짐 전환 관점 중기 전망",
-          "text": "중기 이상 기간은 매크로/리포트 누적과 구조적 테마의 지속성에 더 큰 비중을 둡니다.",
-          "sources": []
-        },
-        "insights": [
-          {
-            "category": "장기 배경",
-            "text": "6개월 관점에서는 인플레·정책·지정학 변수보다 구조적 투자(CAPEX, 인프라, AI 전력수요)의 지속성이 더 중요합니다.",
-            "sources": []
-          },
-          {
-            "category": "데이터 범위",
-            "text": "현재 1개월 수집이 먼저 진행 중이며, 6개월 period는 우선 구조만 생성하고 추후 시계열이 누적되면 정량화 강도를 높입니다.",
-            "sources": [
-              {
-                "label": "collection in progress",
-                "source": "automation"
-              }
-            ]
-          }
-        ],
-        "indices": [
-          {
-            "name": "S&P 500",
-            "price": "6,646.13",
-            "change": "▼ 0.75%",
-            "isUp": false
-          },
-          {
-            "name": "나스닥",
-            "price": "22,233.23",
-            "change": "▼ 0.82%",
-            "isUp": false
-          },
-          {
-            "name": "다우존스",
-            "price": "46,338.25",
-            "change": "▼ 0.96%",
-            "isUp": false
-          },
-          {
-            "name": "원/달러",
-            "price": "1,485.50",
-            "change": "▼ 0.09%",
-            "isUp": false
-          },
-          {
-            "name": "WTI 원유",
-            "price": "96.16",
-            "change": "▲ 0.99%",
-            "isUp": true
-          },
-          {
-            "name": "금(Gold)",
-            "price": "4,864.04",
-            "change": "▼ 2.78%",
-            "isUp": false
-          }
-        ]
-      },
-      "newsList": [
-        {
-          "title": "2026년 3월 19일 (목): KB 데일리",
-          "tags": [
-            "2026년",
-            "3월",
-            "19일"
-          ],
-          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
-          "impacts": [
-            {
-              "sector": "거시 / 금리 / 정책",
-              "isPositive": true,
-              "desc": "원문 2건이 병합된 이슈입니다."
-            }
-          ],
-          "sources": [
-            {
-              "label": "2026년 3월 19일 (목): KB 데일리",
-              "source": "kb_research",
-              "title": "2026년 3월 19일 (목): KB 데일리",
-              "published_at": "2026-03-19",
-              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
-            },
-            {
-              "label": "2026년 3월 19일 (목): KB 데일리",
-              "source": "kb_research",
-              "title": "2026년 3월 19일 (목): KB 데일리",
-              "published_at": "2026-03-19",
-              "url": "https://rdata.kbsec.com/pdf_data/20260319073343033K.pdf"
-            }
-          ]
-        },
-        {
-          "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-          "tags": [
-            "FOMC"
-          ],
-          "summary": "병합 소스는 확보됐지만 요약 본문 추출은 아직 미완성입니다.",
-          "impacts": [
-            {
-              "sector": "거시 / 금리 / 정책",
-              "isPositive": false,
-              "desc": "원문 2건이 병합된 이슈입니다."
-            }
-          ],
-          "sources": [
-            {
-              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "source": "mirae_research",
-              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "published_at": "2026-03-19",
-              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
-            },
-            {
-              "label": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "source": "mirae_research",
-              "title": "Fixed Income Comment [3월 FOMC] 인플레 위험에 맞춰진 정책 초점",
-              "published_at": "2026-03-19",
-              "url": "https://securities.miraeasset.com/bbs/download/2143285.pdf?attachmentId=2143285"
-            }
-          ]
-        }
-      ],
-      "portfolio": {
-        "accountAlert": "중기 관점에서는 성장주 편중보다 인프라·방어자산 병행이 유리해 보입니다.",
-        "accountDetail": "실계좌 원본이 연결되지 않아 포트폴리오 평가는 모델 기반으로 작성했습니다.",
-        "weeklyReview": {
-          "returnRate": "6개월 실계좌 수익률 미연결",
-          "desc": "실제 성과 계산에는 계좌 스냅샷이 더 필요합니다."
-        },
-        "holdings": [
-          {
-            "name": "PAVE",
-            "ticker": "PAVE",
-            "returnRate": "데이터 미연결",
-            "score": 10,
-            "indicators": [
-              "VIX",
-              "RSI",
-              "Momentum_3M"
-            ],
-            "reason": "퀀트수식 문서와 현재 수집 원문을 함께 반영한 임시 시그널입니다. Yahoo Finance 시계열 계산이 붙으면 실제 지표값으로 대체됩니다."
-          },
-          {
-            "name": "TSLA",
-            "ticker": "TSLA",
-            "returnRate": "데이터 미연결",
-            "score": -15,
-            "indicators": [
-              "Momentum_12M",
-              "ADX",
-              "DXY"
-            ],
-            "reason": "현재는 원문 해석 + 수식 항목 기반으로 방향성만 넣었습니다."
-          }
-        ],
-        "planDesc": "6개월 기준 코어지수 + 인프라/에너지 + 현금 완충 구조를 제안합니다.",
-        "allocations": [
-          {
-            "name": "S&P 500",
-            "percent": 45,
-            "color": "#191F28",
-            "desc": "코어 베타"
-          },
-          {
-            "name": "인프라/에너지",
-            "percent": 35,
-            "color": "#F04452",
-            "desc": "구조적 테마 + 지정학 수혜"
-          },
-          {
-            "name": "현금/채권",
-            "percent": 20,
-            "color": "#E5E8EB",
-            "desc": "변동성 대응"
-          }
-        ]
-      },
-      "recommendations": {
-        "ideas": [
-          {
-            "logo": "🔌",
-            "name": "Global X U.S. Infrastructure",
-            "ticker": "PAVE",
-            "action": "장기 관찰 및 분할매수",
-            "linkedIssue": "전력망/인프라 투자 확대",
-            "reason": "현재 수집된 리포트와 뉴스 원문에서 반복적으로 확인되는 테마를 기반으로 생성했습니다.",
-            "sources": []
-          }
-        ],
-        "etfRanking": [
-          {
-            "rank": 1,
-            "name": "Global X U.S. Infrastructure",
-            "ticker": "PAVE",
-            "score": 91
-          },
-          {
-            "rank": 2,
-            "name": "SPDR Gold Trust",
-            "ticker": "GLD",
-            "score": 78
-          },
-          {
-            "rank": 3,
-            "name": "iShares 20+ Year Treasury Bond",
-            "ticker": "TLT",
-            "score": 69
-          }
-        ]
-      },
-      "raw_sources": {
-        "news": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/process/merged/2026-03-19_merged_news.json"
-        ],
-        "market": [
-          "1_Project/DailyReport/output/2026-03-19_reportData.json",
-          "2_Project/Reporting/input/raw/US/yahoo_finance/*"
-        ],
-        "reports": [],
-        "portfolio": []
+      pane.innerHTML = list.map((item, idx) => `
+        <div class="card">
+          <div class="card-title">${item.title || '이슈'}</div>
+          <div class="chip-group">${(item.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+          <div class="body-text">${item.summary || ''}</div>
+          ${renderSources(item.sources, `news-src-${idx}`)}
+          <div class="impact-title">섹터·자산 영향</div>
+          ${(item.impacts || []).map(impact => `
+            <div class="impact-item">
+              <div class="impact-head">
+                <span class="impact-dot ${impact.isPositive ? 'pos' : 'neg'}"></span>
+                <span class="impact-name">${impact.sector || '-'}</span>
+              </div>
+              <div class="impact-desc">${impact.desc || ''}</div>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
+    }
+
+    function renderPortfolio() {
+      const pane = document.getElementById('pane-portfolio');
+      const data = state.currentView?.portfolio;
+      if (!data) {
+        pane.innerHTML = '<div class="empty">포트폴리오 데이터가 없습니다.</div>';
+        return;
+      }
+      const score = data.portfolioScore || null;
+      const scoreColor = !score ? '#2563eb' : (score.score >= 65 ? '#0f9f6e' : (score.score >= 50 ? '#2563eb' : '#f59e0b'));
+      const compareRows = score ? Object.keys(score.currentPct || {}).map(key => `
+        <div class="index-row">
+          <div class="index-name">${key}</div>
+          <div class="index-value">
+            <div class="index-price">현재 ${score.currentPct[key]}%</div>
+            <div class="text-down" style="color:#6b7280;">목표 ${score.targetPct[key]}%</div>
+          </div>
+        </div>
+      `).join('') : '';
+      const allocBar = (data.allocations || []).map(item => `<div style="width:${item.percent}%; background:${item.color};"></div>`).join('');
+      const allocList = (data.allocations || []).map(item => `
+        <div class="alloc-item">
+          <span class="alloc-dot" style="background:${item.color};"></span>
+          <div>
+            <div class="alloc-name">${item.name} (${item.percent}%)</div>
+            <div class="alloc-desc">${item.desc}</div>
+          </div>
+        </div>
+      `).join('');
+      const reasons = (score?.reasons || []).map(item => `
+        <li class="list-item">
+          <span class="badge">점수</span>
+          <div class="body-text">${item}</div>
+        </li>
+      `).join('');
+
+      pane.innerHTML = `
+        <div class="hero">
+          <div class="hero-title">${data.accountAlert || '포트폴리오 요약'}</div>
+          <div class="hero-text">${data.accountDetail || ''}</div>
+        </div>
+        ${score ? `
+          <div class="card">
+            <div class="card-title">포트폴리오 레짐 적합도</div>
+            <div class="score-wrap">
+              <div class="score-head">
+                <div class="score-num">${score.score}<span class="muted"> / 100</span></div>
+                <div class="score-status" style="color:${scoreColor};">${score.grade}</div>
+              </div>
+              <div class="score-track"><div class="score-fill" style="width:${score.score}%; background:${scoreColor};"></div></div>
+              <div class="muted" style="margin-top:8px;">${score.summary || ''}</div>
+            </div>
+            <div class="card-title" style="font-size:16px;">현재 배분 vs 목표 배분</div>
+            ${compareRows}
+            <ul class="list" style="margin-top:14px;">${reasons}</ul>
+          </div>
+        ` : ''}
+        <div class="card">
+          <div class="card-title">${state.currentView.bucketLabel || ''} 포트폴리오 판단</div>
+          <div class="muted" style="margin-bottom:8px;">현재 포지션과 진입 여력 해석</div>
+          <div class="body-text" style="font-weight:800; color:#2563eb; margin-bottom:10px;">${data.weeklyReview?.returnRate || ''}</div>
+          <div class="body-text">${data.weeklyReview?.desc || ''}</div>
+        </div>
+        <div class="card">
+          <div class="card-title">${state.currentHorizon} 권장 자산배분</div>
+          <div class="body-text">${data.planDesc || ''}</div>
+          <div class="alloc-bar">${allocBar}</div>
+          ${allocList}
+        </div>
+      `;
+    }
+
+    function renderRecommendations() {
+      const pane = document.getElementById('pane-recommendations');
+      const data = state.currentView?.recommendations;
+      if (!data) {
+        pane.innerHTML = '<div class="empty">ETF 아이디어 데이터가 없습니다.</div>';
+        return;
+      }
+      const ideas = (data.ideas || []).map(item => `
+        <div class="idea">
+          <div class="idea-top">
+            <div class="idea-left">
+              <div class="idea-logo">${item.logo || '📌'}</div>
+              <div>
+                <div class="idea-name">${item.name || '-'}</div>
+                <div class="idea-ticker">${item.ticker || '-'}</div>
+              </div>
+            </div>
+            <div class="idea-action">${item.action || '관찰'}</div>
+          </div>
+          <div class="idea-body">
+            <div class="issue-badge">연결 이슈: ${item.linkedIssue || '-'}</div>
+            <div class="body-text">${item.reason || ''}</div>
+          </div>
+        </div>
+      `).join('');
+      const ranking = (data.etfRanking || []).map(item => `
+        <div class="rank-item">
+          <div class="rank-num">${item.rank || '-'}</div>
+          <div class="rank-info">
+            <div class="rank-head">
+              <div class="rank-name">${item.name || '-'}<span class="rank-ticker">${item.ticker || '-'}</span></div>
+              <div class="rank-score">${item.score || 0}점</div>
+            </div>
+            <div class="rank-track"><div class="rank-fill" style="width:${item.score || 0}%;"></div></div>
+          </div>
+        </div>
+      `).join('');
+
+      pane.innerHTML = `
+        <div class="card">
+          <div class="card-title">${state.currentView.bucketLabel || ''} ETF·테마 아이디어</div>
+          <div class="muted">기간별 누적 흐름과 현재 레짐을 함께 반영한 아이디어입니다.</div>
+        </div>
+        ${ideas}
+        <div class="card">
+          <div class="card-title">ETF 우선순위 랭킹</div>
+          <div class="muted" style="margin-bottom:12px;">현재 기간의 모멘텀, 리스크, 레짐 적합도를 함께 반영했습니다.</div>
+          ${ranking || '<div class="empty">랭킹 데이터가 없습니다.</div>'}
+        </div>
+      `;
+    }
+
+    function renderAll() {
+      renderBriefing();
+      renderNews();
+      renderPortfolio();
+      renderRecommendations();
+      switchSection(state.currentSection);
+    }
+
+    async function init() {
+      try {
+        await loadIndex();
+        resolveInitialSelection();
+        renderHorizonSelector();
+        renderBucketSelector();
+        await loadCurrentView();
+      } catch (error) {
+        document.querySelector('.content').innerHTML = '<div class="empty">기간별 리포트를 불러오지 못했습니다.</div>';
+        renderStatus('empty');
       }
     }
-  }
-};
-async function renderApp(){await initCalendar(); await syncInitialResult(); updateReportTitle(); const periodsFromData=Object.keys(reportData.dataByPeriod||{}); if(periodsFromData.length===0){document.querySelector('.tab-content').innerHTML=`<div style="padding: 40px 20px; text-align: center; color: #8B95A1;">데이터가 없습니다.</div>`; renderDataStatusBadge('empty'); return;} currentPeriod=periodsFromData[0]; renderPeriodSelector(periodsFromData); updateAllViews(); renderDataStatusBadge(reportData.dataStatus || 'partial');}
-async function syncInitialResult(){ try { const pathParts=window.location.pathname.split('/').filter(Boolean); const datePart=pathParts[pathParts.length-1]?.match(/^2026-\d{2}-\d{2}$/) ? pathParts[pathParts.length-1] : null; const url = datePart ? './result.json' : `/igzun-daily-report/site/${new Date().toISOString().slice(0,10)}/result.json`; const r = await fetch(url, {cache:'no-store'}); if(!r.ok) return; const incoming = await r.json(); if(incoming && incoming.dataByPeriod){ Object.assign(reportData, incoming); } } catch(e) { /* ignore and use inline fallback */ } }
-function renderPeriodSelector(periods){const container=document.getElementById('periodSelector');let html='';periods.forEach(period=>{const isActive=(period===currentPeriod)?'active':'';html+=`<div class="period-chip ${isActive}" onclick="changePeriod('${period}')">${period}</div>`;});container.innerHTML=html;}
-function changePeriod(period){if(!reportData.dataByPeriod[period])return;currentPeriod=period;renderPeriodSelector(Object.keys(reportData.dataByPeriod));updateAllViews();}
-function updateAllViews(){renderBriefing();renderNews();renderPortfolio();renderRecommend();}
-function getCurrentData(){return reportData.dataByPeriod[currentPeriod]||{};} function isMacroPeriod(){return currentPeriod.includes('월')||currentPeriod.includes('년');}
-function getSignalData(score){if(score<=-60)return{text:"🧊 풀매도",cls:"sig-ss",color:"#1B64DA"};if(score<=-20)return{text:"📉 매도",cls:"sig-s",color:"#3182F6"};if(score<=19)return{text:"⏸️ 보유",cls:"sig-h",color:"#6B7684"};if(score<=59)return{text:"📈 매수",cls:"sig-b",color:"#F04452"};return{text:"🔥 풀매수",cls:"sig-sb",color:"#D9042B"};}
-function renderSources(sources, id){ if(!sources || !sources.length) return ''; const sourceNameMap={kb_research:'KB증권', mirae_research:'미래에셋증권', nh_research:'NH투자증권', samsung_research:'삼성증권', jpm_insights:'JPMorgan', jpm_public:'JPMorgan', nomura_connects:'노무라', ubs_cio:'UBS', federal_reserve_press:'연준', merged_story:'병합이슈', financial_news_multi:'금융뉴스', yahoo_finance:'Yahoo Finance', state:'퀀트수식'}; const items=sources.map(s=>{const broker=sourceNameMap[s.source]||s.source||s.label||'출처'; const title=s.title||s.label||''; const dt=s.published_at||''; return `<div class="source-item"><b>${broker}</b>${title?` — ${title}`:''}${dt?` (${dt})`:''}</div>`;}).join(''); return `<button class="source-toggle" onclick="toggleSourceBox('${id}')">출처 보기</button><div class="source-box" id="${id}" style="display:none;">${items}</div>`; }
-function toggleSourceBox(id){ const el=document.getElementById(id); if(!el) return; el.style.display = el.style.display==='none' ? 'block' : 'none'; }
-function renderBriefing(){const container=document.getElementById('tab-briefing');const data=getCurrentData().briefing;if(!data){container.innerHTML=`<div class="empty-state">해당 기간의 브리핑 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(data.sentiment){const s=data.sentiment;let barColor=s.score>50?'#F04452':'#3182F6';let statusColor=s.score>50?'#F04452':'#3182F6';const titleText=macro?`${currentPeriod} 시장 과열/침체 온도 🌡️`:'오늘의 단기 시장 온도 🌡️';html+=`<div class="card"><div class="card-title">${titleText}</div><div class="sentiment-container"><div class="sentiment-header"><div class="sentiment-score">${s.score}<span style="font-size:14px; color:#8B95A1;"> / 100</span></div><div class="sentiment-status" style="color:${statusColor};">${s.status}</div></div><div class="sentiment-bar-bg"><div class="sentiment-bar-fill" style="width: ${s.score}%; background-color: ${barColor};"></div></div><div class="sentiment-desc">${s.desc}</div></div></div>`;}if(data.forecast){const f=data.forecast;html+=`<div class="card" style="padding:0; box-shadow:none; background:transparent;"><div class="forecast-box"><div class="forecast-title"><span>${currentPeriod} 전망</span>${f.title}</div><div class="forecast-text">${f.text}</div>${renderSources(f.sources,'src-forecast')}</div></div>`;}if(data.insights&&data.insights.length>0){const titleText=macro?`${currentPeriod} 거시경제 핵심 인사이트 💡`:`${currentPeriod} 단기 시황 브리핑 💡`;html+=`<div class="card"><div class="card-title">${titleText}</div><ul class="insight-list">`;data.insights.forEach((insight,i)=>{html+=`<li class="insight-item"><span class="badge-category">${insight.category}</span><div class="insight-text">${insight.text}${renderSources(insight.sources, 'src-ins-'+i)}</div></li>`;});html+=`</ul></div>`;}if(data.indices&&data.indices.length>0){html+=`<div class="card"><div class="card-title">${currentPeriod} 누적 지수 성과</div>`;data.indices.forEach(idx=>{const colorClass=idx.isUp?'text-up':'text-down';html+=`<div class="index-row"><div class="index-name">${idx.name}</div><div class="index-value"><div class="index-price">${idx.price}</div><div class="${colorClass}">${idx.change}</div></div></div>`;});html+=`</div>`;}container.innerHTML=html;}
-function renderNews(){const container=document.getElementById('tab-news');const data=getCurrentData().newsList;if(!data||data.length===0){container.innerHTML=`<div class="empty-state">해당 기간의 이슈 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();data.forEach((news,i)=>{let tagsHtml=(news.tags||[]).map(tag=>`<div class="chip">${tag}</div>`).join('');let impactsHtml='';if(news.impacts&&news.impacts.length>0){const impactTitle=macro?`${currentPeriod} 누적 펀더멘털 영향도`:`단기 섹터 투심 영향도`;impactsHtml+=`<div class="impact-tree"><div class="impact-tree-title">${impactTitle}</div>`;news.impacts.forEach(impact=>{const dotClass=impact.isPositive?'dot-red':'dot-blue';const badgeClass=impact.isPositive?'badge-positive':'badge-negative';const badgeText=impact.isPositive?'긍정':'부정';impactsHtml+=`<div class="impact-node"><div class="node-header"><div class="node-dot ${dotClass}">●</div><div class="node-title">${impact.sector} <span class="badge ${badgeClass}">${badgeText}</span></div></div><div class="node-desc">${impact.desc}</div></div>`;});impactsHtml+=`</div>`;}html+=`<div class="card"><div class="card-title" style="font-size: 20px;">${news.title}</div><div class="chip-group">${tagsHtml}</div><p style="font-size: 15px; color: #4E5968; margin-bottom: 24px;">${news.summary}</p>${renderSources(news.sources,'src-news-'+i)}${impactsHtml}</div>`;});container.innerHTML=html;}
-function renderPortfolio(){const container=document.getElementById('tab-portfolio');const p=getCurrentData().portfolio;if(!p){container.innerHTML=`<div class="empty-state">포트폴리오 분석 데이터가 없습니다.</div>`;return;}const macro=isMacroPeriod();let html=`<div class="account-card"><div class="account-alert">${p.accountAlert}</div><div class="account-detail">${p.accountDetail}</div></div>`;if(p.holdings&&p.holdings.length>0){const signalDesc=macro?"장기 이평선 및 기업 펀더멘털 알고리즘 기반 중장기 시그널입니다.":"RSI, 볼린저밴드 등 단기 수급 및 기술적 지표 기반 시그널입니다.";html+=`<div class="card"><div class="card-title">🎯 내 보유 종목 AI 시그널</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${signalDesc}</div>`;p.holdings.forEach(item=>{const sig=getSignalData(item.score);const returnColor=item.returnRate.includes('+')?'#F04452':'#3182F6';const markerPos=(item.score+100)/2;const indHtml=item.indicators.map(ind=>`<span class="sig-ind">${ind}</span>`).join('');html+=`<div class="signal-box"><div class="signal-header"><div class="signal-stock-info"><span class="signal-stock-name">${item.name}</span><span class="signal-stock-ticker">${item.ticker} <span style="font-weight:700; color:${returnColor}; margin-left:6px;">${item.returnRate}</span></span></div><div class="signal-badge ${sig.cls}">${sig.text}</div></div><div class="signal-bar-wrap"><div class="signal-bar-label">-100</div><div class="signal-bar-track"><div class="signal-bar-marker" style="left: ${markerPos}%; border-color: ${sig.color};"></div></div><div class="signal-bar-label">+100</div></div><div class="signal-indicators">${indHtml}</div><div class="signal-reason">${item.reason}</div></div>`;});html+=`</div>`;}html+=`<div class="card"><div class="card-title">📊 ${currentPeriod} 포트폴리오 성과</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 4px;">해당 기간 누적 수익률</div><div style="font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 16px; color: #3182F6;">${p.weeklyReview.returnRate}</div><p style="font-size: 14px; color: #4E5968;">${p.weeklyReview.desc}</p></div>`;if(p.allocations&&p.allocations.length>0){let barHtml='';let listHtml='';p.allocations.forEach(alloc=>{barHtml+=`<div style="width: ${alloc.percent}%; background-color: ${alloc.color};"></div>`;listHtml+=`<div class="alloc-item"><div class="alloc-dot" style="background-color: ${alloc.color};"></div><div><div class="alloc-name">${alloc.name} (${alloc.percent}%)</div><div class="alloc-desc">${alloc.desc}</div></div></div>`;});const allocTitle=macro?"장기 전략적 자산 배분 (SAA)":"단기 전술적 자산 배분 (TAA)";html+=`<div class="card"><div class="card-title">📅 ${allocTitle}</div><p style="font-size: 14px; color: #4E5968; margin-bottom: 16px;">${p.planDesc}</p><div class="allocation-bar">${barHtml}</div>${listHtml}</div>`;}container.innerHTML=html;}
-function renderRecommend(){const container=document.getElementById('tab-recommend');const r=getCurrentData().recommendations;if(!r){container.innerHTML=`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`;return;}let html='';const macro=isMacroPeriod();if(r.ideas&&r.ideas.length>0){const ideaTitle=macro?"장기 메가 트렌드 투자 아이디어":"단기 모멘텀 투자 아이디어";html+=`<div class="card" style="background-color: transparent; box-shadow: none; padding: 0; margin: 0 20px 24px 20px;"><div class="card-title" style="padding-left: 4px;">💡 ${ideaTitle}</div>`;r.ideas.forEach(rec=>{html+=`<div style="margin-bottom: 20px;"><div class="stock-item" style="margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"><div class="stock-info"><div class="stock-logo">${rec.logo}</div><div><div class="stock-name">${rec.name}</div><div class="stock-ticker">${rec.ticker}</div></div></div><div class="stock-action">${rec.action}</div></div><div class="stock-reason-box"><div class="badge-issue">🔗 연관 테마: ${rec.linkedIssue}</div><div style="font-size: 14px; color: #4E5968; line-height: 1.5;">${rec.reason}</div></div></div>`;});html+=`</div>`;}if(r.etfRanking&&r.etfRanking.length>0){const rankDesc=macro?"EPS 성장, 장기 거래량, 200일선 지표를 종합한 장기 펀더멘털 점수입니다.":"일일 변동성, RSI, 단기 수급을 종합한 단기 트레이딩 점수입니다.";html+=`<div class="card"><div class="card-title">🔥 AI 모멘텀 ETF 랭킹</div><div style="font-size: 13px; color: #8B95A1; margin-bottom: 16px;">${rankDesc}</div><div class="ranking-list">`;r.etfRanking.forEach(etf=>{const rankClass=etf.rank<=3?'top-rank':'';const barColor=etf.score>=80?'#F04452':(etf.score>=50?'#3182F6':'#8B95A1');html+=`<div class="rank-item"><div class="rank-num ${rankClass}">${etf.rank}</div><div class="rank-info"><div class="rank-title-box"><div><span class="rank-name">${etf.name}</span><span class="rank-ticker">${etf.ticker}</span></div><div class="rank-score-text">${etf.score}점</div></div><div class="rank-bar-bg"><div class="rank-bar-fill" style="width: ${etf.score}%; background-color: ${barColor};"></div></div></div></div>`;});html+=`</div></div>`;}container.innerHTML=html===''?`<div class="empty-state">해당 기간의 추천 종목 데이터가 없습니다.</div>`:html;}
-function switchTab(tabId){document.querySelectorAll('.tab-item').forEach(item=>item.classList.remove('active'));const clickedTab=Array.from(document.querySelectorAll('.tab-item')).find(item=>item.getAttribute('onclick').includes(tabId));if(clickedTab) clickedTab.classList.add('active');document.querySelectorAll('.tab-pane').forEach(pane=>pane.classList.remove('active'));const activePane=document.getElementById('tab-'+tabId);if(activePane) activePane.classList.add('active');if(clickedTab) clickedTab.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });}
-window.onload=renderApp;
-</script>
+
+    window.onload = init;
+  </script>
 </body>
 </html>
