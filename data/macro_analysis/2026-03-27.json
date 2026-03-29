@@ -1,0 +1,107 @@
+{
+  "date": "2026-03-27",
+  "regime": "Neutral",
+  "scores": {
+    "macro": 50.49,
+    "technical": 49.83,
+    "quant": 52.69,
+    "fx": 33.09,
+    "total": 47.61
+  },
+  "macro_inputs": {
+    "vix": 27.44,
+    "us10y": 4.42,
+    "dxy": 120.2757,
+    "oil": 89.33,
+    "fedfunds": 5.3,
+    "t10y2y_spread": 0.56,
+    "hy_spread": 3.21,
+    "unrate": 4.0,
+    "cpi_level": 315.0
+  },
+  "technical_inputs": {
+    "rsi_sp500": 23.8,
+    "ma_gap_sp500": -2.28,
+    "momentum_3m": -8.12,
+    "momentum_12m": 11.5,
+    "volatility_20d": 15.01,
+    "rel_strength_sp500_vs_kospi": -61.81,
+    "adx_sp500": 59.31
+  },
+  "latest_prices": {
+    "sp500": 6368.85009765625,
+    "kospi": 5438.8701171875,
+    "nasdaq": 20948.359375,
+    "usdkrw": 1508.06005859375,
+    "us10y_yield": 4.42,
+    "wti": 89.33,
+    "gold": 4524.2998046875
+  },
+  "periods": [
+    {
+      "label": "1일",
+      "days": 1,
+      "returns": {
+        "sp500": -1.67,
+        "kospi": -0.4,
+        "nasdaq": -2.15,
+        "gold": 3.4,
+        "wti": 5.46,
+        "usdkrw": -0.02,
+        "us10y_yield_chg": 0.02
+      }
+    },
+    {
+      "label": "1주",
+      "days": 5,
+      "returns": {
+        "sp500": -2.12,
+        "kospi": -5.92,
+        "nasdaq": -3.23,
+        "gold": -1.01,
+        "wti": 1.34,
+        "usdkrw": 0.26,
+        "us10y_yield_chg": 0.05
+      }
+    },
+    {
+      "label": "1개월",
+      "days": 21,
+      "returns": {
+        "sp500": -7.82,
+        "kospi": -10.6,
+        "nasdaq": -8.44,
+        "gold": -12.6,
+        "wti": 52.8,
+        "usdkrw": 5.29,
+        "us10y_yield_chg": 0.42
+      }
+    },
+    {
+      "label": "3개월",
+      "days": 63,
+      "returns": {
+        "sp500": -8.12,
+        "kospi": 35.28,
+        "nasdaq": -11.29,
+        "gold": 0.98,
+        "wti": 70.76,
+        "usdkrw": 5.11,
+        "us10y_yield_chg": 0.3
+      }
+    },
+    {
+      "label": "6개월",
+      "days": 126,
+      "returns": {
+        "sp500": -3.57,
+        "kospi": 57.67,
+        "nasdaq": -6.42,
+        "gold": 21.07,
+        "wti": 53.34,
+        "usdkrw": 7.48,
+        "us10y_yield_chg": 0.27
+      }
+    }
+  ]
+}

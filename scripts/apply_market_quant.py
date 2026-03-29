@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 import json, sys
 from pathlib import Path
-sys.path.insert(0, '/Users/seo/.openclaw/workspace/igzun-daily-report/scripts')
+from datetime import date
+ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(ROOT / 'scripts'))
 from technical_indicators import sma, ema, rsi, ma_gap, momentum, volatility, relative_strength, adx
 from quant_formula_engine import classify_market_regime, macro_score, technical_score, quant_score, total_score
 from scoring_engine import minmax
 
-ROOT = Path('/Users/seo/.openclaw/workspace/igzun-daily-report')
 MARKET = ROOT / 'data/market_data_latest.json'
 OUT = ROOT / 'data/market_quant_snapshot.json'
-SITE = ROOT / 'site/2026-03-19/result.json'
+SITE = ROOT / f'site/{date.today().isoformat()}/result.json'
 
 
 def get_series(asset):
@@ -79,7 +80,7 @@ def main():
             if period in r.get('dataByPeriod', {}):
                 brief = r['dataByPeriod'][period].setdefault('briefing', {})
                 ins = brief.setdefault('insights', [])
-                ins.insert(0, {'category':'Quant', 'text': f"{period} 퀀트 요약: Regime={regime}, Macro={macro:.1f}, Technical={tech:.1f}, Quant={quant:.1f}, Total={total:.1f}", 'sources':[{'label':'market_quant_snapshot.json','source':'yfinance+pandas','title':'market quant snapshot','published_at':'2026-03-19'}]})
+                ins.insert(0, {'category':'Quant', 'text': f"{period} 퀀트 요약: Regime={regime}, Macro={macro:.1f}, Technical={tech:.1f}, Quant={quant:.1f}, Total={total:.1f}", 'sources':[{'label':'market_quant_snapshot.json','source':'yfinance+pandas','title':'market quant snapshot','published_at':date.today().isoformat()}]})
                 brief['forecast']['text'] += f"<br><br>퀀트 결합: Regime={regime}, Macro={macro:.1f}, Technical={tech:.1f}, Quant={quant:.1f}, Total={total:.1f}"
         SITE.write_text(json.dumps(r, ensure_ascii=False, indent=2))
     print('wrote', OUT)

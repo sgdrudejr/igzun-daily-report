@@ -1,0 +1,1393 @@
+{
+  "date": "2026-03-27 기준 업데이트",
+  "dataStatus": "full",
+  "regime": "Neutral",
+  "totalScore": 47.61,
+  "dataByPeriod": {
+    "1일": {
+      "briefing": {
+        "sentiment": {
+          "score": 48,
+          "status": "중립",
+          "desc": "퀀트 총점 48/100 — 중립"
+        },
+        "forecast": {
+          "title": "1일 핵심 인사이트",
+          "text": "<b>[1일 시장 요약]</b><br><br>S&P500 ▼1.67%  |  KOSPI ▼0.40%  |  NASDAQ ▼2.15%  |  Gold ▲3.40%  |  WTI ▲5.46%  |  USD/KRW ▼0.02%<br><br><b>[매크로 지표]</b> VIX 27.44 | US10Y 4.42% | DXY 120.3 | Oil $89.3 | Fed 5.3% | 10Y-2Y Spread 0.56<br><br><b>[퀀트 스코어링]</b> Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61<br><br><b>[주요 수집 내용]</b><br>• 10Y-2Y Treasury Spread (T10Y2Y): [\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value...<br>• 사채원리금미지급발생              : {\"corp_code\": \"01068658\", \"corp_name\": \"선샤인푸드\", \"stock_code\": \"217620\", \"corp_cls\": \"K\", \"report_nm\": \"사채원리금미지급발생              \", \"rcept_no\": \"2026032...<br>• 소송등의제기ㆍ신청(일정금액이상의청구)              : {\"corp_code\": \"00137915\", \"corp_name\": \"에스엠코어\", \"stock_code\": \"007820\", \"corp_cls\": \"K\", \"report_nm\": \"소송등의제기ㆍ신청(일정금액이상의청구)              \", \"rcept_no\"...<br>• [기재정정]대표이사변경              : {\"corp_code\": \"00407814\", \"corp_name\": \"CG인바이츠\", \"stock_code\": \"083790\", \"corp_cls\": \"K\", \"report_nm\": \"[기재정정]대표이사변경              \", \"rcept_no\": \"2026...<br>• 정기주주총회결과              : {\"corp_code\": \"01259232\", \"corp_name\": \"노바텍\", \"stock_code\": \"285490\", \"corp_cls\": \"K\", \"report_nm\": \"정기주주총회결과              \", \"rcept_no\": \"20260327903...",
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "정기주주총회결과              ",
+              "published_at": "2026-03-27"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "퀀트",
+            "text": "Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61",
+            "sources": [
+              {
+                "label": "macro_analysis",
+                "source": "quant_formula_engine",
+                "title": "1일 Regime=Neutral",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "시장",
+            "text": "S&P500 ▼1.67%  |  KOSPI ▼0.40%  |  NASDAQ ▼2.15%  |  Gold ▲3.40%  |  WTI ▲5.46%  |  USD/KRW ▼0.02%",
+            "sources": [
+              {
+                "label": "yfinance",
+                "source": "market_data",
+                "title": "price data",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "ETF추천",
+            "text": "Top3: Energy Select SPDR (score=72) | TIGER 200 (score=65) | KODEX 반도체 (score=65)",
+            "sources": [
+              {
+                "label": "etf_recommender",
+                "source": "etf_recommender",
+                "title": "ETF ranking",
+                "published_at": "2026-03-27"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "change": " ▼1.67%"
+          },
+          {
+            "name": "KOSPI",
+            "change": " ▼0.40%"
+          },
+          {
+            "name": "NASDAQ",
+            "change": " ▼2.15%"
+          },
+          {
+            "name": "Gold",
+            "change": " ▲3.40%"
+          },
+          {
+            "name": "WTI",
+            "change": " ▲5.46%"
+          },
+          {
+            "name": "USD/KRW",
+            "change": " ▼0.02%"
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "US 주요 수집 (1일)",
+          "tags": [
+            "US",
+            "1일",
+            "자동수집"
+          ],
+          "summary": "10Y-2Y Treasury Spread (T10Y2Y) / VIX (VIXCLS) / US 10Y Treasury Yield (DGS10)",
+          "impacts": [
+            {
+              "sector": "US",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27",
+              "url": "https://fred.stlouisfed.org/series/T10Y2Y"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "VIX (VIXCLS)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/VIXCLS"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "US 10Y Treasury Yield (DGS10)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/DGS10"
+            }
+          ]
+        },
+        {
+          "title": "KR 주요 수집 (1일)",
+          "tags": [
+            "KR",
+            "1일",
+            "자동수집"
+          ],
+          "summary": "사채원리금미지급발생               / 소송등의제기ㆍ신청(일정금액이상의청구)               / [기재정정]대표이사변경              ",
+          "impacts": [
+            {
+              "sector": "KR",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903344"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903342"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "자동 파이프라인 — 계좌 스냅샷 별도 연결 필요",
+        "accountDetail": "1일 기간 기준 자동 생성 리포트입니다.",
+        "weeklyReview": {
+          "returnRate": "데이터 미연결",
+          "desc": "계좌 스냅샷 연결 시 업데이트"
+        },
+        "holdings": [],
+        "planDesc": "Regime=Neutral 기반 전략: 아래 ETF 추천 참고",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": [
+          {
+            "name": "Energy Select SPDR",
+            "ticker": "XLE",
+            "score": 72,
+            "tier": "강력매수",
+            "momentum": 41.0,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200",
+            "ticker": "TIGER200",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.35,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 반도체",
+            "ticker": "KODEX_SEMI",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 72.6,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 미국채울트라30년(H)",
+            "ticker": "KODEX_US30Y",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.69,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200 IT",
+            "ticker": "TIGER200_IT",
+            "score": 58,
+            "tier": "매수",
+            "momentum": 10.94,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🔵"
+          },
+          {
+            "name": "Gold",
+            "ticker": "GLD",
+            "score": 54,
+            "tier": "중립",
+            "momentum": 0.67,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "Emerging Markets",
+            "ticker": "EEM",
+            "score": 50,
+            "tier": "중립",
+            "momentum": 1.43,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "KODEX 골드선물(H)",
+            "ticker": "KODEX_GOLD",
+            "score": 49,
+            "tier": "중립",
+            "momentum": 1.23,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          }
+        ]
+      }
+    },
+    "1주": {
+      "briefing": {
+        "sentiment": {
+          "score": 48,
+          "status": "중립",
+          "desc": "퀀트 총점 48/100 — 중립"
+        },
+        "forecast": {
+          "title": "1주 핵심 인사이트",
+          "text": "<b>[1주 시장 요약]</b><br><br>S&P500 ▼2.12%  |  KOSPI ▼5.92%  |  NASDAQ ▼3.23%  |  Gold ▼1.01%  |  WTI ▲1.34%  |  USD/KRW ▲0.26%<br><br><b>[매크로 지표]</b> VIX 27.44 | US10Y 4.42% | DXY 120.3 | Oil $89.3 | Fed 5.3% | 10Y-2Y Spread 0.56<br><br><b>[퀀트 스코어링]</b> Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61<br><br><b>[주요 수집 내용]</b><br>• 10Y-2Y Treasury Spread (T10Y2Y): [\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value...<br>• 사채원리금미지급발생              : {\"corp_code\": \"01068658\", \"corp_name\": \"선샤인푸드\", \"stock_code\": \"217620\", \"corp_cls\": \"K\", \"report_nm\": \"사채원리금미지급발생              \", \"rcept_no\": \"2026032...<br>• 소송등의제기ㆍ신청(일정금액이상의청구)              : {\"corp_code\": \"00137915\", \"corp_name\": \"에스엠코어\", \"stock_code\": \"007820\", \"corp_cls\": \"K\", \"report_nm\": \"소송등의제기ㆍ신청(일정금액이상의청구)              \", \"rcept_no\"...<br>• [기재정정]대표이사변경              : {\"corp_code\": \"00407814\", \"corp_name\": \"CG인바이츠\", \"stock_code\": \"083790\", \"corp_cls\": \"K\", \"report_nm\": \"[기재정정]대표이사변경              \", \"rcept_no\": \"2026...<br>• 정기주주총회결과              : {\"corp_code\": \"01259232\", \"corp_name\": \"노바텍\", \"stock_code\": \"285490\", \"corp_cls\": \"K\", \"report_nm\": \"정기주주총회결과              \", \"rcept_no\": \"20260327903...",
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "정기주주총회결과              ",
+              "published_at": "2026-03-27"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "퀀트",
+            "text": "Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61",
+            "sources": [
+              {
+                "label": "macro_analysis",
+                "source": "quant_formula_engine",
+                "title": "1주 Regime=Neutral",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "시장",
+            "text": "S&P500 ▼2.12%  |  KOSPI ▼5.92%  |  NASDAQ ▼3.23%  |  Gold ▼1.01%  |  WTI ▲1.34%  |  USD/KRW ▲0.26%",
+            "sources": [
+              {
+                "label": "yfinance",
+                "source": "market_data",
+                "title": "price data",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "ETF추천",
+            "text": "Top3: Energy Select SPDR (score=72) | TIGER 200 (score=65) | KODEX 반도체 (score=65)",
+            "sources": [
+              {
+                "label": "etf_recommender",
+                "source": "etf_recommender",
+                "title": "ETF ranking",
+                "published_at": "2026-03-27"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "change": " ▼2.12%"
+          },
+          {
+            "name": "KOSPI",
+            "change": " ▼5.92%"
+          },
+          {
+            "name": "NASDAQ",
+            "change": " ▼3.23%"
+          },
+          {
+            "name": "Gold",
+            "change": " ▼1.01%"
+          },
+          {
+            "name": "WTI",
+            "change": " ▲1.34%"
+          },
+          {
+            "name": "USD/KRW",
+            "change": " ▲0.26%"
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "US 주요 수집 (1주)",
+          "tags": [
+            "US",
+            "1주",
+            "자동수집"
+          ],
+          "summary": "10Y-2Y Treasury Spread (T10Y2Y) / VIX (VIXCLS) / US 10Y Treasury Yield (DGS10)",
+          "impacts": [
+            {
+              "sector": "US",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27",
+              "url": "https://fred.stlouisfed.org/series/T10Y2Y"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "VIX (VIXCLS)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/VIXCLS"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "US 10Y Treasury Yield (DGS10)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/DGS10"
+            }
+          ]
+        },
+        {
+          "title": "KR 주요 수집 (1주)",
+          "tags": [
+            "KR",
+            "1주",
+            "자동수집"
+          ],
+          "summary": "사채원리금미지급발생               / 소송등의제기ㆍ신청(일정금액이상의청구)               / [기재정정]대표이사변경              ",
+          "impacts": [
+            {
+              "sector": "KR",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903344"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903342"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "자동 파이프라인 — 계좌 스냅샷 별도 연결 필요",
+        "accountDetail": "1주 기간 기준 자동 생성 리포트입니다.",
+        "weeklyReview": {
+          "returnRate": "데이터 미연결",
+          "desc": "계좌 스냅샷 연결 시 업데이트"
+        },
+        "holdings": [],
+        "planDesc": "Regime=Neutral 기반 전략: 아래 ETF 추천 참고",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": [
+          {
+            "name": "Energy Select SPDR",
+            "ticker": "XLE",
+            "score": 72,
+            "tier": "강력매수",
+            "momentum": 41.0,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200",
+            "ticker": "TIGER200",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.35,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 반도체",
+            "ticker": "KODEX_SEMI",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 72.6,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 미국채울트라30년(H)",
+            "ticker": "KODEX_US30Y",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.69,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200 IT",
+            "ticker": "TIGER200_IT",
+            "score": 58,
+            "tier": "매수",
+            "momentum": 10.94,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🔵"
+          },
+          {
+            "name": "Gold",
+            "ticker": "GLD",
+            "score": 54,
+            "tier": "중립",
+            "momentum": 0.67,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "Emerging Markets",
+            "ticker": "EEM",
+            "score": 50,
+            "tier": "중립",
+            "momentum": 1.43,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "KODEX 골드선물(H)",
+            "ticker": "KODEX_GOLD",
+            "score": 49,
+            "tier": "중립",
+            "momentum": 1.23,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          }
+        ]
+      }
+    },
+    "1개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 48,
+          "status": "중립",
+          "desc": "퀀트 총점 48/100 — 중립"
+        },
+        "forecast": {
+          "title": "1개월 핵심 인사이트",
+          "text": "<b>[1개월 시장 요약]</b><br><br>S&P500 ▼7.82%  |  KOSPI ▼10.60%  |  NASDAQ ▼8.44%  |  Gold ▼12.60%  |  WTI ▲52.80%  |  USD/KRW ▲5.29%<br><br><b>[매크로 지표]</b> VIX 27.44 | US10Y 4.42% | DXY 120.3 | Oil $89.3 | Fed 5.3% | 10Y-2Y Spread 0.56<br><br><b>[퀀트 스코어링]</b> Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61<br><br><b>[주요 수집 내용]</b><br>• 10Y-2Y Treasury Spread (T10Y2Y): [\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value...<br>• 사채원리금미지급발생              : {\"corp_code\": \"01068658\", \"corp_name\": \"선샤인푸드\", \"stock_code\": \"217620\", \"corp_cls\": \"K\", \"report_nm\": \"사채원리금미지급발생              \", \"rcept_no\": \"2026032...<br>• 소송등의제기ㆍ신청(일정금액이상의청구)              : {\"corp_code\": \"00137915\", \"corp_name\": \"에스엠코어\", \"stock_code\": \"007820\", \"corp_cls\": \"K\", \"report_nm\": \"소송등의제기ㆍ신청(일정금액이상의청구)              \", \"rcept_no\"...<br>• [기재정정]대표이사변경              : {\"corp_code\": \"00407814\", \"corp_name\": \"CG인바이츠\", \"stock_code\": \"083790\", \"corp_cls\": \"K\", \"report_nm\": \"[기재정정]대표이사변경              \", \"rcept_no\": \"2026...<br>• 정기주주총회결과              : {\"corp_code\": \"01259232\", \"corp_name\": \"노바텍\", \"stock_code\": \"285490\", \"corp_cls\": \"K\", \"report_nm\": \"정기주주총회결과              \", \"rcept_no\": \"20260327903...",
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "정기주주총회결과              ",
+              "published_at": "2026-03-27"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "퀀트",
+            "text": "Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61",
+            "sources": [
+              {
+                "label": "macro_analysis",
+                "source": "quant_formula_engine",
+                "title": "1개월 Regime=Neutral",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "시장",
+            "text": "S&P500 ▼7.82%  |  KOSPI ▼10.60%  |  NASDAQ ▼8.44%  |  Gold ▼12.60%  |  WTI ▲52.80%  |  USD/KRW ▲5.29%",
+            "sources": [
+              {
+                "label": "yfinance",
+                "source": "market_data",
+                "title": "price data",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "ETF추천",
+            "text": "Top3: Energy Select SPDR (score=72) | TIGER 200 (score=65) | KODEX 반도체 (score=65)",
+            "sources": [
+              {
+                "label": "etf_recommender",
+                "source": "etf_recommender",
+                "title": "ETF ranking",
+                "published_at": "2026-03-27"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "change": " ▼7.82%"
+          },
+          {
+            "name": "KOSPI",
+            "change": " ▼10.60%"
+          },
+          {
+            "name": "NASDAQ",
+            "change": " ▼8.44%"
+          },
+          {
+            "name": "Gold",
+            "change": " ▼12.60%"
+          },
+          {
+            "name": "WTI",
+            "change": " ▲52.80%"
+          },
+          {
+            "name": "USD/KRW",
+            "change": " ▲5.29%"
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "US 주요 수집 (1개월)",
+          "tags": [
+            "US",
+            "1개월",
+            "자동수집"
+          ],
+          "summary": "10Y-2Y Treasury Spread (T10Y2Y) / VIX (VIXCLS) / US 10Y Treasury Yield (DGS10)",
+          "impacts": [
+            {
+              "sector": "US",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27",
+              "url": "https://fred.stlouisfed.org/series/T10Y2Y"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "VIX (VIXCLS)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/VIXCLS"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "US 10Y Treasury Yield (DGS10)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/DGS10"
+            }
+          ]
+        },
+        {
+          "title": "KR 주요 수집 (1개월)",
+          "tags": [
+            "KR",
+            "1개월",
+            "자동수집"
+          ],
+          "summary": "사채원리금미지급발생               / 소송등의제기ㆍ신청(일정금액이상의청구)               / [기재정정]대표이사변경              ",
+          "impacts": [
+            {
+              "sector": "KR",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903344"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903342"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "자동 파이프라인 — 계좌 스냅샷 별도 연결 필요",
+        "accountDetail": "1개월 기간 기준 자동 생성 리포트입니다.",
+        "weeklyReview": {
+          "returnRate": "데이터 미연결",
+          "desc": "계좌 스냅샷 연결 시 업데이트"
+        },
+        "holdings": [],
+        "planDesc": "Regime=Neutral 기반 전략: 아래 ETF 추천 참고",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": [
+          {
+            "name": "Energy Select SPDR",
+            "ticker": "XLE",
+            "score": 72,
+            "tier": "강력매수",
+            "momentum": 41.0,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200",
+            "ticker": "TIGER200",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.35,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 반도체",
+            "ticker": "KODEX_SEMI",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 72.6,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 미국채울트라30년(H)",
+            "ticker": "KODEX_US30Y",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.69,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200 IT",
+            "ticker": "TIGER200_IT",
+            "score": 58,
+            "tier": "매수",
+            "momentum": 10.94,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🔵"
+          },
+          {
+            "name": "Gold",
+            "ticker": "GLD",
+            "score": 54,
+            "tier": "중립",
+            "momentum": 0.67,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "Emerging Markets",
+            "ticker": "EEM",
+            "score": 50,
+            "tier": "중립",
+            "momentum": 1.43,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "KODEX 골드선물(H)",
+            "ticker": "KODEX_GOLD",
+            "score": 49,
+            "tier": "중립",
+            "momentum": 1.23,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          }
+        ]
+      }
+    },
+    "3개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 48,
+          "status": "중립",
+          "desc": "퀀트 총점 48/100 — 중립"
+        },
+        "forecast": {
+          "title": "3개월 핵심 인사이트",
+          "text": "<b>[3개월 시장 요약]</b><br><br>S&P500 ▼8.12%  |  KOSPI ▲35.28%  |  NASDAQ ▼11.29%  |  Gold ▲0.98%  |  WTI ▲70.76%  |  USD/KRW ▲5.11%<br><br><b>[매크로 지표]</b> VIX 27.44 | US10Y 4.42% | DXY 120.3 | Oil $89.3 | Fed 5.3% | 10Y-2Y Spread 0.56<br><br><b>[퀀트 스코어링]</b> Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61<br><br><b>[주요 수집 내용]</b><br>• 10Y-2Y Treasury Spread (T10Y2Y): [\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value...<br>• 사채원리금미지급발생              : {\"corp_code\": \"01068658\", \"corp_name\": \"선샤인푸드\", \"stock_code\": \"217620\", \"corp_cls\": \"K\", \"report_nm\": \"사채원리금미지급발생              \", \"rcept_no\": \"2026032...<br>• 소송등의제기ㆍ신청(일정금액이상의청구)              : {\"corp_code\": \"00137915\", \"corp_name\": \"에스엠코어\", \"stock_code\": \"007820\", \"corp_cls\": \"K\", \"report_nm\": \"소송등의제기ㆍ신청(일정금액이상의청구)              \", \"rcept_no\"...<br>• [기재정정]대표이사변경              : {\"corp_code\": \"00407814\", \"corp_name\": \"CG인바이츠\", \"stock_code\": \"083790\", \"corp_cls\": \"K\", \"report_nm\": \"[기재정정]대표이사변경              \", \"rcept_no\": \"2026...<br>• 정기주주총회결과              : {\"corp_code\": \"01259232\", \"corp_name\": \"노바텍\", \"stock_code\": \"285490\", \"corp_cls\": \"K\", \"report_nm\": \"정기주주총회결과              \", \"rcept_no\": \"20260327903...",
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "정기주주총회결과              ",
+              "published_at": "2026-03-27"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "퀀트",
+            "text": "Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61",
+            "sources": [
+              {
+                "label": "macro_analysis",
+                "source": "quant_formula_engine",
+                "title": "3개월 Regime=Neutral",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "시장",
+            "text": "S&P500 ▼8.12%  |  KOSPI ▲35.28%  |  NASDAQ ▼11.29%  |  Gold ▲0.98%  |  WTI ▲70.76%  |  USD/KRW ▲5.11%",
+            "sources": [
+              {
+                "label": "yfinance",
+                "source": "market_data",
+                "title": "price data",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "ETF추천",
+            "text": "Top3: Energy Select SPDR (score=72) | TIGER 200 (score=65) | KODEX 반도체 (score=65)",
+            "sources": [
+              {
+                "label": "etf_recommender",
+                "source": "etf_recommender",
+                "title": "ETF ranking",
+                "published_at": "2026-03-27"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "change": " ▼8.12%"
+          },
+          {
+            "name": "KOSPI",
+            "change": " ▲35.28%"
+          },
+          {
+            "name": "NASDAQ",
+            "change": " ▼11.29%"
+          },
+          {
+            "name": "Gold",
+            "change": " ▲0.98%"
+          },
+          {
+            "name": "WTI",
+            "change": " ▲70.76%"
+          },
+          {
+            "name": "USD/KRW",
+            "change": " ▲5.11%"
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "US 주요 수집 (3개월)",
+          "tags": [
+            "US",
+            "3개월",
+            "자동수집"
+          ],
+          "summary": "10Y-2Y Treasury Spread (T10Y2Y) / VIX (VIXCLS) / US 10Y Treasury Yield (DGS10)",
+          "impacts": [
+            {
+              "sector": "US",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27",
+              "url": "https://fred.stlouisfed.org/series/T10Y2Y"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "VIX (VIXCLS)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/VIXCLS"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "US 10Y Treasury Yield (DGS10)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/DGS10"
+            }
+          ]
+        },
+        {
+          "title": "KR 주요 수집 (3개월)",
+          "tags": [
+            "KR",
+            "3개월",
+            "자동수집"
+          ],
+          "summary": "사채원리금미지급발생               / 소송등의제기ㆍ신청(일정금액이상의청구)               / [기재정정]대표이사변경              ",
+          "impacts": [
+            {
+              "sector": "KR",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903344"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903342"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "자동 파이프라인 — 계좌 스냅샷 별도 연결 필요",
+        "accountDetail": "3개월 기간 기준 자동 생성 리포트입니다.",
+        "weeklyReview": {
+          "returnRate": "데이터 미연결",
+          "desc": "계좌 스냅샷 연결 시 업데이트"
+        },
+        "holdings": [],
+        "planDesc": "Regime=Neutral 기반 전략: 아래 ETF 추천 참고",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": [
+          {
+            "name": "Energy Select SPDR",
+            "ticker": "XLE",
+            "score": 72,
+            "tier": "강력매수",
+            "momentum": 41.0,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200",
+            "ticker": "TIGER200",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.35,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 반도체",
+            "ticker": "KODEX_SEMI",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 72.6,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 미국채울트라30년(H)",
+            "ticker": "KODEX_US30Y",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.69,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200 IT",
+            "ticker": "TIGER200_IT",
+            "score": 58,
+            "tier": "매수",
+            "momentum": 10.94,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🔵"
+          },
+          {
+            "name": "Gold",
+            "ticker": "GLD",
+            "score": 54,
+            "tier": "중립",
+            "momentum": 0.67,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "Emerging Markets",
+            "ticker": "EEM",
+            "score": 50,
+            "tier": "중립",
+            "momentum": 1.43,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "KODEX 골드선물(H)",
+            "ticker": "KODEX_GOLD",
+            "score": 49,
+            "tier": "중립",
+            "momentum": 1.23,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          }
+        ]
+      }
+    },
+    "6개월": {
+      "briefing": {
+        "sentiment": {
+          "score": 48,
+          "status": "중립",
+          "desc": "퀀트 총점 48/100 — 중립"
+        },
+        "forecast": {
+          "title": "6개월 핵심 인사이트",
+          "text": "<b>[6개월 시장 요약]</b><br><br>S&P500 ▼3.57%  |  KOSPI ▲57.67%  |  NASDAQ ▼6.42%  |  Gold ▲21.07%  |  WTI ▲53.34%  |  USD/KRW ▲7.48%<br><br><b>[매크로 지표]</b> VIX 27.44 | US10Y 4.42% | DXY 120.3 | Oil $89.3 | Fed 5.3% | 10Y-2Y Spread 0.56<br><br><b>[퀀트 스코어링]</b> Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61<br><br><b>[주요 수집 내용]</b><br>• 10Y-2Y Treasury Spread (T10Y2Y): [\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value...<br>• 사채원리금미지급발생              : {\"corp_code\": \"01068658\", \"corp_name\": \"선샤인푸드\", \"stock_code\": \"217620\", \"corp_cls\": \"K\", \"report_nm\": \"사채원리금미지급발생              \", \"rcept_no\": \"2026032...<br>• 소송등의제기ㆍ신청(일정금액이상의청구)              : {\"corp_code\": \"00137915\", \"corp_name\": \"에스엠코어\", \"stock_code\": \"007820\", \"corp_cls\": \"K\", \"report_nm\": \"소송등의제기ㆍ신청(일정금액이상의청구)              \", \"rcept_no\"...<br>• [기재정정]대표이사변경              : {\"corp_code\": \"00407814\", \"corp_name\": \"CG인바이츠\", \"stock_code\": \"083790\", \"corp_cls\": \"K\", \"report_nm\": \"[기재정정]대표이사변경              \", \"rcept_no\": \"2026...<br>• 정기주주총회결과              : {\"corp_code\": \"01259232\", \"corp_name\": \"노바텍\", \"stock_code\": \"285490\", \"corp_cls\": \"K\", \"report_nm\": \"정기주주총회결과              \", \"rcept_no\": \"20260327903...",
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "정기주주총회결과              ",
+              "published_at": "2026-03-27"
+            }
+          ]
+        },
+        "insights": [
+          {
+            "category": "퀀트",
+            "text": "Regime: Neutral | Macro 50.49 | Tech 49.83 | Quant 52.69 | FX 33.09 | Total 47.61",
+            "sources": [
+              {
+                "label": "macro_analysis",
+                "source": "quant_formula_engine",
+                "title": "6개월 Regime=Neutral",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "시장",
+            "text": "S&P500 ▼3.57%  |  KOSPI ▲57.67%  |  NASDAQ ▼6.42%  |  Gold ▲21.07%  |  WTI ▲53.34%  |  USD/KRW ▲7.48%",
+            "sources": [
+              {
+                "label": "yfinance",
+                "source": "market_data",
+                "title": "price data",
+                "published_at": "2026-03-27"
+              }
+            ]
+          },
+          {
+            "category": "ETF추천",
+            "text": "Top3: Energy Select SPDR (score=72) | TIGER 200 (score=65) | KODEX 반도체 (score=65)",
+            "sources": [
+              {
+                "label": "etf_recommender",
+                "source": "etf_recommender",
+                "title": "ETF ranking",
+                "published_at": "2026-03-27"
+              }
+            ]
+          }
+        ],
+        "indices": [
+          {
+            "name": "S&P 500",
+            "change": " ▼3.57%"
+          },
+          {
+            "name": "KOSPI",
+            "change": " ▲57.67%"
+          },
+          {
+            "name": "NASDAQ",
+            "change": " ▼6.42%"
+          },
+          {
+            "name": "Gold",
+            "change": " ▲21.07%"
+          },
+          {
+            "name": "WTI",
+            "change": " ▲53.34%"
+          },
+          {
+            "name": "USD/KRW",
+            "change": " ▲7.48%"
+          }
+        ]
+      },
+      "newsList": [
+        {
+          "title": "US 주요 수집 (6개월)",
+          "tags": [
+            "US",
+            "6개월",
+            "자동수집"
+          ],
+          "summary": "10Y-2Y Treasury Spread (T10Y2Y) / VIX (VIXCLS) / US 10Y Treasury Yield (DGS10)",
+          "impacts": [
+            {
+              "sector": "US",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+              "published_at": "2026-03-27",
+              "url": "https://fred.stlouisfed.org/series/T10Y2Y"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "VIX (VIXCLS)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/VIXCLS"
+            },
+            {
+              "label": "fred_api",
+              "source": "fred_api",
+              "title": "US 10Y Treasury Yield (DGS10)",
+              "published_at": "2026-03-26",
+              "url": "https://fred.stlouisfed.org/series/DGS10"
+            }
+          ]
+        },
+        {
+          "title": "KR 주요 수집 (6개월)",
+          "tags": [
+            "KR",
+            "6개월",
+            "자동수집"
+          ],
+          "summary": "사채원리금미지급발생               / 소송등의제기ㆍ신청(일정금액이상의청구)               / [기재정정]대표이사변경              ",
+          "impacts": [
+            {
+              "sector": "KR",
+              "isPositive": false,
+              "desc": "총점 47.61"
+            }
+          ],
+          "sources": [
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "사채원리금미지급발생              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903346"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "소송등의제기ㆍ신청(일정금액이상의청구)              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903344"
+            },
+            {
+              "label": "opendart",
+              "source": "opendart",
+              "title": "[기재정정]대표이사변경              ",
+              "published_at": "2026-03-27",
+              "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327903342"
+            }
+          ]
+        }
+      ],
+      "portfolio": {
+        "accountAlert": "자동 파이프라인 — 계좌 스냅샷 별도 연결 필요",
+        "accountDetail": "6개월 기간 기준 자동 생성 리포트입니다.",
+        "weeklyReview": {
+          "returnRate": "데이터 미연결",
+          "desc": "계좌 스냅샷 연결 시 업데이트"
+        },
+        "holdings": [],
+        "planDesc": "Regime=Neutral 기반 전략: 아래 ETF 추천 참고",
+        "allocations": []
+      },
+      "recommendations": {
+        "ideas": [],
+        "etfRanking": [
+          {
+            "name": "Energy Select SPDR",
+            "ticker": "XLE",
+            "score": 72,
+            "tier": "강력매수",
+            "momentum": 41.0,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200",
+            "ticker": "TIGER200",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.35,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 반도체",
+            "ticker": "KODEX_SEMI",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 72.6,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "KODEX 미국채울트라30년(H)",
+            "ticker": "KODEX_US30Y",
+            "score": 65,
+            "tier": "강력매수",
+            "momentum": 42.69,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🟢"
+          },
+          {
+            "name": "TIGER 200 IT",
+            "ticker": "TIGER200_IT",
+            "score": 58,
+            "tier": "매수",
+            "momentum": 10.94,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "🔵"
+          },
+          {
+            "name": "Gold",
+            "ticker": "GLD",
+            "score": 54,
+            "tier": "중립",
+            "momentum": 0.67,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "Emerging Markets",
+            "ticker": "EEM",
+            "score": 50,
+            "tier": "중립",
+            "momentum": 1.43,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          },
+          {
+            "name": "KODEX 골드선물(H)",
+            "ticker": "KODEX_GOLD",
+            "score": 49,
+            "tier": "중립",
+            "momentum": 1.23,
+            "rationale": "Neutral 레짐 중립",
+            "icon": "⚪"
+          }
+        ]
+      }
+    }
+  }
+}

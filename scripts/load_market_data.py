@@ -5,7 +5,7 @@ from datetime import date, timedelta
 import yfinance as yf
 import pandas as pd
 
-ROOT = Path('/Users/seo/.openclaw/workspace/igzun-daily-report')
+ROOT = Path(__file__).parent.parent
 OUT = ROOT / 'data/market_data_latest.json'
 
 ASSETS = {
@@ -20,7 +20,7 @@ ASSETS = {
 
 
 def main():
-    end = date(2026, 3, 19)
+    end = date.today()
     start = end - timedelta(days=370)
     payload = {'start': start.isoformat(), 'end': end.isoformat(), 'assets': {}}
     for name, ticker in ASSETS.items():

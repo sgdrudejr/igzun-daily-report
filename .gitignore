@@ -1,0 +1,22 @@
+# Environment & secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.venv_pdf/
+
+# Collection data (large, regeneratable)
+data/raw/
+data/normalized/
+data/manifests/
+data/index/
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

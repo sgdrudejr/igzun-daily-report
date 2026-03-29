@@ -1,0 +1,283 @@
+# ============================================================
+# Source Registry — 글로벌 금융 리포트 수집 대상 정의
+# ============================================================
+# 소스 추가 시 이 파일만 수정하면 됩니다.
+# fetcher_type: 실제 fetcher 모듈 이름 (collectors/fetchers/ 내 등록된 이름)
+# tier: 1=무료API, 2=무료스크래핑, 3=유료/제한
+# enabled: false로 설정하면 수집 제외
+# ============================================================
+
+sources:
+  # ─────────────────────────────────────────────
+  # TIER 1: 무료 API 기반 (최우선)
+  # ─────────────────────────────────────────────
+
+  - id: fed_speeches_rss
+    name: Federal Reserve Speeches
+    fetcher_type: rss
+    tier: 1
+    region: US
+    language: en
+    document_type: speech
+    sector: macro
+    enabled: true
+    schedule: "daily 06:00 KST"
+    config:
+      feed_url: "https://www.federalreserve.gov/feeds/speeches.xml"
+    description: "연준 의장/이사 연설 전문 RSS"
+    url: "https://www.federalreserve.gov/newsevents/speeches.htm"
+
+  - id: fed_press_rss
+    name: Federal Reserve Press Releases
+    fetcher_type: rss
+    tier: 1
+    region: US
+    language: en
+    document_type: news
+    sector: macro
+    enabled: true
+    schedule: "daily 06:00 KST"
+    config:
+      feed_url: "https://www.federalreserve.gov/feeds/press_all.xml"
+    description: "연준 공식 보도자료 (FOMC 성명 포함)"
+    url: "https://www.federalreserve.gov/newsevents/pressreleases.htm"
+
+  - id: fred_api
+    name: FRED Economic Data
+    fetcher_type: fred
+    tier: 1
+    region: US
+    language: en
+    document_type: time_series
+    sector: macro
+    enabled: true
+    schedule: "daily 06:00 KST"
+    config:
+      # 스코어링 엔진에 필요한 핵심 시계열
+      series:
+        - id: VIXCLS
+          name: VIX
+          tags: [volatility, fear_index]
+        - id: DGS10
+          name: US 10Y Treasury Yield
+          tags: [bond, yield, interest_rate]
+        - id: DTWEXBGS
+          name: Dollar Index (Trade Weighted)
+          tags: [fx, dollar]
+        - id: DCOILWTICO
+          name: WTI Crude Oil
+          tags: [commodity, oil, energy]
+        - id: CPIAUCSL
+          name: CPI (All Urban Consumers)
+          tags: [inflation, cpi]
+        - id: MANEMP
+          name: Manufacturing Employment
+          tags: [employment, manufacturing]
+        - id: UNRATE
+          name: Unemployment Rate
+          tags: [employment, labor]
+        - id: FEDFUNDS
+          name: Federal Funds Rate
+          tags: [interest_rate, monetary_policy]
+        - id: T10Y2Y
+          name: 10Y-2Y Treasury Spread
+          tags: [yield_curve, recession_indicator]
+        - id: BAMLH0A0HYM2
+          name: High Yield Credit Spread
+          tags: [credit, risk]
+    description: "FRED API — 미국 핵심 거시경제 시계열"
+    url: "https://fred.stlouisfed.org/"
+
+  - id: ecos_api
+    name: Bank of Korea ECOS
+    fetcher_type: ecos
+    tier: 1
+    region: KR
+    language: ko
+    document_type: time_series
+    sector: macro
+    enabled: true
+    schedule: "daily 06:00 KST"
+    config: {}
+    # KeyStatisticList API — stat_code/item_code 불필요
+    # 수집 지표: 기준금리, 환율, CPI, KOSPI, 실업률, 국고채 등 주요 지표 자동 수집
+    description: "한국은행 경제통계시스템 API"
+    url: "https://ecos.bok.or.kr/"
+
+  - id: opendart
+    name: OpenDART (전자공시)
+    fetcher_type: opendart
+    tier: 1
+    region: KR
+    language: ko
+    document_type: filing
+    sector: equity
+    enabled: true
+    schedule: "daily 07:00 KST"
+    config:
+      # 주요 공시 유형
+      report_types:
+        - A  # 정기보고서
+        - B  # 주요사항보고서
+        - C  # 발행공시
+        - D  # 지분공시
+    description: "금감원 전자공시 시스템 API"
+    url: "https://opendart.fss.or.kr/"
+
+  # ─────────────────────────────────────────────
+  # TIER 2: 무료 스크래핑
+  # ─────────────────────────────────────────────
+
+  - id: naver_research
+    name: Naver Finance Research
+    fetcher_type: naver_research
+    tier: 2
+    region: KR
+    language: ko
+    document_type: research_meta
+    sector: equity
+    enabled: true
+    schedule: "daily 07:00 KST"
+    config:
+      categories:
+        - market_info    # 시장정보
+        - invest         # 투자정보
+        - industry       # 산업분석
+    description: "네이버 금융 리서치 — 증권사 리포트 메타데이터 (PDF 미다운로드)"
+    url: "https://finance.naver.com/research/"
+
+  - id: kr_brokerage_kb
+    name: KB Securities Research
+    fetcher_type: kr_brokerage
+    tier: 2
+    region: KR
+    language: ko
+    document_type: daily_report
+    sector: macro
+    enabled: true
+    schedule: "daily 07:30 KST"
+    config:
+      broker_name: KB증권
+      research_url: "https://rc.kbsec.com"
+    description: "KB증권 리서치센터 데일리/시황"
+    url: "https://rc.kbsec.com"
+
+  - id: kr_brokerage_mirae
+    name: Mirae Asset Research
+    fetcher_type: kr_brokerage
+    tier: 2
+    region: KR
+    language: ko
+    document_type: daily_report
+    sector: macro
+    enabled: true
+    schedule: "daily 07:30 KST"
+    config:
+      broker_name: 미래에셋증권
+      research_url: "https://securities.miraeasset.com/bbs/maillist"
+    description: "미래에셋 리서치센터 데일리"
+    url: "https://securities.miraeasset.com"
+
+  - id: bis_speeches
+    name: BIS Speeches
+    fetcher_type: rss
+    tier: 2
+    region: Global
+    language: en
+    document_type: speech
+    sector: macro
+    enabled: true
+    schedule: "weekly Mon 06:00 KST"
+    config:
+      feed_url: "https://www.bis.org/doclist/cbspeeches.rss"
+    description: "국제결제은행 — 중앙은행 총재 연설"
+    url: "https://www.bis.org/list/cbspeeches/index.htm"
+
+  - id: investing_com_rss
+    name: Investing.com Market News
+    fetcher_type: rss
+    tier: 2
+    region: Global
+    language: en
+    document_type: news
+    sector: macro
+    enabled: true
+    schedule: "daily 06:00 KST"
+    config:
+      feed_url: "https://www.investing.com/rss/news.rss"
+    description: "Investing.com 시장 뉴스 RSS"
+    url: "https://www.investing.com"
+
+  - id: sec_edgar
+    name: SEC EDGAR Filings
+    fetcher_type: edgar
+    tier: 2
+    region: US
+    language: en
+    document_type: filing
+    sector: equity
+    enabled: true
+    schedule: "daily 14:00 KST"
+    config:
+      user_agent: "igzun-daily-report sgdrudejr@gmail.com"
+      filing_types:
+        - "13-F"
+        - "N-PORT"
+    description: "SEC EDGAR — ETF 보유내역 공시 (13F, N-PORT)"
+    url: "https://www.sec.gov/cgi-bin/browse-edgar"
+
+  # ─────────────────────────────────────────────
+  # TIER 3: 유료/제한 (레지스트리 등록만)
+  # ─────────────────────────────────────────────
+
+  - id: goldman_sachs
+    name: Goldman Sachs Research
+    fetcher_type: null
+    tier: 3
+    region: US
+    language: en
+    document_type: daily_report
+    sector: macro
+    enabled: false
+    description: "골드만삭스 리서치 — 기관 고객 전용"
+    url: "https://research.gs.com"
+    note: "기관 로그인 필요. 공개 요약본 스크래핑 검토 중"
+
+  - id: jpmorgan
+    name: JP Morgan Research
+    fetcher_type: null
+    tier: 3
+    region: US
+    language: en
+    document_type: daily_report
+    sector: macro
+    enabled: false
+    description: "JP모건 리서치 — 기관 고객 전용"
+    url: "https://www.jpmorgan.com/insights"
+    note: "Insights 페이지 공개 요약 스크래핑 검토 중"
+
+  - id: morgan_stanley
+    name: Morgan Stanley Research
+    fetcher_type: null
+    tier: 3
+    region: US
+    language: en
+    document_type: daily_report
+    sector: macro
+    enabled: false
+    description: "모건스탠리 리서치 — 기관 고객 전용"
+    url: "https://www.morganstanley.com/ideas"
+    note: "Ideas 페이지 공개 콘텐츠 스크래핑 검토 중"
+
+  - id: samsung_securities
+    name: Samsung Securities Research
+    fetcher_type: null
+    tier: 3
+    region: KR
+    language: ko
+    document_type: daily_report
+    sector: macro
+    enabled: false
+    description: "삼성증권 리서치 — 계좌 필요"
+    url: "https://www.samsungpop.com"
+    note: "무료 계좌 개설 후 활성화 가능"
