@@ -47,6 +47,7 @@
 - 반자동 운영용으로 [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 가 추가되었다. 이 스크립트는 사람이 “오늘 거 심화 분석해줘”라고 요청했을 때 Codex/Claude가 읽을 Markdown 브리프를 생성한다.
 - 반자동 스킬의 canonical 정의는 [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 에 있다.
 - [`scripts/install_llmsummary_skills.sh`](/Users/seo/igzun-daily-report/scripts/install_llmsummary_skills.sh) 를 실행하면 Codex 로컬 스킬과 Claude 로컬 skill plugin 디렉토리에 `llmsummary` 스킬을 복사 설치한다.
+- `2026-03-30` 기준 `llmsummary` 수동 심화 분석이 [`data/llm_insights/2026-03-30.json`](/Users/seo/igzun-daily-report/data/llm_insights/2026-03-30.json) 에 반영되었고, 해당 내러티브가 [`site/2026-03-30/result.json`](/Users/seo/igzun-daily-report/site/2026-03-30/result.json) 및 `site/horizons/*` 집계에 재주입되었다.
 - `11:00 KST` 자동 실행용 launch agent 가 설치되어 있다.
 - launch agent 템플릿은 [`cron/com.seo.igzun-daily-report.daily.plist`](/Users/seo/igzun-daily-report/cron/com.seo.igzun-daily-report.daily.plist), 설치 스크립트는 [`scripts/install_launch_agent.sh`](/Users/seo/igzun-daily-report/scripts/install_launch_agent.sh) 이다.
 - `scripts/macro_analysis.py`, `scripts/etf_recommender.py`, `scripts/build_site_report.py` 작업이 시작되어 있다.

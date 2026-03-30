@@ -105,6 +105,7 @@
 - [x] [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 추가
 - [x] [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 추가
 - [x] [`scripts/install_llmsummary_skills.sh`](/Users/seo/igzun-daily-report/scripts/install_llmsummary_skills.sh) 추가
+- [x] `2026-03-30` 기준 `llmsummary` 수동 심화 분석을 `data/llm_insights/2026-03-30.json` 에 반영하고 웹 리포트/기간별 뷰 재생성
 - [x] 모든 기존 일간 결과(`site/20*-*-*/result.json`)를 새 구조로 재생성
 - [x] horizon 집계(`site/horizons/*`)를 새 구조로 재생성
 
