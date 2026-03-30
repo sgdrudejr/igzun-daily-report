@@ -19,6 +19,7 @@
 - 단일 진입점은 [`collectors/runner.py`](/Users/seo/igzun-daily-report/collectors/runner.py) 이다.
 - 소스 정의는 [`collectors/registry/sources.yaml`](/Users/seo/igzun-daily-report/collectors/registry/sources.yaml) 기반이다.
 - 원문 다운로드/상세 본문 확보 경로는 [`collectors/registry/download_routes.yaml`](/Users/seo/igzun-daily-report/collectors/registry/download_routes.yaml) 에 운영 문서로 정리한다.
+- `download_routes.yaml` 에는 네이버 리서치 외에 신한/KB/미래에셋/하나/삼성 국내 증권사와 ECB/BIS/BOJ/IMF 공개 소스의 실제 다운로드 루트 검증 결과가 반영되어 있다.
 - `raw -> normalized -> manifest -> bridge -> refined_insights_inventory.json` 흐름이 작동한다.
 - 공개 리포트 링크는 이제 메타데이터만 저장하지 않고, 가능한 경우 상세 본문 HTML/TXT와 PDF/TXT 아티팩트까지 같이 저장한다.
 - `content_hash` 기반 중복 제거가 구현되어 있다.
@@ -175,6 +176,7 @@
 
 - source registry 구조
 - source별 원문 다운로드 경로 문서화 구조
+- 국내 증권사(신한/KB/미래에셋/하나/삼성) 및 해외 공개기관(ECB/BIS/BOJ/IMF) 루트 1차 구체화
 - fetcher registration 구조
 - `RawDocument` 표준 구조
 - dedup index 저장 구조
@@ -199,6 +201,7 @@
 - 탭 간 개별 스크롤 동작 검증
 - Galaxy S25 Ultra 기준 줄바꿈 / 상단 드롭다운 UI 검증
 - 직접 PDF 링크를 제공하는 국내 증권사 소스(KB/신한/미래에셋 등) 셀렉터 안정화
+- `download_routes.yaml` 에 적힌 신한 list API, KB Today, 미래에셋 attachment download, 하나 file server, 삼성 querystring download 루트를 실제 fetcher 로 옮기는 작업
 - 포트폴리오 시사점 로직 정교화
 - 포트폴리오 점수 산식 고도화
 - ETF/섹터 아이디어를 지역/레짐/리스크와 더 강하게 연결하는 설명 강화 2차

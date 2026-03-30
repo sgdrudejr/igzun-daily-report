@@ -5,6 +5,7 @@ notes:
   - "이 파일은 source registry(sources.yaml)를 대체하지 않는다."
   - "목적은 원문 리포트/상세 본문/PDF를 어디서 어떻게 확보하는지 운영 관점에서 정리하는 것이다."
   - "fetcher 구현 변경 시 이 파일도 같이 업데이트한다."
+  - "status는 active / verified_partial / blocked 로 운영한다."
 
 routes:
   - source_id: naver_research
@@ -44,44 +45,233 @@ routes:
       - pdf_text_path
 
   - source_id: kr_brokerage_kb
-    status: partial
-    coverage: "리스트/링크 수집 가능, 직접 PDF 링크 패턴 안정화 필요"
+    status: verified_partial
+    coverage: "공개 메인/Today 페이지는 접근 가능, full report list는 로그인 래퍼가 노출되어 세부 역공학 필요"
     discovery:
       type: html_site
       urls:
-        - "https://rc.kbsec.com"
+        - "https://rc.kbsec.com/main.able"
+        - "https://rc.kbsec.com/today/index.able"
+        - "https://rc.kbsec.com/report/reportList.able"
     detail:
-      type: broker_site
-      url_pattern: "site-specific"
-      primary_selector: "a[href]"
+      type: js_driven_site
+      url_pattern: "today/index.able + hidden seq + JS-driven detail flow"
+      primary_selector: "input#seq, a[href*='.able']"
     download:
-      mode: direct_pdf_if_exposed
-      pdf_selector: "a[href*='.pdf']"
-      fallback: "링크와 상세 HTML만 저장"
+      mode: today_or_report_page_then_pdf
+      fallback: "Today 페이지 메타와 상세 HTML 우선 저장"
     save_targets:
       raw_json: "data/raw/{date}/kr_brokerage_kb/{doc_id}.json"
       pdf_file: "data/raw/{date}/kr_brokerage_kb/{doc_id}.pdf"
       pdf_text: "data/raw/{date}/kr_brokerage_kb/{doc_id}.txt"
+      detail_html: "data/raw/{date}/kr_brokerage_kb/{doc_id}_detail.html"
+      detail_text: "data/raw/{date}/kr_brokerage_kb/{doc_id}_detail.txt"
+    verified_signals:
+      - "https://rc.kbsec.com/main.able 200"
+      - "https://rc.kbsec.com/today/index.able 200"
+      - "메인에서 /report/reportList.able 링크 확인"
     todo:
-      - "실제 리서치 게시판 경로 재확인"
-      - "PDF 다운로드 링크 셀렉터 확정"
+      - "Today 상세 API/JS 흐름에서 실제 PDF 엔드포인트 추출"
+      - "로그인 없이 읽을 수 있는 게시판과 로그인 필수 게시판 분리"
+
+  - source_id: kr_brokerage_shinhan
+    status: verified_partial
+    coverage: "리서치 탐색기 list API는 공개 접근 가능, 상세 popup/PDF는 정상 경로나 세션 의존성 있음"
+    discovery:
+      type: html_list_plus_json
+      urls:
+        - "https://finance.shinhansec.com/siw/insights/research/list/view-popup.do"
+        - "https://finance.shinhansec.com/siw/etc/browse/search05/data.do"
+    detail:
+      type: popup_detail
+      url_pattern: "https://finance.shinhansec.com/siw/board/message/view.file.pop.do?boardName={board_name}&messageId={doc_id}"
+      primary_selector: "ul.reseBoardList > li"
+      api_notes:
+        - "search05/data.do POST body: startCount, listCount, query, searchType, boardCode"
+        - "공개 확인 board_name 예시: gicomment, gieconomy, gibond, gifuture, issuebroker"
+    download:
+      mode: list_api_then_popup
+      fallback: "list API 메타 + detail HTML 우선 저장, PDF는 세션 기반 접근으로 후속 보강"
+      host_hints:
+        - "bbs2.shinhansec.com"
+        - "file.shinhansec.com"
+    save_targets:
+      raw_json: "data/raw/{date}/kr_brokerage_shinhan/{doc_id}.json"
+      detail_html: "data/raw/{date}/kr_brokerage_shinhan/{doc_id}_detail.html"
+      detail_text: "data/raw/{date}/kr_brokerage_shinhan/{doc_id}_detail.txt"
+      pdf_file: "data/raw/{date}/kr_brokerage_shinhan/{doc_id}.pdf"
+      pdf_text: "data/raw/{date}/kr_brokerage_shinhan/{doc_id}.txt"
+    verified_signals:
+      - "https://finance.shinhansec.com/siw/insights/research/list/view-popup.do 200"
+      - "https://finance.shinhansec.com/siw/etc/browse/search05/data.do POST 200"
+      - "view-popup JS에서 /siw/board/message/view.file.pop.do 경로 확인"
+    todo:
+      - "popup 접근에 필요한 referer/cookie 흐름 고정"
+      - "ATTACHMENT_ID/FILE_PATH 기반 실제 PDF 엔드포인트 추적"
 
   - source_id: kr_brokerage_mirae
-    status: blocked
-    coverage: "현재 research_url 404, 실제 게시판 경로 재탐색 필요"
+    status: verified_partial
+    coverage: "직접 PDF download endpoint는 확인됨, 리서치 리스트/상세 페이지는 추가 탐색 필요"
     discovery:
-      type: html_site
+      type: html_site_plus_direct_pdf
       urls:
         - "https://securities.miraeasset.com"
+        - "https://securities.miraeasset.com/bbs/maildownload/{timestamp}_{attachment_id}"
+        - "https://securities.miraeasset.com/bbs/download/{attachment_id}.pdf?attachmentId={attachment_id}"
     detail:
-      type: unknown
-      url_pattern: "TBD"
+      type: attachment_download
+      url_pattern: "attachment_id 기반 direct download"
     download:
-      mode: direct_pdf_if_exposed
-      fallback: "경로 확정 전 보류"
+      mode: direct_pdf_by_attachment_id
+      fallback: "홈페이지/검색엔진에서 attachment_id 확보 후 바로 PDF 저장"
+    save_targets:
+      raw_json: "data/raw/{date}/kr_brokerage_mirae/{doc_id}.json"
+      pdf_file: "data/raw/{date}/kr_brokerage_mirae/{doc_id}.pdf"
+      pdf_text: "data/raw/{date}/kr_brokerage_mirae/{doc_id}.txt"
+    verified_signals:
+      - "https://securities.miraeasset.com/bbs/maildownload/20240702180415557_3694 200 application/pdf"
+      - "https://securities.miraeasset.com/bbs/download/2119054.pdf?attachmentId=2119054 공개 노출 확인"
     todo:
-      - "실제 리서치센터 URL 확인"
-      - "공개 PDF 접근 가능 여부 확인"
+      - "attachment_id를 얻는 공개 리스트/상세 페이지 패턴 확인"
+      - "기존 404 research_url 의 대체 페이지 찾기"
+
+  - source_id: kr_brokerage_hana
+    status: verified_partial
+    coverage: "직접 PDF file server 패턴은 확인됨, 리스트/게시판 URL은 추가 탐색 필요"
+    discovery:
+      type: direct_pdf_file_server
+      urls:
+        - "https://www.hanaw.com/download/research/FileServer/WEB/info/daily/{yyyy}/{mm}/{dd}/{file}.pdf"
+    detail:
+      type: file_server
+      url_pattern: "날짜 경로 + 파일명 조합"
+    download:
+      mode: direct_pdf_when_filename_known
+      fallback: "파일명 확보 전에는 리스트 수집 불가"
+    save_targets:
+      raw_json: "data/raw/{date}/kr_brokerage_hana/{doc_id}.json"
+      pdf_file: "data/raw/{date}/kr_brokerage_hana/{doc_id}.pdf"
+      pdf_text: "data/raw/{date}/kr_brokerage_hana/{doc_id}.txt"
+    verified_signals:
+      - "https://www.hanaw.com/download/research/FileServer/WEB/info/daily/2025/12/01/HGE1201%5BW%5D.pdf 200 application/pdf"
+    todo:
+      - "공개 리서치 리스트/검색 페이지 경로 확인"
+      - "daily 외 카테고리 경로 규칙 확인"
+
+  - source_id: kr_brokerage_samsung
+    status: verified_partial
+    coverage: "querystring 기반 직접 PDF download endpoint 확인, 리스트/리서치 허브 URL은 후속 탐색 필요"
+    discovery:
+      type: direct_pdf_querystring
+      urls:
+        - "https://www.samsungpop.com/common.do?cmd=down&contentType=application%2Fpdf&fileName={encoded_path}&inlineYn=Y&saveKey=research.pdf"
+    detail:
+      type: querystring_download
+      url_pattern: "common.do?cmd=down&fileName={encoded_path}"
+    download:
+      mode: direct_pdf_when_file_path_known
+      fallback: "리서치 본문/리스트에서 fileName 확보 필요"
+    save_targets:
+      raw_json: "data/raw/{date}/kr_brokerage_samsung/{doc_id}.json"
+      pdf_file: "data/raw/{date}/kr_brokerage_samsung/{doc_id}.pdf"
+      pdf_text: "data/raw/{date}/kr_brokerage_samsung/{doc_id}.txt"
+    verified_signals:
+      - "https://www.samsungpop.com/common.do?cmd=down&contentType=application%2Fpdf&fileName=3010%2F2022102008475316K_02_04.pdf&inlineYn=Y&saveKey=research.pdf 200 application/pdf"
+    todo:
+      - "리서치센터 본문/검색 페이지에서 fileName 파라미터를 추출하는 흐름 확인"
+      - "fnguide.samsungpop.com 연계 여부 확인"
+
+  - source_id: ecb_economic_bulletin
+    status: active
+    coverage: "최신 이슈 페이지와 직접 PDF 링크 모두 공개"
+    discovery:
+      type: html_index
+      urls:
+        - "https://www.ecb.europa.eu/press/economic-bulletin/html/index.en.html"
+    detail:
+      type: html_detail
+      url_pattern: "economic bulletin index page"
+      primary_selector: "a[href*='/pub/pdf/ecbu/']"
+    download:
+      mode: html_then_pdf
+      fallback: "HTML 본문만 저장"
+      pdf_examples:
+        - "https://www.ecb.europa.eu/pub/pdf/ecbu/eb202601.en.pdf"
+    save_targets:
+      raw_json: "data/raw/{date}/ecb_economic_bulletin/{doc_id}.json"
+      detail_html: "data/raw/{date}/ecb_economic_bulletin/{doc_id}_detail.html"
+      detail_text: "data/raw/{date}/ecb_economic_bulletin/{doc_id}_detail.txt"
+      pdf_file: "data/raw/{date}/ecb_economic_bulletin/{doc_id}.pdf"
+      pdf_text: "data/raw/{date}/ecb_economic_bulletin/{doc_id}.txt"
+    verified_signals:
+      - "index.en.html 200"
+      - "eb202601.en.pdf 200 application/pdf"
+
+  - source_id: bis_working_papers
+    status: active
+    coverage: "working papers index와 direct PDF pattern 공개"
+    discovery:
+      type: html_index
+      urls:
+        - "https://www.bis.org/wpapers/index.htm"
+    detail:
+      type: html_index
+      url_pattern: "https://www.bis.org/wpapers/index.htm"
+      primary_selector: "a[href*='/publ/work']"
+    download:
+      mode: direct_pdf_pattern
+      pdf_pattern: "https://www.bis.org/publ/work{number}.pdf"
+    save_targets:
+      raw_json: "data/raw/{date}/bis_working_papers/{doc_id}.json"
+      pdf_file: "data/raw/{date}/bis_working_papers/{doc_id}.pdf"
+      pdf_text: "data/raw/{date}/bis_working_papers/{doc_id}.txt"
+    verified_signals:
+      - "https://www.bis.org/wpapers/index.htm 200"
+      - "https://www.bis.org/publ/work1297.pdf 200 application/pdf"
+
+  - source_id: boj_outlook_report
+    status: active
+    coverage: "Outlook Report index와 개별 PDF 링크 공개"
+    discovery:
+      type: html_index
+      urls:
+        - "https://www.boj.or.jp/en/mopo/outlook/index.htm"
+    detail:
+      type: html_index
+      url_pattern: "outlook index page"
+      primary_selector: "a[href$='.pdf']"
+    download:
+      mode: html_then_pdf
+      fallback: "HTML index 본문만 저장"
+      pdf_examples:
+        - "https://www.boj.or.jp/en/mopo/outlook/box/2304box3a.pdf"
+    save_targets:
+      raw_json: "data/raw/{date}/boj_outlook_report/{doc_id}.json"
+      pdf_file: "data/raw/{date}/boj_outlook_report/{doc_id}.pdf"
+      pdf_text: "data/raw/{date}/boj_outlook_report/{doc_id}.txt"
+    verified_signals:
+      - "https://www.boj.or.jp/en/mopo/outlook/index.htm 200"
+      - "https://www.boj.or.jp/en/mopo/outlook/box/2304box3a.pdf 200 application/pdf"
+
+  - source_id: imf_weo
+    status: verified_partial
+    coverage: "publication landing은 공개되지만 direct media PDF는 일부 403이 발생"
+    discovery:
+      type: publication_page
+      urls:
+        - "https://www.imf.org/en/Publications/WEO"
+    detail:
+      type: publication_landing
+      url_pattern: "WEO publication landing page"
+    download:
+      mode: publication_page_then_pdf
+      fallback: "landing page 메타와 링크만 저장"
+      blockers:
+        - "직접 media PDF 접근 시 403 가능"
+        - "브라우저 헤더/쿠키 또는 publication page parsing이 필요"
+    todo:
+      - "landing page에서 실제 pdf href를 파싱하는 로직 추가"
+      - "403을 피할 수 있는 합법적 요청 헤더 조합 검토"
 
   - source_id: opendart
     status: active

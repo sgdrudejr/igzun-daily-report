@@ -23,6 +23,7 @@
 - [x] SEC EDGAR fetcher 구현
 - [x] 공개 리포트 원문 보강 레이어(`collectors/document_enricher.py`) 추가
 - [x] source별 원문 다운로드 경로 문서 [`collectors/registry/download_routes.yaml`](/Users/seo/igzun-daily-report/collectors/registry/download_routes.yaml) 추가
+- [x] `download_routes.yaml` 에 신한/KB/미래에셋/하나/삼성/ECB/BIS/BOJ/IMF 공개 루트 1차 구체화
 - [x] 네이버 리서치 상세 본문 수집 추가
 - [x] PDF 링크 발견 시 실제 파일 다운로드 + 텍스트 추출 추가
 - [x] `scripts/refine_insights.py` 에 collector raw text 입력 추가
