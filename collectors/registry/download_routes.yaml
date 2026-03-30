@@ -76,7 +76,7 @@ routes:
 
   - source_id: kr_brokerage_shinhan
     status: verified_partial
-    coverage: "리서치 탐색기 list API는 공개 접근 가능, 상세 popup/PDF는 정상 경로나 세션 의존성 있음"
+    coverage: "리서치 탐색기 list API 기반 메타 수집 구현 완료, 상세 popup/PDF는 정상 경로나 세션 의존성 있음"
     discovery:
       type: html_list_plus_json
       urls:
@@ -110,12 +110,13 @@ routes:
       - "ATTACHMENT_ID/FILE_PATH 기반 실제 PDF 엔드포인트 추적"
 
   - source_id: kr_brokerage_mirae
-    status: verified_partial
-    coverage: "직접 PDF download endpoint는 확인됨, 리서치 리스트/상세 페이지는 추가 탐색 필요"
+    status: active
+    coverage: "투자전략 리스트 HTML과 direct PDF download endpoint를 조합한 수집 구현 완료"
     discovery:
       type: html_site_plus_direct_pdf
       urls:
         - "https://securities.miraeasset.com"
+        - "https://securities.miraeasset.com/bbs/board/message/list.do?categoryId=1527&curPage=1&direction=1&listType=1&searchType=2"
         - "https://securities.miraeasset.com/bbs/maildownload/{timestamp}_{attachment_id}"
         - "https://securities.miraeasset.com/bbs/download/{attachment_id}.pdf?attachmentId={attachment_id}"
     detail:
@@ -129,11 +130,12 @@ routes:
       pdf_file: "data/raw/{date}/kr_brokerage_mirae/{doc_id}.pdf"
       pdf_text: "data/raw/{date}/kr_brokerage_mirae/{doc_id}.txt"
     verified_signals:
+      - "리스트 HTML에서 javascript:view(...), downConfirm(...pdf...) 추출 가능"
       - "https://securities.miraeasset.com/bbs/maildownload/20240702180415557_3694 200 application/pdf"
       - "https://securities.miraeasset.com/bbs/download/2119054.pdf?attachmentId=2119054 공개 노출 확인"
     todo:
-      - "attachment_id를 얻는 공개 리스트/상세 페이지 패턴 확인"
-      - "기존 404 research_url 의 대체 페이지 찾기"
+      - "투자전략 외 추가 categoryId 범위 확장"
+      - "상세 view URL 패턴까지 확정"
 
   - source_id: kr_brokerage_hana
     status: verified_partial

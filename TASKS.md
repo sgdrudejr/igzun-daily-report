@@ -24,6 +24,8 @@
 - [x] 공개 리포트 원문 보강 레이어(`collectors/document_enricher.py`) 추가
 - [x] source별 원문 다운로드 경로 문서 [`collectors/registry/download_routes.yaml`](/Users/seo/igzun-daily-report/collectors/registry/download_routes.yaml) 추가
 - [x] `download_routes.yaml` 에 신한/KB/미래에셋/하나/삼성/ECB/BIS/BOJ/IMF 공개 루트 1차 구체화
+- [x] `kr_brokerage_shinhan` 공개 list API fetcher 1차 구현
+- [x] `kr_brokerage_mirae` direct PDF fetcher 1차 구현
 - [x] 네이버 리서치 상세 본문 수집 추가
 - [x] PDF 링크 발견 시 실제 파일 다운로드 + 텍스트 추출 추가
 - [x] `scripts/refine_insights.py` 에 collector raw text 입력 추가
@@ -98,8 +100,10 @@
 ### 수집
 
 - [ ] `kr_brokerage_kb` 셀렉터/페이지 구조 재검증
-- [ ] `kr_brokerage_mirae` 404 대응 및 실제 리서치 URL 재확인
+- [ ] `kr_brokerage_kb` Today/상세 JS 흐름에서 PDF 엔드포인트 추출
+- [ ] `kr_brokerage_shinhan` popup/PDF 실제 다운로드 경로 고정
 - [ ] 신한/KB/미래에셋 등 직접 PDF 링크 제공 소스 우선 확장
+- [ ] 하나/삼성의 fileName 확보 로직 추가
 - [ ] 일본/유럽 리서치 소스 추가
 - [ ] source health check 리포트 추가
 - [ ] 3일 이상 무수집 source stale 경고 추가

@@ -158,9 +158,30 @@ sources:
     schedule: "daily 07:30 KST"
     config:
       broker_name: KB증권
-      research_url: "https://rc.kbsec.com"
+      broker_mode: generic
+      research_url: "https://rc.kbsec.com/main.able"
     description: "KB증권 리서치센터 데일리/시황"
-    url: "https://rc.kbsec.com"
+    url: "https://rc.kbsec.com/main.able"
+
+  - id: kr_brokerage_shinhan
+    name: Shinhan Securities Research
+    fetcher_type: kr_brokerage
+    tier: 2
+    region: KR
+    language: ko
+    document_type: research_meta
+    sector: macro
+    enabled: true
+    schedule: "daily 07:20 KST"
+    config:
+      broker_name: 신한투자증권
+      broker_mode: shinhan
+      list_url: "https://finance.shinhansec.com/siw/insights/research/list/view-popup.do"
+      api_url: "https://finance.shinhansec.com/siw/etc/browse/search05/data.do"
+      page_size: 50
+      max_pages: 8
+    description: "신한투자증권 리서치 탐색기 공개 list API"
+    url: "https://finance.shinhansec.com/siw/insights/research/list/view-popup.do"
 
   - id: kr_brokerage_mirae
     name: Mirae Asset Research
@@ -174,8 +195,10 @@ sources:
     schedule: "daily 07:30 KST"
     config:
       broker_name: 미래에셋증권
-      research_url: "https://securities.miraeasset.com/bbs/maillist"
-    description: "미래에셋 리서치센터 데일리"
+      broker_mode: mirae
+      category_id: 1527
+      lookback_days: 7
+    description: "미래에셋 리서치센터 투자전략 PDF"
     url: "https://securities.miraeasset.com"
 
   - id: bis_speeches
