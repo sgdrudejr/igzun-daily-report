@@ -1,5 +1,5 @@
 # igzun-daily-report cron jobs
 # install with: ./scripts/install_cron.sh
 
-# Daily full dashboard/report update at 11:00 Asia/Seoul local machine time
-0 11 * * * /Users/seo/igzun-daily-report/scripts/daily_update.sh >> /Users/seo/igzun-daily-report/output/last_cron.log 2>&1
+# Daily full dashboard/report update at 10:00 Asia/Seoul local machine time
+0 10 * * * /Users/seo/igzun-daily-report/scripts/daily_update.sh >> /Users/seo/igzun-daily-report/output/last_cron.log 2>&1

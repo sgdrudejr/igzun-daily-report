@@ -35,6 +35,7 @@ mkdir -p "$ROOT/output"
 "$VENV/python" "$ROOT/scripts/build_research_graph.py" --date "$TODAY" --base-dir "$ROOT" || true
 "$VENV/python" "$ROOT/scripts/build_research_loop.py" --date "$TODAY" --base-dir "$ROOT" || true
 "$VENV/python" "$ROOT/scripts/llm_insights.py" --date "$TODAY" --base-dir "$ROOT" || true
+"$VENV/python" "$ROOT/scripts/build_manual_summary_brief.py" --date "$TODAY" --base-dir "$ROOT" || true
 
 # 4) site report 생성 (result.json + date_status.json)
 "$VENV/python" "$ROOT/scripts/build_site_report.py" --date "$TODAY" --base-dir "$ROOT" || true
@@ -55,6 +56,7 @@ else
             data/archive_summaries/ data/backfills/ data/storage_retention/ \
             data/valuation/ data/signals/ data/research_context/ data/research_packets/ \
             data/research_index/ data/research_graph/ data/research_loops/ data/llm_insights/ \
+            data/manual_summary/ \
             site/ || true
     git commit -m "daily: $TODAY" || true
     git push || true

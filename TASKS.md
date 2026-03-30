@@ -87,7 +87,7 @@
 - [x] 오래된 normalized를 `compact_normalized` 형태로 재구성하도록 retention 강화
 - [x] `daily_update.sh` 에 retention 훅 추가
 - [x] `daily_update.sh` 를 KST 날짜 기준으로 보정
-- [x] `11:00 KST` launch agent 설치 스크립트 추가 및 로컬 설치
+- [x] `10:00 KST` launch agent 설치 스크립트 추가 및 로컬 설치
 - [x] cron/launchd 경로를 현재 저장소(`/Users/seo/igzun-daily-report`) 기준으로 정리
 - [x] 포트폴리오에 `capitalPlan / targetAmounts / accountPlans` 추가
 - [x] 실행 가이드에 `todayAmount / splitPlan / addRule / pauseRule / reviewRule` 추가
@@ -148,7 +148,7 @@
 
 ### 수집
 
-- [ ] `kr_brokerage_kb` 셀렉터/페이지 구조 재검증
+- [x] `kr_brokerage_kb` 셀렉터/페이지 구조 재검증
 - [ ] `kr_brokerage_kb` Today/상세 JS 흐름에서 PDF 엔드포인트 추출
 - [ ] `kr_brokerage_shinhan` popup/PDF 실제 다운로드 경로 고정
 - [ ] `kr_brokerage_shinhan` 로그인 없이 내려받을 수 있는 direct PDF 엔드포인트 최종 확정
@@ -200,7 +200,7 @@
 - [x] `daily_update.sh` 로 `build_hierarchical_index.py` 자동 반영 연결
 - [x] `daily_update.sh` 로 `build_research_graph.py` 자동 반영 연결
 - [x] `daily_update.sh` 로 `build_research_loop.py` 자동 반영 연결
-- [x] `11:00 KST` launch agent 로컬 설치 완료
+- [x] `10:00 KST` launch agent 로컬 설치 완료
 - [ ] 작업 종료 시 `HANDOFF.md` 와 `TASKS.md` 갱신 자동 습관화
 
 ## 현재 작업 트리 체크

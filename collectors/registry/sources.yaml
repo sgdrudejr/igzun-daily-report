@@ -161,8 +161,10 @@ sources:
     schedule: "daily 07:30 KST"
     config:
       broker_name: KB증권
-      broker_mode: generic
+      broker_mode: kb
       research_url: "https://rc.kbsec.com/main.able"
+      today_url: "https://rc.kbsec.com/today/index.able"
+      lookback_days: 45
     description: "KB증권 리서치센터 데일리/시황"
     url: "https://rc.kbsec.com/main.able"
 

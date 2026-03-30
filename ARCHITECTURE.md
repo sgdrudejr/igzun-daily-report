@@ -465,7 +465,7 @@ data/index/content_hashes.json
 - 07:00 KST: Tier 2 scraping source
 - 08:00 KST: bridge 및 기본 정리
 - 09:00 KST: insight refinement
-- 11:00 KST: site report 생성 + 배포
+- 10:00 KST: site report 생성 + 배포
 - 14:00 KST: 미국 장중/장후 source 보강
 
 현 시점에서는 하나의 `daily_update.sh` 로도 실행 가능하다.

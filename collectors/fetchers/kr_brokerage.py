@@ -31,6 +31,8 @@ class KRBrokerageFetcher(BaseFetcher):
             return self._fetch_shinhan(date)
         if mode == "mirae":
             return self._fetch_mirae(date)
+        if mode == "kb":
+            return self._fetch_kb(date)
 
         url = cfg.get("research_url", "")
 
@@ -286,6 +288,81 @@ class KRBrokerageFetcher(BaseFetcher):
 
         return docs
 
+    def _fetch_kb(self, date: str) -> list[RawDocument]:
+        cfg = self.config.get("config", {})
+        today_url = cfg.get("today_url", "https://rc.kbsec.com/today/index.able")
+        lookback_days = int(cfg.get("lookback_days", 45))
+        target_dt = datetime.strptime(date, "%Y-%m-%d")
+
+        response = requests.get(today_url, headers=DEFAULT_HEADERS, timeout=20, verify=False)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, "lxml")
+
+        docs: list[RawDocument] = []
+        seen_urls: set[str] = set()
+
+        for item in soup.select("div.grp__item"):
+            link = item.select_one("a.btn-more-arr[onclick*='detailView.able?documentid=']")
+            title_node = item.select_one("div.tit")
+            date_node = item.select_one("div.date")
+            heading_node = item.select_one("h2")
+
+            if not link or not title_node or not date_node:
+                continue
+
+            onclick = link.get("onclick", "")
+            match = re.search(r"toParent\('([^']*detailView\.able\?documentid=[^']+)'\)", onclick)
+            if not match:
+                continue
+
+            detail_url = urljoin(today_url, match.group(1))
+            if detail_url in seen_urls:
+                continue
+
+            title = clean_spaces(title_node.get_text(" ", strip=True))
+            published_date = self._normalize_kb_date(date_node.get_text(" ", strip=True))
+            if not published_date:
+                continue
+
+            doc_dt = datetime.strptime(published_date, "%Y-%m-%d")
+            if (target_dt - doc_dt).days > lookback_days:
+                continue
+
+            section = clean_spaces(heading_node.get_text(" ", strip=True)) if heading_node else "KB 리서치"
+            bullets = [
+                clean_spaces(li.get_text(" ", strip=True))
+                for li in item.select("ul.has-dot li")
+                if clean_spaces(li.get_text(" ", strip=True))
+            ]
+            summary = "\n".join(f"- {bullet}" for bullet in bullets[:6])
+            content = f"[KB증권/{section}] {title}"
+            if summary:
+                content += f"\n\n{summary}"
+
+            docs.append(RawDocument(
+                source_id=self.source_id,
+                title=title,
+                url=detail_url,
+                published_date=published_date,
+                content=content,
+                document_type="daily_report",
+                region="KR",
+                language="ko",
+                sector="macro",
+                tags=["KB증권", section, "research"],
+                fetched_url=today_url,
+                metadata={
+                    "broker": "KB증권",
+                    "section": section,
+                    "detail_login_required": True,
+                    "public_summary_source": today_url,
+                    "summary_bullets": bullets[:6],
+                },
+            ))
+            seen_urls.add(detail_url)
+
+        return docs
+
     def _build_shinhan_candidates(self, item: dict) -> list[str]:
         file_path = item.get("FILE_PATH") or ""
         display_name = item.get("DISPLAYNAME") or ""
@@ -334,6 +411,13 @@ class KRBrokerageFetcher(BaseFetcher):
             return f"[{parts[0]}] {parts[1]}"
         return parts[0] if parts else ""
 
+    def _normalize_kb_date(self, text: str) -> str:
+        match = re.search(r"(\d{4})\.\s*(\d{1,2})\.\s*(\d{1,2})", text or "")
+        if not match:
+            return ""
+        year, month, day = match.groups()
+        return f"{year}-{int(month):02d}-{int(day):02d}"
+
     def _extract_first_match(self, text: str, pattern: str) -> str:
         match = re.search(pattern, text)
         return match.group(1) if match else ""
@@ -347,6 +431,10 @@ class KRBrokerageFetcher(BaseFetcher):
             "Daily", "Market", "Strategy", "Research", "Report",
         ]
         return any(kw in text for kw in keywords)
+
+
+def clean_spaces(text: str) -> str:
+    return re.sub(r"\s+", " ", text or "").strip()
 
     def health_check(self) -> bool:
         cfg = self.config.get("config", {})

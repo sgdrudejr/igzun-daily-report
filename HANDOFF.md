@@ -22,6 +22,8 @@
 - `download_routes.yaml` 에는 네이버 리서치 외에 신한/KB/미래에셋/하나/삼성 국내 증권사와 ECB/BIS/BOJ/IMF 공개 소스의 실제 다운로드 루트 검증 결과가 반영되어 있다.
 - `naver_research` 는 시장정보/투자정보/종목분석/산업분석/경제분석/채권분석 6개 카테고리를 모두 수집 대상으로 확장했다.
 - `naver_research` 는 2026-03-30 검증 기준 카테고리별 30건씩 총 180건의 리스트 메타를 수집할 수 있다.
+- `kr_brokerage_kb` 는 공개 `today` 카드 요약을 파싱하는 전용 모드로 보강되어, 유튜브/안내 링크 대신 실제 KB Core View / 월간 전략 카드만 수집한다.
+- `kr_brokerage_kb` 의 `detailView` 본문은 현재 로그인 제약이 있어, 공개 summary card 기반 수집 + detail 링크 metadata 저장 방식으로 운영한다.
 - `kr_brokerage_shinhan` 는 공개 list API 기반으로 실제 문서 메타를 수집한다.
 - `kr_brokerage_shinhan` 는 이제 `bbs2.shinhansec.com` 상세 popup HTML까지 저장하고, PDF popup 경로도 metadata에 남긴다. 다만 현재 확인된 PDF popup은 로그인 게이트가 있다.
 - `kr_brokerage_mirae` 는 공개 리스트에서 PDF direct link를 잡아 실제 PDF/TXT 아티팩트를 저장한다.
@@ -59,7 +61,7 @@
 - 반자동 스킬의 canonical 정의는 [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 에 있다.
 - [`scripts/install_llmsummary_skills.sh`](/Users/seo/igzun-daily-report/scripts/install_llmsummary_skills.sh) 를 실행하면 Codex 로컬 스킬과 Claude 로컬 skill plugin 디렉토리에 `llmsummary` 스킬을 복사 설치한다.
 - `2026-03-30` 기준 `llmsummary` 수동 심화 분석이 [`data/llm_insights/2026-03-30.json`](/Users/seo/igzun-daily-report/data/llm_insights/2026-03-30.json) 에 반영되었고, 해당 내러티브가 [`site/2026-03-30/result.json`](/Users/seo/igzun-daily-report/site/2026-03-30/result.json) 및 `site/horizons/*` 집계에 재주입되었다.
-- `11:00 KST` 자동 실행용 launch agent 가 설치되어 있다.
+- `10:00 KST` 자동 실행용 launch agent 가 설치되어 있다.
 - launch agent 템플릿은 [`cron/com.seo.igzun-daily-report.daily.plist`](/Users/seo/igzun-daily-report/cron/com.seo.igzun-daily-report.daily.plist), 설치 스크립트는 [`scripts/install_launch_agent.sh`](/Users/seo/igzun-daily-report/scripts/install_launch_agent.sh) 이다.
 - `scripts/macro_analysis.py`, `scripts/etf_recommender.py`, `scripts/build_site_report.py` 작업이 시작되어 있다.
 - `build_site_report.py` 는 이제 top buy에 `microPlan`, `microStepAmount`, `timingDetails` 를 포함해 1%~2% 단위 분할매수 가이드를 노출한다.

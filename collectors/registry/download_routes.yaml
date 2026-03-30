@@ -48,8 +48,8 @@ routes:
       - pdf_text_path
 
   - source_id: kr_brokerage_kb
-    status: verified_partial
-    coverage: "공개 메인/Today 페이지는 접근 가능, full report list는 로그인 래퍼가 노출되어 세부 역공학 필요"
+    status: active
+    coverage: "공개 Today 카드 요약 수집 동작, detailView 본문/PDF는 로그인 제약으로 요약 카드 기반 수집 우선"
     discovery:
       type: html_site
       urls:
@@ -61,8 +61,8 @@ routes:
       url_pattern: "today/index.able + hidden seq + JS-driven detail flow"
       primary_selector: "input#seq, a[href*='.able']"
     download:
-      mode: today_or_report_page_then_pdf
-      fallback: "Today 페이지 메타와 상세 HTML 우선 저장"
+      mode: today_summary_cards_then_detail_link
+      fallback: "Today 카드의 제목/날짜/핵심 bullet을 저장하고 detailView는 metadata만 보존"
     save_targets:
       raw_json: "data/raw/{date}/kr_brokerage_kb/{doc_id}.json"
       pdf_file: "data/raw/{date}/kr_brokerage_kb/{doc_id}.pdf"
@@ -73,9 +73,11 @@ routes:
       - "https://rc.kbsec.com/main.able 200"
       - "https://rc.kbsec.com/today/index.able 200"
       - "메인에서 /report/reportList.able 링크 확인"
+      - "today/index.able 에서 detailView.able?documentid=... 공개 노출 확인"
+      - "today/index.able 의 공개 카드에서 제목/날짜/핵심 bullet 추출 가능"
     todo:
-      - "Today 상세 API/JS 흐름에서 실제 PDF 엔드포인트 추출"
-      - "로그인 없이 읽을 수 있는 게시판과 로그인 필수 게시판 분리"
+      - "detailView 로그인 필요 페이지를 우회할 수 있는 공개 PDF 엔드포인트 여부 재검증"
+      - "Today 외 reportList 공개 카드도 추가 수집할지 검토"
 
   - source_id: kr_brokerage_shinhan
     status: verified_partial
