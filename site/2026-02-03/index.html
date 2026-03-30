@@ -584,17 +584,10 @@
         <span id="statusBadge"></span>
       </div>
       <div id="summaryStrip" class="summary-strip"></div>
-      <div class="control-line">
-        <div class="control-horizon">
-          <div id="horizonSelector" class="selector-row"></div>
-        </div>
-        <div class="control-bucket">
-          <select id="bucketSelect" class="bucket-select" onchange="changeBucket(this.value)"></select>
-        </div>
-      </div>
       <div class="tab-row">
         <button class="tab active" data-tab="portfolio" onclick="switchSection('portfolio')">포트폴리오</button>
         <button class="tab" data-tab="rebalancing" onclick="switchSection('rebalancing')">실행 가이드</button>
+        <button class="tab" data-tab="direction" onclick="switchSection('direction')">기간별 투자 방향성</button>
         <button class="tab" data-tab="briefing" onclick="switchSection('briefing')">시장 브리핑</button>
         <button class="tab" data-tab="news" onclick="switchSection('news')">핵심 이슈</button>
         <button class="tab" data-tab="recommendations" onclick="switchSection('recommendations')">ETF 아이디어</button>
@@ -604,6 +597,7 @@
     <div class="content">
       <div id="pane-portfolio" class="pane active"></div>
       <div id="pane-rebalancing" class="pane"></div>
+      <div id="pane-direction" class="pane"></div>
       <div id="pane-briefing" class="pane"></div>
       <div id="pane-news" class="pane"></div>
       <div id="pane-recommendations" class="pane"></div>
@@ -613,11 +607,20 @@
   <script>
     const REPO_PREFIX = window.location.pathname.includes('/igzun-daily-report/') ? '/igzun-daily-report' : '';
     const SITE_BASE = `${REPO_PREFIX}/site`;
+    const HORIZON_ORDER = ['1일', '1주', '1개월', '3개월', '6개월'];
+    const HORIZON_LABELS = {
+      '1일': '일간',
+      '1주': '주간',
+      '1개월': '월간',
+      '3개월': '분기',
+      '6개월': '반기',
+    };
     const state = {
       index: null,
       currentHorizon: '1일',
       currentBucketId: '',
       currentView: null,
+      horizonViews: {},
       currentSection: 'portfolio',
     };
 
@@ -651,7 +654,7 @@
 
     function formatContext(view, bucket) {
       if (!view || !bucket) return '표시할 데이터가 없습니다.';
-      return `${bucket.label} · ${state.currentHorizon} 관점 · ${view.fromDate} ~ ${view.toDate}`;
+      return `${bucket.label} · 최신 일간 기준 · ${view.fromDate} ~ ${view.toDate}`;
     }
 
     function renderStatus(status) {
@@ -673,6 +676,7 @@
 
     function renderHorizonSelector() {
       const container = document.getElementById('horizonSelector');
+      if (!container) return;
       const horizons = Object.keys(state.index?.horizons || {});
       container.innerHTML = horizons.map(horizon => {
         const active = horizon === state.currentHorizon ? 'active' : '';
@@ -682,6 +686,7 @@
 
     function renderBucketSelector() {
       const select = document.getElementById('bucketSelect');
+      if (!select) return;
       const buckets = (state.index?.horizons?.[state.currentHorizon]) || [];
       select.innerHTML = buckets.map(bucket => `
         <option value="${bucket.id}" ${bucket.id === state.currentBucketId ? 'selected' : ''}>${bucket.label}</option>
@@ -736,6 +741,13 @@
       el.style.display = el.style.display === 'block' ? 'none' : 'block';
     }
 
+    function snippet(text, limit = 180) {
+      if (!text) return '';
+      const value = String(text).trim();
+      if (value.length <= limit) return value;
+      return `${value.slice(0, limit).trim()}...`;
+    }
+
     function resetPaneScrolls() {
       document.querySelectorAll('.pane').forEach(pane => {
         pane.scrollTop = 0;
@@ -786,6 +798,18 @@
       renderAll();
       resetPaneScrolls();
       syncUrl();
+    }
+
+    async function loadDirectionViews() {
+      const loaded = {};
+      for (const horizon of HORIZON_ORDER) {
+        const bucket = (state.index?.horizons?.[horizon] || [])[0];
+        if (!bucket) continue;
+        const res = await fetch(`${SITE_BASE}/${bucket.source}?t=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) continue;
+        loaded[horizon] = await res.json();
+      }
+      state.horizonViews = loaded;
     }
 
     function switchSection(section) {
@@ -840,7 +864,7 @@
           </div>
           ${data.forecast ? `
             <div class="forecast-box">
-              <div class="forecast-label">${state.currentHorizon}</div>
+              <div class="forecast-label">최신 일간 기준</div>
               <div class="card-title" style="font-size:16px; margin-bottom:10px;">${data.forecast.title || ''}</div>
               <div class="forecast-text">${data.forecast.text || ''}</div>
               ${renderSources(data.forecast.sources, 'forecast-src')}
@@ -1055,7 +1079,6 @@
             <div class="action-badge">${item.action || '보류'}</div>
           </div>
           <div class="chip-group">
-            <span class="tag">${state.currentHorizon}</span>
             <span class="tag">${state.currentView.bucketLabel || ''}</span>
             <span class="tag">${item.executionStyle || ''}</span>
             <span class="tag">오늘 1차 ${item.todayAmount || '-'}</span>
@@ -1099,6 +1122,54 @@
           <div class="card-title">주석 및 실행 원칙</div>
           <ul class="list">${footnotes}</ul>
         </div>
+      `;
+    }
+
+    function renderDirection() {
+      const pane = document.getElementById('pane-direction');
+      const cards = HORIZON_ORDER.map((horizon, idx) => {
+        const view = state.horizonViews?.[horizon];
+        if (!view) return '';
+        const briefing = view.briefing || {};
+        const strategy = briefing.strategy || {};
+        const forecast = briefing.forecast || {};
+        const insights = (briefing.insights || []).slice(0, 3).map(item => `
+          <li class="detail-item"><b>${item.category || '포인트'}:</b> ${snippet(item.text, 150)}</li>
+        `).join('');
+        const deployNow = view.portfolio?.capitalPlan?.deployNow || '-';
+        const reserveCash = view.portfolio?.capitalPlan?.reserveCash || '-';
+        const executionStyle = view.rebalancing?.actions?.[0]?.executionStyle || '';
+        const watchPoint = view.rebalancing?.actions?.[0]?.pauseRule || '';
+        const scoreValue = briefing.sentiment?.score;
+        const chips = [];
+        if (view.bucketLabel) chips.push({ label: HORIZON_LABELS[horizon], value: view.bucketLabel, tone: 'default' });
+        if (scoreValue !== undefined && scoreValue !== null) chips.push({ label: '점수', value: `${scoreValue}/100`, tone: 'score' });
+        if (view.updateCount) chips.push({ label: '누적 업데이트', value: `${view.updateCount}회`, tone: 'default' });
+        if (deployNow && deployNow !== '-') chips.push({ label: '이번 예산', value: deployNow, tone: 'market' });
+        return `
+          <div class="card">
+            <div class="card-title">${HORIZON_LABELS[horizon]} 투자 방향성</div>
+            <div class="muted" style="margin-bottom:10px;">${view.fromDate || ''} ~ ${view.toDate || ''}</div>
+            ${renderStatChips(chips)}
+            ${briefing.metricChips ? renderStatChips((briefing.metricChips || []).slice(0, 4)) : ''}
+            <div class="impact-title">방향성 요약</div>
+            <div class="body-text">${strategy.summary || forecast.text || '방향성 데이터가 없습니다.'}</div>
+            <div class="impact-title">핵심 포인트</div>
+            <ul class="detail-list">${insights || '<li class="detail-item">핵심 포인트 데이터가 없습니다.</li>'}</ul>
+            <div class="impact-title">집행 톤</div>
+            <div class="body-text">이번 기간 실행 예산은 ${deployNow}, 대기 자금은 ${reserveCash} 입니다. ${executionStyle ? `${executionStyle} 기준으로 접근합니다.` : ''}</div>
+            ${watchPoint ? `<div class="body-text" style="margin-top:10px;"><b>주의할 조건:</b> ${watchPoint}</div>` : ''}
+            ${renderSources(strategy.sources || forecast.sources, `direction-src-${idx}`)}
+          </div>
+        `;
+      }).join('');
+
+      pane.innerHTML = `
+        <div class="card">
+          <div class="card-title">기간별 투자 방향성</div>
+          <div class="body-text">최신 일간 리포트를 기본으로 유지하되, 여기서는 일간·주간·월간·분기·반기 기준으로 시장 흐름과 투자 방향성을 한 번에 비교합니다.</div>
+        </div>
+        ${cards || '<div class="empty">기간별 투자 방향성 데이터가 없습니다.</div>'}
       `;
     }
 
@@ -1171,6 +1242,7 @@
     function renderAll() {
       renderPortfolio();
       renderRebalancing();
+      renderDirection();
       renderBriefing();
       renderNews();
       renderRecommendations();
@@ -1181,9 +1253,9 @@
       try {
         await loadIndex();
         resolveInitialSelection();
-        renderHorizonSelector();
-        renderBucketSelector();
         await loadCurrentView();
+        await loadDirectionViews();
+        renderAll();
       } catch (error) {
         document.querySelector('.content').innerHTML = '<div class="empty">기간별 리포트를 불러오지 못했습니다.</div>';
         renderStatus('empty');

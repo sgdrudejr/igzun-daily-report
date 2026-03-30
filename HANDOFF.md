@@ -44,8 +44,8 @@
 - 현재 점수는 수익률 점수가 아니라 `레짐 적합도 + 분산도 + 현금 운용` 합성 점수다.
 - [`scripts/build_horizon_views.py`](/Users/seo/igzun-daily-report/scripts/build_horizon_views.py) 가 추가되었다.
 - 이 스크립트는 누적된 일간 `site/*/result.json` 을 읽어 `site/horizon_index.json` 과 `site/horizons/` 아래 기간별 집계 파일을 생성한다.
-- UI는 더 이상 좌하단 플로팅 달력이 아니라 `기간 유형 탭 -> 기간 선택 탭 -> 섹션 탭` 구조다.
-- 상단 UI는 `기간 유형 칩 + 기간 선택 드롭다운` 1행 압축 구조로 다시 정리되었다.
+- UI는 더 이상 좌하단 플로팅 달력이 아니라 최신 일간 리포트를 기본으로 보는 탭 구조다.
+- 상단의 `1일/1주/1개월/3개월/6개월` 선택 칩은 제거되었고, 별도 `기간별 투자 방향성` 탭에서 일간/주간/월간/분기/반기 흐름을 비교한다.
 - 새로고침 시 기본 진입값은 항상 `1일 / 최신 날짜` 이다.
 - 각 섹션 탭은 개별 스크롤 pane 으로 동작하도록 바뀌었다.
 - 섹션 순서는 `포트폴리오 -> 실행 가이드 -> 시장 브리핑 -> 핵심 이슈 -> ETF 아이디어` 다.
@@ -198,7 +198,7 @@
 ## 다음 작업 우선순위
 
 1. 브라우저 렌더링 검증
-- `site/{date}/index.html` 에서 기간 유형 탭 -> 기간 선택 탭 -> 섹션 탭 흐름 확인
+- `site/{date}/index.html` 에서 `기간별 투자 방향성` 탭이 최신 horizon 데이터를 정상 로드하는지 확인
 - 모바일/데스크톱에서 chip overflow 및 탭 전환 UX 확인
 - `undefined`/`None` 가 실제 화면에도 보이지 않는지 확인
 - 각 섹션 pane 스크롤이 독립적으로 유지되는지 확인
@@ -232,7 +232,7 @@
 
 ## 참고용 렌더링 검증 포인트
 - `site/{date}/result.json` 과 `site/{date}/index.html` 구조 일치 확인
-- `site/horizon_index.json` 과 `site/horizons/*` 가 템플릿과 맞는지 확인
+- `site/horizon_index.json` 과 `site/horizons/*` 가 `기간별 투자 방향성` 탭과 맞는지 확인
 - `site/template/index.html` 을 기준 템플릿으로 유지
 
 ## 절대 바꾸면 안 되는 규칙
