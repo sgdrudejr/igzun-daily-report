@@ -1,0 +1,225 @@
+{
+  "date": "2026-03-30",
+  "backtest_type": "signal_snapshot_next_session",
+  "source_signal_file": "data/signals/2026-03-30.json",
+  "market_signal": {
+    "market_score": 39.8,
+    "macro_total": 47.56,
+    "valuation_avg": 32,
+    "action": "관망 유지",
+    "deployable_pct": 15,
+    "note": "리스크 높음 — 대기 현금 확보, 과매도 포착 후 진입",
+    "regime": "Neutral"
+  },
+  "evaluated_count": 10,
+  "success_count": 5,
+  "success_rate_pct": 50.0,
+  "weighted_return_pct": -0.85,
+  "results": [
+    {
+      "id": "SPY",
+      "ticker": "SPY",
+      "name": "S&P 500 ETF",
+      "signal": "강력매수",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 634.09,
+      "exit_date": "2026-03-30",
+      "exit_close": 637.06,
+      "return_pct": 0.47,
+      "verdict": "성공",
+      "first_amount": 1086921,
+      "timing_grade": "B",
+      "reasons": [
+        "RSI 24 극단 과매도 — 반등 가능성",
+        "기술적·레짐·밸류에이션 복합 신호 모두 우호적",
+        "MACD 하락추세 지속"
+      ]
+    },
+    {
+      "id": "KODEX_SEMI",
+      "ticker": "091160.KS",
+      "name": "KODEX 반도체",
+      "signal": "분할매수",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 95450.0,
+      "exit_date": "2026-03-30",
+      "exit_close": 91440.0,
+      "return_pct": -4.2,
+      "verdict": "실패",
+      "first_amount": 291139,
+      "timing_grade": "B",
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 약세 다이버전스 — 고점 괴리 주의",
+        "볼린저밴드 하단 근접(%B=0.12) — 과매도 구간"
+      ]
+    },
+    {
+      "id": "TIGER_NQ100",
+      "ticker": "133690.KS",
+      "name": "TIGER 미국나스닥100",
+      "signal": "분할매수",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 158760.0,
+      "exit_date": "2026-03-30",
+      "exit_close": 155730.0,
+      "return_pct": -1.91,
+      "verdict": "실패",
+      "first_amount": 436709,
+      "timing_grade": "A",
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 하락추세 지속",
+        "MACD 강세 다이버전스 — 가격 신저점에서 MACD 반등, 바닥 신호"
+      ]
+    },
+    {
+      "id": "QQQ",
+      "ticker": "QQQ",
+      "name": "나스닥 100 ETF",
+      "signal": "분할매수",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 562.58,
+      "exit_date": "2026-03-30",
+      "exit_close": 563.6301,
+      "return_pct": 0.19,
+      "verdict": "성공",
+      "first_amount": 436709,
+      "timing_grade": "B",
+      "reasons": [
+        "밸류에이션 부담 (점수 23)",
+        "RSI 23 극단 과매도 — 반등 가능성",
+        "MACD 하락추세 지속"
+      ]
+    },
+    {
+      "id": "TIGER200",
+      "ticker": "069500.KS",
+      "name": "TIGER 200",
+      "signal": "소규모탐색",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 81225.0,
+      "exit_date": "2026-03-30",
+      "exit_close": 78680.0,
+      "return_pct": -3.13,
+      "verdict": "실패",
+      "first_amount": 1242195,
+      "timing_grade": "B",
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 약세 다이버전스 — 고점 괴리 주의",
+        "볼린저밴드 하단 근접(%B=0.15) — 과매도 구간"
+      ]
+    },
+    {
+      "id": "KODEX_US30Y",
+      "ticker": "148020.KS",
+      "name": "KODEX 미국채울트라30년(H)",
+      "signal": "소규모탐색",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 81945.0,
+      "exit_date": "2026-03-30",
+      "exit_close": 79445.0,
+      "return_pct": -3.05,
+      "verdict": "실패",
+      "first_amount": 931646,
+      "timing_grade": "B",
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 약세 다이버전스 — 고점 괴리 주의",
+        "볼린저밴드 하단 근접(%B=0.16) — 과매도 구간"
+      ]
+    },
+    {
+      "id": "IEF",
+      "ticker": "IEF",
+      "name": "미국 중기국채 ETF",
+      "signal": "소규모탐색",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 94.6,
+      "exit_date": "2026-03-30",
+      "exit_close": 95.315,
+      "return_pct": 0.76,
+      "verdict": "성공",
+      "first_amount": 745317,
+      "timing_grade": "B",
+      "reasons": [
+        "MACD 하락추세 지속",
+        "볼린저밴드 하단 근접(%B=0.09) — 과매도 구간",
+        "볼린저 스퀴즈(밴드폭=3.2%) — 변동성 수축, 대형 움직임 예고"
+      ]
+    },
+    {
+      "id": "EZU",
+      "ticker": "EZU",
+      "name": "iShares MSCI Eurozone",
+      "signal": "소규모탐색",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 60.25,
+      "exit_date": "2026-03-30",
+      "exit_close": 60.56,
+      "return_pct": 0.51,
+      "verdict": "성공",
+      "first_amount": 1242195,
+      "timing_grade": "C",
+      "reasons": [
+        "MACD 하락추세 지속",
+        "볼린저밴드 하단 근접(%B=0.07) — 과매도 구간",
+        "RSI 34 과매도 구간 — 분할매수 적합"
+      ]
+    },
+    {
+      "id": "XLF",
+      "ticker": "XLF",
+      "name": "금융 섹터 ETF",
+      "signal": "소규모탐색",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 47.81,
+      "exit_date": "2026-03-30",
+      "exit_close": 48.62,
+      "return_pct": 1.69,
+      "verdict": "성공",
+      "first_amount": 621097,
+      "timing_grade": "C",
+      "reasons": [
+        "RSI 23 극단 과매도 — 반등 가능성",
+        "MACD 데드크로스 발생 — 단기 하락 전환 신호",
+        "볼린저밴드 하단 근접(%B=0.01) — 과매도 구간"
+      ]
+    },
+    {
+      "id": "XLE",
+      "ticker": "XLE",
+      "name": "에너지 섹터 ETF",
+      "signal": "회피",
+      "backtest_mode": "report_session",
+      "entry_date": "2026-03-27",
+      "entry_close": 62.56,
+      "exit_date": "2026-03-30",
+      "exit_close": 62.855,
+      "return_pct": 0.47,
+      "verdict": "실패",
+      "first_amount": 0,
+      "timing_grade": "F",
+      "reasons": [
+        "RSI 87 극단 과매수 — 진입 금지",
+        "MACD 상승추세 유지 (히스토그램 +0.245)",
+        "볼린저밴드 상단 이탈(%B=1.06) — 극단 과매수"
+      ]
+    }
+  ],
+  "summary": {
+    "positive_signals": 9,
+    "negative_signals": 1,
+    "note": "기본은 다음 거래 세션 비교이며, 다음 세션이 아직 없으면 직전 종가 대비 리포트일 세션 종가로 대체한 1회 백테스트"
+  }
+}

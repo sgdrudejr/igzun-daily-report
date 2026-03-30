@@ -118,6 +118,9 @@
 - [x] `build_manual_summary_brief.py` 에 research loop 요약 추가
 - [x] `daily_update.sh` 에 hierarchical index / research graph 단계 연결
 - [x] `daily_update.sh` 에 research loop 단계 연결
+- [x] [`scripts/backtest_signal_snapshot.py`](/Users/seo/igzun-daily-report/scripts/backtest_signal_snapshot.py) 추가
+- [x] `2026-03-30` 기준 ETF 신호 1회 백테스트 실행
+- [x] [`data/backtests/2026-03-30_signal_snapshot.json`](/Users/seo/igzun-daily-report/data/backtests/2026-03-30_signal_snapshot.json) 생성
 - [x] [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 추가
 - [x] [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 추가
 - [x] [`scripts/install_llmsummary_skills.sh`](/Users/seo/igzun-daily-report/scripts/install_llmsummary_skills.sh) 추가

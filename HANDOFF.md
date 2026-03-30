@@ -52,6 +52,8 @@
 - `scripts/research_toolbox.py` 가 추가되어 `macro_snapshot`, `valuation_snapshot`, `signal_snapshot`, `portfolio_snapshot`, `search_hierarchical_index`, `graph_focus` 를 표준 도구처럼 호출할 수 있다.
 - `scripts/build_research_loop.py` 가 추가되어 `가설 설정 -> 근거 탐색 -> 검증자 반박 -> 추가 탐색` 2회 루프를 수행하는 딥리서치 lite 오케스트레이션을 생성한다.
 - `data/research_loops/{date}.json` 에는 `tool_registry`, `iterations`, `final_synthesis`, `validated_theses`, `rejected_theses`, `action_digest`, `citations` 가 저장된다.
+- [`scripts/backtest_signal_snapshot.py`](/Users/seo/igzun-daily-report/scripts/backtest_signal_snapshot.py) 가 추가되어 특정 일자의 ETF 신호를 기준으로 `1회 백테스트` 를 실행할 수 있다.
+- 백테스트 결과는 [`data/backtests/2026-03-30_signal_snapshot.json`](/Users/seo/igzun-daily-report/data/backtests/2026-03-30_signal_snapshot.json) 같은 파일로 저장되며, 기본은 `다음 거래 세션 비교`, 다음 세션 데이터가 없으면 `직전 종가 -> 리포트일 종가` 방식으로 평가한다.
 - 현재 LLM 단계는 파이프라인에 연결되어 있으나 `.env` 의 `ANTHROPIC_API_KEY` 가 비어 있어 실제 API 호출 대신 fallback 규칙 기반 인사이트로 동작한다.
 - `llm_insights.py` 는 이제 당일 문서만 보지 않고 `data/research_context/{date}.json` 을 함께 읽어 누적 맥락 기반 분석을 수행한다.
 - `llm_insights.py` 는 이제 `research_packets`, `hierarchical index`, `research_graph` 까지 함께 읽어 `executive_summary`, `core_theses`, `counter_signals`, `what_changed`, `account_actions`, `scenario_matrix`, `evidence_ledger`, `confidence`, `next_checkpoints` 를 포함한 구조화된 심화 인사이트를 만든다.
@@ -129,6 +131,7 @@
 - `data/research_loops/{date}.json` 은 실제 검증 루프 산출물이다. 현재는 2회 루프를 기본으로 돌며, `validated_with_cautions` / `needs_follow_up` 같은 상태를 저장한다.
 - `2026-03-30` 기준 H-RAG lite 인덱스는 260개 문서, 260개 섹션, 406개 청크를 생성했고, GraphRAG lite 는 264개 노드와 1200개 엣지를 생성했다.
 - `2026-03-30` 기준 research loop는 2회 루프를 수행했고, 변동성·환율·국내 밸류에이션을 반대 신호로 남긴 채 `validated_with_cautions` 상태를 기록했다.
+- `2026-03-30` 기준 signal snapshot 백테스트는 평가 10건, 성공 5건, 성공률 50.0%, 가중 평균 수익률 -0.85% 를 기록했다.
 
 ### 현재 확인된 산출물
 
@@ -148,6 +151,7 @@
 - [`site/horizons/weekly/2026-03-w5.json`](/Users/seo/igzun-daily-report/site/horizons/weekly/2026-03-w5.json)
 - [`data/backfills/2026-01-01_to_2026-03-30.json`](/Users/seo/igzun-daily-report/data/backfills/2026-01-01_to_2026-03-30.json)
 - [`data/storage_retention/status.json`](/Users/seo/igzun-daily-report/data/storage_retention/status.json)
+- [`data/backtests/2026-03-30_signal_snapshot.json`](/Users/seo/igzun-daily-report/data/backtests/2026-03-30_signal_snapshot.json)
 
 ## 현재 디렉토리 구조
 
