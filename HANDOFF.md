@@ -33,6 +33,8 @@
 - `2026-01-01 ~ 2026-03-30` 구간에 대해 historical-safe source 기반 백필이 추가되었다.
 - 백필 실행기는 [`scripts/backfill_history.py`](/Users/seo/igzun-daily-report/scripts/backfill_history.py) 이며, 현재 기준 Q1 백필 요약은 [`data/backfills/2026-01-01_to_2026-03-30.json`](/Users/seo/igzun-daily-report/data/backfills/2026-01-01_to_2026-03-30.json) 에 기록된다.
 - 저장공간 정리기는 [`scripts/storage_retention.py`](/Users/seo/igzun-daily-report/scripts/storage_retention.py) 이며, 상태는 [`data/storage_retention/status.json`](/Users/seo/igzun-daily-report/data/storage_retention/status.json) 에 기록된다.
+- `storage_retention.py` 는 이제 오래된 원문을 단순 압축만 하지 않고 `compact_raw`, `compact_normalized`, `chunks` 아카이브를 함께 생성한다.
+- 즉, 오래된 PDF/HTML/TXT 원문을 지우더라도 `핵심 메타 + 발췌문 + 청크 텍스트`는 유지되어 후속 분석과 RAG형 활용이 가능하다.
 - `scripts/daily_update.sh` 에 수집/분석/사이트 생성/배포 흐름이 연결되어 있다.
 - `scripts/daily_update.sh` 는 이제 `TZ=Asia/Seoul` 기준 날짜를 사용한다.
 - `scripts/valuation_engine.py` 가 추가되어 S&P500 ERP, 52주 레인지, 200일선 이격도, KOSPI PBR 추정치를 생성한다.
@@ -84,6 +86,7 @@
 - `load_market_data.py`, `macro_analysis.py`, `etf_recommender.py` 는 특정 날짜 기준 as-of 계산이 가능하도록 보정되었다.
 - 백필은 현재 `fred_api`, `opendart` 중심으로 수행된다. RSS/스크래퍼/ECOS 는 snapshot 성격이 강해 Q1 백필 기본 대상에서 제외된다.
 - 저장공간 정리 1차 적용 결과: raw 32일치, normalized 10일치를 summary+archive 로 넘겼다.
+- 저장공간 정리 정책은 현재 `archive_summaries/raw|normalized/*.json` + `archives/compact_raw/*.jsonl.gz` + `archives/compact_normalized/*.jsonl.gz` + `archives/chunks/*.jsonl.gz` 구조다.
 
 ### 현재 작업 트리 상태
 

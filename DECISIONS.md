@@ -336,6 +336,7 @@
 결정:
 
 - 오래된 `raw/normalized/manifests` 는 [`scripts/storage_retention.py`](/Users/seo/igzun-daily-report/scripts/storage_retention.py) 로 summary JSON 과 archive 파일로 넘긴다.
+- 단, 원문을 지우기 전에 `compact_raw`, `compact_normalized`, `chunks` 를 먼저 생성해 나중에 용량을 적게 쓰면서도 재분석 가능하도록 한다.
 - archive 파일은 로컬 보관용으로 두고 `.gitignore` 처리한다.
 - Git 에는 `data/archive_summaries/`, `data/storage_retention/status.json` 같은 작은 메타만 올린다.
 

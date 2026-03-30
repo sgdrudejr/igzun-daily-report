@@ -76,6 +76,8 @@
 - [x] `2026-01-01 ~ 2026-03-30` Q1 백필 실행
 - [x] Q1 백필 결과로 `site/` 일간/주간/월간/분기/반기 버킷 재생성
 - [x] 오래된 raw/normalized 1차 archive + summary 생성
+- [x] 오래된 raw를 `compact_raw` + `chunks` 형태로 재구성하도록 retention 강화
+- [x] 오래된 normalized를 `compact_normalized` 형태로 재구성하도록 retention 강화
 - [x] `daily_update.sh` 에 retention 훅 추가
 - [x] `daily_update.sh` 를 KST 날짜 기준으로 보정
 - [x] `11:00 KST` launch agent 설치 스크립트 추가 및 로컬 설치
@@ -148,6 +150,7 @@
 - [ ] cron 시각 분리 운영 검증
 - [ ] 실패 시 재시도/부분성공 로그 기준 정리
 - [ ] GitHub Pages 자동 배포 상태 점검
+- [ ] retention 기준 일수와 chunk 크기 운영값 최종 확정
 - [x] `daily_update.sh` 로 `build_horizon_views.py` 자동 반영 연결
 - [x] `daily_update.sh` 로 `storage_retention.py` 자동 반영 연결
 - [x] `11:00 KST` launch agent 로컬 설치 완료

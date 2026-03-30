@@ -501,7 +501,9 @@ data/index/content_hashes.json
 
 - `site/{date}/result.json` 이 존재하는 날짜만 정리 대상으로 삼는다.
 - raw는 `data/archive_summaries/raw/{date}.json` summary + `data/archives/raw/{date}.tar.gz`
+- raw는 추가로 `data/archives/compact_raw/{date}.jsonl.gz` 와 `data/archives/chunks/{date}.jsonl.gz` 를 생성해 원문 삭제 후에도 발췌/청크 분석이 가능하도록 한다.
 - normalized는 `data/archive_summaries/normalized/{date}.json` summary + `data/archives/normalized/{date}.jsonl.gz`
+- normalized는 추가로 `data/archives/compact_normalized/{date}.jsonl.gz` 를 생성해 핵심 필드만 남긴 경량 corpus를 유지한다.
 - manifests는 `data/archives/manifests/{date}_run.json.gz`
 - archive 파일은 로컬 보관용이며 `.gitignore` 대상이다.
 - 요약 상태는 `data/storage_retention/status.json` 에 기록하고 Git 에 포함할 수 있다.
