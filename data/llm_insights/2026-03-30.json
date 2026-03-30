@@ -1,0 +1,53 @@
+{
+  "date": "2026-03-30",
+  "generated_by": "fallback_rule_based",
+  "market_narrative": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 47.6점을 기록 중입니다. VIX 27.4로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1513원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
+  "regime_assessment": "중립 횡보 국면으로 분류된 현재 환경은 고평가 — 안전자산 비중 유지.",
+  "key_signals": [
+    "VIX 27.4 — 변동성 확대 구간, 추격매수보다 눌림목 분할 접근이 유리",
+    "S&P500 ERP 0.1% — 주식 매력도는 중립 수준, 과속 진입은 부담",
+    "KOSPI 밸류에이션 고평가 — 국내 ETF는 비중을 천천히 올리는 편이 적절",
+    "S&P 500 ETF(SPY) 타이밍 B — 분할 매수 시작 고려",
+    "USD/KRW 1513원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요"
+  ],
+  "sector_calls": [
+    {
+      "sector": "S&P500 (SPY)",
+      "view": "소규모탐색",
+      "rationale": "중립 레짐, 밸류에이션 확인 후 분할 진입"
+    },
+    {
+      "sector": "금 (GLD)",
+      "view": "관망",
+      "rationale": "방어 헤지로 5~8% 비중 검토 가능"
+    },
+    {
+      "sector": "미국 중기국채 (IEF)",
+      "view": "관망",
+      "rationale": "금리 방향 확인 전 중립"
+    },
+    {
+      "sector": "KOSPI (TIGER200)",
+      "view": "소규모탐색",
+      "rationale": "저밸류 국내 지수 소규모 탐색"
+    },
+    {
+      "sector": "나스닥 (QQQ)",
+      "view": "관망",
+      "rationale": "기술주 실적 가이던스 확인 필요"
+    }
+  ],
+  "risk_factors": [
+    "단기 변동성 리스크 — VIX 27.4로 급등락 가능성",
+    "환율 리스크 — USD/KRW 1513원, 달러 강세 지속 시 원화 자산 압박"
+  ],
+  "timing_guidance": "현재 시장 신호 '관망 유지'에 따라 전체 현금의 15%(2,740,137원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다.",
+  "portfolio_comment": "ISA (신한은행): 현금 8,392,660원 중 2,937,431원 범위에서 KODEX 반도체(분할매수), TIGER 미국나스닥100(분할매수) 순으로 분할 집행 토스증권: 현금 4,309,720원 중 1,508,402원 범위에서 S&P 500 ETF(강력매수), 나스닥 100 ETF(분할매수) 순으로 분할 집행 연금저축 (신한은행): 현금 5,565,201원 중 1,947,820원 범위에서 TIGER 미국나스닥100(분할매수), 나스닥 100 ETF(분할매수) 순으로 분할 집행",
+  "news_highlights": [
+    "[fred_api] VIX (VIXCLS)",
+    "[fred_api] US 10Y Treasury Yield (DGS10)",
+    "[fred_api] Dollar Index (Trade Weighted) (DTWEXBGS)"
+  ],
+  "api_used": false,
+  "fallback_reason": "ANTHROPIC_API_KEY 미설정"
+}

@@ -35,9 +35,14 @@
 - 저장공간 정리기는 [`scripts/storage_retention.py`](/Users/seo/igzun-daily-report/scripts/storage_retention.py) 이며, 상태는 [`data/storage_retention/status.json`](/Users/seo/igzun-daily-report/data/storage_retention/status.json) 에 기록된다.
 - `scripts/daily_update.sh` 에 수집/분석/사이트 생성/배포 흐름이 연결되어 있다.
 - `scripts/daily_update.sh` 는 이제 `TZ=Asia/Seoul` 기준 날짜를 사용한다.
+- `scripts/valuation_engine.py` 가 추가되어 S&P500 ERP, 52주 레인지, 200일선 이격도, KOSPI PBR 추정치를 생성한다.
+- `scripts/signal_engine.py` 가 추가되어 RSI, MACD, 볼린저밴드, 이평선, 캔들, 엘리엇 파동을 종합한 ETF별 `강력매수/분할매수/소규모탐색/관망/비중축소/회피` 신호를 생성한다.
+- `scripts/llm_insights.py` 가 추가되어 매크로/밸류에이션/신호/수집문서를 합친 한국어 투자 인사이트를 생성한다.
+- 현재 LLM 단계는 파이프라인에 연결되어 있으나 `.env` 의 `ANTHROPIC_API_KEY` 가 비어 있어 실제 API 호출 대신 fallback 규칙 기반 인사이트로 동작한다.
 - `11:00 KST` 자동 실행용 launch agent 가 설치되어 있다.
 - launch agent 템플릿은 [`cron/com.seo.igzun-daily-report.daily.plist`](/Users/seo/igzun-daily-report/cron/com.seo.igzun-daily-report.daily.plist), 설치 스크립트는 [`scripts/install_launch_agent.sh`](/Users/seo/igzun-daily-report/scripts/install_launch_agent.sh) 이다.
 - `scripts/macro_analysis.py`, `scripts/etf_recommender.py`, `scripts/build_site_report.py` 작업이 시작되어 있다.
+- `build_site_report.py` 는 이제 top buy에 `microPlan`, `microStepAmount`, `timingDetails` 를 포함해 1%~2% 단위 분할매수 가이드를 노출한다.
 - [`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py) 가 `dataByPeriod` 호환 구조를 유지한 채 한국어 인사이트 중심 리포트로 재작성되었다.
 - `site/{date}/result.json` 에 1일/1주/1개월/3개월/6개월 구간별 브리핑, 주요 이슈, 포트폴리오, ETF 아이디어가 들어가도록 정리되었다.
 - 포트폴리오 블록에 `capitalPlan`, `targetAmounts`, `accountPlans` 가 추가되어 총 현금, 이번 기간 집행 예산, 자산군 목표 금액, 계좌별 투입 예산을 함께 보여준다.
@@ -165,6 +170,10 @@
 │   ├── apply_market_quant.py
 │   ├── macro_analysis.py
 │   ├── etf_recommender.py
+│   ├── valuation_engine.py
+│   ├── signal_engine.py
+│   ├── llm_insights.py
+│   ├── technical_timing.py
 │   ├── backfill_history.py
 │   ├── storage_retention.py
 │   ├── build_site_report.py
@@ -194,6 +203,9 @@
 - RSS/FRED/ECOS/OpenDART/Naver Research/SEC EDGAR/BIS/Investing.com fetcher
 - `daily_update.sh` 에 collectors 단계 추가
 - `macro_analysis.py`, `etf_recommender.py`, `build_site_report.py`, `build_horizon_views.py` 가 연결되었다.
+- 밸류에이션 레이어 추가
+- 명시적 매수/매도/보류 신호 엔진 추가
+- LLM 인사이트 생성 레이어 추가
 - `2026-03-30` 기준 batch 실행 및 사이트 산출물 생성
 - 일간 결과를 다시 주간/월간/분기/반기 버킷으로 집계하는 레이어가 들어갔다.
 - 1일/1주/1개월/3개월/6개월마다 누적 문서 수, 평균 점수, 주요 출처를 따로 보여준다.
@@ -218,6 +230,7 @@
 - 포트폴리오 점수 산식 고도화
 - ETF/섹터 아이디어를 지역/레짐/리스크와 더 강하게 연결하는 설명 강화 2차
 - 보유 종목이 생겼을 때 매도/축소 가이드까지 자동 산출하도록 확장
+- 실제 Claude API 키를 연결해 fallback이 아닌 실 LLM 내러티브로 전환
 - `kr_brokerage_kb`, `kr_brokerage_mirae` 스크래퍼 안정화
 - 주요 유럽/일본 소스 추가 확장
 - source health check와 stale source 알림

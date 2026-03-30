@@ -573,6 +573,60 @@
       .body-text, .forecast-text, .hero-text { font-size: 13.5px; line-height: 1.74; }
       .metric-grid { grid-template-columns: 1fr 1fr; }
     }
+    /* Sub-tabs */
+    .sub-tab-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 12px 12px 0;
+      background: #f6f8fb;
+      flex-shrink: 0;
+    }
+    .sub-tab-bar::-webkit-scrollbar { display: none; }
+    .sub-tab-btn {
+      border: none;
+      background: #e5e7eb;
+      color: #4b5563;
+      border-radius: 8px 8px 0 0;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .sub-tab-btn.active { background: #fff; color: #111827; box-shadow: 0 -2px 8px rgba(0,0,0,0.06); }
+    .sub-tab-score { font-size: 10px; font-weight: 700; padding: 1px 4px; background: rgba(0,0,0,0.06); border-radius: 4px; }
+    /* Direction score */
+    .dir-score-wrap { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .dir-score-num { font-size: 36px; font-weight: 900; letter-spacing: -0.03em; }
+    .dir-regime-badge { padding: 6px 12px; border-radius: 8px; background: #f3f4f6; font-size: 12px; font-weight: 700; color: #374151; }
+    /* Signal rows */
+    .signal-row { padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
+    .signal-row:last-child { border-bottom: none; }
+    .signal-row-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+    .signal-name { font-size: 14px; font-weight: 700; color: #111827; }
+    .signal-ticker { font-size: 11px; color: #9ca3af; margin-left: 5px; font-weight: 400; }
+    .signal-grade { font-size: 12px; font-weight: 800; }
+    .signal-label { font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px; color: #fff; }
+    .signal-meta { font-size: 11px; color: #6b7280; margin-bottom: 4px; }
+    .signal-reason { font-size: 12px; color: #374151; margin-bottom: 3px; }
+    .signal-cond { font-size: 11px; color: #6b7280; }
+    /* Valuation */
+    .val-table { display: flex; flex-direction: column; gap: 6px; }
+    .val-row { display: flex; gap: 8px; align-items: center; font-size: 12px; flex-wrap: wrap; }
+    .val-name { font-weight: 800; min-width: 60px; }
+    .val-grade { font-weight: 700; min-width: 70px; }
+    .val-detail { flex: 1; font-size: 11px; }
+    /* Sector calls */
+    .sector-call { padding: 6px 0; border-bottom: 1px solid #f3f4f6; font-size: 12px; }
+    .sector-call:last-child { border-bottom: none; }
+    .sector-view { font-weight: 800; margin-right: 4px; }
+    /* Insight badge */
+    .insight-badge { padding: 4px 10px; border-radius: 999px; background: #dbeafe; color: #1d4ed8; font-size: 12px; font-weight: 800; }
   </style>
 </head>
 <body>
@@ -1127,50 +1181,174 @@
 
     function renderDirection() {
       const pane = document.getElementById('pane-direction');
-      const cards = HORIZON_ORDER.map((horizon, idx) => {
+
+      // Build sub-tab state
+      if (!state.currentDirectionTab) state.currentDirectionTab = state.currentHorizon || '1일';
+
+      const tabButtons = HORIZON_ORDER.map(horizon => {
         const view = state.horizonViews?.[horizon];
-        if (!view) return '';
+        const active = horizon === state.currentDirectionTab ? 'active' : '';
+        const scoreVal = view?.briefing?.sentiment?.score;
+        const scoreColor = !scoreVal ? '' : (scoreVal >= 65 ? '#0f9f6e' : (scoreVal >= 50 ? '#2563eb' : '#f59e0b'));
+        const scoreStyle = scoreColor ? `style="color:${scoreColor};"` : '';
+        return `<button class="sub-tab-btn ${active}" onclick="switchDirectionTab('${horizon}')">${horizon}${scoreVal != null ? `<span class="sub-tab-score" ${scoreStyle}>${scoreVal}</span>` : ''}</button>`;
+      }).join('');
+
+      const horizon = state.currentDirectionTab;
+      const view = state.horizonViews?.[horizon];
+
+      let content = '';
+      if (view) {
         const briefing = view.briefing || {};
         const strategy = briefing.strategy || {};
         const forecast = briefing.forecast || {};
-        const insights = (briefing.insights || []).slice(0, 3).map(item => `
-          <li class="detail-item"><b>${item.category || '포인트'}:</b> ${snippet(item.text, 150)}</li>
+        const signals = view.signals || {};
+        const valuation = view.valuation || {};
+        const llmInsights = view.llmInsights || {};
+        const llmModeText = llmInsights.apiUsed ? 'Claude API 인사이트' : '규칙 기반 인사이트';
+        const insights = (briefing.insights || []).slice(0, 5).map(item => `
+          <li class="list-item">
+            <span class="badge">${item.category || '포인트'}</span>
+            <div class="body-text">${item.text || ''}</div>
+          </li>
         `).join('');
         const deployNow = view.portfolio?.capitalPlan?.deployNow || '-';
         const reserveCash = view.portfolio?.capitalPlan?.reserveCash || '-';
         const executionStyle = view.rebalancing?.actions?.[0]?.executionStyle || '';
         const watchPoint = view.rebalancing?.actions?.[0]?.pauseRule || '';
         const scoreValue = briefing.sentiment?.score;
-        const chips = [];
-        if (view.bucketLabel) chips.push({ label: HORIZON_LABELS[horizon], value: view.bucketLabel, tone: 'default' });
-        if (scoreValue !== undefined && scoreValue !== null) chips.push({ label: '점수', value: `${scoreValue}/100`, tone: 'score' });
-        if (view.updateCount) chips.push({ label: '누적 업데이트', value: `${view.updateCount}회`, tone: 'default' });
-        if (deployNow && deployNow !== '-') chips.push({ label: '이번 예산', value: deployNow, tone: 'market' });
-        return `
+        const scoreColor = !scoreValue ? '#2563eb' : (scoreValue >= 65 ? '#0f9f6e' : (scoreValue >= 50 ? '#2563eb' : '#f59e0b'));
+
+        // Signals block
+        const ms = signals.marketSignal || {};
+        const topBuys = signals.topBuys || [];
+        const signalRows = topBuys.slice(0,5).map(s => {
+          const gradeColor = s.timingGrade === 'A' ? '#0f9f6e' : (s.timingGrade === 'B' ? '#2563eb' : (s.timingGrade === 'F' || s.timingGrade === 'D' ? '#dc2626' : '#f59e0b'));
+          const signalColors = {'강력매수':'#0f9f6e','분할매수':'#2563eb','소규모탐색':'#7c3aed','관망':'#6b7280','비중축소':'#f59e0b','회피':'#dc2626'};
+          const sigColor = signalColors[s.signal] || '#6b7280';
+          const reasons = (s.reasons || []).slice(0,2).join(' | ');
+          return `
+            <div class="signal-row">
+              <div class="signal-row-top">
+                <div class="signal-name">${s.name || s.id}<span class="signal-ticker">${s.ticker || ''}</span></div>
+                <div style="display:flex;gap:6px;align-items:center;">
+                  <span class="signal-grade" style="color:${gradeColor};">타이밍 ${s.timingGrade || '?'}</span>
+                  <span class="signal-label" style="background:${sigColor};">${s.signal}</span>
+                </div>
+              </div>
+              ${s.rsi ? `<div class="signal-meta">RSI ${s.rsi} · 진입예산 ${s.firstAmount ? (s.firstAmount).toLocaleString()+'원' : '-'}</div>` : ''}
+              ${reasons ? `<div class="signal-reason">${reasons}</div>` : ''}
+              ${s.microPlan ? `<div class="signal-meta">${s.microPlan}</div>` : ''}
+              ${s.entryConditions && s.entryConditions.length ? `
+                <div class="signal-cond">
+                  <b>진입:</b> ${s.entryConditions[0]}
+                </div>` : ''}
+            </div>
+          `;
+        }).join('');
+
+        // Valuation block
+        const sp = valuation.sp500 || {};
+        const kospi = valuation.kospi || {};
+        const valRows = [
+          {name:'S&P500', grade:sp.grade, detail:`ERP ${sp.erp != null ? sp.erp.toFixed(1)+'%' : 'N/A'} · PE ${sp.pe || 'N/A'}x · 52W ${sp.range52w != null ? sp.range52w.toFixed(0)+'%' : 'N/A'}`},
+          {name:'KOSPI', grade:kospi.grade, detail:`PBR ${kospi.pbr || 'N/A'}x · ${kospi.pbrAssessment || ''}`},
+        ].map(r => {
+          const gc = r.grade === '저평가' ? '#0f9f6e' : (r.grade === '고평가' || r.grade === '다소 고평가' ? '#dc2626' : '#2563eb');
+          return `<div class="val-row"><span class="val-name">${r.name}</span><span class="val-grade" style="color:${gc};">${r.grade || '분석중'}</span><span class="val-detail muted">${r.detail}</span></div>`;
+        }).join('');
+
+        // LLM insights
+        const keySignals = (llmInsights.keySignals || []).map(s => `<li class="detail-item">${s}</li>`).join('');
+        const sectorCalls = (llmInsights.sectorCalls || []).map(s => {
+          const vc = {'매수가능':'#0f9f6e','관망':'#6b7280','비중축소':'#dc2626','소규모탐색':'#7c3aed'}[s.view] || '#6b7280';
+          return `<div class="sector-call"><span class="sector-view" style="color:${vc};">${s.view}</span> <b>${s.sector}</b> — ${s.rationale}</div>`;
+        }).join('');
+
+        content = `
+          <!-- Score + market overview -->
           <div class="card">
-            <div class="card-title">${HORIZON_LABELS[horizon]} 투자 방향성</div>
-            <div class="muted" style="margin-bottom:10px;">${view.fromDate || ''} ~ ${view.toDate || ''}</div>
-            ${renderStatChips(chips)}
-            ${briefing.metricChips ? renderStatChips((briefing.metricChips || []).slice(0, 4)) : ''}
-            <div class="impact-title">방향성 요약</div>
+            <div class="dir-score-wrap">
+              <div>
+                <div class="dir-score-num" style="color:${scoreColor};">${scoreValue ?? '-'}<span class="muted" style="font-size:13px;"> /100</span></div>
+                <div class="muted" style="font-size:11px; margin-top:2px;">종합 시장 점수 (50=중립, 높을수록 위험선호)</div>
+              </div>
+              <div class="dir-regime-badge">${view.regime || view.regimeKr || ''}</div>
+            </div>
+            ${renderStatChips((briefing.metricChips || []).slice(0, 4))}
+          </div>
+
+          <!-- LLM Insights: timing guidance -->
+          ${llmInsights.timingGuidance || llmInsights.marketNarrative ? `
+            <div class="card">
+              <div class="card-title">📊 지금 투자해야 하는가?</div>
+              ${ms.action ? `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span class="insight-badge">${ms.action}</span><span class="muted">투자가능비중 ${ms.deployablePct || 0}% · ${llmModeText}</span></div>` : ''}
+              <div class="body-text">${llmInsights.timingGuidance || llmInsights.marketNarrative || ''}</div>
+            </div>
+          ` : ''}
+
+          <!-- Buy/Sell signals -->
+          ${topBuys.length ? `
+            <div class="card">
+              <div class="card-title">🎯 매수 타이밍 신호</div>
+              <div class="muted" style="margin-bottom:10px;">RSI·MACD·볼린저밴드·이평선·엘리엇파동 종합 타이밍</div>
+              ${signalRows}
+            </div>
+          ` : ''}
+
+          <!-- Valuation -->
+          ${sp.grade ? `
+            <div class="card">
+              <div class="card-title">💰 밸류에이션</div>
+              <div class="muted" style="margin-bottom:10px;">${valuation.marketValuation || ''}</div>
+              <div class="val-table">${valRows}</div>
+            </div>
+          ` : ''}
+
+          <!-- LLM sector calls -->
+          ${sectorCalls ? `
+            <div class="card">
+              <div class="card-title">🗺️ 섹터별 투자 의견</div>
+              ${sectorCalls}
+            </div>
+          ` : ''}
+
+          <!-- Key signals list -->
+          ${keySignals ? `
+            <div class="card">
+              <div class="card-title">📌 핵심 투자 시그널</div>
+              <ul class="detail-list">${keySignals}</ul>
+              ${(llmInsights.riskFactors || []).length ? `
+                <div class="impact-title" style="margin-top:12px;">⚠️ 리스크 요인</div>
+                <ul class="detail-list">${(llmInsights.riskFactors || []).map(r => `<li class="detail-item">${r}</li>`).join('')}</ul>
+              ` : ''}
+            </div>
+          ` : ''}
+
+          <!-- Strategy direction -->
+          <div class="card">
+            <div class="card-title">${HORIZON_LABELS[horizon] || horizon} 투자 방향</div>
             <div class="body-text">${strategy.summary || forecast.text || '방향성 데이터가 없습니다.'}</div>
-            <div class="impact-title">핵심 포인트</div>
+            <div class="impact-title" style="margin-top:10px;">핵심 포인트</div>
             <ul class="detail-list">${insights || '<li class="detail-item">핵심 포인트 데이터가 없습니다.</li>'}</ul>
-            <div class="impact-title">집행 톤</div>
-            <div class="body-text">이번 기간 실행 예산은 ${deployNow}, 대기 자금은 ${reserveCash} 입니다. ${executionStyle ? `${executionStyle} 기준으로 접근합니다.` : ''}</div>
-            ${watchPoint ? `<div class="body-text" style="margin-top:10px;"><b>주의할 조건:</b> ${watchPoint}</div>` : ''}
-            ${renderSources(strategy.sources || forecast.sources, `direction-src-${idx}`)}
+            <div class="impact-title" style="margin-top:10px;">집행 톤</div>
+            <div class="body-text">이번 기간 실행 예산 ${deployNow}, 대기 자금 ${reserveCash}. ${executionStyle}</div>
+            ${watchPoint ? `<div class="body-text" style="margin-top:8px;"><b>⚠️ 보류 조건:</b> ${watchPoint}</div>` : ''}
           </div>
         `;
-      }).join('');
+      } else {
+        content = `<div class="empty">${horizon} 데이터 로딩 중...</div>`;
+      }
 
       pane.innerHTML = `
-        <div class="card">
-          <div class="card-title">기간별 투자 방향성</div>
-          <div class="body-text">최신 일간 리포트를 기본으로 유지하되, 여기서는 일간·주간·월간·분기·반기 기준으로 시장 흐름과 투자 방향성을 한 번에 비교합니다.</div>
-        </div>
-        ${cards || '<div class="empty">기간별 투자 방향성 데이터가 없습니다.</div>'}
+        <div class="sub-tab-bar">${tabButtons}</div>
+        ${content}
       `;
+    }
+
+    function switchDirectionTab(horizon) {
+      state.currentDirectionTab = horizon;
+      renderDirection();
     }
 
     function renderRecommendations() {
@@ -1203,7 +1381,10 @@
                 <div class="idea-ticker">${item.ticker || '-'} · ${item.scoreText || ''}</div>
               </div>
             </div>
-            <div class="idea-action">${item.action || '관찰'}</div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+              <div class="idea-action">${item.action || '관찰'}</div>
+              ${item.signal ? `<div style="font-size:11px;font-weight:800;color:${{'강력매수':'#0f9f6e','분할매수':'#2563eb','소규모탐색':'#7c3aed','관망':'#6b7280','비중축소':'#f59e0b','회피':'#dc2626'}[item.signal]||'#6b7280'};">${item.signal}${item.timingGrade ? ' '+item.timingGrade : ''}</div>` : ''}
+            </div>
           </div>
           <div class="idea-body">
             <div class="issue-badge">연결 이슈: ${item.linkedIssue || '-'}</div>
@@ -1219,6 +1400,19 @@
             <div class="body-text" style="margin-top:10px;"><b>우려 지점:</b> ${item.risk || ''}</div>
             <div class="body-text" style="margin-top:10px;"><b>권장 비중:</b> ${item.positioning || ''}</div>
             <div class="body-text" style="margin-top:10px;"><b>집행 방식:</b> ${item.execution || ''}</div>
+            ${item.timingDetail ? `<div class="body-text" style="margin-top:10px;"><b>기술적 타이밍:</b> ${item.timingDetail}</div>` : ''}
+            ${(item.entryConditions || []).length ? `
+              <div class="impact-title">진입 조건</div>
+              <ul class="detail-list">${(item.entryConditions || []).map(c=>`<li class="detail-item">${c}</li>`).join('')}</ul>
+            ` : ''}
+            ${(item.exitConditions || []).length ? `
+              <div class="impact-title">청산 조건</div>
+              <ul class="detail-list">${(item.exitConditions || []).map(c=>`<li class="detail-item">${c}</li>`).join('')}</ul>
+            ` : ''}
+            ${item.positionSizing && item.positionSizing.maxPct ? `
+              <div class="body-text" style="margin-top:10px;"><b>포지션 사이징:</b> 최대 ${item.positionSizing.maxPct}% | 1차 ${item.positionSizing.firstPct || '-'}% (${item.positionSizing.firstAmount ? item.positionSizing.firstAmount.toLocaleString()+'원' : '-'})</div>
+              <div class="muted" style="font-size:11px;">${item.positionSizing.schedule || ''}</div>
+            ` : ''}
             <div class="body-text" style="margin-top:10px;"><b>체크 포인트:</b> ${item.watchPoint || ''}</div>
             ${renderSources(item.sources, `idea-src-${idx}`)}
           </div>

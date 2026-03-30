@@ -1459,28 +1459,74 @@ def build_rebalancing_block(period: str, macro: dict, etf: dict, portfolio_state
     }
 
 
-def build_recommendations_block(period: str, macro: dict, etf: dict, regime: str, catalog: list[dict]) -> dict:
+def build_recommendations_block(period: str, macro: dict, etf: dict, regime: str, catalog: list[dict], signals: dict | None = None) -> dict:
     ranked = (etf.get("recommendations") or [])[:8]
     mi = macro.get("macro_inputs", {}) or {}
     rhythm = execution_rhythm(period)
+    # Build signal lookup map by ETF id
+    signal_map: dict[str, dict] = {}
+    if signals:
+        for sig in (signals.get("signals") or []):
+            signal_map[sig.get("id", "")] = sig
+
     ideas = []
     for item in ranked[:4]:
         rationale = safe_text(item.get("rationale"))
+        etf_id = safe_text(item.get("id"), "")
+        sig_data = signal_map.get(etf_id, {})
+
         idea_sources = select_sources(catalog, ["fred_api", "ecos_api", "fed_speeches_rss", "naver_research"], 4) + [
             source_item("ETF 추천", "etf_recommender", f"{period} {translate_etf_name(item)} 점수화", etf.get("date", "")),
             source_item("퀀트 레짐", "macro_analysis", f"{period} 레짐과 점수 조합", macro.get("date", "")),
         ]
+
+        # Signal-enhanced evidence points
         evidence_points = [
             idea_macro_context(item, macro),
             f"기술적으로 3개월 모멘텀 {pct(item.get('momentum_3m'))}, RSI {number(item.get('rsi'), 1)}, 20일 변동성 {number(item.get('volatility_20d'), 1)} 수준입니다.",
             f"{idea_role_text(item)} 포지션 상한은 {total_position_hint(item)} 정도로 두는 편이 안정적입니다.",
         ]
+        if sig_data.get("reasons"):
+            evidence_points += [r for r in sig_data["reasons"][:3] if r not in evidence_points]
+
+        # Timing detail from signal engine
+        timing_detail = ""
+        td = sig_data.get("timing_details") or {}
+        ma_al = td.get("ma_alignment") or {}
+        bb = td.get("bollinger") or {}
+        macd_d = td.get("macd") or {}
+        ew = td.get("elliott_wave") or {}
+        candle = td.get("candle") or {}
+        timing_parts = []
+        if ma_al.get("alignment"):
+            timing_parts.append(f"이평선 {ma_al['alignment']}")
+        if bb.get("position"):
+            timing_parts.append(f"BB {bb['position']}(%B={bb.get('percent_b','?')})")
+        if macd_d.get("crossover"):
+            timing_parts.append(f"MACD {'골든크로스' if macd_d['crossover']=='bullish' else '데드크로스'}")
+        elif macd_d.get("trend"):
+            timing_parts.append(f"MACD {macd_d['trend']}")
+        if ew.get("wave_phase"):
+            timing_parts.append(f"엘리엇 {ew['wave_phase']}")
+        if candle.get("pattern") and candle.get("pattern") != "없음":
+            timing_parts.append(f"캔들 {candle['pattern']}")
+        timing_detail = " | ".join(timing_parts) if timing_parts else "기술적 데이터 분석 중"
+
+        signal_label = sig_data.get("signal", "관망")
+        timing_grade = sig_data.get("timing_grade", "C")
+        entry_conditions = sig_data.get("entry_conditions") or []
+        exit_conditions = sig_data.get("exit_conditions") or []
+        sizing = sig_data.get("position_sizing") or {}
+
         ideas.append(
             {
                 "logo": etf_logo(item),
                 "name": translate_etf_name(item),
                 "ticker": safe_text(item.get("ticker"), "-"),
                 "action": etf_action_label(safe_text(item.get("tier"), "중립")),
+                "signal": signal_label,
+                "timingGrade": timing_grade,
+                "timingDetail": timing_detail,
                 "linkedIssue": theme_from_etf(item),
                 "scoreText": f"{int(round(as_float(item.get('score')) or 0))}점",
                 "reason": (
@@ -1499,8 +1545,17 @@ def build_recommendations_block(period: str, macro: dict, etf: dict, regime: str
                 ),
                 "execution": (
                     f"{period}에서는 {'1차만 진입 후 확인' if period in {'1일', '1주'} else '목표 비중까지 단계적으로 구축'} 전략이 적합합니다. "
-                    f"집행 리듬은 {rhythm['label']}이며, {rhythm['pause_rule']} 조건에서는 속도를 늦추는 편이 좋습니다."
+                    f"집행 리듬은 {rhythm['label']}이며, {rhythm['pause_rule']} 조건에서는 속도를 늦추는 편이 좋습니다. "
+                    f"{safe_text(sizing.get('micro_plan'), '초기 진입 규모는 1~2% 단위로 시작하는 편이 좋습니다.')}"
                 ),
+                "entryConditions": entry_conditions[:3],
+                "exitConditions": exit_conditions[:3],
+                "positionSizing": {
+                    "maxPct": sizing.get("max_allocation_pct"),
+                    "firstPct": sizing.get("first_tranche_pct"),
+                    "firstAmount": sizing.get("first_amount"),
+                    "schedule": sizing.get("schedule"),
+                },
                 "macroContext": idea_macro_context(item, macro),
                 "positioning": total_position_hint(item),
                 "evidencePoints": evidence_points,
@@ -1545,13 +1600,18 @@ def build_recommendations_block(period: str, macro: dict, etf: dict, regime: str
     return {"ideas": ideas, "etfRanking": ranking}
 
 
-def build_period_data(period: str, macro: dict, etf: dict, portfolio_state: dict, catalog: list[dict]) -> dict:
+def build_period_data(period: str, macro: dict, etf: dict, portfolio_state: dict, catalog: list[dict], signals: dict | None = None) -> dict:
     score, status, desc = score_status((macro.get("scores") or {}).get("total"))
     regime = macro.get("regime", "Neutral")
+
+    # Score label — clear description for UI
+    score_label = "종합 시장 점수 (0~100, 50=중립, 높을수록 위험선호 환경 우세)"
+
     briefing = {
         "sentiment": {
             "score": score,
             "status": status,
+            "label": score_label,
             "desc": f"{desc} 현재 해석은 {get_regime_label(regime)} 기준입니다.",
         },
         "scoreChips": build_score_chips(macro),
@@ -1567,7 +1627,7 @@ def build_period_data(period: str, macro: dict, etf: dict, portfolio_state: dict
         "newsList": build_news_list(period, macro, etf, catalog),
         "portfolio": build_portfolio_block(period, macro, etf, portfolio_state, catalog),
         "rebalancing": build_rebalancing_block(period, macro, etf, portfolio_state, catalog),
-        "recommendations": build_recommendations_block(period, macro, etf, regime, catalog),
+        "recommendations": build_recommendations_block(period, macro, etf, regime, catalog, signals),
     }
 
 
@@ -1590,11 +1650,136 @@ def build_meta(docs: list[dict], catalog: list[dict], macro: dict, etf: dict, po
     }
 
 
+def build_valuation_summary(valuation: dict) -> dict:
+    """밸류에이션 요약 블록."""
+    if not valuation:
+        return {}
+    sp = valuation.get("sp500") or {}
+    kospi = valuation.get("kospi") or {}
+    nas = valuation.get("nasdaq") or {}
+    gold = valuation.get("gold") or {}
+    summary = valuation.get("summary") or {}
+    return {
+        "marketValuation": summary.get("market_valuation", ""),
+        "avgScore": summary.get("avg_score"),
+        "sp500": {
+            "grade": sp.get("valuation_grade"),
+            "erp": sp.get("erp_pct"),
+            "pe": sp.get("estimated_pe"),
+            "range52w": sp.get("range_52w_pct"),
+            "vsMa200": sp.get("vs_ma200_pct"),
+            "erpAssessment": sp.get("erp_assessment"),
+        },
+        "kospi": {
+            "grade": kospi.get("valuation_grade"),
+            "pbr": kospi.get("estimated_pbr"),
+            "pbrAssessment": kospi.get("pbr_assessment"),
+            "range52w": kospi.get("range_52w_pct"),
+            "vsMa200": kospi.get("vs_ma200_pct"),
+        },
+        "nasdaq": {
+            "grade": nas.get("valuation_grade"),
+            "erp": nas.get("erp_pct"),
+            "range52w": nas.get("range_52w_pct"),
+        },
+        "gold": {
+            "assessment": gold.get("assessment"),
+            "range52w": gold.get("range_52w_pct"),
+        },
+    }
+
+
+def build_signals_summary(signals: dict) -> dict:
+    """매수/매도 신호 요약 블록."""
+    if not signals:
+        return {}
+    ms = signals.get("market_signal") or {}
+    top_buys = signals.get("top_buys") or []
+    avoid = signals.get("avoid_list") or []
+    acc_plans = signals.get("account_plans") or {}
+    summary = signals.get("summary") or {}
+
+    return {
+        "marketSignal": {
+            "action": ms.get("action"),
+            "note": ms.get("note"),
+            "deployablePct": ms.get("deployable_pct"),
+            "marketScore": ms.get("market_score"),
+        },
+        "signalSummary": summary,
+        "topBuys": [
+            {
+                "id": s.get("id"),
+                "name": s.get("name"),
+                "ticker": s.get("ticker"),
+                "signal": s.get("signal"),
+                "timingGrade": s.get("timing_grade"),
+                "timingScore": s.get("timing_score"),
+                "rsi": s.get("rsi"),
+                "reasons": (s.get("reasons") or [])[:3],
+                "firstAmount": (s.get("position_sizing") or {}).get("first_amount", 0),
+                "schedule": (s.get("position_sizing") or {}).get("schedule", ""),
+                "microPlan": (s.get("position_sizing") or {}).get("micro_plan", ""),
+                "microStepAmount": (s.get("position_sizing") or {}).get("micro_step_amount", 0),
+                "entryConditions": (s.get("entry_conditions") or [])[:3],
+                "exitConditions": (s.get("exit_conditions") or [])[:3],
+                "accountFit": s.get("account_fit") or [],
+                "timingDetails": s.get("timing_details") or {},
+            }
+            for s in top_buys[:6]
+        ],
+        "avoidList": [
+            {
+                "id": s.get("id"),
+                "name": s.get("name"),
+                "reasons": (s.get("reasons") or [])[:2],
+            }
+            for s in avoid[:3]
+        ],
+        "accountPlans": acc_plans,
+        "allSignals": [
+            {
+                "id": s.get("id"),
+                "name": s.get("name"),
+                "ticker": s.get("ticker"),
+                "signal": s.get("signal"),
+                "timingGrade": s.get("timing_grade"),
+                "rsi": s.get("rsi"),
+                "volatility": s.get("volatility_20d"),
+                "quant_score": s.get("etf_quant_score"),
+                "currency": s.get("currency"),
+            }
+            for s in (signals.get("signals") or [])
+        ],
+    }
+
+
+def build_llm_insights_block(llm: dict) -> dict:
+    """LLM 인사이트 블록."""
+    if not llm:
+        return {}
+    return {
+        "marketNarrative": llm.get("market_narrative", ""),
+        "regimeAssessment": llm.get("regime_assessment", ""),
+        "keySignals": llm.get("key_signals") or [],
+        "sectorCalls": llm.get("sector_calls") or [],
+        "riskFactors": llm.get("risk_factors") or [],
+        "timingGuidance": llm.get("timing_guidance", ""),
+        "portfolioComment": llm.get("portfolio_comment", ""),
+        "newsHighlights": llm.get("news_highlights") or [],
+        "apiUsed": llm.get("api_used", False),
+        "generatedBy": llm.get("generated_by", ""),
+    }
+
+
 def build(root: Path, date_str: str) -> dict:
     macro = load_json(root / "data" / "macro_analysis" / f"{date_str}.json") or {}
     etf = load_json(root / "data" / "etf_recommendations" / f"{date_str}.json") or {}
     docs = load_jsonl(root / "data" / "normalized" / date_str / "documents.jsonl")
     portfolio_state = load_json(PORTFOLIO_STATE_FILE) or {}
+    valuation = load_json(root / "data" / "valuation" / f"{date_str}.json") or {}
+    signals = load_json(root / "data" / "signals" / f"{date_str}.json") or {}
+    llm_insights = load_json(root / "data" / "llm_insights" / f"{date_str}.json") or {}
 
     regime = macro.get("regime", "Neutral")
     catalog = source_catalog(docs)
@@ -1605,8 +1790,11 @@ def build(root: Path, date_str: str) -> dict:
         "regime": regime,
         "regimeKr": get_regime_label(regime),
         "totalScore": (macro.get("scores") or {}).get("total"),
+        "valuation": build_valuation_summary(valuation),
+        "signals": build_signals_summary(signals),
+        "llmInsights": build_llm_insights_block(llm_insights),
         "dataByPeriod": {
-            period: build_period_data(period, macro, etf, portfolio_state, catalog) for period in PERIODS
+            period: build_period_data(period, macro, etf, portfolio_state, catalog, signals) for period in PERIODS
         },
         "meta": build_meta(docs, catalog, macro, etf, portfolio_state),
     }

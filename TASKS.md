@@ -84,6 +84,12 @@
 - [x] 실행 가이드에 `todayAmount / splitPlan / addRule / pauseRule / reviewRule` 추가
 - [x] ETF 아이디어에 `macroContext / evidencePoints / positioning / watchPoint` 추가
 - [x] 핵심 이슈 카드에 `portfolioImplication / executionGuide` 추가
+- [x] [`scripts/valuation_engine.py`](/Users/seo/igzun-daily-report/scripts/valuation_engine.py) 추가
+- [x] [`scripts/signal_engine.py`](/Users/seo/igzun-daily-report/scripts/signal_engine.py) 추가
+- [x] [`scripts/llm_insights.py`](/Users/seo/igzun-daily-report/scripts/llm_insights.py) 추가
+- [x] RSI/MACD/볼린저/이평선/캔들/엘리엇 기반 명시적 매수·관망·회피 신호 생성
+- [x] `build_site_report.py` 에 밸류에이션/신호/LLM 인사이트 요약 연결
+- [x] `2026-03-30` 기준 valuation → signals → llm_insights → site 재실행 검증
 - [x] 모든 기존 일간 결과(`site/20*-*-*/result.json`)를 새 구조로 재생성
 - [x] horizon 집계(`site/horizons/*`)를 새 구조로 재생성
 
@@ -97,6 +103,7 @@
 - [ ] Galaxy S25 Ultra 실기기 줄바꿈 / 칩 높이 확인
 - [ ] `site/horizon_index.json` 의 retention/backfill 메타를 UI에 노출할지 결정
 - [ ] 실제 보유 종목 입력 시 매도/축소 액션 자동 생성
+- [ ] `.env` 에 `ANTHROPIC_API_KEY` 설정 후 실제 Claude API 인사이트 검증
 
 ## 남은 작업
 
@@ -119,6 +126,7 @@
 - [x] 일간 데이터를 바탕으로 주간/월간/분기/반기 집계 스크립트 추가
 - [ ] 리포트에서 단기 뉴스와 중기 방향성 분리
 - [ ] 펀더멘털/기술적 시그널 동시 반영 설명 강화
+- [ ] LLM 인사이트를 fallback이 아닌 실제 Claude API 결과로 전환
 - [x] 계좌별 현금/투입 가능 금액 반영 1차
 - [x] horizon별 실행 예산 차등 반영 1차
 - [x] horizon별 분할매수 리듬 차등 반영 1차
