@@ -42,6 +42,8 @@ download_routes.yaml
   -> etf_recommender.py
   -> build_research_context.py
     -> data/research_context/{date}.json
+  -> build_manual_summary_brief.py (on demand)
+    -> data/manual_summary/{date}.md
   -> build_site_report.py
     -> storage_retention.py
     -> build_horizon_views.py
@@ -197,6 +199,23 @@ data/research_context/{date}.json
 
 - `llm_insights.py` 가 당일 문서 몇 건만 보고 판단하지 않도록 한다.
 - 축적된 로컬 데이터와 과거 판단 메모를 함께 넣어 Gemini류 딥리서치에 가까운 상위 문맥을 제공한다.
+
+### Manual Summary 저장
+
+```text
+data/manual_summary/{date}.md
+data/manual_summary/latest.md
+```
+
+역할:
+
+- 사람이 "오늘 거 심화 분석해줘" 같은 요청을 했을 때 읽는 Markdown 브리프
+- 자동 생성된 정량 데이터와 horizon 요약을 한 장으로 묶는다
+- Codex/Claude local skill 이 이 파일을 우선 입력으로 사용한다
+
+생성 스크립트:
+
+- [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py)
 
 ### RawDocument
 

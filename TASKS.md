@@ -102,6 +102,9 @@
 - [x] LLM 입력에 최근 7거래일/30거래일 누적 데이터와 horizon 요약을 넣는 딥리서치 컨텍스트 레이어 연결
 - [x] `llm_insights.py` 에 OpenAI Responses API provider 추가 (`OPENAI_API_KEY` 사용 시 `gpt-5.4` 기본)
 - [x] `2026-03-30` 기준 valuation → signals → llm_insights → site 재실행 검증
+- [x] [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 추가
+- [x] [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 추가
+- [x] [`scripts/install_llmsummary_skills.sh`](/Users/seo/igzun-daily-report/scripts/install_llmsummary_skills.sh) 추가
 - [x] 모든 기존 일간 결과(`site/20*-*-*/result.json`)를 새 구조로 재생성
 - [x] horizon 집계(`site/horizons/*`)를 새 구조로 재생성
 

@@ -231,6 +231,19 @@
 - 사용자 목표는 단순 뉴스 요약이 아니라 "지금까지 쌓인 데이터 위에서 더 강한 인사이트" 이다.
 - 당일 문서만 보면 브로커/중앙은행/공시의 누적 변화, 최근 7일과 30일의 주제 반복, 과거 판단 변화가 반영되지 않는다.
 - 로컬에 이미 쌓인 horizon 집계, archive summary, normalized docs, portfolio state를 재활용하면 LLM 품질을 크게 올릴 수 있다.
+
+### 19. 완전 자동 LLM 호출 대신 반자동 심화분석 흐름을 기본 운영안으로 둔다
+
+결정:
+
+- 배치는 계속 자동으로 돌리되, 최종 심화 서술은 사람이 요청할 때만 Codex/Claude가 수행한다.
+- 이를 위해 [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 와 `llmsummary` 스킬을 둔다.
+
+이유:
+
+- 사용자는 별도 API 비용 없이 로컬에 쌓인 데이터를 기반으로 더 깊은 해석을 원한다.
+- 완전 자동 API 호출은 비용이 들고 provider 키가 필요하다.
+- 반자동 구조는 비용 없이도 높은 품질의 심화 리포트를 만들 수 있는 현실적인 절충안이다.
 - 그래서 포트폴리오 탭은 상태 해석, 실행 가이드는 매수/보류/비중조절 액션으로 분리했다.
 - 기간마다 `question`, `deploy_ratio`, `action_label` 을 다르게 두는 편이 목적에 맞다.
 

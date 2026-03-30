@@ -44,6 +44,9 @@
 - 현재 LLM 단계는 파이프라인에 연결되어 있으나 `.env` 의 `ANTHROPIC_API_KEY` 가 비어 있어 실제 API 호출 대신 fallback 규칙 기반 인사이트로 동작한다.
 - `llm_insights.py` 는 이제 당일 문서만 보지 않고 `data/research_context/{date}.json` 을 함께 읽어 누적 맥락 기반 분석을 수행한다.
 - `llm_insights.py` 는 이제 OpenAI Responses API도 지원한다. `.env` 에 `OPENAI_API_KEY` 를 넣으면 기본값으로 `gpt-5.4` 를 사용하며, `OPENAI_LLM_MODEL` 과 `LLM_PROVIDER` 로 provider/model 우선순위를 조절할 수 있다.
+- 반자동 운영용으로 [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 가 추가되었다. 이 스크립트는 사람이 “오늘 거 심화 분석해줘”라고 요청했을 때 Codex/Claude가 읽을 Markdown 브리프를 생성한다.
+- 반자동 스킬의 canonical 정의는 [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 에 있다.
+- [`scripts/install_llmsummary_skills.sh`](/Users/seo/igzun-daily-report/scripts/install_llmsummary_skills.sh) 를 실행하면 Codex 로컬 스킬과 Claude 로컬 skill plugin 디렉토리에 `llmsummary` 스킬을 복사 설치한다.
 - `11:00 KST` 자동 실행용 launch agent 가 설치되어 있다.
 - launch agent 템플릿은 [`cron/com.seo.igzun-daily-report.daily.plist`](/Users/seo/igzun-daily-report/cron/com.seo.igzun-daily-report.daily.plist), 설치 스크립트는 [`scripts/install_launch_agent.sh`](/Users/seo/igzun-daily-report/scripts/install_launch_agent.sh) 이다.
 - `scripts/macro_analysis.py`, `scripts/etf_recommender.py`, `scripts/build_site_report.py` 작업이 시작되어 있다.
@@ -185,6 +188,8 @@
 │   ├── signal_engine.py
 │   ├── llm_insights.py
 │   ├── build_research_context.py
+│   ├── build_manual_summary_brief.py
+│   ├── install_llmsummary_skills.sh
 │   ├── technical_timing.py
 │   ├── backfill_history.py
 │   ├── storage_retention.py
@@ -193,6 +198,8 @@
 ├── site/
 │   ├── template/
 │   └── horizons/
+├── skills/
+│   └── llmsummary/
 └── docs/
 ```
 
