@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-30T11:00:31.940490",
+  "generatedAt": "2026-03-30T19:58:53.370617",
   "latestDailyDate": "2026-03-30",
   "horizons": {
     "1일": [
@@ -118,7 +118,7 @@
         "fromDate": "2026-03-14",
         "toDate": "2026-03-14",
         "updateCount": 1,
-        "dataStatus": "sparse"
+        "dataStatus": "empty"
       },
       {
         "id": "2026-03-13",
@@ -172,7 +172,7 @@
         "fromDate": "2026-03-07",
         "toDate": "2026-03-07",
         "updateCount": 1,
-        "dataStatus": "sparse"
+        "dataStatus": "empty"
       },
       {
         "id": "2026-03-06",
@@ -514,7 +514,7 @@
         "fromDate": "2026-01-14",
         "toDate": "2026-01-14",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-13",
@@ -523,7 +523,7 @@
         "fromDate": "2026-01-13",
         "toDate": "2026-01-13",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-12",
@@ -532,7 +532,7 @@
         "fromDate": "2026-01-12",
         "toDate": "2026-01-12",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-09",
@@ -541,7 +541,7 @@
         "fromDate": "2026-01-09",
         "toDate": "2026-01-09",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-08",
@@ -550,7 +550,7 @@
         "fromDate": "2026-01-08",
         "toDate": "2026-01-08",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-07",
@@ -559,7 +559,7 @@
         "fromDate": "2026-01-07",
         "toDate": "2026-01-07",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-06",
@@ -568,7 +568,7 @@
         "fromDate": "2026-01-06",
         "toDate": "2026-01-06",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-05",
@@ -577,7 +577,7 @@
         "fromDate": "2026-01-05",
         "toDate": "2026-01-05",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-02",
@@ -586,7 +586,7 @@
         "fromDate": "2026-01-02",
         "toDate": "2026-01-02",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-01",
@@ -595,7 +595,7 @@
         "fromDate": "2026-01-01",
         "toDate": "2026-01-01",
         "updateCount": 1,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       }
     ],
     "1주": [
@@ -714,7 +714,7 @@
         "fromDate": "2026-01-08",
         "toDate": "2026-01-14",
         "updateCount": 5,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       },
       {
         "id": "2026-01-w1",
@@ -723,7 +723,7 @@
         "fromDate": "2026-01-01",
         "toDate": "2026-01-07",
         "updateCount": 5,
-        "dataStatus": "full"
+        "dataStatus": "partial"
       }
     ],
     "1개월": [

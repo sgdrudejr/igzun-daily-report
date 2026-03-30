@@ -67,16 +67,23 @@
 - [x] `daily_update.sh` 를 KST 날짜 기준으로 보정
 - [x] `11:00 KST` launch agent 설치 스크립트 추가 및 로컬 설치
 - [x] cron/launchd 경로를 현재 저장소(`/Users/seo/igzun-daily-report`) 기준으로 정리
+- [x] 포트폴리오에 `capitalPlan / targetAmounts / accountPlans` 추가
+- [x] 실행 가이드에 `todayAmount / splitPlan / addRule / pauseRule / reviewRule` 추가
+- [x] ETF 아이디어에 `macroContext / evidencePoints / positioning / watchPoint` 추가
+- [x] 핵심 이슈 카드에 `portfolioImplication / executionGuide` 추가
+- [x] 모든 기존 일간 결과(`site/20*-*-*/result.json`)를 새 구조로 재생성
+- [x] horizon 집계(`site/horizons/*`)를 새 구조로 재생성
 
 ## 현재 진행 중
 
 - [ ] 브라우저 기준 HTML 렌더링 최종 검증
 - [ ] 포트폴리오 시사점 로직 정교화
 - [ ] 포트폴리오 점수 산식 고도화
-- [ ] ETF/테마 아이디어 설명 품질 개선
+- [ ] ETF/테마 아이디어 설명 품질 개선 3차
 - [ ] 기간별 지표 차별화 로직 추가 고도화
 - [ ] Galaxy S25 Ultra 실기기 줄바꿈 / 칩 높이 확인
 - [ ] `site/horizon_index.json` 의 retention/backfill 메타를 UI에 노출할지 결정
+- [ ] 실제 보유 종목 입력 시 매도/축소 액션 자동 생성
 
 ## 남은 작업
 
@@ -96,6 +103,8 @@
 - [ ] 펀더멘털/기술적 시그널 동시 반영 설명 강화
 - [x] 계좌별 현금/투입 가능 금액 반영 1차
 - [x] horizon별 실행 예산 차등 반영 1차
+- [x] horizon별 분할매수 리듬 차등 반영 1차
+- [x] 기사 요약 -> 투자 시사점 -> 실행 메모 연결 1차
 
 ### 보고서
 

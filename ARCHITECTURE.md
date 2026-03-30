@@ -32,9 +32,9 @@ sources.yaml
     -> integrate_refined_insights.py
     -> load_market_data.py
     -> apply_market_quant.py
-    -> macro_analysis.py
-    -> etf_recommender.py
-    -> build_site_report.py
+  -> macro_analysis.py
+  -> etf_recommender.py
+  -> build_site_report.py
     -> storage_retention.py
     -> build_horizon_views.py
   -> site/{date}/result.json, index.html
@@ -43,6 +43,47 @@ sources.yaml
   -> site/template/index.html 기반 horizon 탭 UI
   -> git commit / git push
 ```
+
+## 사이트 리포트 데이터 구조
+
+[`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py) 는 각 날짜의 `site/{date}/result.json` 안에 `dataByPeriod` 를 생성한다.
+
+핵심 블록:
+
+- `briefing`
+  - `sentiment`
+  - `scoreChips`
+  - `metricChips`
+  - `forecast`
+  - `strategy`
+  - `insights`
+  - `indices`
+- `newsList`
+  - 각 카드에 `summary`, `detailPoints`, `portfolioImplication`, `executionGuide`, `impacts`, `sources`
+- `portfolio`
+  - `portfolioScore`
+  - `capitalPlan`
+  - `targetAmounts`
+  - `accountPlans`
+  - `allocations`
+  - `notes`
+- `rebalancing`
+  - `actions[*].todayAmount`
+  - `actions[*].splitPlan`
+  - `actions[*].addRule`
+  - `actions[*].pauseRule`
+  - `actions[*].reviewRule`
+- `recommendations`
+  - `ideas[*].macroContext`
+  - `ideas[*].evidencePoints`
+  - `ideas[*].positioning`
+  - `ideas[*].watchPoint`
+
+의도:
+
+- 기사 요약이 끝이 아니라 포트폴리오와 매수 실행 가이드로 직접 이어져야 한다.
+- 현재 포트폴리오가 전액 현금이어도 "어느 계좌에 얼마를 어떤 속도로 넣을지"를 보여줄 수 있어야 한다.
+- 기간별로 같은 포트폴리오도 다른 질문으로 해석되어야 한다.
 
 ## 수집 파이프라인 구조
 
@@ -250,6 +291,18 @@ data/index/content_hashes.json
 - `build_horizon_views.py`
 
 즉, 매일 배치가 끝나면 오래된 raw/normalized/manifests 를 요약+압축 대상으로 넘기고, 그 뒤 1일/1주/1개월/3개월/6개월 뷰를 다시 집계한다.
+
+### 기간별 실행 리듬
+
+현재 보고서에서 사용하는 기본 분할매수 리듬:
+
+- `1일`: 3거래일 분할매수
+- `1주`: 주간 3회 분할매수
+- `1개월`: 4주 분할 구축
+- `3개월`: 6~8주 단계 구축
+- `6개월`: 월별 리밸런싱 구축
+
+이 값은 [`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py) 의 `EXECUTION_RHYTHM` 에 정의되어 있고, 포트폴리오/실행 가이드/ETF 아이디어에 동시에 반영된다.
 
 ## historical backfill 레이어
 

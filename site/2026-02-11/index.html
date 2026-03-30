@@ -878,11 +878,21 @@
         <div class="card">
           <div class="card-title">${item.title || '이슈'}</div>
           <div class="chip-group">${(item.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+          <div class="impact-title">기사 핵심 내용</div>
           <div class="body-text">${item.summary || ''}</div>
           ${(item.detailPoints || []).length ? `
+            <div class="impact-title">핵심 내용 정리</div>
             <ul class="detail-list">
               ${(item.detailPoints || []).map(point => `<li class="detail-item">${point}</li>`).join('')}
             </ul>
+          ` : ''}
+          ${item.portfolioImplication ? `
+            <div class="impact-title">투자 시사점</div>
+            <div class="body-text">${item.portfolioImplication}</div>
+          ` : ''}
+          ${item.executionGuide ? `
+            <div class="impact-title">실행 메모</div>
+            <div class="body-text">${item.executionGuide}</div>
           ` : ''}
           <div class="impact-title">섹터·자산 영향</div>
           ${(item.impacts || []).map(impact => `
@@ -925,6 +935,22 @@
           </div>
         </div>
       `).join('');
+      const targetAmountRows = (data.targetAmounts || []).map(item => `
+        <div class="metric-card">
+          <div class="metric-name">${item.name} · 목표 ${item.percent}%</div>
+          <div class="metric-price">${item.targetAmount || '-'}</div>
+          <div class="muted">현재 ${item.currentAmount || '-'} · ${item.direction} ${item.gapAmount || '-'}</div>
+        </div>
+      `).join('');
+      const accountPlans = (data.accountPlans || []).map(item => `
+        <li class="list-item">
+          <span class="badge">${item.account || '계좌'}</span>
+          <div class="body-text"><b>이번 기간 투입:</b> ${item.deployNow || '-'} / <b>대기 자금:</b> ${item.reserve || '-'}</div>
+          <div class="body-text"><b>역할:</b> ${item.role || ''}</div>
+          <div class="body-text"><b>주력 아이디어:</b> ${item.ideas || ''}</div>
+          <div class="body-text"><b>집행 방식:</b> ${item.method || ''}</div>
+        </li>
+      `).join('');
       const reasons = (score?.reasons || []).map(item => `
         <li class="list-item">
           <span class="badge">점수 근거</span>
@@ -958,6 +984,29 @@
             <div class="card-title" style="font-size:15px;">현재 배분 vs 목표 배분</div>
             <div class="metric-grid">${compareRows}</div>
             <ul class="list" style="margin-top:12px;">${reasons}</ul>
+          </div>
+        ` : ''}
+        ${data.capitalPlan ? `
+          <div class="card">
+            <div class="card-title">${state.currentHorizon} 자금 집행 프레임</div>
+            <div class="body-text">총 현금 ${data.capitalPlan.totalCash || '-'} 중 이번 기간 실행 예산은 ${data.capitalPlan.deployNow || '-'} 입니다. 남은 ${data.capitalPlan.reserveCash || '-'}는 후속 분할매수와 리스크 완충용으로 남겨둡니다.</div>
+            <div class="chip-group" style="margin-top:12px;">
+              <span class="tag">즉시 집행 ${data.capitalPlan.deployRatio || '-'}</span>
+              <span class="tag">${data.capitalPlan.cadence || ''}</span>
+            </div>
+          </div>
+        ` : ''}
+        ${targetAmountRows ? `
+          <div class="card">
+            <div class="card-title">자산군 목표 금액</div>
+            <div class="muted" style="margin-bottom:12px;">현재 자산구성과 레짐 권장 비중의 차이를 금액 기준으로 정리했습니다.</div>
+            <div class="metric-grid">${targetAmountRows}</div>
+          </div>
+        ` : ''}
+        ${accountPlans ? `
+          <div class="card">
+            <div class="card-title">계좌별 실행 예산</div>
+            <ul class="list">${accountPlans}</ul>
           </div>
         ` : ''}
         ${data.horizonView ? `
@@ -1008,8 +1057,22 @@
           <div class="chip-group">
             <span class="tag">${state.currentHorizon}</span>
             <span class="tag">${state.currentView.bucketLabel || ''}</span>
+            <span class="tag">${item.executionStyle || ''}</span>
+            <span class="tag">오늘 1차 ${item.todayAmount || '-'}</span>
           </div>
+          <div class="body-text"><b>포지션 역할:</b> ${item.assetRole || ''}</div>
+          <div class="body-text" style="margin-top:10px;"><b>비중 힌트:</b> ${item.positionHint || ''}</div>
           <div class="body-text"><b>이유:</b> ${item.reason || ''}</div>
+          <div class="body-text" style="margin-top:10px;"><b>집행 리듬:</b> ${item.executionSummary || ''}</div>
+          ${(item.splitPlan || []).length ? `
+            <div class="impact-title">분할매수 단계</div>
+            <ul class="detail-list">
+              ${(item.splitPlan || []).map(step => `<li class="detail-item">${step}</li>`).join('')}
+            </ul>
+          ` : ''}
+          <div class="body-text" style="margin-top:10px;"><b>추가 조건:</b> ${item.addRule || ''}</div>
+          <div class="body-text" style="margin-top:10px;"><b>보류 조건:</b> ${item.pauseRule || ''}</div>
+          <div class="body-text" style="margin-top:10px;"><b>재점검 기준:</b> ${item.reviewRule || ''}</div>
           <div class="body-text" style="margin-top:10px;"><b>주의:</b> ${item.caution || ''}</div>
           ${renderSources(item.sources, `rebalance-action-src-${idx}`)}
         </div>
@@ -1074,9 +1137,18 @@
           <div class="idea-body">
             <div class="issue-badge">연결 이슈: ${item.linkedIssue || '-'}</div>
             <div class="body-text">${item.reason || ''}</div>
+            <div class="body-text" style="margin-top:10px;"><b>매크로 문맥:</b> ${item.macroContext || ''}</div>
             <div class="body-text" style="margin-top:10px;"><b>왜 살 수 있는가:</b> ${item.whyBuy || ''}</div>
+            ${(item.evidencePoints || []).length ? `
+              <div class="impact-title">근거 포인트</div>
+              <ul class="detail-list">
+                ${(item.evidencePoints || []).map(point => `<li class="detail-item">${point}</li>`).join('')}
+              </ul>
+            ` : ''}
             <div class="body-text" style="margin-top:10px;"><b>우려 지점:</b> ${item.risk || ''}</div>
+            <div class="body-text" style="margin-top:10px;"><b>권장 비중:</b> ${item.positioning || ''}</div>
             <div class="body-text" style="margin-top:10px;"><b>집행 방식:</b> ${item.execution || ''}</div>
+            <div class="body-text" style="margin-top:10px;"><b>체크 포인트:</b> ${item.watchPoint || ''}</div>
             ${renderSources(item.sources, `idea-src-${idx}`)}
           </div>
         </div>

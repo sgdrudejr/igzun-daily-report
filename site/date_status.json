@@ -52,8 +52,8 @@
     "status": "empty"
   },
   "2026-03-14": {
-    "count": 1,
-    "status": "sparse"
+    "count": 0,
+    "status": "empty"
   },
   "2026-03-13": {
     "count": 45,
@@ -80,8 +80,8 @@
     "status": "empty"
   },
   "2026-03-07": {
-    "count": 1,
-    "status": "sparse"
+    "count": 0,
+    "status": "empty"
   },
   "2026-03-06": {
     "count": 27,
@@ -248,43 +248,43 @@
     "status": "full"
   },
   "2026-01-14": {
-    "count": 38,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   },
   "2026-01-13": {
-    "count": 53,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   },
   "2026-01-12": {
-    "count": 56,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   },
   "2026-01-09": {
-    "count": 35,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   },
   "2026-01-08": {
-    "count": 52,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   },
   "2026-01-07": {
-    "count": 10,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   },
   "2026-01-06": {
-    "count": 54,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   },
   "2026-01-05": {
-    "count": 60,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   },
   "2026-01-02": {
-    "count": 56,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   },
   "2026-01-01": {
-    "count": 56,
-    "status": "full"
+    "count": 0,
+    "status": "partial"
   }
 }

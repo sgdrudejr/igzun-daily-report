@@ -122,6 +122,49 @@ PERIOD_EXECUTION = {
     },
 }
 
+EXECUTION_RHYTHM = {
+    "1일": {
+        "label": "3거래일 분할매수",
+        "tranches": [0.40, 0.30, 0.30],
+        "cadence": "오늘 1차, 1~2거래일 내 눌림목에서 2차, 종가 기준 안정 확인 후 3차",
+        "add_rule": "전일 대비 약세 또는 RSI 45 이하 재진입 구간에서 2차를 검토",
+        "pause_rule": "장중 급등 추격, RSI 70 이상 과열, VIX 재급등 시 추가 진입 보류",
+        "review_rule": "3거래일 안에 방향이 안 나오면 비중 확대를 멈추고 재평가",
+    },
+    "1주": {
+        "label": "주간 3회 분할매수",
+        "tranches": [0.45, 0.30, 0.25],
+        "cadence": "주초 1차, 중반 데이터 확인 후 2차, 주말 전 추세 확인 후 3차",
+        "add_rule": "환율 안정과 지수 저점 확인이 같이 나오면 추가",
+        "pause_rule": "주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류",
+        "review_rule": "주 후반까지 정책/수급 방향이 엇갈리면 다음 주로 이월",
+    },
+    "1개월": {
+        "label": "4주 분할 구축",
+        "tranches": [0.30, 0.25, 0.25, 0.20],
+        "cadence": "매주 한 번씩 4회에 걸쳐 기본 비중을 완성",
+        "add_rule": "주간 지표와 섹터 회전이 같은 방향일 때 추가",
+        "pause_rule": "과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절",
+        "review_rule": "월말에 목표 비중 대비 초과·미달을 재점검",
+    },
+    "3개월": {
+        "label": "6~8주 단계 구축",
+        "tranches": [0.30, 0.25, 0.20, 0.15, 0.10],
+        "cadence": "월간 이벤트와 실적 시즌을 보며 5단계로 구축",
+        "add_rule": "금리와 달러 압력이 완화되고 실적 가시성이 살아날 때 추가",
+        "pause_rule": "실적 가이던스 훼손, 장기금리 재상승 시 상위 테마도 비중 상한 유지",
+        "review_rule": "월 1회 리밸런싱하며 과열 자산은 목표 비중을 넘기지 않음",
+    },
+    "6개월": {
+        "label": "월별 리밸런싱 구축",
+        "tranches": [0.22, 0.20, 0.20, 0.20, 0.18],
+        "cadence": "월별 점검에 맞춰 천천히 구축하고 비중을 유지",
+        "add_rule": "중기 레짐 유지와 펀더멘털 개선이 확인될 때만 추가",
+        "pause_rule": "목표 비중 도달 후에는 추가 매수보다 리밸런싱 우선",
+        "review_rule": "월말마다 코어/위성 비중을 재설정하고 과열 자산은 감액",
+    },
+}
+
 
 def load_json(path: Path) -> dict | list | None:
     if not path.exists():
@@ -358,6 +401,93 @@ def etf_logo(item: dict) -> str:
 
 def period_profile(period: str) -> dict:
     return PERIOD_EXECUTION.get(period, PERIOD_EXECUTION["1개월"])
+
+
+def execution_rhythm(period: str) -> dict:
+    return EXECUTION_RHYTHM.get(period, EXECUTION_RHYTHM["1개월"])
+
+
+def split_amounts(total_amount: int, tranches: list[float]) -> list[int]:
+    if total_amount <= 0 or not tranches:
+        return []
+    raw = [int(total_amount * ratio) for ratio in tranches]
+    remainder = total_amount - sum(raw)
+    for idx in range(remainder):
+        raw[idx % len(raw)] += 1
+    return raw
+
+
+def ordinal_kr(index: int) -> str:
+    return f"{index + 1}차"
+
+
+def execution_step_lines(period: str, amount: int) -> list[str]:
+    rules = execution_rhythm(period)
+    amounts = split_amounts(amount, rules["tranches"])
+    if not amounts:
+        return []
+    lines = []
+    for idx, tranche_amount in enumerate(amounts):
+        label = ordinal_kr(idx)
+        if idx == 0:
+            note = "초기 진입 물량으로 가격 확인에 집중"
+        elif idx == len(amounts) - 1:
+            note = "추세 확인 뒤 마지막 물량만 배치"
+        else:
+            note = "확인 매수로 평균단가와 방향성을 동시에 점검"
+        lines.append(f"{label} {money(tranche_amount)} — {note}")
+    return lines
+
+
+def total_position_hint(item: dict) -> str:
+    item_type = safe_text(item.get("type"), "").lower()
+    if "bond" in item_type:
+        return "총 투자금의 12~20% 범위 코어 방어축"
+    if "commodity" in item_type:
+        return "총 투자금의 8~12% 범위 헤지 축"
+    if "sector" in item_type:
+        return "총 투자금의 6~12% 범위 위성 테마"
+    return "총 투자금의 15~25% 범위 코어 자산"
+
+
+def idea_role_text(item: dict) -> str:
+    item_type = safe_text(item.get("type"), "").lower()
+    if "bond" in item_type:
+        return "변동성 완충과 금리 하락 수혜를 노리는 방어 축입니다."
+    if "commodity" in item_type:
+        return "인플레이션·지정학 리스크를 막아주는 헤지 축입니다."
+    if "sector" in item_type:
+        return "레짐이 맞을 때 알파를 더하는 위성 테마 축입니다."
+    return "포트폴리오 중심에 놓는 코어 지수 축입니다."
+
+
+def idea_macro_context(item: dict, macro: dict) -> str:
+    mi = macro.get("macro_inputs", {}) or {}
+    item_type = safe_text(item.get("type"), "").lower()
+    ticker = safe_text(item.get("ticker"), "")
+    if "bond" in item_type:
+        return (
+            f"연준 {number(mi.get('fedfunds'), 2)}%, 미 10년물 {number(mi.get('us10y'), 2)}% 환경에서는 "
+            f"채권 ETF가 방어와 금리 피크아웃 기대를 동시에 반영합니다."
+        )
+    if "commodity" in item_type or ticker in {"GLD", "XLE"}:
+        return (
+            f"유가 {number(mi.get('oil'), 2)}, 달러 {number(mi.get('dxy'), 1)} 조합은 "
+            f"원자재 자산에 헤지 또는 전술적 강세 논리를 제공합니다."
+        )
+    if item.get("region") == "KR":
+        return (
+            f"원/달러 {number(mi.get('usd_krw'), 0)}원, 한국 기준금리 {number(mi.get('bok_rate'), 2)}%를 감안하면 "
+            f"한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다."
+        )
+    if item.get("region") == "JP":
+        return "일본 ETF는 미국 단일 집중을 줄이면서 엔화·수출주 민감도 분산 역할을 합니다."
+    if item.get("region") == "EU":
+        return "유럽 ETF는 미국 기술주 편중을 낮추고 경기민감 업종 회복을 분산해서 담는 수단입니다."
+    return (
+        f"달러 {number(mi.get('dxy'), 1)}, 금리 {number(mi.get('us10y'), 2)}%, 변동성 {number(mi.get('vix'), 1)} 환경에서 "
+        f"코어 지수 ETF는 종목 선택 리스크를 줄이는 기본 축으로 유효합니다."
+    )
 
 
 def source_item(label: str, source: str, title: str, published_at: str = "") -> dict:
@@ -839,6 +969,14 @@ def build_news_list(period: str, macro: dict, etf: dict, catalog: list[dict]) ->
                 f"장기채는 금리 민감도가 높아 단기 흔들림이 크므로 {period} 구간에서는 분할 접근이 적절합니다.",
                 f"결국 금리 피크아웃이 확인되기 전까지는 성장주 올인보다 코어 지수 + 채권 + 현금의 조합이 더 설득력 있습니다.",
             ],
+            "portfolioImplication": (
+                f"{period} 포트폴리오에서는 고금리 적응 구간이라는 판단 아래 코어 지수만 단독으로 늘리기보다 "
+                f"채권과 현금을 함께 두는 바벨형 접근이 더 합리적입니다."
+            ),
+            "executionGuide": (
+                f"매수는 한 번에 몰아넣지 말고 {execution_rhythm(period)['label']} 원칙으로 나누는 편이 좋습니다. "
+                f"특히 금리 민감 자산은 이벤트 직후 급등 추격을 피해야 합니다."
+            ),
             "impacts": [
                 {"sector": "장기채", "isPositive": False, "desc": "금리 민감도가 높아 변동성 확대 위험이 큽니다."},
                 {"sector": "단기채", "isPositive": True, "desc": "고금리 환경에서 방어적 수익률 확보가 가능합니다."},
@@ -859,6 +997,13 @@ def build_news_list(period: str, macro: dict, etf: dict, catalog: list[dict]) ->
                 f"그래서 한국 비중을 늘릴 때도 지수 전체보다는 수출/반도체/대형주 ETF로 압축하는 편이 낫습니다.",
                 f"{profile['portfolio_focus']} 따라서 환율이 진정되기 전까지는 현금과 달러 노출 자산을 완충재로 쓰는 전략이 유효합니다.",
             ],
+            "portfolioImplication": (
+                f"한국 비중을 확대하더라도 환율 부담이 크면 ISA 안에서 broad ETF와 반도체 ETF를 섞고, "
+                f"토스 계좌에서는 달러 자산을 완충재로 두는 구조가 더 안전합니다."
+            ),
+            "executionGuide": (
+                f"원/달러가 급등하는 날은 공격적 추가매수보다 대기 자금을 남기고, 환율이 진정되는 날 2차 분할매수를 고려하는 접근이 적합합니다."
+            ),
             "impacts": [
                 {"sector": "한국 증시", "isPositive": False, "desc": "외국인 수급이 약해지면 지수 상단이 제한됩니다."},
                 {"sector": "달러 자산", "isPositive": True, "desc": "환노출 자산의 헤지 효과가 커집니다."},
@@ -879,6 +1024,13 @@ def build_news_list(period: str, macro: dict, etf: dict, catalog: list[dict]) ->
                 f"따라서 금 ETF는 포트폴리오 안정판, 에너지 ETF는 수익 기회라는 다른 역할로 편입해야 합니다.",
                 f"{period} 관점에서는 금과 에너지를 동시에 담더라도 비중과 목적을 분리해 놓는 것이 중요합니다.",
             ],
+            "portfolioImplication": (
+                f"원자재는 한 묶음이 아니라 금은 헤지, 에너지는 전술 비중으로 분리해서 들고 가야 합니다. "
+                f"같은 10% 원자재 비중이라도 금 6~7%, 에너지 3~4%처럼 역할별로 쪼개는 편이 더 실전적입니다."
+            ),
+            "executionGuide": (
+                f"원자재는 변동성이 크므로 broad 지수 ETF보다 작은 비중으로 시작하고, 가격이 급등한 날보다는 눌림 구간에서 분할 진입하는 편이 좋습니다."
+            ),
             "impacts": [
                 {"sector": "에너지", "isPositive": True, "desc": "유가 강세 구간에서는 실적 민감도가 높아집니다."},
                 {"sector": "소비재", "isPositive": False, "desc": "원가 부담이 커질 수 있습니다."},
@@ -899,6 +1051,13 @@ def build_news_list(period: str, macro: dict, etf: dict, catalog: list[dict]) ->
                 f"과열된 ETF는 위성 비중으로 두고, 코어 자산은 broad ETF와 채권, 금 같은 분산 축으로 세우는 편이 안정적입니다.",
                 f"ETF 선택은 결국 {period}의 질문에 답해야 합니다. 단기면 타이밍, 중기면 비중 관리가 더 중요합니다.",
             ],
+            "portfolioImplication": (
+                f"ETF는 '무엇을 살까'보다 '어떤 역할로 넣을까'가 더 중요합니다. "
+                f"코어 ETF는 비중 기반으로, 섹터 ETF는 상한 기반으로 다뤄야 포트폴리오가 흔들리지 않습니다."
+            ),
+            "executionGuide": (
+                f"{period}에서는 상위 ETF라도 전액 매수보다 2~5회 분할매수로 평균단가와 타이밍 리스크를 줄이는 방식이 더 유효합니다."
+            ),
             "impacts": [
                 {"sector": "지수 ETF", "isPositive": True, "desc": "개별 종목보다 레짐 대응이 쉽습니다."},
                 {"sector": "섹터 ETF", "isPositive": True, "desc": "에너지·반도체 등 강한 테마를 선별 반영할 수 있습니다."},
@@ -1033,6 +1192,9 @@ def build_portfolio_block(period: str, macro: dict, etf: dict, portfolio_state: 
     accounts = portfolio_state.get("accounts", {}) or {}
     score = portfolio_score_components(regime, portfolio_state)
     profile = period_profile(period)
+    rhythm = execution_rhythm(period)
+    current_amounts, total_assets = calculate_current_mix(portfolio_state)
+    total_assets = total_assets or float(total_cash)
 
     account_lines = []
     for key in ["ISA", "TOSS", "PENSION"]:
@@ -1051,6 +1213,47 @@ def build_portfolio_block(period: str, macro: dict, etf: dict, portfolio_state: 
         {"name": "원자재", "percent": round(alloc["원자재"] * 100, 1), "color": "#ca8a04", "desc": "금·에너지로 인플레이션 및 리스크 헤지"},
         {"name": "현금", "percent": round(alloc["현금"] * 100, 1), "color": "#6b7280", "desc": "추가 조정 대응용 대기 자금"},
     ]
+
+    target_amounts = []
+    for item in allocations:
+        asset = item["name"]
+        current_amount = current_amounts.get(asset, 0.0)
+        target_amount = total_assets * alloc[asset]
+        gap_amount = target_amount - current_amount
+        target_amounts.append(
+            {
+                "name": asset,
+                "color": item["color"],
+                "percent": item["percent"],
+                "currentAmount": money(current_amount),
+                "targetAmount": money(target_amount),
+                "gapAmount": money(abs(gap_amount)),
+                "direction": "늘리기" if gap_amount > 0 else ("줄이기" if gap_amount < 0 else "유지"),
+            }
+        )
+
+    deploy_now_total = int(total_cash * profile["deploy_ratio"])
+    reserve_total = max(total_cash - deploy_now_total, 0)
+    account_plans = []
+    for key in ["ISA", "TOSS", "PENSION"]:
+        account = accounts.get(key, {})
+        if not account:
+            continue
+        strategy = ACCOUNT_STRATEGY.get(key, {})
+        account_cash = int(as_float(account.get("cash")) or 0)
+        deploy_now = int(account_cash * profile["deploy_ratio"])
+        reserve = max(account_cash - deploy_now, 0)
+        account_plans.append(
+            {
+                "account": safe_text(account.get("label"), key),
+                "cash": money(account_cash),
+                "deployNow": money(deploy_now),
+                "reserve": money(reserve),
+                "role": safe_text(strategy.get("note"), safe_text(account.get("note"))),
+                "ideas": ", ".join(strategy.get("ideas", [])[:3]) or "추천 ETF 데이터 보강 예정",
+                "method": f"{profile['action_label']} · {rhythm['label']}",
+            }
+        )
 
     if period in {"1일", "1주"}:
         return_rate = profile["action_label"]
@@ -1080,6 +1283,15 @@ def build_portfolio_block(period: str, macro: dict, etf: dict, portfolio_state: 
             metric_chip("분산도", f"{score['breakdown']['diversification']}점", "score"),
             metric_chip("현금 운용", f"{score['breakdown']['cashManagement']}점", "score"),
         ],
+        "capitalPlan": {
+            "totalCash": money(total_cash),
+            "deployNow": money(deploy_now_total),
+            "reserveCash": money(reserve_total),
+            "cadence": rhythm["cadence"],
+            "deployRatio": f"{int(profile['deploy_ratio'] * 100)}%",
+        },
+        "targetAmounts": target_amounts,
+        "accountPlans": account_plans,
         "holdings": [],
         "weeklyReview": {
             "returnRate": return_rate,
@@ -1097,12 +1309,15 @@ def build_portfolio_block(period: str, macro: dict, etf: dict, portfolio_state: 
             f"현재 점수 {score['score']}점은 손익률이 아니라 현 레짐에 대한 적합도입니다.",
             f"{period} 관점에서는 '{profile['question']}'에 답하는 방식으로 같은 포트폴리오를 다르게 해석해야 합니다.",
             f"따라서 1일 시점에서 매수 의견이 나와도 6개월 시점에서는 특정 섹터 비중 상한을 두라는 결론이 함께 나올 수 있습니다.",
+            f"현재 포트폴리오는 전액 현금에 가까우므로, 당장의 핵심은 무엇을 팔지보다 어떤 순서로 얼마를 배치할지입니다.",
+            f"실행 속도는 {rhythm['label']} 원칙을 따르되, {rhythm['pause_rule']} 조건에서는 추가 집행을 멈추는 편이 좋습니다.",
         ],
         "allocations": allocations,
         "planDesc": (
             f"{regime_kr} 기준 권장 배분은 주식 {int(alloc['주식']*100)}% / 채권 {int(alloc['채권']*100)}% / "
             f"원자재 {int(alloc['원자재']*100)}% / 현금 {int(alloc['현금']*100)}% 입니다. "
-            f"ISA는 국내 ETF, 토스증권은 미국 ETF, 연금저축은 장기 분산형 ETF에 우선 배분합니다."
+            f"이번 {period} 실행 예산은 {money(deploy_now_total)}이며, 나머지 {money(reserve_total)}는 "
+            f"{rhythm['review_rule']} 원칙 아래 대기 자금으로 남깁니다."
         ),
         "sources": source_bundle(period, macro, etf, portfolio_state),
     }
@@ -1112,6 +1327,7 @@ def build_rebalancing_block(period: str, macro: dict, etf: dict, portfolio_state
     regime = macro.get("regime", "Neutral")
     target = REGIME_ALLOC.get(regime, REGIME_ALLOC["Neutral"])
     profile = period_profile(period)
+    rhythm = execution_rhythm(period)
     ranked = etf.get("recommendations") or []
     accounts = portfolio_state.get("accounts", {}) or {}
     used: set[str] = set()
@@ -1151,6 +1367,9 @@ def build_rebalancing_block(period: str, macro: dict, etf: dict, portfolio_state
             source_item("ETF 추천", "etf_recommender", f"{period} {translate_etf_name(item)} 점수화", etf.get("date", "")),
             source_item("포트폴리오 상태", "portfolio_state", f"{safe_text(account.get('label'), account_key)} 현금 배치", portfolio_state.get("updated", "")),
         ]
+        split_lines = execution_step_lines(period, deploy_cash)
+        split_amount = split_amounts(deploy_cash, rhythm["tranches"])
+        first_amount = split_amount[0] if split_amount else 0
         actions.append(
             {
                 "account": safe_text(account.get("label"), account_key),
@@ -1159,11 +1378,20 @@ def build_rebalancing_block(period: str, macro: dict, etf: dict, portfolio_state
                 "ticker": safe_text(item.get("ticker"), "-"),
                 "amount": money(deploy_cash),
                 "weightHint": f"계좌 현금의 약 {int(ratio * profile['deploy_ratio'] * 100)}%",
+                "positionHint": total_position_hint(item),
+                "assetRole": idea_role_text(item),
+                "todayAmount": money(first_amount),
                 "reason": (
                     f"{period} 기준 {profile['action_label']} 단계입니다. {translate_etf_name(item)} 는 점수 {safe_text(item.get('score'))}점, "
                     f"3개월 모멘텀 {pct(item.get('momentum_3m'))}, RSI {number(item.get('rsi'), 1)}로 '{safe_text(item.get('rationale'))}' 평가를 받았습니다. "
                     f"{note}"
                 ),
+                "executionStyle": rhythm["label"],
+                "executionSummary": rhythm["cadence"],
+                "splitPlan": split_lines,
+                "addRule": rhythm["add_rule"],
+                "pauseRule": rhythm["pause_rule"],
+                "reviewRule": rhythm["review_rule"],
                 "caution": rsi_comment(item.get("rsi")),
                 "sources": action_sources,
             }
@@ -1186,7 +1414,16 @@ def build_rebalancing_block(period: str, macro: dict, etf: dict, portfolio_state
                 "ticker": "-",
                 "amount": "0원",
                 "weightHint": "0%",
+                "positionHint": "데이터 확보 후 계산",
+                "assetRole": "현재는 현금 유지가 기본 역할입니다.",
+                "todayAmount": "0원",
                 "reason": f"{period} 기준 리밸런싱 액션을 만들 충분한 ETF 데이터가 없습니다.",
+                "executionStyle": rhythm["label"],
+                "executionSummary": rhythm["cadence"],
+                "splitPlan": [],
+                "addRule": rhythm["add_rule"],
+                "pauseRule": rhythm["pause_rule"],
+                "reviewRule": rhythm["review_rule"],
                 "caution": "데이터가 채워질 때까지 현금과 코어 자산 위주로 대기합니다.",
                 "sources": source_bundle(period, macro, etf, portfolio_state),
             }
@@ -1203,7 +1440,8 @@ def build_rebalancing_block(period: str, macro: dict, etf: dict, portfolio_state
             f"{period} 시점의 총 현금은 {money(total_cash)}입니다. "
             f"실행 예산은 약 {money(guided_cash)}입니다. 대기 자금은 {money(keep_cash)}입니다. "
             f"이 가이드는 같은 포트폴리오라도 기간에 따라 "
-            f"매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다."
+            f"매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다. "
+            f"집행 리듬은 '{rhythm['label']}'이며, {rhythm['cadence']} 원칙을 따릅니다."
         ),
         "horizonNote": (
             f"{period}의 질문은 '{profile['question']}' 입니다. 그래서 1일 뷰에서는 초기 매수가 가능해 보여도, "
@@ -1214,6 +1452,7 @@ def build_rebalancing_block(period: str, macro: dict, etf: dict, portfolio_state
             f"현재 레짐 {get_regime_label(regime)} 기준 전략 비중은 {target_lines} 입니다.",
             f"{profile['guide']}",
             "매수 가이드는 즉시 전액 집행이 아니라 계좌별 분할 집행을 전제로 합니다.",
+            f"현재 분할매수 원칙은 '{rhythm['label']}'이며, 추가 조건은 '{rhythm['add_rule']}', 보류 조건은 '{rhythm['pause_rule']}' 입니다.",
             "보유 종목이 생기면 이후에는 신규 매수뿐 아니라 비중 축소/교체 액션도 함께 계산하도록 확장할 수 있습니다.",
         ],
         "sources": select_sources(catalog, ["fred_api", "ecos_api", "naver_research", "opendart"], 4) + source_bundle(period, macro, etf, portfolio_state),
@@ -1223,12 +1462,18 @@ def build_rebalancing_block(period: str, macro: dict, etf: dict, portfolio_state
 def build_recommendations_block(period: str, macro: dict, etf: dict, regime: str, catalog: list[dict]) -> dict:
     ranked = (etf.get("recommendations") or [])[:8]
     mi = macro.get("macro_inputs", {}) or {}
+    rhythm = execution_rhythm(period)
     ideas = []
     for item in ranked[:4]:
         rationale = safe_text(item.get("rationale"))
         idea_sources = select_sources(catalog, ["fred_api", "ecos_api", "fed_speeches_rss", "naver_research"], 4) + [
             source_item("ETF 추천", "etf_recommender", f"{period} {translate_etf_name(item)} 점수화", etf.get("date", "")),
             source_item("퀀트 레짐", "macro_analysis", f"{period} 레짐과 점수 조합", macro.get("date", "")),
+        ]
+        evidence_points = [
+            idea_macro_context(item, macro),
+            f"기술적으로 3개월 모멘텀 {pct(item.get('momentum_3m'))}, RSI {number(item.get('rsi'), 1)}, 20일 변동성 {number(item.get('volatility_20d'), 1)} 수준입니다.",
+            f"{idea_role_text(item)} 포지션 상한은 {total_position_hint(item)} 정도로 두는 편이 안정적입니다.",
         ]
         ideas.append(
             {
@@ -1253,8 +1498,13 @@ def build_recommendations_block(period: str, macro: dict, etf: dict, regime: str
                     f"{'특히 과열 섹터는 장기 목표 비중 상한을 두는 편이 좋습니다.' if (as_float(item.get('rsi')) or 0) >= 70 else '레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.'}"
                 ),
                 "execution": (
-                    f"{period}에서는 {'1차만 진입 후 확인' if period in {'1일', '1주'} else '목표 비중까지 단계적으로 구축'} 전략이 적합합니다."
+                    f"{period}에서는 {'1차만 진입 후 확인' if period in {'1일', '1주'} else '목표 비중까지 단계적으로 구축'} 전략이 적합합니다. "
+                    f"집행 리듬은 {rhythm['label']}이며, {rhythm['pause_rule']} 조건에서는 속도를 늦추는 편이 좋습니다."
                 ),
+                "macroContext": idea_macro_context(item, macro),
+                "positioning": total_position_hint(item),
+                "evidencePoints": evidence_points,
+                "watchPoint": rhythm["pause_rule"],
                 "sources": idea_sources,
             }
         )
@@ -1284,6 +1534,10 @@ def build_recommendations_block(period: str, macro: dict, etf: dict, regime: str
                 "whyBuy": "ETF 데이터가 채워지면 레짐·모멘텀·RSI를 근거로 설명을 보강합니다.",
                 "risk": "현재는 데이터 부족이 가장 큰 리스크입니다.",
                 "execution": "데이터 확보 전까지는 코어 자산과 현금 중심 접근이 적합합니다.",
+                "macroContext": "데이터 확보 전까지는 매크로 컨텍스트 설명을 보수적으로 유지합니다.",
+                "positioning": "총 투자금의 0%",
+                "evidencePoints": [],
+                "watchPoint": "충분한 ETF 데이터 확보 전까지는 과도한 해석을 피합니다.",
                 "sources": source_bundle(period, macro, etf, {}),
             }
         ]

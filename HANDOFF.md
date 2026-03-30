@@ -32,6 +32,10 @@
 - `scripts/macro_analysis.py`, `scripts/etf_recommender.py`, `scripts/build_site_report.py` 작업이 시작되어 있다.
 - [`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py) 가 `dataByPeriod` 호환 구조를 유지한 채 한국어 인사이트 중심 리포트로 재작성되었다.
 - `site/{date}/result.json` 에 1일/1주/1개월/3개월/6개월 구간별 브리핑, 주요 이슈, 포트폴리오, ETF 아이디어가 들어가도록 정리되었다.
+- 포트폴리오 블록에 `capitalPlan`, `targetAmounts`, `accountPlans` 가 추가되어 총 현금, 이번 기간 집행 예산, 자산군 목표 금액, 계좌별 투입 예산을 함께 보여준다.
+- 실행 가이드 블록에 `todayAmount`, `splitPlan`, `addRule`, `pauseRule`, `reviewRule` 가 추가되어 분할매수 단계와 보류 조건을 구체적으로 제시한다.
+- ETF 아이디어 블록에 `macroContext`, `evidencePoints`, `positioning`, `watchPoint` 가 추가되어 왜 사는지와 어떤 비중으로 접근할지까지 설명한다.
+- 핵심 이슈 카드에 `portfolioImplication`, `executionGuide` 가 추가되어 기사 요약이 포트폴리오 판단과 집행 방식으로 직접 연결된다.
 - `undefined`/`None`/`null` 문자열이 결과 JSON 에 남지 않도록 fallback 처리했다.
 - [`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 를 기준 템플릿으로 추가했다.
 - 날짜별 [`site/2026-03-27/index.html`](/Users/seo/igzun-daily-report/site/2026-03-27/index.html), [`site/2026-03-29/index.html`](/Users/seo/igzun-daily-report/site/2026-03-29/index.html), [`site/2026-03-30/index.html`](/Users/seo/igzun-daily-report/site/2026-03-30/index.html) 도 템플릿 기준으로 다시 생성했다.
@@ -51,6 +55,12 @@
 - `site/` 아래 HTML/JSON 검색 기준 `undefined`/`None` 문자열이 남지 않도록 다시 검증했다.
 - `briefing.strategy`, `rebalancing`, `briefing.scoreChips`, `briefing.metricChips`, `portfolio.scoreChips` 블록이 추가되었다.
 - 1일/1주/1개월/3개월/6개월은 각 기간의 질문과 지표가 다르게 보이도록 다시 정리되었다.
+- 1일/1주/1개월/3개월/6개월은 집행 리듬도 다르게 설계되어 있다.
+  - 1일: 3거래일 분할매수
+  - 1주: 주간 3회 분할매수
+  - 1개월: 4주 분할 구축
+  - 3개월: 6~8주 단계 구축
+  - 6개월: 월별 리밸런싱 구축
 - `load_market_data.py`, `macro_analysis.py`, `etf_recommender.py` 는 특정 날짜 기준 as-of 계산이 가능하도록 보정되었다.
 - 백필은 현재 `fred_api`, `opendart` 중심으로 수행된다. RSS/스크래퍼/ECOS 는 snapshot 성격이 강해 Q1 백필 기본 대상에서 제외된다.
 - 저장공간 정리 1차 적용 결과: raw 32일치, normalized 10일치를 summary+archive 로 넘겼다.
@@ -178,7 +188,8 @@
 - Galaxy S25 Ultra 기준 줄바꿈 / 상단 드롭다운 UI 검증
 - 포트폴리오 시사점 로직 정교화
 - 포트폴리오 점수 산식 고도화
-- ETF/섹터 아이디어를 지역/레짐/리스크와 더 강하게 연결하는 설명 강화
+- ETF/섹터 아이디어를 지역/레짐/리스크와 더 강하게 연결하는 설명 강화 2차
+- 보유 종목이 생겼을 때 매도/축소 가이드까지 자동 산출하도록 확장
 - `kr_brokerage_kb`, `kr_brokerage_mirae` 스크래퍼 안정화
 - 주요 유럽/일본 소스 추가 확장
 - source health check와 stale source 알림
