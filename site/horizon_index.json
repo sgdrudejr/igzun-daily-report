@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-30T01:57:33.093015",
+  "generatedAt": "2026-03-30T11:00:31.940490",
   "latestDailyDate": "2026-03-30",
   "horizons": {
     "1일": [
@@ -779,7 +779,7 @@
     ]
   },
   "storageRetention": {
-    "generatedAt": "2026-03-30T01:55:15.473659",
+    "generatedAt": "2026-03-30T11:00:31.830673",
     "policy": {
       "raw_days": 45,
       "normalized_days": 75,
@@ -787,8 +787,8 @@
       "delete_originals": true
     },
     "archivedCounts": {
-      "raw": 32,
-      "normalized": 10,
+      "raw": 0,
+      "normalized": 0,
       "manifests": 0
     }
   },

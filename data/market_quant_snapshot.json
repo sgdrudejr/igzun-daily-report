@@ -1,19 +1,19 @@
 {
   "regime": "Neutral",
-  "macro_score": 43.66707795981468,
+  "macro_score": 43.047383736605376,
   "technical_score": 49.83383211877893,
   "quant_score": 52.68791643769554,
-  "total_score": 48.651399001560705,
+  "total_score": 48.457744556807796,
   "inputs": {
     "rsi_sp500": 23.796355262188314,
     "ma_gap_sp500": -2.283360139642861,
     "momentum_3m_sp500": -8.124576754344881,
     "momentum_12m_sp500": 11.495568780705634,
     "volatility_sp500": 15.012644289230836,
-    "relative_strength_sp500_vs_kospi": -61.809206706868714,
+    "relative_strength_sp500_vs_kospi": -56.24651635168989,
     "adx_sp500": 59.30709658907487,
     "us10y_last": 4.440000057220459,
-    "usdkrw_last": 1508.06005859375,
-    "wti_last": 99.63999938964844
+    "usdkrw_last": 1513.1800537109375,
+    "wti_last": 101.94000244140625
   }
 }

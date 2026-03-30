@@ -5,8 +5,8 @@
     "macro": 50.49,
     "technical": 49.83,
     "quant": 52.69,
-    "fx": 33.09,
-    "total": 47.61
+    "fx": 32.78,
+    "total": 47.56
   },
   "macro_inputs": {
     "vix": 27.44,
@@ -19,7 +19,7 @@
     "unrate": 4.0,
     "cpi_level": 315.0,
     "bok_rate": 2.5,
-    "usd_krw": 1508.06005859375,
+    "usd_krw": 1513.1800537109375,
     "cpi_kr": 118.0
   },
   "technical_inputs": {
@@ -28,22 +28,22 @@
     "momentum_3m": -8.12,
     "momentum_12m": 11.5,
     "volatility_20d": 15.01,
-    "rel_strength_sp500_vs_kospi": -61.81,
+    "rel_strength_sp500_vs_kospi": -56.25,
     "adx_sp500": 59.31,
-    "momentum_3m_nikkei": 7.81,
+    "momentum_3m_nikkei": 1.42,
     "momentum_3m_dax": -8.38
   },
   "latest_prices": {
     "sp500": 6368.85,
-    "kospi": 5438.87,
+    "kospi": 5244.17,
     "nasdaq": 20948.36,
-    "usdkrw": 1508.06,
+    "usdkrw": 1513.18,
     "us10y": 4.42,
     "wti": 89.33,
-    "gold": 4524.3,
-    "nikkei": 53373.07,
+    "gold": 4501.0,
+    "nikkei": 51116.26,
     "dax": 22300.75,
-    "usdjpy": 159.7,
+    "usdjpy": 159.94,
     "bok_rate": 2.5
   },
   "periods": [
@@ -52,14 +52,14 @@
       "days": 1,
       "returns": {
         "sp500": -1.67,
-        "kospi": -0.4,
+        "kospi": -3.58,
         "nasdaq": -2.15,
-        "gold": 3.4,
-        "wti": 5.46,
-        "usdkrw": -0.02,
-        "nikkei": -0.43,
+        "gold": 0.2,
+        "wti": 2.31,
+        "usdkrw": 0.32,
+        "nikkei": -4.23,
         "dax": -1.38,
-        "usdjpy": 0.2,
+        "usdjpy": 0.15,
         "us10y_yield_chg": 0.02
       }
     },
@@ -68,14 +68,14 @@
       "days": 5,
       "returns": {
         "sp500": -2.12,
-        "kospi": -5.92,
+        "kospi": -2.99,
         "nasdaq": -3.23,
-        "gold": -1.01,
-        "wti": 1.34,
-        "usdkrw": 0.26,
-        "nikkei": 0.0,
+        "gold": 2.2,
+        "wti": 15.67,
+        "usdkrw": 0.6,
+        "nikkei": -0.77,
         "dax": -0.35,
-        "usdjpy": 1.13,
+        "usdjpy": 0.44,
         "us10y_yield_chg": 0.05
       }
     },
@@ -84,14 +84,14 @@
       "days": 21,
       "returns": {
         "sp500": -7.82,
-        "kospi": -10.6,
+        "kospi": -16.86,
         "nasdaq": -8.44,
-        "gold": -12.6,
-        "wti": 52.8,
-        "usdkrw": 5.29,
-        "nikkei": -8.89,
+        "gold": -13.95,
+        "wti": 52.1,
+        "usdkrw": 5.65,
+        "nikkei": -13.0,
         "dax": -11.82,
-        "usdjpy": 2.24,
+        "usdjpy": 2.62,
         "us10y_yield_chg": 0.42
       }
     },
@@ -100,14 +100,14 @@
       "days": 63,
       "returns": {
         "sp500": -8.12,
-        "kospi": 35.28,
+        "kospi": 27.72,
         "nasdaq": -11.29,
-        "gold": 0.98,
-        "wti": 70.76,
-        "usdkrw": 5.11,
-        "nikkei": 7.81,
+        "gold": -0.62,
+        "wti": 79.66,
+        "usdkrw": 5.47,
+        "nikkei": 1.42,
         "dax": -8.38,
-        "usdjpy": 2.07,
+        "usdjpy": 2.52,
         "us10y_yield_chg": 0.3
       }
     },
@@ -116,20 +116,20 @@
       "days": 126,
       "returns": {
         "sp500": -3.57,
-        "kospi": 57.67,
+        "kospi": 53.63,
         "nasdaq": -6.42,
-        "gold": 21.07,
-        "wti": 53.34,
-        "usdkrw": 7.48,
-        "nikkei": 19.16,
+        "gold": 19.22,
+        "wti": 55.11,
+        "usdkrw": 7.84,
+        "nikkei": 12.83,
         "dax": -5.24,
-        "usdjpy": 7.48,
+        "usdjpy": 8.07,
         "us10y_yield_chg": 0.27
       }
     }
   ],
   "context": {
-    "market_data_file": "/Users/seo/igzun-daily-report/data/market_data_history/2026-01-01_to_2026-03-30.json",
+    "market_data_file": "/Users/seo/igzun-daily-report/data/market_data_latest.json",
     "fred_snapshot_date": "2026-03-30",
     "ecos_snapshot_date": "2026-03-29"
   }

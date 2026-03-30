@@ -40,7 +40,7 @@
       },
       {
         "label": "FX",
-        "value": "33.1점",
+        "value": "32.8점",
         "tone": "score"
       }
     ],
@@ -52,12 +52,12 @@
       },
       {
         "label": "KOSPI 1주",
-        "value": "-5.9%",
+        "value": "-3.0%",
         "tone": "market"
       },
       {
         "label": "USD/KRW",
-        "value": "1508",
+        "value": "1513",
         "tone": "macro"
       },
       {
@@ -67,23 +67,29 @@
       },
       {
         "label": "유가 1주",
-        "value": "+1.3%",
+        "value": "+15.7%",
         "tone": "macro"
       },
       {
         "label": "상대강도",
-        "value": "-61.81",
+        "value": "-56.25",
         "tone": "signal"
       }
     ],
     "forecast": {
       "title": "2026년 3월 5주 누적 판단",
-      "text": "2026년 3월 5주 동안 2회 일간 업데이트가 누적되었습니다. 평균 점수 46.9, 최근 점수 47.6, 최고 47.6, 최저 46.2. 누적 문서 149건, 주요 출처 네이버 금융 리서치, BIS 연설, 연준 보도자료, FRED 거시지표. 1주 기준 미국은 S&P500 -2.1%, NASDAQ -3.2%, 한국은 KOSPI -5.9%, 일본은 닛케이 +0.0%, 유럽 DAX -0.3% 흐름입니다. 지금 시장은 중립 횡보 국면으로 해석되며, VIX 27.4, DXY 120.3, 미 10년물 4.42%, 원/달러 1508원이 단기 의사결정의 핵심 축입니다. 주간 관점에서는 코어 ETF를 조금 더 늘리되 추세 확인 전 과열 테마 비중 확대는 자제한다. 기술적으로는 RSI 23.8 수준이라 과매도 영역이라 기술적 반등 후보로 볼 수 있습니다.",
+      "text": "2026년 3월 5주 동안 2회 일간 업데이트가 누적되었습니다. 평균 점수 46.9, 최근 점수 47.6, 최고 47.6, 최저 46.2. 누적 문서 245건, 주요 출처 네이버 금융 리서치, OpenDART 공시, BIS 연설, 연준 보도자료. 1주 기준 미국은 S&P500 -2.1%, NASDAQ -3.2%, 한국은 KOSPI -3.0%, 일본은 닛케이 -0.8%, 유럽 DAX -0.3% 흐름입니다. 지금 시장은 중립 횡보 국면으로 해석되며, VIX 27.4, DXY 120.3, 미 10년물 4.42%, 원/달러 1513원이 단기 의사결정의 핵심 축입니다. 주간 관점에서는 코어 ETF를 조금 더 늘리되 추세 확인 전 과열 테마 비중 확대는 자제한다. 기술적으로는 RSI 23.8 수준이라 과매도 영역이라 기술적 반등 후보로 볼 수 있습니다.",
       "sources": [
         {
           "label": "네이버 금융 리서치",
           "source": "naver_research",
-          "title": "네이버 금융 리서치 누적 60건",
+          "title": "네이버 금융 리서치 누적 106건",
+          "published_at": "2026-03-30"
+        },
+        {
+          "label": "OpenDART 공시",
+          "source": "opendart",
+          "title": "OpenDART 공시 누적 52건",
           "published_at": "2026-03-30"
         },
         {
@@ -96,12 +102,6 @@
           "label": "연준 보도자료",
           "source": "fed_press_rss",
           "title": "연준 보도자료 누적 20건",
-          "published_at": "2026-03-30"
-        },
-        {
-          "label": "FRED 거시지표",
-          "source": "fred_api",
-          "title": "FRED 거시지표 누적 16건",
           "published_at": "2026-03-30"
         }
       ]
@@ -116,7 +116,7 @@
         },
         {
           "title": "달러와 원화",
-          "text": "DXY 120.3, 원/달러 1508원으로 달러 압력은 높음입니다. 한국 위험자산은 환율 부담이 남아 있어 지수 전체보다 수출주·반도체·달러 수혜 자산으로 압축해서 보는 편이 낫습니다."
+          "text": "DXY 120.3, 원/달러 1513원으로 달러 압력은 높음입니다. 한국 위험자산은 환율 부담이 남아 있어 지수 전체보다 수출주·반도체·달러 수혜 자산으로 압축해서 보는 편이 낫습니다."
         },
         {
           "title": "원자재와 인플레이션",
@@ -149,19 +149,36 @@
           "count": 6
         },
         {
+          "label": "네이버 금융 리서치",
+          "source": "naver_research",
+          "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+          "examples": [
+            "Yuanta Morning Snapshot (2026.03.30)",
+            "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+            "[DS Defense Daily] 2026-03-30"
+          ],
+          "published_at": "2026-03-30",
+          "region": "KR",
+          "sector": "macro",
+          "doc_type": "research_meta",
+          "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+          "count": 46
+        },
+        {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+          "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
           "examples": [
             "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-            "주요사항보고서(유상증자결정)"
+            "주요사항보고서(유상증자결정)",
+            "감사보고서 (2025.12)"
           ],
           "published_at": "2026-03-30",
           "region": "KR",
           "sector": "equity",
           "doc_type": "filing",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-          "count": 2
+          "count": 52
         },
         {
           "label": "퀀트 레짐",
@@ -179,7 +196,13 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 누적 60건",
+            "title": "네이버 금융 리서치 누적 106건",
+            "published_at": "2026-03-30"
+          },
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 누적 52건",
             "published_at": "2026-03-30"
           },
           {
@@ -192,24 +215,24 @@
             "label": "연준 보도자료",
             "source": "fed_press_rss",
             "title": "연준 보도자료 누적 20건",
-            "published_at": "2026-03-30"
-          },
-          {
-            "label": "FRED 거시지표",
-            "source": "fred_api",
-            "title": "FRED 거시지표 누적 16건",
             "published_at": "2026-03-30"
           }
         ]
       },
       {
         "category": "데이터",
-        "text": "누적 문서 149건, 주요 출처는 네이버 금융 리서치, BIS 연설, 연준 보도자료, FRED 거시지표입니다. 매일 결과를 누적해 1주 관점으로 다시 정리한 뷰입니다.",
+        "text": "누적 문서 245건, 주요 출처는 네이버 금융 리서치, OpenDART 공시, BIS 연설, 연준 보도자료입니다. 매일 결과를 누적해 1주 관점으로 다시 정리한 뷰입니다.",
         "sources": [
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 누적 60건",
+            "title": "네이버 금융 리서치 누적 106건",
+            "published_at": "2026-03-30"
+          },
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 누적 52건",
             "published_at": "2026-03-30"
           },
           {
@@ -222,12 +245,6 @@
             "label": "연준 보도자료",
             "source": "fed_press_rss",
             "title": "연준 보도자료 누적 20건",
-            "published_at": "2026-03-30"
-          },
-          {
-            "label": "FRED 거시지표",
-            "source": "fred_api",
-            "title": "FRED 거시지표 누적 16건",
             "published_at": "2026-03-30"
           }
         ]
@@ -258,7 +275,7 @@
       },
       {
         "category": "레짐",
-        "text": "1주 기준 시장 레짐은 중립 횡보 국면입니다. 총점 47.6 / 매크로 50.5 / 기술 49.8 / 퀀트 52.7 / FX 33.1.",
+        "text": "1주 기준 시장 레짐은 중립 횡보 국면입니다. 총점 47.6 / 매크로 50.5 / 기술 49.8 / 퀀트 52.7 / FX 32.8.",
         "sources": [
           {
             "label": "퀀트 레짐",
@@ -291,38 +308,56 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           }
         ]
       },
       {
         "category": "한국",
-        "text": "한국 시장은 1주 기준 KOSPI -5.9%입니다. 원/달러 1508원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
+        "text": "한국 시장은 1주 기준 KOSPI -3.0%입니다. 원/달러 1513원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
         "sources": [
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
+          },
+          {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
           },
           {
             "label": "FRED 거시지표",
@@ -344,7 +379,7 @@
       },
       {
         "category": "환율",
-        "text": "달러인덱스 DXY 120.3, 원/달러 1508원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
+        "text": "달러인덱스 DXY 120.3, 원/달러 1513원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
         "sources": [
           {
             "label": "FRED 거시지표",
@@ -365,17 +400,18 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           }
         ]
       },
@@ -402,23 +438,24 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           }
         ]
       },
       {
         "category": "원자재",
-        "text": "금은 1주 -1.0%, 유가는 1주 +1.3%입니다. 유가 상승은 인플레이션 재자극과 비용 부담을 뜻하고, 금 강세는 위험회피 또는 통화가치 방어 수요를 시사합니다. 따라서 금 ETF는 헤지 자산, 에너지는 전술적 아이디어로 구분해 해석해야 합니다.",
+        "text": "금은 1주 +2.2%, 유가는 1주 +15.7%입니다. 유가 상승은 인플레이션 재자극과 비용 부담을 뜻하고, 금 강세는 위험회피 또는 통화가치 방어 수요를 시사합니다. 따라서 금 ETF는 헤지 자산, 에너지는 전술적 아이디어로 구분해 해석해야 합니다.",
         "sources": [
           {
             "label": "FRED 거시지표",
@@ -439,54 +476,72 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
+          },
+          {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
           }
         ]
       },
       {
         "category": "해외분산",
-        "text": "일본 +0.0%, 유럽 DAX -0.3% 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
+        "text": "일본 -0.8%, 유럽 DAX -0.3% 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
         "sources": [
-          {
-            "label": "FRED 거시지표",
-            "source": "fred_api",
-            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-            "examples": [
-              "VIX (VIXCLS)",
-              "US 10Y Treasury Yield (DGS10)",
-              "Dollar Index (Trade Weighted) (DTWEXBGS)"
-            ],
-            "published_at": "2026-03-27",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "time_series",
-            "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 6
-          },
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
+          },
+          {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
           }
         ]
       }
@@ -500,8 +555,8 @@
       },
       {
         "name": "KOSPI",
-        "price": "5438.87",
-        "change": "▼5.92%",
+        "price": "5244.17",
+        "change": "▼2.99%",
         "isUp": false
       },
       {
@@ -512,9 +567,9 @@
       },
       {
         "name": "닛케이225",
-        "price": "53373.07",
-        "change": "0.00%",
-        "isUp": true
+        "price": "51116.26",
+        "change": "▼0.77%",
+        "isUp": false
       },
       {
         "name": "DAX",
@@ -524,20 +579,20 @@
       },
       {
         "name": "금",
-        "price": "4524.30",
-        "change": "▼1.01%",
-        "isUp": false
+        "price": "4501.00",
+        "change": "▲2.20%",
+        "isUp": true
       },
       {
         "name": "WTI",
         "price": "89.33",
-        "change": "▲1.34%",
+        "change": "▲15.67%",
         "isUp": true
       },
       {
         "name": "USD/KRW",
-        "price": "1508.06",
-        "change": "▲0.26%",
+        "price": "1513.18",
+        "change": "▲0.60%",
         "isUp": true
       }
     ]
@@ -550,7 +605,7 @@
         "누적",
         "집계"
       ],
-      "summary": "2026년 3월 5주 동안 2회 업데이트가 쌓였고, 평균 점수 46.9, 최근 점수 47.6, 최고 47.6, 최저 46.2. 주요 출처는 네이버 금융 리서치, BIS 연설, 연준 보도자료, FRED 거시지표입니다.",
+      "summary": "2026년 3월 5주 동안 2회 업데이트가 쌓였고, 평균 점수 46.9, 최근 점수 47.6, 최고 47.6, 최저 46.2. 주요 출처는 네이버 금융 리서치, OpenDART 공시, BIS 연설, 연준 보도자료입니다.",
       "impacts": [
         {
           "sector": "거시",
@@ -572,7 +627,13 @@
         {
           "label": "네이버 금융 리서치",
           "source": "naver_research",
-          "title": "네이버 금융 리서치 누적 60건",
+          "title": "네이버 금융 리서치 누적 106건",
+          "published_at": "2026-03-30"
+        },
+        {
+          "label": "OpenDART 공시",
+          "source": "opendart",
+          "title": "OpenDART 공시 누적 52건",
           "published_at": "2026-03-30"
         },
         {
@@ -585,12 +646,6 @@
           "label": "연준 보도자료",
           "source": "fed_press_rss",
           "title": "연준 보도자료 누적 20건",
-          "published_at": "2026-03-30"
-        },
-        {
-          "label": "FRED 거시지표",
-          "source": "fred_api",
-          "title": "FRED 거시지표 누적 16건",
           "published_at": "2026-03-30"
         }
       ]
@@ -645,17 +700,34 @@
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+          "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
           "examples": [
             "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-            "주요사항보고서(유상증자결정)"
+            "주요사항보고서(유상증자결정)",
+            "감사보고서 (2025.12)"
           ],
           "published_at": "2026-03-30",
           "region": "KR",
           "sector": "equity",
           "doc_type": "filing",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-          "count": 2
+          "count": 52
+        },
+        {
+          "label": "네이버 금융 리서치",
+          "source": "naver_research",
+          "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+          "examples": [
+            "Yuanta Morning Snapshot (2026.03.30)",
+            "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+            "[DS Defense Daily] 2026-03-30"
+          ],
+          "published_at": "2026-03-30",
+          "region": "KR",
+          "sector": "macro",
+          "doc_type": "research_meta",
+          "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+          "count": 46
         }
       ]
     },
@@ -666,7 +738,7 @@
         "달러",
         "1주"
       ],
-      "summary": "DXY 120.3, 원/달러 1508원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다. 환율은 단순 숫자가 아니라 외국인 수급과 밸류에이션 할인율을 동시에 움직이는 변수입니다.",
+      "summary": "DXY 120.3, 원/달러 1513원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다. 환율은 단순 숫자가 아니라 외국인 수급과 밸류에이션 할인율을 동시에 움직이는 변수입니다.",
       "detailPoints": [
         "원화 약세는 수출 대형주에 유리할 수 있지만, 지수 전체로는 외국인 자금 유입을 막는 요인이 됩니다.",
         "그래서 한국 비중을 늘릴 때도 지수 전체보다는 수출/반도체/대형주 ETF로 압축하는 편이 낫습니다.",
@@ -709,17 +781,18 @@
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+          "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
           "examples": [
             "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-            "주요사항보고서(유상증자결정)"
+            "주요사항보고서(유상증자결정)",
+            "감사보고서 (2025.12)"
           ],
           "published_at": "2026-03-30",
           "region": "KR",
           "sector": "equity",
           "doc_type": "filing",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-          "count": 2
+          "count": 52
         }
       ]
     },
@@ -730,7 +803,7 @@
         "섹터",
         "1주"
       ],
-      "summary": "금 -1.0%, 유가 +1.3% 흐름은 단순 가격보다 인플레이션 압력과 방어 수요를 보여줍니다. 에너지·금 ETF는 동일한 '원자재'라도 역할이 다르므로 구분해 접근해야 합니다. 유가가 올라가는 이유가 수요 회복인지 지정학 리스크인지에 따라 해석도 달라집니다.",
+      "summary": "금 +2.2%, 유가 +15.7% 흐름은 단순 가격보다 인플레이션 압력과 방어 수요를 보여줍니다. 에너지·금 ETF는 동일한 '원자재'라도 역할이 다르므로 구분해 접근해야 합니다. 유가가 올라가는 이유가 수요 회복인지 지정학 리스크인지에 따라 해석도 달라집니다.",
       "detailPoints": [
         "금은 불확실성 헤지 자산이고, 에너지는 이익 민감도가 높은 경기·공급 이슈 자산입니다.",
         "따라서 금 ETF는 포트폴리오 안정판, 에너지 ETF는 수익 기회라는 다른 역할로 편입해야 합니다.",
@@ -773,17 +846,34 @@
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+          "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
           "examples": [
             "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-            "주요사항보고서(유상증자결정)"
+            "주요사항보고서(유상증자결정)",
+            "감사보고서 (2025.12)"
           ],
           "published_at": "2026-03-30",
           "region": "KR",
           "sector": "equity",
           "doc_type": "filing",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-          "count": 2
+          "count": 52
+        },
+        {
+          "label": "네이버 금융 리서치",
+          "source": "naver_research",
+          "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+          "examples": [
+            "Yuanta Morning Snapshot (2026.03.30)",
+            "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+            "[DS Defense Daily] 2026-03-30"
+          ],
+          "published_at": "2026-03-30",
+          "region": "KR",
+          "sector": "macro",
+          "doc_type": "research_meta",
+          "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+          "count": 46
         }
       ]
     },
@@ -913,17 +1003,18 @@
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+          "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
           "examples": [
             "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-            "주요사항보고서(유상증자결정)"
+            "주요사항보고서(유상증자결정)",
+            "감사보고서 (2025.12)"
           ],
           "published_at": "2026-03-30",
           "region": "KR",
           "sector": "equity",
           "doc_type": "filing",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-          "count": 2
+          "count": 52
         },
         {
           "label": "포트폴리오 상태",
@@ -988,7 +1079,7 @@
   },
   "rebalancing": {
     "title": "1주 실행 가이드",
-    "summary": "1주 시점의 총 현금은 18,267,581원입니다. 실행 예산은 약 5,845,625원입니다. 대기 자금은 12,421,956원입니다. 이 가이드는 같은 포트폴리오라도 기간에 따라 매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다. 2026년 3월 5주 동안 2회 업데이트, 누적 문서 149건을 반영한 실행 가이드입니다.",
+    "summary": "1주 시점의 총 현금은 18,267,581원입니다. 실행 예산은 약 5,845,625원입니다. 대기 자금은 12,421,956원입니다. 이 가이드는 같은 포트폴리오라도 기간에 따라 매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다. 2026년 3월 5주 동안 2회 업데이트, 누적 문서 245건을 반영한 실행 가이드입니다.",
     "horizonNote": "1주의 질문은 '이번 주 흐름이 이어질 가능성이 있는가' 입니다. 그래서 1일 뷰에서는 초기 매수가 가능해 보여도, 6개월 뷰에서는 과열 테마의 최종 비중을 줄이라는 결론이 동시에 나올 수 있습니다. 또한 2026년 3월 5주 동안 2회 업데이트를 누적 반영한 가이드입니다.",
     "actions": [
       {
@@ -998,7 +1089,7 @@
         "ticker": "069500.KS",
         "amount": "1,745,673원",
         "weightHint": "계좌 현금의 약 20%",
-        "reason": "1주 기준 확인형 추가 매수 단계입니다. TIGER 200 는 점수 64점, 3개월 모멘텀 +42.4%, RSI 54.9로 'Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高' 평가를 받았습니다. 국내 코어 지수 비중을 먼저 세우는 역할입니다.",
+        "reason": "1주 기준 확인형 추가 매수 단계입니다. TIGER 200 는 점수 64점, 3개월 모멘텀 +34.2%, RSI 42.2로 'Neutral 레짐 중립 | 3M ▲34.2% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 83% 高' 평가를 받았습니다. 국내 코어 지수 비중을 먼저 세우는 역할입니다.",
         "caution": "극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다.",
         "sources": [
           {
@@ -1018,19 +1109,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1053,7 +1161,7 @@
         "ticker": "091160.KS",
         "amount": "939,977원",
         "weightHint": "계좌 현금의 약 11%",
-        "reason": "1주 기준 확인형 추가 매수 단계입니다. KODEX 반도체 는 점수 64점, 3개월 모멘텀 +72.6%, RSI 53.1로 'Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高' 평가를 받았습니다. 국내 섹터 알파를 소규모 위성 비중으로 붙이는 용도입니다.",
+        "reason": "1주 기준 확인형 추가 매수 단계입니다. KODEX 반도체 는 점수 64점, 3개월 모멘텀 +57.5%, RSI 38.2로 'Neutral 레짐 중립 | 3M ▲57.5% 강한 모멘텀 | RSI 38 정상 구간 | 변동성 105% 高' 평가를 받았습니다. 국내 섹터 알파를 소규모 위성 비중으로 붙이는 용도입니다.",
         "caution": "극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다.",
         "sources": [
           {
@@ -1073,19 +1181,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1128,19 +1253,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1163,7 +1305,7 @@
         "ticker": "148020.KS",
         "amount": "482,688원",
         "weightHint": "계좌 현금의 약 11%",
-        "reason": "1주 기준 확인형 추가 매수 단계입니다. KODEX 미국채울트라30년(H) 는 점수 64점, 3개월 모멘텀 +42.7%, RSI 55.2로 'Neutral 레짐 중립 | 3M ▲42.7% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 81% 高' 평가를 받았습니다. 고금리 구간 방어와 중기 변동성 완화 축입니다.",
+        "reason": "1주 기준 확인형 추가 매수 단계입니다. KODEX 미국채울트라30년(H) 는 점수 64점, 3개월 모멘텀 +34.3%, RSI 41.8로 'Neutral 레짐 중립 | 3M ▲34.3% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 82% 高' 평가를 받았습니다. 고금리 구간 방어와 중기 변동성 완화 축입니다.",
         "caution": "극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다.",
         "sources": [
           {
@@ -1183,19 +1325,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1238,19 +1397,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1293,19 +1469,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1324,11 +1517,11 @@
       {
         "account": "연금저축",
         "action": "매수",
-        "name": "TIGER 일본니케이225",
-        "ticker": "241180.KS",
+        "name": "일본 ETF",
+        "ticker": "EWJ",
         "amount": "801,388원",
         "weightHint": "계좌 현금의 약 14%",
-        "reason": "1주 기준 확인형 추가 매수 단계입니다. TIGER 일본니케이225 는 점수 58점, 3개월 모멘텀 +7.2%, RSI 54.4로 'Neutral 레짐 중립 | 3M ▲7.2% 모멘텀 유지 | RSI 54 정상 구간 | 변동성 36% 高' 평가를 받았습니다. 장기 보유용 해외 broad ETF 성격으로 분산을 보완합니다.",
+        "reason": "1주 기준 확인형 추가 매수 단계입니다. 일본 ETF 는 점수 54점, 3개월 모멘텀 +0.5%, RSI 37.6로 'Neutral 레짐 중립 | 3M ▲0.5% 모멘텀 약함 | RSI 38 정상 구간 | 변동성 31% 高' 평가를 받았습니다. 장기 보유용 해외 broad ETF 성격으로 분산을 보완합니다.",
         "caution": "극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다.",
         "sources": [
           {
@@ -1348,24 +1541,41 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
-            "title": "1주 TIGER 일본니케이225 점수화",
+            "title": "1주 일본 ETF 점수화",
             "published_at": "2026-03-30"
           },
           {
@@ -1401,19 +1611,36 @@
         "count": 6
       },
       {
+        "label": "네이버 금융 리서치",
+        "source": "naver_research",
+        "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+        "examples": [
+          "Yuanta Morning Snapshot (2026.03.30)",
+          "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+          "[DS Defense Daily] 2026-03-30"
+        ],
+        "published_at": "2026-03-30",
+        "region": "KR",
+        "sector": "macro",
+        "doc_type": "research_meta",
+        "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+        "count": 46
+      },
+      {
         "label": "OpenDART 공시",
         "source": "opendart",
-        "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+        "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
         "examples": [
           "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-          "주요사항보고서(유상증자결정)"
+          "주요사항보고서(유상증자결정)",
+          "감사보고서 (2025.12)"
         ],
         "published_at": "2026-03-30",
         "region": "KR",
         "sector": "equity",
         "doc_type": "filing",
         "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-        "count": 2
+        "count": 52
       },
       {
         "label": "퀀트 레짐",
@@ -1466,19 +1693,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1501,8 +1745,8 @@
         "action": "관심 확대",
         "linkedIssue": "한국 주식",
         "scoreText": "64점",
-        "reason": "1주 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 TIGER 200 는 'Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高' 평가를 받았습니다.",
-        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +42.4%, RSI 54.9를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
+        "reason": "1주 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 TIGER 200 는 'Neutral 레짐 중립 | 3M ▲34.2% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 83% 高' 평가를 받았습니다.",
+        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +34.2%, RSI 42.2를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
         "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
         "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다.",
         "sources": [
@@ -1523,19 +1767,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1558,8 +1819,8 @@
         "action": "관심 확대",
         "linkedIssue": "한국 주식",
         "scoreText": "64점",
-        "reason": "1주 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 KODEX 반도체 는 'Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高' 평가를 받았습니다.",
-        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +72.6%, RSI 53.1를 보면 코어 비중보다 위성 비중으로 쓰기 좋은 자산입니다.",
+        "reason": "1주 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 KODEX 반도체 는 'Neutral 레짐 중립 | 3M ▲57.5% 강한 모멘텀 | RSI 38 정상 구간 | 변동성 105% 高' 평가를 받았습니다.",
+        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +57.5%, RSI 38.2를 보면 코어 비중보다 위성 비중으로 쓰기 좋은 자산입니다.",
         "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
         "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다.",
         "sources": [
@@ -1580,19 +1841,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1615,8 +1893,8 @@
         "action": "관심 확대",
         "linkedIssue": "방어형 채권",
         "scoreText": "64점",
-        "reason": "1주 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 KODEX 미국채울트라30년(H) 는 'Neutral 레짐 중립 | 3M ▲42.7% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 81% 高' 평가를 받았습니다.",
-        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +42.7%, RSI 55.2를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
+        "reason": "1주 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 KODEX 미국채울트라30년(H) 는 'Neutral 레짐 중립 | 3M ▲34.3% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 82% 高' 평가를 받았습니다.",
+        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +34.3%, RSI 41.8를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
         "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
         "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다.",
         "sources": [
@@ -1637,19 +1915,36 @@
             "count": 6
           },
           {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 46건 수집 · 예시: Yuanta Morning Snapshot (2026.03.30)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.03.30)",
+              "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+              "[DS Defense Daily] 2026-03-30"
+            ],
+            "published_at": "2026-03-30",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_meta",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35508&page=1",
+            "count": 46
+          },
+          {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 2건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
+            "title": "OpenDART 공시 52건 수집 · 예시: [기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
             "examples": [
               "[기재정정]주요사항보고서(타법인주식및출자증권양수결정)",
-              "주요사항보고서(유상증자결정)"
+              "주요사항보고서(유상증자결정)",
+              "감사보고서 (2025.12)"
             ],
             "published_at": "2026-03-30",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260327001838",
-            "count": 2
+            "count": 52
           },
           {
             "label": "ETF 추천",
@@ -1679,59 +1974,59 @@
         "name": "TIGER 200",
         "ticker": "069500.KS",
         "score": 64,
-        "commentary": "Neutral 레짐 중립 | 3M ▲42.4% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 82% 高"
+        "commentary": "Neutral 레짐 중립 | 3M ▲34.2% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 83% 高"
       },
       {
         "rank": 3,
         "name": "KODEX 반도체",
         "ticker": "091160.KS",
         "score": 64,
-        "commentary": "Neutral 레짐 중립 | 3M ▲72.6% 강한 모멘텀 | RSI 53 정상 구간 | 변동성 104% 高"
+        "commentary": "Neutral 레짐 중립 | 3M ▲57.5% 강한 모멘텀 | RSI 38 정상 구간 | 변동성 105% 高"
       },
       {
         "rank": 4,
         "name": "KODEX 미국채울트라30년(H)",
         "ticker": "148020.KS",
         "score": 64,
-        "commentary": "Neutral 레짐 중립 | 3M ▲42.7% 강한 모멘텀 | RSI 55 정상 구간 | 변동성 81% 高"
+        "commentary": "Neutral 레짐 중립 | 3M ▲34.3% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 82% 高"
       },
       {
         "rank": 5,
         "name": "TIGER 200 IT",
         "ticker": "371460.KS",
-        "score": 63,
-        "commentary": "Neutral 레짐 중립 | 3M ▲10.9% 모멘텀 유지 | RSI 70 과매수 주의"
+        "score": 62,
+        "commentary": "Neutral 레짐 중립 | 3M ▲9.9% 모멘텀 유지 | RSI 68 정상 구간"
       },
       {
         "rank": 6,
-        "name": "TIGER 일본니케이225",
-        "ticker": "241180.KS",
-        "score": 58,
-        "commentary": "Neutral 레짐 중립 | 3M ▲7.2% 모멘텀 유지 | RSI 54 정상 구간 | 변동성 36% 高"
-      },
-      {
-        "rank": 7,
         "name": "일본 ETF",
         "ticker": "EWJ",
         "score": 54,
         "commentary": "Neutral 레짐 중립 | 3M ▲0.5% 모멘텀 약함 | RSI 38 정상 구간 | 변동성 31% 高"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "금 ETF",
         "ticker": "GLD",
         "score": 53,
         "commentary": "Neutral 레짐 중립 | 3M ▲0.7% 모멘텀 약함 | RSI 26 과매도 — 반등 가능성 | 변동성 36% 高"
+      },
+      {
+        "rank": 8,
+        "name": "미국 중기국채 ETF",
+        "ticker": "IEF",
+        "score": 53,
+        "commentary": "Neutral 레짐 중립 | 3M ▼1.2% 모멘텀 약함 | RSI 28 과매도 — 반등 가능성 | 변동성 6% 低"
       }
     ]
   },
   "meta": {
-    "docsTotal": 149,
+    "docsTotal": 245,
     "sourceLabels": [
       "네이버 금융 리서치",
+      "OpenDART 공시",
       "BIS 연설",
-      "연준 보도자료",
-      "FRED 거시지표"
+      "연준 보도자료"
     ],
     "latestDailyDate": "2026-03-30"
   }
