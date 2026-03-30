@@ -614,7 +614,7 @@
   ],
   "portfolio": {
     "accountAlert": "총 투자 대기 현금 18,267,581원 · 현재 레짐은 중립 횡보 국면 · 포트폴리오 점수 31점(개선 필요). | 2/16(월) 누적 1회 업데이트 기준.",
-    "accountDetail": "ISA (한국투자증권) 8,392,660원 · 세제혜택 계좌로 국내 ETF 중심 배치 | 토스증권 4,309,720원 · 해외 ETF 접근성이 좋아 미국 자산 배치에 적합 | 연금저축 5,565,201원 · 연금저축은 장기 분산형 ETF 중심이 적합",
+    "accountDetail": "ISA (신한은행) 8,392,660원 · 세제혜택 계좌로 국내 ETF 중심 배치 | 토스증권 4,309,720원 · 해외 ETF 접근성이 좋아 미국 자산 배치에 적합 | 연금저축 (신한은행) 5,565,201원 · 연금저축은 장기 분산형 ETF 중심이 적합",
     "portfolioScore": {
       "score": 31,
       "grade": "개선 필요",
@@ -717,7 +717,7 @@
     ],
     "accountPlans": [
       {
-        "account": "ISA (한국투자증권)",
+        "account": "ISA (신한은행)",
         "cash": "8,392,660원",
         "deployNow": "1,510,678원",
         "reserve": "6,881,982원",
@@ -735,7 +735,7 @@
         "method": "탐색 매수 · 3거래일 분할매수"
       },
       {
-        "account": "연금저축",
+        "account": "연금저축 (신한은행)",
         "cash": "5,565,201원",
         "deployNow": "1,001,736원",
         "reserve": "4,563,465원",
@@ -838,7 +838,7 @@
     "horizonNote": "1일의 질문은 '오늘 시점에서 바로 손을 대야 하는가' 입니다. 그래서 1일 뷰에서는 초기 매수가 가능해 보여도, 6개월 뷰에서는 과열 테마의 최종 비중을 줄이라는 결론이 동시에 나올 수 있습니다. 또한 2/16(월) 동안 1회 업데이트를 누적 반영한 가이드입니다.",
     "actions": [
       {
-        "account": "ISA (한국투자증권)",
+        "account": "ISA (신한은행)",
         "action": "매수",
         "name": "TIGER 200",
         "ticker": "069500.KS",
@@ -885,13 +885,13 @@
           {
             "label": "포트폴리오 상태",
             "source": "portfolio_state",
-            "title": "ISA (한국투자증권) 현금 배치",
+            "title": "ISA (신한은행) 현금 배치",
             "published_at": "2026-03-30"
           }
         ]
       },
       {
-        "account": "ISA (한국투자증권)",
+        "account": "ISA (신한은행)",
         "action": "매수",
         "name": "KODEX 반도체",
         "ticker": "091160.KS",
@@ -938,7 +938,7 @@
           {
             "label": "포트폴리오 상태",
             "source": "portfolio_state",
-            "title": "ISA (한국투자증권) 현금 배치",
+            "title": "ISA (신한은행) 현금 배치",
             "published_at": "2026-03-30"
           }
         ]
@@ -1103,7 +1103,7 @@
         ]
       },
       {
-        "account": "연금저축",
+        "account": "연금저축 (신한은행)",
         "action": "매수",
         "name": "미국 장기국채 ETF",
         "ticker": "TLT",
@@ -1150,13 +1150,13 @@
           {
             "label": "포트폴리오 상태",
             "source": "portfolio_state",
-            "title": "연금저축 현금 배치",
+            "title": "연금저축 (신한은행) 현금 배치",
             "published_at": "2026-03-30"
           }
         ]
       },
       {
-        "account": "연금저축",
+        "account": "연금저축 (신한은행)",
         "action": "매수",
         "name": "일본 ETF",
         "ticker": "EWJ",
@@ -1203,7 +1203,7 @@
           {
             "label": "포트폴리오 상태",
             "source": "portfolio_state",
-            "title": "연금저축 현금 배치",
+            "title": "연금저축 (신한은행) 현금 배치",
             "published_at": "2026-03-30"
           }
         ]

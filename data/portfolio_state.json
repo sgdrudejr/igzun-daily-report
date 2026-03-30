@@ -1,10 +1,10 @@
 {
   "accounts": {
     "ISA": {
-      "label": "ISA (한국투자증권)",
+      "label": "ISA (신한은행)",
       "cash": 8392660,
       "holdings": [],
-      "note": "세제혜택 — 국내ETF/채권 중심"
+      "note": "세제혜택 — 신한은행 ISA, 국내ETF/채권 중심"
     },
     "TOSS": {
       "label": "토스증권",
@@ -13,10 +13,10 @@
       "note": "해외ETF 가능 — 미국/글로벌 자산"
     },
     "PENSION": {
-      "label": "연금저축",
+      "label": "연금저축 (신한은행)",
       "cash": 5565201,
       "holdings": [],
-      "note": "연금저축ETF — 해외지수 장기투자"
+      "note": "신한은행 연금저축 — 해외지수 장기투자"
     }
   },
   "total_cash": 18267581,
