@@ -14,6 +14,7 @@ from .dedup import DedupIndex
 from .normalizer import normalize_document, save_normalized
 from .manifest import Manifest
 from .fetcher_registry import FETCHER_CLASSES
+from .document_enricher import enrich_document, save_artifacts
 
 
 def _import_fetchers():
@@ -76,14 +77,21 @@ def run_collection(date: str, base_dir: Path, tier: int | None = None,
         for doc in raw_docs:
             if doc.fetched_url:
                 fetched_urls.add(doc.fetched_url)
+
+            raw_dir = base_dir / "data" / "raw" / date / sid
+            raw_dir.mkdir(parents=True, exist_ok=True)
+            artifacts = enrich_document(doc)
+
             if dedup.is_duplicate(doc.content_hash):
                 dupes += 1
                 continue
             dedup.add(doc.content_hash, date)
 
+            artifact_refs = save_artifacts(doc, artifacts, raw_dir, base_dir)
+            if artifact_refs:
+                doc.metadata = {**(doc.metadata or {}), **artifact_refs}
+
             # Save raw content
-            raw_dir = base_dir / "data" / "raw" / date / sid
-            raw_dir.mkdir(parents=True, exist_ok=True)
             raw_path = raw_dir / f"{doc.doc_id}.json"
             with open(raw_path, "w", encoding="utf-8") as f:
                 json.dump(doc.to_dict(), f, ensure_ascii=False, indent=2)

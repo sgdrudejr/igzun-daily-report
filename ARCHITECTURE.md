@@ -18,9 +18,14 @@
 sources.yaml
   -> collectors.runner
     -> fetcher 실행
+    -> document_enricher
+      -> 상세 HTML 본문 수집
+      -> PDF 링크 발견 시 실제 다운로드
+      -> PDF 텍스트 추출
     -> RawDocument 생성
     -> dedup 검사
     -> data/raw/{date}/{source_id}/*.json 저장
+    -> data/raw/{date}/{source_id}/*_detail.html, *_detail.txt, *.pdf, *.txt 저장
     -> normalize
     -> data/normalized/{date}/documents.jsonl 저장
     -> manifest 저장
@@ -147,6 +152,17 @@ sources.yaml
 - [`collectors/fetchers/kr_brokerage.py`](/Users/seo/igzun-daily-report/collectors/fetchers/kr_brokerage.py)
 - [`collectors/fetchers/edgar_fetcher.py`](/Users/seo/igzun-daily-report/collectors/fetchers/edgar_fetcher.py)
 
+원문 보강 레이어:
+
+- [`collectors/document_enricher.py`](/Users/seo/igzun-daily-report/collectors/document_enricher.py)
+
+역할:
+
+- 네이버 리서치 상세 페이지처럼 HTML 본문이 있는 경우 실제 본문 텍스트 추출
+- PDF 링크가 있으면 실제 파일 다운로드
+- PDF 텍스트 추출 후 `RawDocument.content` 를 원문 기반으로 치환
+- raw 디렉토리에 HTML/TXT/PDF artifact 저장
+
 ## 데이터 구조
 
 ### RawDocument
@@ -174,11 +190,16 @@ sources.yaml
 
 ```text
 data/raw/{date}/{source_id}/{doc_id}.json
+data/raw/{date}/{source_id}/{doc_id}_detail.html
+data/raw/{date}/{source_id}/{doc_id}_detail.txt
+data/raw/{date}/{source_id}/{doc_id}.pdf
+data/raw/{date}/{source_id}/{doc_id}.txt
 ```
 
 설명:
 
 - fetcher가 받아온 원본 payload 저장
+- 가능한 경우 상세 HTML, PDF, 추출 텍스트도 같이 저장
 - 재현 가능성 확보
 - source별 디버깅 가능
 
@@ -201,6 +222,7 @@ data/normalized/{date}/documents.jsonl
 - `document_type`
 - `language`
 - `summary`
+- `content_length`
 - `content_hash`
 - `raw_file_path`
 - `tags`
@@ -267,8 +289,14 @@ data/index/content_hashes.json
 
 - `data/normalized/{date}/documents.jsonl` 읽기
 - 기존 [`data/refined_insights_inventory.json`](/Users/seo/igzun-daily-report/data/refined_insights_inventory.json) 포맷으로 append
+- `source_meta.metadata`, `content_length` 를 함께 넘겨 downstream 이 원문 artifact 를 다시 찾을 수 있게 함
 
 이 포맷은 현재 [`scripts/refine_insights.py`](/Users/seo/igzun-daily-report/scripts/refine_insights.py) 가 기대하는 형식을 유지하기 위해 절대 깨면 안 된다.
+
+추가 연결:
+
+- [`scripts/refine_insights.py`](/Users/seo/igzun-daily-report/scripts/refine_insights.py) 는 이제 기존 PDF 입력 외에도 `data/raw/**/*.txt` 를 읽는다.
+- 즉 collector 가 내려받은 상세 본문/추출 텍스트도 실제 분석 입력이 된다.
 
 ## cron 실행 기준
 

@@ -19,6 +19,7 @@
 - 단일 진입점은 [`collectors/runner.py`](/Users/seo/igzun-daily-report/collectors/runner.py) 이다.
 - 소스 정의는 [`collectors/registry/sources.yaml`](/Users/seo/igzun-daily-report/collectors/registry/sources.yaml) 기반이다.
 - `raw -> normalized -> manifest -> bridge -> refined_insights_inventory.json` 흐름이 작동한다.
+- 공개 리포트 링크는 이제 메타데이터만 저장하지 않고, 가능한 경우 상세 본문 HTML/TXT와 PDF/TXT 아티팩트까지 같이 저장한다.
 - `content_hash` 기반 중복 제거가 구현되어 있다.
 - 수집 URL 로깅은 manifest의 `fetched_urls` 에 기록된다.
 - `2026-03-30` 기준 일배치가 다시 실행되었고, 수집 -> 분석 -> 사이트 생성 -> horizon 집계까지 재생성되었다.
@@ -36,6 +37,13 @@
 - 실행 가이드 블록에 `todayAmount`, `splitPlan`, `addRule`, `pauseRule`, `reviewRule` 가 추가되어 분할매수 단계와 보류 조건을 구체적으로 제시한다.
 - ETF 아이디어 블록에 `macroContext`, `evidencePoints`, `positioning`, `watchPoint` 가 추가되어 왜 사는지와 어떤 비중으로 접근할지까지 설명한다.
 - 핵심 이슈 카드에 `portfolioImplication`, `executionGuide` 가 추가되어 기사 요약이 포트폴리오 판단과 집행 방식으로 직접 연결된다.
+- [`collectors/document_enricher.py`](/Users/seo/igzun-daily-report/collectors/document_enricher.py) 가 추가되어 다음을 수행한다.
+  - 네이버 리서치 상세 페이지 본문 추출
+  - PDF 링크 발견 시 실제 파일 다운로드
+  - PDF 텍스트 추출
+  - `data/raw/{date}/{source_id}/` 아래 `*_detail.html`, `*_detail.txt`, `*.pdf`, `*.txt` 저장
+- [`scripts/refine_insights.py`](/Users/seo/igzun-daily-report/scripts/refine_insights.py) 는 이제 기존 PDF/텍스트 입력 외에 `data/raw/**/*.txt` 도 읽어서 collector가 수집한 원문 텍스트를 실제 분석 입력으로 사용한다.
+- [`requirements.txt`](/Users/seo/igzun-daily-report/requirements.txt) 에 최소 Python 의존성을 기록했다. 새 환경에서는 `pypdf` 가 반드시 필요하다.
 - `undefined`/`None`/`null` 문자열이 결과 JSON 에 남지 않도록 fallback 처리했다.
 - [`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 를 기준 템플릿으로 추가했다.
 - 날짜별 [`site/2026-03-27/index.html`](/Users/seo/igzun-daily-report/site/2026-03-27/index.html), [`site/2026-03-29/index.html`](/Users/seo/igzun-daily-report/site/2026-03-29/index.html), [`site/2026-03-30/index.html`](/Users/seo/igzun-daily-report/site/2026-03-30/index.html) 도 템플릿 기준으로 다시 생성했다.
@@ -180,12 +188,14 @@
 - `site/horizon_index.json` 에 storage retention 상태와 backfill run 메타가 추가되었다.
 - `daily_update.sh` 에 retention 훅이 추가되어 오래된 raw/normalized/manifests 를 요약+압축 대상으로 보낼 수 있다.
 - `daily_update.sh` 가 cron/launchd 환경에서도 깨지지 않도록 KST 날짜와 절대 python 경로를 사용하도록 보정했다.
+- `naver_research` 는 더 이상 짧은 제목 메타만 수집하지 않고, 상세 페이지 본문을 우선 수집한다.
 
 ### 아직 미구현 또는 미완료
 
 - 브라우저에서 실제 `site/{date}/index.html` 렌더링 검증
 - 탭 간 개별 스크롤 동작 검증
 - Galaxy S25 Ultra 기준 줄바꿈 / 상단 드롭다운 UI 검증
+- 직접 PDF 링크를 제공하는 국내 증권사 소스(KB/신한/미래에셋 등) 셀렉터 안정화
 - 포트폴리오 시사점 로직 정교화
 - 포트폴리오 점수 산식 고도화
 - ETF/섹터 아이디어를 지역/레짐/리스크와 더 강하게 연결하는 설명 강화 2차

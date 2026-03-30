@@ -53,7 +53,9 @@ def convert_to_insights(normalized_path: Path, output_path: Path):
                     "document_type": doc.get("document_type", ""),
                     "url": doc.get("url", ""),
                     "fetched_url": doc.get("fetched_url", ""),
+                    "content_length": doc.get("content_length", 0),
                     "tags": doc.get("tags", []),
+                    "metadata": doc.get("metadata", {}),
                 },
                 "analysis_mode": "pending",
             }

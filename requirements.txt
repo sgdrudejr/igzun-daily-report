@@ -1,0 +1,11 @@
+beautifulsoup4
+feedparser
+fredapi
+lxml
+pandas
+pypdf
+python-dotenv
+PyYAML
+readability-lxml
+requests
+yfinance

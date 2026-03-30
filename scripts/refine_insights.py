@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PDF_JSON = ROOT / "data/processed_pdf_texts.json"
 RAW_BASE = Path(os.getenv("IGZUN_REPORTING_RAW_BASE", "/Users/seo/.openclaw/workspace/2_Project/Reporting/input/raw"))
+COLLECTED_RAW_BASE = ROOT / "data" / "raw"
 OUT = ROOT / "data/refined_insights_inventory.json"
 
 PROMPT_TEMPLATE = """다음 금융/매크로 리포트 본문을 읽고 반드시 JSON만 출력하라.
@@ -136,7 +137,7 @@ def try_llm(title, text, retries=2):
 
 
 def extract_date(path_str):
-    match = re.search(r"(2026-\d{2}-\d{2})", path_str)
+    match = re.search(r"(20\d{2}-\d{2}-\d{2})", path_str)
     return match.group(1) if match else ""
 
 
@@ -147,6 +148,36 @@ def load_txt_files():
     for path in sorted(RAW_BASE.rglob("*.txt")):
         try:
             text = path.read_text(errors="ignore")
+        except Exception:
+            continue
+        items.append(
+            {
+                "source_file": path.name,
+                "source_path": str(path),
+                "date": extract_date(str(path)),
+                "clean_text": clean_text(text),
+            }
+        )
+    return items
+
+
+def load_collected_txt_files():
+    items = []
+    if not COLLECTED_RAW_BASE.exists():
+        return items
+
+    best_paths = {}
+    for path in sorted(COLLECTED_RAW_BASE.rglob("*.txt")):
+        key = str(path).replace("_detail.txt", ".txt")
+        rank = 1 if path.name.endswith("_detail.txt") else 2
+        current = best_paths.get(key)
+        if current and current[0] >= rank:
+            continue
+        best_paths[key] = (rank, path)
+
+    for _, path in best_paths.values():
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore")
         except Exception:
             continue
         items.append(
@@ -189,6 +220,7 @@ def build_item(source_file, source_path, date_value, clean_text_value):
 def main():
     pdf_items = json.loads(PDF_JSON.read_text()) if PDF_JSON.exists() else []
     txt_items = load_txt_files()
+    collected_txt_items = load_collected_txt_files()
     results = []
     for item in pdf_items:
         results.append(
@@ -200,6 +232,8 @@ def main():
             )
         )
     for item in txt_items:
+        results.append(build_item(item["source_file"], item["source_path"], item["date"], item["clean_text"]))
+    for item in collected_txt_items:
         results.append(build_item(item["source_file"], item["source_path"], item["date"], item["clean_text"]))
     OUT.write_text(json.dumps(results, ensure_ascii=False, indent=2))
     print("wrote", OUT, "count=", len(results))

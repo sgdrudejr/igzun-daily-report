@@ -97,6 +97,7 @@ class NaverResearchFetcher(BaseFetcher):
                     "broker": broker,
                     "category": category,
                     "naver_link": link,
+                    "detail_page_url": link,
                 },
             ))
 

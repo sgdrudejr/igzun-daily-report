@@ -54,6 +54,11 @@ class KRBrokerageFetcher(BaseFetcher):
                 continue
 
             full_url = href if href.startswith("http") else f"{url.rstrip('/')}/{href.lstrip('/')}"
+            metadata = {
+                "broker": broker,
+            }
+            if ".pdf" in full_url.lower():
+                metadata["download_url"] = full_url
 
             docs.append(RawDocument(
                 source_id=self.source_id,
@@ -67,9 +72,7 @@ class KRBrokerageFetcher(BaseFetcher):
                 sector="macro",
                 tags=[broker, "research"],
                 fetched_url=url,
-                metadata={
-                    "broker": broker,
-                },
+                metadata=metadata,
             ))
 
         return docs[:20]  # Limit to 20 most relevant

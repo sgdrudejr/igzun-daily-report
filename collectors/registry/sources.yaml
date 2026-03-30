@@ -143,7 +143,7 @@ sources:
         - market_info    # 시장정보
         - invest         # 투자정보
         - industry       # 산업분석
-    description: "네이버 금융 리서치 — 증권사 리포트 메타데이터 (PDF 미다운로드)"
+    description: "네이버 금융 리서치 — 상세 본문 수집, PDF 링크 발견 시 원문 다운로드"
     url: "https://finance.naver.com/research/"
 
   - id: kr_brokerage_kb
