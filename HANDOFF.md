@@ -47,9 +47,13 @@
 - `data/research_index/hierarchical/{date}.json` 은 문서 요약, 상위 토픽, 세부 청크를 함께 담는 계층형 검색 입력이다.
 - `scripts/build_research_graph.py` 가 추가되어 H-RAG 인덱스에서 topic/source/region/asset 관계를 추출한 GraphRAG lite JSON을 생성한다.
 - `data/research_graph/{date}.json` 은 document-topic-asset 관계를 경량 그래프로 보존해 수동/반자동 딥리서치에서 "무엇이 무엇과 연결되는가"를 빠르게 추적할 수 있게 한다.
+- `scripts/research_toolbox.py` 가 추가되어 `macro_snapshot`, `valuation_snapshot`, `signal_snapshot`, `portfolio_snapshot`, `search_hierarchical_index`, `graph_focus` 를 표준 도구처럼 호출할 수 있다.
+- `scripts/build_research_loop.py` 가 추가되어 `가설 설정 -> 근거 탐색 -> 검증자 반박 -> 추가 탐색` 2회 루프를 수행하는 딥리서치 lite 오케스트레이션을 생성한다.
+- `data/research_loops/{date}.json` 에는 `tool_registry`, `iterations`, `final_synthesis`, `validated_theses`, `rejected_theses`, `action_digest`, `citations` 가 저장된다.
 - 현재 LLM 단계는 파이프라인에 연결되어 있으나 `.env` 의 `ANTHROPIC_API_KEY` 가 비어 있어 실제 API 호출 대신 fallback 규칙 기반 인사이트로 동작한다.
 - `llm_insights.py` 는 이제 당일 문서만 보지 않고 `data/research_context/{date}.json` 을 함께 읽어 누적 맥락 기반 분석을 수행한다.
 - `llm_insights.py` 는 이제 `research_packets`, `hierarchical index`, `research_graph` 까지 함께 읽어 `executive_summary`, `core_theses`, `counter_signals`, `what_changed`, `account_actions`, `scenario_matrix`, `evidence_ledger`, `confidence`, `next_checkpoints` 를 포함한 구조화된 심화 인사이트를 만든다.
+- `llm_insights.py` 는 이제 `research_loop` 를 함께 읽어 `research_loop_summary`, `verification_status`, `research_loop_ref` 를 생성한다. 즉, 웹 리포트는 단순 요약이 아니라 "몇 번 검증했고 어떤 반대 신호가 남았는지"를 표시할 수 있다.
 - `llm_insights.py` 는 이제 OpenAI Responses API도 지원한다. `.env` 에 `OPENAI_API_KEY` 를 넣으면 기본값으로 `gpt-5.4` 를 사용하며, `OPENAI_LLM_MODEL` 과 `LLM_PROVIDER` 로 provider/model 우선순위를 조절할 수 있다.
 - 반자동 운영용으로 [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 가 추가되었다. 이 스크립트는 사람이 “오늘 거 심화 분석해줘”라고 요청했을 때 Codex/Claude가 읽을 Markdown 브리프를 생성한다.
 - 반자동 스킬의 canonical 정의는 [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 에 있다.
@@ -120,7 +124,9 @@
 - `data/research_context/{date}.json` 은 LLM/딥리서치 입력용 누적 컨텍스트 스냅샷이며, `daily_update.sh` 에서 valuation/signal 이후 자동 생성된다.
 - `data/research_packets/{date}.json` 은 에이전트별 연구 패킷이다. 사람이 `llmsummary` 를 호출할 때 먼저 읽는 핵심 구조다.
 - `data/research_index/hierarchical/{date}.json` 과 `data/research_graph/{date}.json` 은 각각 H-RAG lite / GraphRAG lite 입력 파일이며, 수동 심화분석과 차후 다중 에이전트 오케스트레이션의 토대다.
+- `data/research_loops/{date}.json` 은 실제 검증 루프 산출물이다. 현재는 2회 루프를 기본으로 돌며, `validated_with_cautions` / `needs_follow_up` 같은 상태를 저장한다.
 - `2026-03-30` 기준 H-RAG lite 인덱스는 260개 문서, 260개 섹션, 406개 청크를 생성했고, GraphRAG lite 는 264개 노드와 1200개 엣지를 생성했다.
+- `2026-03-30` 기준 research loop는 2회 루프를 수행했고, 변동성·환율·국내 밸류에이션을 반대 신호로 남긴 채 `validated_with_cautions` 상태를 기록했다.
 
 ### 현재 확인된 산출물
 
@@ -201,6 +207,8 @@
 │   ├── build_research_context.py
 │   ├── build_hierarchical_index.py
 │   ├── build_research_graph.py
+│   ├── research_toolbox.py
+│   ├── build_research_loop.py
 │   ├── build_manual_summary_brief.py
 │   ├── install_llmsummary_skills.sh
 │   ├── technical_timing.py
@@ -294,6 +302,8 @@
 - H-RAG lite 검색/랭킹 고도화
 - GraphRAG lite topic/asset linking 정밀도 개선
 - `llm_insights.py` 의 구조화 출력 스키마를 더 엄격히 검증
+- `research_loop` 의 루프 횟수, follow-up query 선정 방식, rejected thesis 정교화
+- 향후 CrewAI/LangGraph를 붙일 경우 현재 `research_toolbox -> research_loop -> llm_insights` 흐름을 그대로 승격하는 방향 유지
 
 5. 수집 소스 품질 개선
 - KB/Mirae scraper 수정

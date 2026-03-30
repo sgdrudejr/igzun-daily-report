@@ -108,10 +108,16 @@
 - [x] `data/research_index/hierarchical/{date}.json` 생성
 - [x] [`scripts/build_research_graph.py`](/Users/seo/igzun-daily-report/scripts/build_research_graph.py) 추가
 - [x] `data/research_graph/{date}.json` 생성
+- [x] [`scripts/research_toolbox.py`](/Users/seo/igzun-daily-report/scripts/research_toolbox.py) 추가
+- [x] [`scripts/build_research_loop.py`](/Users/seo/igzun-daily-report/scripts/build_research_loop.py) 추가
+- [x] `data/research_loops/{date}.json` 생성
 - [x] `llm_insights.py` 를 structured deep-research schema(`executive_summary`, `core_theses`, `counter_signals`, `scenario_matrix` 등)로 확장
+- [x] `llm_insights.py` 에 `research_loop_summary / verification_status / research_loop_ref` 연결
 - [x] `build_site_report.py` 와 `site/template/index.html` 에 structured LLM 블록 연결
 - [x] `build_manual_summary_brief.py` 에 research packets / H-RAG / Graph lite 요약 추가
+- [x] `build_manual_summary_brief.py` 에 research loop 요약 추가
 - [x] `daily_update.sh` 에 hierarchical index / research graph 단계 연결
+- [x] `daily_update.sh` 에 research loop 단계 연결
 - [x] [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 추가
 - [x] [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 추가
 - [x] [`scripts/install_llmsummary_skills.sh`](/Users/seo/igzun-daily-report/scripts/install_llmsummary_skills.sh) 추가
@@ -135,6 +141,8 @@
 - [ ] H-RAG lite 검색 품질 튜닝(top docs / chunk rank / topic extraction)
 - [ ] GraphRAG lite asset linking 정밀도 개선
 - [ ] LLM structured output schema 검증 로직 추가
+- [ ] research loop follow-up query 로직 고도화
+- [ ] 검증자(skeptic) 반박 규칙을 더 정밀하게 확장
 
 ## 남은 작업
 
@@ -161,6 +169,8 @@
 - [ ] `agent_packets` 기반 수동/반자동 멀티에이전트 워크플로우 정교화
 - [ ] H-RAG lite 결과를 수동 심화분석뿐 아니라 자동 narrative ranking에도 활용
 - [ ] GraphRAG lite 기반 `무엇이 무엇에 영향을 주는지` 설명 카드 추가 검토
+- [ ] research toolbox를 실제 MCP/tool calling 계층으로 승격할지 검토
+- [ ] CrewAI/LangGraph 도입 시 현재 research loop 구조를 어떻게 매핑할지 설계
 - [x] 계좌별 현금/투입 가능 금액 반영 1차
 - [x] horizon별 실행 예산 차등 반영 1차
 - [x] horizon별 분할매수 리듬 차등 반영 1차
@@ -184,10 +194,12 @@
 - [ ] GitHub Pages 자동 배포 상태 점검
 - [ ] retention 기준 일수와 chunk 크기 운영값 최종 확정
 - [ ] `research_packets / research_index / research_graph` 보관 기간과 용량 정책 확정
+- [ ] `research_loops` 보관 기간과 요약 정책 확정
 - [x] `daily_update.sh` 로 `build_horizon_views.py` 자동 반영 연결
 - [x] `daily_update.sh` 로 `storage_retention.py` 자동 반영 연결
 - [x] `daily_update.sh` 로 `build_hierarchical_index.py` 자동 반영 연결
 - [x] `daily_update.sh` 로 `build_research_graph.py` 자동 반영 연결
+- [x] `daily_update.sh` 로 `build_research_loop.py` 자동 반영 연결
 - [x] `11:00 KST` launch agent 로컬 설치 완료
 - [ ] 작업 종료 시 `HANDOFF.md` 와 `TASKS.md` 갱신 자동 습관화
 
@@ -202,4 +214,5 @@
 - [x] [`data/research_packets/2026-03-30.json`](/Users/seo/igzun-daily-report/data/research_packets/2026-03-30.json) 생성 검증
 - [x] [`data/research_index/hierarchical/2026-03-30.json`](/Users/seo/igzun-daily-report/data/research_index/hierarchical/2026-03-30.json) 생성 검증
 - [x] [`data/research_graph/2026-03-30.json`](/Users/seo/igzun-daily-report/data/research_graph/2026-03-30.json) 생성 검증
+- [x] [`data/research_loops/2026-03-30.json`](/Users/seo/igzun-daily-report/data/research_loops/2026-03-30.json) 생성 검증
 - [ ] 커밋 전 `git status --short` 재확인

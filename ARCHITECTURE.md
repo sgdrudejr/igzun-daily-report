@@ -47,6 +47,8 @@ download_routes.yaml
     -> data/research_index/hierarchical/{date}.json
   -> build_research_graph.py
     -> data/research_graph/{date}.json
+  -> build_research_loop.py
+    -> data/research_loops/{date}.json
   -> llm_insights.py
     -> data/llm_insights/{date}.json
   -> build_manual_summary_brief.py (on demand)
@@ -94,6 +96,8 @@ download_routes.yaml
   - `executiveSummary`
   - `marketNarrative`
   - `deepResearchSummary`
+  - `researchLoopSummary`
+  - `verificationStatus`
   - `coreTheses`
   - `counterSignals`
   - `whatChanged`
@@ -107,6 +111,7 @@ download_routes.yaml
   - `packetRef`
   - `hierarchicalIndexRef`
   - `researchGraphRef`
+  - `researchLoopRef`
 - `recommendations`
   - `ideas[*].macroContext`
   - `ideas[*].evidencePoints`
@@ -259,6 +264,45 @@ data/research_graph/{date}.json
 - `nodes`
 - `edges`
 
+### Research Toolbox 저장 개념
+
+파일:
+
+- [`scripts/research_toolbox.py`](/Users/seo/igzun-daily-report/scripts/research_toolbox.py)
+
+역할:
+
+- 기존 정량/정성 산출물을 에이전트형 루프에서 재사용 가능한 "도구"로 표준화한다.
+- 지금은 로컬 함수 호출이지만, 추후 MCP/tool calling 계층으로 승격하기 쉬운 형태를 유지한다.
+
+현재 도구:
+
+- `macro_snapshot`
+- `valuation_snapshot`
+- `signal_snapshot`
+- `portfolio_snapshot`
+- `search_hierarchical_index`
+- `graph_focus`
+
+### Research Loop 저장
+
+```text
+data/research_loops/{date}.json
+```
+
+역할:
+
+- 단일 통과 요약 대신 `가설 설정 -> 근거 탐색 -> 검증자 반박 -> 추가 탐색` 루프를 저장한다.
+- `macro strategist / quant analyst / fundamental researcher / skeptic / portfolio operator` 역할을 lite 형태로 분리한다.
+- 최종적으로 `validated_theses`, `rejected_theses`, `action_digest`, `citations`, `verification_status` 를 남긴다.
+
+주요 구성:
+
+- `tool_registry`
+- `initial_hypotheses`
+- `iterations[*]`
+- `final_synthesis`
+
 ### Manual Summary 저장
 
 ```text
@@ -271,6 +315,7 @@ data/manual_summary/latest.md
 - 사람이 "오늘 거 심화 분석해줘" 같은 요청을 했을 때 읽는 Markdown 브리프
 - 자동 생성된 정량 데이터와 horizon 요약을 한 장으로 묶는다
 - `research_packets`, `H-RAG`, `GraphRAG lite` 요약도 함께 실어 반자동 딥리서치의 공통 브리프로 사용한다
+- `research_loop` 의 검증 상태와 반박 포인트까지 포함해 "왜 이 결론이 나왔는가"를 추적 가능하게 한다
 - Codex/Claude local skill 이 이 파일을 우선 입력으로 사용한다
 
 생성 스크립트:

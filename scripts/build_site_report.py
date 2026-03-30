@@ -1848,6 +1848,8 @@ def build_llm_insights_block(llm: dict) -> dict:
         "sourceBackedView": llm.get("source_backed_view") or [],
         "evidenceLedger": llm.get("evidence_ledger") or [],
         "confidence": llm.get("confidence") or {},
+        "researchLoopSummary": llm.get("research_loop_summary", ""),
+        "verificationStatus": llm.get("verification_status", ""),
         "newsHighlights": llm.get("news_highlights") or [],
         "nextCheckpoints": llm.get("next_checkpoints") or [],
         "apiUsed": llm.get("api_used", False),
@@ -1856,6 +1858,7 @@ def build_llm_insights_block(llm: dict) -> dict:
         "packetRef": llm.get("packet_ref", ""),
         "hierarchicalIndexRef": llm.get("hierarchical_index_ref", ""),
         "researchGraphRef": llm.get("research_graph_ref", ""),
+        "researchLoopRef": llm.get("research_loop_ref", ""),
     }
 
 

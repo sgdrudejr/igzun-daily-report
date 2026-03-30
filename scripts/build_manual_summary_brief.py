@@ -78,6 +78,7 @@ def build_brief(root: Path, date_str: str) -> str:
     packets = load_json(root / "data" / "research_packets" / f"{date_str}.json") or {}
     hierarchical_index = load_json(root / "data" / "research_index" / "hierarchical" / f"{date_str}.json") or {}
     research_graph = load_json(root / "data" / "research_graph" / f"{date_str}.json") or {}
+    research_loop = load_json(root / "data" / "research_loops" / f"{date_str}.json") or {}
 
     result = load_json(root / "site" / date_str / "result.json") or {}
     llm = result.get("llmInsights", {}) or {}
@@ -184,6 +185,22 @@ def build_brief(root: Path, date_str: str) -> str:
             ]
         )
 
+    if research_loop:
+        synthesis = research_loop.get("final_synthesis") or {}
+        lines.extend(
+            [
+                "",
+                "## 반복 리서치 루프 요약",
+                f"- 루프 횟수: {synthesis.get('loop_count', 0)}회",
+                f"- 검증 상태: {synthesis.get('verification_status', 'unknown')}",
+                f"- 루프 요약: {short(synthesis.get('research_loop_summary'), 220)}",
+            ]
+        )
+        for item in (synthesis.get("validated_theses") or [])[:3]:
+            lines.append(f"- 검증 가설: {item.get('thesis')}")
+        for item in (synthesis.get("rejected_theses") or [])[:3]:
+            lines.append(f"- 반박 포인트: {item.get('claim')}")
+
     lines.extend(
         [
             "",
@@ -199,6 +216,7 @@ def build_brief(root: Path, date_str: str) -> str:
             f"- 연구 패킷: /Users/seo/igzun-daily-report/data/research_packets/{date_str}.json",
             f"- H-RAG 인덱스: /Users/seo/igzun-daily-report/data/research_index/hierarchical/{date_str}.json",
             f"- GraphRAG Lite: /Users/seo/igzun-daily-report/data/research_graph/{date_str}.json",
+            f"- 반복 리서치 루프: /Users/seo/igzun-daily-report/data/research_loops/{date_str}.json",
             f"- 일간 결과: /Users/seo/igzun-daily-report/site/{date_str}/result.json",
             f"- 일간 LLM 결과: /Users/seo/igzun-daily-report/data/llm_insights/{date_str}.json",
             f"- horizon index: /Users/seo/igzun-daily-report/site/horizon_index.json",

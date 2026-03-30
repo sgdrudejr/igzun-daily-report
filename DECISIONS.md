@@ -307,6 +307,42 @@
 - 사용자는 시장 브리핑에서 내린 스크롤 위치가 핵심 이슈 탭에 그대로 이어지는 현재 동작을 문제로 지적했다.
 - 탭별 개별 scroll pane 이 가장 단순하고 안정적인 해결책이다.
 
+### 25. 멀티에이전트는 먼저 lite 연구 루프로 구현한다
+
+결정:
+
+- CrewAI/LangGraph를 바로 의존성으로 추가하지 않고, `research_toolbox.py` 와 `build_research_loop.py` 로 멀티에이전트형 구조를 먼저 로컬 구현한다.
+
+이유:
+
+- 현재 핵심 병목은 프레임워크 부재보다 "단일 통과 요약" 자체다.
+- 저장소는 이미 좋은 정량/정성 산출물을 갖고 있으므로, 먼저 `가설 -> 근거 -> 반박 -> 재탐색` 루프를 파일 기반으로 구현하는 것이 더 현실적이다.
+- 나중에 LangGraph/CrewAI로 올릴 때도 현재의 `tool registry`, `iterations`, `final_synthesis` 구조를 그대로 승격할 수 있다.
+
+### 26. 정량 스크립트는 텍스트 첨부물이 아니라 도구로 취급한다
+
+결정:
+
+- `macro_analysis.py`, `valuation_engine.py`, `signal_engine.py`, `portfolio_state.json`, H-RAG/Graph lite 결과를 `research_toolbox.py` 에서 callable 도구처럼 묶는다.
+
+이유:
+
+- 사용자가 요구한 MCP/tool calling 방향의 핵심은 "필요할 때 계산하고 검증하는 것"이다.
+- 지금은 외부 MCP 서버가 없어도, 내부적으로 도구 레지스트리를 분리해두면 분석 단계에서 능동적으로 데이터를 다시 읽고 쓸 수 있다.
+- 이후 실제 MCP를 붙일 때도 명세를 옮기기 쉽다.
+
+### 27. 검증 상태를 리포트에 명시한다
+
+결정:
+
+- `llm_insights` 와 웹 리포트에 `research_loop_summary`, `verification_status` 를 넣는다.
+
+이유:
+
+- 사용자는 단순히 "무슨 결론이냐"뿐 아니라 "얼마나 검증됐느냐"를 알고 싶어 한다.
+- `validated_with_cautions` 같은 상태값이 있으면, 강한 추천과 조건부 추천을 명확히 분리할 수 있다.
+- 이는 향후 API 기반 진짜 딥리서치 모델을 붙였을 때도 동일한 UX 레이어를 재사용할 수 있게 한다.
+
 ### 19. 상단 컨트롤은 2행보다 1행 압축을 우선한다
 
 결정:

@@ -1585,6 +1585,10 @@
         </div>
       `).join('');
       const confidence = llm.confidence || {};
+      const verificationStatus = llm.verificationStatus || '';
+      const verificationLabel = verificationStatus === 'high_conviction'
+        ? '강한 검증'
+        : (verificationStatus === 'needs_follow_up' ? '추가 탐색 필요' : '검증 완료(주의 포함)');
       const thesisCards = (llm.coreTheses || []).slice(0, 3).map(item => `
         <div class="detail-box">
           <div class="detail-box-title">${item.thesis || '가설'}</div>
@@ -1641,6 +1645,8 @@
           ${llm.regimeAssessment ? `<div class="body-text" style="margin-top:10px;"><b>현재 해석:</b> ${llm.regimeAssessment}</div>` : ''}
           ${llm.timingGuidance ? `<div class="body-text" style="margin-top:10px;"><b>투자 방향:</b> ${llm.timingGuidance}</div>` : ''}
           ${confidence.label ? `<div class="muted" style="margin-top:10px;">확신도 ${confidence.label} (${confidence.score ?? '-'}) · ${confidence.reason || ''}</div>` : ''}
+          ${llm.researchLoopSummary ? `<div class="body-text" style="margin-top:10px;"><b>검증 루프:</b> ${llm.researchLoopSummary}</div>` : ''}
+          ${verificationStatus ? `<div class="muted" style="margin-top:8px;">검증 상태: ${verificationLabel}</div>` : ''}
           ${renderSources((data.forecast?.sources || []).length ? data.forecast.sources : data.strategy?.sources, 'forecast-src')}
         </div>
         ${thesisCards ? `
@@ -2056,6 +2062,10 @@
         const signals = view.signals || {};
         const valuation = view.valuation || {};
         const llmInsights = view.llmInsights || {};
+        const verificationStatus = llmInsights.verificationStatus || '';
+        const verificationLabel = verificationStatus === 'high_conviction'
+          ? '강한 검증'
+          : (verificationStatus === 'needs_follow_up' ? '추가 탐색 필요' : '검증 완료(주의 포함)');
         const filteredInsights = (briefing.insights || []).filter(item => !['누적요약', '데이터'].includes(item.category || ''));
         const insights = filteredInsights.slice(0, 4).map(item => `
           <div class="insight-card">
@@ -2120,6 +2130,8 @@
             <div class="narrative-title">${HORIZON_LABELS[horizon] || horizon} 투자 방향</div>
             <div class="body-text">${strategy.summary || forecast.text || '방향성 데이터가 없습니다.'}</div>
             ${llmInsights.timingGuidance ? `<div class="body-text" style="margin-top:10px;"><b>집행 톤:</b> ${llmInsights.timingGuidance}</div>` : ''}
+            ${llmInsights.researchLoopSummary ? `<div class="body-text" style="margin-top:10px;"><b>검증 루프:</b> ${llmInsights.researchLoopSummary}</div>` : ''}
+            ${verificationStatus ? `<div class="muted" style="margin-top:8px;">검증 상태: ${verificationLabel}</div>` : ''}
             <div class="detail-grid" style="margin-top:14px;">
               <div class="detail-box">
                 <div class="detail-box-title">이번 기간 실행 예산</div>

@@ -7,28 +7,28 @@
   "regime_assessment": "중립 횡보 국면으로 분류된 현재 환경은 고평가 — 안전자산 비중 유지.",
   "core_theses": [
     {
-      "thesis": "시장 전체보다 미국 코어 지수를 먼저 보는 게 맞다",
-      "why_now": "VIX 27.4와 낮은 ERP가 동시 존재해 넓은 risk-on보다 과매도 반등형 자산이 유리합니다.",
-      "action": "SPY를 가장 먼저, QQQ/나스닥 계열은 그 다음 순서로 1~2%씩 나눠 담습니다.",
+      "thesis": "현재 메인 액션은 공격 확대보다 선별 매수다.",
+      "why_now": "레짐 자체는 붕괴되지 않았지만 VIX/달러/금리 부담이 남아 있어, 공격 확대보다 선별 진입이 자연스럽다.",
+      "action": "검증 루프를 반영해 분할매수/관망 속도를 조절합니다.",
       "confidence": "중간"
     },
     {
-      "thesis": "국내 반도체는 장기 논리는 유효하지만 오늘은 가격을 확인해야 한다",
-      "why_now": "KOSPI 밸류에이션은 고평가이고 원/달러 1513원으로 국내 위험자산 부담이 남아 있습니다.",
-      "action": "ISA에서는 KODEX 반도체를 탐색 수준으로만 시작하고, 조정 시 증액합니다.",
+      "thesis": "미국 코어 ETF가 국내 위험자산보다 우선순위가 높다.",
+      "why_now": "정량 데이터는 전면 risk-on보다는 미국 코어 ETF의 저속 분할 진입을 우선 지지한다.",
+      "action": "검증 루프를 반영해 분할매수/관망 속도를 조절합니다.",
       "confidence": "중간"
     },
     {
-      "thesis": "계좌별로 속도를 다르게 가져가야 한다",
-      "why_now": "토스증권은 미국 코어 자산 집행에 적합하고, 연금저축은 단기 타이밍보다 축적 속도가 중요합니다.",
-      "action": "토스는 즉시성, ISA는 가격 확인, 연금저축은 장기 축적 중심으로 구분합니다.",
-      "confidence": "높음"
+      "thesis": "금리·연준, 한국 수출/반도체, 유가/원자재가 누적 핵심 축이다.",
+      "why_now": "최근 누적 문서는 금리·연준, 한국 수출/반도체, 유가/원자재를 반복적으로 가리키며 단발 뉴스보다 누적 흐름 해석이 더 중요하다.",
+      "action": "검증 루프를 반영해 분할매수/관망 속도를 조절합니다.",
+      "confidence": "중간"
     }
   ],
   "counter_signals": [
-    "미국 지수의 과매도 신호가 있어도 ERP 0.1% 수준이면 valuation re-rating 여지는 제한적일 수 있습니다.",
-    "KOSPI가 고평가 구간이면 좋은 반도체 뉴스가 나와도 국내 ETF는 속도 조절이 필요합니다.",
-    "시장 배치 가능 비중이 15%에 머무는 동안에는 강력매수 신호도 분할 집행 원칙을 깨면 안 됩니다."
+    "배치 가능 비중이 낮아 전면 매수 서사는 성립하기 어렵다.",
+    "VIX 27.4로 변동성이 높아 타이밍 설명을 더 보수적으로 잡아야 한다.",
+    "원/달러 1513원은 국내 위험자산 확대 논리를 약화시킨다."
   ],
   "what_changed": [
     "1주 점수 변화가 -7.1p로 최근 주간 분위기는 악화됐습니다.",
@@ -193,6 +193,22 @@
         "배치 가능 15%",
         "메모: 리스크 높음 — 대기 현금 확보, 과매도 포착 후 진입"
       ]
+    },
+    {
+      "claim": "[BOK] 한국은행 기준금리: 2.5 %",
+      "packet": "fundamental_researcher",
+      "evidence": [
+        "출처 한국은행 ECOS",
+        "문서 ID 451d95980feec044"
+      ]
+    },
+    {
+      "claim": "[The Market Visualized] 에너지·금리의 압박, 아슬..",
+      "packet": "fundamental_researcher",
+      "evidence": [
+        "출처 네이버 금융 리서치",
+        "문서 ID e34fccf23b19d368"
+      ]
     }
   ],
   "confidence": {
@@ -200,6 +216,8 @@
     "label": "낮음",
     "reason": "변동성과 밸류에이션 부담이 커서 확신도를 낮게 본다."
   },
+  "research_loop_summary": "2회 루프를 거쳐 핵심 가설을 검증했고, 변동성·환율·국내 밸류에이션 관련 주의 조건을 함께 남겼습니다.",
+  "verification_status": "validated_with_cautions",
   "news_highlights": [
     "[fred_api] VIX (VIXCLS)",
     "[fred_api] US 10Y Treasury Yield (DGS10)",
@@ -216,5 +234,6 @@
   "fallback_reason": "OPENAI_API_KEY 와 ANTHROPIC_API_KEY 모두 미설정",
   "packet_ref": "data/research_packets/2026-03-30.json",
   "hierarchical_index_ref": "data/research_index/hierarchical/2026-03-30.json",
-  "research_graph_ref": "data/research_graph/2026-03-30.json"
+  "research_graph_ref": "data/research_graph/2026-03-30.json",
+  "research_loop_ref": "data/research_loops/2026-03-30.json"
 }

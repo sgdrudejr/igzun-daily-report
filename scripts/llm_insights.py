@@ -302,6 +302,26 @@ def _format_research_graph(graph: dict) -> str:
     return "\n".join(lines)
 
 
+def _format_research_loop(research_loop: dict) -> str:
+    if not research_loop:
+        return "(리서치 루프 없음)"
+    synthesis = research_loop.get("final_synthesis") or {}
+    lines = [
+        "=== 반복 리서치 루프 ===",
+        f"루프 횟수 {synthesis.get('loop_count', 0)}회 / 상태 {synthesis.get('verification_status', 'unknown')}",
+        synthesis.get("research_loop_summary", ""),
+    ]
+    for item in (synthesis.get("validated_theses") or [])[:3]:
+        lines.append(f"- 검증된 가설: {item.get('thesis')}")
+        why = item.get("why")
+        if why:
+            lines.append(f"  이유: {why}")
+    rejected = synthesis.get("rejected_theses") or []
+    for item in rejected[:2]:
+        lines.append(f"- 반박 포인트: {item.get('claim')}")
+    return "\n".join([line for line in lines if line])
+
+
 SYSTEM_PROMPT = """당신은 한국의 전문 투자 리서치 애널리스트입니다.
 
 역할과 목적:
@@ -392,6 +412,7 @@ def build_prompt(
     agent_packets: dict,
     hierarchical_index: dict,
     research_graph: dict,
+    research_loop: dict,
     date_str: str,
 ) -> str:
     doc_text = _format_docs(docs)
@@ -403,6 +424,7 @@ def build_prompt(
     packets_text = _format_agent_packets(agent_packets)
     hierarchical_text = _format_hierarchical_index(hierarchical_index)
     graph_text = _format_research_graph(research_graph)
+    loop_text = _format_research_loop(research_loop)
     total_cash = portfolio.get("total_cash", 0)
 
     prompt = f"""오늘({date_str}) 기준 투자 분석을 수행해주세요.
@@ -423,6 +445,8 @@ def build_prompt(
 
 {graph_text}
 
+{loop_text}
+
 === 수집된 뉴스/리서치 ({len(docs)}건) ===
 {doc_text}
 
@@ -436,6 +460,8 @@ def build_prompt(
 - 당일 뉴스보다 누적 컨텍스트(최근 7거래일/30거래일, 주간/월간/분기/반기 집계)를 우선적으로 참고하세요.
 - 시장 방향성은 반드시 수치 + 축적된 근거 + 출처군(예: 연준 연설, 네이버 리서치, OpenDART, BIS, FRED) 수준으로 설명하세요.
 - 단순 낙관/비관이 아니라 "왜 지금 그런 해석을 하는지"를 누적 데이터 변화와 함께 적으세요.
+- 내부적으로는 반드시 다음 순서로 사고하세요: 거시 레짐 판단 -> 퀀트 검증 -> 문서 근거 탐색 -> 반대 신호 검토 -> 계좌별 액션 합성.
+- 연구 루프(final_synthesis)가 있으면 그 검증 결과를 우선 반영하고, 반박 포인트를 무시하지 마세요.
 
 {{
   "executive_summary": "오늘 판단을 한 문단으로 요약. 지금 매수/관망/축소 중 무엇이 맞는지부터 먼저 서술",
@@ -524,6 +550,10 @@ def build_prompt(
 
   "confidence": {{"score": 0.0, "label": "높음/중간/낮음", "reason": "왜 이 정도 확신도를 주는지"}},
 
+  "research_loop_summary": "연구 루프가 최종적으로 어떤 가설을 검증했고 어떤 제약을 남겼는지 2~3줄 요약",
+
+  "verification_status": "validated_with_cautions / needs_follow_up / high_conviction",
+
   "news_highlights": [
     "수집된 뉴스/리서치에서 가장 중요한 인사이트 1",
     "수집된 뉴스/리서치에서 가장 중요한 인사이트 2",
@@ -547,6 +577,7 @@ def generate_fallback_insights(
     docs: list[dict],
     date_str: str,
     research_context: dict | None = None,
+    research_loop: dict | None = None,
 ) -> dict:
     """API 키 없을 때 규칙 기반 인사이트 생성."""
     regime = macro.get("regime", "Neutral")
@@ -740,6 +771,38 @@ def generate_fallback_insights(
     confidence = build_confidence(research_context, valuation, signals)
     next_checkpoints = build_next_checkpoints(research_context, valuation, signals)
     scenario_matrix = build_scenario_matrix(research_context, signals)
+    loop_synthesis = (research_loop or {}).get("final_synthesis") or {}
+    research_loop_summary = loop_synthesis.get("research_loop_summary", "")
+    verification_status = loop_synthesis.get("verification_status", "validated_with_cautions")
+    if loop_synthesis.get("validated_theses"):
+        validated = loop_synthesis.get("validated_theses") or []
+        core_theses = []
+        for item in validated[:3]:
+            evidence = item.get("evidence") or []
+            core_theses.append(
+                {
+                    "thesis": item.get("thesis", "핵심 가설"),
+                    "why_now": item.get("why") or (evidence[0] if evidence else ""),
+                    "action": "검증 루프를 반영해 분할매수/관망 속도를 조절합니다.",
+                    "confidence": "중간",
+                }
+            )
+    if loop_synthesis.get("rejected_theses"):
+        counter_signals = [item.get("claim") for item in (loop_synthesis.get("rejected_theses") or []) if item.get("claim")] + counter_signals
+    if loop_synthesis.get("citations"):
+        extra_ledger = []
+        for item in (loop_synthesis.get("citations") or [])[:3]:
+            extra_ledger.append(
+                {
+                    "claim": item.get("title"),
+                    "packet": "fundamental_researcher",
+                    "evidence": [
+                        f"출처 {item.get('source')}",
+                        f"문서 ID {item.get('doc_id')}",
+                    ],
+                }
+            )
+        evidence_ledger = (evidence_ledger + extra_ledger)[:6]
 
     return {
         "date": date_str,
@@ -762,6 +825,8 @@ def generate_fallback_insights(
         "source_backed_view": source_backed_view,
         "evidence_ledger": evidence_ledger,
         "confidence": confidence,
+        "research_loop_summary": research_loop_summary,
+        "verification_status": verification_status,
         "news_highlights": highlights,
         "next_checkpoints": next_checkpoints,
         "research_context_ref": f"data/research_context/{date_str}.json",
@@ -1058,6 +1123,7 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
     )
     hierarchical_index = _load_json(root / "data" / "research_index" / "hierarchical" / f"{date_str}.json") or {}
     research_graph = _load_json(root / "data" / "research_graph" / f"{date_str}.json") or {}
+    research_loop = _load_json(root / "data" / "research_loops" / f"{date_str}.json") or {}
 
     anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     openai_api_key = os.environ.get("OPENAI_API_KEY", "").strip()
@@ -1094,7 +1160,7 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
 
     if provider is None:
         print(f"  LLM API 없음 ({provider_reason}) — 규칙 기반 인사이트 생성")
-        result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context)
+        result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context, research_loop)
         result["api_used"] = False
         result["fallback_reason"] = provider_reason
     else:
@@ -1110,6 +1176,7 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
                 agent_packets,
                 hierarchical_index,
                 research_graph,
+                research_loop,
                 date_str,
             )
             if provider == "openai":
@@ -1119,7 +1186,7 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
                 raw_response = _call_claude_api(prompt, anthropic_api_key)
                 provider_name = "claude-opus-4-6"
             parsed = _parse_llm_response(raw_response)
-            fallback = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context)
+            fallback = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context, research_loop)
             result = _merge_with_fallback(parsed, fallback)
             result["date"] = date_str
             result["api_used"] = True
@@ -1129,13 +1196,14 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
             result["research_context_ref"] = f"data/research_context/{date_str}.json"
         except Exception as e:
             print(f"  {provider} API 오류: {e} — 규칙 기반으로 대체")
-            result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context)
+            result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context, research_loop)
             result["api_used"] = False
             result["api_error"] = str(e)
 
     result["packet_ref"] = f"data/research_packets/{date_str}.json"
     result["hierarchical_index_ref"] = f"data/research_index/hierarchical/{date_str}.json"
     result["research_graph_ref"] = f"data/research_graph/{date_str}.json"
+    result["research_loop_ref"] = f"data/research_loops/{date_str}.json"
 
     return result
 
