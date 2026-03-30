@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-03-31T00:10:49.581907",
-  "latestDailyDate": "2026-03-30",
+  "generatedAt": "2026-03-31T00:46:40.731937",
+  "latestDailyDate": "2026-03-31",
   "horizons": {
     "1일": [
+      {
+        "id": "2026-03-31",
+        "label": "3/31(화)",
+        "source": "horizons/daily/2026-03-31.json",
+        "fromDate": "2026-03-31",
+        "toDate": "2026-03-31",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
       {
         "id": "2026-03-30",
         "label": "3/30(월)",
@@ -604,8 +613,8 @@
         "label": "2026년 3월 5주",
         "source": "horizons/weekly/2026-03-w5.json",
         "fromDate": "2026-03-29",
-        "toDate": "2026-03-30",
-        "updateCount": 2,
+        "toDate": "2026-03-31",
+        "updateCount": 3,
         "dataStatus": "full"
       },
       {
@@ -732,8 +741,8 @@
         "label": "2026년 3월",
         "source": "horizons/monthly/2026-03.json",
         "fromDate": "2026-03-02",
-        "toDate": "2026-03-30",
-        "updateCount": 24,
+        "toDate": "2026-03-31",
+        "updateCount": 25,
         "dataStatus": "full"
       },
       {
@@ -761,8 +770,8 @@
         "label": "2026년 1분기",
         "source": "horizons/quarterly/2026-q1.json",
         "fromDate": "2026-01-01",
-        "toDate": "2026-03-30",
-        "updateCount": 66,
+        "toDate": "2026-03-31",
+        "updateCount": 67,
         "dataStatus": "full"
       }
     ],
@@ -772,8 +781,8 @@
         "label": "2026년 상반기",
         "source": "horizons/halfyearly/2026-h1.json",
         "fromDate": "2026-01-01",
-        "toDate": "2026-03-30",
-        "updateCount": 66,
+        "toDate": "2026-03-31",
+        "updateCount": 67,
         "dataStatus": "full"
       }
     ]

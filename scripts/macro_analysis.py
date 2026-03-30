@@ -121,6 +121,10 @@ def analyze(root: Path, date_str: str, market_data_file: Path) -> dict:
     nikkei, _, _ = extract_series(assets.get("Nikkei", {}))
     dax, _, _ = extract_series(assets.get("DAX", {}))
     usdjpy, _, _ = extract_series(assets.get("USDJPY", {}))
+    spy_etf, _, _ = extract_series(assets.get("SPY", {}))
+    qqq_etf, _, _ = extract_series(assets.get("QQQ", {}))
+    gld_etf, _, _ = extract_series(assets.get("GLD", {}))
+    tlt_etf, _, _ = extract_series(assets.get("TLT", {}))
 
     fred = load_fred_latest(root, date_str)
     ecos = load_ecos_latest(root, date_str)
@@ -196,6 +200,10 @@ def analyze(root: Path, date_str: str, market_data_file: Path) -> dict:
                     "nikkei": r2(period_return(nikkei, n)),
                     "dax": r2(period_return(dax, n)),
                     "usdjpy": r2(period_return(usdjpy, n)),
+                    "spy": r2(period_return(spy_etf, n)),
+                    "qqq": r2(period_return(qqq_etf, n)),
+                    "gld": r2(period_return(gld_etf, n)),
+                    "tlt": r2(period_return(tlt_etf, n)),
                     "us10y_yield_chg": r2((us10y[-1] - us10y[-n - 1]) if len(us10y) >= n + 1 else None),
                 },
             }
@@ -247,6 +255,10 @@ def analyze(root: Path, date_str: str, market_data_file: Path) -> dict:
             "nikkei": r2(nikkei[-1]) if nikkei else None,
             "dax": r2(dax[-1]) if dax else None,
             "usdjpy": r2(usdjpy[-1]) if usdjpy else None,
+            "spy": r2(spy_etf[-1]) if spy_etf else None,
+            "qqq": r2(qqq_etf[-1]) if qqq_etf else None,
+            "gld": r2(gld_etf[-1]) if gld_etf else None,
+            "tlt": r2(tlt_etf[-1]) if tlt_etf else None,
             "bok_rate": bok_rate,
         },
         "periods": periods,

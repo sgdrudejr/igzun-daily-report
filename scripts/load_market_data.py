@@ -21,6 +21,10 @@ ASSETS = {
     "DAX": "^GDAXI",
     "USDJPY": "JPY=X",
     "EURUSD": "EURUSD=X",
+    "SPY": "SPY",
+    "QQQ": "QQQ",
+    "GLD": "GLD",
+    "TLT": "TLT",
 }
 
 

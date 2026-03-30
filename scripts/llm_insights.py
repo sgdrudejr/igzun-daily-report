@@ -322,20 +322,25 @@ def _format_research_loop(research_loop: dict) -> str:
     return "\n".join([line for line in lines if line])
 
 
-SYSTEM_PROMPT = """당신은 한국의 전문 투자 리서치 애널리스트입니다.
+SYSTEM_PROMPT = """당신은 초보 투자자도 이해할 수 있게 시장을 설명하는 한국어 시니어 투자 리서치 애널리스트입니다.
 
 역할과 목적:
-- 분석 대상: ISA(국내ETF), 토스증권(해외ETF), 연금저축 계좌에 투자하는 개인 투자자
-- 투자 스타일: 3~6개월 중기 투자, 펀더멘탈 중심 + 기술적 보조
-- 리스크 성향: 중간 (중위험·중수익 추구)
-- 현재 상태: 전액 현금, 새로 투자 포지션 구축 중
+- 분석 대상: ISA(국내 ETF), 토스증권(해외 ETF), 연금저축 계좌를 운영하는 개인 투자자
+- 핵심 자산: SPY, QQQ, GLD, TLT 및 국내 ETF
+- 투자 스타일: 3~6개월 중기 투자, 펀더멘털 중심 + 기술적 보조
+- 현재 상태: 현금 비중이 높고, 코어 자산부터 천천히 포지션을 구축하는 단계
 
-분석 원칙:
-1. 단순 뉴스 요약이 아닌 **투자 액션 관점**에서 분석하라
-2. 모든 인사이트는 **지금 사야하는가, 사지 말아야 하는가, 기다려야 하는가**에 대한 답을 담아라
-3. 레짐·밸류에이션·기술적 신호를 종합해 근거 있는 견해를 제시하라
-4. 숫자와 구체적 근거를 반드시 포함하라
-5. 한국어로 자연스럽게 작성하라 (전문 용어는 영어 병기 허용)"""
+절대 원칙:
+1. 단순 사실 나열 금지. 항상 "현상 -> 이유 -> 포트폴리오 영향 -> 행동" 순서로 설명하라.
+2. 어려운 전문 용어를 쓰면 반드시 바로 뒤에 괄호를 붙여 쉬운 뜻을 짧게 덧붙여라.
+   - 예: 매파적(금리를 쉽게 내리지 않으려는 태도)
+   - 예: 듀레이션(금리 변화에 따라 채권 가격이 얼마나 크게 움직이는지)
+   - 예: 밸류에이션(현재 가격이 비싼지 싼지)
+3. 문장은 짧고 단정하게 쓰고, 초보 투자자가 바로 행동할 수 있는 언어를 사용하라.
+4. 모든 인사이트는 지금 사야 하는지, 기다려야 하는지, 줄여야 하는지를 포함해야 한다.
+5. SPY, QQQ, GLD, TLT에 대한 영향은 가능한 한 직접 연결해서 설명하라.
+6. "오늘의 핵심 인사이트(So What?)"는 반드시 3문장 이내로 요약하라.
+7. JSON만 출력하라. 코드블록, 서문, 사족은 금지한다."""
 
 
 def _call_claude_api(prompt: str, api_key: str) -> str:
@@ -384,8 +389,10 @@ def _parse_llm_response(text: str) -> dict:
     # Fallback: return raw text as narrative
     return {
         "market_narrative": text,
+        "so_what_3lines": [],
         "key_signals": [],
         "regime_assessment": "",
+        "causal_chains": [],
         "sector_calls": [],
         "risk_factors": [],
         "portfolio_comment": "",
@@ -462,15 +469,30 @@ def build_prompt(
 - 단순 낙관/비관이 아니라 "왜 지금 그런 해석을 하는지"를 누적 데이터 변화와 함께 적으세요.
 - 내부적으로는 반드시 다음 순서로 사고하세요: 거시 레짐 판단 -> 퀀트 검증 -> 문서 근거 탐색 -> 반대 신호 검토 -> 계좌별 액션 합성.
 - 연구 루프(final_synthesis)가 있으면 그 검증 결과를 우선 반영하고, 반박 포인트를 무시하지 마세요.
+- 단순한 시장 설명 대신 반드시 "현상 -> 이유 -> SPY/QQQ/GLD/TLT 영향 -> 행동" 인과관계를 드러내세요.
+- 어려운 단어를 쓰면 반드시 괄호 설명을 붙이세요. 초보 투자자가 읽고 바로 이해할 수 있어야 합니다.
+- "오늘의 핵심 인사이트(So What?)"는 정확히 3줄 이내로 쓰고, 매수/관망/축소 판단을 먼저 말하세요.
 
 {{
   "executive_summary": "오늘 판단을 한 문단으로 요약. 지금 매수/관망/축소 중 무엇이 맞는지부터 먼저 서술",
+
+  "so_what_3lines": [
+    "오늘의 핵심 인사이트 1줄",
+    "오늘의 핵심 인사이트 2줄",
+    "오늘의 핵심 인사이트 3줄"
+  ],
 
   "market_narrative": "현재 시장 상황을 3~5줄로 서술 (레짐, 핵심 드라이버, 방향성)",
 
   "deep_research_summary": "최근 누적 데이터(7거래일/30거래일 + 주간/월간/분기 관점)를 종합한 상위 해석 4~6줄",
 
   "regime_assessment": "레짐 판단 및 투자 함의 (2~3줄)",
+
+  "causal_chains": [
+    {{"phenomenon": "지금 나타난 현상", "reason": "왜 이런 일이 벌어졌는가", "portfolio_impact": "SPY/QQQ/GLD/TLT에 어떤 영향이 있는가", "action": "그래서 지금 어떤 행동이 맞는가"}},
+    {{"phenomenon": "지금 나타난 현상", "reason": "왜 이런 일이 벌어졌는가", "portfolio_impact": "SPY/QQQ/GLD/TLT에 어떤 영향이 있는가", "action": "그래서 지금 어떤 행동이 맞는가"}},
+    {{"phenomenon": "지금 나타난 현상", "reason": "왜 이런 일이 벌어졌는가", "portfolio_impact": "SPY/QQQ/GLD/TLT에 어떤 영향이 있는가", "action": "그래서 지금 어떤 행동이 맞는가"}}
+  ],
 
   "core_theses": [
     {{"thesis": "핵심 가설", "why_now": "왜 지금 이 가설이 중요한가", "action": "그래서 어떤 행동이 필요한가", "confidence": "높음/중간/낮음"}},
@@ -623,11 +645,11 @@ def generate_fallback_insights(
     erp = sp_val.get("erp_pct")
     if erp is not None:
         if erp > 2:
-            key_signals.append(f"S&P500 주식위험프리미엄(ERP) {erp:.1f}% — 주식이 채권보다 매력적")
+            key_signals.append(f"S&P500 주식위험프리미엄(ERP, 주식이 채권보다 얼마나 더 매력적인지) {erp:.1f}% — 주식이 채권보다 매력적")
         elif erp < 0:
-            key_signals.append(f"S&P500 ERP {erp:.1f}% — 채권 대비 주식 매력도 낮음, 선별 진입")
+            key_signals.append(f"S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) {erp:.1f}% — 채권 대비 주식 매력도 낮음, 선별 진입")
         else:
-            key_signals.append(f"S&P500 ERP {erp:.1f}% — 주식 매력도는 중립 수준, 과속 진입은 부담")
+            key_signals.append(f"S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) {erp:.1f}% — 주식 매력도는 중립 수준, 과속 진입은 부담")
     kospi_grade = kospi_val.get("valuation_grade")
     if kospi_grade in ("저평가",):
         key_signals.append(f"KOSPI 밸류에이션 {kospi_grade} — 국내 ETF 중장기 매수 논리 유효")
@@ -724,10 +746,36 @@ def generate_fallback_insights(
 
     executive_summary = (
         f"오늘 판단은 '{ms.get('action', '관망')}' 쪽이 우세합니다. "
-        f"레짐은 {regime_ko}, 총점은 {total_score:.1f}점이며, "
-        f"VIX {vix:.1f}와 원/달러 {usdkrw:.0f}원이 공격적 배치를 제약합니다. "
-        f"따라서 지금은 전액 진입보다 미국 코어 ETF 중심의 저속 분할 진입이 더 적절합니다."
+        f"변동성(VIX, 시장이 얼마나 크게 흔들리는지) {vix:.1f}와 원/달러 {usdkrw:.0f}원이 아직 높아 공격적 매수는 부담입니다. "
+        f"그래서 SPY처럼 넓은 지수는 천천히 시작하고, QQQ는 더 느리게, GLD·TLT는 방어 축으로 남겨두는 접근이 적절합니다."
     )
+
+    so_what_3lines = [
+        f"지금은 한 번에 크게 사기보다 '{ms.get('action', '관망')}' 관점으로 SPY부터 천천히 시작하는 구간입니다.",
+        f"금리 {us10y:.2f}%와 달러/원 {usdkrw:.0f}원이 높아 QQQ 같은 성장주는 더 조심해서 1~2%씩 나눠 사는 편이 좋습니다.",
+        f"불안이 다시 커질 수 있어서 GLD와 TLT는 완전히 비우기보다 방어용 후보로 계속 보면서 대응하는 편이 좋습니다.",
+    ]
+
+    causal_chains = [
+        {
+            "phenomenon": f"변동성(VIX, 시장이 얼마나 크게 흔들리는지) {vix:.1f}로 높은 편입니다.",
+            "reason": "정책 기대와 경기 우려가 같이 남아 있어 투자자들이 한 방향으로 확신하지 못하고 있습니다.",
+            "portfolio_impact": "SPY는 분할매수 접근이 맞고, QQQ는 같은 주식이라도 더 크게 흔들릴 수 있습니다. GLD와 TLT는 방어 자산으로 다시 주목받을 여지가 있습니다.",
+            "action": "SPY를 먼저 소액으로 시작하고, QQQ는 속도를 늦추며, GLD·TLT는 보조 축으로 지켜봅니다.",
+        },
+        {
+            "phenomenon": f"미국 10년물 금리 {us10y:.2f}%로 높은 수준입니다.",
+            "reason": "시중 이자율이 높으면 미래 성장 기대에 의존하는 자산의 현재 가치(지금 가격)가 깎이기 쉽습니다.",
+            "portfolio_impact": "QQQ는 금리 부담에 더 민감하고, SPY는 상대적으로 충격이 덜합니다. TLT는 금리가 꺾이면 반등 여지가 생깁니다.",
+            "action": "QQQ 추격매수는 피하고, SPY 중심으로 가며, TLT는 급락 시 방어 후보로 체크합니다.",
+        },
+        {
+            "phenomenon": f"원/달러 환율이 {usdkrw:.0f}원으로 높습니다.",
+            "reason": "달러가 강하면 국내 위험자산에는 부담이 남고, 해외 자산은 환차익 측면에서 상대적으로 버팀목이 될 수 있습니다.",
+            "portfolio_impact": "ISA의 국내 ETF는 속도 조절이 필요하고, 토스의 SPY·QQQ는 상대적으로 우선순위가 높아질 수 있습니다. GLD는 불안이 커질 때 보완재 역할을 합니다.",
+            "action": "ISA는 탐색 수준으로, 토스는 SPY 우선, GLD는 비중을 크게 늘리기보다 헤지 후보로 유지합니다.",
+        },
+    ]
 
     core_theses = [
         {
@@ -808,9 +856,11 @@ def generate_fallback_insights(
         "date": date_str,
         "generated_by": "fallback_rule_based",
         "executive_summary": executive_summary,
+        "so_what_3lines": so_what_3lines,
         "market_narrative": " ".join(narrative_parts),
         "deep_research_summary": deep_summary,
         "regime_assessment": f"{regime_ko}으로 분류된 현재 환경은 {vs.get('market_valuation', '선별적 접근 권장')}.",
+        "causal_chains": causal_chains,
         "core_theses": core_theses,
         "counter_signals": counter_signals[:3],
         "what_changed": what_changed[:3],

@@ -81,13 +81,32 @@ def build_brief(root: Path, date_str: str) -> str:
     research_loop = load_json(root / "data" / "research_loops" / f"{date_str}.json") or {}
 
     result = load_json(root / "site" / date_str / "result.json") or {}
+    macro = load_json(root / "data" / "macro_analysis" / f"{date_str}.json") or {}
+    raw_signals = load_json(root / "data" / "signals" / f"{date_str}.json") or {}
+    portfolio_state = load_json(root / "data" / "portfolio_state.json") or {}
     llm = result.get("llmInsights", {}) or {}
     valuation = result.get("valuation", {}) or {}
     signals = result.get("signals", {}) or {}
     periods = (result.get("dataByPeriod") or {})
     daily_portfolio = ((periods.get("1일") or {}).get("portfolio") or {})
     capital_plan = daily_portfolio.get("capitalPlan") or {}
-    market_signal = (signals.get("marketSignal") or {})
+    market_signal = (signals.get("marketSignal") or raw_signals.get("market_signal") or {})
+    regime = (
+        result.get("regimeKr")
+        or result.get("regime")
+        or macro.get("regime_kr")
+        or macro.get("regime")
+        or "데이터 없음"
+    )
+    total_score = result.get("totalScore")
+    if total_score is None:
+        total_score = nested(macro, "scores", "total", default="데이터 없음")
+    deployable_pct = market_signal.get("deployablePct")
+    if deployable_pct is None:
+        deployable_pct = market_signal.get("deployable_pct", "데이터 없음")
+    total_cash = capital_plan.get("totalCash")
+    if total_cash is None:
+        total_cash = portfolio_state.get("total_cash", "데이터 없음")
 
     lines = [
         f"# 수동 심화분석 브리프 ({date_str})",
@@ -96,11 +115,11 @@ def build_brief(root: Path, date_str: str) -> str:
         "자동 수집/분석 데이터는 이미 생성되어 있고, 여기서는 그것을 사람이 호출한 시점에 더 깊게 해석한다.",
         "",
         "## 현재 스냅샷",
-        f"- 레짐: {result.get('regimeKr', result.get('regime', '데이터 없음'))}",
-        f"- 총점: {result.get('totalScore', '데이터 없음')}",
+        f"- 레짐: {regime}",
+        f"- 총점: {total_score}",
         f"- 시장 시그널: {market_signal.get('action', '데이터 없음')}",
-        f"- 배치 가능 비중: {market_signal.get('deployablePct', '데이터 없음')}%",
-        f"- 총 투자 대기 현금: {capital_plan.get('totalCash', '데이터 없음')}",
+        f"- 배치 가능 비중: {deployable_pct}%",
+        f"- 총 투자 대기 현금: {total_cash}",
         "",
         "## 누적 컨텍스트",
         f"- 최근 7거래일 문서 수: {(((research_context.get('source_windows') or {}).get('recent_7d') or {}).get('document_count', 0))}",

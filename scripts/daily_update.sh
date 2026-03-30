@@ -35,10 +35,10 @@ mkdir -p "$ROOT/output"
 "$VENV/python" "$ROOT/scripts/build_research_graph.py" --date "$TODAY" --base-dir "$ROOT" || true
 "$VENV/python" "$ROOT/scripts/build_research_loop.py" --date "$TODAY" --base-dir "$ROOT" || true
 "$VENV/python" "$ROOT/scripts/llm_insights.py" --date "$TODAY" --base-dir "$ROOT" || true
-"$VENV/python" "$ROOT/scripts/build_manual_summary_brief.py" --date "$TODAY" --base-dir "$ROOT" || true
 
 # 4) site report 생성 (result.json + date_status.json)
 "$VENV/python" "$ROOT/scripts/build_site_report.py" --date "$TODAY" --base-dir "$ROOT" || true
+"$VENV/python" "$ROOT/scripts/build_manual_summary_brief.py" --date "$TODAY" --base-dir "$ROOT" || true
 "$VENV/python" "$ROOT/scripts/storage_retention.py" --base-dir "$ROOT" --today "$TODAY" --delete-originals || true
 "$VENV/python" "$ROOT/scripts/build_horizon_views.py" --base-dir "$ROOT" || true
 

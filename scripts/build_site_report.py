@@ -741,7 +741,40 @@ def build_market_strategy_block(period: str, macro: dict, etf: dict, portfolio_s
     }
 
 
-def build_period_insights(period: str, macro: dict, etf: dict, portfolio_state: dict, catalog: list[dict]) -> list[dict]:
+def fallback_signal_ideas(signals: dict | None, limit: int = 8) -> list[dict]:
+    if not signals:
+        return []
+
+    picks = (signals.get("top_buys") or [])[:limit]
+    ideas = []
+    for item in picks:
+        sizing = item.get("position_sizing") or {}
+        ideas.append(
+            {
+                "id": safe_text(item.get("id"), item.get("ticker", "")),
+                "name": safe_text(item.get("name"), "추천 ETF"),
+                "ticker": safe_text(item.get("ticker"), "-"),
+                "score": as_float(item.get("etf_quant_score"), 50),
+                "rationale": "정량 시그널 기반 우선 후보",
+                "momentum_3m": None,
+                "rsi": as_float(item.get("rsi")),
+                "volatility_20d": as_float(item.get("volatility_20d")),
+                "position_sizing": {
+                    "max_allocation_pct": sizing.get("max_allocation_pct"),
+                    "first_tranche_pct": sizing.get("first_tranche_pct"),
+                    "first_amount": sizing.get("first_amount"),
+                    "schedule": sizing.get("schedule"),
+                },
+                "signal": safe_text(item.get("signal"), "관찰"),
+                "entry_conditions": item.get("entry_conditions") or [],
+                "exit_conditions": item.get("exit_conditions") or [],
+                "reasons": item.get("reasons") or [],
+            }
+        )
+    return ideas
+
+
+def build_period_insights(period: str, macro: dict, etf: dict, portfolio_state: dict, catalog: list[dict], signals: dict | None = None) -> list[dict]:
     regime = macro.get("regime", "Neutral")
     regime_kr = get_regime_label(regime)
     scores = macro.get("scores", {}) or {}
@@ -759,7 +792,9 @@ def build_period_insights(period: str, macro: dict, etf: dict, portfolio_state: 
     oil = get_ret(macro, period, "wti")
 
     top_etfs = (etf.get("recommendations") or [])[:3]
-    top_names = ", ".join(translate_etf_name(item) for item in top_etfs) if top_etfs else "추천 ETF 데이터 없음"
+    if not top_etfs:
+        top_etfs = fallback_signal_ideas(signals, 3)
+    top_names = ", ".join(translate_etf_name(item) for item in top_etfs) if top_etfs else "SPY, QQQ, GLD"
     first_step = int(total_cash * 0.3)
 
     horizon_opening = {
@@ -946,6 +981,44 @@ def build_indices(period: str, macro: dict) -> list[dict]:
             }
         )
     return rows
+
+
+def build_market_dashboard(period: str, macro: dict) -> list[dict]:
+    latest = macro.get("latest_prices", {}) or {}
+    items = [
+        ("SPY", "SPY", latest.get("spy"), get_ret(macro, period, "spy"), "미국 대표지수"),
+        ("QQQ", "QQQ", latest.get("qqq"), get_ret(macro, period, "qqq"), "미국 성장주"),
+        ("GLD", "GLD", latest.get("gld"), get_ret(macro, period, "gld"), "금 헤지"),
+        ("TLT", "TLT", latest.get("tlt"), get_ret(macro, period, "tlt"), "장기채 방어"),
+    ]
+
+    def commentary_for(ticker: str, change: float | None) -> str:
+        change_num = as_float(change)
+        if ticker == "SPY":
+            return "미국 대형주가 버티면 코어 자산 선호가 유지되는 흐름입니다." if change_num is not None and change_num >= 0 else "미국 대형주도 흔들리고 있어 추격보다 분할 접근이 유리합니다."
+        if ticker == "QQQ":
+            return "성장주 선호가 살아나도 변동성이 커서 속도 조절이 필요합니다." if change_num is not None and change_num >= 0 else "금리 부담을 받기 쉬워 SPY보다 더 천천히 접근하는 편이 좋습니다."
+        if ticker == "GLD":
+            return "불안이 남아 있어 금이 보조 방어 축으로 작동하고 있습니다." if change_num is not None and change_num >= 0 else "위험 선호가 잠시 강해져도 완전히 배제할 자산은 아닙니다."
+        return "금리 안정 기대가 들어오며 장기채가 방어 자산으로 작동하고 있습니다." if change_num is not None and change_num >= 0 else "장기금리 부담이 남아 있어 TLT는 타이밍 확인이 더 중요합니다."
+
+    cards = []
+    for name, ticker, price, change, role in items:
+        change_num = as_float(change)
+        direction = "상승" if (change_num or 0) > 0 else ("하락" if (change_num or 0) < 0 else "보합")
+        cards.append(
+            {
+                "name": name,
+                "ticker": ticker,
+                "price": safe_text(number(price, 2), "-"),
+                "change": signed_arrow(change),
+                "isUp": change_num is not None and change_num >= 0,
+                "direction": direction,
+                "role": role,
+                "commentary": commentary_for(ticker, change_num),
+            }
+        )
+    return cards
 
 
 def build_news_list(period: str, macro: dict, etf: dict, catalog: list[dict]) -> list[dict]:
@@ -1532,6 +1605,8 @@ def build_rebalancing_block(period: str, macro: dict, etf: dict, portfolio_state
 
 def build_recommendations_block(period: str, macro: dict, etf: dict, regime: str, catalog: list[dict], signals: dict | None = None) -> dict:
     ranked = (etf.get("recommendations") or [])[:8]
+    if not ranked:
+        ranked = fallback_signal_ideas(signals, 8)
     mi = macro.get("macro_inputs", {}) or {}
     rhythm = execution_rhythm(period)
     # Build signal lookup map by ETF id
@@ -1650,18 +1725,18 @@ def build_recommendations_block(period: str, macro: dict, etf: dict, regime: str
     if not ideas:
         ideas = [
             {
-                "logo": "📌",
-                "name": "ETF 데이터 없음",
-                "ticker": "-",
-                "action": "관찰 유지",
+                "logo": "🧭",
+                "name": "SPY / QQQ / GLD 관찰 바구니",
+                "ticker": "SPY, QQQ, GLD",
+                "action": "분산 관찰",
                 "linkedIssue": safe_text(get_regime_label(regime)),
                 "scoreText": "0점",
-                "reason": "현재 날짜의 ETF 추천 데이터가 부족합니다.",
-                "whyBuy": "ETF 데이터가 채워지면 레짐·모멘텀·RSI를 근거로 설명을 보강합니다.",
-                "risk": "현재는 데이터 부족이 가장 큰 리스크입니다.",
-                "execution": "데이터 확보 전까지는 코어 자산과 현금 중심 접근이 적합합니다.",
-                "macroContext": "데이터 확보 전까지는 매크로 컨텍스트 설명을 보수적으로 유지합니다.",
-                "positioning": "총 투자금의 0%",
+                "reason": "추천 엔진 산출이 비어 있을 때는 시장 코어 ETF를 기준 바구니로 삼아 레짐과 변동성을 먼저 확인합니다.",
+                "whyBuy": "SPY는 미국 코어, QQQ는 성장주 민감도, GLD는 불확실성 헤지 역할을 분리해서 볼 수 있어 초보자에게도 해석이 쉽습니다.",
+                "risk": "레짐이 약하거나 달러·금리 부담이 클 때는 세 자산 모두 분할 속도를 늦춰야 합니다.",
+                "execution": "오늘은 코어 자산 위주로 소액 분할 진입하고, 다음 데이터 업데이트에서 상위 후보를 다시 확인합니다.",
+                "macroContext": "추천 엔진이 비는 날에도 레짐·금리·달러 흐름을 기준으로 SPY, QQQ, GLD를 비교 축으로 삼으면 판단 공백을 줄일 수 있습니다.",
+                "positioning": "총 투자금의 5% 이내 탐색",
                 "evidencePoints": [],
                 "watchPoint": "충분한 ETF 데이터 확보 전까지는 과도한 해석을 피합니다.",
                 "sources": source_bundle(period, macro, etf, {}),
@@ -1685,11 +1760,12 @@ def build_period_data(period: str, macro: dict, etf: dict, portfolio_state: dict
             "label": score_label,
             "desc": f"{desc} 현재 해석은 {get_regime_label(regime)} 기준입니다.",
         },
+        "marketDashboard": build_market_dashboard(period, macro),
         "scoreChips": build_score_chips(macro),
         "metricChips": build_metric_chips(period, macro),
         "forecast": build_period_forecast(period, macro, regime, catalog),
         "strategy": build_market_strategy_block(period, macro, etf, portfolio_state, catalog),
-        "insights": build_period_insights(period, macro, etf, portfolio_state, catalog),
+        "insights": build_period_insights(period, macro, etf, portfolio_state, catalog, signals),
         "indices": build_indices(period, macro),
     }
 
@@ -1831,9 +1907,11 @@ def build_llm_insights_block(llm: dict) -> dict:
         return {}
     return {
         "executiveSummary": llm.get("executive_summary", ""),
+        "soWhat3Lines": llm.get("so_what_3lines") or [],
         "marketNarrative": llm.get("market_narrative", ""),
         "deepResearchSummary": llm.get("deep_research_summary", ""),
         "regimeAssessment": llm.get("regime_assessment", ""),
+        "causalChains": llm.get("causal_chains") or [],
         "coreTheses": llm.get("core_theses") or [],
         "counterSignals": llm.get("counter_signals") or [],
         "whatChanged": llm.get("what_changed") or [],
