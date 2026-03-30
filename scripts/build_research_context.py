@@ -124,6 +124,17 @@ def safe_text(value) -> str:
     return text
 
 
+def nested(mapping, *keys, default=None):
+    value = mapping
+    for key in keys:
+        if not isinstance(value, dict):
+            return default
+        value = value.get(key)
+        if value is None:
+            return default
+    return value
+
+
 def available_dates(root: Path, target_date: date) -> list[str]:
     dates = []
     for path in sorted((root / "data" / "macro_analysis").glob("*.json")):
@@ -405,6 +416,177 @@ def build_portfolio_context(portfolio: dict, signals: dict) -> dict:
     return {"total_cash": portfolio.get("total_cash", 0), "accounts": items}
 
 
+def _top_doc_samples(docs: list[dict], limit: int = 8) -> list[dict]:
+    items = []
+    for doc in docs[:limit]:
+        items.append(
+            {
+                "source_id": doc.get("source_id"),
+                "title": safe_text(doc.get("title")),
+                "published_date": doc.get("published_date"),
+                "region": doc.get("region"),
+                "document_type": doc.get("document_type"),
+                "summary": safe_text(doc.get("summary"))[:220],
+            }
+        )
+    return items
+
+
+def build_agent_packets(
+    date_str: str,
+    macro: dict,
+    signals: dict,
+    valuation: dict,
+    docs_7: dict,
+    docs_30: dict,
+    score_trend: dict,
+    horizons: dict,
+    portfolio_context: dict,
+    current_snapshot: dict,
+) -> dict:
+    mi = macro.get("macro_inputs", {}) or {}
+    top_buys = (signals.get("top_buys") or [])[:4]
+    avoid_list = (signals.get("avoid_list") or [])[:3]
+    risk_flags = []
+    if as_float(mi.get("vix"), 0) and as_float(mi.get("vix"), 0) > 25:
+        risk_flags.append(f"VIX {as_float(mi.get('vix')):.1f}로 변동성 경계 상태")
+    if as_float(mi.get("usd_krw"), 0) and as_float(mi.get("usd_krw"), 0) > 1450:
+        risk_flags.append(f"원/달러 {as_float(mi.get('usd_krw')):.0f}원으로 원화 자산 부담 확대")
+    if ((valuation.get("summary") or {}).get("avg_score") or 50) < 40:
+        risk_flags.append("시장 전반 밸류에이션 점수가 낮아 가격 메리트가 크지 않음")
+    if (signals.get("market_signal") or {}).get("action") == "관망 유지":
+        risk_flags.append("시장 전체는 관망 기조라 공격적 배치보다 선별 접근이 우선")
+
+    macro_drivers = []
+    if as_float(mi.get("vix")) is not None:
+        macro_drivers.append(f"VIX {as_float(mi.get('vix')):.1f}")
+    if as_float(mi.get("us10y")) is not None:
+        macro_drivers.append(f"미국 10년물 {as_float(mi.get('us10y')):.2f}%")
+    if as_float(mi.get("usd_krw")) is not None:
+        macro_drivers.append(f"원/달러 {as_float(mi.get('usd_krw')):.0f}원")
+    if as_float(mi.get("oil")) is not None:
+        macro_drivers.append(f"WTI ${as_float(mi.get('oil')):.1f}")
+
+    recent_7_topics = extract_topics(docs_7.get("sampled_docs") or [])
+    recent_30_topics = extract_topics(docs_30.get("sampled_docs") or [])
+
+    return {
+        "macro_strategist": {
+            "role": "거시경제 전략가",
+            "date": date_str,
+            "current_regime": current_snapshot.get("regime_kr"),
+            "market_signal": current_snapshot.get("market_signal"),
+            "macro_drivers": macro_drivers,
+            "score_trend": {
+                "delta_1d": score_trend.get("delta_1d"),
+                "delta_1w": score_trend.get("delta_1w"),
+                "delta_1m": score_trend.get("delta_1m"),
+                "regime_streak": score_trend.get("regime_streak"),
+                "direction_1w": score_trend.get("direction_1w"),
+            },
+            "horizon_bias": [
+                {
+                    "period": label,
+                    "regime": item.get("regime_kr"),
+                    "avg_score": item.get("avg_score"),
+                    "summary": safe_text(item.get("summary"))[:200],
+                }
+                for label, item in [
+                    ("1주", horizons.get("weekly") or {}),
+                    ("1개월", horizons.get("monthly") or {}),
+                    ("3개월", horizons.get("quarterly") or {}),
+                    ("6개월", horizons.get("semiannual") or {}),
+                ]
+                if item
+            ],
+            "primary_question": "지금은 공격적으로 비중을 늘릴 시점인가, 아니면 과매도 자산만 선별적으로 모을 시점인가?",
+        },
+        "quant_analyst": {
+            "role": "퀀트 애널리스트",
+            "market_signal": signals.get("market_signal") or {},
+            "valuation_summary": valuation.get("summary") or {},
+            "valuation_table": {
+                "sp500": valuation.get("sp500") or {},
+                "kospi": valuation.get("kospi") or {},
+                "nasdaq": valuation.get("nasdaq") or {},
+                "gold": valuation.get("gold") or {},
+            },
+            "top_candidates": [
+                {
+                    "id": item.get("id"),
+                    "name": item.get("name"),
+                    "signal": item.get("signal"),
+                    "timing_grade": item.get("timing_grade"),
+                    "rsi": item.get("rsi"),
+                    "first_amount": nested(item, "position_sizing", "first_amount", default=0),
+                    "schedule": nested(item, "position_sizing", "schedule", default=""),
+                }
+                for item in top_buys
+            ],
+            "avoid_candidates": [
+                {
+                    "id": item.get("id"),
+                    "name": item.get("name"),
+                    "signal": item.get("signal"),
+                    "reason": " / ".join((item.get("reasons") or [])[:2]),
+                }
+                for item in avoid_list
+            ],
+            "quant_question": "정성적 뉴스 흐름이 실제 가격과 기술적 시그널에서 확인되는가?",
+        },
+        "fundamental_researcher": {
+            "role": "펀더멘털 리서처",
+            "recent_7d_coverage": {
+                "document_count": docs_7.get("document_count", 0),
+                "top_sources": docs_7.get("sources") or [],
+                "top_topics": recent_7_topics[:5],
+                "sample_docs": _top_doc_samples(docs_7.get("sampled_docs") or [], limit=6),
+            },
+            "recent_30d_coverage": {
+                "document_count": docs_30.get("document_count", 0),
+                "top_sources": docs_30.get("sources") or [],
+                "top_topics": recent_30_topics[:6],
+                "sample_docs": _top_doc_samples(docs_30.get("sampled_docs") or [], limit=8),
+            },
+            "research_question": "최근 누적 문서에서 반복되는 섹터/정책/실적 논리가 현재 포트폴리오 행동과 연결되는가?",
+        },
+        "skeptic_risk_manager": {
+            "role": "리스크 및 검증자",
+            "risk_flags": risk_flags,
+            "contradictions_to_check": [
+                "리서치 문구는 낙관적이지만 시장 점수와 배치 가능 비중이 낮은지",
+                "과매도 기술 신호가 있어도 밸류에이션이 너무 비싼 자산은 아닌지",
+                "한국 자산 매수 논리가 환율 상승과 충돌하지 않는지",
+            ],
+            "required_rechecks": [
+                "주간 점수 변화가 음수일 때는 추격매수 문구를 금지",
+                "시장 전체 신호가 관망이면 계좌별 액션도 소액 분할로 제한",
+                "상위 시그널과 source-backed 주장 간 불일치 여부 점검",
+            ],
+        },
+        "portfolio_operator": {
+            "role": "포트폴리오 실행 담당",
+            "total_cash": portfolio_context.get("total_cash", 0),
+            "accounts": portfolio_context.get("accounts") or [],
+            "execution_question": "계좌별 제약을 고려했을 때 오늘 어떤 순서와 속도로 배치해야 하는가?",
+        },
+        "synthesis_editor": {
+            "role": "수석 에디터",
+            "required_sections": [
+                "executive_summary",
+                "core_theses",
+                "counter_signals",
+                "what_changed",
+                "scenario_matrix",
+                "account_actions",
+                "evidence_ledger",
+                "next_checkpoints",
+            ],
+            "editor_goal": "브리핑이 아니라 가설-반박-실행-점검 구조의 투자 메모를 만든다.",
+        },
+    }
+
+
 def build_research_context(root: Path, date_str: str) -> dict:
     target_date = date.fromisoformat(date_str)
     dates = available_dates(root, target_date)
@@ -437,10 +619,25 @@ def build_research_context(root: Path, date_str: str) -> dict:
         "total_cash": portfolio.get("total_cash", 0),
     }
 
+    score_trend = build_score_trend(root, dates, macro)
+    portfolio_context = build_portfolio_context(portfolio, signals)
+    packets = build_agent_packets(
+        date_str=date_str,
+        macro=macro,
+        signals=signals,
+        valuation=valuation,
+        docs_7=docs_7,
+        docs_30=docs_30,
+        score_trend=score_trend,
+        horizons=horizons,
+        portfolio_context=portfolio_context,
+        current_snapshot=current_snapshot,
+    )
+
     return {
         "date": date_str,
         "current_snapshot": current_snapshot,
-        "score_trend": build_score_trend(root, dates, macro),
+        "score_trend": score_trend,
         "horizon_snapshots": horizons,
         "source_windows": {
             "recent_7d": {
@@ -463,7 +660,15 @@ def build_research_context(root: Path, date_str: str) -> dict:
             "recent_30d": extract_topics(docs_30["sampled_docs"]),
         },
         "recent_memos": build_recent_memos(root, dates),
-        "portfolio_context": build_portfolio_context(portfolio, signals),
+        "portfolio_context": portfolio_context,
+        "agent_packets": packets,
+        "packet_refs": {
+            "research_packets": f"data/research_packets/{date_str}.json",
+        },
+        "index_refs": {
+            "hierarchical_index": f"data/research_index/hierarchical/{date_str}.json",
+            "graph_index": f"data/research_graph/{date_str}.json",
+        },
     }
 
 
@@ -597,7 +802,13 @@ def main():
     out_file = out_dir / f"{args.date}.json"
     out_file.write_text(json.dumps(context, ensure_ascii=False, indent=2))
 
+    packet_dir = root / "data" / "research_packets"
+    packet_dir.mkdir(parents=True, exist_ok=True)
+    packet_file = packet_dir / f"{args.date}.json"
+    packet_file.write_text(json.dumps(context.get("agent_packets") or {}, ensure_ascii=False, indent=2))
+
     print(f"wrote {out_file}")
+    print(f"wrote {packet_file}")
     print()
     print(format_research_context(context))
 

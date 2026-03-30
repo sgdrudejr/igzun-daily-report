@@ -1584,6 +1584,25 @@
           <div class="detail-box-text">${item.text || ''}</div>
         </div>
       `).join('');
+      const confidence = llm.confidence || {};
+      const thesisCards = (llm.coreTheses || []).slice(0, 3).map(item => `
+        <div class="detail-box">
+          <div class="detail-box-title">${item.thesis || '가설'}</div>
+          <div class="detail-box-text">${item.whyNow || item.why_now || ''}</div>
+          ${item.action ? `<div class="body-text" style="margin-top:8px;"><b>액션:</b> ${item.action}</div>` : ''}
+          ${(item.confidence || '').trim() ? `<div class="muted" style="margin-top:6px;">확신도: ${item.confidence}</div>` : ''}
+        </div>
+      `).join('');
+      const counterList = (llm.counterSignals || []).slice(0, 4).map(item => `<li class="detail-item">${item}</li>`).join('');
+      const changedList = (llm.whatChanged || []).slice(0, 4).map(item => `<li class="detail-item">${item}</li>`).join('');
+      const checkpointList = (llm.nextCheckpoints || []).slice(0, 4).map(item => `<li class="detail-item">${item}</li>`).join('');
+      const evidenceCards = (llm.evidenceLedger || []).slice(0, 3).map((item, idx) => `
+        <div class="insight-card">
+          <div class="insight-kicker">${item.packet || 'packet'} · 근거 ${idx + 1}</div>
+          <div class="body-text"><b>${item.claim || ''}</b></div>
+          ${(item.evidence || []).length ? `<ul class="detail-list" style="margin-top:10px;">${(item.evidence || []).slice(0, 3).map(ev => `<li class="detail-item">${ev}</li>`).join('')}</ul>` : ''}
+        </div>
+      `).join('');
       const indices = (data.indices || []).slice(0, 8).map(item => `
         <div class="metric-pill">
           <div class="metric-pill-label">${item.name || '-'}</div>
@@ -1617,11 +1636,32 @@
         </div>
         <div class="narrative-card">
           <div class="narrative-title">지금 읽어야 할 시황</div>
+          ${llm.executiveSummary ? `<div class="body-text" style="font-weight:700; margin-bottom:10px;">${llm.executiveSummary}</div>` : ''}
           <div class="body-text">${llm.marketNarrative || data.forecast?.text || ''}</div>
           ${llm.regimeAssessment ? `<div class="body-text" style="margin-top:10px;"><b>현재 해석:</b> ${llm.regimeAssessment}</div>` : ''}
           ${llm.timingGuidance ? `<div class="body-text" style="margin-top:10px;"><b>투자 방향:</b> ${llm.timingGuidance}</div>` : ''}
+          ${confidence.label ? `<div class="muted" style="margin-top:10px;">확신도 ${confidence.label} (${confidence.score ?? '-'}) · ${confidence.reason || ''}</div>` : ''}
           ${renderSources((data.forecast?.sources || []).length ? data.forecast.sources : data.strategy?.sources, 'forecast-src')}
         </div>
+        ${thesisCards ? `
+          <div class="card">
+            <div class="card-title">오늘의 핵심 가설</div>
+            <div class="detail-grid">${thesisCards}</div>
+          </div>
+        ` : ''}
+        ${(counterList || changedList) ? `
+          <div class="card">
+            <div class="card-title">반대 신호와 변화 포인트</div>
+            ${counterList ? `
+              <div class="impact-title">이 판단이 틀릴 수 있는 이유</div>
+              <ul class="detail-list">${counterList}</ul>
+            ` : ''}
+            ${changedList ? `
+              <div class="impact-title" style="margin-top:12px;">직전 대비 바뀐 점</div>
+              <ul class="detail-list">${changedList}</ul>
+            ` : ''}
+          </div>
+        ` : ''}
         <div class="card">
           <div class="card-title">주요 지표와 시황 포인트</div>
           <div class="metric-strip">${indices || ''}</div>
@@ -1643,6 +1683,16 @@
           <div class="card">
             <div class="card-title">지금 볼 섹터, 피할 섹터</div>
             <div class="insight-stack">${sectorCalls}</div>
+          </div>
+        ` : ''}
+        ${(evidenceCards || checkpointList) ? `
+          <div class="card">
+            <div class="card-title">근거와 다음 체크포인트</div>
+            ${evidenceCards ? `<div class="insight-stack">${evidenceCards}</div>` : ''}
+            ${checkpointList ? `
+              <div class="impact-title" style="margin-top:12px;">다음 확인 포인트</div>
+              <ul class="detail-list">${checkpointList}</ul>
+            ` : ''}
           </div>
         ` : ''}
       `;
@@ -1738,6 +1788,13 @@
       const capitalPlan = data.capitalPlan || {};
       const primaryAction = signals.marketSignal?.action || data.weeklyReview?.returnRate || '중립 대응';
       const primaryGuide = llm.portfolioComment || data.weeklyReview?.desc || data.accountDetail || '';
+      const accountActions = (llm.accountActions || []).slice(0, 3).map(item => `
+        <div class="detail-box">
+          <div class="detail-box-title">${item.account || '계좌'} · ${item.stance || '중립'}</div>
+          <div class="detail-box-text">${item.now || ''}</div>
+          ${(item.nextStep || item.next_step) ? `<div class="body-text" style="margin-top:8px;"><b>다음:</b> ${item.nextStep || item.next_step}</div>` : ''}
+        </div>
+      `).join('');
 
       pane.innerHTML = `
         <div class="key-stat-grid">${keyStats}</div>
@@ -1832,6 +1889,12 @@
               </ul>
             ` : ''}
             ${renderSources(data.sources, 'portfolio-llm-src')}
+          </div>
+        ` : ''}
+        ${accountActions ? `
+          <div class="card">
+            <div class="card-title">계좌별 실행 메모</div>
+            <div class="detail-grid">${accountActions}</div>
           </div>
         ` : ''}
       `;
@@ -2034,6 +2097,13 @@
             <div class="body-text">${s.rationale || ''}</div>
           </div>
         `).join('');
+        const scenarioMatrix = (llmInsights.scenarioMatrix || []).slice(0, 3).map(item => `
+          <div class="detail-box">
+            <div class="detail-box-title">${item.scenario || '시나리오'} · ${item.probability || ''}</div>
+            <div class="detail-box-text">${item.trigger || ''}</div>
+            ${(item.portfolioResponse || item.portfolio_response) ? `<div class="body-text" style="margin-top:8px;"><b>대응:</b> ${item.portfolioResponse || item.portfolio_response}</div>` : ''}
+          </div>
+        `).join('');
 
         content = `
           <div class="card">
@@ -2100,6 +2170,12 @@
                 <div class="impact-title" style="margin-top:12px;">리스크 요인</div>
                 <ul class="detail-list">${(llmInsights.riskFactors || []).map(r => `<li class="detail-item">${r}</li>`).join('')}</ul>
               ` : ''}
+            </div>
+          ` : ''}
+          ${scenarioMatrix ? `
+            <div class="card">
+              <div class="card-title">시나리오 매트릭스</div>
+              <div class="detail-grid">${scenarioMatrix}</div>
             </div>
           ` : ''}
         `;

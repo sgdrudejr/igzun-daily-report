@@ -1,0 +1,7420 @@
+{
+  "date": "2026-03-30",
+  "summary": {
+    "node_count": 264,
+    "edge_count": 1200,
+    "document_count": 260
+  },
+  "communities": {
+    "top_topics": [
+      {
+        "topic": "기타/시장일반",
+        "count": 123
+      },
+      {
+        "topic": "금리/연준",
+        "count": 80
+      },
+      {
+        "topic": "유가/원자재",
+        "count": 29
+      },
+      {
+        "topic": "AI/반도체",
+        "count": 22
+      },
+      {
+        "topic": "환율/달러",
+        "count": 4
+      },
+      {
+        "topic": "인플레이션/물가",
+        "count": 3
+      },
+      {
+        "topic": "소비/내수",
+        "count": 3
+      },
+      {
+        "topic": "방산/지정학",
+        "count": 3
+      }
+    ],
+    "top_assets": [
+      {
+        "asset": "GLD",
+        "count": 82
+      },
+      {
+        "asset": "IEF",
+        "count": 80
+      },
+      {
+        "asset": "KODEX_SEMI",
+        "count": 24
+      },
+      {
+        "asset": "KODEX_USD",
+        "count": 4
+      },
+      {
+        "asset": "HANARO_KDEFENSE",
+        "count": 3
+      },
+      {
+        "asset": "BIO",
+        "count": 1
+      }
+    ],
+    "top_sources": [
+      {
+        "source": "fred_api",
+        "count": 150
+      },
+      {
+        "source": "naver_research",
+        "count": 40
+      },
+      {
+        "source": "bis_speeches",
+        "count": 25
+      },
+      {
+        "source": "fed_press_rss",
+        "count": 20
+      },
+      {
+        "source": "fed_speeches_rss",
+        "count": 14
+      },
+      {
+        "source": "ecos_api",
+        "count": 11
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "doc:5081ce8dad350998",
+      "label": "Sabine Mauderer: Preserving stability in a fragmented and uncertain world",
+      "type": "document"
+    },
+    {
+      "id": "source:bis_speeches",
+      "label": "BIS 연설",
+      "type": "source"
+    },
+    {
+      "id": "region:Global",
+      "label": "Global",
+      "type": "region"
+    },
+    {
+      "id": "topic:AI/반도체",
+      "label": "AI/반도체",
+      "type": "topic"
+    },
+    {
+      "id": "asset:KODEX_SEMI",
+      "label": "KODEX_SEMI",
+      "type": "asset"
+    },
+    {
+      "id": "doc:11d4f1e65736e249",
+      "label": "Martin Schlegel, Antoine Martin, Petra Tschudin: Introductory remarks by the Governing Board, Swiss National Bank news conference",
+      "type": "document"
+    },
+    {
+      "id": "doc:0aeffa86e738dc31",
+      "label": "Chiara Scotti: Financial stability and regulation in an age of transformation - how economic research can help reorient navigation",
+      "type": "document"
+    },
+    {
+      "id": "topic:기타/시장일반",
+      "label": "기타/시장일반",
+      "type": "topic"
+    },
+    {
+      "id": "doc:82352c7d306d4b64",
+      "label": "Sabine Mauderer: Navigating climate risks in Southern Africa - the role of central banks",
+      "type": "document"
+    },
+    {
+      "id": "doc:e009a62c82f3fb20",
+      "label": "Colm Kincaid: Opening statement - joint Oireachtas Committee on Finance, Public Expenditure, Public Service Reform and Digitalisation, and Taoiseach",
+      "type": "document"
+    },
+    {
+      "id": "doc:c5e137ee6cae748d",
+      "label": "Piero Cipollone: Building the rails for Europe's tokenised financial markets",
+      "type": "document"
+    },
+    {
+      "id": "topic:금리/연준",
+      "label": "금리/연준",
+      "type": "topic"
+    },
+    {
+      "id": "asset:GLD",
+      "label": "GLD",
+      "type": "asset"
+    },
+    {
+      "id": "asset:IEF",
+      "label": "IEF",
+      "type": "asset"
+    },
+    {
+      "id": "doc:7089a7cb79d0b144",
+      "label": "Tiff Macklem: Release of the Monetary Policy Report",
+      "type": "document"
+    },
+    {
+      "id": "doc:e0a6ecffcb42e1fe",
+      "label": "Fabio Panetta: Introductory remarks &#8211; conference \"Laying the groundwork for jobs in Africa: core infrastructure and business environments\"",
+      "type": "document"
+    },
+    {
+      "id": "doc:facc14e4dbc67b10",
+      "label": "Claudia Buch: Hearing of the Committee on Economic and Monetary Affairs of the European Parliament",
+      "type": "document"
+    },
+    {
+      "id": "doc:2e8ba1d9d82ed80e",
+      "label": "Adnan Zaylani Mohamad Zahid: Opening remarks - Financing Sectoral Engagements (FSE) inaugural session",
+      "type": "document"
+    },
+    {
+      "id": "doc:2be98deb445b3598",
+      "label": "Agnès Bénassy-Quéré: Speech - \"Research conference on climate- and nature-related risks in the economic and financial systems\"",
+      "type": "document"
+    },
+    {
+      "id": "doc:0ea53780d669029c",
+      "label": "Waller, Labor Market Data: Signal or Noise?",
+      "type": "document"
+    },
+    {
+      "id": "source:fed_speeches_rss",
+      "label": "연준 연설",
+      "type": "source"
+    },
+    {
+      "id": "region:US",
+      "label": "US",
+      "type": "region"
+    },
+    {
+      "id": "doc:51f63aaad5b97e59",
+      "label": "José Luis Escrivá: Inauguration of the Applied Technology Laboratory and Experimentation Department",
+      "type": "document"
+    },
+    {
+      "id": "doc:a199e1bc2c730750",
+      "label": "Elizabeth Genia: Presentation of the March 2026 economic outlook, inflation and monetary policy",
+      "type": "document"
+    },
+    {
+      "id": "topic:인플레이션/물가",
+      "label": "인플레이션/물가",
+      "type": "topic"
+    },
+    {
+      "id": "doc:bde23e24deba95f1",
+      "label": "Michael S Barr: Developing communities through public-private partnerships",
+      "type": "document"
+    },
+    {
+      "id": "doc:551c6896f01cead6",
+      "label": "Brad Jones: After Acacia - the next era of financial system innovation?",
+      "type": "document"
+    },
+    {
+      "id": "doc:2c37eeaba40e7b73",
+      "label": "Waller, Operationalizing AI at the Federal Reserve",
+      "type": "document"
+    },
+    {
+      "id": "doc:06c38fa364a326ef",
+      "label": "Primo&#382; Dolenc: Opening address - \"Stablecoins and their impact on financial stability\"",
+      "type": "document"
+    },
+    {
+      "id": "doc:d0226aad1daae172",
+      "label": "Yannis Stournaras: The Greek economy ten years after the crisis - lessons for national economies, the eurozone and future challenges",
+      "type": "document"
+    },
+    {
+      "id": "doc:2bea8bb097ff69e8",
+      "label": "Michael Atingi-Ego: Remarks - Town Hall Meeting - Kamuli District Leaders and Community",
+      "type": "document"
+    },
+    {
+      "id": "doc:21bd58ef8dc7489a",
+      "label": "Alberto Naudon: Chile's macroeconomic normalization in a not-so-normal world",
+      "type": "document"
+    },
+    {
+      "id": "topic:유가/원자재",
+      "label": "유가/원자재",
+      "type": "topic"
+    },
+    {
+      "id": "doc:89233a13b42de9d8",
+      "label": "Dimitar Radev: The euro and the banking sector - readiness to participate and shared responsibility",
+      "type": "document"
+    },
+    {
+      "id": "doc:e3125b3a8c43a0c5",
+      "label": "Olaf Sleijpen: Standing with Ukraine, strengthening Europe - resilience, growth and stability",
+      "type": "document"
+    },
+    {
+      "id": "doc:c895a269f9c8eded",
+      "label": "Bowman, Opening Remarks",
+      "type": "document"
+    },
+    {
+      "id": "doc:47ceba99284746c4",
+      "label": "Powell, Acceptance Remarks",
+      "type": "document"
+    },
+    {
+      "id": "doc:e0087c233bf48f3c",
+      "label": "Cook, Opening Remarks for the “AI and Productivity across the Economy” Panel",
+      "type": "document"
+    },
+    {
+      "id": "doc:5c2b70515d2566fc",
+      "label": "Kevin Greenidge: Shared seas, shared struggles - a Caribbean perspective on the challenges facing small island developing states",
+      "type": "document"
+    },
+    {
+      "id": "doc:6af7a516dde3604e",
+      "label": "Jorgovanka Tabakovi&#263;: Industrial policy supporting Serbia's long-term economic growth",
+      "type": "document"
+    },
+    {
+      "id": "doc:78881d0e6c25633e",
+      "label": "Bowman, Liquidity Resiliency, Financial Stability, and the Role of the Federal Reserve",
+      "type": "document"
+    },
+    {
+      "id": "doc:f7078335192b6aea",
+      "label": "François Villeroy de Galhau: Private markets - three conditions to get the good without the bad or the ugly",
+      "type": "document"
+    },
+    {
+      "id": "doc:6c90ef150ad79854",
+      "label": "Pan Gongsheng: China's high-quality development and global economic rebalancing",
+      "type": "document"
+    },
+    {
+      "id": "doc:76e55af1b600f14c",
+      "label": "Cook, Reflections on Financial Stability",
+      "type": "document"
+    },
+    {
+      "id": "doc:2c0b0977e64bbc2d",
+      "label": "Bowman, Revitalizing Bank Mortgage Lending, One Step with Basel",
+      "type": "document"
+    },
+    {
+      "id": "doc:2afebfad016337da",
+      "label": "Jefferson, Economic Outlook and Energy Effects",
+      "type": "document"
+    },
+    {
+      "id": "doc:96fcf3077cab228d",
+      "label": "Bowman, Capital Rules for the Real Economy",
+      "type": "document"
+    },
+    {
+      "id": "doc:f58b4384b97e5551",
+      "label": "Barr, Developing Communities through Public-private Partnerships",
+      "type": "document"
+    },
+    {
+      "id": "doc:a06a774eea440cb1",
+      "label": "Barr, What Will Artificial Intelligence Mean for the Labor Market and the Economy?",
+      "type": "document"
+    },
+    {
+      "id": "doc:35b46d0f71a0e6ea",
+      "label": "Barr, Brief Remarks on the Economic Outlook and Monetary Policy",
+      "type": "document"
+    },
+    {
+      "id": "doc:3ac278b3b6505b9c",
+      "label": "Miran, Prospects for Shrinking the Fed’s Balance Sheet",
+      "type": "document"
+    },
+    {
+      "id": "doc:569145f600ebb8e0",
+      "label": "Federal Reserve Board announces it has made the joint findings with the Office of the Comptroller of the Currency required for the OCC to approve a request by Morgan Stanley Bank, N.A., for an exemption under section 23A of the Federal Reserve Act",
+      "type": "document"
+    },
+    {
+      "id": "source:fed_press_rss",
+      "label": "연준 보도자료",
+      "type": "source"
+    },
+    {
+      "id": "doc:2dfcc2c9a8d1c0d0",
+      "label": "Federal Reserve Board announces termination of enforcement actions with Industrial and Commercial Bank of China Ltd., Industrial and Commercial Bank of China Ltd., New York Branch, Standard Chartered PLC, and Standard Chartered Bank",
+      "type": "document"
+    },
+    {
+      "id": "doc:4ae23fa246c5bc64",
+      "label": "Federal Reserve Board announces it will hold a hybrid public outreach meeting on Thursday, March 26, as part of its review of regulations under the Economic Growth and Regulatory Paperwork Reduction Act (EGRPRA)",
+      "type": "document"
+    },
+    {
+      "id": "doc:077f93e5c4bbea89",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "source:fred_api",
+      "label": "FRED 거시지표",
+      "type": "source"
+    },
+    {
+      "id": "doc:bfe776d6b8b7f65b",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:2cac1d5abdc590df",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:f46cfaac3eb05dd9",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:4ca349061b5d25e2",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:5339575617d0aa3e",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:37a5d7d40ac7b133",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:0dcfe31581795a6a",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:e8bd483678570866",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:c0af0ceadbf484c3",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:f065c19958d8ed3b",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:6f37ee50eeb4f642",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:09c4d4d59170ecfc",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:f7fff674bf89cfb5",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:d4c1f72f49589bf6",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:d7af6b2251730a44",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:b40d3c871b9ff34c",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:58fe891c56b37cf9",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:12679645c80e68b4",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:5a392632a991e261",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:70b8ed055457e8bb",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:c759737fbca38718",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:d08fe5d90a3c7d0b",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:bd576e953e6ad33a",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:65315bba39a85dc9",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:b802ea9596d90953",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:3902b11f99715f5f",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:59a86f076dd5b590",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:144974fe7606a274",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:2d3eb98bc0b8a1ba",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:8ad78af082c9832d",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:6321708002faa8b3",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:0e2696da49c6d17c",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:79880e1edab23d63",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:1c80b4558b021c91",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:68467e7b0c6ad6c0",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:62cbe589f5f6d1b5",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:4faf2cf0de610a8e",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:433e1e2758389c2d",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:9eb91d4a00b48a08",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:cc292bed489ee619",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:c8d5a5bea82c7fba",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:f300fda51cce6717",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:af804b5fa07cc626",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:4b7619c96083179c",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:94820114d83e5f1f",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:774b78f7c59e8cc9",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:c3a3313206bf9b4d",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:0f6d324bd999c996",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:d51f365a5f761847",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:98d52ea9c938d8b0",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:0de994574de7df60",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:03c5249d287d36d9",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:045382c1cde5cff8",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:3df305aaee3a0f0f",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:e17b3bf37fc8218f",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:fd7870ae0f75c48d",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:207756ec335546d4",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:5c10e952f70ed32f",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:c4f331771c89ffd8",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:430448be20ecb795",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:84e600333a7d4016",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:cd1b28a4ec8423c2",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:72545eb65f68148a",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:e030744960c50c38",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:4a37a6abd7a6239a",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:87ad808ab0312070",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:dd2cb17b6e81cddf",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:af12d5670943752e",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:44280985dc9aa95b",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:80e8564290e2ef44",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:12fd7297ee655855",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:3b045b87ad991f24",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:1b9ca485160eb71b",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:2309ac95506721df",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:74ea3a170b50a4b7",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:4cc52a2333bb7496",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:3e6a22fbac8b8327",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:5af2bd1aecd11ceb",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:31855e51697326de",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:d852ad9a2e8a0ee9",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:38f588efd408465f",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:89ba422bc1486dc3",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:9af34cb50716950f",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:5ad8ebbecd4f4c15",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:fe9978fdf2bb9663",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:89dd0d1944626232",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:22903a0fba695d82",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:05889d520bf2d47c",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:b2074c04ab059d5b",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:656637a1a03ee6c1",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:7f3dfb190f30d544",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:4f51dbb08c6f9538",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:8000875004e77670",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:783bae3dc0b5091f",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:e643cd89a70b2b2a",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:60f2ba7005fc89f4",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:9b449de824c066ce",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:e779ff236367d254",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:e917f878ca2a0cda",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:b9e6f1c4b73a3256",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:e39aef89eb8f0f22",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:8b04b3006dfba577",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:392f191e3fdf7f02",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:dbee3d3de2ddb87a",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:552e81ae4ae81132",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:881ce677a11aa239",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:8961d65449117f8b",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:989b8df5c4764713",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:1c4873b37884e2fc",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:3e8e3aff3e9c3943",
+      "label": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:7cd8252aadf1aaf7",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:dcc2e7f2f2a2c0ac",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:c1f37aa41ffaa0ea",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:20d807423f7ea72a",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:d0ae07c75fa84dba",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:1644934143c31e9b",
+      "label": "WTI Crude Oil (DCOILWTICO)",
+      "type": "document"
+    },
+    {
+      "id": "doc:8b5ca54dd1a79d0e",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:873a05a5fdaa54cd",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:ac7d4566f8882ae4",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:6a9c6a7698d2dea3",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:c9259d947909bb37",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:8e1e4b9569b890a7",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:a509e07d8ca23746",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:239b5820e2590f6c",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:0f481174f6460327",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:977472391d23e558",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:89a8f0507444cee3",
+      "label": "VIX (VIXCLS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:727959c330421691",
+      "label": "US 10Y Treasury Yield (DGS10)",
+      "type": "document"
+    },
+    {
+      "id": "doc:b378bcbf50e48141",
+      "label": "10Y-2Y Treasury Spread (T10Y2Y)",
+      "type": "document"
+    },
+    {
+      "id": "doc:3fbf2a39b40a8b8f",
+      "label": "High Yield Credit Spread (BAMLH0A0HYM2)",
+      "type": "document"
+    },
+    {
+      "id": "doc:a2dbe267b1921a46",
+      "label": "Following earlier actions to remove reputation risk from its supervision of banks, Federal Reserve Board requests comment on proposal to codify that removal",
+      "type": "document"
+    },
+    {
+      "id": "doc:41602ea966dacd6c",
+      "label": "Federal Reserve Board issues enforcement actions with former employee of Equity Bank and former employee of First State Bank of Dongola",
+      "type": "document"
+    },
+    {
+      "id": "doc:ac2ca092876e7300",
+      "label": "Federal Reserve Board issues enforcement actions with former employee of East Cambridge Savings Bank and former employee of United Bank",
+      "type": "document"
+    },
+    {
+      "id": "doc:06861b57f4508a12",
+      "label": "Agencies request comment on proposals to modernize the regulatory capital framework and maintain the strength of the banking system",
+      "type": "document"
+    },
+    {
+      "id": "doc:34122cd18e330354",
+      "label": "Federal Reserve Board issues enforcement actions with former employee of Ally Bank and former employee of Regions Bank",
+      "type": "document"
+    },
+    {
+      "id": "doc:d1a59e7d103f2a86",
+      "label": "Federal Reserve Board and Federal Open Market Committee release economic projections from the March 17-18 FOMC meeting",
+      "type": "document"
+    },
+    {
+      "id": "doc:e2912ed5fd41c398",
+      "label": "Federal Reserve Board issues enforcement action with former employee of First Financial Bank",
+      "type": "document"
+    },
+    {
+      "id": "doc:2202559291aca431",
+      "label": "Federal Reserve Board announces approval of application by Fulton Financial Corporation",
+      "type": "document"
+    },
+    {
+      "id": "doc:b03ba1ad972f6b3d",
+      "label": "Federal Reserve Board announces approval of application by FirstSun Capital Bancorp",
+      "type": "document"
+    },
+    {
+      "id": "doc:f883ea051cf4049c",
+      "label": "Federal Reserve Board announces termination of enforcement action with Wells Fargo",
+      "type": "document"
+    },
+    {
+      "id": "doc:ecc3ff39a7acfd4a",
+      "label": "Federal Reserve Board announces approval of application by Associated Banc-Corp",
+      "type": "document"
+    },
+    {
+      "id": "doc:21ef07649f3bc243",
+      "label": "Federal Reserve Board announces approval of application by Home BancShares",
+      "type": "document"
+    },
+    {
+      "id": "doc:8315fc4c5147dff2",
+      "label": "Minutes of the Board's discount rate meetings on January 20 and 28, 2026",
+      "type": "document"
+    },
+    {
+      "id": "doc:115d0ca0afc46169",
+      "label": "Federal Reserve Board announces approval of notice by CBS Banc-Corp.",
+      "type": "document"
+    },
+    {
+      "id": "doc:4eb564305eb6e56d",
+      "label": "Federal Reserve Board releases annual audited financial statements",
+      "type": "document"
+    },
+    {
+      "id": "doc:78e624ddb0985161",
+      "label": "Agencies clarify the capital treatment of tokenized securities",
+      "type": "document"
+    },
+    {
+      "id": "doc:702ecde66ee17915",
+      "label": "Federal Reserve issues FOMC statement",
+      "type": "document"
+    },
+    {
+      "id": "doc:451d95980feec044",
+      "label": "[BOK] 코스피지수: 5438.87 1980.01.04=100",
+      "type": "document"
+    },
+    {
+      "id": "source:ecos_api",
+      "label": "한국은행 ECOS",
+      "type": "source"
+    },
+    {
+      "id": "region:KR",
+      "label": "KR",
+      "type": "region"
+    },
+    {
+      "id": "doc:3aff2c7873c392c0",
+      "label": "[BOK] 경제성장률(실질, 계절조정 전기대비): -0.2 %",
+      "type": "document"
+    },
+    {
+      "id": "topic:환율/달러",
+      "label": "환율/달러",
+      "type": "topic"
+    },
+    {
+      "id": "asset:KODEX_USD",
+      "label": "KODEX_USD",
+      "type": "asset"
+    },
+    {
+      "id": "doc:61def1c876234833",
+      "label": "[BOK] 소비자물가지수: 118.4 2020=100",
+      "type": "document"
+    },
+    {
+      "id": "topic:소비/내수",
+      "label": "소비/내수",
+      "type": "topic"
+    },
+    {
+      "id": "topic:한국 수출/반도체",
+      "label": "한국 수출/반도체",
+      "type": "topic"
+    },
+    {
+      "id": "doc:30efab04c7e81594",
+      "label": "[BOK] 경상수지: 13259.1 백만달러",
+      "type": "document"
+    },
+    {
+      "id": "doc:e009eb2387c9254a",
+      "label": "[BOK] 소비자심리지수: 107 None",
+      "type": "document"
+    },
+    {
+      "id": "doc:d8dcf224b7294540",
+      "label": "CPI (All Urban Consumers) (CPIAUCSL)",
+      "type": "document"
+    },
+    {
+      "id": "doc:972035582afbb564",
+      "label": "[IBKS Daily] Start with IBKS(2026.03.27) 글로벌 증..",
+      "type": "document"
+    },
+    {
+      "id": "source:naver_research",
+      "label": "네이버 금융 리서치",
+      "type": "source"
+    },
+    {
+      "id": "doc:e587702ffbc2e061",
+      "label": "[IBKS Daily] Start with IBKS(2026.03.26) 미국 종전..",
+      "type": "document"
+    },
+    {
+      "id": "doc:b201cc71299d4f17",
+      "label": "Manufacturing Employment (MANEMP)",
+      "type": "document"
+    },
+    {
+      "id": "doc:00e675f995a63136",
+      "label": "[IBKS Daily] Start with IBKS(2026.03.30) 중동 리스..",
+      "type": "document"
+    },
+    {
+      "id": "topic:방산/지정학",
+      "label": "방산/지정학",
+      "type": "topic"
+    },
+    {
+      "id": "asset:HANARO_KDEFENSE",
+      "label": "HANARO_KDEFENSE",
+      "type": "asset"
+    },
+    {
+      "id": "doc:e3bbfa912cb5c43b",
+      "label": "Federal Funds Rate (FEDFUNDS)",
+      "type": "document"
+    },
+    {
+      "id": "doc:73701bd535679bd9",
+      "label": "Unemployment Rate (UNRATE)",
+      "type": "document"
+    },
+    {
+      "id": "doc:87b45d4e7c6800ba",
+      "label": "[IBKS Monthly] 2026 IBKS Insight Monthly (04)",
+      "type": "document"
+    },
+    {
+      "id": "doc:806b0c307bf5f738",
+      "label": "Global Platform Weekly(3월 4주차); 구글의 터보퀀트..",
+      "type": "document"
+    },
+    {
+      "id": "doc:8cd90988d849a5c9",
+      "label": "신한 Market Review & Insight: 해상풍력에 깃드는 정..",
+      "type": "document"
+    },
+    {
+      "id": "doc:0e46e5cb91a4a0ac",
+      "label": "Global 에너지 Weekly(3월 4주차); 가스 강세 지속, V..",
+      "type": "document"
+    },
+    {
+      "id": "doc:dd79b117cb27664c",
+      "label": "[EPS LIVE #204] 삼성SDI, 엘앤에프 등 2차전지 종목 ..",
+      "type": "document"
+    },
+    {
+      "id": "doc:f46721a7ec60d26b",
+      "label": "Global 헬스케어 Weekly(3월 4주차); 4월 릴리 경구제..",
+      "type": "document"
+    },
+    {
+      "id": "topic:바이오/헬스케어",
+      "label": "바이오/헬스케어",
+      "type": "topic"
+    },
+    {
+      "id": "asset:BIO",
+      "label": "BIO",
+      "type": "asset"
+    },
+    {
+      "id": "doc:e34fccf23b19d368",
+      "label": "[The Market Visualized] 에너지·금리의 압박, 아슬..",
+      "type": "document"
+    },
+    {
+      "id": "doc:d891a488b060fb78",
+      "label": "[Hana China Weekly] 자율주행 밸류체인 실적 개선 속..",
+      "type": "document"
+    },
+    {
+      "id": "doc:85ac81ed2abba096",
+      "label": "Tech&Stock Weekly: 팔란티어, 미국 골든 돔 소프트웨..",
+      "type": "document"
+    },
+    {
+      "id": "doc:d49621f4ea0eac2a",
+      "label": "SK증권 Global Carbon Market Daily_260327",
+      "type": "document"
+    },
+    {
+      "id": "doc:724b6027215256b7",
+      "label": "글로벌 데이터센터 투자시장 동향 (Global Data Cente..",
+      "type": "document"
+    },
+    {
+      "id": "doc:7b8a76e79010a303",
+      "label": "SK증권 Global Carbon Market Daily_260330",
+      "type": "document"
+    },
+    {
+      "id": "doc:9c0f292ad9edfdd0",
+      "label": "국내주식 마감 시황 (26.03.26) - 설상가상 터진 반도..",
+      "type": "document"
+    },
+    {
+      "id": "doc:f877c683716225e1",
+      "label": "Yuanta Morning Snapshot (2026.03.27)",
+      "type": "document"
+    },
+    {
+      "id": "doc:e05c6b9914646aea",
+      "label": "[IBKS Daily] Morning Brief(260327)",
+      "type": "document"
+    },
+    {
+      "id": "doc:f988e03ab4dff539",
+      "label": "Yuanta Morning Snapshot (2026.03.26)",
+      "type": "document"
+    },
+    {
+      "id": "doc:5392224ff7af9c93",
+      "label": "국내 주식 마감 시황 (26.03.25) - 코스닥을 매수하는..",
+      "type": "document"
+    },
+    {
+      "id": "doc:23411d9dfb5ac238",
+      "label": "Yuanta Morning Snapshot (2026.03.30)",
+      "type": "document"
+    },
+    {
+      "id": "doc:0e0a1c51a2ed0be7",
+      "label": "국내주식 마감 시황 (26.03.26) - 땅보단 하늘을 볼 ..",
+      "type": "document"
+    },
+    {
+      "id": "doc:5f083c050c780cc8",
+      "label": "[IBKS Daily] Morning Brief(260330)",
+      "type": "document"
+    },
+    {
+      "id": "doc:6c02b870e65f9389",
+      "label": "[Morning Brief] 엔트로픽 여파와 이란 사태 지속으로..",
+      "type": "document"
+    },
+    {
+      "id": "doc:d6cb5a55c641ede1",
+      "label": "글로벌 소비재 Weekly(3월 4주차); 상대적으로 견고한..",
+      "type": "document"
+    },
+    {
+      "id": "doc:e5b049e9e4975797",
+      "label": "[New K-ETF] 오피스 리츠+, K수출 TOP10 산업 액티브",
+      "type": "document"
+    },
+    {
+      "id": "doc:3161cb8c049c4337",
+      "label": "[Morning Brief] 중동전쟁 불확실성 지속과 터보퀀트..",
+      "type": "document"
+    },
+    {
+      "id": "doc:a68852e64230ff88",
+      "label": "03/30, Kiwoom Weekly_전쟁의 초기 충격 검증 구간",
+      "type": "document"
+    },
+    {
+      "id": "doc:6f6cb920c8bd5042",
+      "label": "03/27, 미 증시, 미국-이란 협상 난항, 구글 터보퀀트..",
+      "type": "document"
+    },
+    {
+      "id": "doc:c9b486b6d2d2406c",
+      "label": "03/26, 미 증시, 미국-이란 휴전 기대감 반영되며 3대..",
+      "type": "document"
+    },
+    {
+      "id": "doc:e326a38cbd8d11e8",
+      "label": "DS와 함께하는 Weekly TalkTalk Vol. 253",
+      "type": "document"
+    },
+    {
+      "id": "doc:c2fc6388355b1871",
+      "label": "[디지털자산] Weekly 온체인: 클래리티 액트와 금리, ..",
+      "type": "document"
+    },
+    {
+      "id": "doc:2e82e1b641b94975",
+      "label": "[주식시황 위클리] 주간:知 - 변동성에서 찾는 희망(3..",
+      "type": "document"
+    },
+    {
+      "id": "doc:f6dbd41f7fa32b76",
+      "label": "국내 주식 마감 시황 - 겹악재에 외국인 수급 이탈 가..",
+      "type": "document"
+    },
+    {
+      "id": "doc:7bde787e27e42efc",
+      "label": "휴전 기대 속 유가 민감도 지속, 기관 순매수에 5,640..",
+      "type": "document"
+    },
+    {
+      "id": "doc:48f4cbfe42e51e9a",
+      "label": "[IBKS 자산배분 솔루션] 2026년 4월 자산배분전략",
+      "type": "document"
+    },
+    {
+      "id": "doc:42d6848bf71bf695",
+      "label": "국내 주식 마감 시황 - 외국인 역대급 주간 투매에도 ..",
+      "type": "document"
+    },
+    {
+      "id": "doc:8b0ed335acc06994",
+      "label": "Daily Morning Brief(2026.03.27)",
+      "type": "document"
+    },
+    {
+      "id": "doc:7d9a52434560a86b",
+      "label": "Daily Morning Brief(2026.03.26)",
+      "type": "document"
+    },
+    {
+      "id": "doc:34d2dbad76dcaccb",
+      "label": "[펀드 플로우 위클리] 미국 이외 지역 주식형 펀드 순..",
+      "type": "document"
+    }
+  ],
+  "edges": [
+    {
+      "source": "doc:5081ce8dad350998",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:5081ce8dad350998",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:5081ce8dad350998",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:5081ce8dad350998",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:11d4f1e65736e249",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:11d4f1e65736e249",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:11d4f1e65736e249",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:11d4f1e65736e249",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:0aeffa86e738dc31",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:0aeffa86e738dc31",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:0aeffa86e738dc31",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:82352c7d306d4b64",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:82352c7d306d4b64",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:82352c7d306d4b64",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e009a62c82f3fb20",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e009a62c82f3fb20",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e009a62c82f3fb20",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e009a62c82f3fb20",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c5e137ee6cae748d",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c5e137ee6cae748d",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c5e137ee6cae748d",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c5e137ee6cae748d",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c5e137ee6cae748d",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c5e137ee6cae748d",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c5e137ee6cae748d",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:7089a7cb79d0b144",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:7089a7cb79d0b144",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:7089a7cb79d0b144",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e0a6ecffcb42e1fe",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e0a6ecffcb42e1fe",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e0a6ecffcb42e1fe",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:facc14e4dbc67b10",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:facc14e4dbc67b10",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:facc14e4dbc67b10",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:facc14e4dbc67b10",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2e8ba1d9d82ed80e",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2e8ba1d9d82ed80e",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2e8ba1d9d82ed80e",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2be98deb445b3598",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2be98deb445b3598",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2be98deb445b3598",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:0ea53780d669029c",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:0ea53780d669029c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:0ea53780d669029c",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:0ea53780d669029c",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:51f63aaad5b97e59",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:51f63aaad5b97e59",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:51f63aaad5b97e59",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:51f63aaad5b97e59",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:a199e1bc2c730750",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:a199e1bc2c730750",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:a199e1bc2c730750",
+      "target": "topic:인플레이션/물가",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:bde23e24deba95f1",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:bde23e24deba95f1",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:bde23e24deba95f1",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:bde23e24deba95f1",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:bde23e24deba95f1",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:551c6896f01cead6",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:551c6896f01cead6",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:551c6896f01cead6",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2c37eeaba40e7b73",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2c37eeaba40e7b73",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2c37eeaba40e7b73",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2c37eeaba40e7b73",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2c37eeaba40e7b73",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2c37eeaba40e7b73",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2c37eeaba40e7b73",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:06c38fa364a326ef",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:06c38fa364a326ef",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:06c38fa364a326ef",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d0226aad1daae172",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d0226aad1daae172",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d0226aad1daae172",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d0226aad1daae172",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2bea8bb097ff69e8",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2bea8bb097ff69e8",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2bea8bb097ff69e8",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:21bd58ef8dc7489a",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:21bd58ef8dc7489a",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:21bd58ef8dc7489a",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:21bd58ef8dc7489a",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:89233a13b42de9d8",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:89233a13b42de9d8",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:89233a13b42de9d8",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e3125b3a8c43a0c5",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e3125b3a8c43a0c5",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e3125b3a8c43a0c5",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e3125b3a8c43a0c5",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c895a269f9c8eded",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c895a269f9c8eded",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c895a269f9c8eded",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c895a269f9c8eded",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c895a269f9c8eded",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:47ceba99284746c4",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:47ceba99284746c4",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:47ceba99284746c4",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e0087c233bf48f3c",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e0087c233bf48f3c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e0087c233bf48f3c",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e0087c233bf48f3c",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:5c2b70515d2566fc",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:5c2b70515d2566fc",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:5c2b70515d2566fc",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:6af7a516dde3604e",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:6af7a516dde3604e",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:6af7a516dde3604e",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:78881d0e6c25633e",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:78881d0e6c25633e",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:78881d0e6c25633e",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:78881d0e6c25633e",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:78881d0e6c25633e",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:f7078335192b6aea",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f7078335192b6aea",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f7078335192b6aea",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:6c90ef150ad79854",
+      "target": "source:bis_speeches",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:6c90ef150ad79854",
+      "target": "region:Global",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:6c90ef150ad79854",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:76e55af1b600f14c",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:76e55af1b600f14c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:76e55af1b600f14c",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2c0b0977e64bbc2d",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2c0b0977e64bbc2d",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2c0b0977e64bbc2d",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2afebfad016337da",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2afebfad016337da",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2afebfad016337da",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2afebfad016337da",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2afebfad016337da",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:96fcf3077cab228d",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:96fcf3077cab228d",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:96fcf3077cab228d",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f58b4384b97e5551",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f58b4384b97e5551",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f58b4384b97e5551",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:a06a774eea440cb1",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:a06a774eea440cb1",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:a06a774eea440cb1",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:35b46d0f71a0e6ea",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:35b46d0f71a0e6ea",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:35b46d0f71a0e6ea",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3ac278b3b6505b9c",
+      "target": "source:fed_speeches_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3ac278b3b6505b9c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3ac278b3b6505b9c",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3ac278b3b6505b9c",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3ac278b3b6505b9c",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:569145f600ebb8e0",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:569145f600ebb8e0",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:569145f600ebb8e0",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:569145f600ebb8e0",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:569145f600ebb8e0",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2dfcc2c9a8d1c0d0",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2dfcc2c9a8d1c0d0",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2dfcc2c9a8d1c0d0",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2dfcc2c9a8d1c0d0",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2dfcc2c9a8d1c0d0",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:4ae23fa246c5bc64",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:4ae23fa246c5bc64",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:4ae23fa246c5bc64",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:4ae23fa246c5bc64",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:4ae23fa246c5bc64",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:077f93e5c4bbea89",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:077f93e5c4bbea89",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:077f93e5c4bbea89",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:bfe776d6b8b7f65b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:bfe776d6b8b7f65b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:bfe776d6b8b7f65b",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:bfe776d6b8b7f65b",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:bfe776d6b8b7f65b",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2cac1d5abdc590df",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2cac1d5abdc590df",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2cac1d5abdc590df",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f46cfaac3eb05dd9",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f46cfaac3eb05dd9",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f46cfaac3eb05dd9",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:4ca349061b5d25e2",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:4ca349061b5d25e2",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:4ca349061b5d25e2",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:5339575617d0aa3e",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:5339575617d0aa3e",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:5339575617d0aa3e",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:5339575617d0aa3e",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:5339575617d0aa3e",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:37a5d7d40ac7b133",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:37a5d7d40ac7b133",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:37a5d7d40ac7b133",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:0dcfe31581795a6a",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:0dcfe31581795a6a",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:0dcfe31581795a6a",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:0dcfe31581795a6a",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:0dcfe31581795a6a",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e8bd483678570866",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e8bd483678570866",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e8bd483678570866",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c0af0ceadbf484c3",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c0af0ceadbf484c3",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c0af0ceadbf484c3",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f065c19958d8ed3b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f065c19958d8ed3b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f065c19958d8ed3b",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:6f37ee50eeb4f642",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:6f37ee50eeb4f642",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:6f37ee50eeb4f642",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:6f37ee50eeb4f642",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:6f37ee50eeb4f642",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:09c4d4d59170ecfc",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:09c4d4d59170ecfc",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:09c4d4d59170ecfc",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f7fff674bf89cfb5",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f7fff674bf89cfb5",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f7fff674bf89cfb5",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f7fff674bf89cfb5",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:f7fff674bf89cfb5",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:d4c1f72f49589bf6",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d4c1f72f49589bf6",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d4c1f72f49589bf6",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d7af6b2251730a44",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d7af6b2251730a44",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d7af6b2251730a44",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b40d3c871b9ff34c",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:b40d3c871b9ff34c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:b40d3c871b9ff34c",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:58fe891c56b37cf9",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:58fe891c56b37cf9",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:58fe891c56b37cf9",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:58fe891c56b37cf9",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:58fe891c56b37cf9",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:12679645c80e68b4",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:12679645c80e68b4",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:12679645c80e68b4",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:5a392632a991e261",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:5a392632a991e261",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:5a392632a991e261",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:5a392632a991e261",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:5a392632a991e261",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:70b8ed055457e8bb",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:70b8ed055457e8bb",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:70b8ed055457e8bb",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c759737fbca38718",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c759737fbca38718",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c759737fbca38718",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d08fe5d90a3c7d0b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d08fe5d90a3c7d0b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d08fe5d90a3c7d0b",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:bd576e953e6ad33a",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:bd576e953e6ad33a",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:bd576e953e6ad33a",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:bd576e953e6ad33a",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:bd576e953e6ad33a",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:65315bba39a85dc9",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:65315bba39a85dc9",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:65315bba39a85dc9",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b802ea9596d90953",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:b802ea9596d90953",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:b802ea9596d90953",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b802ea9596d90953",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:b802ea9596d90953",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3902b11f99715f5f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3902b11f99715f5f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3902b11f99715f5f",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:59a86f076dd5b590",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:59a86f076dd5b590",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:59a86f076dd5b590",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:144974fe7606a274",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:144974fe7606a274",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:144974fe7606a274",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2d3eb98bc0b8a1ba",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2d3eb98bc0b8a1ba",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2d3eb98bc0b8a1ba",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2d3eb98bc0b8a1ba",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2d3eb98bc0b8a1ba",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:8ad78af082c9832d",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:8ad78af082c9832d",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:8ad78af082c9832d",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:6321708002faa8b3",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:6321708002faa8b3",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:6321708002faa8b3",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:6321708002faa8b3",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:6321708002faa8b3",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:0e2696da49c6d17c",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:0e2696da49c6d17c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:0e2696da49c6d17c",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:79880e1edab23d63",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:79880e1edab23d63",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:79880e1edab23d63",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:1c80b4558b021c91",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:1c80b4558b021c91",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:1c80b4558b021c91",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:68467e7b0c6ad6c0",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:68467e7b0c6ad6c0",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:68467e7b0c6ad6c0",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:68467e7b0c6ad6c0",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:68467e7b0c6ad6c0",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:62cbe589f5f6d1b5",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:62cbe589f5f6d1b5",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:62cbe589f5f6d1b5",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:4faf2cf0de610a8e",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:4faf2cf0de610a8e",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:4faf2cf0de610a8e",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:4faf2cf0de610a8e",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:4faf2cf0de610a8e",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:433e1e2758389c2d",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:433e1e2758389c2d",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:433e1e2758389c2d",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:9eb91d4a00b48a08",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:9eb91d4a00b48a08",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:9eb91d4a00b48a08",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:cc292bed489ee619",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:cc292bed489ee619",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:cc292bed489ee619",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c8d5a5bea82c7fba",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c8d5a5bea82c7fba",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c8d5a5bea82c7fba",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c8d5a5bea82c7fba",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c8d5a5bea82c7fba",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:f300fda51cce6717",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f300fda51cce6717",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f300fda51cce6717",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:af804b5fa07cc626",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:af804b5fa07cc626",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:af804b5fa07cc626",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:af804b5fa07cc626",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:af804b5fa07cc626",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:4b7619c96083179c",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:4b7619c96083179c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:4b7619c96083179c",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:94820114d83e5f1f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:94820114d83e5f1f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:94820114d83e5f1f",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:774b78f7c59e8cc9",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:774b78f7c59e8cc9",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:774b78f7c59e8cc9",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c3a3313206bf9b4d",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c3a3313206bf9b4d",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c3a3313206bf9b4d",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c3a3313206bf9b4d",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c3a3313206bf9b4d",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:0f6d324bd999c996",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:0f6d324bd999c996",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:0f6d324bd999c996",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d51f365a5f761847",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d51f365a5f761847",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d51f365a5f761847",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d51f365a5f761847",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:d51f365a5f761847",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:98d52ea9c938d8b0",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:98d52ea9c938d8b0",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:98d52ea9c938d8b0",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:0de994574de7df60",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:0de994574de7df60",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:0de994574de7df60",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:03c5249d287d36d9",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:03c5249d287d36d9",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:03c5249d287d36d9",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:045382c1cde5cff8",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:045382c1cde5cff8",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:045382c1cde5cff8",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:045382c1cde5cff8",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:045382c1cde5cff8",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3df305aaee3a0f0f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3df305aaee3a0f0f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3df305aaee3a0f0f",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e17b3bf37fc8218f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e17b3bf37fc8218f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e17b3bf37fc8218f",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e17b3bf37fc8218f",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e17b3bf37fc8218f",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:fd7870ae0f75c48d",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:fd7870ae0f75c48d",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:fd7870ae0f75c48d",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:207756ec335546d4",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:207756ec335546d4",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:207756ec335546d4",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:5c10e952f70ed32f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:5c10e952f70ed32f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:5c10e952f70ed32f",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c4f331771c89ffd8",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c4f331771c89ffd8",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c4f331771c89ffd8",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c4f331771c89ffd8",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c4f331771c89ffd8",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:430448be20ecb795",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:430448be20ecb795",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:430448be20ecb795",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:84e600333a7d4016",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:84e600333a7d4016",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:84e600333a7d4016",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:84e600333a7d4016",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:84e600333a7d4016",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:cd1b28a4ec8423c2",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:cd1b28a4ec8423c2",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:cd1b28a4ec8423c2",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:72545eb65f68148a",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:72545eb65f68148a",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:72545eb65f68148a",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e030744960c50c38",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e030744960c50c38",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e030744960c50c38",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:4a37a6abd7a6239a",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:4a37a6abd7a6239a",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:4a37a6abd7a6239a",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:4a37a6abd7a6239a",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:4a37a6abd7a6239a",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:87ad808ab0312070",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:87ad808ab0312070",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:87ad808ab0312070",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:dd2cb17b6e81cddf",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:dd2cb17b6e81cddf",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:dd2cb17b6e81cddf",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:dd2cb17b6e81cddf",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:dd2cb17b6e81cddf",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:af12d5670943752e",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:af12d5670943752e",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:af12d5670943752e",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:44280985dc9aa95b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:44280985dc9aa95b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:44280985dc9aa95b",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:80e8564290e2ef44",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:80e8564290e2ef44",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:80e8564290e2ef44",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:12fd7297ee655855",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:12fd7297ee655855",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:12fd7297ee655855",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:12fd7297ee655855",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:12fd7297ee655855",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3b045b87ad991f24",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3b045b87ad991f24",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3b045b87ad991f24",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:1b9ca485160eb71b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:1b9ca485160eb71b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:1b9ca485160eb71b",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:1b9ca485160eb71b",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:1b9ca485160eb71b",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2309ac95506721df",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2309ac95506721df",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2309ac95506721df",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:74ea3a170b50a4b7",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:74ea3a170b50a4b7",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:74ea3a170b50a4b7",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:4cc52a2333bb7496",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:4cc52a2333bb7496",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:4cc52a2333bb7496",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3e6a22fbac8b8327",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3e6a22fbac8b8327",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3e6a22fbac8b8327",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3e6a22fbac8b8327",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3e6a22fbac8b8327",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:5af2bd1aecd11ceb",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:5af2bd1aecd11ceb",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:5af2bd1aecd11ceb",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:31855e51697326de",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:31855e51697326de",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:31855e51697326de",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:31855e51697326de",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:31855e51697326de",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:d852ad9a2e8a0ee9",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d852ad9a2e8a0ee9",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d852ad9a2e8a0ee9",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:38f588efd408465f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:38f588efd408465f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:38f588efd408465f",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:89ba422bc1486dc3",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:89ba422bc1486dc3",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:89ba422bc1486dc3",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:9af34cb50716950f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:9af34cb50716950f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:9af34cb50716950f",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:9af34cb50716950f",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:9af34cb50716950f",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:5ad8ebbecd4f4c15",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:5ad8ebbecd4f4c15",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:5ad8ebbecd4f4c15",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:fe9978fdf2bb9663",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:fe9978fdf2bb9663",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:fe9978fdf2bb9663",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:fe9978fdf2bb9663",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:fe9978fdf2bb9663",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:89dd0d1944626232",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:89dd0d1944626232",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:89dd0d1944626232",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:22903a0fba695d82",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:22903a0fba695d82",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:22903a0fba695d82",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:05889d520bf2d47c",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:05889d520bf2d47c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:05889d520bf2d47c",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b2074c04ab059d5b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:b2074c04ab059d5b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:b2074c04ab059d5b",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b2074c04ab059d5b",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:b2074c04ab059d5b",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:656637a1a03ee6c1",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:656637a1a03ee6c1",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:656637a1a03ee6c1",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:7f3dfb190f30d544",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:7f3dfb190f30d544",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:7f3dfb190f30d544",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:7f3dfb190f30d544",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:7f3dfb190f30d544",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:4f51dbb08c6f9538",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:4f51dbb08c6f9538",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:4f51dbb08c6f9538",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8000875004e77670",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:8000875004e77670",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:8000875004e77670",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:783bae3dc0b5091f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:783bae3dc0b5091f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:783bae3dc0b5091f",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e643cd89a70b2b2a",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e643cd89a70b2b2a",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e643cd89a70b2b2a",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e643cd89a70b2b2a",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e643cd89a70b2b2a",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:60f2ba7005fc89f4",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:60f2ba7005fc89f4",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:60f2ba7005fc89f4",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:9b449de824c066ce",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:9b449de824c066ce",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:9b449de824c066ce",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:9b449de824c066ce",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:9b449de824c066ce",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e779ff236367d254",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e779ff236367d254",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e779ff236367d254",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e917f878ca2a0cda",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e917f878ca2a0cda",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e917f878ca2a0cda",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b9e6f1c4b73a3256",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:b9e6f1c4b73a3256",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:b9e6f1c4b73a3256",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e39aef89eb8f0f22",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e39aef89eb8f0f22",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e39aef89eb8f0f22",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e39aef89eb8f0f22",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e39aef89eb8f0f22",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:8b04b3006dfba577",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:8b04b3006dfba577",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:8b04b3006dfba577",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:392f191e3fdf7f02",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:392f191e3fdf7f02",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:392f191e3fdf7f02",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:392f191e3fdf7f02",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:392f191e3fdf7f02",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:dbee3d3de2ddb87a",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:dbee3d3de2ddb87a",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:dbee3d3de2ddb87a",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:552e81ae4ae81132",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:552e81ae4ae81132",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:552e81ae4ae81132",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:881ce677a11aa239",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:881ce677a11aa239",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:881ce677a11aa239",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8961d65449117f8b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:8961d65449117f8b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:8961d65449117f8b",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8961d65449117f8b",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:8961d65449117f8b",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:989b8df5c4764713",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:989b8df5c4764713",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:989b8df5c4764713",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:1c4873b37884e2fc",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:1c4873b37884e2fc",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:1c4873b37884e2fc",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:1c4873b37884e2fc",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:1c4873b37884e2fc",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:7cd8252aadf1aaf7",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:7cd8252aadf1aaf7",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:7cd8252aadf1aaf7",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:dcc2e7f2f2a2c0ac",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:dcc2e7f2f2a2c0ac",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:dcc2e7f2f2a2c0ac",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c1f37aa41ffaa0ea",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c1f37aa41ffaa0ea",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c1f37aa41ffaa0ea",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c1f37aa41ffaa0ea",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c1f37aa41ffaa0ea",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:20d807423f7ea72a",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:20d807423f7ea72a",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:20d807423f7ea72a",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d0ae07c75fa84dba",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d0ae07c75fa84dba",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d0ae07c75fa84dba",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d0ae07c75fa84dba",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:d0ae07c75fa84dba",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8b5ca54dd1a79d0e",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:8b5ca54dd1a79d0e",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:8b5ca54dd1a79d0e",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:873a05a5fdaa54cd",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:873a05a5fdaa54cd",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:873a05a5fdaa54cd",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:873a05a5fdaa54cd",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:873a05a5fdaa54cd",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:ac7d4566f8882ae4",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:ac7d4566f8882ae4",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:ac7d4566f8882ae4",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:6a9c6a7698d2dea3",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:6a9c6a7698d2dea3",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:6a9c6a7698d2dea3",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:6a9c6a7698d2dea3",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:6a9c6a7698d2dea3",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c9259d947909bb37",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c9259d947909bb37",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c9259d947909bb37",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8e1e4b9569b890a7",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:8e1e4b9569b890a7",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:8e1e4b9569b890a7",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8e1e4b9569b890a7",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:8e1e4b9569b890a7",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:a509e07d8ca23746",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:a509e07d8ca23746",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:a509e07d8ca23746",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:239b5820e2590f6c",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:239b5820e2590f6c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:239b5820e2590f6c",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:239b5820e2590f6c",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:239b5820e2590f6c",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:0f481174f6460327",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:0f481174f6460327",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:0f481174f6460327",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:977472391d23e558",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:977472391d23e558",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:977472391d23e558",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:977472391d23e558",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:977472391d23e558",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:89a8f0507444cee3",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:89a8f0507444cee3",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:89a8f0507444cee3",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b378bcbf50e48141",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:b378bcbf50e48141",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:b378bcbf50e48141",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:89a8f0507444cee3",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:89a8f0507444cee3",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:89a8f0507444cee3",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b378bcbf50e48141",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:b378bcbf50e48141",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:b378bcbf50e48141",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:89a8f0507444cee3",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:89a8f0507444cee3",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:89a8f0507444cee3",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:727959c330421691",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3e8e3aff3e9c3943",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:1644934143c31e9b",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b378bcbf50e48141",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:b378bcbf50e48141",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:b378bcbf50e48141",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3fbf2a39b40a8b8f",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:a2dbe267b1921a46",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:a2dbe267b1921a46",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:a2dbe267b1921a46",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:a2dbe267b1921a46",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:a2dbe267b1921a46",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:41602ea966dacd6c",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:41602ea966dacd6c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:41602ea966dacd6c",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:41602ea966dacd6c",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:41602ea966dacd6c",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:ac2ca092876e7300",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:ac2ca092876e7300",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:ac2ca092876e7300",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:ac2ca092876e7300",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:ac2ca092876e7300",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:06861b57f4508a12",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:06861b57f4508a12",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:06861b57f4508a12",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:06861b57f4508a12",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:34122cd18e330354",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:34122cd18e330354",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:34122cd18e330354",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:34122cd18e330354",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:34122cd18e330354",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:d1a59e7d103f2a86",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d1a59e7d103f2a86",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d1a59e7d103f2a86",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d1a59e7d103f2a86",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:d1a59e7d103f2a86",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e2912ed5fd41c398",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e2912ed5fd41c398",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e2912ed5fd41c398",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e2912ed5fd41c398",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e2912ed5fd41c398",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2202559291aca431",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2202559291aca431",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2202559291aca431",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:2202559291aca431",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2202559291aca431",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:b03ba1ad972f6b3d",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:b03ba1ad972f6b3d",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:b03ba1ad972f6b3d",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:b03ba1ad972f6b3d",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:b03ba1ad972f6b3d",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:f883ea051cf4049c",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f883ea051cf4049c",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f883ea051cf4049c",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f883ea051cf4049c",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:f883ea051cf4049c",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:ecc3ff39a7acfd4a",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:ecc3ff39a7acfd4a",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:ecc3ff39a7acfd4a",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:ecc3ff39a7acfd4a",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:ecc3ff39a7acfd4a",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:21ef07649f3bc243",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:21ef07649f3bc243",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:21ef07649f3bc243",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:21ef07649f3bc243",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:21ef07649f3bc243",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:8315fc4c5147dff2",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:8315fc4c5147dff2",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:8315fc4c5147dff2",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8315fc4c5147dff2",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:8315fc4c5147dff2",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:115d0ca0afc46169",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:115d0ca0afc46169",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:115d0ca0afc46169",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:115d0ca0afc46169",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:115d0ca0afc46169",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:4eb564305eb6e56d",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:4eb564305eb6e56d",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:4eb564305eb6e56d",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:4eb564305eb6e56d",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:4eb564305eb6e56d",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:78e624ddb0985161",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:78e624ddb0985161",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:78e624ddb0985161",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:702ecde66ee17915",
+      "target": "source:fed_press_rss",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:702ecde66ee17915",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:702ecde66ee17915",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:702ecde66ee17915",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:702ecde66ee17915",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3aff2c7873c392c0",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3aff2c7873c392c0",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3aff2c7873c392c0",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "topic:환율/달러",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "asset:KODEX_USD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:환율/달러",
+      "target": "asset:KODEX_USD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "topic:인플레이션/물가",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "topic:소비/내수",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "topic:환율/달러",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:환율/달러",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "asset:KODEX_USD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_USD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:환율/달러",
+      "target": "asset:KODEX_USD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "topic:환율/달러",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:환율/달러",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "asset:KODEX_USD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:환율/달러",
+      "target": "asset:KODEX_USD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:KODEX_USD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "topic:한국 수출/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:한국 수출/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:한국 수출/반도체",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:451d95980feec044",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:한국 수출/반도체",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:30efab04c7e81594",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:30efab04c7e81594",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:30efab04c7e81594",
+      "target": "topic:환율/달러",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:30efab04c7e81594",
+      "target": "asset:KODEX_USD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:환율/달러",
+      "target": "asset:KODEX_USD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e009eb2387c9254a",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e009eb2387c9254a",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e009eb2387c9254a",
+      "target": "topic:소비/내수",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "source:ecos_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:61def1c876234833",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d8dcf224b7294540",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d8dcf224b7294540",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d8dcf224b7294540",
+      "target": "topic:인플레이션/물가",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:972035582afbb564",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:972035582afbb564",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:972035582afbb564",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:972035582afbb564",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e587702ffbc2e061",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e587702ffbc2e061",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e587702ffbc2e061",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e587702ffbc2e061",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:b201cc71299d4f17",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:b201cc71299d4f17",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:b201cc71299d4f17",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:00e675f995a63136",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:00e675f995a63136",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:00e675f995a63136",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:00e675f995a63136",
+      "target": "topic:방산/지정학",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:00e675f995a63136",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:방산/지정학",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:00e675f995a63136",
+      "target": "asset:HANARO_KDEFENSE",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:HANARO_KDEFENSE",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:방산/지정학",
+      "target": "asset:HANARO_KDEFENSE",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e3bbfa912cb5c43b",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e3bbfa912cb5c43b",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e3bbfa912cb5c43b",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e3bbfa912cb5c43b",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e3bbfa912cb5c43b",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:73701bd535679bd9",
+      "target": "source:fred_api",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:73701bd535679bd9",
+      "target": "region:US",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:73701bd535679bd9",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:73701bd535679bd9",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:73701bd535679bd9",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:87b45d4e7c6800ba",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:87b45d4e7c6800ba",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:87b45d4e7c6800ba",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:806b0c307bf5f738",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:806b0c307bf5f738",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:806b0c307bf5f738",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8cd90988d849a5c9",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:8cd90988d849a5c9",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:8cd90988d849a5c9",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:0e46e5cb91a4a0ac",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:0e46e5cb91a4a0ac",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:0e46e5cb91a4a0ac",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:dd79b117cb27664c",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:dd79b117cb27664c",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:dd79b117cb27664c",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f46721a7ec60d26b",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f46721a7ec60d26b",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f46721a7ec60d26b",
+      "target": "topic:바이오/헬스케어",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f46721a7ec60d26b",
+      "target": "asset:BIO",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:바이오/헬스케어",
+      "target": "asset:BIO",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e34fccf23b19d368",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e34fccf23b19d368",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e34fccf23b19d368",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e34fccf23b19d368",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e34fccf23b19d368",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:e34fccf23b19d368",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:d891a488b060fb78",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d891a488b060fb78",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d891a488b060fb78",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:85ac81ed2abba096",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:85ac81ed2abba096",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:85ac81ed2abba096",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d49621f4ea0eac2a",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d49621f4ea0eac2a",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d49621f4ea0eac2a",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d49621f4ea0eac2a",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:724b6027215256b7",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:724b6027215256b7",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:724b6027215256b7",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:7b8a76e79010a303",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:7b8a76e79010a303",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:7b8a76e79010a303",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:7b8a76e79010a303",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:9c0f292ad9edfdd0",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:9c0f292ad9edfdd0",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:9c0f292ad9edfdd0",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f877c683716225e1",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f877c683716225e1",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f877c683716225e1",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e05c6b9914646aea",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e05c6b9914646aea",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e05c6b9914646aea",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e05c6b9914646aea",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:f988e03ab4dff539",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f988e03ab4dff539",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f988e03ab4dff539",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:5392224ff7af9c93",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:5392224ff7af9c93",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:5392224ff7af9c93",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:23411d9dfb5ac238",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:23411d9dfb5ac238",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:23411d9dfb5ac238",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:0e0a1c51a2ed0be7",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:0e0a1c51a2ed0be7",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:0e0a1c51a2ed0be7",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:5f083c050c780cc8",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:5f083c050c780cc8",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:5f083c050c780cc8",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:5f083c050c780cc8",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:6c02b870e65f9389",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:6c02b870e65f9389",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:6c02b870e65f9389",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:d6cb5a55c641ede1",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:d6cb5a55c641ede1",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:d6cb5a55c641ede1",
+      "target": "topic:소비/내수",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e5b049e9e4975797",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e5b049e9e4975797",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e5b049e9e4975797",
+      "target": "topic:한국 수출/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e5b049e9e4975797",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:한국 수출/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:3161cb8c049c4337",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:3161cb8c049c4337",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:3161cb8c049c4337",
+      "target": "topic:방산/지정학",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:3161cb8c049c4337",
+      "target": "asset:HANARO_KDEFENSE",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:방산/지정학",
+      "target": "asset:HANARO_KDEFENSE",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:a68852e64230ff88",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:a68852e64230ff88",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:a68852e64230ff88",
+      "target": "topic:방산/지정학",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:a68852e64230ff88",
+      "target": "asset:HANARO_KDEFENSE",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:방산/지정학",
+      "target": "asset:HANARO_KDEFENSE",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:6f6cb920c8bd5042",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:6f6cb920c8bd5042",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:6f6cb920c8bd5042",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c9b486b6d2d2406c",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c9b486b6d2d2406c",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c9b486b6d2d2406c",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:e326a38cbd8d11e8",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:e326a38cbd8d11e8",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:e326a38cbd8d11e8",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c2fc6388355b1871",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:c2fc6388355b1871",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:c2fc6388355b1871",
+      "target": "topic:금리/연준",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c2fc6388355b1871",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:c2fc6388355b1871",
+      "target": "asset:GLD",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:GLD",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:c2fc6388355b1871",
+      "target": "asset:IEF",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:금리/연준",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "topic:유가/원자재",
+      "target": "asset:IEF",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:2e82e1b641b94975",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:2e82e1b641b94975",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:2e82e1b641b94975",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:f6dbd41f7fa32b76",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:f6dbd41f7fa32b76",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:f6dbd41f7fa32b76",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:7bde787e27e42efc",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:7bde787e27e42efc",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:7bde787e27e42efc",
+      "target": "topic:유가/원자재",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:48f4cbfe42e51e9a",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:48f4cbfe42e51e9a",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:48f4cbfe42e51e9a",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:42d6848bf71bf695",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:42d6848bf71bf695",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:42d6848bf71bf695",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8b0ed335acc06994",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:8b0ed335acc06994",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:8b0ed335acc06994",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:8b0ed335acc06994",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:7d9a52434560a86b",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:7d9a52434560a86b",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:7d9a52434560a86b",
+      "target": "topic:AI/반도체",
+      "relation": "mentions_topic"
+    },
+    {
+      "source": "doc:7d9a52434560a86b",
+      "target": "asset:KODEX_SEMI",
+      "relation": "impacts_asset"
+    },
+    {
+      "source": "topic:AI/반도체",
+      "target": "asset:KODEX_SEMI",
+      "relation": "linked_asset"
+    },
+    {
+      "source": "doc:34d2dbad76dcaccb",
+      "target": "source:naver_research",
+      "relation": "from_source"
+    },
+    {
+      "source": "doc:34d2dbad76dcaccb",
+      "target": "region:KR",
+      "relation": "belongs_region"
+    },
+    {
+      "source": "doc:34d2dbad76dcaccb",
+      "target": "topic:기타/시장일반",
+      "relation": "mentions_topic"
+    }
+  ]
+}

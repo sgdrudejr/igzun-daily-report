@@ -247,7 +247,56 @@
 - 그래서 포트폴리오 탭은 상태 해석, 실행 가이드는 매수/보류/비중조절 액션으로 분리했다.
 - 기간마다 `question`, `deploy_ratio`, `action_label` 을 다르게 두는 편이 목적에 맞다.
 
-### 18. 탭 스크롤은 섹션별로 분리한다
+### 20. LLM 입력은 단일 큰 컨텍스트보다 에이전트 패킷으로 분해한다
+
+결정:
+
+- `build_research_context.py` 는 단일 research context 외에 `data/research_packets/{date}.json` 을 함께 만든다.
+
+이유:
+
+- 딥리서치형 분석은 매크로/퀀트/펀더멘털/리스크/포트폴리오 역할이 섞이면 얕아지기 쉽다.
+- 지금은 완전한 멀티에이전트 오케스트레이션까지 가지 않더라도, 입력 구조를 미리 에이전트별 패킷으로 분리해두는 것이 이후 확장에 유리하다.
+- 수동 `llmsummary` 와 반자동 심화 리포트 품질도 이 구조에서 더 좋아진다.
+
+### 21. H-RAG lite를 먼저 도입하고 무거운 Graph DB는 미룬다
+
+결정:
+
+- `build_hierarchical_index.py` 로 문서/섹션/청크 3계층 인덱스를 먼저 만든다.
+- Neo4j 같은 무거운 그래프 데이터베이스는 도입하지 않는다.
+
+이유:
+
+- Mac Mini 환경에서 저장공간과 운영 부담을 늘리지 않으면서도 검색 품질을 먼저 올리는 것이 우선이다.
+- 이미 `storage_retention.py` 가 compact/chunk 구조를 만들고 있어 H-RAG lite와 궁합이 좋다.
+- 문서 전체를 한 번에 넣지 않고 단계적으로 요약/선별하는 편이 LLM 품질과 비용 측면 모두에서 유리하다.
+
+### 22. GraphRAG도 파일 기반 Lite 구조로 시작한다
+
+결정:
+
+- `build_research_graph.py` 는 JSON 파일 기반의 경량 그래프만 생성한다.
+
+이유:
+
+- 지금 필요한 것은 대규모 그래프 인프라가 아니라, 반복 출처/주제/자산 연결성을 반자동 분석에 다시 쓰는 것이다.
+- 파일 기반 그래프면 Git 친화적이고 배치 재생성도 쉽다.
+- 필요할 때만 더 무거운 그래프 계층으로 확장하면 된다.
+
+### 23. LLM 결과는 자유형 문장보다 구조화된 리서치 메모를 우선한다
+
+결정:
+
+- `llm_insights.py` 출력은 단순 `marketNarrative` 중심이 아니라 `executive_summary`, `core_theses`, `counter_signals`, `what_changed`, `scenario_matrix`, `evidence_ledger`, `next_checkpoints` 등 구조화 필드를 포함한다.
+
+이유:
+
+- 사용자는 단순 요약이 아니라 “왜 이런 판단이 나왔는지 / 무엇이 틀릴 수 있는지 / 다음에 뭘 확인해야 하는지”를 원한다.
+- 구조화된 리서치 메모가 웹 리포트, horizon 집계, 수동 심화분석 어디에나 재사용성이 높다.
+- 이후 provider API를 붙이더라도 structured output 검증을 넣기 쉬워진다.
+
+### 24. 탭 스크롤은 섹션별로 분리한다
 
 결정:
 

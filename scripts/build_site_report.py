@@ -1830,20 +1830,32 @@ def build_llm_insights_block(llm: dict) -> dict:
     if not llm:
         return {}
     return {
+        "executiveSummary": llm.get("executive_summary", ""),
         "marketNarrative": llm.get("market_narrative", ""),
         "deepResearchSummary": llm.get("deep_research_summary", ""),
         "regimeAssessment": llm.get("regime_assessment", ""),
+        "coreTheses": llm.get("core_theses") or [],
+        "counterSignals": llm.get("counter_signals") or [],
+        "whatChanged": llm.get("what_changed") or [],
         "keySignals": llm.get("key_signals") or [],
         "sectorCalls": llm.get("sector_calls") or [],
         "riskFactors": llm.get("risk_factors") or [],
         "timingGuidance": llm.get("timing_guidance", ""),
         "portfolioComment": llm.get("portfolio_comment", ""),
+        "accountActions": llm.get("account_actions") or [],
         "periodOutlooks": llm.get("period_outlooks") or [],
+        "scenarioMatrix": llm.get("scenario_matrix") or [],
         "sourceBackedView": llm.get("source_backed_view") or [],
+        "evidenceLedger": llm.get("evidence_ledger") or [],
+        "confidence": llm.get("confidence") or {},
         "newsHighlights": llm.get("news_highlights") or [],
+        "nextCheckpoints": llm.get("next_checkpoints") or [],
         "apiUsed": llm.get("api_used", False),
         "generatedBy": llm.get("generated_by", ""),
         "researchContextRef": llm.get("research_context_ref", ""),
+        "packetRef": llm.get("packet_ref", ""),
+        "hierarchicalIndexRef": llm.get("hierarchical_index_ref", ""),
+        "researchGraphRef": llm.get("research_graph_ref", ""),
     }
 
 

@@ -102,6 +102,16 @@
 - [x] LLM 입력에 최근 7거래일/30거래일 누적 데이터와 horizon 요약을 넣는 딥리서치 컨텍스트 레이어 연결
 - [x] `llm_insights.py` 에 OpenAI Responses API provider 추가 (`OPENAI_API_KEY` 사용 시 `gpt-5.4` 기본)
 - [x] `2026-03-30` 기준 valuation → signals → llm_insights → site 재실행 검증
+- [x] `build_research_context.py` 에 `agent_packets` 생성 레이어 추가
+- [x] `data/research_packets/{date}.json` 생성
+- [x] [`scripts/build_hierarchical_index.py`](/Users/seo/igzun-daily-report/scripts/build_hierarchical_index.py) 추가
+- [x] `data/research_index/hierarchical/{date}.json` 생성
+- [x] [`scripts/build_research_graph.py`](/Users/seo/igzun-daily-report/scripts/build_research_graph.py) 추가
+- [x] `data/research_graph/{date}.json` 생성
+- [x] `llm_insights.py` 를 structured deep-research schema(`executive_summary`, `core_theses`, `counter_signals`, `scenario_matrix` 등)로 확장
+- [x] `build_site_report.py` 와 `site/template/index.html` 에 structured LLM 블록 연결
+- [x] `build_manual_summary_brief.py` 에 research packets / H-RAG / Graph lite 요약 추가
+- [x] `daily_update.sh` 에 hierarchical index / research graph 단계 연결
 - [x] [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 추가
 - [x] [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 추가
 - [x] [`scripts/install_llmsummary_skills.sh`](/Users/seo/igzun-daily-report/scripts/install_llmsummary_skills.sh) 추가
@@ -121,6 +131,10 @@
 - [ ] `site/horizon_index.json` 의 retention/backfill 메타를 UI에 노출할지 결정
 - [ ] 실제 보유 종목 입력 시 매도/축소 액션 자동 생성
 - [ ] `.env` 에 `ANTHROPIC_API_KEY` 설정 후 실제 Claude API 인사이트 검증
+- [ ] structured deep-research 블록(`coreTheses/counterSignals/scenarioMatrix`)의 모바일 가독성 검증
+- [ ] H-RAG lite 검색 품질 튜닝(top docs / chunk rank / topic extraction)
+- [ ] GraphRAG lite asset linking 정밀도 개선
+- [ ] LLM structured output schema 검증 로직 추가
 
 ## 남은 작업
 
@@ -144,6 +158,9 @@
 - [ ] 리포트에서 단기 뉴스와 중기 방향성 분리
 - [ ] 펀더멘털/기술적 시그널 동시 반영 설명 강화
 - [ ] LLM 인사이트를 fallback이 아닌 실제 Claude API 결과로 전환
+- [ ] `agent_packets` 기반 수동/반자동 멀티에이전트 워크플로우 정교화
+- [ ] H-RAG lite 결과를 수동 심화분석뿐 아니라 자동 narrative ranking에도 활용
+- [ ] GraphRAG lite 기반 `무엇이 무엇에 영향을 주는지` 설명 카드 추가 검토
 - [x] 계좌별 현금/투입 가능 금액 반영 1차
 - [x] horizon별 실행 예산 차등 반영 1차
 - [x] horizon별 분할매수 리듬 차등 반영 1차
@@ -166,8 +183,11 @@
 - [ ] 실패 시 재시도/부분성공 로그 기준 정리
 - [ ] GitHub Pages 자동 배포 상태 점검
 - [ ] retention 기준 일수와 chunk 크기 운영값 최종 확정
+- [ ] `research_packets / research_index / research_graph` 보관 기간과 용량 정책 확정
 - [x] `daily_update.sh` 로 `build_horizon_views.py` 자동 반영 연결
 - [x] `daily_update.sh` 로 `storage_retention.py` 자동 반영 연결
+- [x] `daily_update.sh` 로 `build_hierarchical_index.py` 자동 반영 연결
+- [x] `daily_update.sh` 로 `build_research_graph.py` 자동 반영 연결
 - [x] `11:00 KST` launch agent 로컬 설치 완료
 - [ ] 작업 종료 시 `HANDOFF.md` 와 `TASKS.md` 갱신 자동 습관화
 
@@ -179,4 +199,7 @@
 - [x] [`data/portfolio_state.json`](/Users/seo/igzun-daily-report/data/portfolio_state.json) 포맷 검증
 - [x] [`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 새 UI 구조 반영
 - [x] [`site/2026-03-30/result.json`](/Users/seo/igzun-daily-report/site/2026-03-30/result.json) 새 필드 검증
+- [x] [`data/research_packets/2026-03-30.json`](/Users/seo/igzun-daily-report/data/research_packets/2026-03-30.json) 생성 검증
+- [x] [`data/research_index/hierarchical/2026-03-30.json`](/Users/seo/igzun-daily-report/data/research_index/hierarchical/2026-03-30.json) 생성 검증
+- [x] [`data/research_graph/2026-03-30.json`](/Users/seo/igzun-daily-report/data/research_graph/2026-03-30.json) 생성 검증
 - [ ] 커밋 전 `git status --short` 재확인

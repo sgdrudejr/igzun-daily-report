@@ -41,8 +41,15 @@
 - `scripts/signal_engine.py` 가 추가되어 RSI, MACD, 볼린저밴드, 이평선, 캔들, 엘리엇 파동을 종합한 ETF별 `강력매수/분할매수/소규모탐색/관망/비중축소/회피` 신호를 생성한다.
 - `scripts/llm_insights.py` 가 추가되어 매크로/밸류에이션/신호/수집문서를 합친 한국어 투자 인사이트를 생성한다.
 - `scripts/build_research_context.py` 가 추가되어 최근 7거래일/30거래일 누적 문서, 과거 레짐·점수 변화, horizon 집계 요약, 계좌 실행 제약을 묶은 상위 `딥리서치 컨텍스트` 를 생성한다.
+- `build_research_context.py` 는 이제 단일 컨텍스트뿐 아니라 `macro_strategist / quant_analyst / fundamental_researcher / skeptic_risk_manager / portfolio_operator / synthesis_editor` 성격의 `agent_packets` 를 함께 생성한다.
+- `data/research_packets/{date}.json` 이 추가되어 반자동 심화분석 시 에이전트별 입력 패킷을 별도 파일로 재사용할 수 있다.
+- `scripts/build_hierarchical_index.py` 가 추가되어 최근 30거래일 문서를 문서/섹션/청크 3계층으로 요약한 H-RAG lite 인덱스를 생성한다.
+- `data/research_index/hierarchical/{date}.json` 은 문서 요약, 상위 토픽, 세부 청크를 함께 담는 계층형 검색 입력이다.
+- `scripts/build_research_graph.py` 가 추가되어 H-RAG 인덱스에서 topic/source/region/asset 관계를 추출한 GraphRAG lite JSON을 생성한다.
+- `data/research_graph/{date}.json` 은 document-topic-asset 관계를 경량 그래프로 보존해 수동/반자동 딥리서치에서 "무엇이 무엇과 연결되는가"를 빠르게 추적할 수 있게 한다.
 - 현재 LLM 단계는 파이프라인에 연결되어 있으나 `.env` 의 `ANTHROPIC_API_KEY` 가 비어 있어 실제 API 호출 대신 fallback 규칙 기반 인사이트로 동작한다.
 - `llm_insights.py` 는 이제 당일 문서만 보지 않고 `data/research_context/{date}.json` 을 함께 읽어 누적 맥락 기반 분석을 수행한다.
+- `llm_insights.py` 는 이제 `research_packets`, `hierarchical index`, `research_graph` 까지 함께 읽어 `executive_summary`, `core_theses`, `counter_signals`, `what_changed`, `account_actions`, `scenario_matrix`, `evidence_ledger`, `confidence`, `next_checkpoints` 를 포함한 구조화된 심화 인사이트를 만든다.
 - `llm_insights.py` 는 이제 OpenAI Responses API도 지원한다. `.env` 에 `OPENAI_API_KEY` 를 넣으면 기본값으로 `gpt-5.4` 를 사용하며, `OPENAI_LLM_MODEL` 과 `LLM_PROVIDER` 로 provider/model 우선순위를 조절할 수 있다.
 - 반자동 운영용으로 [`scripts/build_manual_summary_brief.py`](/Users/seo/igzun-daily-report/scripts/build_manual_summary_brief.py) 가 추가되었다. 이 스크립트는 사람이 “오늘 거 심화 분석해줘”라고 요청했을 때 Codex/Claude가 읽을 Markdown 브리프를 생성한다.
 - 반자동 스킬의 canonical 정의는 [`skills/llmsummary/SKILL.md`](/Users/seo/igzun-daily-report/skills/llmsummary/SKILL.md) 에 있다.
@@ -111,6 +118,9 @@
 - `data/market_data_history/` 와 `data/etf_price_history/` 는 로컬 캐시이며 `.gitignore` 대상이다.
 - `data/archives/` 는 로컬 압축본 저장소이며 Git 에 올리지 않는다.
 - `data/research_context/{date}.json` 은 LLM/딥리서치 입력용 누적 컨텍스트 스냅샷이며, `daily_update.sh` 에서 valuation/signal 이후 자동 생성된다.
+- `data/research_packets/{date}.json` 은 에이전트별 연구 패킷이다. 사람이 `llmsummary` 를 호출할 때 먼저 읽는 핵심 구조다.
+- `data/research_index/hierarchical/{date}.json` 과 `data/research_graph/{date}.json` 은 각각 H-RAG lite / GraphRAG lite 입력 파일이며, 수동 심화분석과 차후 다중 에이전트 오케스트레이션의 토대다.
+- `2026-03-30` 기준 H-RAG lite 인덱스는 260개 문서, 260개 섹션, 406개 청크를 생성했고, GraphRAG lite 는 264개 노드와 1200개 엣지를 생성했다.
 
 ### 현재 확인된 산출물
 
@@ -189,6 +199,8 @@
 │   ├── signal_engine.py
 │   ├── llm_insights.py
 │   ├── build_research_context.py
+│   ├── build_hierarchical_index.py
+│   ├── build_research_graph.py
 │   ├── build_manual_summary_brief.py
 │   ├── install_llmsummary_skills.sh
 │   ├── technical_timing.py
@@ -270,17 +282,25 @@
 - 1주는 흐름과 수급 중심
 - 1개월은 월간 레짐·섹터 축 중심
 - 3개월/6개월은 자산배분·ETF 아이디어 중심으로 차별화 강화
+- `coreTheses / counterSignals / whatChanged / scenarioMatrix` 가 실제 화면에서 얼마나 읽기 좋은지 렌더링 검증
+- `evidenceLedger / nextCheckpoints` 를 더 짧고 단단하게 다듬기
 
 3. 포트폴리오 연결 강화
 - [`data/portfolio_state.json`](/Users/seo/igzun-daily-report/data/portfolio_state.json) 활용
 - 현재 현금 배분(ISA / 토스증권 / 연금저축)을 반영해 계좌별 제안 연결
 
-4. 수집 소스 품질 개선
+4. 연구 레이어 고도화
+- `research_packets` 를 실제 다중 에이전트 오케스트레이션 입력으로 발전시킬지 검토
+- H-RAG lite 검색/랭킹 고도화
+- GraphRAG lite topic/asset linking 정밀도 개선
+- `llm_insights.py` 의 구조화 출력 스키마를 더 엄격히 검증
+
+5. 수집 소스 품질 개선
 - KB/Mirae scraper 수정
 - JP/EU 리서치/매크로 소스 추가
 - 저작권 이슈가 있는 PDF는 직접 다운로드보다 메타데이터/링크 우선
 
-5. horizon 데이터 고도화
+6. horizon 데이터 고도화
 - `site/horizons/*` 버킷별로 더 다른 메트릭과 서술을 넣기
 - 주간/월간/분기별 비교형 지표 추가
 - 실제 보유 종목이 들어오면 신규 매수뿐 아니라 비중 축소/교체 액션까지 계산 확장

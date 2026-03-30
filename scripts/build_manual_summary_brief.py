@@ -75,6 +75,9 @@ def build_brief(root: Path, date_str: str) -> str:
     research_context = load_json(root / "data" / "research_context" / f"{date_str}.json")
     if not research_context:
         research_context = build_research_context(root, date_str)
+    packets = load_json(root / "data" / "research_packets" / f"{date_str}.json") or {}
+    hierarchical_index = load_json(root / "data" / "research_index" / "hierarchical" / f"{date_str}.json") or {}
+    research_graph = load_json(root / "data" / "research_graph" / f"{date_str}.json") or {}
 
     result = load_json(root / "site" / date_str / "result.json") or {}
     llm = result.get("llmInsights", {}) or {}
@@ -152,6 +155,35 @@ def build_brief(root: Path, date_str: str) -> str:
             for evidence in (item.get("evidence") or [])[:3]:
                 lines.append(f"  - 근거: {evidence}")
 
+    if packets:
+        lines.extend(["", "## 에이전트 패킷 요약"])
+        for key, packet in packets.items():
+            role = packet.get("role", key)
+            question = packet.get("primary_question") or packet.get("quant_question") or packet.get("research_question") or packet.get("execution_question")
+            lines.append(f"- {role}: {short(question, 120)}")
+
+    if hierarchical_index:
+        summary = hierarchical_index.get("summary") or {}
+        lines.extend(
+            [
+                "",
+                "## H-RAG 인덱스 요약",
+                f"- 문서: {summary.get('indexed_document_count', 0)}건 / 섹션: {summary.get('section_count', 0)}개 / 청크: {summary.get('chunk_count', 0)}개",
+                "- 상위 토픽: " + ", ".join(f"{item['topic']} {item['count']}건" for item in (summary.get("top_topics") or [])[:5]),
+            ]
+        )
+
+    if research_graph:
+        communities = research_graph.get("communities") or {}
+        lines.extend(
+            [
+                "",
+                "## GraphRAG Lite 요약",
+                "- 연결 중심 토픽: " + ", ".join(f"{item['topic']} {item['count']}" for item in (communities.get("top_topics") or [])[:5]),
+                "- 영향 자산: " + ", ".join(f"{item['asset']} {item['count']}" for item in (communities.get("top_assets") or [])[:5]),
+            ]
+        )
+
     lines.extend(
         [
             "",
@@ -164,6 +196,9 @@ def build_brief(root: Path, date_str: str) -> str:
             "",
             "## 원본 참조 파일",
             f"- 연구 컨텍스트: /Users/seo/igzun-daily-report/data/research_context/{date_str}.json",
+            f"- 연구 패킷: /Users/seo/igzun-daily-report/data/research_packets/{date_str}.json",
+            f"- H-RAG 인덱스: /Users/seo/igzun-daily-report/data/research_index/hierarchical/{date_str}.json",
+            f"- GraphRAG Lite: /Users/seo/igzun-daily-report/data/research_graph/{date_str}.json",
             f"- 일간 결과: /Users/seo/igzun-daily-report/site/{date_str}/result.json",
             f"- 일간 LLM 결과: /Users/seo/igzun-daily-report/data/llm_insights/{date_str}.json",
             f"- horizon index: /Users/seo/igzun-daily-report/site/horizon_index.json",

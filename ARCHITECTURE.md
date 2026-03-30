@@ -42,6 +42,13 @@ download_routes.yaml
   -> etf_recommender.py
   -> build_research_context.py
     -> data/research_context/{date}.json
+    -> data/research_packets/{date}.json
+  -> build_hierarchical_index.py
+    -> data/research_index/hierarchical/{date}.json
+  -> build_research_graph.py
+    -> data/research_graph/{date}.json
+  -> llm_insights.py
+    -> data/llm_insights/{date}.json
   -> build_manual_summary_brief.py (on demand)
     -> data/manual_summary/{date}.md
   -> build_site_report.py
@@ -84,10 +91,22 @@ download_routes.yaml
   - `actions[*].pauseRule`
   - `actions[*].reviewRule`
 - `llmInsights`
+  - `executiveSummary`
   - `marketNarrative`
   - `deepResearchSummary`
+  - `coreTheses`
+  - `counterSignals`
+  - `whatChanged`
+  - `accountActions`
+  - `scenarioMatrix`
+  - `evidenceLedger`
+  - `confidence`
+  - `nextCheckpoints`
   - `periodOutlooks`
   - `sourceBackedView`
+  - `packetRef`
+  - `hierarchicalIndexRef`
+  - `researchGraphRef`
 - `recommendations`
   - `ideas[*].macroContext`
   - `ideas[*].evidencePoints`
@@ -186,6 +205,7 @@ download_routes.yaml
 
 ```text
 data/research_context/{date}.json
+data/research_packets/{date}.json
 ```
 
 역할:
@@ -194,11 +214,50 @@ data/research_context/{date}.json
 - 과거 10~30거래일 레짐/점수/VIX/환율 변화 추세를 요약
 - 주간/월간/분기/반기 horizon 집계에서 상위 해석을 추출
 - 계좌별 현금/추천 집행액/우선 후보를 LLM 입력용으로 정리
+- 에이전트별 패킷(`macro_strategist`, `quant_analyst`, `fundamental_researcher`, `skeptic_risk_manager`, `portfolio_operator`, `synthesis_editor`)을 별도 구조로 분리
 
 의도:
 
 - `llm_insights.py` 가 당일 문서 몇 건만 보고 판단하지 않도록 한다.
 - 축적된 로컬 데이터와 과거 판단 메모를 함께 넣어 Gemini류 딥리서치에 가까운 상위 문맥을 제공한다.
+
+### H-RAG Lite 저장
+
+```text
+data/research_index/hierarchical/{date}.json
+```
+
+역할:
+
+- 최근 30거래일 문서를 문서/섹션/청크 3계층으로 정리한다.
+- 긴 문서를 바로 LLM에 넣지 않고, 상위 문서 요약 -> 섹션 -> 청크 순서로 접근할 수 있게 한다.
+- 수동 심화분석과 향후 다중 에이전트 검색 레이어의 공통 입력으로 사용한다.
+
+주요 구성:
+
+- `summary`
+- `documents`
+- `sections`
+- `chunks`
+
+### GraphRAG Lite 저장
+
+```text
+data/research_graph/{date}.json
+```
+
+역할:
+
+- H-RAG 인덱스 문서에서 `document -> source/region/topic/asset` 관계를 경량 그래프로 저장한다.
+- 무거운 그래프 DB 없이도 "어떤 주제가 어떤 자산과 연결되는가"를 빠르게 추적한다.
+- 수동 심화분석에서 반대 신호, 연결 섹터, 반복 출처를 설명하는 근거 레이어로 쓴다.
+
+주요 구성:
+
+- `summary`
+- `communities`
+- `nodes`
+- `edges`
 
 ### Manual Summary 저장
 
@@ -211,6 +270,7 @@ data/manual_summary/latest.md
 
 - 사람이 "오늘 거 심화 분석해줘" 같은 요청을 했을 때 읽는 Markdown 브리프
 - 자동 생성된 정량 데이터와 horizon 요약을 한 장으로 묶는다
+- `research_packets`, `H-RAG`, `GraphRAG lite` 요약도 함께 실어 반자동 딥리서치의 공통 브리프로 사용한다
 - Codex/Claude local skill 이 이 파일을 우선 입력으로 사용한다
 
 생성 스크립트:

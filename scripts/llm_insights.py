@@ -222,6 +222,86 @@ def _format_portfolio(portfolio: dict, signals: dict) -> str:
     return "\n".join(lines)
 
 
+def _format_agent_packets(agent_packets: dict) -> str:
+    if not agent_packets:
+        return "(리서치 패킷 없음)"
+    lines = ["=== 에이전트별 리서치 패킷 ==="]
+    for key in ["macro_strategist", "quant_analyst", "fundamental_researcher", "skeptic_risk_manager", "portfolio_operator"]:
+        packet = agent_packets.get(key) or {}
+        if not packet:
+            continue
+        lines.append(f"[{packet.get('role', key)}]")
+        for field in ["primary_question", "quant_question", "research_question", "execution_question"]:
+            if packet.get(field):
+                lines.append(f"  질문: {packet[field]}")
+        if packet.get("macro_drivers"):
+            lines.append("  핵심 드라이버: " + " / ".join(packet["macro_drivers"][:5]))
+        if packet.get("risk_flags"):
+            lines.append("  리스크 플래그: " + " / ".join(packet["risk_flags"][:4]))
+        if packet.get("top_candidates"):
+            lines.append(
+                "  상위 후보: "
+                + " / ".join(
+                    f"{item.get('name')}({item.get('signal')}, {item.get('timing_grade')})"
+                    for item in packet["top_candidates"][:3]
+                )
+            )
+        if packet.get("top_topics"):
+            lines.append(
+                "  상위 주제: "
+                + " / ".join(f"{item.get('topic')} {item.get('count')}건" for item in packet["top_topics"][:4])
+            )
+        if packet.get("accounts"):
+            lines.append(
+                "  계좌 요약: "
+                + " / ".join(
+                    f"{item.get('label')} {item.get('deploy_amount', 0):,}원"
+                    for item in packet["accounts"][:3]
+                )
+            )
+    return "\n".join(lines)
+
+
+def _format_hierarchical_index(index: dict) -> str:
+    if not index:
+        return "(계층형 인덱스 없음)"
+    summary = index.get("summary") or {}
+    docs = index.get("documents") or []
+    topics = summary.get("top_topics") or []
+    lines = [
+        "=== H-RAG 계층형 인덱스 ===",
+        f"문서 {summary.get('indexed_document_count', 0)}건 / 섹션 {summary.get('section_count', 0)}개 / 청크 {summary.get('chunk_count', 0)}개",
+    ]
+    if topics:
+        lines.append("상위 토픽: " + " / ".join(f"{item['topic']} {item['count']}건" for item in topics[:5]))
+    if docs:
+        lines.append("대표 문서:")
+        for item in docs[:5]:
+            lines.append(
+                f"  - [{item.get('source_label')}] {item.get('title')} | "
+                f"{', '.join(item.get('topics') or []) or '토픽없음'}"
+            )
+    return "\n".join(lines)
+
+
+def _format_research_graph(graph: dict) -> str:
+    if not graph:
+        return "(리서치 그래프 없음)"
+    summary = graph.get("summary") or {}
+    communities = graph.get("communities") or {}
+    lines = [
+        "=== GraphRAG Lite ===",
+        f"노드 {summary.get('node_count', 0)}개 / 엣지 {summary.get('edge_count', 0)}개 / 문서 {summary.get('document_count', 0)}건",
+    ]
+    top_topics = communities.get("top_topics") or []
+    if top_topics:
+        lines.append("연결 중심 토픽: " + " / ".join(f"{item['topic']} {item['count']}" for item in top_topics[:5]))
+    top_assets = communities.get("top_assets") or []
+    if top_assets:
+        lines.append("영향 자산: " + " / ".join(f"{item['asset']} {item['count']}" for item in top_assets[:5]))
+    return "\n".join(lines)
+
+
 SYSTEM_PROMPT = """당신은 한국의 전문 투자 리서치 애널리스트입니다.
 
 역할과 목적:
@@ -293,6 +373,15 @@ def _parse_llm_response(text: str) -> dict:
     }
 
 
+def _merge_with_fallback(parsed: dict, fallback: dict) -> dict:
+    merged = dict(fallback)
+    for key, value in parsed.items():
+        if value in (None, "", [], {}):
+            continue
+        merged[key] = value
+    return merged
+
+
 def build_prompt(
     macro: dict,
     docs: list[dict],
@@ -300,6 +389,9 @@ def build_prompt(
     valuation: dict,
     portfolio: dict,
     research_context: dict,
+    agent_packets: dict,
+    hierarchical_index: dict,
+    research_graph: dict,
     date_str: str,
 ) -> str:
     doc_text = _format_docs(docs)
@@ -308,6 +400,9 @@ def build_prompt(
     val_text = _format_valuation(valuation)
     portfolio_text = _format_portfolio(portfolio, signals)
     research_text = format_research_context(research_context)
+    packets_text = _format_agent_packets(agent_packets)
+    hierarchical_text = _format_hierarchical_index(hierarchical_index)
+    graph_text = _format_research_graph(research_graph)
     total_cash = portfolio.get("total_cash", 0)
 
     prompt = f"""오늘({date_str}) 기준 투자 분석을 수행해주세요.
@@ -321,6 +416,12 @@ def build_prompt(
 {portfolio_text}
 
 {research_text}
+
+{packets_text}
+
+{hierarchical_text}
+
+{graph_text}
 
 === 수집된 뉴스/리서치 ({len(docs)}건) ===
 {doc_text}
@@ -337,11 +438,31 @@ def build_prompt(
 - 단순 낙관/비관이 아니라 "왜 지금 그런 해석을 하는지"를 누적 데이터 변화와 함께 적으세요.
 
 {{
+  "executive_summary": "오늘 판단을 한 문단으로 요약. 지금 매수/관망/축소 중 무엇이 맞는지부터 먼저 서술",
+
   "market_narrative": "현재 시장 상황을 3~5줄로 서술 (레짐, 핵심 드라이버, 방향성)",
 
   "deep_research_summary": "최근 누적 데이터(7거래일/30거래일 + 주간/월간/분기 관점)를 종합한 상위 해석 4~6줄",
 
   "regime_assessment": "레짐 판단 및 투자 함의 (2~3줄)",
+
+  "core_theses": [
+    {{"thesis": "핵심 가설", "why_now": "왜 지금 이 가설이 중요한가", "action": "그래서 어떤 행동이 필요한가", "confidence": "높음/중간/낮음"}},
+    {{"thesis": "핵심 가설", "why_now": "왜 지금 이 가설이 중요한가", "action": "그래서 어떤 행동이 필요한가", "confidence": "높음/중간/낮음"}},
+    {{"thesis": "핵심 가설", "why_now": "왜 지금 이 가설이 중요한가", "action": "그래서 어떤 행동이 필요한가", "confidence": "높음/중간/낮음"}}
+  ],
+
+  "counter_signals": [
+    "현재 판단을 깨뜨릴 수 있는 반대 신호 1",
+    "현재 판단을 깨뜨릴 수 있는 반대 신호 2",
+    "현재 판단을 깨뜨릴 수 있는 반대 신호 3"
+  ],
+
+  "what_changed": [
+    "어제/직전 주기 대비 바뀐 점 1",
+    "어제/직전 주기 대비 바뀐 점 2",
+    "어제/직전 주기 대비 바뀐 점 3"
+  ],
 
   "key_signals": [
     "지금 당장 가장 중요한 투자 시그널 1 (숫자 포함)",
@@ -369,11 +490,24 @@ def build_prompt(
 
   "portfolio_comment": "ISA/토스/연금저축 3개 계좌 각각에 대한 이번 주 액션 플랜 (2~3줄씩)",
 
+  "account_actions": [
+    {{"account": "ISA (신한은행)", "stance": "천천히 매수/관망/비중축소", "now": "지금 당장 할 일", "next_step": "다음 확인 후 할 일"}},
+    {{"account": "토스증권", "stance": "천천히 매수/관망/비중축소", "now": "지금 당장 할 일", "next_step": "다음 확인 후 할 일"}},
+    {{"account": "연금저축 (신한은행)", "stance": "천천히 매수/관망/비중축소", "now": "지금 당장 할 일", "next_step": "다음 확인 후 할 일"}}
+  ],
+
   "period_outlooks": [
+    {{"period": "1일", "stance": "공격확대/선별매수/중립/방어우선", "focus": "무엇을 봐야 하는가", "action": "실행 포인트"}},
     {{"period": "1주", "stance": "공격확대/선별매수/중립/방어우선", "focus": "무엇을 봐야 하는가", "action": "실행 포인트"}},
     {{"period": "1개월", "stance": "공격확대/선별매수/중립/방어우선", "focus": "무엇을 봐야 하는가", "action": "실행 포인트"}},
     {{"period": "3개월", "stance": "공격확대/선별매수/중립/방어우선", "focus": "무엇을 봐야 하는가", "action": "실행 포인트"}},
     {{"period": "6개월", "stance": "공격확대/선별매수/중립/방어우선", "focus": "무엇을 봐야 하는가", "action": "실행 포인트"}}
+  ],
+
+  "scenario_matrix": [
+    {{"scenario": "기준 시나리오", "probability": "60%", "trigger": "어떤 조건이면 이 시나리오가 유지되는가", "portfolio_response": "계좌와 포트폴리오를 어떻게 대응할지"}},
+    {{"scenario": "상방 시나리오", "probability": "20%", "trigger": "어떤 조건이면 상방 시나리오가 강화되는가", "portfolio_response": "비중 확대 방식"}},
+    {{"scenario": "하방 시나리오", "probability": "20%", "trigger": "어떤 조건이면 하방 시나리오가 강화되는가", "portfolio_response": "방어/축소 방식"}}
   ],
 
   "source_backed_view": [
@@ -382,10 +516,24 @@ def build_prompt(
     {{"claim": "가장 중요한 누적 결론 3", "evidence": ["출처군/누적근거 1", "출처군/누적근거 2"]}}
   ],
 
+  "evidence_ledger": [
+    {{"claim": "핵심 주장 1", "packet": "macro_strategist/quant_analyst/fundamental_researcher", "evidence": ["수치 또는 출처 1", "수치 또는 출처 2"]}},
+    {{"claim": "핵심 주장 2", "packet": "macro_strategist/quant_analyst/fundamental_researcher", "evidence": ["수치 또는 출처 1", "수치 또는 출처 2"]}},
+    {{"claim": "핵심 주장 3", "packet": "macro_strategist/quant_analyst/fundamental_researcher", "evidence": ["수치 또는 출처 1", "수치 또는 출처 2"]}}
+  ],
+
+  "confidence": {{"score": 0.0, "label": "높음/중간/낮음", "reason": "왜 이 정도 확신도를 주는지"}},
+
   "news_highlights": [
     "수집된 뉴스/리서치에서 가장 중요한 인사이트 1",
     "수집된 뉴스/리서치에서 가장 중요한 인사이트 2",
     "수집된 뉴스/리서치에서 가장 중요한 인사이트 3"
+  ],
+
+  "next_checkpoints": [
+    "다음으로 반드시 확인해야 할 체크포인트 1",
+    "다음으로 반드시 확인해야 할 체크포인트 2",
+    "다음으로 반드시 확인해야 할 체크포인트 3"
   ]
 }}"""
     return prompt
@@ -543,20 +691,79 @@ def generate_fallback_insights(
             f"월간 관점은 {(horizon_snaps.get('monthly') or {}).get('regime_kr', regime_ko)} 로 해석됩니다."
         )
 
+    executive_summary = (
+        f"오늘 판단은 '{ms.get('action', '관망')}' 쪽이 우세합니다. "
+        f"레짐은 {regime_ko}, 총점은 {total_score:.1f}점이며, "
+        f"VIX {vix:.1f}와 원/달러 {usdkrw:.0f}원이 공격적 배치를 제약합니다. "
+        f"따라서 지금은 전액 진입보다 미국 코어 ETF 중심의 저속 분할 진입이 더 적절합니다."
+    )
+
+    core_theses = [
+        {
+            "thesis": "시장 전체보다 미국 코어 지수를 먼저 보는 게 맞다",
+            "why_now": f"VIX {vix:.1f}와 낮은 ERP가 동시 존재해 넓은 risk-on보다 과매도 반등형 자산이 유리합니다.",
+            "action": "SPY를 가장 먼저, QQQ/나스닥 계열은 그 다음 순서로 1~2%씩 나눠 담습니다.",
+            "confidence": "중간",
+        },
+        {
+            "thesis": "국내 반도체는 장기 논리는 유효하지만 오늘은 가격을 확인해야 한다",
+            "why_now": f"KOSPI 밸류에이션은 {kospi_grade or '데이터 부족'}이고 원/달러 {usdkrw:.0f}원으로 국내 위험자산 부담이 남아 있습니다.",
+            "action": "ISA에서는 KODEX 반도체를 탐색 수준으로만 시작하고, 조정 시 증액합니다.",
+            "confidence": "중간",
+        },
+        {
+            "thesis": "계좌별로 속도를 다르게 가져가야 한다",
+            "why_now": "토스증권은 미국 코어 자산 집행에 적합하고, 연금저축은 단기 타이밍보다 축적 속도가 중요합니다.",
+            "action": "토스는 즉시성, ISA는 가격 확인, 연금저축은 장기 축적 중심으로 구분합니다.",
+            "confidence": "높음",
+        },
+    ]
+
+    counter_signals = [
+        f"미국 지수의 과매도 신호가 있어도 ERP {erp:.1f}% 수준이면 valuation re-rating 여지는 제한적일 수 있습니다." if erp is not None else "미국 지수의 기술적 반등이 바로 추세 전환을 뜻하지는 않습니다.",
+        f"KOSPI가 {kospi_grade} 구간이면 좋은 반도체 뉴스가 나와도 국내 ETF는 속도 조절이 필요합니다." if kospi_grade else "국내 자산은 환율과 밸류에이션을 함께 봐야 합니다.",
+        f"시장 배치 가능 비중이 {deploy}%에 머무는 동안에는 강력매수 신호도 분할 집행 원칙을 깨면 안 됩니다.",
+    ]
+
+    what_changed = []
+    if research_context:
+        what_changed.append(f"1주 점수 변화가 {_fmt_trend(score_trend.get('delta_1w'))}로 최근 주간 분위기는 악화됐습니다.")
+        what_changed.append(score_trend.get("usdkrw_trend", "원/달러 변화 데이터 없음"))
+        weekly_regime = (horizon_snaps.get("weekly") or {}).get("regime_kr")
+        if weekly_regime:
+            what_changed.append(f"주간 해석은 현재 {weekly_regime}로 유지되고 있습니다.")
+
+    period_outlooks = build_period_outlooks(research_context)
+    source_backed_view = build_source_backed_view(research_context)
+    account_actions = build_account_actions(portfolio, signals)
+    evidence_ledger = build_evidence_ledger(research_context, valuation, signals)
+    confidence = build_confidence(research_context, valuation, signals)
+    next_checkpoints = build_next_checkpoints(research_context, valuation, signals)
+    scenario_matrix = build_scenario_matrix(research_context, signals)
+
     return {
         "date": date_str,
         "generated_by": "fallback_rule_based",
+        "executive_summary": executive_summary,
         "market_narrative": " ".join(narrative_parts),
         "deep_research_summary": deep_summary,
         "regime_assessment": f"{regime_ko}으로 분류된 현재 환경은 {vs.get('market_valuation', '선별적 접근 권장')}.",
+        "core_theses": core_theses,
+        "counter_signals": counter_signals[:3],
+        "what_changed": what_changed[:3],
         "key_signals": key_signals[:5],
         "sector_calls": sector_calls,
         "risk_factors": risks[:3],
         "timing_guidance": timing_guidance,
         "portfolio_comment": portfolio_comment,
-        "period_outlooks": build_period_outlooks(research_context),
-        "source_backed_view": build_source_backed_view(research_context),
+        "account_actions": account_actions,
+        "period_outlooks": period_outlooks,
+        "scenario_matrix": scenario_matrix,
+        "source_backed_view": source_backed_view,
+        "evidence_ledger": evidence_ledger,
+        "confidence": confidence,
         "news_highlights": highlights,
+        "next_checkpoints": next_checkpoints,
         "research_context_ref": f"data/research_context/{date_str}.json",
     }
 
@@ -623,7 +830,9 @@ def _stance_from_score(score) -> str:
 
 def build_period_outlooks(research_context: dict) -> list[dict]:
     horizons = (research_context.get("horizon_snapshots") or {}) if research_context else {}
+    current = (research_context.get("current_snapshot") or {}) if research_context else {}
     mapping = [
+        ("current", "1일"),
         ("weekly", "1주"),
         ("monthly", "1개월"),
         ("quarterly", "3개월"),
@@ -631,7 +840,14 @@ def build_period_outlooks(research_context: dict) -> list[dict]:
     ]
     outlooks = []
     for key, label in mapping:
-        item = horizons.get(key) or {}
+        if key == "current":
+            item = {
+                "avg_score": current.get("total_score"),
+                "summary": f"현재 레짐 {current.get('regime_kr', '데이터 부족')} / 시장신호 {current.get('market_signal', '데이터 부족')}",
+                "timing_guidance": f"배치 가능 비중 {current.get('deployable_pct', 0)}%",
+            }
+        else:
+            item = horizons.get(key) or {}
         if not item:
             continue
         focus = " / ".join((item.get("key_signals") or [])[:2]) or item.get("summary", "")
@@ -679,6 +895,150 @@ def build_source_backed_view(research_context: dict) -> list[dict]:
     return items[:3]
 
 
+def build_account_actions(portfolio: dict, signals: dict) -> list[dict]:
+    accounts = (portfolio.get("accounts") or {}) if portfolio else {}
+    plans = (signals.get("account_plans") or {}) if signals else {}
+    actions = []
+    for account_id in ["ISA", "TOSS", "PENSION"]:
+        account = accounts.get(account_id, {}) or {}
+        plan = plans.get(account_id, {}) or {}
+        picks = plan.get("top_picks") or []
+        pick_names = ", ".join(f"{item.get('name')}({item.get('signal')})" for item in picks[:2]) or "추가 확인 필요"
+        first = picks[0] if picks else {}
+        actions.append(
+            {
+                "account": account.get("label", account_id),
+                "stance": "천천히 매수" if picks else "관망",
+                "now": (
+                    f"현금 {account.get('cash', 0):,}원 중 {plan.get('deploy_amount', 0):,}원 범위에서 "
+                    f"{pick_names}를 우선 검토"
+                    if picks
+                    else "오늘은 신규 진입보다 현금 유지와 확인이 우선"
+                ),
+                "next_step": first.get("schedule") or "다음 신호와 가격 위치를 확인한 뒤 증액 여부 결정",
+            }
+        )
+    return actions
+
+
+def build_evidence_ledger(research_context: dict, valuation: dict, signals: dict) -> list[dict]:
+    current = (research_context.get("current_snapshot") or {}) if research_context else {}
+    topics7 = ((research_context.get("topic_windows") or {}).get("recent_7d") or []) if research_context else []
+    sp = (valuation.get("sp500") or {}) if valuation else {}
+    ms = (signals.get("market_signal") or {}) if signals else {}
+    ledger = []
+    if current:
+        ledger.append(
+            {
+                "claim": f"현재 시장은 {current.get('regime_kr', '중립')} 해석이 우세하다",
+                "packet": "macro_strategist",
+                "evidence": [
+                    f"총점 {current.get('total_score', 'N/A')}",
+                    f"시장 신호 {current.get('market_signal', 'N/A')}",
+                    f"배치 가능 비중 {current.get('deployable_pct', 0)}%",
+                ],
+            }
+        )
+    if sp:
+        ledger.append(
+            {
+                "claim": "미국 대형지수는 선별 매수 후보지만 강한 저평가 구간은 아니다",
+                "packet": "quant_analyst",
+                "evidence": [
+                    f"S&P500 ERP {sp.get('erp_pct', 'N/A')}",
+                    f"S&P500 52주 위치 {sp.get('range_52w_pct', 'N/A')}%",
+                    f"S&P500 valuation {sp.get('valuation_grade', 'N/A')}",
+                ],
+            }
+        )
+    if topics7:
+        ledger.append(
+            {
+                "claim": "최근 해석은 단발 뉴스보다 누적 정책·수출·원자재 흐름을 더 반영한다",
+                "packet": "fundamental_researcher",
+                "evidence": [f"{item['topic']} {item['count']}건" for item in topics7[:3]],
+            }
+        )
+    if ms:
+        ledger.append(
+            {
+                "claim": "공격적 배치보다 분할 진입이 우선이다",
+                "packet": "skeptic_risk_manager",
+                "evidence": [
+                    f"시장 행동 {ms.get('action', 'N/A')}",
+                    f"배치 가능 {ms.get('deployable_pct', 0)}%",
+                    f"메모: {ms.get('note', '')}",
+                ],
+            }
+        )
+    return ledger[:4]
+
+
+def build_confidence(research_context: dict, valuation: dict, signals: dict) -> dict:
+    current = (research_context.get("current_snapshot") or {}) if research_context else {}
+    score = as_float(current.get("total_score"), 50)
+    deploy = as_float(current.get("deployable_pct"), 0)
+    valuation_score = as_float(((valuation.get("summary") or {}).get("avg_score")), 50)
+    base = 0.62
+    if score < 45:
+        base -= 0.08
+    if deploy <= 15:
+        base -= 0.05
+    if valuation_score < 40:
+        base -= 0.05
+    base = max(0.25, min(0.85, base))
+    if base >= 0.72:
+        label = "높음"
+    elif base >= 0.52:
+        label = "중간"
+    else:
+        label = "낮음"
+    return {
+        "score": round(base, 2),
+        "label": label,
+        "reason": "누적 데이터는 충분하지만 시장 점수와 밸류에이션이 강한 risk-on을 지지하지 않아 확신도는 중간 수준으로 본다." if label == "중간" else (
+            "정량과 정성 시그널이 비교적 같은 방향을 가리켜 확신도가 높다." if label == "높음" else "변동성과 밸류에이션 부담이 커서 확신도를 낮게 본다."
+        ),
+    }
+
+
+def build_next_checkpoints(research_context: dict, valuation: dict, signals: dict) -> list[str]:
+    current = (research_context.get("current_snapshot") or {}) if research_context else {}
+    sp = (valuation.get("sp500") or {}) if valuation else {}
+    ms = (signals.get("market_signal") or {}) if signals else {}
+    return [
+        f"VIX와 시장 신호가 지금의 {current.get('market_signal', '관망')}에서 완화되는지 확인",
+        f"S&P500 ERP {sp.get('erp_pct', 'N/A')}와 가격 위치가 추가 매수에 유리하게 바뀌는지 점검",
+        f"원/달러와 한국 반도체 관련 누적 리서치가 국내 ETF 비중 확대를 정당화하는지 확인",
+        f"시장 배치 가능 비중 {ms.get('deployable_pct', 0)}%가 상향되는지 주간 단위로 체크",
+    ][:4]
+
+
+def build_scenario_matrix(research_context: dict, signals: dict) -> list[dict]:
+    current = (research_context.get("current_snapshot") or {}) if research_context else {}
+    deploy = current.get("deployable_pct", 0)
+    return [
+        {
+            "scenario": "기준 시나리오",
+            "probability": "60%",
+            "trigger": f"중립 횡보 지속, 배치 가능 비중 {deploy}% 안팎 유지",
+            "portfolio_response": "미국 코어 ETF만 1~2% 단위로 분할 매수하고 국내 자산은 천천히 따라간다.",
+        },
+        {
+            "scenario": "상방 시나리오",
+            "probability": "20%",
+            "trigger": "VIX 완화와 시장 점수 회복, 환율 안정이 동시에 확인될 때",
+            "portfolio_response": "토스증권과 ISA에서 코어·반도체 비중을 조금 더 공격적으로 늘린다.",
+        },
+        {
+            "scenario": "하방 시나리오",
+            "probability": "20%",
+            "trigger": "변동성 재상승, 달러 강세 지속, 시장 신호 추가 악화",
+            "portfolio_response": "즉시 집행을 줄이고 현금 및 채권/금 같은 방어 자산 비중을 유지한다.",
+        },
+    ]
+
+
 def run_llm_insights(root: Path, date_str: str) -> dict:
     macro_file = root / "data" / "macro_analysis" / f"{date_str}.json"
     signals_file = root / "data" / "signals" / f"{date_str}.json"
@@ -693,6 +1053,11 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
     portfolio = _load_json(portfolio_file) or {}
     research_context_file = root / "data" / "research_context" / f"{date_str}.json"
     research_context = _load_json(research_context_file) or build_research_context(root, date_str)
+    agent_packets = _load_json(root / "data" / "research_packets" / f"{date_str}.json") or (
+        research_context.get("agent_packets") or {}
+    )
+    hierarchical_index = _load_json(root / "data" / "research_index" / "hierarchical" / f"{date_str}.json") or {}
+    research_graph = _load_json(root / "data" / "research_graph" / f"{date_str}.json") or {}
 
     anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     openai_api_key = os.environ.get("OPENAI_API_KEY", "").strip()
@@ -735,7 +1100,18 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
     else:
         print(f"  {provider} API 호출 중... (문서 {len(docs)}건 기반)")
         try:
-            prompt = build_prompt(macro, docs, signals, valuation, portfolio, research_context, date_str)
+            prompt = build_prompt(
+                macro,
+                docs,
+                signals,
+                valuation,
+                portfolio,
+                research_context,
+                agent_packets,
+                hierarchical_index,
+                research_graph,
+                date_str,
+            )
             if provider == "openai":
                 raw_response = _call_openai_api(prompt, openai_api_key, openai_model)
                 provider_name = openai_model
@@ -743,18 +1119,23 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
                 raw_response = _call_claude_api(prompt, anthropic_api_key)
                 provider_name = "claude-opus-4-6"
             parsed = _parse_llm_response(raw_response)
-            parsed["date"] = date_str
-            parsed["api_used"] = True
-            parsed["generated_by"] = provider_name
-            parsed["provider"] = provider
-            parsed["doc_count"] = len(docs)
-            parsed["research_context_ref"] = f"data/research_context/{date_str}.json"
-            result = parsed
+            fallback = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context)
+            result = _merge_with_fallback(parsed, fallback)
+            result["date"] = date_str
+            result["api_used"] = True
+            result["generated_by"] = provider_name
+            result["provider"] = provider
+            result["doc_count"] = len(docs)
+            result["research_context_ref"] = f"data/research_context/{date_str}.json"
         except Exception as e:
             print(f"  {provider} API 오류: {e} — 규칙 기반으로 대체")
             result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context)
             result["api_used"] = False
             result["api_error"] = str(e)
+
+    result["packet_ref"] = f"data/research_packets/{date_str}.json"
+    result["hierarchical_index_ref"] = f"data/research_index/hierarchical/{date_str}.json"
+    result["research_graph_ref"] = f"data/research_graph/{date_str}.json"
 
     return result
 
