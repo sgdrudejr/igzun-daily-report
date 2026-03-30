@@ -32,6 +32,12 @@ try:
 except ImportError:
     HAS_ANTHROPIC = False
 
+try:
+    from openai import OpenAI
+    HAS_OPENAI = True
+except ImportError:
+    HAS_OPENAI = False
+
 
 MAX_DOC_CHARS = 800  # 문서당 최대 문자수
 MAX_DOCS = 15        # 최대 문서 수
@@ -249,6 +255,18 @@ def _call_claude_api(prompt: str, api_key: str) -> str:
         if hasattr(block, "text"):
             texts.append(block.text)
     return "\n".join(texts)
+
+
+def _call_openai_api(prompt: str, api_key: str, model: str) -> str:
+    """OpenAI Responses API 호출."""
+    client = OpenAI(api_key=api_key)
+    response = client.responses.create(
+        model=model,
+        instructions=SYSTEM_PROMPT,
+        input=prompt,
+        reasoning={"effort": "medium"},
+    )
+    return response.output_text
 
 
 def _parse_llm_response(text: str) -> dict:
@@ -676,28 +694,64 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
     research_context_file = root / "data" / "research_context" / f"{date_str}.json"
     research_context = _load_json(research_context_file) or build_research_context(root, date_str)
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    openai_api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    preferred_provider = os.environ.get("LLM_PROVIDER", "").strip().lower()
+    openai_model = os.environ.get("OPENAI_LLM_MODEL", "").strip() or "gpt-5.4"
 
-    if not api_key or not HAS_ANTHROPIC:
-        reason = "anthropic 미설치" if not HAS_ANTHROPIC else "ANTHROPIC_API_KEY 미설정"
-        print(f"  LLM API 없음 ({reason}) — 규칙 기반 인사이트 생성")
+    provider = None
+    provider_reason = ""
+    if preferred_provider == "openai":
+        if openai_api_key and HAS_OPENAI:
+            provider = "openai"
+        else:
+            provider_reason = "LLM_PROVIDER=openai 이지만 OPENAI_API_KEY 또는 openai SDK 없음"
+    elif preferred_provider == "anthropic":
+        if anthropic_api_key and HAS_ANTHROPIC:
+            provider = "anthropic"
+        else:
+            provider_reason = "LLM_PROVIDER=anthropic 이지만 ANTHROPIC_API_KEY 또는 anthropic SDK 없음"
+
+    if provider is None:
+        if openai_api_key and HAS_OPENAI:
+            provider = "openai"
+        elif anthropic_api_key and HAS_ANTHROPIC:
+            provider = "anthropic"
+        else:
+            if openai_api_key and not HAS_OPENAI:
+                provider_reason = "OPENAI_API_KEY 는 있지만 openai SDK 미설치"
+            elif anthropic_api_key and not HAS_ANTHROPIC:
+                provider_reason = "ANTHROPIC_API_KEY 는 있지만 anthropic SDK 미설치"
+            elif not openai_api_key and not anthropic_api_key:
+                provider_reason = "OPENAI_API_KEY 와 ANTHROPIC_API_KEY 모두 미설정"
+            else:
+                provider_reason = provider_reason or "사용 가능한 LLM provider 없음"
+
+    if provider is None:
+        print(f"  LLM API 없음 ({provider_reason}) — 규칙 기반 인사이트 생성")
         result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context)
         result["api_used"] = False
-        result["fallback_reason"] = reason
+        result["fallback_reason"] = provider_reason
     else:
-        print(f"  Claude API 호출 중... (문서 {len(docs)}건 기반)")
+        print(f"  {provider} API 호출 중... (문서 {len(docs)}건 기반)")
         try:
             prompt = build_prompt(macro, docs, signals, valuation, portfolio, research_context, date_str)
-            raw_response = _call_claude_api(prompt, api_key)
+            if provider == "openai":
+                raw_response = _call_openai_api(prompt, openai_api_key, openai_model)
+                provider_name = openai_model
+            else:
+                raw_response = _call_claude_api(prompt, anthropic_api_key)
+                provider_name = "claude-opus-4-6"
             parsed = _parse_llm_response(raw_response)
             parsed["date"] = date_str
             parsed["api_used"] = True
-            parsed["generated_by"] = "claude-opus-4-6"
+            parsed["generated_by"] = provider_name
+            parsed["provider"] = provider
             parsed["doc_count"] = len(docs)
             parsed["research_context_ref"] = f"data/research_context/{date_str}.json"
             result = parsed
         except Exception as e:
-            print(f"  Claude API 오류: {e} — 규칙 기반으로 대체")
+            print(f"  {provider} API 오류: {e} — 규칙 기반으로 대체")
             result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context)
             result["api_used"] = False
             result["api_error"] = str(e)

@@ -87,5 +87,5 @@
   ],
   "research_context_ref": "data/research_context/2026-03-30.json",
   "api_used": false,
-  "fallback_reason": "ANTHROPIC_API_KEY 미설정"
+  "fallback_reason": "OPENAI_API_KEY 와 ANTHROPIC_API_KEY 모두 미설정"
 }
