@@ -67,6 +67,13 @@
 - [x] 최신 일간 리포트 고정 + 기간별 방향성 비교 탭 구조 반영
 - [x] 점수/지표 칩 렌더링 추가
 - [x] 출처 메타데이터를 본문 내부가 아니라 카드 하단 고정 위치로 재배치
+- [x] Toss 증권/토스뱅크식 정보 위계로 포트폴리오/실행가이드/시장브리핑 UI 재배치
+- [x] 포트폴리오 핵심 정보 3카드(`총 투자 대기 현금 / 포트폴리오 점수 / 현재 레짐`) 구조 반영
+- [x] 포트폴리오 점수 코치마크(sheet) 추가
+- [x] `자산군 목표금액` 을 `총 목표금액 / 오늘 목표금액` 2탭 구조로 변경
+- [x] 실행 가이드를 종목 셀렉터 + 단일 상세 카드 구조로 변경
+- [x] horizon 집계 JSON에 `valuation / signals / llmInsights` top-level 포함
+- [x] 상단 `누적 업데이트 / 주요 출처` pill 행 제거
 - [x] 1일/1주/1개월/3개월/6개월별 질문과 메트릭 차별화 2차 반영
 - [x] [`scripts/load_market_data.py`](/Users/seo/igzun-daily-report/scripts/load_market_data.py) 에 `--start-date/--end-date/--output` 추가
 - [x] [`scripts/macro_analysis.py`](/Users/seo/igzun-daily-report/scripts/macro_analysis.py) 에 as-of 날짜 슬라이싱 추가
@@ -103,6 +110,7 @@
 - [ ] ETF/테마 아이디어 설명 품질 개선 3차
 - [ ] 기간별 지표 차별화 로직 추가 고도화
 - [ ] Galaxy S25 Ultra 실기기 줄바꿈 / 칩 높이 확인
+- [ ] Toss 스타일 UI 실제 사용성 검증(탭 전환, 시트 오버레이, 캐러셀 셀렉터)
 - [ ] `site/horizon_index.json` 의 retention/backfill 메타를 UI에 노출할지 결정
 - [ ] 실제 보유 종목 입력 시 매도/축소 액션 자동 생성
 - [ ] `.env` 에 `ANTHROPIC_API_KEY` 설정 후 실제 Claude API 인사이트 검증

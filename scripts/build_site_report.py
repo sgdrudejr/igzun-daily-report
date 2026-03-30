@@ -1190,6 +1190,7 @@ def build_portfolio_block(period: str, macro: dict, etf: dict, portfolio_state: 
     alloc = REGIME_ALLOC.get(regime, REGIME_ALLOC["Neutral"])
     total_cash = int(as_float(portfolio_state.get("total_cash")) or 0)
     accounts = portfolio_state.get("accounts", {}) or {}
+    macro_scores = macro.get("scores", {}) or {}
     score = portfolio_score_components(regime, portfolio_state)
     profile = period_profile(period)
     rhythm = execution_rhythm(period)
@@ -1234,6 +1235,68 @@ def build_portfolio_block(period: str, macro: dict, etf: dict, portfolio_state: 
 
     deploy_now_total = int(total_cash * profile["deploy_ratio"])
     reserve_total = max(total_cash - deploy_now_total, 0)
+    non_cash_weight = max(1.0 - alloc["현금"], 0.0001)
+    today_target_amounts = []
+    for item in allocations:
+        asset = item["name"]
+        if asset == "현금":
+            current_amount = float(total_cash)
+            today_target = float(reserve_total)
+            note = "오늘 남겨둘 대기 자금"
+        else:
+            current_amount = current_amounts.get(asset, 0.0)
+            today_target = deploy_now_total * alloc[asset] / non_cash_weight
+            note = "오늘 집행 목표"
+        today_gap = today_target - current_amount
+        today_target_amounts.append(
+            {
+                "name": asset,
+                "color": item["color"],
+                "percent": item["percent"],
+                "currentAmount": money(current_amount),
+                "targetAmount": money(today_target),
+                "gapAmount": money(abs(today_gap)),
+                "direction": "늘리기" if today_gap > 0 else ("줄이기" if today_gap < 0 else "유지"),
+                "note": note,
+            }
+        )
+
+    key_stats = [
+        {
+            "label": "총 투자 대기 현금",
+            "value": money(total_cash),
+            "sub": "현재 3개 계좌 합산 기준",
+        },
+        {
+            "label": "포트폴리오 점수",
+            "value": f"{score['score']}점",
+            "sub": score["grade"],
+        },
+        {
+            "label": "현재 레짐",
+            "value": regime_kr,
+            "sub": f"시장 점수 {number(macro_scores.get('total'), 1)}점",
+        },
+    ]
+    score_coachmark = [
+        {
+            "title": "총점",
+            "text": "지금 포트폴리오가 현재 시장 국면과 얼마나 맞는지 보는 점수입니다. 높을수록 지금 레짐에 맞는 배분에 가깝습니다.",
+        },
+        {
+            "title": "레짐 적합도",
+            "text": "주식·채권·원자재·현금 비중이 현재 시장 국면에 맞는지 봅니다. 지금처럼 중립 횡보 국면이면 현금과 방어자산이 어느 정도 필요합니다.",
+        },
+        {
+            "title": "분산도",
+            "text": "한 자산군에 몰리지 않았는지 확인합니다. 코어 지수, 방어 자산, 헤지 자산이 함께 있어야 점수가 올라갑니다.",
+        },
+        {
+            "title": "현금 운용",
+            "text": "현금을 너무 적게 두거나 너무 오래 놀리지 않는지 봅니다. 지금은 전액 진입보다 일부만 먼저 쓰고 나머지는 대기시키는 쪽이 유리합니다.",
+        },
+    ]
+
     account_plans = []
     for key in ["ISA", "TOSS", "PENSION"]:
         account = accounts.get(key, {})
@@ -1252,6 +1315,11 @@ def build_portfolio_block(period: str, macro: dict, etf: dict, portfolio_state: 
                 "role": safe_text(strategy.get("note"), safe_text(account.get("note"))),
                 "ideas": ", ".join(strategy.get("ideas", [])[:3]) or "추천 ETF 데이터 보강 예정",
                 "method": f"{profile['action_label']} · {rhythm['label']}",
+                "comment": (
+                    f"이번 {period}에는 {profile['action_label']} 기준으로 접근합니다. "
+                    f"{safe_text(strategy.get('note'), safe_text(account.get('note')))} "
+                    f"우선 후보는 {', '.join(strategy.get('ideas', [])[:2]) or '추가 데이터 확인'}입니다."
+                ),
             }
         )
 
@@ -1276,7 +1344,9 @@ def build_portfolio_block(period: str, macro: dict, etf: dict, portfolio_state: 
             f"포트폴리오 점수 {score['score']}점({score['grade']})."
         ),
         "accountDetail": " | ".join(account_lines) if account_lines else "계좌 정보가 없습니다.",
+        "keyStats": key_stats,
         "portfolioScore": score,
+        "scoreCoachmark": score_coachmark,
         "scoreChips": [
             metric_chip("총점", f"{score['score']}점", "score"),
             metric_chip("레짐 적합도", f"{score['breakdown']['regimeFit']}점", "score"),
@@ -1291,6 +1361,7 @@ def build_portfolio_block(period: str, macro: dict, etf: dict, portfolio_state: 
             "deployRatio": f"{int(profile['deploy_ratio'] * 100)}%",
         },
         "targetAmounts": target_amounts,
+        "todayTargetAmounts": today_target_amounts,
         "accountPlans": account_plans,
         "holdings": [],
         "weeklyReview": {

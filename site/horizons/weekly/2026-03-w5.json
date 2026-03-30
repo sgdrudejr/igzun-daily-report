@@ -11,10 +11,755 @@
   "toDate": "2026-03-30",
   "updateCount": 2,
   "avgScore": 46.9,
+  "regime": "Neutral",
+  "regimeKr": "중립 횡보 국면",
+  "totalScore": 47.56,
+  "valuation": {
+    "marketValuation": "고평가 — 안전자산 비중 유지",
+    "avgScore": 32,
+    "sp500": {
+      "grade": "적정",
+      "erp": 0.13,
+      "pe": 22.0,
+      "range52w": 69.4,
+      "vsMa200": -4.01,
+      "erpAssessment": "낮음 (주식 매력도 제한적)"
+    },
+    "kospi": {
+      "grade": "고평가",
+      "pbr": 1.3,
+      "pbrAssessment": "고평가 구간",
+      "range52w": 73.5,
+      "vsMa200": 30.3
+    },
+    "nasdaq": {
+      "grade": "고평가",
+      "erp": -1.09,
+      "range52w": 65.4
+    },
+    "gold": {
+      "assessment": "중립",
+      "range52w": 65.5
+    }
+  },
+  "signals": {
+    "marketSignal": {
+      "action": "관망 유지",
+      "note": "리스크 높음 — 대기 현금 확보, 과매도 포착 후 진입",
+      "deployablePct": 15,
+      "marketScore": 39.8
+    },
+    "signalSummary": {
+      "강력매수": 1,
+      "분할매수": 3,
+      "소규모탐색": 5,
+      "관망": 9,
+      "비중축소": 0,
+      "회피": 1
+    },
+    "topBuys": [
+      {
+        "id": "SPY",
+        "name": "S&P 500 ETF",
+        "ticker": "SPY",
+        "signal": "강력매수",
+        "timingGrade": "B",
+        "timingScore": 50,
+        "rsi": 23.6,
+        "reasons": [
+          "RSI 24 극단 과매도 — 반등 가능성",
+          "기술적·레짐·밸류에이션 복합 신호 모두 우호적",
+          "MACD 하락추세 지속"
+        ],
+        "firstAmount": 1086921,
+        "schedule": "오늘 1차 진입 → 2~3일 내 눌림목 2차 → 추세 확인 후 3차",
+        "microPlan": "지금은 1회에 총 현금의 2%(365,351원)씩 2~3번 나눠 진입하는 방식이 적합",
+        "microStepAmount": 365351,
+        "entryConditions": [
+          "현재 RSI 24 — 진입 가능 구간",
+          "200일선 근접(이격 -3.6%) — 현 수준에서 분할 진입 가능",
+          "볼린저 하단(%B=-0.08) — 반등 확인 후 추가 매수"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "accountFit": [
+          "TOSS"
+        ],
+        "timingDetails": {
+          "macd": {
+            "macd_line": -9.8552,
+            "signal_line": -7.3929,
+            "histogram": -2.4622,
+            "crossover": null,
+            "trend": "하락추세",
+            "divergence": null
+          },
+          "bollinger": {
+            "upper": 691.1714,
+            "middle": 664.7083,
+            "lower": 638.2451,
+            "percent_b": -0.079,
+            "bandwidth": 7.96,
+            "squeeze": false,
+            "position": "과매도"
+          },
+          "ma_alignment": {
+            "ma20": 664.71,
+            "ma50": 677.89,
+            "ma120": 676.04,
+            "ma200": 657.96,
+            "alignment": "혼조",
+            "golden_cross": false,
+            "death_cross": false,
+            "price_vs_ma200_pct": -3.63,
+            "score": -85
+          },
+          "rsi": 23.60354490463726,
+          "candle": {
+            "pattern": "없음",
+            "sentiment": "중립",
+            "description": "특이 패턴 없음"
+          },
+          "elliott_wave": {
+            "wave_phase": "횡보(판단보류)",
+            "confidence": "낮음",
+            "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+            "entry_timing": "보통",
+            "segment_returns": {
+              "seg1_pct": 1.78,
+              "seg2_pct": -0.86,
+              "seg3_pct": -7.37,
+              "total_pct": -6.76
+            }
+          }
+        }
+      },
+      {
+        "id": "KODEX_SEMI",
+        "name": "KODEX 반도체",
+        "ticker": "091160.KS",
+        "signal": "분할매수",
+        "timingGrade": "B",
+        "timingScore": 48,
+        "rsi": 38.3,
+        "reasons": [
+          "밸류에이션 부담 (점수 25)",
+          "MACD 약세 다이버전스 — 고점 괴리 주의",
+          "볼린저밴드 하단 근접(%B=0.12) — 과매도 구간"
+        ],
+        "firstAmount": 291139,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+        "microPlan": "1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액",
+        "microStepAmount": 182675,
+        "entryConditions": [
+          "현재 RSI 38 — 진입 가능 구간",
+          "200일선 대비 +58.9% 이격 — 200일선 터치 시 분할 매수 강화",
+          "볼린저 하단(%B=0.12) — 반등 확인 후 추가 매수"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "accountFit": [
+          "ISA"
+        ],
+        "timingDetails": {
+          "macd": {
+            "macd_line": 1747.0077,
+            "signal_line": 3340.2295,
+            "histogram": -1593.2218,
+            "crossover": null,
+            "trend": "중립",
+            "divergence": "bearish_div"
+          },
+          "bollinger": {
+            "upper": 107322.9138,
+            "middle": 98248.25,
+            "lower": 89173.5862,
+            "percent_b": 0.125,
+            "bandwidth": 18.47,
+            "squeeze": false,
+            "position": "하단"
+          },
+          "ma_alignment": {
+            "ma20": 98248.25,
+            "ma50": 89790.6,
+            "ma120": 70868.67,
+            "ma200": 57564.3,
+            "alignment": "완전정배열",
+            "golden_cross": false,
+            "death_cross": false,
+            "price_vs_ma200_pct": 58.85,
+            "score": 65
+          },
+          "rsi": 38.342822894815704,
+          "candle": {
+            "pattern": "샛별형",
+            "sentiment": "강한매수",
+            "description": "하락 후 작은 캔들 + 강한 반등 — 바닥 전환",
+            "all_patterns": [
+              {
+                "pattern": "샛별형",
+                "sentiment": "강한매수",
+                "description": "하락 후 작은 캔들 + 강한 반등 — 바닥 전환"
+              }
+            ]
+          },
+          "elliott_wave": {
+            "wave_phase": "횡보(판단보류)",
+            "confidence": "낮음",
+            "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+            "entry_timing": "보통",
+            "segment_returns": {
+              "seg1_pct": 28.56,
+              "seg2_pct": 27.06,
+              "seg3_pct": -6.42,
+              "total_pct": 50.51
+            }
+          }
+        }
+      },
+      {
+        "id": "TIGER_NQ100",
+        "name": "TIGER 미국나스닥100",
+        "ticker": "133690.KS",
+        "signal": "분할매수",
+        "timingGrade": "A",
+        "timingScore": 60,
+        "rsi": 26.0,
+        "reasons": [
+          "밸류에이션 부담 (점수 25)",
+          "MACD 하락추세 지속",
+          "MACD 강세 다이버전스 — 가격 신저점에서 MACD 반등, 바닥 신호"
+        ],
+        "firstAmount": 436709,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+        "microPlan": "1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액",
+        "microStepAmount": 182675,
+        "entryConditions": [
+          "현재 RSI 26 — 진입 가능 구간",
+          "200일선 근접(이격 +1.3%) — 현 수준에서 분할 진입 가능",
+          "볼린저 하단(%B=-0.23) — 반등 확인 후 추가 매수"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "accountFit": [
+          "ISA",
+          "PENSION"
+        ],
+        "timingDetails": {
+          "macd": {
+            "macd_line": -841.0831,
+            "signal_line": -345.3003,
+            "histogram": -495.7828,
+            "crossover": null,
+            "trend": "하락추세",
+            "divergence": "bullish_div"
+          },
+          "bollinger": {
+            "upper": 165084.6157,
+            "middle": 161292.0,
+            "lower": 157499.3843,
+            "percent_b": -0.233,
+            "bandwidth": 4.7,
+            "squeeze": true,
+            "position": "과매도"
+          },
+          "ma_alignment": {
+            "ma20": 161292.0,
+            "ma50": 162115.41,
+            "ma120": 162163.96,
+            "ma200": 153750.63,
+            "alignment": "혼조",
+            "golden_cross": false,
+            "death_cross": false,
+            "price_vs_ma200_pct": 1.29,
+            "score": -25
+          },
+          "rsi": 25.994215473608094,
+          "candle": {
+            "pattern": "없음",
+            "sentiment": "중립",
+            "description": "특이 패턴 없음"
+          },
+          "elliott_wave": {
+            "wave_phase": "횡보(판단보류)",
+            "confidence": "낮음",
+            "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+            "entry_timing": "보통",
+            "segment_returns": {
+              "seg1_pct": 1.61,
+              "seg2_pct": -3.49,
+              "seg3_pct": -3.08,
+              "total_pct": -4.25
+            }
+          }
+        }
+      },
+      {
+        "id": "QQQ",
+        "name": "나스닥 100 ETF",
+        "ticker": "QQQ",
+        "signal": "분할매수",
+        "timingGrade": "B",
+        "timingScore": 50,
+        "rsi": 23.1,
+        "reasons": [
+          "밸류에이션 부담 (점수 23)",
+          "RSI 23 극단 과매도 — 반등 가능성",
+          "MACD 하락추세 지속"
+        ],
+        "firstAmount": 436709,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+        "microPlan": "1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액",
+        "microStepAmount": 182675,
+        "entryConditions": [
+          "현재 RSI 23 — 진입 가능 구간",
+          "200일선 근접(이격 -5.2%) — 현 수준에서 분할 진입 가능",
+          "볼린저 하단(%B=-0.16) — 반등 확인 후 추가 매수"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "accountFit": [
+          "TOSS",
+          "PENSION"
+        ],
+        "timingDetails": {
+          "macd": {
+            "macd_line": -8.9667,
+            "signal_line": -5.9956,
+            "histogram": -2.9711,
+            "crossover": null,
+            "trend": "하락추세",
+            "divergence": null
+          },
+          "bollinger": {
+            "upper": 620.7801,
+            "middle": 595.656,
+            "lower": 570.5319,
+            "percent_b": -0.158,
+            "bandwidth": 8.44,
+            "squeeze": false,
+            "position": "과매도"
+          },
+          "ma_alignment": {
+            "ma20": 595.66,
+            "ma50": 606.47,
+            "ma120": 611.16,
+            "ma200": 593.31,
+            "alignment": "혼조",
+            "golden_cross": false,
+            "death_cross": false,
+            "price_vs_ma200_pct": -5.18,
+            "score": -85
+          },
+          "rsi": 23.087964225336748,
+          "candle": {
+            "pattern": "없음",
+            "sentiment": "중립",
+            "description": "특이 패턴 없음"
+          },
+          "elliott_wave": {
+            "wave_phase": "횡보(판단보류)",
+            "confidence": "낮음",
+            "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+            "entry_timing": "보통",
+            "segment_returns": {
+              "seg1_pct": 2.46,
+              "seg2_pct": -2.34,
+              "seg3_pct": -7.48,
+              "total_pct": -8.42
+            }
+          }
+        }
+      }
+    ],
+    "avoidList": [
+      {
+        "id": "XLE",
+        "name": "에너지 섹터 ETF",
+        "reasons": [
+          "RSI 87 극단 과매수 — 진입 금지",
+          "MACD 상승추세 유지 (히스토그램 +0.245)"
+        ]
+      }
+    ],
+    "accountPlans": {
+      "ISA": {
+        "label": "ISA (신한은행)",
+        "cash": 8392660,
+        "deploy_ratio": 0.35,
+        "deploy_amount": 2937431,
+        "top_picks": [
+          {
+            "id": "KODEX_SEMI",
+            "name": "KODEX 반도체",
+            "signal": "분할매수",
+            "timing_grade": "B",
+            "first_amount": 291139,
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+          },
+          {
+            "id": "TIGER_NQ100",
+            "name": "TIGER 미국나스닥100",
+            "signal": "분할매수",
+            "timing_grade": "A",
+            "first_amount": 436709,
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+          },
+          {
+            "id": "TIGER200",
+            "name": "TIGER 200",
+            "signal": "소규모탐색",
+            "timing_grade": "B",
+            "first_amount": 1242195,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+          }
+        ]
+      },
+      "TOSS": {
+        "label": "토스증권",
+        "cash": 4309720,
+        "deploy_ratio": 0.35,
+        "deploy_amount": 1508402,
+        "top_picks": [
+          {
+            "id": "SPY",
+            "name": "S&P 500 ETF",
+            "signal": "강력매수",
+            "timing_grade": "B",
+            "first_amount": 1086921,
+            "schedule": "오늘 1차 진입 → 2~3일 내 눌림목 2차 → 추세 확인 후 3차"
+          },
+          {
+            "id": "QQQ",
+            "name": "나스닥 100 ETF",
+            "signal": "분할매수",
+            "timing_grade": "B",
+            "first_amount": 436709,
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+          },
+          {
+            "id": "IEF",
+            "name": "미국 중기국채 ETF",
+            "signal": "소규모탐색",
+            "timing_grade": "B",
+            "first_amount": 745317,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+          }
+        ]
+      },
+      "PENSION": {
+        "label": "연금저축 (신한은행)",
+        "cash": 5565201,
+        "deploy_ratio": 0.35,
+        "deploy_amount": 1947820,
+        "top_picks": [
+          {
+            "id": "TIGER_NQ100",
+            "name": "TIGER 미국나스닥100",
+            "signal": "분할매수",
+            "timing_grade": "A",
+            "first_amount": 436709,
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+          },
+          {
+            "id": "QQQ",
+            "name": "나스닥 100 ETF",
+            "signal": "분할매수",
+            "timing_grade": "B",
+            "first_amount": 436709,
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+          },
+          {
+            "id": "KODEX_US30Y",
+            "name": "KODEX 미국채울트라30년(H)",
+            "signal": "소규모탐색",
+            "timing_grade": "B",
+            "first_amount": 931646,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+          }
+        ]
+      }
+    },
+    "allSignals": [
+      {
+        "id": "SPY",
+        "name": "S&P 500 ETF",
+        "ticker": "SPY",
+        "signal": "강력매수",
+        "timingGrade": "B",
+        "rsi": 23.6,
+        "volatility": 14.9,
+        "quant_score": 47,
+        "currency": "USD"
+      },
+      {
+        "id": "KODEX_SEMI",
+        "name": "KODEX 반도체",
+        "ticker": "091160.KS",
+        "signal": "분할매수",
+        "timingGrade": "B",
+        "rsi": 38.3,
+        "volatility": 104.6,
+        "quant_score": 64,
+        "currency": "KRW"
+      },
+      {
+        "id": "TIGER_NQ100",
+        "name": "TIGER 미국나스닥100",
+        "ticker": "133690.KS",
+        "signal": "분할매수",
+        "timingGrade": "A",
+        "rsi": 26.0,
+        "volatility": 16.1,
+        "quant_score": 48,
+        "currency": "KRW"
+      },
+      {
+        "id": "QQQ",
+        "name": "나스닥 100 ETF",
+        "ticker": "QQQ",
+        "signal": "분할매수",
+        "timingGrade": "B",
+        "rsi": 23.1,
+        "volatility": 18.8,
+        "quant_score": 46,
+        "currency": "USD"
+      },
+      {
+        "id": "TIGER200",
+        "name": "TIGER 200",
+        "ticker": "069500.KS",
+        "signal": "소규모탐색",
+        "timingGrade": "B",
+        "rsi": 42.6,
+        "volatility": 82.4,
+        "quant_score": 64,
+        "currency": "KRW"
+      },
+      {
+        "id": "KODEX_US30Y",
+        "name": "KODEX 미국채울트라30년(H)",
+        "ticker": "148020.KS",
+        "signal": "소규모탐색",
+        "timingGrade": "B",
+        "rsi": 42.5,
+        "volatility": 81.5,
+        "quant_score": 64,
+        "currency": "KRW"
+      },
+      {
+        "id": "IEF",
+        "name": "미국 중기국채 ETF",
+        "ticker": "IEF",
+        "signal": "소규모탐색",
+        "timingGrade": "B",
+        "rsi": 28.4,
+        "volatility": 6.2,
+        "quant_score": 53,
+        "currency": "USD"
+      },
+      {
+        "id": "EZU",
+        "name": "iShares MSCI Eurozone",
+        "ticker": "EZU",
+        "signal": "소규모탐색",
+        "timingGrade": "C",
+        "rsi": 34.5,
+        "volatility": 27.5,
+        "quant_score": 49,
+        "currency": "USD"
+      },
+      {
+        "id": "XLF",
+        "name": "금융 섹터 ETF",
+        "ticker": "XLF",
+        "signal": "소규모탐색",
+        "timingGrade": "C",
+        "rsi": 23.3,
+        "volatility": 13.1,
+        "quant_score": 42,
+        "currency": "USD"
+      },
+      {
+        "id": "TIGER200_IT",
+        "name": "TIGER 200 IT",
+        "ticker": "371460.KS",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 68.7,
+        "volatility": 22.0,
+        "quant_score": 62,
+        "currency": "KRW"
+      },
+      {
+        "id": "EWJ",
+        "name": "iShares MSCI Japan",
+        "ticker": "EWJ",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 37.6,
+        "volatility": 30.7,
+        "quant_score": 54,
+        "currency": "USD"
+      },
+      {
+        "id": "GLD",
+        "name": "금 ETF",
+        "ticker": "GLD",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 26.1,
+        "volatility": 36.3,
+        "quant_score": 53,
+        "currency": "USD"
+      },
+      {
+        "id": "UUP",
+        "name": "달러 불리시 ETF",
+        "ticker": "UUP",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 61.9,
+        "volatility": 7.3,
+        "quant_score": 53,
+        "currency": "USD"
+      },
+      {
+        "id": "KODEX_USD",
+        "name": "KODEX 미국달러선물",
+        "ticker": "261240.KS",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 68.6,
+        "volatility": 14.7,
+        "quant_score": 53,
+        "currency": "KRW"
+      },
+      {
+        "id": "TIGER_JAPAN",
+        "name": "TIGER 일본니케이225",
+        "ticker": "241180.KS",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 42.2,
+        "volatility": 35.7,
+        "quant_score": 53,
+        "currency": "KRW"
+      },
+      {
+        "id": "TLT",
+        "name": "미국 장기국채 ETF",
+        "ticker": "TLT",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 30.6,
+        "volatility": 12.2,
+        "quant_score": 52,
+        "currency": "USD"
+      },
+      {
+        "id": "EEM",
+        "name": "이머징마켓 ETF",
+        "ticker": "EEM",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 37.7,
+        "volatility": 34.9,
+        "quant_score": 50,
+        "currency": "USD"
+      },
+      {
+        "id": "KODEX_GOLD",
+        "name": "KODEX 골드선물(H)",
+        "ticker": "132030.KS",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 27.9,
+        "volatility": 45.8,
+        "quant_score": 47,
+        "currency": "KRW"
+      },
+      {
+        "id": "XLE",
+        "name": "에너지 섹터 ETF",
+        "ticker": "XLE",
+        "signal": "회피",
+        "timingGrade": "F",
+        "rsi": 86.8,
+        "volatility": 17.0,
+        "quant_score": 79,
+        "currency": "USD"
+      }
+    ]
+  },
+  "llmInsights": {
+    "marketNarrative": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 47.6점을 기록 중입니다. VIX 27.4로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1513원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
+    "regimeAssessment": "중립 횡보 국면으로 분류된 현재 환경은 고평가 — 안전자산 비중 유지.",
+    "keySignals": [
+      "VIX 27.4 — 변동성 확대 구간, 추격매수보다 눌림목 분할 접근이 유리",
+      "S&P500 ERP 0.1% — 주식 매력도는 중립 수준, 과속 진입은 부담",
+      "KOSPI 밸류에이션 고평가 — 국내 ETF는 비중을 천천히 올리는 편이 적절",
+      "S&P 500 ETF(SPY) 타이밍 B — 분할 매수 시작 고려",
+      "USD/KRW 1513원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요"
+    ],
+    "sectorCalls": [
+      {
+        "sector": "S&P500 (SPY)",
+        "view": "소규모탐색",
+        "rationale": "중립 레짐, 밸류에이션 확인 후 분할 진입"
+      },
+      {
+        "sector": "금 (GLD)",
+        "view": "관망",
+        "rationale": "방어 헤지로 5~8% 비중 검토 가능"
+      },
+      {
+        "sector": "미국 중기국채 (IEF)",
+        "view": "관망",
+        "rationale": "금리 방향 확인 전 중립"
+      },
+      {
+        "sector": "KOSPI (TIGER200)",
+        "view": "소규모탐색",
+        "rationale": "저밸류 국내 지수 소규모 탐색"
+      },
+      {
+        "sector": "나스닥 (QQQ)",
+        "view": "관망",
+        "rationale": "기술주 실적 가이던스 확인 필요"
+      }
+    ],
+    "riskFactors": [
+      "단기 변동성 리스크 — VIX 27.4로 급등락 가능성",
+      "환율 리스크 — USD/KRW 1513원, 달러 강세 지속 시 원화 자산 압박"
+    ],
+    "timingGuidance": "현재 시장 신호 '관망 유지'에 따라 전체 현금의 15%(2,740,137원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다.",
+    "portfolioComment": "ISA (신한은행): 현금 8,392,660원 중 2,937,431원 범위에서 KODEX 반도체(분할매수), TIGER 미국나스닥100(분할매수) 순으로 분할 집행 토스증권: 현금 4,309,720원 중 1,508,402원 범위에서 S&P 500 ETF(강력매수), 나스닥 100 ETF(분할매수) 순으로 분할 집행 연금저축 (신한은행): 현금 5,565,201원 중 1,947,820원 범위에서 TIGER 미국나스닥100(분할매수), 나스닥 100 ETF(분할매수) 순으로 분할 집행",
+    "newsHighlights": [
+      "[fred_api] VIX (VIXCLS)",
+      "[fred_api] US 10Y Treasury Yield (DGS10)",
+      "[fred_api] Dollar Index (Trade Weighted) (DTWEXBGS)"
+    ],
+    "apiUsed": false,
+    "generatedBy": "fallback_rule_based"
+  },
   "briefing": {
     "sentiment": {
       "score": 48,
       "status": "중립",
+      "label": "종합 시장 점수 (0~100, 50=중립, 높을수록 위험선호 환경 우세)",
       "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다. | 2026년 3월 5주 누적 2회 업데이트, 평균 점수 46.9, 최근 점수 47.6, 최고 47.6, 최저 46.2"
     },
     "scoreChips": [
@@ -928,6 +1673,23 @@
   "portfolio": {
     "accountAlert": "총 투자 대기 현금 18,267,581원 · 현재 레짐은 중립 횡보 국면 · 포트폴리오 점수 31점(개선 필요). | 2026년 3월 5주 누적 2회 업데이트 기준.",
     "accountDetail": "ISA (신한은행) 8,392,660원 · 세제혜택 계좌로 국내 ETF 중심 배치 | 토스증권 4,309,720원 · 해외 ETF 접근성이 좋아 미국 자산 배치에 적합 | 연금저축 (신한은행) 5,565,201원 · 연금저축은 장기 분산형 ETF 중심이 적합",
+    "keyStats": [
+      {
+        "label": "총 투자 대기 현금",
+        "value": "18,267,581원",
+        "sub": "현재 3개 계좌 합산 기준"
+      },
+      {
+        "label": "포트폴리오 점수",
+        "value": "31점",
+        "sub": "개선 필요"
+      },
+      {
+        "label": "현재 레짐",
+        "value": "중립 횡보 국면",
+        "sub": "시장 점수 47.6점"
+      }
+    ],
     "portfolioScore": {
       "score": 31,
       "grade": "개선 필요",
@@ -961,6 +1723,24 @@
         "현금 운용 55점 — 목표 현금 비중 대비 과소·과다 여부를 반영"
       ]
     },
+    "scoreCoachmark": [
+      {
+        "title": "총점",
+        "text": "지금 포트폴리오가 현재 시장 국면과 얼마나 맞는지 보는 점수입니다. 높을수록 지금 레짐에 맞는 배분에 가깝습니다."
+      },
+      {
+        "title": "레짐 적합도",
+        "text": "주식·채권·원자재·현금 비중이 현재 시장 국면에 맞는지 봅니다. 지금처럼 중립 횡보 국면이면 현금과 방어자산이 어느 정도 필요합니다."
+      },
+      {
+        "title": "분산도",
+        "text": "한 자산군에 몰리지 않았는지 확인합니다. 코어 지수, 방어 자산, 헤지 자산이 함께 있어야 점수가 올라갑니다."
+      },
+      {
+        "title": "현금 운용",
+        "text": "현금을 너무 적게 두거나 너무 오래 놀리지 않는지 봅니다. 지금은 전액 진입보다 일부만 먼저 쓰고 나머지는 대기시키는 쪽이 유리합니다."
+      }
+    ],
     "scoreChips": [
       {
         "label": "총점",
@@ -1028,6 +1808,48 @@
         "direction": "줄이기"
       }
     ],
+    "todayTargetAmounts": [
+      {
+        "name": "주식",
+        "color": "#2563eb",
+        "percent": 45.0,
+        "currentAmount": "0원",
+        "targetAmount": "3,507,375원",
+        "gapAmount": "3,507,375원",
+        "direction": "늘리기",
+        "note": "오늘 집행 목표"
+      },
+      {
+        "name": "채권",
+        "color": "#0f766e",
+        "percent": 20.0,
+        "currentAmount": "0원",
+        "targetAmount": "1,558,833원",
+        "gapAmount": "1,558,833원",
+        "direction": "늘리기",
+        "note": "오늘 집행 목표"
+      },
+      {
+        "name": "원자재",
+        "color": "#ca8a04",
+        "percent": 10.0,
+        "currentAmount": "0원",
+        "targetAmount": "779,417원",
+        "gapAmount": "779,417원",
+        "direction": "늘리기",
+        "note": "오늘 집행 목표"
+      },
+      {
+        "name": "현금",
+        "color": "#6b7280",
+        "percent": 25.0,
+        "currentAmount": "18,267,581원",
+        "targetAmount": "12,421,956원",
+        "gapAmount": "5,845,625원",
+        "direction": "줄이기",
+        "note": "오늘 남겨둘 대기 자금"
+      }
+    ],
     "accountPlans": [
       {
         "account": "ISA (신한은행)",
@@ -1036,7 +1858,8 @@
         "reserve": "5,707,009원",
         "role": "세제혜택 계좌로 국내 ETF 중심 배치",
         "ideas": "TIGER 200, KODEX 반도체, KODEX 단기채권",
-        "method": "확인형 추가 매수 · 주간 3회 분할매수"
+        "method": "확인형 추가 매수 · 주간 3회 분할매수",
+        "comment": "이번 1주에는 확인형 추가 매수 기준으로 접근합니다. 세제혜택 계좌로 국내 ETF 중심 배치 우선 후보는 TIGER 200, KODEX 반도체입니다."
       },
       {
         "account": "토스증권",
@@ -1045,7 +1868,8 @@
         "reserve": "2,930,610원",
         "role": "해외 ETF 접근성이 좋아 미국 자산 배치에 적합",
         "ideas": "SPY, GLD, IEF",
-        "method": "확인형 추가 매수 · 주간 3회 분할매수"
+        "method": "확인형 추가 매수 · 주간 3회 분할매수",
+        "comment": "이번 1주에는 확인형 추가 매수 기준으로 접근합니다. 해외 ETF 접근성이 좋아 미국 자산 배치에 적합 우선 후보는 SPY, GLD입니다."
       },
       {
         "account": "연금저축 (신한은행)",
@@ -1054,7 +1878,8 @@
         "reserve": "3,784,337원",
         "role": "연금저축은 장기 분산형 ETF 중심이 적합",
         "ideas": "TIGER 미국나스닥100, TIGER 200, KODEX 미국채울트라30년(H)",
-        "method": "확인형 추가 매수 · 주간 3회 분할매수"
+        "method": "확인형 추가 매수 · 주간 3회 분할매수",
+        "comment": "이번 1주에는 확인형 추가 매수 기준으로 접근합니다. 연금저축은 장기 분산형 ETF 중심이 적합 우선 후보는 TIGER 미국나스닥100, TIGER 200입니다."
       }
     ],
     "holdings": [],
@@ -1845,18 +2670,40 @@
         "name": "미국 에너지 섹터 ETF",
         "ticker": "XLE",
         "action": "우선 검토",
+        "signal": "회피",
+        "timingGrade": "F",
+        "timingDetail": "이평선 완전정배열 | BB 과매수(%B=1.058) | MACD 상승추세 | 엘리엇 5파(과열)",
         "linkedIssue": "에너지 강세",
         "scoreText": "79점",
         "reason": "2026년 3월 5주 누적 기준. 1주 기준 점수 79점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 미국 에너지 섹터 ETF 는 'Neutral 레짐 중립 | 3M ▲41.0% 강한 모멘텀 | RSI 87 과매수 주의' 평가를 받았습니다.",
         "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +41.0%, RSI 86.8를 보면 코어 비중보다 위성 비중으로 쓰기 좋은 자산입니다.",
         "risk": "우려 지점은 단기 과열 구간이라 추격매수보다 분할 접근이 적합합니다. 특히 과열 섹터는 장기 목표 비중 상한을 두는 편이 좋습니다.",
-        "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다. 집행 리듬은 주간 3회 분할매수이며, 주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류 조건에서는 속도를 늦추는 편이 좋습니다.",
+        "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다. 집행 리듬은 주간 3회 분할매수이며, 주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류 조건에서는 속도를 늦추는 편이 좋습니다. 관망 또는 기존 보유분 관리가 우선",
+        "entryConditions": [
+          "RSI 87이 45 이하로 내려올 때까지 대기",
+          "200일선 대비 +34.7% 이격 — 200일선 터치 시 분할 매수 강화",
+          "볼린저 상단 근접(%B=1.06) — 눌림목 대기"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "positionSizing": {
+          "maxPct": 0,
+          "firstPct": 0,
+          "firstAmount": 0,
+          "schedule": "진입 보류"
+        },
         "macroContext": "유가 89.33, 달러 120.3 조합은 원자재 자산에 헤지 또는 전술적 강세 논리를 제공합니다.",
         "positioning": "총 투자금의 6~12% 범위 위성 테마",
         "evidencePoints": [
           "유가 89.33, 달러 120.3 조합은 원자재 자산에 헤지 또는 전술적 강세 논리를 제공합니다.",
           "기술적으로 3개월 모멘텀 +41.0%, RSI 86.8, 20일 변동성 17.0 수준입니다.",
-          "레짐이 맞을 때 알파를 더하는 위성 테마 축입니다. 포지션 상한은 총 투자금의 6~12% 범위 위성 테마 정도로 두는 편이 안정적입니다."
+          "레짐이 맞을 때 알파를 더하는 위성 테마 축입니다. 포지션 상한은 총 투자금의 6~12% 범위 위성 테마 정도로 두는 편이 안정적입니다.",
+          "RSI 87 극단 과매수 — 진입 금지",
+          "MACD 상승추세 유지 (히스토그램 +0.245)",
+          "볼린저밴드 상단 이탈(%B=1.06) — 극단 과매수"
         ],
         "watchPoint": "주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류",
         "sources": [
@@ -1927,18 +2774,40 @@
         "name": "TIGER 200",
         "ticker": "069500.KS",
         "action": "관심 확대",
+        "signal": "소규모탐색",
+        "timingGrade": "B",
+        "timingDetail": "이평선 완전정배열 | BB 하단(%B=0.149) | MACD 중립 | 엘리엇 3파(가속)",
         "linkedIssue": "한국 주식",
         "scoreText": "64점",
         "reason": "1주 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 TIGER 200 는 'Neutral 레짐 중립 | 3M ▲34.2% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 83% 高' 평가를 받았습니다.",
         "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +34.2%, RSI 42.2를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
         "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
-        "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다. 집행 리듬은 주간 3회 분할매수이며, 주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류 조건에서는 속도를 늦추는 편이 좋습니다.",
+        "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다. 집행 리듬은 주간 3회 분할매수이며, 주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류 조건에서는 속도를 늦추는 편이 좋습니다. 탐색 단계이므로 1회에 총 현금의 1%(182,675원) 이내만 진입",
+        "entryConditions": [
+          "현재 RSI 43 — 진입 가능 구간",
+          "200일선 대비 +37.8% 이격 — 200일선 터치 시 분할 매수 강화",
+          "볼린저 하단(%B=0.15) — 반등 확인 후 추가 매수"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "positionSizing": {
+          "maxPct": 6.8,
+          "firstPct": 6.8,
+          "firstAmount": 1242195,
+          "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+        },
         "macroContext": "원/달러 1513원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
         "positioning": "총 투자금의 15~25% 범위 코어 자산",
         "evidencePoints": [
           "원/달러 1513원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
           "기술적으로 3개월 모멘텀 +34.2%, RSI 42.2, 20일 변동성 82.6 수준입니다.",
-          "포트폴리오 중심에 놓는 코어 지수 축입니다. 포지션 상한은 총 투자금의 15~25% 범위 코어 자산 정도로 두는 편이 안정적입니다."
+          "포트폴리오 중심에 놓는 코어 지수 축입니다. 포지션 상한은 총 투자금의 15~25% 범위 코어 자산 정도로 두는 편이 안정적입니다.",
+          "밸류에이션 부담 (점수 25)",
+          "MACD 약세 다이버전스 — 고점 괴리 주의",
+          "볼린저밴드 하단 근접(%B=0.15) — 과매도 구간"
         ],
         "watchPoint": "주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류",
         "sources": [
@@ -2009,18 +2878,40 @@
         "name": "KODEX 반도체",
         "ticker": "091160.KS",
         "action": "관심 확대",
+        "signal": "분할매수",
+        "timingGrade": "B",
+        "timingDetail": "이평선 완전정배열 | BB 하단(%B=0.125) | MACD 중립 | 엘리엇 횡보(판단보류) | 캔들 샛별형",
         "linkedIssue": "한국 주식",
         "scoreText": "64점",
         "reason": "1주 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 KODEX 반도체 는 'Neutral 레짐 중립 | 3M ▲57.5% 강한 모멘텀 | RSI 38 정상 구간 | 변동성 105% 高' 평가를 받았습니다.",
         "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +57.5%, RSI 38.2를 보면 코어 비중보다 위성 비중으로 쓰기 좋은 자산입니다.",
         "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
-        "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다. 집행 리듬은 주간 3회 분할매수이며, 주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류 조건에서는 속도를 늦추는 편이 좋습니다.",
+        "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다. 집행 리듬은 주간 3회 분할매수이며, 주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류 조건에서는 속도를 늦추는 편이 좋습니다. 1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액",
+        "entryConditions": [
+          "현재 RSI 38 — 진입 가능 구간",
+          "200일선 대비 +58.9% 이격 — 200일선 터치 시 분할 매수 강화",
+          "볼린저 하단(%B=0.12) — 반등 확인 후 추가 매수"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "positionSizing": {
+          "maxPct": 6.4,
+          "firstPct": 1.6,
+          "firstAmount": 291139,
+          "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+        },
         "macroContext": "원/달러 1513원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
         "positioning": "총 투자금의 6~12% 범위 위성 테마",
         "evidencePoints": [
           "원/달러 1513원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
           "기술적으로 3개월 모멘텀 +57.5%, RSI 38.2, 20일 변동성 104.6 수준입니다.",
-          "레짐이 맞을 때 알파를 더하는 위성 테마 축입니다. 포지션 상한은 총 투자금의 6~12% 범위 위성 테마 정도로 두는 편이 안정적입니다."
+          "레짐이 맞을 때 알파를 더하는 위성 테마 축입니다. 포지션 상한은 총 투자금의 6~12% 범위 위성 테마 정도로 두는 편이 안정적입니다.",
+          "밸류에이션 부담 (점수 25)",
+          "MACD 약세 다이버전스 — 고점 괴리 주의",
+          "볼린저밴드 하단 근접(%B=0.12) — 과매도 구간"
         ],
         "watchPoint": "주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류",
         "sources": [
@@ -2091,18 +2982,40 @@
         "name": "KODEX 미국채울트라30년(H)",
         "ticker": "148020.KS",
         "action": "관심 확대",
+        "signal": "소규모탐색",
+        "timingGrade": "B",
+        "timingDetail": "이평선 완전정배열 | BB 하단(%B=0.156) | MACD 중립 | 엘리엇 3파(가속)",
         "linkedIssue": "방어형 채권",
         "scoreText": "64점",
         "reason": "1주 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.42%, 달러 120.3 조합을 감안할 때 KODEX 미국채울트라30년(H) 는 'Neutral 레짐 중립 | 3M ▲34.3% 강한 모멘텀 | RSI 42 정상 구간 | 변동성 82% 高' 평가를 받았습니다.",
         "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +34.3%, RSI 41.8를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
         "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
-        "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다. 집행 리듬은 주간 3회 분할매수이며, 주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류 조건에서는 속도를 늦추는 편이 좋습니다.",
+        "execution": "1주에서는 1차만 진입 후 확인 전략이 적합합니다. 집행 리듬은 주간 3회 분할매수이며, 주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류 조건에서는 속도를 늦추는 편이 좋습니다. 탐색 단계이므로 1회에 총 현금의 1%(182,675원) 이내만 진입",
+        "entryConditions": [
+          "현재 RSI 43 — 진입 가능 구간",
+          "200일선 대비 +38.1% 이격 — 200일선 터치 시 분할 매수 강화",
+          "볼린저 하단(%B=0.16) — 반등 확인 후 추가 매수"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "positionSizing": {
+          "maxPct": 5.1,
+          "firstPct": 5.1,
+          "firstAmount": 931646,
+          "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+        },
         "macroContext": "연준 5.30%, 미 10년물 4.42% 환경에서는 채권 ETF가 방어와 금리 피크아웃 기대를 동시에 반영합니다.",
         "positioning": "총 투자금의 12~20% 범위 코어 방어축",
         "evidencePoints": [
           "연준 5.30%, 미 10년물 4.42% 환경에서는 채권 ETF가 방어와 금리 피크아웃 기대를 동시에 반영합니다.",
           "기술적으로 3개월 모멘텀 +34.3%, RSI 41.8, 20일 변동성 81.7 수준입니다.",
-          "변동성 완충과 금리 하락 수혜를 노리는 방어 축입니다. 포지션 상한은 총 투자금의 12~20% 범위 코어 방어축 정도로 두는 편이 안정적입니다."
+          "변동성 완충과 금리 하락 수혜를 노리는 방어 축입니다. 포지션 상한은 총 투자금의 12~20% 범위 코어 방어축 정도로 두는 편이 안정적입니다.",
+          "밸류에이션 부담 (점수 25)",
+          "MACD 약세 다이버전스 — 고점 괴리 주의",
+          "볼린저밴드 하단 근접(%B=0.16) — 과매도 구간"
         ],
         "watchPoint": "주초 급반등 뒤 거래량 둔화, 환율 재상승 시 추가 매수 보류",
         "sources": [

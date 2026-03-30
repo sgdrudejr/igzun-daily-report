@@ -304,6 +304,7 @@ def enrich_view(view: dict, horizon: str, bucket_label: str, entry_group: list[d
 
 def build_bucket_payload(horizon: str, bucket_id: str, bucket_label: str, entry_group: list[dict]) -> dict:
     latest = entry_group[-1]
+    latest_payload = latest["payload"] or {}
     section = deep_copy((latest["payload"].get("dataByPeriod", {}) or {}).get(horizon, {}))
     section = enrich_view(section, horizon, bucket_label, entry_group)
     summary = build_summary(entry_group)
@@ -317,6 +318,12 @@ def build_bucket_payload(horizon: str, bucket_id: str, bucket_label: str, entry_
         "toDate": summary["toDate"],
         "updateCount": summary["count"],
         "avgScore": summary["avgScore"],
+        "regime": latest_payload.get("regime"),
+        "regimeKr": latest_payload.get("regimeKr"),
+        "totalScore": latest_payload.get("totalScore"),
+        "valuation": deep_copy(latest_payload.get("valuation", {})),
+        "signals": deep_copy(latest_payload.get("signals", {})),
+        "llmInsights": deep_copy(latest_payload.get("llmInsights", {})),
         "briefing": section.get("briefing", {}),
         "newsList": section.get("newsList", []),
         "portfolio": section.get("portfolio", {}),

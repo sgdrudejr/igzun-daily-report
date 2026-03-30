@@ -47,7 +47,7 @@
 - `build_site_report.py` 는 이제 top buy에 `microPlan`, `microStepAmount`, `timingDetails` 를 포함해 1%~2% 단위 분할매수 가이드를 노출한다.
 - [`scripts/build_site_report.py`](/Users/seo/igzun-daily-report/scripts/build_site_report.py) 가 `dataByPeriod` 호환 구조를 유지한 채 한국어 인사이트 중심 리포트로 재작성되었다.
 - `site/{date}/result.json` 에 1일/1주/1개월/3개월/6개월 구간별 브리핑, 주요 이슈, 포트폴리오, ETF 아이디어가 들어가도록 정리되었다.
-- 포트폴리오 블록에 `capitalPlan`, `targetAmounts`, `accountPlans` 가 추가되어 총 현금, 이번 기간 집행 예산, 자산군 목표 금액, 계좌별 투입 예산을 함께 보여준다.
+- 포트폴리오 블록에 `capitalPlan`, `targetAmounts`, `todayTargetAmounts`, `accountPlans`, `keyStats`, `scoreCoachmark` 가 추가되어 총 현금, 이번 기간 집행 예산, 자산군 목표 금액, 오늘 집행 목표, 계좌별 코멘트, 점수 설명까지 함께 보여준다.
 - 실행 가이드 블록에 `todayAmount`, `splitPlan`, `addRule`, `pauseRule`, `reviewRule` 가 추가되어 분할매수 단계와 보류 조건을 구체적으로 제시한다.
 - ETF 아이디어 블록에 `macroContext`, `evidencePoints`, `positioning`, `watchPoint` 가 추가되어 왜 사는지와 어떤 비중으로 접근할지까지 설명한다.
 - 핵심 이슈 카드에 `portfolioImplication`, `executionGuide` 가 추가되어 기사 요약이 포트폴리오 판단과 집행 방식으로 직접 연결된다.
@@ -59,7 +59,7 @@
 - [`scripts/refine_insights.py`](/Users/seo/igzun-daily-report/scripts/refine_insights.py) 는 이제 기존 PDF/텍스트 입력 외에 `data/raw/**/*.txt` 도 읽어서 collector가 수집한 원문 텍스트를 실제 분석 입력으로 사용한다.
 - [`requirements.txt`](/Users/seo/igzun-daily-report/requirements.txt) 에 최소 Python 의존성을 기록했다. 새 환경에서는 `pypdf` 가 반드시 필요하다.
 - `undefined`/`None`/`null` 문자열이 결과 JSON 에 남지 않도록 fallback 처리했다.
-- [`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 를 기준 템플릿으로 추가했다.
+- [`site/template/index.html`](/Users/seo/igzun-daily-report/site/template/index.html) 를 기준 템플릿으로 추가했고, 최신 버전은 Toss 증권/토스뱅크 UI 위계를 참고해 핵심 카드 3개 + 하단 시트형 설명/출처 구조로 재배치되었다.
 - 날짜별 [`site/2026-03-27/index.html`](/Users/seo/igzun-daily-report/site/2026-03-27/index.html), [`site/2026-03-29/index.html`](/Users/seo/igzun-daily-report/site/2026-03-29/index.html), [`site/2026-03-30/index.html`](/Users/seo/igzun-daily-report/site/2026-03-30/index.html) 도 템플릿 기준으로 다시 생성했다.
 - 화면 문구를 `ETF 아이디어`, `레짐 온도`, `출처·메타데이터` 중심으로 정리했다.
 - 포트폴리오 탭에 `포트폴리오 레짐 적합도` 점수 카드가 추가되었다.
@@ -70,8 +70,12 @@
 - 상단의 `1일/1주/1개월/3개월/6개월` 선택 칩은 제거되었고, 별도 `기간별 투자 방향성` 탭에서 일간/주간/월간/분기/반기 흐름을 비교한다.
 - 새로고침 시 기본 진입값은 항상 `1일 / 최신 날짜` 이다.
 - 각 섹션 탭은 개별 스크롤 pane 으로 동작하도록 바뀌었다.
-- 섹션 순서는 `포트폴리오 -> 실행 가이드 -> 시장 브리핑 -> 핵심 이슈 -> ETF 아이디어` 다.
-- 상단 헤더에 `누적 업데이트 수 / 누적 문서 수 / 평균 점수 / 주요 출처` 요약 pill 이 추가되었다.
+- 섹션 순서는 `포트폴리오 -> 실행 가이드 -> 기간별 투자 방향성 -> 시장 브리핑 -> 핵심 이슈 -> ETF 아이디어` 다.
+- 상단 헤더는 최소 정보만 남기도록 축소되었고, 기존 `누적 업데이트 / 주요 출처` pill 행은 제거되었다.
+- 포트폴리오 점수 설명과 출처 메타데이터는 본문 inline 확장 대신 하단 시트(sheet) 오버레이로 열리도록 바뀌었다.
+- 실행 가이드는 여러 종목 카드를 세로로 쌓지 않고 상단 셀렉터로 종목을 선택한 뒤 한 카드씩 읽는 구조로 바뀌었다.
+- 시장 브리핑은 점수를 `선별 매수 가능 / 중립 대응 / 현금 우위` 같은 해석 문구로 연결하고, LLM 내러티브를 먼저 보여주도록 바뀌었다.
+- `site/horizons/*/*.json` 은 이제 top-level 에 `regime`, `regimeKr`, `totalScore`, `valuation`, `signals`, `llmInsights` 를 함께 담는다.
 - 현재 생성된 누적 버킷 수는 일간 25개, 주간 7개, 월간 2개, 분기 1개, 반기 1개다.
 - Q1 백필 이후 현재 생성된 누적 버킷 수는 일간 66개, 주간 14개, 월간 3개, 분기 1개, 반기 1개다.
 - `site/` 아래 HTML/JSON 검색 기준 `undefined`/`None` 문자열이 남지 않도록 다시 검증했다.

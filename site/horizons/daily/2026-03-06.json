@@ -10,6 +10,12 @@
   "toDate": "2026-03-06",
   "updateCount": 1,
   "avgScore": 46.4,
+  "regime": "Neutral",
+  "regimeKr": "중립 횡보 국면",
+  "totalScore": 46.41,
+  "valuation": {},
+  "signals": {},
+  "llmInsights": {},
   "briefing": {
     "sentiment": {
       "score": 46,
