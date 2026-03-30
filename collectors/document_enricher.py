@@ -59,6 +59,22 @@ def extract_naver_detail(soup: BeautifulSoup) -> str:
     return clean_text(cell.get_text("\n", strip=True))
 
 
+def extract_shinhan_bbs_detail(soup: BeautifulSoup) -> str:
+    title = clean_text((soup.select_one("td.title") or {}).get_text(" ", strip=True) if soup.select_one("td.title") else "")
+    data_cell = soup.select_one("td.data")
+    meta = clean_text(data_cell.get_text(" ", strip=True)) if data_cell else ""
+    attachments = []
+    for link in soup.select("div.attach02 a"):
+        text = clean_text(link.get_text(" ", strip=True))
+        if text:
+            attachments.append(text)
+
+    parts = [part for part in [title, meta] if part]
+    if attachments:
+        parts.append("첨부파일: " + ", ".join(attachments))
+    return clean_text("\n".join(parts))
+
+
 def extract_generic_html_text(soup: BeautifulSoup) -> str:
     candidates = []
     for selector in ["article", "main", "div#contentarea_left", "div.box_type_m", "div.content", "body"]:
@@ -85,29 +101,55 @@ def find_pdf_link(soup: BeautifulSoup, base_url: str) -> str:
     return ""
 
 
+def find_shinhan_pdf_popup(soup: BeautifulSoup, page_url: str) -> str:
+    for link in soup.select("a[onclick]"):
+        onclick = link.get("onclick", "")
+        match = re.search(r"viewPdfFilePop\('([^']+)','([^']+)','([^']+)'\)", onclick)
+        if not match:
+            continue
+        message_id, message_number, attachment_id = match.groups()
+        page_url = (
+            "https://bbs2.shinhansec.com/siw/board/message/view.pdf.file.pop.do"
+            f"?messageId={message_id}"
+            f"&messageNumber={message_number}"
+            f"&attachmentId={attachment_id}"
+        )
+        board_name_match = re.search(r"boardName=([^&]+)", page_url)
+        if board_name_match:
+            page_url += f"&boardName={board_name_match.group(1)}"
+        return page_url
+    return ""
+
+
 def fetch_html_detail(url: str, timeout: int = 20) -> dict:
-    response = requests.get(url, headers=DEFAULT_HEADERS, timeout=timeout)
+    response = requests.get(url, headers=DEFAULT_HEADERS, timeout=timeout, verify=False)
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "lxml")
 
     detail_text = extract_naver_detail(soup) if "finance.naver.com/research/" in url else ""
+    if not detail_text and "bbs2.shinhansec.com/siw/board/message/view.file.pop.do" in url:
+        detail_text = extract_shinhan_bbs_detail(soup)
     if not detail_text:
         detail_text = extract_generic_html_text(soup)
+
+    download_url = find_pdf_link(soup, url)
+    if not download_url and "bbs2.shinhansec.com/siw/board/message/view.file.pop.do" in url:
+        download_url = find_shinhan_pdf_popup(soup, url)
 
     return {
         "html": response.text,
         "text": detail_text,
-        "download_url": find_pdf_link(soup, url),
+        "download_url": download_url,
     }
 
 
 def fetch_pdf(url: str, timeout: int = 25) -> dict:
-    response = requests.get(url, headers=DEFAULT_HEADERS, timeout=timeout)
+    response = requests.get(url, headers=DEFAULT_HEADERS, timeout=timeout, verify=False)
     response.raise_for_status()
     content_type = response.headers.get("content-type", "").lower()
-    if "pdf" not in content_type and not looks_like_pdf(response.url):
-        return {"bytes": b"", "text": "", "url": response.url}
     pdf_bytes = response.content
+    if "pdf" not in content_type and not pdf_bytes.startswith(b"%PDF"):
+        return {"bytes": b"", "text": "", "url": response.url}
     return {
         "bytes": pdf_bytes,
         "text": extract_pdf_text(pdf_bytes),
@@ -124,7 +166,13 @@ def enrich_document(doc: RawDocument) -> dict:
     if not detail_url and doc.url and not looks_like_pdf(doc.url):
         detail_url = doc.url
 
-    if detail_url and any(token in detail_url for token in ["finance.naver.com/research/", "read", "report", "research"]):
+    if detail_url and any(token in detail_url for token in [
+        "finance.naver.com/research/",
+        "bbs2.shinhansec.com/siw/board/message/view.file.pop.do",
+        "read",
+        "report",
+        "research",
+    ]):
         try:
             detail = fetch_html_detail(detail_url)
             detail_text = detail.get("text", "") or ""
@@ -154,8 +202,11 @@ def enrich_document(doc: RawDocument) -> dict:
                 artifacts["pdf_bytes"] = pdf_payload["bytes"]
                 if pdf_text:
                     artifacts["pdf_text"] = pdf_text
+            elif "bbs2.shinhansec.com/siw/board/message/view.pdf.file.pop.do" in download_url:
+                metadata["download_login_required"] = True
         except Exception:
-            pass
+            if "bbs2.shinhansec.com/siw/board/message/view.pdf.file.pop.do" in download_url:
+                metadata["download_login_required"] = True
 
     doc.metadata = metadata
     return artifacts

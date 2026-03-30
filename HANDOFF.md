@@ -21,6 +21,7 @@
 - 원문 다운로드/상세 본문 확보 경로는 [`collectors/registry/download_routes.yaml`](/Users/seo/igzun-daily-report/collectors/registry/download_routes.yaml) 에 운영 문서로 정리한다.
 - `download_routes.yaml` 에는 네이버 리서치 외에 신한/KB/미래에셋/하나/삼성 국내 증권사와 ECB/BIS/BOJ/IMF 공개 소스의 실제 다운로드 루트 검증 결과가 반영되어 있다.
 - `kr_brokerage_shinhan` 는 공개 list API 기반으로 실제 문서 메타를 수집한다.
+- `kr_brokerage_shinhan` 는 이제 `bbs2.shinhansec.com` 상세 popup HTML까지 저장하고, PDF popup 경로도 metadata에 남긴다. 다만 현재 확인된 PDF popup은 로그인 게이트가 있다.
 - `kr_brokerage_mirae` 는 공개 리스트에서 PDF direct link를 잡아 실제 PDF/TXT 아티팩트를 저장한다.
 - `raw -> normalized -> manifest -> bridge -> refined_insights_inventory.json` 흐름이 작동한다.
 - 공개 리포트 링크는 이제 메타데이터만 저장하지 않고, 가능한 경우 상세 본문 HTML/TXT와 PDF/TXT 아티팩트까지 같이 저장한다.

@@ -76,7 +76,7 @@ routes:
 
   - source_id: kr_brokerage_shinhan
     status: verified_partial
-    coverage: "리서치 탐색기 list API 기반 메타 수집 구현 완료, 상세 popup/PDF는 정상 경로나 세션 의존성 있음"
+    coverage: "리서치 탐색기 list API 기반 메타 수집 구현 완료, bbs2 상세 popup 경로 확정, PDF popup은 로그인 게이트 확인"
     discovery:
       type: html_list_plus_json
       urls:
@@ -84,17 +84,18 @@ routes:
         - "https://finance.shinhansec.com/siw/etc/browse/search05/data.do"
     detail:
       type: popup_detail
-      url_pattern: "https://finance.shinhansec.com/siw/board/message/view.file.pop.do?boardName={board_name}&messageId={doc_id}"
+      url_pattern: "https://bbs2.shinhansec.com/siw/board/message/view.file.pop.do?boardName={board_name}&messageId={doc_id}"
       primary_selector: "ul.reseBoardList > li"
       api_notes:
         - "search05/data.do POST body: startCount, listCount, query, searchType, boardCode"
         - "공개 확인 board_name 예시: gicomment, gieconomy, gibond, gifuture, issuebroker"
     download:
-      mode: list_api_then_popup
-      fallback: "list API 메타 + detail HTML 우선 저장, PDF는 세션 기반 접근으로 후속 보강"
+      mode: list_api_then_bbs2_popup
+      fallback: "list API 메타 + bbs2 detail HTML 저장, PDF popup은 로그인 게이트 시 metadata만 보존"
       host_hints:
         - "bbs2.shinhansec.com"
         - "file.shinhansec.com"
+      pdf_popup_pattern: "https://bbs2.shinhansec.com/siw/board/message/view.pdf.file.pop.do?boardName={board_name}&messageId={doc_id}&messageNumber={message_number}&attachmentId={attachment_id}"
     save_targets:
       raw_json: "data/raw/{date}/kr_brokerage_shinhan/{doc_id}.json"
       detail_html: "data/raw/{date}/kr_brokerage_shinhan/{doc_id}_detail.html"
@@ -104,10 +105,12 @@ routes:
     verified_signals:
       - "https://finance.shinhansec.com/siw/insights/research/list/view-popup.do 200"
       - "https://finance.shinhansec.com/siw/etc/browse/search05/data.do POST 200"
-      - "view-popup JS에서 /siw/board/message/view.file.pop.do 경로 확인"
+      - "view-popup JS에서 page.bbs.path(url) 사용 확인"
+      - "https://bbs2.shinhansec.com/siw/board/message/view.file.pop.do?... 200"
+      - "https://bbs2.shinhansec.com/siw/board/message/view.pdf.file.pop.do?...&boardName=... 200 (로그인 게이트 페이지)"
     todo:
-      - "popup 접근에 필요한 referer/cookie 흐름 고정"
-      - "ATTACHMENT_ID/FILE_PATH 기반 실제 PDF 엔드포인트 추적"
+      - "로그인 없이 접근 가능한 board_name 범위 재검증"
+      - "로그인 게이트가 없는 direct PDF path 존재 여부 추가 탐색"
 
   - source_id: kr_brokerage_mirae
     status: active

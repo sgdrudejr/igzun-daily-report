@@ -149,7 +149,7 @@ class KRBrokerageFetcher(BaseFetcher):
                     continue
 
                 detail_url = (
-                    "https://finance.shinhansec.com/siw/board/message/view.file.pop.do"
+                    "https://bbs2.shinhansec.com/siw/board/message/view.file.pop.do"
                     f"?boardName={board_name}&messageId={doc_id}"
                 )
                 if detail_url in seen_urls:
@@ -171,10 +171,12 @@ class KRBrokerageFetcher(BaseFetcher):
                     "category": category,
                     "message_id": doc_id,
                     "attachment_id": item.get("ATTACHMENT_ID") or "",
+                    "message_number": item.get("MESSAGE_NUMBER") or "",
                     "file_path": item.get("FILE_PATH") or "",
                     "display_name": item.get("DISPLAYNAME") or "",
                     "file_name": item.get("FILE_NAME") or "",
                     "detail_page_url": detail_url,
+                    "pdf_popup_url": self._build_shinhan_pdf_popup_url(item),
                     "download_candidates": self._build_shinhan_candidates(item),
                 }
 
@@ -299,6 +301,21 @@ class KRBrokerageFetcher(BaseFetcher):
             candidates.append(f"https://bbs2.shinhansec.com{file_path}/{file_name}.pdf")
             candidates.append(f"https://file.shinhansec.com{file_path}/{file_name}.pdf")
         return candidates
+
+    def _build_shinhan_pdf_popup_url(self, item: dict) -> str:
+        board_name = item.get("BOARD_NAME") or ""
+        message_id = item.get("DOCID") or item.get("MESSAGE_ID") or ""
+        message_number = item.get("MESSAGE_NUMBER") or ""
+        attachment_id = item.get("ATTACHMENT_ID") or ""
+        if not all([board_name, message_id, message_number, attachment_id]):
+            return ""
+        return (
+            "https://bbs2.shinhansec.com/siw/board/message/view.pdf.file.pop.do"
+            f"?boardName={board_name}"
+            f"&messageId={message_id}"
+            f"&messageNumber={message_number}"
+            f"&attachmentId={attachment_id}"
+        )
 
     def _normalize_shinhan_title(self, text: str) -> str:
         return re.sub(r"\s+", " ", text or "").strip()
