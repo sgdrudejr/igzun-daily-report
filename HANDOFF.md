@@ -18,6 +18,7 @@
 - `collectors/` 기반 1단계 수집 파이프라인이 구현되어 있다.
 - 단일 진입점은 [`collectors/runner.py`](/Users/seo/igzun-daily-report/collectors/runner.py) 이다.
 - 소스 정의는 [`collectors/registry/sources.yaml`](/Users/seo/igzun-daily-report/collectors/registry/sources.yaml) 기반이다.
+- 원문 다운로드/상세 본문 확보 경로는 [`collectors/registry/download_routes.yaml`](/Users/seo/igzun-daily-report/collectors/registry/download_routes.yaml) 에 운영 문서로 정리한다.
 - `raw -> normalized -> manifest -> bridge -> refined_insights_inventory.json` 흐름이 작동한다.
 - 공개 리포트 링크는 이제 메타데이터만 저장하지 않고, 가능한 경우 상세 본문 HTML/TXT와 PDF/TXT 아티팩트까지 같이 저장한다.
 - `content_hash` 기반 중복 제거가 구현되어 있다.
@@ -128,7 +129,8 @@
 │   │   ├── opendart_fetcher.py
 │   │   └── rss_fetcher.py
 │   └── registry/
-│       └── sources.yaml
+│       ├── sources.yaml
+│       └── download_routes.yaml
 ├── data/
 │   ├── raw/
 │   ├── normalized/
@@ -172,6 +174,7 @@
 ### 구현된 것
 
 - source registry 구조
+- source별 원문 다운로드 경로 문서화 구조
 - fetcher registration 구조
 - `RawDocument` 표준 구조
 - dedup index 저장 구조

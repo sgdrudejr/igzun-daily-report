@@ -16,6 +16,7 @@
 
 ```text
 sources.yaml
+download_routes.yaml
   -> collectors.runner
     -> fetcher 실행
     -> document_enricher
@@ -95,6 +96,13 @@ sources.yaml
 ### 1. source registry
 
 모든 수집 대상은 [`collectors/registry/sources.yaml`](/Users/seo/igzun-daily-report/collectors/registry/sources.yaml) 에 정의한다.
+
+운영자가 "어디서 원문을 찾고, 어떤 상세 페이지를 거쳐, 어떤 PDF selector로 다운로드하는지"를 빠르게 확인하려면 [`collectors/registry/download_routes.yaml`](/Users/seo/igzun-daily-report/collectors/registry/download_routes.yaml) 을 같이 본다.
+
+역할 구분:
+
+- `sources.yaml`: 실행 대상 source registry
+- `download_routes.yaml`: 상세 HTML/PDF 확보 경로, 저장 대상, TODO를 적는 운영 문서
 
 필수 개념:
 

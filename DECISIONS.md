@@ -65,6 +65,11 @@
 - 사용자가 “어디서 수집했는지 로그가 필요하다”고 명시함
 - 출처 검증, 재수집, 디버깅, 저작권/접근 정책 확인에 필요함
 
+추가 운영 원칙:
+
+- source 정의와 별개로, 원문 확보 경로는 [`collectors/registry/download_routes.yaml`](/Users/seo/igzun-daily-report/collectors/registry/download_routes.yaml) 에 정리한다.
+- 이 파일에는 discovery URL, detail page pattern, PDF selector, artifact 저장 경로, 소스별 TODO를 기록한다.
+
 ### 6. 주요 IB 리포트는 당장 직접 수집 대상으로 두지 않는다
 
 결정:

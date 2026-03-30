@@ -1,0 +1,144 @@
+version: 1
+updated_at: "2026-03-30"
+
+notes:
+  - "이 파일은 source registry(sources.yaml)를 대체하지 않는다."
+  - "목적은 원문 리포트/상세 본문/PDF를 어디서 어떻게 확보하는지 운영 관점에서 정리하는 것이다."
+  - "fetcher 구현 변경 시 이 파일도 같이 업데이트한다."
+
+routes:
+  - source_id: naver_research
+    status: active
+    coverage: "상세 HTML 본문 수집 동작 중, PDF 링크 노출 시 다운로드 시도"
+    discovery:
+      type: html_list
+      urls:
+        - "https://finance.naver.com/research/market_info_list.naver"
+        - "https://finance.naver.com/research/invest_list.naver"
+        - "https://finance.naver.com/research/industry_list.naver"
+    detail:
+      type: html_detail
+      url_pattern: "https://finance.naver.com/research/{category}_read.naver?nid={nid}&page={page}"
+      primary_selector: "td.view_cnt"
+    download:
+      mode: detail_then_pdf
+      pdf_selector: "a[href*='.pdf']"
+      fallback: "상세 HTML 본문만 저장"
+    save_targets:
+      raw_json: "data/raw/{date}/naver_research/{doc_id}.json"
+      detail_html: "data/raw/{date}/naver_research/{doc_id}_detail.html"
+      detail_text: "data/raw/{date}/naver_research/{doc_id}_detail.txt"
+      pdf_file: "data/raw/{date}/naver_research/{doc_id}.pdf"
+      pdf_text: "data/raw/{date}/naver_research/{doc_id}.txt"
+    metadata_keys:
+      - broker
+      - category
+      - naver_link
+      - detail_page_url
+      - detail_text_length
+      - download_url
+      - pdf_text_length
+      - detail_html_path
+      - detail_text_path
+      - pdf_path
+      - pdf_text_path
+
+  - source_id: kr_brokerage_kb
+    status: partial
+    coverage: "리스트/링크 수집 가능, 직접 PDF 링크 패턴 안정화 필요"
+    discovery:
+      type: html_site
+      urls:
+        - "https://rc.kbsec.com"
+    detail:
+      type: broker_site
+      url_pattern: "site-specific"
+      primary_selector: "a[href]"
+    download:
+      mode: direct_pdf_if_exposed
+      pdf_selector: "a[href*='.pdf']"
+      fallback: "링크와 상세 HTML만 저장"
+    save_targets:
+      raw_json: "data/raw/{date}/kr_brokerage_kb/{doc_id}.json"
+      pdf_file: "data/raw/{date}/kr_brokerage_kb/{doc_id}.pdf"
+      pdf_text: "data/raw/{date}/kr_brokerage_kb/{doc_id}.txt"
+    todo:
+      - "실제 리서치 게시판 경로 재확인"
+      - "PDF 다운로드 링크 셀렉터 확정"
+
+  - source_id: kr_brokerage_mirae
+    status: blocked
+    coverage: "현재 research_url 404, 실제 게시판 경로 재탐색 필요"
+    discovery:
+      type: html_site
+      urls:
+        - "https://securities.miraeasset.com"
+    detail:
+      type: unknown
+      url_pattern: "TBD"
+    download:
+      mode: direct_pdf_if_exposed
+      fallback: "경로 확정 전 보류"
+    todo:
+      - "실제 리서치센터 URL 확인"
+      - "공개 PDF 접근 가능 여부 확인"
+
+  - source_id: opendart
+    status: active
+    coverage: "공시 메타와 본문 링크 확보"
+    discovery:
+      type: api
+      urls:
+        - "https://opendart.fss.or.kr"
+    detail:
+      type: filing_page
+      url_pattern: "https://dart.fss.or.kr/dsaf001/main.do?rcpNo={rcp_no}"
+    download:
+      mode: filing_html_only
+      fallback: "PDF 직접 다운로드 없음"
+    save_targets:
+      raw_json: "data/raw/{date}/opendart/{doc_id}.json"
+
+  - source_id: sec_edgar
+    status: active
+    coverage: "공시 메타와 상세 링크 확보"
+    discovery:
+      type: api
+      urls:
+        - "https://www.sec.gov/cgi-bin/browse-edgar"
+    detail:
+      type: filing_page
+      url_pattern: "SEC filing detail page"
+    download:
+      mode: filing_html_only
+      fallback: "첨부문서 필요 시 후속 확장"
+    save_targets:
+      raw_json: "data/raw/{date}/sec_edgar/{doc_id}.json"
+
+  - source_id: fed_speeches_rss
+    status: active
+    coverage: "RSS 링크 본문 수집 가능"
+    discovery:
+      type: rss
+      urls:
+        - "https://www.federalreserve.gov/feeds/speeches.xml"
+    detail:
+      type: html_detail
+      url_pattern: "feed entry link"
+    download:
+      mode: html_body_only
+      fallback: "RSS summary 유지"
+
+  - source_id: fed_press_rss
+    status: active
+    coverage: "RSS 링크 본문 수집 가능"
+    discovery:
+      type: rss
+      urls:
+        - "https://www.federalreserve.gov/feeds/press_all.xml"
+    detail:
+      type: html_detail
+      url_pattern: "feed entry link"
+    download:
+      mode: html_body_only
+      fallback: "RSS summary 유지"
