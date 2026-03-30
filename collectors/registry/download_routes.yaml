@@ -16,7 +16,10 @@ routes:
       urls:
         - "https://finance.naver.com/research/market_info_list.naver"
         - "https://finance.naver.com/research/invest_list.naver"
+        - "https://finance.naver.com/research/company_list.naver"
         - "https://finance.naver.com/research/industry_list.naver"
+        - "https://finance.naver.com/research/economy_list.naver"
+        - "https://finance.naver.com/research/debenture_list.naver"
     detail:
       type: html_detail
       url_pattern: "https://finance.naver.com/research/{category}_read.naver?nid={nid}&page={page}"
@@ -165,7 +168,7 @@ routes:
 
   - source_id: kr_brokerage_samsung
     status: verified_partial
-    coverage: "querystring 기반 직접 PDF download endpoint 확인, 리스트/리서치 허브 URL은 후속 탐색 필요"
+    coverage: "querystring 기반 직접 PDF download endpoint 확인, 실제 리스트/리서치 허브 추출은 로그인 또는 추가 제약 가능성 있음"
     discovery:
       type: direct_pdf_querystring
       urls:
@@ -185,6 +188,7 @@ routes:
     todo:
       - "리서치센터 본문/검색 페이지에서 fileName 파라미터를 추출하는 흐름 확인"
       - "fnguide.samsungpop.com 연계 여부 확인"
+      - "로그인 필요 여부와 비로그인 노출 범위 재확인"
 
   - source_id: ecb_economic_bulletin
     status: active

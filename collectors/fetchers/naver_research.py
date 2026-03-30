@@ -18,7 +18,10 @@ class NaverResearchFetcher(BaseFetcher):
     CATEGORIES = {
         "market_info": "market_info_list.naver",   # 시장정보
         "invest": "invest_list.naver",              # 투자정보
+        "company": "company_list.naver",            # 종목분석
         "industry": "industry_list.naver",          # 산업분석
+        "economy": "economy_list.naver",            # 경제분석
+        "debenture": "debenture_list.naver",        # 채권분석
     }
 
     def fetch(self, date: str) -> list[RawDocument]:
@@ -56,7 +59,11 @@ class NaverResearchFetcher(BaseFetcher):
             if len(cells) < 3:
                 continue
 
-            title_tag = cells[0].select_one("a")
+            title_cell_index = 1 if category == "industry" else 0
+            if len(cells) <= title_cell_index:
+                continue
+
+            title_tag = cells[title_cell_index].select_one("a")
             if not title_tag:
                 continue
 
@@ -90,7 +97,7 @@ class NaverResearchFetcher(BaseFetcher):
                 document_type="research_meta",
                 region="KR",
                 language="ko",
-                sector="equity" if category != "market_info" else "macro",
+                sector=self._sector_for_category(category),
                 tags=[category, broker],
                 fetched_url=url,
                 metadata={
@@ -102,6 +109,15 @@ class NaverResearchFetcher(BaseFetcher):
             ))
 
         return docs
+
+    def _sector_for_category(self, category: str) -> str:
+        if category in {"market_info", "economy", "debenture"}:
+            return "macro"
+        if category in {"company", "industry"}:
+            return "equity"
+        if category == "invest":
+            return "multi_asset"
+        return "macro"
 
     def _parse_naver_date(self, text: str) -> str | None:
         """Parse 'YY.MM.DD' or 'YYYY.MM.DD' format."""

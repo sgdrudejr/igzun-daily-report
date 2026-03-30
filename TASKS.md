@@ -24,6 +24,8 @@
 - [x] 공개 리포트 원문 보강 레이어(`collectors/document_enricher.py`) 추가
 - [x] source별 원문 다운로드 경로 문서 [`collectors/registry/download_routes.yaml`](/Users/seo/igzun-daily-report/collectors/registry/download_routes.yaml) 추가
 - [x] `download_routes.yaml` 에 신한/KB/미래에셋/하나/삼성/ECB/BIS/BOJ/IMF 공개 루트 1차 구체화
+- [x] `naver_research` 를 시장정보/투자정보/종목분석/산업분석/경제분석/채권분석 6개 카테고리로 확장
+- [x] `naver_research` 6개 카테고리 수집 검증 완료 (`2026-03-30` 기준 총 180건)
 - [x] `kr_brokerage_shinhan` 공개 list API fetcher 1차 구현
 - [x] `kr_brokerage_shinhan` bbs2 상세 popup 경로 및 PDF popup 경로(metadata) 저장
 - [x] `kr_brokerage_mirae` direct PDF fetcher 1차 구현
@@ -106,6 +108,7 @@
 - [ ] `kr_brokerage_shinhan` 로그인 없이 내려받을 수 있는 direct PDF 엔드포인트 최종 확정
 - [ ] 신한/KB/미래에셋 등 직접 PDF 링크 제공 소스 우선 확장
 - [ ] 하나/삼성의 fileName 확보 로직 추가
+- [ ] 삼성증권 리스트/리서치 허브의 비로그인 노출 범위 재검증
 - [ ] 일본/유럽 리서치 소스 추가
 - [ ] source health check 리포트 추가
 - [ ] 3일 이상 무수집 source stale 경고 추가

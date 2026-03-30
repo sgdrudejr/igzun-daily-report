@@ -20,6 +20,8 @@
 - 소스 정의는 [`collectors/registry/sources.yaml`](/Users/seo/igzun-daily-report/collectors/registry/sources.yaml) 기반이다.
 - 원문 다운로드/상세 본문 확보 경로는 [`collectors/registry/download_routes.yaml`](/Users/seo/igzun-daily-report/collectors/registry/download_routes.yaml) 에 운영 문서로 정리한다.
 - `download_routes.yaml` 에는 네이버 리서치 외에 신한/KB/미래에셋/하나/삼성 국내 증권사와 ECB/BIS/BOJ/IMF 공개 소스의 실제 다운로드 루트 검증 결과가 반영되어 있다.
+- `naver_research` 는 시장정보/투자정보/종목분석/산업분석/경제분석/채권분석 6개 카테고리를 모두 수집 대상으로 확장했다.
+- `naver_research` 는 2026-03-30 검증 기준 카테고리별 30건씩 총 180건의 리스트 메타를 수집할 수 있다.
 - `kr_brokerage_shinhan` 는 공개 list API 기반으로 실제 문서 메타를 수집한다.
 - `kr_brokerage_shinhan` 는 이제 `bbs2.shinhansec.com` 상세 popup HTML까지 저장하고, PDF popup 경로도 metadata에 남긴다. 다만 현재 확인된 PDF popup은 로그인 게이트가 있다.
 - `kr_brokerage_mirae` 는 공개 리스트에서 PDF direct link를 잡아 실제 PDF/TXT 아티팩트를 저장한다.
@@ -180,6 +182,7 @@
 - source registry 구조
 - source별 원문 다운로드 경로 문서화 구조
 - 국내 증권사(신한/KB/미래에셋/하나/삼성) 및 해외 공개기관(ECB/BIS/BOJ/IMF) 루트 1차 구체화
+- 네이버 리서치 6개 카테고리 전체 확장
 - 신한 list API fetcher 1차 구현
 - 미래에셋 direct PDF fetcher 1차 구현
 - fetcher registration 구조
@@ -199,6 +202,7 @@
 - `daily_update.sh` 에 retention 훅이 추가되어 오래된 raw/normalized/manifests 를 요약+압축 대상으로 보낼 수 있다.
 - `daily_update.sh` 가 cron/launchd 환경에서도 깨지지 않도록 KST 날짜와 절대 python 경로를 사용하도록 보정했다.
 - `naver_research` 는 더 이상 짧은 제목 메타만 수집하지 않고, 상세 페이지 본문을 우선 수집한다.
+- `naver_research` 의 `industry` 카테고리는 타 카테고리와 테이블 구조가 달라 title cell index를 별도 처리한다.
 
 ### 아직 미구현 또는 미완료
 
@@ -209,6 +213,7 @@
 - `download_routes.yaml` 에 적힌 신한 list API, KB Today, 미래에셋 attachment download, 하나 file server, 삼성 querystring download 루트를 실제 fetcher 로 옮기는 작업
 - KB Today/리포트 상세 흐름을 실제 fetcher로 옮기기
 - 하나/삼성의 파일명 확보 로직을 붙여 direct PDF 수집까지 연결하기
+- 삼성증권은 direct PDF endpoint는 확인됐지만 리스트/리서치 허브 추출은 로그인 또는 추가 제약 가능성이 있어 재검증이 필요
 - 포트폴리오 시사점 로직 정교화
 - 포트폴리오 점수 산식 고도화
 - ETF/섹터 아이디어를 지역/레짐/리스크와 더 강하게 연결하는 설명 강화 2차

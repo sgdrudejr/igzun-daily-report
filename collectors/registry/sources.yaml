@@ -142,7 +142,10 @@ sources:
       categories:
         - market_info    # 시장정보
         - invest         # 투자정보
+        - company        # 종목분석
         - industry       # 산업분석
+        - economy        # 경제분석
+        - debenture      # 채권분석
     description: "네이버 금융 리서치 — 상세 본문 수집, PDF 링크 발견 시 원문 다운로드"
     url: "https://finance.naver.com/research/"
 
