@@ -40,6 +40,8 @@ download_routes.yaml
     -> apply_market_quant.py
   -> macro_analysis.py
   -> etf_recommender.py
+  -> build_research_context.py
+    -> data/research_context/{date}.json
   -> build_site_report.py
     -> storage_retention.py
     -> build_horizon_views.py
@@ -79,6 +81,11 @@ download_routes.yaml
   - `actions[*].addRule`
   - `actions[*].pauseRule`
   - `actions[*].reviewRule`
+- `llmInsights`
+  - `marketNarrative`
+  - `deepResearchSummary`
+  - `periodOutlooks`
+  - `sourceBackedView`
 - `recommendations`
   - `ideas[*].macroContext`
   - `ideas[*].evidencePoints`
@@ -172,6 +179,24 @@ download_routes.yaml
 - raw 디렉토리에 HTML/TXT/PDF artifact 저장
 
 ## 데이터 구조
+
+### Research Context 저장
+
+```text
+data/research_context/{date}.json
+```
+
+역할:
+
+- 최근 7거래일/30거래일 누적 문서 수와 주요 출처를 요약
+- 과거 10~30거래일 레짐/점수/VIX/환율 변화 추세를 요약
+- 주간/월간/분기/반기 horizon 집계에서 상위 해석을 추출
+- 계좌별 현금/추천 집행액/우선 후보를 LLM 입력용으로 정리
+
+의도:
+
+- `llm_insights.py` 가 당일 문서 몇 건만 보고 판단하지 않도록 한다.
+- 축적된 로컬 데이터와 과거 판단 메모를 함께 넣어 Gemini류 딥리서치에 가까운 상위 문맥을 제공한다.
 
 ### RawDocument
 

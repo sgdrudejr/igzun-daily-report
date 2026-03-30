@@ -17,6 +17,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from build_research_context import build_research_context, format_research_context
+
 # Load .env file
 try:
     from dotenv import load_dotenv
@@ -33,6 +35,15 @@ except ImportError:
 
 MAX_DOC_CHARS = 800  # 문서당 최대 문자수
 MAX_DOCS = 15        # 최대 문서 수
+
+
+def as_float(value, default=None):
+    try:
+        if value is None or value == "N/A":
+            return default
+        return float(value)
+    except Exception:
+        return default
 
 
 def _load_json(path: Path):
@@ -264,12 +275,21 @@ def _parse_llm_response(text: str) -> dict:
     }
 
 
-def build_prompt(macro: dict, docs: list[dict], signals: dict, valuation: dict, portfolio: dict, date_str: str) -> str:
+def build_prompt(
+    macro: dict,
+    docs: list[dict],
+    signals: dict,
+    valuation: dict,
+    portfolio: dict,
+    research_context: dict,
+    date_str: str,
+) -> str:
     doc_text = _format_docs(docs)
     macro_text = _format_macro(macro)
     signals_text = _format_signals(signals)
     val_text = _format_valuation(valuation)
     portfolio_text = _format_portfolio(portfolio, signals)
+    research_text = format_research_context(research_context)
     total_cash = portfolio.get("total_cash", 0)
 
     prompt = f"""오늘({date_str}) 기준 투자 분석을 수행해주세요.
@@ -282,6 +302,8 @@ def build_prompt(macro: dict, docs: list[dict], signals: dict, valuation: dict, 
 
 {portfolio_text}
 
+{research_text}
+
 === 수집된 뉴스/리서치 ({len(docs)}건) ===
 {doc_text}
 
@@ -290,8 +312,16 @@ def build_prompt(macro: dict, docs: list[dict], signals: dict, valuation: dict, 
 위 데이터를 종합해 다음 형식의 JSON으로 투자 분석을 작성해주세요.
 (JSON만 출력하고, 마크다운 코드블록 없이 순수 JSON만 반환하세요)
 
+중요한 작성 규칙:
+- "오늘 당장" 해석과 "1주~6개월" 해석이 다르면 반드시 구분해서 써야 합니다.
+- 당일 뉴스보다 누적 컨텍스트(최근 7거래일/30거래일, 주간/월간/분기/반기 집계)를 우선적으로 참고하세요.
+- 시장 방향성은 반드시 수치 + 축적된 근거 + 출처군(예: 연준 연설, 네이버 리서치, OpenDART, BIS, FRED) 수준으로 설명하세요.
+- 단순 낙관/비관이 아니라 "왜 지금 그런 해석을 하는지"를 누적 데이터 변화와 함께 적으세요.
+
 {{
   "market_narrative": "현재 시장 상황을 3~5줄로 서술 (레짐, 핵심 드라이버, 방향성)",
+
+  "deep_research_summary": "최근 누적 데이터(7거래일/30거래일 + 주간/월간/분기 관점)를 종합한 상위 해석 4~6줄",
 
   "regime_assessment": "레짐 판단 및 투자 함의 (2~3줄)",
 
@@ -321,6 +351,19 @@ def build_prompt(macro: dict, docs: list[dict], signals: dict, valuation: dict, 
 
   "portfolio_comment": "ISA/토스/연금저축 3개 계좌 각각에 대한 이번 주 액션 플랜 (2~3줄씩)",
 
+  "period_outlooks": [
+    {{"period": "1주", "stance": "공격확대/선별매수/중립/방어우선", "focus": "무엇을 봐야 하는가", "action": "실행 포인트"}},
+    {{"period": "1개월", "stance": "공격확대/선별매수/중립/방어우선", "focus": "무엇을 봐야 하는가", "action": "실행 포인트"}},
+    {{"period": "3개월", "stance": "공격확대/선별매수/중립/방어우선", "focus": "무엇을 봐야 하는가", "action": "실행 포인트"}},
+    {{"period": "6개월", "stance": "공격확대/선별매수/중립/방어우선", "focus": "무엇을 봐야 하는가", "action": "실행 포인트"}}
+  ],
+
+  "source_backed_view": [
+    {{"claim": "가장 중요한 누적 결론 1", "evidence": ["출처군/누적근거 1", "출처군/누적근거 2"]}},
+    {{"claim": "가장 중요한 누적 결론 2", "evidence": ["출처군/누적근거 1", "출처군/누적근거 2"]}},
+    {{"claim": "가장 중요한 누적 결론 3", "evidence": ["출처군/누적근거 1", "출처군/누적근거 2"]}}
+  ],
+
   "news_highlights": [
     "수집된 뉴스/리서치에서 가장 중요한 인사이트 1",
     "수집된 뉴스/리서치에서 가장 중요한 인사이트 2",
@@ -330,7 +373,15 @@ def build_prompt(macro: dict, docs: list[dict], signals: dict, valuation: dict, 
     return prompt
 
 
-def generate_fallback_insights(macro: dict, signals: dict, valuation: dict, portfolio: dict, docs: list[dict], date_str: str) -> dict:
+def generate_fallback_insights(
+    macro: dict,
+    signals: dict,
+    valuation: dict,
+    portfolio: dict,
+    docs: list[dict],
+    date_str: str,
+    research_context: dict | None = None,
+) -> dict:
     """API 키 없을 때 규칙 기반 인사이트 생성."""
     regime = macro.get("regime", "Neutral")
     total_score = (macro.get("scores") or {}).get("total") or 50
@@ -457,17 +508,38 @@ def generate_fallback_insights(macro: dict, signals: dict, valuation: dict, port
     if not highlights:
         highlights = ["LLM API 미사용 상태라 규칙 기반 내러티브로 대체했습니다."]
 
+    deep_summary = ""
+    topics_7 = ((research_context.get("topic_windows") or {}).get("recent_7d") or []) if research_context else []
+    topics_30 = ((research_context.get("topic_windows") or {}).get("recent_30d") or []) if research_context else []
+    score_trend = (research_context.get("score_trend") or {}) if research_context else {}
+    horizon_snaps = (research_context.get("horizon_snapshots") or {}) if research_context else {}
+    if research_context:
+        hot_topics = ", ".join(f"{item['topic']} {item['count']}건" for item in topics_7[:3])
+        long_topics = ", ".join(f"{item['topic']} {item['count']}건" for item in topics_30[:3])
+        deep_summary = (
+            f"최근 7거래일 기준 {((research_context.get('source_windows') or {}).get('recent_7d') or {}).get('document_count', 0)}건의 "
+            f"문서가 누적되었고, 단기 주제는 {hot_topics or '데이터 부족'} 입니다. "
+            f"최근 30거래일 누적 주제는 {long_topics or '데이터 부족'} 로 이어지고 있습니다. "
+            f"시장 총점은 1주 기준 {_fmt_trend(score_trend.get('delta_1w'))} 변화했으며, "
+            f"주간 관점은 {(horizon_snaps.get('weekly') or {}).get('regime_kr', regime_ko)}, "
+            f"월간 관점은 {(horizon_snaps.get('monthly') or {}).get('regime_kr', regime_ko)} 로 해석됩니다."
+        )
+
     return {
         "date": date_str,
         "generated_by": "fallback_rule_based",
         "market_narrative": " ".join(narrative_parts),
+        "deep_research_summary": deep_summary,
         "regime_assessment": f"{regime_ko}으로 분류된 현재 환경은 {vs.get('market_valuation', '선별적 접근 권장')}.",
         "key_signals": key_signals[:5],
         "sector_calls": sector_calls,
         "risk_factors": risks[:3],
         "timing_guidance": timing_guidance,
         "portfolio_comment": portfolio_comment,
+        "period_outlooks": build_period_outlooks(research_context),
+        "source_backed_view": build_source_backed_view(research_context),
         "news_highlights": highlights,
+        "research_context_ref": f"data/research_context/{date_str}.json",
     }
 
 
@@ -512,6 +584,83 @@ def _regime_sector_calls(regime: str, mi: dict) -> list[dict]:
     return calls_map.get(regime, calls_map["Neutral"])
 
 
+def _fmt_trend(value) -> str:
+    number = as_float(value)
+    if number is None:
+        return "데이터 없음"
+    sign = "+" if number >= 0 else ""
+    return f"{sign}{number:.1f}p"
+
+
+def _stance_from_score(score) -> str:
+    value = as_float(score, 50)
+    if value >= 65:
+        return "공격확대"
+    if value >= 50:
+        return "선별매수"
+    if value >= 40:
+        return "중립"
+    return "방어우선"
+
+
+def build_period_outlooks(research_context: dict) -> list[dict]:
+    horizons = (research_context.get("horizon_snapshots") or {}) if research_context else {}
+    mapping = [
+        ("weekly", "1주"),
+        ("monthly", "1개월"),
+        ("quarterly", "3개월"),
+        ("semiannual", "6개월"),
+    ]
+    outlooks = []
+    for key, label in mapping:
+        item = horizons.get(key) or {}
+        if not item:
+            continue
+        focus = " / ".join((item.get("key_signals") or [])[:2]) or item.get("summary", "")
+        action = item.get("timing_guidance") or item.get("summary", "")
+        outlooks.append(
+            {
+                "period": label,
+                "stance": _stance_from_score(item.get("avg_score")),
+                "focus": focus[:180],
+                "action": action[:220],
+            }
+        )
+    return outlooks
+
+
+def build_source_backed_view(research_context: dict) -> list[dict]:
+    if not research_context:
+        return []
+    sources = ((research_context.get("source_windows") or {}).get("recent_7d") or {}).get("sources") or []
+    topics = ((research_context.get("topic_windows") or {}).get("recent_7d") or [])[:3]
+    horizons = (research_context.get("horizon_snapshots") or {}) or {}
+    items = []
+    if topics:
+        items.append(
+            {
+                "claim": f"최근 7거래일은 {', '.join(t['topic'] for t in topics[:2])} 주제가 가장 많이 반복되었습니다.",
+                "evidence": [
+                    f"최근 7거래일 문서 {((research_context.get('source_windows') or {}).get('recent_7d') or {}).get('document_count', 0)}건",
+                    "상위 출처: " + ", ".join(f"{s['label']} {s['count']}건" for s in sources[:3]),
+                ],
+            }
+        )
+    weekly = horizons.get("weekly") or {}
+    monthly = horizons.get("monthly") or {}
+    if weekly or monthly:
+        items.append(
+            {
+                "claim": f"주간은 {weekly.get('regime_kr', '데이터 부족')}, 월간은 {monthly.get('regime_kr', '데이터 부족')} 관점으로 정리됩니다.",
+                "evidence": [
+                    f"주간 평균점수 {weekly.get('avg_score', 'N/A')}",
+                    f"월간 평균점수 {monthly.get('avg_score', 'N/A')}",
+                ],
+            }
+        )
+    return items[:3]
+
+
 def run_llm_insights(root: Path, date_str: str) -> dict:
     macro_file = root / "data" / "macro_analysis" / f"{date_str}.json"
     signals_file = root / "data" / "signals" / f"{date_str}.json"
@@ -524,29 +673,32 @@ def run_llm_insights(root: Path, date_str: str) -> dict:
     valuation = _load_json(val_file) or {}
     docs = _load_jsonl(docs_file)
     portfolio = _load_json(portfolio_file) or {}
+    research_context_file = root / "data" / "research_context" / f"{date_str}.json"
+    research_context = _load_json(research_context_file) or build_research_context(root, date_str)
 
     api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
 
     if not api_key or not HAS_ANTHROPIC:
         reason = "anthropic 미설치" if not HAS_ANTHROPIC else "ANTHROPIC_API_KEY 미설정"
         print(f"  LLM API 없음 ({reason}) — 규칙 기반 인사이트 생성")
-        result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str)
+        result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context)
         result["api_used"] = False
         result["fallback_reason"] = reason
     else:
         print(f"  Claude API 호출 중... (문서 {len(docs)}건 기반)")
         try:
-            prompt = build_prompt(macro, docs, signals, valuation, portfolio, date_str)
+            prompt = build_prompt(macro, docs, signals, valuation, portfolio, research_context, date_str)
             raw_response = _call_claude_api(prompt, api_key)
             parsed = _parse_llm_response(raw_response)
             parsed["date"] = date_str
             parsed["api_used"] = True
             parsed["generated_by"] = "claude-opus-4-6"
             parsed["doc_count"] = len(docs)
+            parsed["research_context_ref"] = f"data/research_context/{date_str}.json"
             result = parsed
         except Exception as e:
             print(f"  Claude API 오류: {e} — 규칙 기반으로 대체")
-            result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str)
+            result = generate_fallback_insights(macro, signals, valuation, portfolio, docs, date_str, research_context)
             result["api_used"] = False
             result["api_error"] = str(e)
 

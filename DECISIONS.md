@@ -218,6 +218,19 @@
 이유:
 
 - 사용자는 "1일로 보면 매수, 6개월로 보면 비중 조절" 같은 복수 해석이 가능해야 한다고 명시했다.
+
+### 18. LLM은 당일 데이터만이 아니라 누적 로컬 데이터를 함께 읽어야 한다
+
+결정:
+
+- [`scripts/build_research_context.py`](/Users/seo/igzun-daily-report/scripts/build_research_context.py) 를 두고,
+  `llm_insights.py` 는 `data/research_context/{date}.json` 을 함께 읽어 딥리서치형 상위 문맥을 사용한다.
+
+이유:
+
+- 사용자 목표는 단순 뉴스 요약이 아니라 "지금까지 쌓인 데이터 위에서 더 강한 인사이트" 이다.
+- 당일 문서만 보면 브로커/중앙은행/공시의 누적 변화, 최근 7일과 30일의 주제 반복, 과거 판단 변화가 반영되지 않는다.
+- 로컬에 이미 쌓인 horizon 집계, archive summary, normalized docs, portfolio state를 재활용하면 LLM 품질을 크게 올릴 수 있다.
 - 그래서 포트폴리오 탭은 상태 해석, 실행 가이드는 매수/보류/비중조절 액션으로 분리했다.
 - 기간마다 `question`, `deploy_ratio`, `action_label` 을 다르게 두는 편이 목적에 맞다.
 

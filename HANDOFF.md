@@ -40,7 +40,9 @@
 - `scripts/valuation_engine.py` 가 추가되어 S&P500 ERP, 52주 레인지, 200일선 이격도, KOSPI PBR 추정치를 생성한다.
 - `scripts/signal_engine.py` 가 추가되어 RSI, MACD, 볼린저밴드, 이평선, 캔들, 엘리엇 파동을 종합한 ETF별 `강력매수/분할매수/소규모탐색/관망/비중축소/회피` 신호를 생성한다.
 - `scripts/llm_insights.py` 가 추가되어 매크로/밸류에이션/신호/수집문서를 합친 한국어 투자 인사이트를 생성한다.
+- `scripts/build_research_context.py` 가 추가되어 최근 7거래일/30거래일 누적 문서, 과거 레짐·점수 변화, horizon 집계 요약, 계좌 실행 제약을 묶은 상위 `딥리서치 컨텍스트` 를 생성한다.
 - 현재 LLM 단계는 파이프라인에 연결되어 있으나 `.env` 의 `ANTHROPIC_API_KEY` 가 비어 있어 실제 API 호출 대신 fallback 규칙 기반 인사이트로 동작한다.
+- `llm_insights.py` 는 이제 당일 문서만 보지 않고 `data/research_context/{date}.json` 을 함께 읽어 누적 맥락 기반 분석을 수행한다.
 - `11:00 KST` 자동 실행용 launch agent 가 설치되어 있다.
 - launch agent 템플릿은 [`cron/com.seo.igzun-daily-report.daily.plist`](/Users/seo/igzun-daily-report/cron/com.seo.igzun-daily-report.daily.plist), 설치 스크립트는 [`scripts/install_launch_agent.sh`](/Users/seo/igzun-daily-report/scripts/install_launch_agent.sh) 이다.
 - `scripts/macro_analysis.py`, `scripts/etf_recommender.py`, `scripts/build_site_report.py` 작업이 시작되어 있다.
@@ -103,6 +105,7 @@
 - 브라우저 실기기 검증은 아직 남아 있다. 특히 Galaxy S25 Ultra 기준 줄바꿈, 칩 높이, 상단 드롭다운 폭을 확인해야 한다.
 - `data/market_data_history/` 와 `data/etf_price_history/` 는 로컬 캐시이며 `.gitignore` 대상이다.
 - `data/archives/` 는 로컬 압축본 저장소이며 Git 에 올리지 않는다.
+- `data/research_context/{date}.json` 은 LLM/딥리서치 입력용 누적 컨텍스트 스냅샷이며, `daily_update.sh` 에서 valuation/signal 이후 자동 생성된다.
 
 ### 현재 확인된 산출물
 
@@ -180,6 +183,7 @@
 │   ├── valuation_engine.py
 │   ├── signal_engine.py
 │   ├── llm_insights.py
+│   ├── build_research_context.py
 │   ├── technical_timing.py
 │   ├── backfill_history.py
 │   ├── storage_retention.py

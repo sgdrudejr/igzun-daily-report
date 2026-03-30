@@ -1831,15 +1831,19 @@ def build_llm_insights_block(llm: dict) -> dict:
         return {}
     return {
         "marketNarrative": llm.get("market_narrative", ""),
+        "deepResearchSummary": llm.get("deep_research_summary", ""),
         "regimeAssessment": llm.get("regime_assessment", ""),
         "keySignals": llm.get("key_signals") or [],
         "sectorCalls": llm.get("sector_calls") or [],
         "riskFactors": llm.get("risk_factors") or [],
         "timingGuidance": llm.get("timing_guidance", ""),
         "portfolioComment": llm.get("portfolio_comment", ""),
+        "periodOutlooks": llm.get("period_outlooks") or [],
+        "sourceBackedView": llm.get("source_backed_view") or [],
         "newsHighlights": llm.get("news_highlights") or [],
         "apiUsed": llm.get("api_used", False),
         "generatedBy": llm.get("generated_by", ""),
+        "researchContextRef": llm.get("research_context_ref", ""),
     }
 
 
