@@ -17,11 +17,26 @@ def parse_money(value):
     return float(match.group(0)) if match else 0.0
 
 
+BROKER_TOKENS = [
+    ("TOSS", ["토스증권", "toss securities"]),
+    ("ISA", ["isa", "신한 isa", "신한은행 isa", "개인종합자산관리"]),
+    ("PENSION", ["연금저축", "신한은행 연금", "pension"]),
+]
+
+
+def detect_broker(lines: list[str]) -> str:
+    joined = " ".join(lines).lower()
+    for key, tokens in BROKER_TOKENS:
+        if any(t in joined for t in tokens):
+            return key
+    return "admin_bot_ocr"
+
+
 def parse_text(text):
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     result = {
         "account_date": date.today().isoformat(),
-        "broker": "admin_bot_ocr",
+        "broker": detect_broker(lines),
         "currency": "KRW",
         "total_deposit": 0,
         "cash": 0,
@@ -65,11 +80,19 @@ def parse_text(text):
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("usage: parse_account_snapshot_text.py <ocr-text-file>")
-        sys.exit(1)
-    src = Path(sys.argv[1])
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("src", help="OCR text file path")
+    parser.add_argument("--account", help="Account key override: TOSS | ISA | PENSION")
+    args = parser.parse_args()
+
+    src = Path(args.src)
     result = parse_text(src.read_text(errors="ignore"))
+
+    # --account flag overrides broker detection from OCR text
+    if args.account:
+        result["broker"] = args.account.upper()
+
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2))
     LATEST.write_text(json.dumps(result, ensure_ascii=False, indent=2))
     print("wrote", OUT)

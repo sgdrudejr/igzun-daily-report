@@ -42,7 +42,8 @@ mkdir -p "$ROOT/output"
 "$VENV/python" "$ROOT/scripts/storage_retention.py" --base-dir "$ROOT" --today "$TODAY" --delete-originals || true
 "$VENV/python" "$ROOT/scripts/build_horizon_views.py" --base-dir "$ROOT" || true
 
-# 5) admin_bot image intake -> OCR -> snapshot -> portfolio apply
+# 5) pull latest (picks up web-uploaded screenshots) then run OCR pipeline
+git -C "$ROOT" pull --rebase origin main || true
 bash "$ROOT/scripts/ingest_admin_bot_pipeline.sh" || true
 "$VENV/python" "$ROOT/scripts/update_portfolio_from_snapshot.py" || true
 
