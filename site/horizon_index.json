@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T00:46:40.731937",
+  "generatedAt": "2026-03-31T10:02:36.611014",
   "latestDailyDate": "2026-03-31",
   "horizons": {
     "1일": [
@@ -788,16 +788,19 @@
     ]
   },
   "storageRetention": {
-    "generatedAt": "2026-03-30T11:00:31.830673",
+    "generatedAt": "2026-03-31T10:02:36.484911",
     "policy": {
       "raw_days": 45,
       "normalized_days": 75,
       "manifests_days": 90,
+      "chunk_chars": 1400,
+      "chunk_overlap": 180,
+      "max_chunks_per_doc": 12,
       "delete_originals": true
     },
     "archivedCounts": {
       "raw": 0,
-      "normalized": 0,
+      "normalized": 1,
       "manifests": 0
     }
   },

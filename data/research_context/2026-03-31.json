@@ -4,10 +4,10 @@
     "date": "2026-03-31",
     "regime": "Neutral",
     "regime_kr": "중립 횡보 국면",
-    "total_score": 52.94,
-    "market_signal": "신중한 탐색",
-    "deployable_pct": 30,
-    "market_valuation": "다소 고평가 — 진입 속도 조절 권장",
+    "total_score": 47.11,
+    "market_signal": "관망 유지",
+    "deployable_pct": 15,
+    "market_valuation": "고평가 — 안전자산 비중 유지",
     "total_cash": 18267581
   },
   "score_trend": {
@@ -77,93 +77,93 @@
       },
       {
         "date": "2026-03-31",
-        "score": 52.94,
+        "score": 47.11,
         "regime": "Neutral",
         "vix": 31.05,
-        "usd_krw": 1515.7
+        "usd_krw": 1525.3800048828125
       }
     ],
-    "current_score": 52.94,
-    "delta_1d": 5.38,
-    "delta_1w": 1.03,
-    "delta_1m": 5.63,
-    "direction_1w": "완만한 개선",
+    "current_score": 47.11,
+    "delta_1d": -0.45,
+    "delta_1w": -4.8,
+    "delta_1m": -0.2,
+    "direction_1w": "뚜렷한 악화",
     "regime_streak": 30,
     "recent_regime_counts": {
       "중립 횡보 국면": 10
     },
     "vix_trend": "VIX 상승 (+5.7)",
-    "usdkrw_trend": "원/달러 상승 (+18.4)"
+    "usdkrw_trend": "원/달러 상승 (+28.1)"
   },
   "horizon_snapshots": {
     "weekly": {
       "bucket_label": "2026년 3월 5주",
-      "update_count": 2,
-      "avg_score": 46.9,
+      "update_count": 3,
+      "avg_score": 48.9,
       "regime": "Neutral",
       "regime_kr": "중립 횡보 국면",
-      "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 47.6점을 기록 중입니다. VIX 27.4로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1513원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
+      "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 52.9점을 기록 중입니다. VIX 31.1로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1516원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
       "key_signals": [
-        "VIX 27.4 — 변동성 확대 구간, 추격매수보다 눌림목 분할 접근이 유리",
-        "S&P500 ERP 0.1% — 주식 매력도는 중립 수준, 과속 진입은 부담",
+        "VIX 31.1 — 공포 구간, 분할 매수 진입의 역발상 기회 가능",
+        "S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.3% — 주식 매력도는 중립 수준, 과속 진입은 부담",
         "KOSPI 밸류에이션 고평가 — 국내 ETF는 비중을 천천히 올리는 편이 적절",
-        "S&P 500 ETF(SPY) 타이밍 B — 분할 매수 시작 고려",
-        "USD/KRW 1513원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요"
+        "나스닥 100 ETF(QQQ) 타이밍 B — 분할 매수 시작 고려",
+        "USD/KRW 1516원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요"
       ],
-      "timing_guidance": "현재 시장 신호 '관망 유지'에 따라 전체 현금의 15%(2,740,137원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다."
+      "timing_guidance": "현재 시장 신호 '신중한 탐색'에 따라 전체 현금의 30%(5,480,274원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다."
     },
     "monthly": {
       "bucket_label": "2026년 3월",
-      "update_count": 24,
-      "avg_score": 48.3,
+      "update_count": 25,
+      "avg_score": 48.5,
       "regime": "Neutral",
       "regime_kr": "중립 횡보 국면",
-      "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 47.6점을 기록 중입니다. VIX 27.4로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1513원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
+      "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 52.9점을 기록 중입니다. VIX 31.1로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1516원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
       "key_signals": [
-        "VIX 27.4 — 변동성 확대 구간, 추격매수보다 눌림목 분할 접근이 유리",
-        "S&P500 ERP 0.1% — 주식 매력도는 중립 수준, 과속 진입은 부담",
+        "VIX 31.1 — 공포 구간, 분할 매수 진입의 역발상 기회 가능",
+        "S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.3% — 주식 매력도는 중립 수준, 과속 진입은 부담",
         "KOSPI 밸류에이션 고평가 — 국내 ETF는 비중을 천천히 올리는 편이 적절",
-        "S&P 500 ETF(SPY) 타이밍 B — 분할 매수 시작 고려",
-        "USD/KRW 1513원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요"
+        "나스닥 100 ETF(QQQ) 타이밍 B — 분할 매수 시작 고려",
+        "USD/KRW 1516원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요"
       ],
-      "timing_guidance": "현재 시장 신호 '관망 유지'에 따라 전체 현금의 15%(2,740,137원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다."
+      "timing_guidance": "현재 시장 신호 '신중한 탐색'에 따라 전체 현금의 30%(5,480,274원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다."
     },
     "quarterly": {
       "bucket_label": "2026년 1분기",
-      "update_count": 66,
-      "avg_score": 48.7,
+      "update_count": 67,
+      "avg_score": 48.8,
       "regime": "Neutral",
       "regime_kr": "중립 횡보 국면",
-      "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 47.6점을 기록 중입니다. VIX 27.4로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1513원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
+      "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 52.9점을 기록 중입니다. VIX 31.1로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1516원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
       "key_signals": [
-        "VIX 27.4 — 변동성 확대 구간, 추격매수보다 눌림목 분할 접근이 유리",
-        "S&P500 ERP 0.1% — 주식 매력도는 중립 수준, 과속 진입은 부담",
+        "VIX 31.1 — 공포 구간, 분할 매수 진입의 역발상 기회 가능",
+        "S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.3% — 주식 매력도는 중립 수준, 과속 진입은 부담",
         "KOSPI 밸류에이션 고평가 — 국내 ETF는 비중을 천천히 올리는 편이 적절",
-        "S&P 500 ETF(SPY) 타이밍 B — 분할 매수 시작 고려",
-        "USD/KRW 1513원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요"
+        "나스닥 100 ETF(QQQ) 타이밍 B — 분할 매수 시작 고려",
+        "USD/KRW 1516원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요"
       ],
-      "timing_guidance": "현재 시장 신호 '관망 유지'에 따라 전체 현금의 15%(2,740,137원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다."
+      "timing_guidance": "현재 시장 신호 '신중한 탐색'에 따라 전체 현금의 30%(5,480,274원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다."
     },
     "semiannual": {}
   },
   "source_windows": {
     "recent_7d": {
-      "document_count": 686,
+      "document_count": 787,
       "sources": [
-        {
-          "source_id": "naver_research",
-          "label": "네이버 금융 리서치",
-          "count": 285
-        },
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 282
+          "count": 332
+        },
+        {
+          "source_id": "naver_research",
+          "label": "네이버 금융 리서치",
+          "count": 332
         },
         {
           "source_id": "fred_api",
           "label": "FRED 거시지표",
-          "count": 32
+          "count": 35
         },
         {
           "source_id": "bis_speeches",
@@ -176,19 +176,19 @@
           "count": 20
         },
         {
-          "source_id": "fed_speeches_rss",
-          "label": "연준 연설",
-          "count": 14
+          "source_id": "ecos_api",
+          "label": "한국은행 ECOS",
+          "count": 15
         }
       ],
       "regions": [
         {
           "label": "KR",
-          "count": 593
+          "count": 691
         },
         {
           "label": "US",
-          "count": 66
+          "count": 69
         },
         {
           "label": "Global",
@@ -198,53 +198,53 @@
       "sectors": [
         {
           "label": "equity",
-          "count": 397
+          "count": 467
         },
         {
           "label": "macro",
-          "count": 259
+          "count": 279
         },
         {
           "label": "multi_asset",
-          "count": 30
+          "count": 41
         }
       ],
       "types": [
         {
           "label": "filing",
-          "count": 282
+          "count": 332
         },
         {
           "label": "research_report",
-          "count": 149
+          "count": 182
         },
         {
           "label": "research_meta",
-          "count": 136
+          "count": 150
         },
         {
           "label": "time_series",
-          "count": 46
+          "count": 50
         }
       ]
     },
     "recent_30d": {
-      "document_count": 1602,
+      "document_count": 1703,
       "sources": [
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 1084
+          "count": 1134
         },
         {
           "source_id": "naver_research",
           "label": "네이버 금융 리서치",
-          "count": 285
+          "count": 332
         },
         {
           "source_id": "fred_api",
           "label": "FRED 거시지표",
-          "count": 146
+          "count": 149
         },
         {
           "source_id": "bis_speeches",
@@ -257,19 +257,19 @@
           "count": 20
         },
         {
-          "source_id": "fed_speeches_rss",
-          "label": "연준 연설",
-          "count": 14
+          "source_id": "ecos_api",
+          "label": "한국은행 ECOS",
+          "count": 15
         }
       ],
       "regions": [
         {
           "label": "KR",
-          "count": 1395
+          "count": 1493
         },
         {
           "label": "US",
-          "count": 180
+          "count": 183
         },
         {
           "label": "Global",
@@ -279,33 +279,33 @@
       "sectors": [
         {
           "label": "equity",
-          "count": 1199
+          "count": 1269
         },
         {
           "label": "macro",
-          "count": 373
+          "count": 393
         },
         {
           "label": "multi_asset",
-          "count": 30
+          "count": 41
         }
       ],
       "types": [
         {
           "label": "filing",
-          "count": 1084
-        },
-        {
-          "label": "time_series",
-          "count": 160
+          "count": 1134
         },
         {
           "label": "research_report",
-          "count": 149
+          "count": 182
+        },
+        {
+          "label": "time_series",
+          "count": 164
         },
         {
           "label": "research_meta",
-          "count": 136
+          "count": 150
         }
       ]
     }
@@ -413,10 +413,6 @@
   },
   "recent_memos": [
     {
-      "date": "2026-03-26",
-      "summary": "1일 기준 미국은 S&P500 -1.7%, NASDAQ -2.4%, 한국은 KOSPI -3.2%, 일본은 닛케이 -0.3%, 유럽 DAX -1.5% 흐름입니다. 지금 시장은 중립 횡보 국면으로 해석되며, VIX 25.3, DXY 100.0, 미 10년물 4.33%, 원/달러 1501원이 단기 의사결정의 핵심 축입니다. 당일 관점에서는 1차 진입만 허용하고 현금 비중을 크게 유지한다. 기술적으"
-    },
-    {
       "date": "2026-03-27",
       "summary": "1일 기준 미국은 S&P500 -1.7%, NASDAQ -2.1%, 한국은 KOSPI -0.4%, 일본은 닛케이 -0.4%, 유럽 DAX -1.4% 흐름입니다. 지금 시장은 중립 횡보 국면으로 해석되며, VIX 27.4, DXY 120.3, 미 10년물 4.42%, 원/달러 1508원이 단기 의사결정의 핵심 축입니다. 당일 관점에서는 1차 진입만 허용하고 현금 비중을 크게 유지한다. 기술적으"
     },
@@ -427,6 +423,10 @@
     {
       "date": "2026-03-30",
       "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 47.6점을 기록 중입니다. VIX 27.4로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1513원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+    },
+    {
+      "date": "2026-03-31",
+      "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 52.9점을 기록 중입니다. VIX 31.1로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1516원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
     }
   ],
   "portfolio_context": {
@@ -441,16 +441,16 @@
           {
             "ticker": "TIGER_NQ100",
             "name": "TIGER 미국나스닥100",
+            "signal": "강력매수"
+          },
+          {
+            "ticker": "KODEX_SEMI",
+            "name": "KODEX 반도체",
             "signal": "분할매수"
           },
           {
             "ticker": "TIGER200",
             "name": "TIGER 200",
-            "signal": "소규모탐색"
-          },
-          {
-            "ticker": "KODEX_SEMI",
-            "name": "KODEX 반도체",
             "signal": "소규모탐색"
           }
         ]
@@ -462,18 +462,18 @@
         "deploy_amount": 1508402,
         "top_picks": [
           {
+            "ticker": "SPY",
+            "name": "S&P 500 ETF",
+            "signal": "강력매수"
+          },
+          {
             "ticker": "QQQ",
             "name": "나스닥 100 ETF",
             "signal": "분할매수"
           },
           {
-            "ticker": "GLD",
-            "name": "금 ETF",
-            "signal": "분할매수"
-          },
-          {
-            "ticker": "SPY",
-            "name": "S&P 500 ETF",
+            "ticker": "EWJ",
+            "name": "iShares MSCI Japan",
             "signal": "소규모탐색"
           }
         ]
@@ -485,13 +485,13 @@
         "deploy_amount": 1947820,
         "top_picks": [
           {
-            "ticker": "QQQ",
-            "name": "나스닥 100 ETF",
-            "signal": "분할매수"
-          },
-          {
             "ticker": "TIGER_NQ100",
             "name": "TIGER 미국나스닥100",
+            "signal": "강력매수"
+          },
+          {
+            "ticker": "QQQ",
+            "name": "나스닥 100 ETF",
             "signal": "분할매수"
           },
           {
@@ -508,38 +508,38 @@
       "role": "거시경제 전략가",
       "date": "2026-03-31",
       "current_regime": "중립 횡보 국면",
-      "market_signal": "신중한 탐색",
+      "market_signal": "관망 유지",
       "macro_drivers": [
         "VIX 31.1",
-        "미국 10년물 4.34%",
-        "원/달러 1516원",
-        "WTI $102.5"
+        "미국 10년물 4.44%",
+        "원/달러 1525원",
+        "WTI $105.3"
       ],
       "score_trend": {
-        "delta_1d": 5.38,
-        "delta_1w": 1.03,
-        "delta_1m": 5.63,
+        "delta_1d": -0.45,
+        "delta_1w": -4.8,
+        "delta_1m": -0.2,
         "regime_streak": 30,
-        "direction_1w": "완만한 개선"
+        "direction_1w": "뚜렷한 악화"
       },
       "horizon_bias": [
         {
           "period": "1주",
           "regime": "중립 횡보 국면",
-          "avg_score": 46.9,
-          "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 47.6점을 기록 중입니다. VIX 27.4로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1513원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+          "avg_score": 48.9,
+          "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 52.9점을 기록 중입니다. VIX 31.1로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1516원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
         },
         {
           "period": "1개월",
           "regime": "중립 횡보 국면",
-          "avg_score": 48.3,
-          "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 47.6점을 기록 중입니다. VIX 27.4로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1513원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+          "avg_score": 48.5,
+          "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 52.9점을 기록 중입니다. VIX 31.1로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1516원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
         },
         {
           "period": "3개월",
           "regime": "중립 횡보 국면",
-          "avg_score": 48.7,
-          "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 47.6점을 기록 중입니다. VIX 27.4로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1513원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+          "avg_score": 48.8,
+          "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 52.9점을 기록 중입니다. VIX 31.1로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1516원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
         }
       ],
       "primary_question": "지금은 공격적으로 비중을 늘릴 시점인가, 아니면 과매도 자산만 선별적으로 모을 시점인가?"
@@ -547,84 +547,93 @@
     "quant_analyst": {
       "role": "퀀트 애널리스트",
       "market_signal": {
-        "market_score": 46.0,
-        "macro_total": 52.94,
-        "valuation_avg": 39,
-        "action": "신중한 탐색",
-        "deployable_pct": 30,
-        "note": "혼조 구간 — 핵심 ETF만 소규모 탐색, 현금 비중 유지",
+        "market_score": 40.1,
+        "macro_total": 47.11,
+        "valuation_avg": 33,
+        "action": "관망 유지",
+        "deployable_pct": 15,
+        "note": "리스크 높음 — 대기 현금 확보, 과매도 포착 후 진입",
         "regime": "Neutral"
       },
       "valuation_summary": {
-        "avg_score": 39,
-        "market_valuation": "다소 고평가 — 진입 속도 조절 권장"
+        "avg_score": 33,
+        "market_valuation": "고평가 — 안전자산 비중 유지"
       },
       "valuation_table": {
         "sp500": {
-          "price": 6400.96,
-          "range_52w_pct": 71.1,
-          "vs_ma200_pct": -3.55,
+          "price": 6343.72,
+          "range_52w_pct": 68.2,
+          "vs_ma200_pct": -4.41,
           "estimated_pe": 22.0,
           "earnings_yield_pct": 4.55,
-          "us10y_yield_pct": 4.2,
-          "erp_pct": 0.35,
+          "us10y_yield_pct": 4.44,
+          "erp_pct": 0.11,
           "erp_assessment": "낮음 (주식 매력도 제한적)",
           "shiller_cape": null,
           "valuation_grade": "적정",
           "valuation_score": 50
         },
         "kospi": {
-          "price": 5438.87,
-          "range_52w_pct": 78.4,
-          "vs_ma200_pct": 35.56,
+          "price": 5065.62,
+          "range_52w_pct": 69.1,
+          "vs_ma200_pct": 25.89,
           "estimated_pbr": 1.3,
           "pbr_assessment": "고평가 구간",
           "valuation_grade": "고평가",
           "valuation_score": 25
         },
         "nasdaq": {
-          "price": 21009.42,
-          "range_52w_pct": 66.1,
-          "vs_ma200_pct": -5.82,
+          "price": 20794.64,
+          "range_52w_pct": 63.6,
+          "vs_ma200_pct": -6.78,
           "estimated_pe": 30.0,
           "earnings_yield_pct": 3.33,
-          "erp_pct": -0.87,
-          "valuation_grade": "다소 고평가",
-          "valuation_score": 43
+          "erp_pct": -1.11,
+          "valuation_grade": "고평가",
+          "valuation_score": 24
         },
         "gold": {
-          "price": 4561.1,
-          "range_52w_pct": 68.0,
-          "vs_ma200_pct": 11.33,
+          "price": 4568.5,
+          "range_52w_pct": 68.3,
+          "vs_ma200_pct": 11.51,
           "assessment": "중립",
           "valuation_score": 50
         }
       },
       "top_candidates": [
         {
-          "id": "QQQ",
-          "name": "나스닥 100 ETF",
-          "signal": "분할매수",
-          "timing_grade": "B",
-          "rsi": 24.7,
-          "first_amount": 436709,
-          "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+          "id": "TIGER_NQ100",
+          "name": "TIGER 미국나스닥100",
+          "signal": "강력매수",
+          "timing_grade": "A",
+          "rsi": 24.3,
+          "first_amount": 815190,
+          "schedule": "오늘 1차 진입 → 2~3일 내 눌림목 2차 → 추세 확인 후 3차"
         },
         {
-          "id": "GLD",
-          "name": "금 ETF",
+          "id": "SPY",
+          "name": "S&P 500 ETF",
+          "signal": "강력매수",
+          "timing_grade": "B",
+          "rsi": 23.3,
+          "first_amount": 1086921,
+          "schedule": "오늘 1차 진입 → 2~3일 내 눌림목 2차 → 추세 확인 후 3차"
+        },
+        {
+          "id": "KODEX_SEMI",
+          "name": "KODEX 반도체",
           "signal": "분할매수",
-          "timing_grade": "C",
-          "rsi": 24.9,
+          "timing_grade": "B",
+          "rsi": 34.8,
           "first_amount": 291139,
           "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
         },
         {
-          "id": "TIGER_NQ100",
-          "name": "TIGER 미국나스닥100",
+          "id": "QQQ",
+          "name": "나스닥 100 ETF",
           "signal": "분할매수",
-          "timing_grade": "A",
-          "rsi": 26.0,
+          "timing_grade": "B",
+          "rsi": 22.0,
           "first_amount": 436709,
           "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
         }
@@ -634,7 +643,7 @@
           "id": "XLE",
           "name": "에너지 섹터 ETF",
           "signal": "회피",
-          "reason": "RSI 95 극단 과매수 — 진입 금지 / MACD 상승추세 유지 (히스토그램 +0.281)"
+          "reason": "RSI 88 극단 과매수 — 진입 금지 / MACD 상승추세 유지 (히스토그램 +0.220)"
         }
       ],
       "quant_question": "정성적 뉴스 흐름이 실제 가격과 기술적 시그널에서 확인되는가?"
@@ -642,22 +651,22 @@
     "fundamental_researcher": {
       "role": "펀더멘털 리서처",
       "recent_7d_coverage": {
-        "document_count": 686,
+        "document_count": 787,
         "top_sources": [
-          {
-            "source_id": "naver_research",
-            "label": "네이버 금융 리서치",
-            "count": 285
-          },
           {
             "source_id": "opendart",
             "label": "OpenDART 공시",
-            "count": 282
+            "count": 332
+          },
+          {
+            "source_id": "naver_research",
+            "label": "네이버 금융 리서치",
+            "count": 332
           },
           {
             "source_id": "fred_api",
             "label": "FRED 거시지표",
-            "count": 32
+            "count": 35
           },
           {
             "source_id": "bis_speeches",
@@ -670,9 +679,9 @@
             "count": 20
           },
           {
-            "source_id": "fed_speeches_rss",
-            "label": "연준 연설",
-            "count": 14
+            "source_id": "ecos_api",
+            "label": "한국은행 ECOS",
+            "count": 15
           }
         ],
         "top_topics": [
@@ -769,22 +778,22 @@
         ]
       },
       "recent_30d_coverage": {
-        "document_count": 1602,
+        "document_count": 1703,
         "top_sources": [
           {
             "source_id": "opendart",
             "label": "OpenDART 공시",
-            "count": 1084
+            "count": 1134
           },
           {
             "source_id": "naver_research",
             "label": "네이버 금융 리서치",
-            "count": 285
+            "count": 332
           },
           {
             "source_id": "fred_api",
             "label": "FRED 거시지표",
-            "count": 146
+            "count": 149
           },
           {
             "source_id": "bis_speeches",
@@ -797,9 +806,9 @@
             "count": 20
           },
           {
-            "source_id": "fed_speeches_rss",
-            "label": "연준 연설",
-            "count": 14
+            "source_id": "ecos_api",
+            "label": "한국은행 ECOS",
+            "count": 15
           }
         ],
         "top_topics": [
@@ -925,8 +934,9 @@
       "role": "리스크 및 검증자",
       "risk_flags": [
         "VIX 31.1로 변동성 경계 상태",
-        "원/달러 1516원으로 원화 자산 부담 확대",
-        "시장 전반 밸류에이션 점수가 낮아 가격 메리트가 크지 않음"
+        "원/달러 1525원으로 원화 자산 부담 확대",
+        "시장 전반 밸류에이션 점수가 낮아 가격 메리트가 크지 않음",
+        "시장 전체는 관망 기조라 공격적 배치보다 선별 접근이 우선"
       ],
       "contradictions_to_check": [
         "리서치 문구는 낙관적이지만 시장 점수와 배치 가능 비중이 낮은지",
@@ -952,16 +962,16 @@
             {
               "ticker": "TIGER_NQ100",
               "name": "TIGER 미국나스닥100",
+              "signal": "강력매수"
+            },
+            {
+              "ticker": "KODEX_SEMI",
+              "name": "KODEX 반도체",
               "signal": "분할매수"
             },
             {
               "ticker": "TIGER200",
               "name": "TIGER 200",
-              "signal": "소규모탐색"
-            },
-            {
-              "ticker": "KODEX_SEMI",
-              "name": "KODEX 반도체",
               "signal": "소규모탐색"
             }
           ]
@@ -973,18 +983,18 @@
           "deploy_amount": 1508402,
           "top_picks": [
             {
+              "ticker": "SPY",
+              "name": "S&P 500 ETF",
+              "signal": "강력매수"
+            },
+            {
               "ticker": "QQQ",
               "name": "나스닥 100 ETF",
               "signal": "분할매수"
             },
             {
-              "ticker": "GLD",
-              "name": "금 ETF",
-              "signal": "분할매수"
-            },
-            {
-              "ticker": "SPY",
-              "name": "S&P 500 ETF",
+              "ticker": "EWJ",
+              "name": "iShares MSCI Japan",
               "signal": "소규모탐색"
             }
           ]
@@ -996,13 +1006,13 @@
           "deploy_amount": 1947820,
           "top_picks": [
             {
-              "ticker": "QQQ",
-              "name": "나스닥 100 ETF",
-              "signal": "분할매수"
-            },
-            {
               "ticker": "TIGER_NQ100",
               "name": "TIGER 미국나스닥100",
+              "signal": "강력매수"
+            },
+            {
+              "ticker": "QQQ",
+              "name": "나스닥 100 ETF",
               "signal": "분할매수"
             },
             {
