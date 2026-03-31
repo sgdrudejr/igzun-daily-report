@@ -19,7 +19,14 @@ fi
 
 latest_txt=$(ls -1t "$ROOT/data/account_snapshot_inbox/ocr_text"/*.txt 2>/dev/null | head -1 || true)
 if [ -n "${latest_txt:-}" ]; then
-  "$MAINPY" "$ROOT/scripts/parse_account_snapshot_text.py" "$latest_txt" || true
+  # Extract account key from filename if present (e.g. 20260331_120000_TOSS.txt)
+  fname=$(basename "${latest_txt}" .txt)
+  account_key=$(echo "$fname" | grep -oE '(TOSS|ISA|PENSION)$' || true)
+  if [ -n "${account_key:-}" ]; then
+    "$MAINPY" "$ROOT/scripts/parse_account_snapshot_text.py" "$latest_txt" --account "$account_key" || true
+  else
+    "$MAINPY" "$ROOT/scripts/parse_account_snapshot_text.py" "$latest_txt" || true
+  fi
 fi
 
 "$MAINPY" "$ROOT/scripts/update_portfolio_from_snapshot.py" || true

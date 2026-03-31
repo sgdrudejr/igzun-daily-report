@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>계좌 스냅샷 업로드</title>
+  <style>
+    :root {
+      --bg: #F5F6FA;
+      --card: #ffffff;
+      --blue: #3182F6;
+      --blue-light: #EBF2FF;
+      --t1: #191F28;
+      --t2: #4E5968;
+      --t3: #8B95A1;
+      --border: #E5E8EB;
+      --radius: 12px;
+      --danger: #F04452;
+      --success: #00B493;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      font-family: -apple-system, 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+      color: var(--t1);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 24px 16px 48px;
+    }
+    .container { width: 100%; max-width: 480px; }
+    .header { text-align: center; margin-bottom: 24px; }
+    .header-title { font-size: 20px; font-weight: 700; color: var(--t1); }
+    .header-sub { font-size: 14px; color: var(--t3); margin-top: 6px; line-height: 1.5; }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .card-title { font-size: 13px; font-weight: 600; color: var(--t2); margin-bottom: 12px; }
+    .field { margin-bottom: 16px; }
+    .field:last-child { margin-bottom: 0; }
+    label { display: block; font-size: 13px; font-weight: 600; color: var(--t2); margin-bottom: 6px; }
+    select, input[type="password"] {
+      width: 100%;
+      height: 44px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 0 12px;
+      font-size: 15px;
+      color: var(--t1);
+      background: var(--card);
+      -webkit-appearance: none;
+      outline: none;
+      transition: border-color .15s;
+    }
+    select:focus, input[type="password"]:focus { border-color: var(--blue); }
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+    }
+    .upload-zone:hover, .upload-zone.dragover { border-color: var(--blue); background: var(--blue-light); }
+    .upload-zone input[type="file"] { display: none; }
+    .upload-icon { font-size: 32px; margin-bottom: 8px; }
+    .upload-label { font-size: 15px; font-weight: 600; color: var(--blue); }
+    .upload-hint { font-size: 12px; color: var(--t3); margin-top: 4px; }
+    .preview-wrap { display: none; margin-top: 12px; }
+    .preview-wrap img {
+      width: 100%; max-height: 240px; object-fit: contain;
+      border-radius: 8px; border: 1px solid var(--border);
+    }
+    .preview-name { font-size: 12px; color: var(--t3); margin-top: 6px; }
+    .btn {
+      display: block; width: 100%;
+      height: 52px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .btn:hover { background: #1C6FE0; }
+    .btn:disabled { background: var(--border); color: var(--t3); cursor: not-allowed; }
+    .status-box {
+      display: none;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .status-box.success { background: #E6FAF5; color: var(--success); }
+    .status-box.error { background: #FFF0F0; color: var(--danger); }
+    .status-box.loading { background: var(--blue-light); color: var(--blue); }
+    .token-row { display: flex; align-items: center; gap: 8px; }
+    .token-row input { flex: 1; }
+    .token-toggle {
+      flex-shrink: 0;
+      height: 44px; width: 44px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      cursor: pointer;
+      font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--t3);
+    }
+    .info-note {
+      font-size: 12px; color: var(--t3); line-height: 1.6;
+      margin-top: 8px;
+    }
+    .info-note a { color: var(--blue); text-decoration: none; }
+    .progress-bar {
+      display: none;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--blue);
+      border-radius: 2px;
+      width: 0%;
+      transition: width .3s;
+    }
+    .remove-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 12px; color: var(--danger); cursor: pointer;
+      margin-top: 6px; background: none; border: none; padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-title">계좌 스냅샷 업로드</div>
+      <div class="header-sub">매수·매도 후 증권 앱 캡처를 업로드하면<br>리포트의 포트폴리오 섹션이 자동으로 업데이트됩니다.</div>
+    </div>
+
+    <div id="statusBox" class="status-box"></div>
+    <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+
+    <div class="card">
+      <div class="card-title">계좌 선택</div>
+      <div class="field">
+        <label for="accountSelect">어떤 계좌의 스냅샷인가요?</label>
+        <select id="accountSelect">
+          <option value="">계좌를 선택하세요</option>
+          <option value="TOSS">토스증권</option>
+          <option value="ISA">ISA (신한은행)</option>
+          <option value="PENSION">연금저축 (신한은행)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">스냅샷 이미지</div>
+      <div class="field">
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="fileInput" accept="image/*">
+          <div class="upload-icon">📷</div>
+          <div class="upload-label">이미지 선택 또는 드래그</div>
+          <div class="upload-hint">PNG, JPG, HEIC 등 이미지 파일</div>
+        </div>
+        <div class="preview-wrap" id="previewWrap">
+          <img id="previewImg" src="" alt="미리보기">
+          <div class="preview-name" id="previewName"></div>
+          <button class="remove-btn" id="removeBtn">✕ 제거</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">GitHub 인증</div>
+      <div class="field">
+        <label for="tokenInput">Personal Access Token (PAT)</label>
+        <div class="token-row">
+          <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off">
+          <button class="token-toggle" id="tokenToggle" title="토큰 보기/숨기기">👁</button>
+        </div>
+        <div class="info-note">
+          PAT는 이 기기의 브라우저에만 저장됩니다. GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens에서 <b>Contents: Read and write</b> 권한으로 생성하세요.
+        </div>
+      </div>
+    </div>
+
+    <button class="btn" id="uploadBtn" disabled>업로드</button>
+  </div>
+
+  <script>
+    const REPO_OWNER = 'sgdrudejr';
+    const REPO_NAME  = 'igzun-daily-report';
+    const TARGET_DIR = 'data/account_snapshot_inbox/incoming_images';
+    const TOKEN_KEY  = 'igzun_gh_pat';
+
+    const fileInput    = document.getElementById('fileInput');
+    const uploadZone   = document.getElementById('uploadZone');
+    const previewWrap  = document.getElementById('previewWrap');
+    const previewImg   = document.getElementById('previewImg');
+    const previewName  = document.getElementById('previewName');
+    const removeBtn    = document.getElementById('removeBtn');
+    const accountSel   = document.getElementById('accountSelect');
+    const tokenInput   = document.getElementById('tokenInput');
+    const tokenToggle  = document.getElementById('tokenToggle');
+    const uploadBtn    = document.getElementById('uploadBtn');
+    const statusBox    = document.getElementById('statusBox');
+    const progressBar  = document.getElementById('progressBar');
+    const progressFill = document.getElementById('progressFill');
+
+    let selectedFile = null;
+
+    // Restore saved token
+    const savedToken = localStorage.getItem(TOKEN_KEY);
+    if (savedToken) tokenInput.value = savedToken;
+
+    function updateBtn() {
+      uploadBtn.disabled = !(selectedFile && accountSel.value && tokenInput.value.trim());
+    }
+
+    function showStatus(msg, type) {
+      statusBox.textContent = msg;
+      statusBox.className = `status-box ${type}`;
+      statusBox.style.display = 'block';
+    }
+
+    function setProgress(pct) {
+      progressBar.style.display = 'block';
+      progressFill.style.width = pct + '%';
+    }
+
+    function clearStatus() {
+      statusBox.style.display = 'none';
+      progressBar.style.display = 'none';
+      progressFill.style.width = '0%';
+    }
+
+    function setFile(file) {
+      selectedFile = file;
+      const reader = new FileReader();
+      reader.onload = e => {
+        previewImg.src = e.target.result;
+        previewName.textContent = file.name;
+        previewWrap.style.display = 'block';
+        uploadZone.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+      updateBtn();
+    }
+
+    uploadZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files[0]) setFile(fileInput.files[0]);
+    });
+    uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+    uploadZone.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadZone.classList.remove('dragover');
+      if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]);
+    });
+
+    removeBtn.addEventListener('click', () => {
+      selectedFile = null;
+      fileInput.value = '';
+      previewWrap.style.display = 'none';
+      uploadZone.style.display = 'block';
+      clearStatus();
+      updateBtn();
+    });
+
+    accountSel.addEventListener('change', updateBtn);
+    tokenInput.addEventListener('input', updateBtn);
+
+    tokenToggle.addEventListener('click', () => {
+      const t = tokenInput;
+      t.type = t.type === 'password' ? 'text' : 'password';
+    });
+
+    uploadBtn.addEventListener('click', uploadFile);
+
+    async function toBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          // strip data URL prefix
+          resolve(reader.result.split(',')[1]);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function uploadFile() {
+      if (!selectedFile || !accountSel.value || !tokenInput.value.trim()) return;
+
+      clearStatus();
+      uploadBtn.disabled = true;
+      showStatus('업로드 준비 중…', 'loading');
+      setProgress(10);
+
+      const token   = tokenInput.value.trim();
+      const account = accountSel.value;
+      const now     = new Date();
+      const pad     = n => String(n).padStart(2, '0');
+      const ts      = `${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+      const ext     = selectedFile.name.split('.').pop().toLowerCase() || 'jpg';
+      const filename = `${ts}_${account}.${ext}`;
+      const path    = `${TARGET_DIR}/${filename}`;
+
+      localStorage.setItem(TOKEN_KEY, token);
+
+      try {
+        showStatus('이미지 인코딩 중…', 'loading');
+        setProgress(30);
+        const content = await toBase64(selectedFile);
+
+        showStatus('GitHub에 업로드 중…', 'loading');
+        setProgress(60);
+
+        const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
+        const resp = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28',
+          },
+          body: JSON.stringify({
+            message: `snapshot: ${account} ${ts}`,
+            content: content,
+          }),
+        });
+
+        setProgress(90);
+
+        if (resp.ok) {
+          setProgress(100);
+          showStatus(`✓ 업로드 완료! 맥미니 크론이 실행되면 자동으로 처리됩니다. (${account} · ${filename})`, 'success');
+          uploadBtn.disabled = false;
+        } else {
+          const err = await resp.json().catch(() => ({}));
+          showStatus(`업로드 실패: ${err.message || resp.statusText} (${resp.status})`, 'error');
+          uploadBtn.disabled = false;
+        }
+      } catch (e) {
+        showStatus(`오류: ${e.message}`, 'error');
+        uploadBtn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
