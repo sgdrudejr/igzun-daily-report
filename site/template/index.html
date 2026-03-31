@@ -10,7 +10,7 @@
 
     /* ── Design Tokens ──────────────────────────── */
     :root {
-      --bg:      #f0f2f5;
+      --bg:      #F5F6FA;
       --card:    #ffffff;
       --red:     #f04452;   /* 상승·매수·긍정 (한국 관례) */
       --blue:    #3182f6;   /* 하락·매도·부정 */
@@ -103,7 +103,7 @@
       cursor: pointer;
       white-space: nowrap;
       flex-shrink: 0;
-      border-bottom: 2px solid transparent;
+      border-bottom: 2.5px solid transparent;
       transition: color .15s, border-color .15s;
       letter-spacing: -0.02em;
     }
@@ -265,7 +265,7 @@
     .issue-row:last-child { border-bottom: none; padding-bottom: 0; }
     .issue-rank-num {
       width: 28px; height: 28px;
-      border-radius: 10px;
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 13px; font-weight: 900;
       flex-shrink: 0;
@@ -287,7 +287,7 @@
     }
     .key-stat { background: var(--card); border-radius: var(--r); padding: 16px 14px; box-shadow: var(--sh); }
     .key-stat-label { font-size: 11px; font-weight: 700; color: var(--t3); margin-bottom: 8px; }
-    .key-stat-value { font-size: 18px; font-weight: 900; color: var(--t1); line-height: 1.25; letter-spacing: -0.04em; word-break: keep-all; }
+    .key-stat-value { font-size: 18px; font-weight: 900; color: var(--t1); line-height: 1.25; letter-spacing: -0.04em; word-break: keep-all; font-variant-numeric: tabular-nums; }
     .key-stat-sub { margin-top: 6px; font-size: 11px; line-height: 1.5; color: var(--t3); }
 
     /* ── Priority Card (Dark) ───────────────────── */
@@ -311,10 +311,12 @@
     /* ── Score ──────────────────────────────────── */
     .score-wrap { margin-bottom: 16px; }
     .score-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; margin-bottom: 10px; }
-    .score-num { font-size: 32px; font-weight: 900; color: var(--t1); letter-spacing: -0.05em; }
-    .score-status { font-size: 13px; font-weight: 800; }
-    .score-track { height: 6px; background: var(--border); border-radius: 999px; overflow: hidden; }
-    .score-fill { height: 100%; border-radius: 999px; }
+    .score-num { font-size: 40px; font-weight: 900; color: var(--t1); letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+    .score-status { font-size: 13px; font-weight: 800; padding: 4px 12px; border-radius: 999px; }
+    .score-track { height: 10px; background: linear-gradient(to right, #1B64DA 0%, #60ABEB 30%, #FAC000 55%, #F57C00 75%, #F04452 100%); border-radius: 999px; position: relative; overflow: visible; }
+    .score-fill { display: none; }
+    .score-marker { position: absolute; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; background: #fff; border-radius: 50%; border: 3px solid; box-shadow: 0 2px 8px rgba(0,0,0,.18); transition: left .5s cubic-bezier(.25,.8,.25,1); }
+    .score-scale { display: flex; justify-content: space-between; font-size: 10px; font-weight: 600; color: var(--t3); margin-top: 6px; }
 
     /* ── Chips ──────────────────────────────────── */
     .stat-chip-group, .chip-group { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
@@ -343,7 +345,7 @@
     /* ── Rank Items ─────────────────────────────── */
     .rank-item { display: flex; gap: 12px; align-items: flex-start; padding: 13px 0; border-bottom: 1px solid var(--border); }
     .rank-item:last-child { border-bottom: none; }
-    .rank-num { width: 28px; height: 28px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; flex-shrink: 0; background: #f3f4f6; color: var(--t3); }
+    .rank-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; flex-shrink: 0; background: #f3f4f6; color: var(--t3); }
     .rank-num.r1 { background: #fff1e6; color: #c84b11; }
     .rank-num.r2 { background: #e8f1ff; color: var(--blue); }
     .rank-num.r3 { background: #f0f9f4; color: var(--green); }
@@ -468,7 +470,7 @@
 
     /* ── Direction Score ────────────────────────── */
     .dir-score-wrap { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
-    .dir-score-num { font-size: 42px; font-weight: 900; letter-spacing: -.05em; }
+    .dir-score-num { font-size: 48px; font-weight: 900; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
     .dir-regime-badge { padding: 7px 13px; border-radius: var(--rsm); background: #f3f4f6; font-size: 12px; font-weight: 800; color: var(--t2); }
 
     /* ── Signals ────────────────────────────────── */
@@ -503,9 +505,11 @@
     /* ── Metric Strip ───────────────────────────── */
     .metric-strip { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; margin-bottom: 12px; }
     .metric-strip::-webkit-scrollbar { display: none; }
-    .metric-pill { flex-shrink: 0; border-radius: var(--rsm); background: var(--card); border: 1px solid var(--border); padding: 10px 13px; min-width: 110px; }
-    .metric-pill-label { font-size: 11px; color: var(--t3); margin-bottom: 5px; }
-    .metric-pill-value { font-size: 15px; font-weight: 900; color: var(--t1); letter-spacing: -.03em; }
+    .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .metric-pill { flex-shrink: 0; border-radius: var(--rsm); background: #F5F6FA; padding: 12px 14px; min-width: 110px; }
+    .metric-grid .metric-pill { min-width: unset; }
+    .metric-pill-label { font-size: 11px; font-weight: 600; color: var(--t3); margin-bottom: 6px; }
+    .metric-pill-value { font-size: 17px; font-weight: 900; color: var(--t1); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
 
     /* ── Meta Footer ────────────────────────────── */
     .meta-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
@@ -943,7 +947,8 @@
                 <div class="score-num">${score.score}<span class="muted"> / 100</span></div>
                 <div class="score-status" style="color:${scoreClr};">${score.grade}</div>
               </div>
-              <div class="score-track"><div class="score-fill" style="width:${score.score}%;background:${scoreClr};"></div></div>
+              <div class="score-track"><div class="score-marker" style="left:${score.score}%;border-color:${scoreClr};"></div></div>
+              <div class="score-scale"><span>공포</span><span>중립</span><span>탐욕</span></div>
               <div class="muted" style="margin-top:8px;">${score.summary || ''}</div>
               ${renderStatChips(data.scoreChips || [])}
             </div>
@@ -1187,7 +1192,8 @@
               <div class="score-num">${score}<span class="muted"> / 100</span></div>
               <div class="score-status" style="color:${scoreClr};">${data.sentiment?.status || '중립'}</div>
             </div>
-            <div class="score-track"><div class="score-fill" style="width:${score}%;background:${scoreClr};"></div></div>
+            <div class="score-track"><div class="score-marker" style="left:${score}%;border-color:${scoreClr};"></div></div>
+            <div class="score-scale"><span>공포</span><span>중립</span><span>탐욕</span></div>
             <div class="body-text" style="margin-top:10px;">${actionMeta.desc}</div>
             <div class="muted" style="margin-top:8px;">${data.sentiment?.desc || ''}</div>
           </div>
@@ -1210,7 +1216,7 @@
           </div>` : ''}
         <div class="card">
           <div class="card-title">주요 지표와 시황 포인트</div>
-          <div class="metric-strip">${indices || ''}</div>
+          <div class="metric-grid">${indices || ''}</div>
           ${renderStatChips((data.metricChips || []).slice(0, 6))}
         </div>
         ${data.strategy ? `
