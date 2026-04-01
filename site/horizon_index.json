@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-03-31T10:02:36.611014",
-  "latestDailyDate": "2026-03-31",
+  "generatedAt": "2026-04-01T10:02:35.066872",
+  "latestDailyDate": "2026-04-01",
   "horizons": {
     "1일": [
+      {
+        "id": "2026-04-01",
+        "label": "4/1(수)",
+        "source": "horizons/daily/2026-04-01.json",
+        "fromDate": "2026-04-01",
+        "toDate": "2026-04-01",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
       {
         "id": "2026-03-31",
         "label": "3/31(화)",
@@ -609,6 +618,15 @@
     ],
     "1주": [
       {
+        "id": "2026-04-w1",
+        "label": "2026년 4월 1주",
+        "source": "horizons/weekly/2026-04-w1.json",
+        "fromDate": "2026-04-01",
+        "toDate": "2026-04-01",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
+      {
         "id": "2026-03-w5",
         "label": "2026년 3월 5주",
         "source": "horizons/weekly/2026-03-w5.json",
@@ -737,6 +755,15 @@
     ],
     "1개월": [
       {
+        "id": "2026-04",
+        "label": "2026년 4월",
+        "source": "horizons/monthly/2026-04.json",
+        "fromDate": "2026-04-01",
+        "toDate": "2026-04-01",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
+      {
         "id": "2026-03",
         "label": "2026년 3월",
         "source": "horizons/monthly/2026-03.json",
@@ -766,6 +793,15 @@
     ],
     "3개월": [
       {
+        "id": "2026-q2",
+        "label": "2026년 2분기",
+        "source": "horizons/quarterly/2026-q2.json",
+        "fromDate": "2026-04-01",
+        "toDate": "2026-04-01",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
+      {
         "id": "2026-q1",
         "label": "2026년 1분기",
         "source": "horizons/quarterly/2026-q1.json",
@@ -781,14 +817,14 @@
         "label": "2026년 상반기",
         "source": "horizons/halfyearly/2026-h1.json",
         "fromDate": "2026-01-01",
-        "toDate": "2026-03-31",
-        "updateCount": 67,
+        "toDate": "2026-04-01",
+        "updateCount": 68,
         "dataStatus": "full"
       }
     ]
   },
   "storageRetention": {
-    "generatedAt": "2026-03-31T10:02:36.484911",
+    "generatedAt": "2026-04-01T10:02:34.940259",
     "policy": {
       "raw_days": 45,
       "normalized_days": 75,
@@ -801,7 +837,7 @@
     "archivedCounts": {
       "raw": 0,
       "normalized": 1,
-      "manifests": 0
+      "manifests": 1
     }
   },
   "backfillRuns": [

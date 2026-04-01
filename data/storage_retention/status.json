@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T10:02:36.484911",
+  "generated_at": "2026-04-01T10:02:34.940259",
   "policy": {
     "raw_days": 45,
     "normalized_days": 75,
@@ -13,14 +13,19 @@
     "raw": [],
     "normalized": [
       {
-        "date": "2026-01-15",
-        "summary": "/Users/seo/igzun-daily-report/data/archive_summaries/normalized/2026-01-15.json",
-        "archive": "/Users/seo/igzun-daily-report/data/archives/normalized/2026-01-15.jsonl.gz",
-        "compact_docs": 49,
-        "compact_path": "/Users/seo/igzun-daily-report/data/archives/compact_normalized/2026-01-15.jsonl.gz"
+        "date": "2026-01-16",
+        "summary": "/Users/seo/igzun-daily-report/data/archive_summaries/normalized/2026-01-16.json",
+        "archive": "/Users/seo/igzun-daily-report/data/archives/normalized/2026-01-16.jsonl.gz",
+        "compact_docs": 51,
+        "compact_path": "/Users/seo/igzun-daily-report/data/archives/compact_normalized/2026-01-16.jsonl.gz"
       }
     ],
-    "manifests": []
+    "manifests": [
+      {
+        "date": "2026-01-01",
+        "archive": "/Users/seo/igzun-daily-report/data/archives/manifests/2026-01-01_run.json.gz"
+      }
+    ]
   },
   "skipped": []
 }
