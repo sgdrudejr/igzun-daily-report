@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-04-01T10:02:35.066872",
-  "latestDailyDate": "2026-04-01",
+  "generatedAt": "2026-04-02T10:02:36.409581",
+  "latestDailyDate": "2026-04-02",
   "horizons": {
     "1일": [
+      {
+        "id": "2026-04-02",
+        "label": "4/2(목)",
+        "source": "horizons/daily/2026-04-02.json",
+        "fromDate": "2026-04-02",
+        "toDate": "2026-04-02",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
       {
         "id": "2026-04-01",
         "label": "4/1(수)",
@@ -622,8 +631,8 @@
         "label": "2026년 4월 1주",
         "source": "horizons/weekly/2026-04-w1.json",
         "fromDate": "2026-04-01",
-        "toDate": "2026-04-01",
-        "updateCount": 1,
+        "toDate": "2026-04-02",
+        "updateCount": 2,
         "dataStatus": "full"
       },
       {
@@ -759,8 +768,8 @@
         "label": "2026년 4월",
         "source": "horizons/monthly/2026-04.json",
         "fromDate": "2026-04-01",
-        "toDate": "2026-04-01",
-        "updateCount": 1,
+        "toDate": "2026-04-02",
+        "updateCount": 2,
         "dataStatus": "full"
       },
       {
@@ -797,8 +806,8 @@
         "label": "2026년 2분기",
         "source": "horizons/quarterly/2026-q2.json",
         "fromDate": "2026-04-01",
-        "toDate": "2026-04-01",
-        "updateCount": 1,
+        "toDate": "2026-04-02",
+        "updateCount": 2,
         "dataStatus": "full"
       },
       {
@@ -817,14 +826,14 @@
         "label": "2026년 상반기",
         "source": "horizons/halfyearly/2026-h1.json",
         "fromDate": "2026-01-01",
-        "toDate": "2026-04-01",
-        "updateCount": 68,
+        "toDate": "2026-04-02",
+        "updateCount": 69,
         "dataStatus": "full"
       }
     ]
   },
   "storageRetention": {
-    "generatedAt": "2026-04-01T10:02:34.940259",
+    "generatedAt": "2026-04-02T10:02:36.280366",
     "policy": {
       "raw_days": 45,
       "normalized_days": 75,
@@ -835,8 +844,8 @@
       "delete_originals": true
     },
     "archivedCounts": {
-      "raw": 0,
-      "normalized": 1,
+      "raw": 1,
+      "normalized": 0,
       "manifests": 1
     }
   },
