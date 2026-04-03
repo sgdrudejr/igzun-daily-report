@@ -523,7 +523,7 @@
       "불안이 다시 커질 수 있어서 GLD와 TLT는 완전히 비우기보다 방어용 후보로 계속 보면서 대응하는 편이 좋습니다."
     ],
     "marketNarrative": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1505원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
-    "deepResearchSummary": "최근 7거래일 기준 1211건의 문서가 누적되었고, 단기 주제는 AI/반도체 17건, 금리/연준 16건, 유가/원자재 6건 입니다. 최근 30거래일 누적 주제는 유가/원자재 30건, 한국 수출/반도체 18건, 금리/연준 16건 로 이어지고 있습니다. 시장 총점은 1주 기준 +2.4p 변화했으며, 주간 관점은 중립 횡보 국면, 월간 관점은 중립 횡보 국면 로 해석됩니다.",
+    "deepResearchSummary": "최근 7거래일 기준 1261건의 문서가 누적되었고, 단기 주제는 AI/반도체 17건, 금리/연준 16건, 유가/원자재 6건 입니다. 최근 30거래일 누적 주제는 유가/원자재 30건, 한국 수출/반도체 18건, 금리/연준 16건 로 이어지고 있습니다. 시장 총점은 1주 기준 +2.4p 변화했으며, 주간 관점은 중립 횡보 국면, 월간 관점은 중립 횡보 국면 로 해석됩니다.",
     "regimeAssessment": "중립 횡보 국면으로 분류된 현재 환경은 고평가 — 안전자산 비중 유지.",
     "causalChains": [
       {
@@ -684,8 +684,8 @@
       {
         "claim": "최근 7거래일은 AI/반도체, 금리/연준 주제가 가장 많이 반복되었습니다.",
         "evidence": [
-          "최근 7거래일 문서 1211건",
-          "상위 출처: 네이버 금융 리서치 617건, OpenDART 공시 436건, FRED 거시지표 43건"
+          "최근 7거래일 문서 1261건",
+          "상위 출처: 네이버 금융 리서치 617건, OpenDART 공시 486건, FRED 거시지표 43건"
         ]
       },
       {
@@ -925,7 +925,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -936,7 +936,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -1033,7 +1033,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -1044,7 +1044,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "퀀트 레짐",
@@ -1114,7 +1114,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -1125,7 +1125,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -1152,7 +1152,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -1163,7 +1163,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -1244,7 +1244,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -1255,7 +1255,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -1282,7 +1282,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -1293,7 +1293,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -1320,7 +1320,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -1331,7 +1331,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -1422,7 +1422,7 @@
           {
             "name": "USD/KRW",
             "price": "1505.20",
-            "change": "▼0.21%",
+            "change": "▼0.13%",
             "isUp": false
           }
         ]
@@ -1480,7 +1480,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -1491,7 +1491,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -1630,7 +1630,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -1641,7 +1641,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -2679,7 +2679,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -2690,7 +2690,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "퀀트 레짐",
@@ -2807,7 +2807,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -2818,7 +2818,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -2927,7 +2927,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -2938,7 +2938,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -3047,7 +3047,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -3058,7 +3058,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -3167,7 +3167,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -3178,7 +3178,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -3403,7 +3403,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -3414,7 +3414,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -3511,7 +3511,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -3522,7 +3522,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "퀀트 레짐",
@@ -3592,7 +3592,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -3603,7 +3603,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -3630,7 +3630,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -3641,7 +3641,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -3722,7 +3722,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -3733,7 +3733,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -3760,7 +3760,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -3771,7 +3771,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -3798,7 +3798,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -3809,7 +3809,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -3900,7 +3900,7 @@
           {
             "name": "USD/KRW",
             "price": "1505.20",
-            "change": "▲0.04%",
+            "change": "▲0.12%",
             "isUp": true
           }
         ]
@@ -3958,7 +3958,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -3969,7 +3969,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -4108,7 +4108,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -4119,7 +4119,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -5157,7 +5157,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -5168,7 +5168,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "퀀트 레짐",
@@ -5285,7 +5285,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -5296,7 +5296,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -5405,7 +5405,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -5416,7 +5416,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -5525,7 +5525,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -5536,7 +5536,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -5645,7 +5645,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -5656,7 +5656,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -5881,7 +5881,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -5892,7 +5892,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -5989,7 +5989,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -6000,7 +6000,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "퀀트 레짐",
@@ -6070,7 +6070,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -6081,7 +6081,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -6108,7 +6108,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -6119,7 +6119,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -6200,7 +6200,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -6211,7 +6211,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -6238,7 +6238,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -6249,7 +6249,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -6276,7 +6276,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -6287,7 +6287,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -6378,7 +6378,7 @@
           {
             "name": "USD/KRW",
             "price": "1505.20",
-            "change": "▲3.30%",
+            "change": "▲3.38%",
             "isUp": true
           }
         ]
@@ -6436,7 +6436,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -6447,7 +6447,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -6586,7 +6586,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -6597,7 +6597,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -7642,7 +7642,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -7653,7 +7653,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "퀀트 레짐",
@@ -7770,7 +7770,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -7781,7 +7781,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -7890,7 +7890,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -7901,7 +7901,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -8010,7 +8010,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -8021,7 +8021,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -8130,7 +8130,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -8141,7 +8141,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -8366,7 +8366,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -8377,7 +8377,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -8474,7 +8474,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -8485,7 +8485,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "퀀트 레짐",
@@ -8555,7 +8555,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -8566,7 +8566,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -8593,7 +8593,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -8604,7 +8604,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -8685,7 +8685,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -8696,7 +8696,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -8723,7 +8723,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -8734,7 +8734,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -8761,7 +8761,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -8772,7 +8772,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -8863,7 +8863,7 @@
           {
             "name": "USD/KRW",
             "price": "1505.20",
-            "change": "▲4.39%",
+            "change": "▲4.47%",
             "isUp": true
           }
         ]
@@ -8921,7 +8921,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -8932,7 +8932,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -9071,7 +9071,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -9082,7 +9082,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -10134,7 +10134,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -10145,7 +10145,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "퀀트 레짐",
@@ -10262,7 +10262,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -10273,7 +10273,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -10382,7 +10382,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -10393,7 +10393,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -10502,7 +10502,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -10513,7 +10513,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -10622,7 +10622,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -10633,7 +10633,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -10858,7 +10858,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -10869,7 +10869,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -10966,7 +10966,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -10977,7 +10977,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "퀀트 레짐",
@@ -11047,7 +11047,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -11058,7 +11058,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -11085,7 +11085,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -11096,7 +11096,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -11177,7 +11177,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -11188,7 +11188,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               }
             ]
           },
@@ -11215,7 +11215,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -11226,7 +11226,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -11253,7 +11253,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -11264,7 +11264,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "네이버 금융 리서치",
@@ -11355,7 +11355,7 @@
           {
             "name": "USD/KRW",
             "price": "1505.20",
-            "change": "▲7.03%",
+            "change": "▲7.11%",
             "isUp": true
           }
         ]
@@ -11413,7 +11413,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -11424,7 +11424,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -11563,7 +11563,7 @@
             {
               "label": "OpenDART 공시",
               "source": "opendart",
-              "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+              "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
               "examples": [
                 "감사보고서 (2025.12)",
                 "감사보고서 (2025.12)",
@@ -11574,7 +11574,7 @@
               "sector": "equity",
               "doc_type": "filing",
               "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-              "count": 134
+              "count": 184
             },
             {
               "label": "네이버 금융 리서치",
@@ -12626,7 +12626,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -12637,7 +12637,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "퀀트 레짐",
@@ -12754,7 +12754,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -12765,7 +12765,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -12874,7 +12874,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -12885,7 +12885,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -12994,7 +12994,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -13005,7 +13005,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -13114,7 +13114,7 @@
               {
                 "label": "OpenDART 공시",
                 "source": "opendart",
-                "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+                "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
                 "examples": [
                   "감사보고서 (2025.12)",
                   "감사보고서 (2025.12)",
@@ -13125,7 +13125,7 @@
                 "sector": "equity",
                 "doc_type": "filing",
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-                "count": 134
+                "count": 184
               },
               {
                 "label": "ETF 추천",
@@ -13204,12 +13204,12 @@
     }
   },
   "meta": {
-    "docsCount": 235,
+    "docsCount": 285,
     "sourceCatalog": [
       {
         "label": "OpenDART 공시",
         "source": "opendart",
-        "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+        "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
         "examples": [
           "감사보고서 (2025.12)",
           "감사보고서 (2025.12)",
@@ -13220,7 +13220,7 @@
         "sector": "equity",
         "doc_type": "filing",
         "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-        "count": 134
+        "count": 184
       },
       {
         "label": "네이버 금융 리서치",
@@ -13287,11 +13287,11 @@
     ],
     "byRegion": {
       "US": 6,
-      "KR": 229
+      "KR": 279
     },
     "byDocumentType": {
       "time_series": 12,
-      "filing": 134,
+      "filing": 184,
       "research_report": 64,
       "research_meta": 25
     },

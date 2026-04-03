@@ -121,7 +121,7 @@
   "fundamental_researcher": {
     "role": "펀더멘털 리서처",
     "recent_7d_coverage": {
-      "document_count": 1211,
+      "document_count": 1261,
       "top_sources": [
         {
           "source_id": "naver_research",
@@ -131,7 +131,7 @@
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 436
+          "count": 486
         },
         {
           "source_id": "fred_api",
@@ -248,12 +248,12 @@
       ]
     },
     "recent_30d_coverage": {
-      "document_count": 2143,
+      "document_count": 2193,
       "top_sources": [
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 1264
+          "count": 1314
         },
         {
           "source_id": "naver_research",

@@ -533,7 +533,7 @@
       "불안이 다시 커질 수 있어서 GLD와 TLT는 완전히 비우기보다 방어용 후보로 계속 보면서 대응하는 편이 좋습니다."
     ],
     "marketNarrative": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1505원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
-    "deepResearchSummary": "최근 7거래일 기준 1211건의 문서가 누적되었고, 단기 주제는 AI/반도체 17건, 금리/연준 16건, 유가/원자재 6건 입니다. 최근 30거래일 누적 주제는 유가/원자재 30건, 한국 수출/반도체 18건, 금리/연준 16건 로 이어지고 있습니다. 시장 총점은 1주 기준 +2.4p 변화했으며, 주간 관점은 중립 횡보 국면, 월간 관점은 중립 횡보 국면 로 해석됩니다.",
+    "deepResearchSummary": "최근 7거래일 기준 1261건의 문서가 누적되었고, 단기 주제는 AI/반도체 17건, 금리/연준 16건, 유가/원자재 6건 입니다. 최근 30거래일 누적 주제는 유가/원자재 30건, 한국 수출/반도체 18건, 금리/연준 16건 로 이어지고 있습니다. 시장 총점은 1주 기준 +2.4p 변화했으며, 주간 관점은 중립 횡보 국면, 월간 관점은 중립 횡보 국면 로 해석됩니다.",
     "regimeAssessment": "중립 횡보 국면으로 분류된 현재 환경은 고평가 — 안전자산 비중 유지.",
     "causalChains": [
       {
@@ -694,8 +694,8 @@
       {
         "claim": "최근 7거래일은 AI/반도체, 금리/연준 주제가 가장 많이 반복되었습니다.",
         "evidence": [
-          "최근 7거래일 문서 1211건",
-          "상위 출처: 네이버 금융 리서치 617건, OpenDART 공시 436건, FRED 거시지표 43건"
+          "최근 7거래일 문서 1261건",
+          "상위 출처: 네이버 금융 리서치 617건, OpenDART 공시 486건, FRED 거시지표 43건"
         ]
       },
       {
@@ -896,7 +896,7 @@
     ],
     "forecast": {
       "title": "2026년 4월 1주 누적 판단",
-      "text": "2026년 4월 1주 동안 3회 일간 업데이트가 누적되었습니다. 평균 점수 49.6, 최근 점수 48.6, 최고 51.8, 최저 48.3. 누적 문서 562건, 주요 출처 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, 한국은행 ECOS. 1주 기준 미국은 S&P500 +1.6%, NASDAQ +2.2%, 한국은 KOSPI -1.1%, 일본은 닛케이 -0.5%, 유럽 DAX +2.5% 흐름입니다. 지금 시장은 중립 횡보 국면으로 해석되며, VIX 24.5, DXY 120.9, 미 10년물 4.33%, 원/달러 1505원이 단기 의사결정의 핵심 축입니다. 주간 관점에서는 코어 ETF를 조금 더 늘리되 추세 확인 전 과열 테마 비중 확대는 자제한다. 기술적으로는 RSI 47.3 수준이라 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다.",
+      "text": "2026년 4월 1주 동안 3회 일간 업데이트가 누적되었습니다. 평균 점수 49.6, 최근 점수 48.6, 최고 51.8, 최저 48.3. 누적 문서 612건, 주요 출처 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, 한국은행 ECOS. 1주 기준 미국은 S&P500 +1.6%, NASDAQ +2.2%, 한국은 KOSPI -1.1%, 일본은 닛케이 -0.5%, 유럽 DAX +2.5% 흐름입니다. 지금 시장은 중립 횡보 국면으로 해석되며, VIX 24.5, DXY 120.9, 미 10년물 4.33%, 원/달러 1505원이 단기 의사결정의 핵심 축입니다. 주간 관점에서는 코어 ETF를 조금 더 늘리되 추세 확인 전 과열 테마 비중 확대는 자제한다. 기술적으로는 RSI 47.3 수준이라 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다.",
       "sources": [
         {
           "label": "네이버 금융 리서치",
@@ -907,7 +907,7 @@
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 누적 234건",
+          "title": "OpenDART 공시 누적 284건",
           "published_at": "2026-04-03"
         },
         {
@@ -1001,7 +1001,7 @@
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+          "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
           "examples": [
             "감사보고서 (2025.12)",
             "감사보고서 (2025.12)",
@@ -1012,7 +1012,7 @@
           "sector": "equity",
           "doc_type": "filing",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-          "count": 134
+          "count": 184
         },
         {
           "label": "퀀트 레짐",
@@ -1036,7 +1036,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 누적 234건",
+            "title": "OpenDART 공시 누적 284건",
             "published_at": "2026-04-03"
           },
           {
@@ -1055,7 +1055,7 @@
       },
       {
         "category": "데이터",
-        "text": "누적 문서 562건, 주요 출처는 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, 한국은행 ECOS입니다. 매일 결과를 누적해 1주 관점으로 다시 정리한 뷰입니다.",
+        "text": "누적 문서 612건, 주요 출처는 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, 한국은행 ECOS입니다. 매일 결과를 누적해 1주 관점으로 다시 정리한 뷰입니다.",
         "sources": [
           {
             "label": "네이버 금융 리서치",
@@ -1066,7 +1066,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 누적 234건",
+            "title": "OpenDART 공시 누적 284건",
             "published_at": "2026-04-03"
           },
           {
@@ -1142,7 +1142,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -1153,7 +1153,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           }
         ]
       },
@@ -1180,7 +1180,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -1191,7 +1191,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "네이버 금융 리서치",
@@ -1272,7 +1272,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -1283,7 +1283,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           }
         ]
       },
@@ -1310,7 +1310,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -1321,7 +1321,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "네이버 금융 리서치",
@@ -1348,7 +1348,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -1359,7 +1359,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "네이버 금융 리서치",
@@ -1426,7 +1426,7 @@
       {
         "name": "USD/KRW",
         "price": "1505.20",
-        "change": "▲0.04%",
+        "change": "▲0.12%",
         "isUp": true
       }
     ]
@@ -1467,7 +1467,7 @@
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 누적 234건",
+          "title": "OpenDART 공시 누적 284건",
           "published_at": "2026-04-03"
         },
         {
@@ -1536,7 +1536,7 @@
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+          "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
           "examples": [
             "감사보고서 (2025.12)",
             "감사보고서 (2025.12)",
@@ -1547,7 +1547,7 @@
           "sector": "equity",
           "doc_type": "filing",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-          "count": 134
+          "count": 184
         },
         {
           "label": "네이버 금융 리서치",
@@ -1686,7 +1686,7 @@
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+          "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
           "examples": [
             "감사보고서 (2025.12)",
             "감사보고서 (2025.12)",
@@ -1697,7 +1697,7 @@
           "sector": "equity",
           "doc_type": "filing",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-          "count": 134
+          "count": 184
         },
         {
           "label": "네이버 금융 리서치",
@@ -2077,7 +2077,7 @@
   },
   "rebalancing": {
     "title": "1주 실행 가이드",
-    "summary": "1주 시점의 총 현금은 18,267,581원입니다. 실행 예산은 약 5,845,625원입니다. 대기 자금은 12,421,956원입니다. 이 가이드는 같은 포트폴리오라도 기간에 따라 매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다. 집행 리듬은 '주간 3회 분할매수'이며, 주초 1차, 중반 데이터 확인 후 2차, 주말 전 추세 확인 후 3차 원칙을 따릅니다. 2026년 4월 1주 동안 3회 업데이트, 누적 문서 562건을 반영한 실행 가이드입니다.",
+    "summary": "1주 시점의 총 현금은 18,267,581원입니다. 실행 예산은 약 5,845,625원입니다. 대기 자금은 12,421,956원입니다. 이 가이드는 같은 포트폴리오라도 기간에 따라 매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다. 집행 리듬은 '주간 3회 분할매수'이며, 주초 1차, 중반 데이터 확인 후 2차, 주말 전 추세 확인 후 3차 원칙을 따릅니다. 2026년 4월 1주 동안 3회 업데이트, 누적 문서 612건을 반영한 실행 가이드입니다.",
     "horizonNote": "1주의 질문은 '이번 주 흐름이 이어질 가능성이 있는가' 입니다. 그래서 1일 뷰에서는 초기 매수가 가능해 보여도, 6개월 뷰에서는 과열 테마의 최종 비중을 줄이라는 결론이 동시에 나올 수 있습니다. 또한 2026년 4월 1주 동안 3회 업데이트를 누적 반영한 가이드입니다.",
     "actions": [
       {
@@ -2735,7 +2735,7 @@
       {
         "label": "OpenDART 공시",
         "source": "opendart",
-        "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+        "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
         "examples": [
           "감사보고서 (2025.12)",
           "감사보고서 (2025.12)",
@@ -2746,7 +2746,7 @@
         "sector": "equity",
         "doc_type": "filing",
         "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-        "count": 134
+        "count": 184
       },
       {
         "label": "퀀트 레짐",
@@ -2863,7 +2863,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -2874,7 +2874,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "ETF 추천",
@@ -2983,7 +2983,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -2994,7 +2994,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "ETF 추천",
@@ -3103,7 +3103,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -3114,7 +3114,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "ETF 추천",
@@ -3223,7 +3223,7 @@
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 134건 수집 · 예시: 감사보고서 (2025.12)",
+            "title": "OpenDART 공시 184건 수집 · 예시: 감사보고서 (2025.12)",
             "examples": [
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)",
@@ -3234,7 +3234,7 @@
             "sector": "equity",
             "doc_type": "filing",
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
-            "count": 134
+            "count": 184
           },
           {
             "label": "ETF 추천",
@@ -3311,7 +3311,7 @@
     ]
   },
   "meta": {
-    "docsTotal": 562,
+    "docsTotal": 612,
     "sourceLabels": [
       "네이버 금융 리서치",
       "OpenDART 공시",
