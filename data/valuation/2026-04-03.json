@@ -15,9 +15,9 @@
     "valuation_score": 10
   },
   "kospi": {
-    "price": 5364.28,
-    "range_52w_pct": 76.5,
-    "vs_ma200_pct": 32.05,
+    "price": 5377.3,
+    "range_52w_pct": 76.8,
+    "vs_ma200_pct": 31.99,
     "estimated_pbr": 1.3,
     "pbr_assessment": "고평가 구간",
     "valuation_grade": "고평가",
@@ -34,9 +34,9 @@
     "valuation_score": 39
   },
   "gold": {
-    "price": 4702.7,
-    "range_52w_pct": 74.0,
-    "vs_ma200_pct": 14.24,
+    "price": 4651.5,
+    "range_52w_pct": 71.8,
+    "vs_ma200_pct": 13.01,
     "assessment": "중립",
     "valuation_score": 50
   },

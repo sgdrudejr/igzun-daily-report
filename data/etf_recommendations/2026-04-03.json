@@ -1,7 +1,7 @@
 {
   "date": "2026-04-03",
   "regime": "Neutral",
-  "macro_total_score": 48.56,
+  "macro_total_score": 48.6,
   "etf_count": 19,
   "recommendations": [
     {
@@ -30,11 +30,11 @@
       "score": 64,
       "tier": "매수",
       "regime_bias": 5,
-      "momentum_3m": 32.69,
+      "momentum_3m": 32.84,
       "momentum_12m": null,
-      "volatility_20d": 66.44,
-      "rsi": 46.9,
-      "rationale": "Neutral 레짐 중립 | 3M ▲32.7% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高"
+      "volatility_20d": 66.51,
+      "rsi": 47.0,
+      "rationale": "Neutral 레짐 중립 | 3M ▲32.8% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 67% 高"
     },
     {
       "id": "KODEX_SEMI",
@@ -46,11 +46,11 @@
       "score": 64,
       "tier": "매수",
       "regime_bias": 5,
-      "momentum_3m": 52.29,
+      "momentum_3m": 53.34,
       "momentum_12m": null,
-      "volatility_20d": 75.83,
-      "rsi": 43.1,
-      "rationale": "Neutral 레짐 중립 | 3M ▲52.3% 강한 모멘텀 | RSI 43 정상 구간 | 변동성 76% 高"
+      "volatility_20d": 76.25,
+      "rsi": 43.8,
+      "rationale": "Neutral 레짐 중립 | 3M ▲53.3% 강한 모멘텀 | RSI 44 정상 구간 | 변동성 76% 高"
     },
     {
       "id": "KODEX_US30Y",
@@ -62,27 +62,11 @@
       "score": 64,
       "tier": "매수",
       "regime_bias": 5,
-      "momentum_3m": 32.9,
+      "momentum_3m": 32.81,
       "momentum_12m": null,
-      "volatility_20d": 66.45,
+      "volatility_20d": 66.4,
       "rsi": 46.9,
-      "rationale": "Neutral 레짐 중립 | 3M ▲32.9% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高"
-    },
-    {
-      "id": "TIGER200_IT",
-      "name": "TIGER 200 IT",
-      "ticker": "371460.KS",
-      "region": "KR",
-      "type": "equity_sector",
-      "currency": "KRW",
-      "score": 62,
-      "tier": "매수",
-      "regime_bias": 5,
-      "momentum_3m": 9.1,
-      "momentum_12m": null,
-      "volatility_20d": 23.71,
-      "rsi": 45.1,
-      "rationale": "Neutral 레짐 중립 | 3M ▲9.1% 모멘텀 유지 | RSI 45 정상 구간"
+      "rationale": "Neutral 레짐 중립 | 3M ▲32.8% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高"
     },
     {
       "id": "TIGER_JAPAN",
@@ -91,14 +75,14 @@
       "region": "JP",
       "type": "equity_broad",
       "currency": "KRW",
-      "score": 61,
+      "score": 60,
       "tier": "매수",
       "regime_bias": 5,
-      "momentum_3m": 8.26,
+      "momentum_3m": 7.74,
       "momentum_12m": null,
-      "volatility_20d": 32.84,
-      "rsi": 51.8,
-      "rationale": "Neutral 레짐 중립 | 3M ▲8.3% 모멘텀 유지 | RSI 52 정상 구간 | 변동성 33% 高"
+      "volatility_20d": 32.66,
+      "rsi": 50.7,
+      "rationale": "Neutral 레짐 중립 | 3M ▲7.7% 모멘텀 유지 | RSI 51 정상 구간 | 변동성 33% 高"
     },
     {
       "id": "EWJ",
@@ -115,6 +99,22 @@
       "volatility_20d": 29.6,
       "rsi": 55.0,
       "rationale": "Neutral 레짐 중립 | 3M ▲5.6% 모멘텀 유지 | RSI 55 정상 구간"
+    },
+    {
+      "id": "TIGER200_IT",
+      "name": "TIGER 200 IT",
+      "ticker": "371460.KS",
+      "region": "KR",
+      "type": "equity_sector",
+      "currency": "KRW",
+      "score": 59,
+      "tier": "매수",
+      "regime_bias": 5,
+      "momentum_3m": 5.95,
+      "momentum_12m": null,
+      "volatility_20d": 25.24,
+      "rsi": 37.4,
+      "rationale": "Neutral 레짐 중립 | 3M ▲5.9% 모멘텀 유지 | RSI 37 정상 구간"
     },
     {
       "id": "GLD",
@@ -158,11 +158,11 @@
       "score": 55,
       "tier": "매수",
       "regime_bias": 0,
-      "momentum_3m": 6.14,
+      "momentum_3m": 5.97,
       "momentum_12m": null,
-      "volatility_20d": 16.53,
-      "rsi": 53.8,
-      "rationale": "Neutral 레짐 중립 | 3M ▲6.1% 모멘텀 유지 | RSI 54 정상 구간"
+      "volatility_20d": 16.66,
+      "rsi": 53.0,
+      "rationale": "Neutral 레짐 중립 | 3M ▲6.0% 모멘텀 유지 | RSI 53 정상 구간"
     },
     {
       "id": "IEF",
@@ -238,11 +238,11 @@
       "score": 53,
       "tier": "중립",
       "regime_bias": 5,
-      "momentum_3m": -1.22,
+      "momentum_3m": -1.53,
       "momentum_12m": null,
-      "volatility_20d": 16.05,
-      "rsi": 44.5,
-      "rationale": "Neutral 레짐 중립 | 3M ▼1.2% 모멘텀 약함 | RSI 44 정상 구간"
+      "volatility_20d": 15.81,
+      "rsi": 42.9,
+      "rationale": "Neutral 레짐 중립 | 3M ▼1.5% 모멘텀 약함 | RSI 43 정상 구간"
     },
     {
       "id": "SPY",
@@ -286,10 +286,10 @@
       "score": 48,
       "tier": "중립",
       "regime_bias": 5,
-      "momentum_3m": 2.39,
+      "momentum_3m": 2.43,
       "momentum_12m": null,
-      "volatility_20d": 47.06,
-      "rsi": 39.1,
+      "volatility_20d": 47.08,
+      "rsi": 39.2,
       "rationale": "Neutral 레짐 중립 | 3M ▲2.4% 모멘텀 약함 | RSI 39 정상 구간 | 변동성 47% 高"
     },
     {
@@ -324,7 +324,7 @@
       "name": "TIGER 200",
       "score": 64,
       "tier": "매수",
-      "rationale": "Neutral 레짐 중립 | 3M ▲32.7% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高"
+      "rationale": "Neutral 레짐 중립 | 3M ▲32.8% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 67% 高"
     },
     {
       "rank": 3,
@@ -332,7 +332,7 @@
       "name": "KODEX 반도체",
       "score": 64,
       "tier": "매수",
-      "rationale": "Neutral 레짐 중립 | 3M ▲52.3% 강한 모멘텀 | RSI 43 정상 구간 | 변동성 76% 高"
+      "rationale": "Neutral 레짐 중립 | 3M ▲53.3% 강한 모멘텀 | RSI 44 정상 구간 | 변동성 76% 高"
     }
   ],
   "context": {

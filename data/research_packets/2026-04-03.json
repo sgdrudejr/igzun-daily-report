@@ -7,13 +7,13 @@
     "macro_drivers": [
       "VIX 24.5",
       "미국 10년물 4.33%",
-      "원/달러 1508원",
+      "원/달러 1505원",
       "WTI $104.7"
     ],
     "score_trend": {
-      "delta_1d": 0.25,
-      "delta_1w": 2.34,
-      "delta_1m": 0.78,
+      "delta_1d": 0.29,
+      "delta_1w": 2.38,
+      "delta_1m": 0.82,
       "regime_streak": 30,
       "direction_1w": "완만한 개선"
     },
@@ -21,20 +21,20 @@
       {
         "period": "1주",
         "regime": "중립 횡보 국면",
-        "avg_score": 50.0,
-        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.3점을 기록 중입니다. VIX 25.2로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1510원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+        "avg_score": 49.5,
+        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1508원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
       },
       {
         "period": "1개월",
         "regime": "중립 횡보 국면",
-        "avg_score": 50.0,
-        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.3점을 기록 중입니다. VIX 25.2로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1510원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+        "avg_score": 49.5,
+        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1508원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
       },
       {
         "period": "3개월",
         "regime": "중립 횡보 국면",
-        "avg_score": 50.0,
-        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.3점을 기록 중입니다. VIX 25.2로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1510원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+        "avg_score": 49.5,
+        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1508원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
       }
     ],
     "primary_question": "지금은 공격적으로 비중을 늘릴 시점인가, 아니면 과매도 자산만 선별적으로 모을 시점인가?"
@@ -43,7 +43,7 @@
     "role": "퀀트 애널리스트",
     "market_signal": {
       "market_score": 36.3,
-      "macro_total": 48.56,
+      "macro_total": 48.6,
       "valuation_avg": 24,
       "action": "관망 유지",
       "deployable_pct": 15,
@@ -69,9 +69,9 @@
         "valuation_score": 10
       },
       "kospi": {
-        "price": 5364.28,
-        "range_52w_pct": 76.5,
-        "vs_ma200_pct": 32.05,
+        "price": 5377.3,
+        "range_52w_pct": 76.8,
+        "vs_ma200_pct": 31.99,
         "estimated_pbr": 1.3,
         "pbr_assessment": "고평가 구간",
         "valuation_grade": "고평가",
@@ -88,9 +88,9 @@
         "valuation_score": 39
       },
       "gold": {
-        "price": 4702.7,
-        "range_52w_pct": 74.0,
-        "vs_ma200_pct": 14.24,
+        "price": 4651.5,
+        "range_52w_pct": 71.8,
+        "vs_ma200_pct": 13.01,
         "assessment": "중립",
         "valuation_score": 50
       }
@@ -121,17 +121,17 @@
   "fundamental_researcher": {
     "role": "펀더멘털 리서처",
     "recent_7d_coverage": {
-      "document_count": 1119,
+      "document_count": 1177,
       "top_sources": [
         {
           "source_id": "naver_research",
           "label": "네이버 금융 리서치",
-          "count": 612
+          "count": 617
         },
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 352
+          "count": 402
         },
         {
           "source_id": "fred_api",
@@ -146,7 +146,7 @@
         {
           "source_id": "ecos_api",
           "label": "한국은행 ECOS",
-          "count": 27
+          "count": 29
         },
         {
           "source_id": "fed_press_rss",
@@ -248,17 +248,17 @@
       ]
     },
     "recent_30d_coverage": {
-      "document_count": 2051,
+      "document_count": 2109,
       "top_sources": [
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 1180
+          "count": 1230
         },
         {
           "source_id": "naver_research",
           "label": "네이버 금융 리서치",
-          "count": 612
+          "count": 617
         },
         {
           "source_id": "fred_api",
@@ -273,7 +273,7 @@
         {
           "source_id": "ecos_api",
           "label": "한국은행 ECOS",
-          "count": 27
+          "count": 29
         },
         {
           "source_id": "fed_press_rss",
@@ -403,7 +403,7 @@
   "skeptic_risk_manager": {
     "role": "리스크 및 검증자",
     "risk_flags": [
-      "원/달러 1508원으로 원화 자산 부담 확대",
+      "원/달러 1505원으로 원화 자산 부담 확대",
       "시장 전반 밸류에이션 점수가 낮아 가격 메리트가 크지 않음",
       "시장 전체는 관망 기조라 공격적 배치보다 선별 접근이 우선"
     ],
@@ -429,13 +429,13 @@
         "deploy_amount": 2937431,
         "top_picks": [
           {
-            "ticker": "TIGER200_IT",
-            "name": "TIGER 200 IT",
+            "ticker": "KODEX_SEMI",
+            "name": "KODEX 반도체",
             "signal": "소규모탐색"
           },
           {
-            "ticker": "KODEX_USD",
-            "name": "KODEX 미국달러선물",
+            "ticker": "TIGER200_IT",
+            "name": "TIGER 200 IT",
             "signal": "소규모탐색"
           }
         ]
