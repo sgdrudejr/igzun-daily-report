@@ -21,20 +21,20 @@
       {
         "period": "1주",
         "regime": "중립 횡보 국면",
-        "avg_score": 49.5,
-        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1508원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+        "avg_score": 49.6,
+        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1505원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
       },
       {
         "period": "1개월",
         "regime": "중립 횡보 국면",
-        "avg_score": 49.5,
-        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1508원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+        "avg_score": 49.6,
+        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1505원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
       },
       {
         "period": "3개월",
         "regime": "중립 횡보 국면",
-        "avg_score": 49.5,
-        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1508원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+        "avg_score": 49.6,
+        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1505원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
       }
     ],
     "primary_question": "지금은 공격적으로 비중을 늘릴 시점인가, 아니면 과매도 자산만 선별적으로 모을 시점인가?"
@@ -121,7 +121,7 @@
   "fundamental_researcher": {
     "role": "펀더멘털 리서처",
     "recent_7d_coverage": {
-      "document_count": 1177,
+      "document_count": 1211,
       "top_sources": [
         {
           "source_id": "naver_research",
@@ -131,7 +131,7 @@
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 402
+          "count": 436
         },
         {
           "source_id": "fred_api",
@@ -248,12 +248,12 @@
       ]
     },
     "recent_30d_coverage": {
-      "document_count": 2109,
+      "document_count": 2143,
       "top_sources": [
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 1230
+          "count": 1264
         },
         {
           "source_id": "naver_research",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-03T17:45:19.928220",
+  "generatedAt": "2026-04-03T17:53:07.664263",
   "latestDailyDate": "2026-04-03",
   "horizons": {
     "1일": [
@@ -842,7 +842,7 @@
     ]
   },
   "storageRetention": {
-    "generatedAt": "2026-04-03T17:45:19.801335",
+    "generatedAt": "2026-04-03T17:53:07.512838",
     "policy": {
       "raw_days": 45,
       "normalized_days": 75,
