@@ -1,0 +1,490 @@
+{
+  "macro_strategist": {
+    "role": "거시경제 전략가",
+    "date": "2026-04-03",
+    "current_regime": "중립 횡보 국면",
+    "market_signal": "관망 유지",
+    "macro_drivers": [
+      "VIX 24.5",
+      "미국 10년물 4.33%",
+      "원/달러 1508원",
+      "WTI $104.7"
+    ],
+    "score_trend": {
+      "delta_1d": 0.25,
+      "delta_1w": 2.34,
+      "delta_1m": 0.78,
+      "regime_streak": 30,
+      "direction_1w": "완만한 개선"
+    },
+    "horizon_bias": [
+      {
+        "period": "1주",
+        "regime": "중립 횡보 국면",
+        "avg_score": 50.0,
+        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.3점을 기록 중입니다. VIX 25.2로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1510원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+      },
+      {
+        "period": "1개월",
+        "regime": "중립 횡보 국면",
+        "avg_score": 50.0,
+        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.3점을 기록 중입니다. VIX 25.2로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1510원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+      },
+      {
+        "period": "3개월",
+        "regime": "중립 횡보 국면",
+        "avg_score": 50.0,
+        "summary": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.3점을 기록 중입니다. VIX 25.2로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1510원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다."
+      }
+    ],
+    "primary_question": "지금은 공격적으로 비중을 늘릴 시점인가, 아니면 과매도 자산만 선별적으로 모을 시점인가?"
+  },
+  "quant_analyst": {
+    "role": "퀀트 애널리스트",
+    "market_signal": {
+      "market_score": 36.3,
+      "macro_total": 48.56,
+      "valuation_avg": 24,
+      "action": "관망 유지",
+      "deployable_pct": 15,
+      "note": "리스크 높음 — 대기 현금 확보, 과매도 포착 후 진입",
+      "regime": "Neutral"
+    },
+    "valuation_summary": {
+      "avg_score": 24,
+      "market_valuation": "고평가 — 안전자산 비중 유지"
+    },
+    "valuation_table": {
+      "sp500": {
+        "price": 6582.69,
+        "range_52w_pct": 80.2,
+        "vs_ma200_pct": -0.93,
+        "estimated_pe": 25.0,
+        "earnings_yield_pct": 4.0,
+        "us10y_yield_pct": 4.33,
+        "erp_pct": -0.33,
+        "erp_assessment": "음수 (채권이 주식보다 유리한 환경)",
+        "shiller_cape": null,
+        "valuation_grade": "고평가",
+        "valuation_score": 10
+      },
+      "kospi": {
+        "price": 5364.28,
+        "range_52w_pct": 76.5,
+        "vs_ma200_pct": 32.05,
+        "estimated_pbr": 1.3,
+        "pbr_assessment": "고평가 구간",
+        "valuation_grade": "고평가",
+        "valuation_score": 25
+      },
+      "nasdaq": {
+        "price": 21879.18,
+        "range_52w_pct": 76.1,
+        "vs_ma200_pct": -2.06,
+        "estimated_pe": 30.0,
+        "earnings_yield_pct": 3.33,
+        "erp_pct": -1.0,
+        "valuation_grade": "다소 고평가",
+        "valuation_score": 39
+      },
+      "gold": {
+        "price": 4702.7,
+        "range_52w_pct": 74.0,
+        "vs_ma200_pct": 14.24,
+        "assessment": "중립",
+        "valuation_score": 50
+      }
+    },
+    "top_candidates": [
+      {
+        "id": "TLT",
+        "name": "미국 장기국채 ETF",
+        "signal": "분할매수",
+        "timing_grade": "B",
+        "rsi": 53.5,
+        "first_amount": 436709,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+      },
+      {
+        "id": "IEF",
+        "name": "미국 중기국채 ETF",
+        "signal": "분할매수",
+        "timing_grade": "B",
+        "rsi": 49.9,
+        "first_amount": 349367,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+      }
+    ],
+    "avoid_candidates": [],
+    "quant_question": "정성적 뉴스 흐름이 실제 가격과 기술적 시그널에서 확인되는가?"
+  },
+  "fundamental_researcher": {
+    "role": "펀더멘털 리서처",
+    "recent_7d_coverage": {
+      "document_count": 1119,
+      "top_sources": [
+        {
+          "source_id": "naver_research",
+          "label": "네이버 금융 리서치",
+          "count": 612
+        },
+        {
+          "source_id": "opendart",
+          "label": "OpenDART 공시",
+          "count": 352
+        },
+        {
+          "source_id": "fred_api",
+          "label": "FRED 거시지표",
+          "count": 43
+        },
+        {
+          "source_id": "bis_speeches",
+          "label": "BIS 연설",
+          "count": 34
+        },
+        {
+          "source_id": "ecos_api",
+          "label": "한국은행 ECOS",
+          "count": 27
+        },
+        {
+          "source_id": "fed_press_rss",
+          "label": "연준 보도자료",
+          "count": 20
+        }
+      ],
+      "top_topics": [
+        {
+          "topic": "AI/반도체",
+          "count": 17,
+          "examples": [
+            "Cook, Opening Remarks for the “AI and Productivity across the Economy” Panel",
+            "Waller, Operationalizing AI at the Federal Reserve"
+          ]
+        },
+        {
+          "topic": "금리/연준",
+          "count": 16,
+          "examples": [
+            "US 10Y Treasury Yield (DGS10)",
+            "High Yield Credit Spread (BAMLH0A0HYM2)"
+          ]
+        },
+        {
+          "topic": "유가/원자재",
+          "count": 6,
+          "examples": [
+            "WTI Crude Oil (DCOILWTICO)",
+            "사채원리금미지급발생"
+          ]
+        },
+        {
+          "topic": "방산/지정학",
+          "count": 5,
+          "examples": [
+            "[Morning Brief] 중동전쟁 불확실성 지속과 터보퀀트..",
+            "중동 긴장과 터보 퀀트 여파로 Risk-Off 심리 확대"
+          ]
+        },
+        {
+          "topic": "바이오/헬스케어",
+          "count": 3,
+          "examples": [
+            "경영권변경등에관한계약체결",
+            "정기주주총회결과"
+          ]
+        }
+      ],
+      "sample_docs": [
+        {
+          "source_id": "fred_api",
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-03-26",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"17.93\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"18.63\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value\": \"19.86\"\n  },\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"21.44\""
+        },
+        {
+          "source_id": "fred_api",
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-03-26",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"4.05\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"4.02\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value\": \"3.97\"\n  },\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"4.05\"\n  }"
+        },
+        {
+          "source_id": "fred_api",
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-03-20",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"117.769\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"117.9042\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value\": \"117.8223\"\n  },\n  {\n    \"date\": \"2026-03-02\",\n    \"value\":"
+        },
+        {
+          "source_id": "fred_api",
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2026-03-23",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"65.3\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"65.1\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value\": \"66.96\"\n  },\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"71.13\"\n "
+        },
+        {
+          "source_id": "fred_api",
+          "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+          "published_date": "2026-03-27",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"0.6\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value\": \"0.59\"\n  },\n  {\n    \"date\": \"2026-03-02\",\n    \"value\": \"0.58\"\n  },\n"
+        },
+        {
+          "source_id": "fred_api",
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-03-26",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-02-25\",\n    \"value\": \"2.94\"\n  },\n  {\n    \"date\": \"2026-02-26\",\n    \"value\": \"2.98\"\n  },\n  {\n    \"date\": \"2026-02-27\",\n    \"value\": \"3.10\"\n  },\n  {\n    \"date\": \"2026-02-28\",\n    \"value\": \"3.12\"\n  }"
+        }
+      ]
+    },
+    "recent_30d_coverage": {
+      "document_count": 2051,
+      "top_sources": [
+        {
+          "source_id": "opendart",
+          "label": "OpenDART 공시",
+          "count": 1180
+        },
+        {
+          "source_id": "naver_research",
+          "label": "네이버 금융 리서치",
+          "count": 612
+        },
+        {
+          "source_id": "fred_api",
+          "label": "FRED 거시지표",
+          "count": 147
+        },
+        {
+          "source_id": "bis_speeches",
+          "label": "BIS 연설",
+          "count": 34
+        },
+        {
+          "source_id": "ecos_api",
+          "label": "한국은행 ECOS",
+          "count": 27
+        },
+        {
+          "source_id": "fed_press_rss",
+          "label": "연준 보도자료",
+          "count": 20
+        }
+      ],
+      "top_topics": [
+        {
+          "topic": "유가/원자재",
+          "count": 30,
+          "examples": [
+            "WTI Crude Oil (DCOILWTICO)",
+            "[기재정정]일괄신고서(집합투자증권-신탁형)(한화100세시대퇴직연금2040증권자투자신탁1호(채권혼합))"
+          ]
+        },
+        {
+          "topic": "한국 수출/반도체",
+          "count": 18,
+          "examples": [
+            "자산양도등의등록신청서",
+            "[기재정정]일괄신고서(집합투자증권-신탁형)(대신KOSPI200인덱스증권자투자신탁[주식])"
+          ]
+        },
+        {
+          "topic": "금리/연준",
+          "count": 16,
+          "examples": [
+            "US 10Y Treasury Yield (DGS10)",
+            "High Yield Credit Spread (BAMLH0A0HYM2)"
+          ]
+        },
+        {
+          "topic": "AI/반도체",
+          "count": 11,
+          "examples": [
+            "[기재정정]일괄신고서(집합투자증권-신탁형)(KBRISE미국AI테크액티브증권상장지수투자신탁(주식))",
+            "일괄신고서(집합투자증권-신탁형)(대신DAISHIN343오피스리츠플러스부동산상장지수투자신탁[재간접형])"
+          ]
+        },
+        {
+          "topic": "배당/밸류업",
+          "count": 10,
+          "examples": [
+            "[기재정정]일괄신고서(집합투자증권-신탁형)(한화K리츠플러스분기배당형부동산자투자신탁(H)(리츠-재간접형))",
+            "[기재정정]일괄신고서(집합투자증권-신탁형)(한화PLUS자사주매입고배당주증권상장지수투자신탁(주식))"
+          ]
+        },
+        {
+          "topic": "방산/지정학",
+          "count": 2,
+          "examples": [
+            "[기재정정]일괄신고서(집합투자증권-신탁형)(한화PLUSK방산레버리지증권상장지수투자신탁(주식-파생형))",
+            "[기재정정]일괄신고서(집합투자증권-신탁형)(한화PLUSK방산증권상장지수투자신탁(주식))"
+          ]
+        }
+      ],
+      "sample_docs": [
+        {
+          "source_id": "fred_api",
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-02-24",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-01-26\",\n    \"value\": \"16.15\"\n  },\n  {\n    \"date\": \"2026-01-27\",\n    \"value\": \"16.35\"\n  },\n  {\n    \"date\": \"2026-01-28\",\n    \"value\": \"16.35\"\n  },\n  {\n    \"date\": \"2026-01-29\",\n    \"value\": \"16.88\""
+        },
+        {
+          "source_id": "fred_api",
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-02-24",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-01-26\",\n    \"value\": \"4.22\"\n  },\n  {\n    \"date\": \"2026-01-27\",\n    \"value\": \"4.24\"\n  },\n  {\n    \"date\": \"2026-01-28\",\n    \"value\": \"4.26\"\n  },\n  {\n    \"date\": \"2026-01-29\",\n    \"value\": \"4.24\"\n  }"
+        },
+        {
+          "source_id": "fred_api",
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-02-24",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-01-26\",\n    \"value\": \"118.0525\"\n  },\n  {\n    \"date\": \"2026-01-27\",\n    \"value\": \"117.4523\"\n  },\n  {\n    \"date\": \"2026-01-28\",\n    \"value\": \"117.5117\"\n  },\n  {\n    \"date\": \"2026-01-29\",\n    \"value\""
+        },
+        {
+          "source_id": "fred_api",
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2026-02-24",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-01-26\",\n    \"value\": \"60.46\"\n  },\n  {\n    \"date\": \"2026-01-27\",\n    \"value\": \"62.04\"\n  },\n  {\n    \"date\": \"2026-01-28\",\n    \"value\": \"62.75\"\n  },\n  {\n    \"date\": \"2026-01-29\",\n    \"value\": \"64.77\""
+        },
+        {
+          "source_id": "fred_api",
+          "title": "10Y-2Y Treasury Spread (T10Y2Y)",
+          "published_date": "2026-02-24",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-01-26\",\n    \"value\": \"0.66\"\n  },\n  {\n    \"date\": \"2026-01-27\",\n    \"value\": \"0.71\"\n  },\n  {\n    \"date\": \"2026-01-28\",\n    \"value\": \"0.7\"\n  },\n  {\n    \"date\": \"2026-01-29\",\n    \"value\": \"0.71\"\n  },"
+        },
+        {
+          "source_id": "fred_api",
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-02-24",
+          "region": "US",
+          "document_type": "time_series",
+          "summary": "[\n  {\n    \"date\": \"2026-01-26\",\n    \"value\": \"2.69\"\n  },\n  {\n    \"date\": \"2026-01-27\",\n    \"value\": \"2.71\"\n  },\n  {\n    \"date\": \"2026-01-28\",\n    \"value\": \"2.72\"\n  },\n  {\n    \"date\": \"2026-01-29\",\n    \"value\": \"2.77\"\n  }"
+        },
+        {
+          "source_id": "opendart",
+          "title": "증권신고서(집합투자증권-신탁형)(KKCGI어부바공모주알파증권투자신탁[채권혼합])",
+          "published_date": "2026-02-24",
+          "region": "KR",
+          "document_type": "filing",
+          "summary": "{\"corp_code\": \"00685935\", \"corp_name\": \"케이씨지아이자산운용\", \"stock_code\": \"\", \"corp_cls\": \"E\", \"report_nm\": \"증권신고서(집합투자증권-신탁형)(KKCGI어부바공모주알파증권투자신탁[채권혼합])\", \"rcept_no\": \"20260224002171\", \"flr_nm\": \"케이씨지아이자산운용\", \"rcept_dt\": \"2026"
+        },
+        {
+          "source_id": "opendart",
+          "title": "[기재정정]증권신고서(집합투자증권-신탁형)(신한지수연계증권투자신탁K-34호[채권])",
+          "published_date": "2026-02-24",
+          "region": "KR",
+          "document_type": "filing",
+          "summary": "{\"corp_code\": \"00243553\", \"corp_name\": \"신한자산운용\", \"stock_code\": \"\", \"corp_cls\": \"E\", \"report_nm\": \"[기재정정]증권신고서(집합투자증권-신탁형)(신한지수연계증권투자신탁K-34호[채권])\", \"rcept_no\": \"20260224003580\", \"flr_nm\": \"신한자산운용\", \"rcept_dt\": \"20260224\","
+        }
+      ]
+    },
+    "research_question": "최근 누적 문서에서 반복되는 섹터/정책/실적 논리가 현재 포트폴리오 행동과 연결되는가?"
+  },
+  "skeptic_risk_manager": {
+    "role": "리스크 및 검증자",
+    "risk_flags": [
+      "원/달러 1508원으로 원화 자산 부담 확대",
+      "시장 전반 밸류에이션 점수가 낮아 가격 메리트가 크지 않음",
+      "시장 전체는 관망 기조라 공격적 배치보다 선별 접근이 우선"
+    ],
+    "contradictions_to_check": [
+      "리서치 문구는 낙관적이지만 시장 점수와 배치 가능 비중이 낮은지",
+      "과매도 기술 신호가 있어도 밸류에이션이 너무 비싼 자산은 아닌지",
+      "한국 자산 매수 논리가 환율 상승과 충돌하지 않는지"
+    ],
+    "required_rechecks": [
+      "주간 점수 변화가 음수일 때는 추격매수 문구를 금지",
+      "시장 전체 신호가 관망이면 계좌별 액션도 소액 분할로 제한",
+      "상위 시그널과 source-backed 주장 간 불일치 여부 점검"
+    ]
+  },
+  "portfolio_operator": {
+    "role": "포트폴리오 실행 담당",
+    "total_cash": 18267581,
+    "accounts": [
+      {
+        "account_id": "ISA",
+        "label": "ISA (신한은행)",
+        "cash": 8392660,
+        "deploy_amount": 2937431,
+        "top_picks": [
+          {
+            "ticker": "TIGER200_IT",
+            "name": "TIGER 200 IT",
+            "signal": "소규모탐색"
+          },
+          {
+            "ticker": "KODEX_USD",
+            "name": "KODEX 미국달러선물",
+            "signal": "소규모탐색"
+          }
+        ]
+      },
+      {
+        "account_id": "TOSS",
+        "label": "토스증권",
+        "cash": 4309720,
+        "deploy_amount": 1508402,
+        "top_picks": [
+          {
+            "ticker": "TLT",
+            "name": "미국 장기국채 ETF",
+            "signal": "분할매수"
+          },
+          {
+            "ticker": "IEF",
+            "name": "미국 중기국채 ETF",
+            "signal": "분할매수"
+          },
+          {
+            "ticker": "XLE",
+            "name": "에너지 섹터 ETF",
+            "signal": "소규모탐색"
+          }
+        ]
+      },
+      {
+        "account_id": "PENSION",
+        "label": "연금저축 (신한은행)",
+        "cash": 5565201,
+        "deploy_amount": 1947820,
+        "top_picks": []
+      }
+    ],
+    "execution_question": "계좌별 제약을 고려했을 때 오늘 어떤 순서와 속도로 배치해야 하는가?"
+  },
+  "synthesis_editor": {
+    "role": "수석 에디터",
+    "required_sections": [
+      "executive_summary",
+      "core_theses",
+      "counter_signals",
+      "what_changed",
+      "scenario_matrix",
+      "account_actions",
+      "evidence_ledger",
+      "next_checkpoints"
+    ],
+    "editor_goal": "브리핑이 아니라 가설-반박-실행-점검 구조의 투자 메모를 만든다."
+  }
+}

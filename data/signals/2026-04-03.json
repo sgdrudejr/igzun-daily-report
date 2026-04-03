@@ -1,0 +1,2354 @@
+{
+  "date": "2026-04-03",
+  "regime": "Neutral",
+  "total_cash": 18267581,
+  "market_signal": {
+    "market_score": 36.3,
+    "macro_total": 48.56,
+    "valuation_avg": 24,
+    "action": "관망 유지",
+    "deployable_pct": 15,
+    "note": "리스크 높음 — 대기 현금 확보, 과매도 포착 후 진입",
+    "regime": "Neutral"
+  },
+  "signals": [
+    {
+      "id": "TLT",
+      "name": "미국 장기국채 ETF",
+      "ticker": "TLT",
+      "region": "US",
+      "type": "bond_long",
+      "currency": "USD",
+      "current_price": 86.79,
+      "signal": "분할매수",
+      "signal_info": {
+        "emoji": "🟢",
+        "action": "분할 매수 (1~2%씩, 3회 이상)",
+        "urgency": "중간"
+      },
+      "timing_score": 50,
+      "timing_grade": "B",
+      "timing_signal": "매수신호",
+      "etf_quant_score": 55,
+      "valuation_score": null,
+      "rsi": 53.5,
+      "volatility_20d": 13.4,
+      "position_sizing": {
+        "max_allocation_pct": 9.6,
+        "first_tranche_pct": 2.4,
+        "tranches": [
+          2.4,
+          3.3,
+          2.4,
+          1.4
+        ],
+        "first_amount": 436709,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액"
+      },
+      "entry_conditions": [
+        "현재 RSI 54 — 진입 가능 구간",
+        "200일선 근접(이격 +0.3%) — 현 수준에서 분할 진입 가능",
+        "MACD 골든크로스 — 즉시 진입 신호",
+        "캔들 강세장악형 확인 — 오늘 1차 진입 허용",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "MACD 골든크로스 발생 — 단기 상승 전환 신호",
+        "볼린저 스퀴즈(밴드폭=4.0%) — 변동성 수축, 대형 움직임 예고",
+        "RSI 54 중립 구간",
+        "캔들 패턴: 강세장악형 — 이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -0.4336,
+          "signal_line": -0.4731,
+          "histogram": 0.0395,
+          "crossover": "bullish",
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 88.3767,
+          "middle": 86.6419,
+          "lower": 84.9071,
+          "percent_b": 0.543,
+          "bandwidth": 4.0,
+          "squeeze": true,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 86.64,
+          "ma50": 87.41,
+          "ma120": 87.54,
+          "ma200": 86.54,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 0.29,
+          "score": -5
+        },
+        "rsi": 53.549084223387,
+        "candle": {
+          "pattern": "강세장악형",
+          "sentiment": "강한매수",
+          "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호",
+          "all_patterns": [
+            {
+              "pattern": "강세장악형",
+              "sentiment": "강한매수",
+              "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+            },
+            {
+              "pattern": "샛별형",
+              "sentiment": "강한매수",
+              "description": "하락 후 작은 캔들 + 강한 반등 — 바닥 전환"
+            },
+            {
+              "pattern": "집게형 저점",
+              "sentiment": "매수",
+              "description": "동일한 저점 두 번 — 지지 확인"
+            }
+          ]
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": -1.05,
+            "seg2_pct": 1.83,
+            "seg3_pct": -1.5,
+            "total_pct": -0.03
+          }
+        }
+      }
+    },
+    {
+      "id": "IEF",
+      "name": "미국 중기국채 ETF",
+      "ticker": "IEF",
+      "region": "US",
+      "type": "bond_mid",
+      "currency": "USD",
+      "current_price": 95.26,
+      "signal": "분할매수",
+      "signal_info": {
+        "emoji": "🟢",
+        "action": "분할 매수 (1~2%씩, 3회 이상)",
+        "urgency": "중간"
+      },
+      "timing_score": 50,
+      "timing_grade": "B",
+      "timing_signal": "매수신호",
+      "etf_quant_score": 54,
+      "valuation_score": null,
+      "rsi": 49.9,
+      "volatility_20d": 6.8,
+      "position_sizing": {
+        "max_allocation_pct": 7.6,
+        "first_tranche_pct": 1.9,
+        "tranches": [
+          1.9,
+          2.7,
+          1.9,
+          1.1
+        ],
+        "first_amount": 349367,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액"
+      },
+      "entry_conditions": [
+        "현재 RSI 50 — 진입 가능 구간",
+        "200일선 근접(이격 +0.7%) — 현 수준에서 분할 진입 가능",
+        "MACD 골든크로스 — 즉시 진입 신호",
+        "캔들 강세장악형 확인 — 오늘 1차 진입 허용",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "MACD 골든크로스 발생 — 단기 상승 전환 신호",
+        "볼린저 스퀴즈(밴드폭=2.5%) — 변동성 수축, 대형 움직임 예고",
+        "RSI 50 중립 구간",
+        "캔들 패턴: 강세장악형 — 이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -0.285,
+          "signal_line": -0.2983,
+          "histogram": 0.0133,
+          "crossover": "bullish",
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 96.4482,
+          "middle": 95.2692,
+          "lower": 94.0903,
+          "percent_b": 0.496,
+          "bandwidth": 2.48,
+          "squeeze": true,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 95.27,
+          "ma50": 95.66,
+          "ma120": 95.48,
+          "ma200": 94.58,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 0.72,
+          "score": -25
+        },
+        "rsi": 49.873450580829385,
+        "candle": {
+          "pattern": "강세장악형",
+          "sentiment": "강한매수",
+          "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호",
+          "all_patterns": [
+            {
+              "pattern": "강세장악형",
+              "sentiment": "강한매수",
+              "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+            },
+            {
+              "pattern": "집게형 저점",
+              "sentiment": "매수",
+              "description": "동일한 저점 두 번 — 지지 확인"
+            }
+          ]
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": -0.68,
+            "seg2_pct": 0.75,
+            "seg3_pct": -0.9,
+            "total_pct": -0.32
+          }
+        }
+      }
+    },
+    {
+      "id": "XLE",
+      "name": "에너지 섹터 ETF",
+      "ticker": "XLE",
+      "region": "US",
+      "type": "equity_sector",
+      "currency": "USD",
+      "current_price": 59.25,
+      "signal": "소규모탐색",
+      "signal_info": {
+        "emoji": "🔵",
+        "action": "탐색 진입 (1%씩, 확인 후 추가)",
+        "urgency": "낮음"
+      },
+      "timing_score": 5,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 79,
+      "valuation_score": null,
+      "rsi": 59.7,
+      "volatility_20d": 22.6,
+      "position_sizing": {
+        "max_allocation_pct": 3.4,
+        "first_tranche_pct": 3.4,
+        "tranches": [
+          3.4
+        ],
+        "first_amount": 621097,
+        "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "탐색 단계이므로 1회에 총 현금의 1%(182,675원) 이내만 진입"
+      },
+      "entry_conditions": [
+        "RSI 60이 45 이하로 내려올 때까지 대기",
+        "200일선 대비 +27.4% 이격 — 200일선 터치 시 분할 매수 강화",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세",
+        "200일선 +27.4% 이격 — 과열 주의",
+        "RSI 60 강세 구간 — 과열 접근 주의",
+        "엘리엇 파동: 횡보(판단보류) — 뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": 1.6189,
+          "signal_line": 1.8217,
+          "histogram": -0.2029,
+          "crossover": null,
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 62.972,
+          "middle": 58.8317,
+          "lower": 54.6913,
+          "percent_b": 0.551,
+          "bandwidth": 14.08,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 58.83,
+          "ma50": 55.33,
+          "ma120": 48.96,
+          "ma200": 46.5,
+          "alignment": "완전정배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 27.42,
+          "score": 85
+        },
+        "rsi": 59.717139032540764,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 17.06,
+            "seg2_pct": 8.18,
+            "seg3_pct": 5.42,
+            "total_pct": 32.15
+          }
+        }
+      }
+    },
+    {
+      "id": "TIGER200_IT",
+      "name": "TIGER 200 IT",
+      "ticker": "371460.KS",
+      "region": "KR",
+      "type": "equity_sector",
+      "currency": "KRW",
+      "current_price": 13485.0,
+      "signal": "소규모탐색",
+      "signal_info": {
+        "emoji": "🔵",
+        "action": "탐색 진입 (1%씩, 확인 후 추가)",
+        "urgency": "낮음"
+      },
+      "timing_score": 28,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 62,
+      "valuation_score": 25,
+      "rsi": 45.1,
+      "volatility_20d": 23.7,
+      "position_sizing": {
+        "max_allocation_pct": 3.4,
+        "first_tranche_pct": 3.4,
+        "tranches": [
+          3.4
+        ],
+        "first_amount": 621097,
+        "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "탐색 단계이므로 1회에 총 현금의 1%(182,675원) 이내만 진입"
+      },
+      "entry_conditions": [
+        "현재 RSI 45 — 진입 가능 구간",
+        "200일선 대비 +15.0% 이격 — 200일선 터치 시 분할 매수 강화",
+        "엘리엇 1파(시작) — 단계적 진입 가능",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세",
+        "RSI 45 중립 구간",
+        "엘리엇 파동: 1파(시작) — 초기 상승(1파) 가능성 — 아직 추세 미확인, 소규모 탐색 진입 적합"
+      ],
+      "account_fit": [
+        "ISA"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": 211.3911,
+          "signal_line": 225.2161,
+          "histogram": -13.825,
+          "crossover": null,
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 13959.8973,
+          "middle": 13369.5,
+          "lower": 12779.1027,
+          "percent_b": 0.598,
+          "bandwidth": 8.83,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 13369.5,
+          "ma50": 12848.5,
+          "ma120": 12775.48,
+          "ma200": 11727.29,
+          "alignment": "완전정배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 14.99,
+          "score": 85
+        },
+        "rsi": 45.13274336283186,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "1파(시작)",
+          "confidence": "낮음",
+          "interpretation": "초기 상승(1파) 가능성 — 아직 추세 미확인, 소규모 탐색 진입 적합",
+          "entry_timing": "좋음",
+          "segment_returns": {
+            "seg1_pct": -7.24,
+            "seg2_pct": 2.15,
+            "seg3_pct": 7.11,
+            "total_pct": 3.37
+          }
+        }
+      }
+    },
+    {
+      "id": "GLD",
+      "name": "금 ETF",
+      "ticker": "GLD",
+      "region": "US",
+      "type": "commodity_gold",
+      "currency": "USD",
+      "current_price": 429.41,
+      "signal": "소규모탐색",
+      "signal_info": {
+        "emoji": "🔵",
+        "action": "탐색 진입 (1%씩, 확인 후 추가)",
+        "urgency": "낮음"
+      },
+      "timing_score": 33,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 58,
+      "valuation_score": 50,
+      "rsi": 38.0,
+      "volatility_20d": 37.3,
+      "position_sizing": {
+        "max_allocation_pct": 3.4,
+        "first_tranche_pct": 3.4,
+        "tranches": [
+          3.4
+        ],
+        "first_amount": 621097,
+        "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "탐색 단계이므로 1회에 총 현금의 1%(182,675원) 이내만 진입"
+      },
+      "entry_conditions": [
+        "현재 RSI 38 — 진입 가능 구간",
+        "200일선 대비 +13.3% 이격 — 200일선 터치 시 분할 매수 강화",
+        "MACD 골든크로스 — 즉시 진입 신호",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "MACD 골든크로스 발생 — 단기 상승 전환 신호",
+        "RSI 38 약세 영역 — 저점 매수 탐색 가능",
+        "엘리엇 파동: 횡보(판단보류) — 뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -10.0789,
+          "signal_line": -10.3187,
+          "histogram": 0.2398,
+          "crossover": "bullish",
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 492.0483,
+          "middle": 439.1995,
+          "lower": 386.3507,
+          "percent_b": 0.407,
+          "bandwidth": 24.07,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 439.2,
+          "ma50": 454.7,
+          "ma120": 417.42,
+          "ma200": 378.96,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 13.31,
+          "score": 25
+        },
+        "rsi": 37.96062758696795,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 10.93,
+            "seg2_pct": 5.49,
+            "seg3_pct": -9.31,
+            "total_pct": 4.93
+          }
+        }
+      }
+    },
+    {
+      "id": "KODEX_USD",
+      "name": "KODEX 미국달러선물",
+      "ticker": "261240.KS",
+      "region": "US",
+      "type": "fx_dollar",
+      "currency": "KRW",
+      "current_price": 15380.0,
+      "signal": "소규모탐색",
+      "signal_info": {
+        "emoji": "🔵",
+        "action": "탐색 진입 (1%씩, 확인 후 추가)",
+        "urgency": "낮음"
+      },
+      "timing_score": 35,
+      "timing_grade": "B",
+      "timing_signal": "매수신호",
+      "etf_quant_score": 55,
+      "valuation_score": 25,
+      "rsi": 53.5,
+      "volatility_20d": 16.6,
+      "position_sizing": {
+        "max_allocation_pct": 2.7,
+        "first_tranche_pct": 2.7,
+        "tranches": [
+          2.7
+        ],
+        "first_amount": 496878,
+        "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "탐색 단계이므로 1회에 총 현금의 1%(182,675원) 이내만 진입"
+      },
+      "entry_conditions": [
+        "현재 RSI 53 — 진입 가능 구간",
+        "200일선 근접(이격 +6.8%) — 현 수준에서 분할 진입 가능",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 상승추세 유지 (히스토그램 +0.144)",
+        "볼린저 스퀴즈(밴드폭=4.5%) — 변동성 수축, 대형 움직임 예고",
+        "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세",
+        "RSI 53 중립 구간"
+      ],
+      "account_fit": [
+        "ISA"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": 147.8737,
+          "signal_line": 147.7298,
+          "histogram": 0.1439,
+          "crossover": null,
+          "trend": "상승추세",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 15631.7918,
+          "middle": 15287.75,
+          "lower": 14943.7082,
+          "percent_b": 0.634,
+          "bandwidth": 4.5,
+          "squeeze": true,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 15287.75,
+          "ma50": 14968.7,
+          "ma120": 14796.55,
+          "ma200": 14393.69,
+          "alignment": "완전정배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 6.85,
+          "score": 85
+        },
+        "rsi": 53.48189415041783,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 1.37,
+            "seg2_pct": 2.32,
+            "seg3_pct": 0.95,
+            "total_pct": 4.98
+          }
+        }
+      }
+    },
+    {
+      "id": "UUP",
+      "name": "달러 불리시 ETF",
+      "ticker": "UUP",
+      "region": "US",
+      "type": "fx_dollar",
+      "currency": "USD",
+      "current_price": 27.86,
+      "signal": "소규모탐색",
+      "signal_info": {
+        "emoji": "🔵",
+        "action": "탐색 진입 (1%씩, 확인 후 추가)",
+        "urgency": "낮음"
+      },
+      "timing_score": 33,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 53,
+      "valuation_score": null,
+      "rsi": 49.1,
+      "volatility_20d": 7.4,
+      "position_sizing": {
+        "max_allocation_pct": 2.7,
+        "first_tranche_pct": 2.7,
+        "tranches": [
+          2.7
+        ],
+        "first_amount": 496878,
+        "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "탐색 단계이므로 1회에 총 현금의 1%(182,675원) 이내만 진입"
+      },
+      "entry_conditions": [
+        "현재 RSI 49 — 진입 가능 구간",
+        "200일선 근접(이격 +3.5%) — 현 수준에서 분할 진입 가능",
+        "볼린저 상단 근접(%B=0.78) — 눌림목 대기",
+        "엘리엇 1파(시작) — 단계적 진입 가능",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "볼린저 스퀴즈(밴드폭=2.1%) — 변동성 수축, 대형 움직임 예고",
+        "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세",
+        "RSI 49 중립 구간",
+        "엘리엇 파동: 1파(시작) — 초기 상승(1파) 가능성 — 아직 추세 미확인, 소규모 탐색 진입 적합"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": 0.1473,
+          "signal_line": 0.1547,
+          "histogram": -0.0074,
+          "crossover": null,
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 27.9916,
+          "middle": 27.6965,
+          "lower": 27.4014,
+          "percent_b": 0.777,
+          "bandwidth": 2.13,
+          "squeeze": true,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 27.7,
+          "ma50": 27.27,
+          "ma120": 27.21,
+          "ma200": 26.91,
+          "alignment": "완전정배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 3.51,
+          "score": 85
+        },
+        "rsi": 49.10183402203385,
+        "candle": {
+          "pattern": "도지",
+          "sentiment": "중립",
+          "description": "매수·매도 균형, 추세 전환 가능성",
+          "all_patterns": [
+            {
+              "pattern": "도지",
+              "sentiment": "중립",
+              "description": "매수·매도 균형, 추세 전환 가능성"
+            }
+          ]
+        },
+        "elliott_wave": {
+          "wave_phase": "1파(시작)",
+          "confidence": "낮음",
+          "interpretation": "초기 상승(1파) 가능성 — 아직 추세 미확인, 소규모 탐색 진입 적합",
+          "entry_timing": "좋음",
+          "segment_returns": {
+            "seg1_pct": -0.7,
+            "seg2_pct": 1.44,
+            "seg3_pct": 1.42,
+            "total_pct": 2.43
+          }
+        }
+      }
+    },
+    {
+      "id": "EEM",
+      "name": "이머징마켓 ETF",
+      "ticker": "EEM",
+      "region": "EM",
+      "type": "equity_em",
+      "currency": "USD",
+      "current_price": 56.59,
+      "signal": "소규모탐색",
+      "signal_info": {
+        "emoji": "🔵",
+        "action": "탐색 진입 (1%씩, 확인 후 추가)",
+        "urgency": "낮음"
+      },
+      "timing_score": 25,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 53,
+      "valuation_score": null,
+      "rsi": 49.3,
+      "volatility_20d": 32.6,
+      "position_sizing": {
+        "max_allocation_pct": 4.1,
+        "first_tranche_pct": 4.1,
+        "tranches": [
+          4.1
+        ],
+        "first_amount": 745317,
+        "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "탐색 단계이므로 1회에 총 현금의 1%(182,675원) 이내만 진입"
+      },
+      "entry_conditions": [
+        "현재 RSI 49 — 진입 가능 구간",
+        "200일선 근접(이격 +5.5%) — 현 수준에서 분할 진입 가능",
+        "MACD 골든크로스 — 즉시 진입 신호",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "MACD 골든크로스 발생 — 단기 상승 전환 신호",
+        "RSI 49 중립 구간",
+        "엘리엇 파동: 횡보(판단보류) — 뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -0.8254,
+          "signal_line": -0.846,
+          "histogram": 0.0206,
+          "crossover": "bullish",
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 59.4406,
+          "middle": 57.113,
+          "lower": 54.7854,
+          "percent_b": 0.388,
+          "bandwidth": 8.15,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 57.11,
+          "ma50": 59.11,
+          "ma120": 56.4,
+          "ma200": 53.65,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 5.47,
+          "score": 25
+        },
+        "rsi": 49.26727435643929,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 3.43,
+            "seg2_pct": -1.54,
+            "seg3_pct": -1.27,
+            "total_pct": -0.46
+          }
+        }
+      }
+    },
+    {
+      "id": "TIGER200",
+      "name": "TIGER 200",
+      "ticker": "069500.KS",
+      "region": "KR",
+      "type": "equity_broad",
+      "currency": "KRW",
+      "current_price": 80570.0,
+      "signal": "관망",
+      "signal_info": {
+        "emoji": "⚪",
+        "action": "진입 보류 — 신호 확인 대기",
+        "urgency": "없음"
+      },
+      "timing_score": 0,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 64,
+      "valuation_score": 25,
+      "rsi": 47.0,
+      "volatility_20d": 66.5,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "현재 RSI 47 — 진입 가능 구간",
+        "200일선 대비 +39.1% 이격 — 200일선 터치 시 분할 매수 강화",
+        "MACD 하락추세 중 — MACD 전환 확인 후 진입",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 하락추세 지속",
+        "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세",
+        "200일선 +39.1% 이격 — 과열 주의",
+        "RSI 47 중립 구간"
+      ],
+      "account_fit": [
+        "ISA"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -555.2611,
+          "signal_line": 212.5225,
+          "histogram": -767.7837,
+          "crossover": null,
+          "trend": "하락추세",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 88754.9536,
+          "middle": 82350.0,
+          "lower": 75945.0464,
+          "percent_b": 0.361,
+          "bandwidth": 15.56,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 82350.0,
+          "ma50": 81006.95,
+          "ma120": 67711.38,
+          "ma200": 57923.51,
+          "alignment": "완전정배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 39.1,
+          "score": 25
+        },
+        "rsi": 47.01076865948756,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 9.92,
+            "seg2_pct": 6.73,
+            "seg3_pct": 2.99,
+            "total_pct": 21.82
+          }
+        }
+      }
+    },
+    {
+      "id": "KODEX_SEMI",
+      "name": "KODEX 반도체",
+      "ticker": "091160.KS",
+      "region": "KR",
+      "type": "equity_sector",
+      "currency": "KRW",
+      "current_price": 92640.0,
+      "signal": "관망",
+      "signal_info": {
+        "emoji": "⚪",
+        "action": "진입 보류 — 신호 확인 대기",
+        "urgency": "없음"
+      },
+      "timing_score": 16,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 64,
+      "valuation_score": 25,
+      "rsi": 43.2,
+      "volatility_20d": 75.9,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "현재 RSI 43 — 진입 가능 구간",
+        "200일선 대비 +57.7% 이격 — 200일선 터치 시 분할 매수 강화",
+        "볼린저 하단(%B=0.25) — 반등 확인 후 추가 매수",
+        "MACD 하락추세 중 — MACD 전환 확인 후 진입",
+        "엘리엇 3파(가속) — 단계적 진입 가능"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 하락추세 지속",
+        "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세",
+        "200일선 +57.7% 이격 — 과열 주의",
+        "RSI 43 약세 영역 — 저점 매수 탐색 가능"
+      ],
+      "account_fit": [
+        "ISA"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -35.9507,
+          "signal_line": 1555.1438,
+          "histogram": -1591.0945,
+          "crossover": null,
+          "trend": "하락추세",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 106449.356,
+          "middle": 97250.0,
+          "lower": 88050.644,
+          "percent_b": 0.249,
+          "bandwidth": 18.92,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 97250.0,
+          "ma50": 91388.3,
+          "ma120": 72379.96,
+          "ma200": 58732.2,
+          "alignment": "완전정배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 57.73,
+          "score": 65
+        },
+        "rsi": 43.23360412126016,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "3파(가속)",
+          "confidence": "중간",
+          "interpretation": "추세 가속 구간(3파) — 모멘텀 강하고 추가 상승 여력 있음",
+          "entry_timing": "좋음",
+          "segment_returns": {
+            "seg1_pct": 14.78,
+            "seg2_pct": 15.27,
+            "seg3_pct": -0.65,
+            "total_pct": 30.88
+          }
+        }
+      }
+    },
+    {
+      "id": "EWJ",
+      "name": "iShares MSCI Japan",
+      "ticker": "EWJ",
+      "region": "JP",
+      "type": "equity_broad",
+      "currency": "USD",
+      "current_price": 85.29,
+      "signal": "관망",
+      "signal_info": {
+        "emoji": "⚪",
+        "action": "진입 보류 — 신호 확인 대기",
+        "urgency": "없음"
+      },
+      "timing_score": -5,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 59,
+      "valuation_score": null,
+      "rsi": 55.0,
+      "volatility_20d": 29.6,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "RSI 55이 45 이하로 내려올 때까지 대기",
+        "200일선 근접(이격 +6.9%) — 현 수준에서 분할 진입 가능",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "RSI 55 강세 구간 — 과열 접근 주의",
+        "엘리엇 파동: 횡보(판단보류) — 뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토"
+      ],
+      "account_fit": [
+        "TOSS",
+        "PENSION"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -0.8843,
+          "signal_line": -1.2045,
+          "histogram": 0.3202,
+          "crossover": null,
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 87.1974,
+          "middle": 84.159,
+          "lower": 81.1206,
+          "percent_b": 0.686,
+          "bandwidth": 7.22,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 84.16,
+          "ma50": 87.17,
+          "ma120": 83.34,
+          "ma200": 79.79,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 6.9,
+          "score": 45
+        },
+        "rsi": 55.012981845233256,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 5.51,
+            "seg2_pct": -0.24,
+            "seg3_pct": 0.61,
+            "total_pct": 2.86
+          }
+        }
+      }
+    },
+    {
+      "id": "EZU",
+      "name": "iShares MSCI Eurozone",
+      "ticker": "EZU",
+      "region": "EU",
+      "type": "equity_broad",
+      "currency": "USD",
+      "current_price": 63.11,
+      "signal": "관망",
+      "signal_info": {
+        "emoji": "⚪",
+        "action": "진입 보류 — 신호 확인 대기",
+        "urgency": "없음"
+      },
+      "timing_score": 0,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 53,
+      "valuation_score": null,
+      "rsi": 53.5,
+      "volatility_20d": 27.6,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "현재 RSI 54 — 진입 가능 구간",
+        "200일선 근접(이격 +1.6%) — 현 수준에서 분할 진입 가능",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "RSI 54 중립 구간",
+        "엘리엇 파동: 횡보(판단보류) — 뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토"
+      ],
+      "account_fit": [
+        "TOSS",
+        "PENSION"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -0.9145,
+          "signal_line": -1.1816,
+          "histogram": 0.2671,
+          "crossover": null,
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 64.8531,
+          "middle": 62.436,
+          "lower": 60.0189,
+          "percent_b": 0.639,
+          "bandwidth": 7.74,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 62.44,
+          "ma50": 65.38,
+          "ma120": 63.93,
+          "ma200": 62.15,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 1.55,
+          "score": -5
+        },
+        "rsi": 53.53916411061008,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 2.15,
+            "seg2_pct": -3.33,
+            "seg3_pct": -0.32,
+            "total_pct": -3.6
+          }
+        }
+      }
+    },
+    {
+      "id": "TIGER_NQ100",
+      "name": "TIGER 미국나스닥100",
+      "ticker": "133690.KS",
+      "region": "US",
+      "type": "equity_tech",
+      "currency": "KRW",
+      "current_price": 160670.0,
+      "signal": "관망",
+      "signal_info": {
+        "emoji": "⚪",
+        "action": "진입 보류 — 신호 확인 대기",
+        "urgency": "없음"
+      },
+      "timing_score": -2,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 53,
+      "valuation_score": 25,
+      "rsi": 44.5,
+      "volatility_20d": 16.1,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "현재 RSI 44 — 진입 가능 구간",
+        "200일선 근접(이격 +4.1%) — 현 수준에서 분할 진입 가능",
+        "MACD 하락추세 중 — MACD 전환 확인 후 진입",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 하락추세 지속",
+        "RSI 44 약세 영역 — 저점 매수 탐색 가능",
+        "엘리엇 파동: 횡보(판단보류) — 뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토"
+      ],
+      "account_fit": [
+        "ISA",
+        "PENSION"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -763.3752,
+          "signal_line": -671.0767,
+          "histogram": -92.2984,
+          "crossover": null,
+          "trend": "하락추세",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 164801.7538,
+          "middle": 160729.75,
+          "lower": 156657.7462,
+          "percent_b": 0.493,
+          "bandwidth": 5.07,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 160729.75,
+          "ma50": 161496.72,
+          "ma120": 162377.55,
+          "ma200": 154315.02,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 4.12,
+          "score": -25
+        },
+        "rsi": 44.48618191574993,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": -0.16,
+            "seg2_pct": -0.99,
+            "seg3_pct": 0.0,
+            "total_pct": -1.56
+          }
+        }
+      }
+    },
+    {
+      "id": "SPY",
+      "name": "S&P 500 ETF",
+      "ticker": "SPY",
+      "region": "US",
+      "type": "equity_broad",
+      "currency": "USD",
+      "current_price": 655.83,
+      "signal": "관망",
+      "signal_info": {
+        "emoji": "⚪",
+        "action": "진입 보류 — 신호 확인 대기",
+        "urgency": "없음"
+      },
+      "timing_score": 15,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 51,
+      "valuation_score": 10,
+      "rsi": 47.4,
+      "volatility_20d": 18.7,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "현재 RSI 47 — 진입 가능 구간",
+        "200일선 근접(이격 -0.5%) — 현 수준에서 분할 진입 가능",
+        "MACD 골든크로스 — 즉시 진입 신호",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "밸류에이션 부담 (점수 10)",
+        "MACD 골든크로스 발생 — 단기 상승 전환 신호",
+        "이평선 역배열 — 하락 추세",
+        "RSI 47 중립 구간",
+        "엘리엇 파동: 횡보(판단보류) — 뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -8.1999,
+          "signal_line": -8.5747,
+          "histogram": 0.3748,
+          "crossover": "bullish",
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 682.2962,
+          "middle": 658.092,
+          "lower": 633.8877,
+          "percent_b": 0.453,
+          "bandwidth": 7.36,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 658.09,
+          "ma50": 674.97,
+          "ma120": 675.4,
+          "ma200": 659.04,
+          "alignment": "역배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": -0.49,
+          "score": -85
+        },
+        "rsi": 47.41981983688318,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": -0.49,
+            "seg2_pct": 0.54,
+            "seg3_pct": -2.2,
+            "total_pct": -4.63
+          }
+        }
+      }
+    },
+    {
+      "id": "KODEX_GOLD",
+      "name": "KODEX 골드선물(H)",
+      "ticker": "132030.KS",
+      "region": "US",
+      "type": "commodity_gold",
+      "currency": "KRW",
+      "current_price": 26590.0,
+      "signal": "관망",
+      "signal_info": {
+        "emoji": "⚪",
+        "action": "진입 보류 — 신호 확인 대기",
+        "urgency": "없음"
+      },
+      "timing_score": -2,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 48,
+      "valuation_score": 25,
+      "rsi": 39.2,
+      "volatility_20d": 47.1,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "현재 RSI 39 — 진입 가능 구간",
+        "200일선 대비 +12.0% 이격 — 200일선 터치 시 분할 매수 강화",
+        "MACD 하락추세 중 — MACD 전환 확인 후 진입",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 하락추세 지속",
+        "RSI 39 약세 영역 — 저점 매수 탐색 가능",
+        "엘리엇 파동: 횡보(판단보류) — 뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토"
+      ],
+      "account_fit": [
+        "ISA"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -696.4146,
+          "signal_line": -683.7825,
+          "histogram": -12.6321,
+          "crossover": null,
+          "trend": "하락추세",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 30615.8838,
+          "middle": 27190.0,
+          "lower": 23764.1162,
+          "percent_b": 0.412,
+          "bandwidth": 25.2,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 27190.0,
+          "ma50": 28245.1,
+          "ma120": 26081.01,
+          "ma200": 23740.67,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 12.0,
+          "score": 25
+        },
+        "rsi": 39.23117430226434,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 0.33,
+            "seg2_pct": 4.82,
+            "seg3_pct": -9.13,
+            "total_pct": 3.22
+          }
+        }
+      }
+    },
+    {
+      "id": "XLF",
+      "name": "금융 섹터 ETF",
+      "ticker": "XLF",
+      "region": "US",
+      "type": "equity_sector",
+      "currency": "USD",
+      "current_price": 49.53,
+      "signal": "관망",
+      "signal_info": {
+        "emoji": "⚪",
+        "action": "진입 보류 — 신호 확인 대기",
+        "urgency": "없음"
+      },
+      "timing_score": -5,
+      "timing_grade": "C",
+      "timing_signal": "중립관망",
+      "etf_quant_score": 46,
+      "valuation_score": null,
+      "rsi": 58.7,
+      "volatility_20d": 16.7,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "RSI 59이 45 이하로 내려올 때까지 대기",
+        "200일선 근접(이격 -5.2%) — 현 수준에서 분할 진입 가능",
+        "엘리엇 A파(조정시작) — 추격매수보다 조정 대기",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "MACD 강세 다이버전스 — 가격 신저점에서 MACD 반등, 바닥 신호",
+        "볼린저 스퀴즈(밴드폭=4.7%) — 변동성 수축, 대형 움직임 예고",
+        "이평선 역배열 — 하락 추세",
+        "RSI 59 강세 구간 — 과열 접근 주의"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -0.5572,
+          "signal_line": -0.7376,
+          "histogram": 0.1803,
+          "crossover": null,
+          "trend": "중립",
+          "divergence": "bullish_div"
+        },
+        "bollinger": {
+          "upper": 50.2874,
+          "middle": 49.1443,
+          "lower": 48.0012,
+          "percent_b": 0.669,
+          "bandwidth": 4.65,
+          "squeeze": true,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 49.14,
+          "ma50": 51.06,
+          "ma120": 52.28,
+          "ma200": 52.26,
+          "alignment": "역배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": -5.23,
+          "score": -65
+        },
+        "rsi": 58.684894466518216,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "A파(조정시작)",
+          "confidence": "낮음",
+          "interpretation": "A파 조정 시작 가능성 — 성급한 진입 자제, 추가 하락 대비 필요",
+          "entry_timing": "위험",
+          "segment_returns": {
+            "seg1_pct": -2.97,
+            "seg2_pct": -3.87,
+            "seg3_pct": -1.55,
+            "total_pct": -10.48
+          }
+        }
+      }
+    },
+    {
+      "id": "KODEX_US30Y",
+      "name": "KODEX 미국채울트라30년(H)",
+      "ticker": "148020.KS",
+      "region": "US",
+      "type": "bond_long",
+      "currency": "KRW",
+      "current_price": 81235.0,
+      "signal": "비중축소",
+      "signal_info": {
+        "emoji": "🟡",
+        "action": "기존 보유 비중 줄이기",
+        "urgency": "중간"
+      },
+      "timing_score": -12,
+      "timing_grade": "D",
+      "timing_signal": "매도신호",
+      "etf_quant_score": 64,
+      "valuation_score": 25,
+      "rsi": 47.0,
+      "volatility_20d": 66.5,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "현재 RSI 47 — 진입 가능 구간",
+        "200일선 대비 +39.2% 이격 — 200일선 터치 시 분할 매수 강화",
+        "MACD 하락추세 중 — MACD 전환 확인 후 진입",
+        "캔들 유성형 출현 — 양봉 확인 전까지 대기",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "MACD 하락추세 지속",
+        "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세",
+        "200일선 +39.2% 이격 — 과열 주의",
+        "RSI 47 중립 구간"
+      ],
+      "account_fit": [
+        "ISA",
+        "PENSION"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -550.2936,
+          "signal_line": 225.0027,
+          "histogram": -775.2963,
+          "crossover": null,
+          "trend": "하락추세",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 89461.0301,
+          "middle": 83023.25,
+          "lower": 76585.4699,
+          "percent_b": 0.361,
+          "bandwidth": 15.51,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 83023.25,
+          "ma50": 81661.04,
+          "ma120": 68228.4,
+          "ma200": 58347.85,
+          "alignment": "완전정배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 39.23,
+          "score": 25
+        },
+        "rsi": 47.01391454254403,
+        "candle": {
+          "pattern": "유성형",
+          "sentiment": "매도",
+          "description": "상승 고점에서의 매도 압력, 하락 전환 신호",
+          "all_patterns": [
+            {
+              "pattern": "유성형",
+              "sentiment": "매도",
+              "description": "상승 고점에서의 매도 압력, 하락 전환 신호"
+            }
+          ]
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 10.11,
+            "seg2_pct": 6.49,
+            "seg3_pct": 3.09,
+            "total_pct": 21.97
+          }
+        }
+      }
+    },
+    {
+      "id": "TIGER_JAPAN",
+      "name": "TIGER 일본니케이225",
+      "ticker": "241180.KS",
+      "region": "JP",
+      "type": "equity_broad",
+      "currency": "KRW",
+      "current_price": 30345.0,
+      "signal": "비중축소",
+      "signal_info": {
+        "emoji": "🟡",
+        "action": "기존 보유 비중 줄이기",
+        "urgency": "중간"
+      },
+      "timing_score": -12,
+      "timing_grade": "D",
+      "timing_signal": "매도신호",
+      "etf_quant_score": 61,
+      "valuation_score": 25,
+      "rsi": 51.8,
+      "volatility_20d": 32.8,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "현재 RSI 52 — 진입 가능 구간",
+        "200일선 대비 +12.6% 이격 — 200일선 터치 시 분할 매수 강화",
+        "캔들 유성형 출현 — 양봉 확인 전까지 대기",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "밸류에이션 부담 (점수 25)",
+        "RSI 52 중립 구간",
+        "캔들 패턴: 유성형 — 상승 고점에서의 매도 압력, 하락 전환 신호",
+        "엘리엇 파동: 횡보(판단보류) — 뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토"
+      ],
+      "account_fit": [
+        "ISA",
+        "PENSION"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -200.7836,
+          "signal_line": -245.0302,
+          "histogram": 44.2465,
+          "crossover": null,
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 30916.0706,
+          "middle": 30075.5,
+          "lower": 29234.9294,
+          "percent_b": 0.66,
+          "bandwidth": 5.59,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 30075.5,
+          "ma50": 30679.0,
+          "ma120": 29325.52,
+          "ma200": 26942.61,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 12.63,
+          "score": 45
+        },
+        "rsi": 51.76029962546817,
+        "candle": {
+          "pattern": "유성형",
+          "sentiment": "매도",
+          "description": "상승 고점에서의 매도 압력, 하락 전환 신호",
+          "all_patterns": [
+            {
+              "pattern": "유성형",
+              "sentiment": "매도",
+              "description": "상승 고점에서의 매도 압력, 하락 전환 신호"
+            }
+          ]
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": 3.12,
+            "seg2_pct": 1.47,
+            "seg3_pct": 1.97,
+            "total_pct": 4.51
+          }
+        }
+      }
+    },
+    {
+      "id": "QQQ",
+      "name": "나스닥 100 ETF",
+      "ticker": "QQQ",
+      "region": "US",
+      "type": "equity_tech",
+      "currency": "USD",
+      "current_price": 584.98,
+      "signal": "비중축소",
+      "signal_info": {
+        "emoji": "🟡",
+        "action": "기존 보유 비중 줄이기",
+        "urgency": "중간"
+      },
+      "timing_score": -30,
+      "timing_grade": "D",
+      "timing_signal": "매도신호",
+      "etf_quant_score": 50,
+      "valuation_score": 39,
+      "rsi": 46.1,
+      "volatility_20d": 22.7,
+      "position_sizing": {
+        "max_allocation_pct": 0,
+        "first_tranche_pct": 0,
+        "tranches": [],
+        "first_amount": 0,
+        "schedule": "진입 보류",
+        "micro_step_pct": 0,
+        "micro_step_amount": 0,
+        "micro_plan": "관망 또는 기존 보유분 관리가 우선"
+      },
+      "entry_conditions": [
+        "현재 RSI 46 — 진입 가능 구간",
+        "200일선 근접(이격 -1.4%) — 현 수준에서 분할 진입 가능",
+        "MACD 하락추세 중 — MACD 전환 확인 후 진입",
+        "엘리엇 B파(반등) — 추격매수보다 조정 대기",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "MACD 하락추세 지속",
+        "이평선 역배열 — 하락 추세",
+        "RSI 46 중립 구간",
+        "엘리엇 파동: B파(반등) — B파 반등 구간 — 일시적 반등, 추가 하락(C파) 가능성 있음"
+      ],
+      "account_fit": [
+        "TOSS",
+        "PENSION"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -7.9463,
+          "signal_line": -7.7494,
+          "histogram": -0.1969,
+          "crossover": null,
+          "trend": "하락추세",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 615.8914,
+          "middle": 589.0122,
+          "lower": 562.133,
+          "percent_b": 0.425,
+          "bandwidth": 9.13,
+          "squeeze": false,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 589.01,
+          "ma50": 602.59,
+          "ma120": 609.4,
+          "ma200": 593.52,
+          "alignment": "역배열",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": -1.44,
+          "score": -85
+        },
+        "rsi": 46.065778467869094,
+        "candle": {
+          "pattern": "없음",
+          "sentiment": "중립",
+          "description": "특이 패턴 없음"
+        },
+        "elliott_wave": {
+          "wave_phase": "B파(반등)",
+          "confidence": "낮음",
+          "interpretation": "B파 반등 구간 — 일시적 반등, 추가 하락(C파) 가능성 있음",
+          "entry_timing": "위험",
+          "segment_returns": {
+            "seg1_pct": -2.93,
+            "seg2_pct": 1.99,
+            "seg3_pct": -2.34,
+            "total_pct": -6.14
+          }
+        }
+      }
+    }
+  ],
+  "account_plans": {
+    "ISA": {
+      "label": "ISA (신한은행)",
+      "cash": 8392660,
+      "deploy_ratio": 0.35,
+      "deploy_amount": 2937431,
+      "top_picks": [
+        {
+          "id": "TIGER200_IT",
+          "name": "TIGER 200 IT",
+          "signal": "소규모탐색",
+          "timing_grade": "C",
+          "first_amount": 621097,
+          "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+        },
+        {
+          "id": "KODEX_USD",
+          "name": "KODEX 미국달러선물",
+          "signal": "소규모탐색",
+          "timing_grade": "B",
+          "first_amount": 496878,
+          "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+        }
+      ]
+    },
+    "TOSS": {
+      "label": "토스증권",
+      "cash": 4309720,
+      "deploy_ratio": 0.35,
+      "deploy_amount": 1508402,
+      "top_picks": [
+        {
+          "id": "TLT",
+          "name": "미국 장기국채 ETF",
+          "signal": "분할매수",
+          "timing_grade": "B",
+          "first_amount": 436709,
+          "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+        },
+        {
+          "id": "IEF",
+          "name": "미국 중기국채 ETF",
+          "signal": "분할매수",
+          "timing_grade": "B",
+          "first_amount": 349367,
+          "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+        },
+        {
+          "id": "XLE",
+          "name": "에너지 섹터 ETF",
+          "signal": "소규모탐색",
+          "timing_grade": "C",
+          "first_amount": 621097,
+          "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+        }
+      ]
+    },
+    "PENSION": {
+      "label": "연금저축 (신한은행)",
+      "cash": 5565201,
+      "deploy_ratio": 0.35,
+      "deploy_amount": 1947820,
+      "top_picks": []
+    }
+  },
+  "top_buys": [
+    {
+      "id": "TLT",
+      "name": "미국 장기국채 ETF",
+      "ticker": "TLT",
+      "region": "US",
+      "type": "bond_long",
+      "currency": "USD",
+      "current_price": 86.79,
+      "signal": "분할매수",
+      "signal_info": {
+        "emoji": "🟢",
+        "action": "분할 매수 (1~2%씩, 3회 이상)",
+        "urgency": "중간"
+      },
+      "timing_score": 50,
+      "timing_grade": "B",
+      "timing_signal": "매수신호",
+      "etf_quant_score": 55,
+      "valuation_score": null,
+      "rsi": 53.5,
+      "volatility_20d": 13.4,
+      "position_sizing": {
+        "max_allocation_pct": 9.6,
+        "first_tranche_pct": 2.4,
+        "tranches": [
+          2.4,
+          3.3,
+          2.4,
+          1.4
+        ],
+        "first_amount": 436709,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액"
+      },
+      "entry_conditions": [
+        "현재 RSI 54 — 진입 가능 구간",
+        "200일선 근접(이격 +0.3%) — 현 수준에서 분할 진입 가능",
+        "MACD 골든크로스 — 즉시 진입 신호",
+        "캔들 강세장악형 확인 — 오늘 1차 진입 허용",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "MACD 골든크로스 발생 — 단기 상승 전환 신호",
+        "볼린저 스퀴즈(밴드폭=4.0%) — 변동성 수축, 대형 움직임 예고",
+        "RSI 54 중립 구간",
+        "캔들 패턴: 강세장악형 — 이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -0.4336,
+          "signal_line": -0.4731,
+          "histogram": 0.0395,
+          "crossover": "bullish",
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 88.3767,
+          "middle": 86.6419,
+          "lower": 84.9071,
+          "percent_b": 0.543,
+          "bandwidth": 4.0,
+          "squeeze": true,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 86.64,
+          "ma50": 87.41,
+          "ma120": 87.54,
+          "ma200": 86.54,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 0.29,
+          "score": -5
+        },
+        "rsi": 53.549084223387,
+        "candle": {
+          "pattern": "강세장악형",
+          "sentiment": "강한매수",
+          "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호",
+          "all_patterns": [
+            {
+              "pattern": "강세장악형",
+              "sentiment": "강한매수",
+              "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+            },
+            {
+              "pattern": "샛별형",
+              "sentiment": "강한매수",
+              "description": "하락 후 작은 캔들 + 강한 반등 — 바닥 전환"
+            },
+            {
+              "pattern": "집게형 저점",
+              "sentiment": "매수",
+              "description": "동일한 저점 두 번 — 지지 확인"
+            }
+          ]
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": -1.05,
+            "seg2_pct": 1.83,
+            "seg3_pct": -1.5,
+            "total_pct": -0.03
+          }
+        }
+      }
+    },
+    {
+      "id": "IEF",
+      "name": "미국 중기국채 ETF",
+      "ticker": "IEF",
+      "region": "US",
+      "type": "bond_mid",
+      "currency": "USD",
+      "current_price": 95.26,
+      "signal": "분할매수",
+      "signal_info": {
+        "emoji": "🟢",
+        "action": "분할 매수 (1~2%씩, 3회 이상)",
+        "urgency": "중간"
+      },
+      "timing_score": 50,
+      "timing_grade": "B",
+      "timing_signal": "매수신호",
+      "etf_quant_score": 54,
+      "valuation_score": null,
+      "rsi": 49.9,
+      "volatility_20d": 6.8,
+      "position_sizing": {
+        "max_allocation_pct": 7.6,
+        "first_tranche_pct": 1.9,
+        "tranches": [
+          1.9,
+          2.7,
+          1.9,
+          1.1
+        ],
+        "first_amount": 349367,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+        "micro_step_pct": 1.0,
+        "micro_step_amount": 182675,
+        "micro_plan": "1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액"
+      },
+      "entry_conditions": [
+        "현재 RSI 50 — 진입 가능 구간",
+        "200일선 근접(이격 +0.7%) — 현 수준에서 분할 진입 가능",
+        "MACD 골든크로스 — 즉시 진입 신호",
+        "캔들 강세장악형 확인 — 오늘 1차 진입 허용",
+        "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
+      ],
+      "exit_conditions": [
+        "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+        "200일선 대비 +20% 이상 이격 시 이익 실현",
+        "데드크로스 발생 시 비중 50% 이하로 축소",
+        "볼린저밴드 상단 이탈(%B>1.0) 후 반락 시 축소",
+        "레짐이 Stagflation/Recession으로 전환 시 즉시 검토"
+      ],
+      "reasons": [
+        "MACD 골든크로스 발생 — 단기 상승 전환 신호",
+        "볼린저 스퀴즈(밴드폭=2.5%) — 변동성 수축, 대형 움직임 예고",
+        "RSI 50 중립 구간",
+        "캔들 패턴: 강세장악형 — 이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+      ],
+      "account_fit": [
+        "TOSS"
+      ],
+      "timing_details": {
+        "macd": {
+          "macd_line": -0.285,
+          "signal_line": -0.2983,
+          "histogram": 0.0133,
+          "crossover": "bullish",
+          "trend": "중립",
+          "divergence": null
+        },
+        "bollinger": {
+          "upper": 96.4482,
+          "middle": 95.2692,
+          "lower": 94.0903,
+          "percent_b": 0.496,
+          "bandwidth": 2.48,
+          "squeeze": true,
+          "position": "중간"
+        },
+        "ma_alignment": {
+          "ma20": 95.27,
+          "ma50": 95.66,
+          "ma120": 95.48,
+          "ma200": 94.58,
+          "alignment": "혼조",
+          "golden_cross": false,
+          "death_cross": false,
+          "price_vs_ma200_pct": 0.72,
+          "score": -25
+        },
+        "rsi": 49.873450580829385,
+        "candle": {
+          "pattern": "강세장악형",
+          "sentiment": "강한매수",
+          "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호",
+          "all_patterns": [
+            {
+              "pattern": "강세장악형",
+              "sentiment": "강한매수",
+              "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+            },
+            {
+              "pattern": "집게형 저점",
+              "sentiment": "매수",
+              "description": "동일한 저점 두 번 — 지지 확인"
+            }
+          ]
+        },
+        "elliott_wave": {
+          "wave_phase": "횡보(판단보류)",
+          "confidence": "낮음",
+          "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+          "entry_timing": "보통",
+          "segment_returns": {
+            "seg1_pct": -0.68,
+            "seg2_pct": 0.75,
+            "seg3_pct": -0.9,
+            "total_pct": -0.32
+          }
+        }
+      }
+    }
+  ],
+  "avoid_list": [],
+  "summary": {
+    "강력매수": 0,
+    "분할매수": 2,
+    "소규모탐색": 6,
+    "관망": 8,
+    "비중축소": 3,
+    "회피": 0
+  }
+}

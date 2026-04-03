@@ -1,0 +1,431 @@
+{
+  "date": "2026-04-03",
+  "tool_registry": [
+    {
+      "name": "macro_snapshot",
+      "category": "quant",
+      "description": "macro_analysis 결과에서 현재 레짐, 점수, 거시 드라이버를 반환"
+    },
+    {
+      "name": "valuation_snapshot",
+      "category": "quant",
+      "description": "valuation_engine 결과에서 미국/한국 밸류에이션과 ERP 상태를 반환"
+    },
+    {
+      "name": "signal_snapshot",
+      "category": "quant",
+      "description": "signal_engine 결과에서 시장 시그널, 상위 매수 후보, 회피 후보를 반환"
+    },
+    {
+      "name": "portfolio_snapshot",
+      "category": "portfolio",
+      "description": "portfolio_state 와 계좌별 집행 계획을 묶어 반환"
+    },
+    {
+      "name": "search_hierarchical_index",
+      "category": "rag",
+      "description": "H-RAG lite 인덱스에서 주제/키워드와 관련된 문서 및 청크를 검색"
+    },
+    {
+      "name": "graph_focus",
+      "category": "rag",
+      "description": "GraphRAG lite 에서 topic/source/asset 연결성을 요약"
+    }
+  ],
+  "initial_hypotheses": [
+    "현재 메인 가설은 '관망 유지'이며, 레짐은 중립 횡보 국면이다.",
+    "S&P500은 ERP -0.33% 수준으로 강한 저평가보다는 선별 매수에 가깝다.",
+    "총 현금의 약 15%까지만 우선 배치하고, 나머지는 확인 후 확대하는 것이 기본 시나리오다.",
+    "KOSPI 밸류에이션은 고평가로 해석되므로 국내 위험자산은 속도 조절이 필요하다."
+  ],
+  "iterations": [
+    {
+      "iteration": 1,
+      "terms": [
+        "AI/반도체",
+        "금리/연준",
+        "유가/원자재",
+        "방산/지정학",
+        "VIX",
+        "24.5",
+        "미국",
+        "10년물"
+      ],
+      "hypotheses": [
+        "현재 메인 가설은 '관망 유지'이며, 레짐은 중립 횡보 국면이다.",
+        "S&P500은 ERP -0.33% 수준으로 강한 저평가보다는 선별 매수에 가깝다.",
+        "총 현금의 약 15%까지만 우선 배치하고, 나머지는 확인 후 확대하는 것이 기본 시나리오다.",
+        "KOSPI 밸류에이션은 고평가로 해석되므로 국내 위험자산은 속도 조절이 필요하다."
+      ],
+      "macro_memo": {
+        "role": "거시경제 전략가",
+        "question": "지금은 공격적으로 비중을 늘릴 시점인가, 아니면 과매도 자산만 선별적으로 모을 시점인가?",
+        "summary": "현재 레짐은 중립 횡보 국면이며 총점 48.56점, 시장 신호는 관망 유지로 정리된다.",
+        "drivers": [
+          "VIX 24.5",
+          "미국 10년물 4.33%",
+          "원/달러 1508원",
+          "WTI $104.7"
+        ],
+        "view": "레짐 자체는 붕괴되지 않았지만 VIX/달러/금리 부담이 남아 있어, 공격 확대보다 선별 진입이 자연스럽다."
+      },
+      "quant_memo": {
+        "role": "퀀트 애널리스트",
+        "question": "정성적 뉴스 흐름이 실제 가격과 기술적 시그널에서 확인되는가?",
+        "summary": "S&P500 ERP -0.33%, 52주 위치 80.2%, KOSPI valuation 고평가, 시장 배치 가능 비중 15%.",
+        "best_candidate": {
+          "id": "TLT",
+          "name": "미국 장기국채 ETF",
+          "signal": "분할매수",
+          "timing_grade": "B"
+        },
+        "view": "정량 데이터는 전면 risk-on보다는 미국 코어 ETF의 저속 분할 진입을 우선 지지한다."
+      },
+      "fundamental_memo": {
+        "role": "펀더멘털 리서처",
+        "question": "최근 누적 문서에서 반복되는 섹터/정책/실적 논리가 현재 포트폴리오 행동과 연결되는가?",
+        "summary": "H-RAG 검색 결과 문서 6건, 청크 12건을 확인했고, Graph 연결상 KODEX_SEMI 축이 반복적으로 등장한다.",
+        "top_documents": [
+          {
+            "title": "국내주식 마감 시황 (26.04.01) - 코스피, 단 하루만..",
+            "source": "네이버 금융 리서치",
+            "topic": "AI/반도체, 금리/연준, 환율/달러, 유가/원자재",
+            "doc_id": "031c4cb8723bfb48"
+          },
+          {
+            "title": "[Morning Brief] 중동 전쟁 종식 기대감으로 미 증시 ..",
+            "source": "네이버 금융 리서치",
+            "topic": "AI/반도체, 금리/연준, 환율/달러, 유가/원자재",
+            "doc_id": "38d5ed8893cfa446"
+          },
+          {
+            "title": "[Morning Brief] 이란 전쟁 종식 기대감으로 미 증시 ..",
+            "source": "네이버 금융 리서치",
+            "topic": "AI/반도체, 금리/연준, 환율/달러, 유가/원자재",
+            "doc_id": "0f1c83a4f30d666d"
+          },
+          {
+            "title": "국내주식 마감 시황 (26.03.30) - 8배 미만의 밸류에..",
+            "source": "네이버 금융 리서치",
+            "topic": "AI/반도체, 금리/연준, 환율/달러, 유가/원자재",
+            "doc_id": "c9252dc37bda0dc4"
+          }
+        ],
+        "linked_assets": [
+          {
+            "asset": "KODEX_SEMI",
+            "count": 193
+          },
+          {
+            "asset": "GLD",
+            "count": 143
+          },
+          {
+            "asset": "IEF",
+            "count": 123
+          },
+          {
+            "asset": "KODEX_USD",
+            "count": 93
+          },
+          {
+            "asset": "HANARO_KDEFENSE",
+            "count": 79
+          }
+        ],
+        "view": "최근 누적 문서는 금리·연준, 한국 수출/반도체, 유가/원자재를 반복적으로 가리키며 단발 뉴스보다 누적 흐름 해석이 더 중요하다."
+      },
+      "portfolio_memo": {
+        "role": "포트폴리오 운영자",
+        "question": "계좌별 제약을 고려했을 때 오늘 어떤 순서와 속도로 배치해야 하는가?",
+        "summary": "총 현금 18,267,581원이며 계좌별로 다른 속도의 집행이 필요하다.",
+        "accounts": [
+          {
+            "account": "ISA (신한은행)",
+            "cash": 8392660,
+            "deploy_amount": 2937431,
+            "top_picks": [
+              "TIGER 200 IT",
+              "KODEX 미국달러선물"
+            ]
+          },
+          {
+            "account": "토스증권",
+            "cash": 4309720,
+            "deploy_amount": 1508402,
+            "top_picks": [
+              "미국 장기국채 ETF",
+              "미국 중기국채 ETF"
+            ]
+          },
+          {
+            "account": "연금저축 (신한은행)",
+            "cash": 5565201,
+            "deploy_amount": 1947820,
+            "top_picks": []
+          }
+        ],
+        "view": "토스는 미국 코어 우선, ISA는 국내 ETF 속도 조절, 연금저축은 축적형 접근이 적절하다."
+      },
+      "skeptic_review": {
+        "role": "리스크 및 검증자",
+        "summary": "현재 가설의 약점과 놓친 점을 점검해 추가 탐색 키워드를 제안한다.",
+        "contradictions": [
+          "배치 가능 비중이 낮아 전면 매수 서사는 성립하기 어렵다.",
+          "원/달러 1508원은 국내 위험자산 확대 논리를 약화시킨다.",
+          "국내 자산은 밸류에이션 부담 때문에 좋은 뉴스만으로 공격 확대를 정당화하기 어렵다."
+        ],
+        "follow_up_queries": [
+          "관망",
+          "분할매수",
+          "환율",
+          "달러",
+          "KOSPI",
+          "밸류업"
+        ],
+        "status": "needs_follow_up"
+      }
+    },
+    {
+      "iteration": 2,
+      "terms": [
+        "AI/반도체",
+        "금리/연준",
+        "유가/원자재",
+        "방산/지정학",
+        "VIX",
+        "24.5",
+        "미국",
+        "10년물",
+        "관망",
+        "분할매수"
+      ],
+      "hypotheses": [
+        "현재 메인 가설은 '관망 유지'이며, 레짐은 중립 횡보 국면이다.",
+        "S&P500은 ERP -0.33% 수준으로 강한 저평가보다는 선별 매수에 가깝다.",
+        "총 현금의 약 15%까지만 우선 배치하고, 나머지는 확인 후 확대하는 것이 기본 시나리오다.",
+        "KOSPI 밸류에이션은 고평가로 해석되므로 국내 위험자산은 속도 조절이 필요하다."
+      ],
+      "macro_memo": {
+        "role": "거시경제 전략가",
+        "question": "지금은 공격적으로 비중을 늘릴 시점인가, 아니면 과매도 자산만 선별적으로 모을 시점인가?",
+        "summary": "현재 레짐은 중립 횡보 국면이며 총점 48.56점, 시장 신호는 관망 유지로 정리된다.",
+        "drivers": [
+          "VIX 24.5",
+          "미국 10년물 4.33%",
+          "원/달러 1508원",
+          "WTI $104.7"
+        ],
+        "view": "레짐 자체는 붕괴되지 않았지만 VIX/달러/금리 부담이 남아 있어, 공격 확대보다 선별 진입이 자연스럽다."
+      },
+      "quant_memo": {
+        "role": "퀀트 애널리스트",
+        "question": "정성적 뉴스 흐름이 실제 가격과 기술적 시그널에서 확인되는가?",
+        "summary": "S&P500 ERP -0.33%, 52주 위치 80.2%, KOSPI valuation 고평가, 시장 배치 가능 비중 15%.",
+        "best_candidate": {
+          "id": "TLT",
+          "name": "미국 장기국채 ETF",
+          "signal": "분할매수",
+          "timing_grade": "B"
+        },
+        "view": "정량 데이터는 전면 risk-on보다는 미국 코어 ETF의 저속 분할 진입을 우선 지지한다."
+      },
+      "fundamental_memo": {
+        "role": "펀더멘털 리서처",
+        "question": "최근 누적 문서에서 반복되는 섹터/정책/실적 논리가 현재 포트폴리오 행동과 연결되는가?",
+        "summary": "H-RAG 검색 결과 문서 6건, 청크 12건을 확인했고, Graph 연결상 KODEX_SEMI 축이 반복적으로 등장한다.",
+        "top_documents": [
+          {
+            "title": "국내주식 마감 시황 (26.04.01) - 코스피, 단 하루만..",
+            "source": "네이버 금융 리서치",
+            "topic": "AI/반도체, 금리/연준, 환율/달러, 유가/원자재",
+            "doc_id": "031c4cb8723bfb48"
+          },
+          {
+            "title": "[Morning Brief] 중동 전쟁 종식 기대감으로 미 증시 ..",
+            "source": "네이버 금융 리서치",
+            "topic": "AI/반도체, 금리/연준, 환율/달러, 유가/원자재",
+            "doc_id": "38d5ed8893cfa446"
+          },
+          {
+            "title": "[Morning Brief] 이란 전쟁 종식 기대감으로 미 증시 ..",
+            "source": "네이버 금융 리서치",
+            "topic": "AI/반도체, 금리/연준, 환율/달러, 유가/원자재",
+            "doc_id": "0f1c83a4f30d666d"
+          },
+          {
+            "title": "국내주식 마감 시황 (26.03.30) - 8배 미만의 밸류에..",
+            "source": "네이버 금융 리서치",
+            "topic": "AI/반도체, 금리/연준, 환율/달러, 유가/원자재",
+            "doc_id": "c9252dc37bda0dc4"
+          }
+        ],
+        "linked_assets": [
+          {
+            "asset": "KODEX_SEMI",
+            "count": 193
+          },
+          {
+            "asset": "GLD",
+            "count": 143
+          },
+          {
+            "asset": "IEF",
+            "count": 123
+          },
+          {
+            "asset": "KODEX_USD",
+            "count": 93
+          },
+          {
+            "asset": "HANARO_KDEFENSE",
+            "count": 79
+          }
+        ],
+        "view": "최근 누적 문서는 금리·연준, 한국 수출/반도체, 유가/원자재를 반복적으로 가리키며 단발 뉴스보다 누적 흐름 해석이 더 중요하다."
+      },
+      "portfolio_memo": {
+        "role": "포트폴리오 운영자",
+        "question": "계좌별 제약을 고려했을 때 오늘 어떤 순서와 속도로 배치해야 하는가?",
+        "summary": "총 현금 18,267,581원이며 계좌별로 다른 속도의 집행이 필요하다.",
+        "accounts": [
+          {
+            "account": "ISA (신한은행)",
+            "cash": 8392660,
+            "deploy_amount": 2937431,
+            "top_picks": [
+              "TIGER 200 IT",
+              "KODEX 미국달러선물"
+            ]
+          },
+          {
+            "account": "토스증권",
+            "cash": 4309720,
+            "deploy_amount": 1508402,
+            "top_picks": [
+              "미국 장기국채 ETF",
+              "미국 중기국채 ETF"
+            ]
+          },
+          {
+            "account": "연금저축 (신한은행)",
+            "cash": 5565201,
+            "deploy_amount": 1947820,
+            "top_picks": []
+          }
+        ],
+        "view": "토스는 미국 코어 우선, ISA는 국내 ETF 속도 조절, 연금저축은 축적형 접근이 적절하다."
+      },
+      "skeptic_review": {
+        "role": "리스크 및 검증자",
+        "summary": "현재 가설의 약점과 놓친 점을 점검해 추가 탐색 키워드를 제안한다.",
+        "contradictions": [
+          "배치 가능 비중이 낮아 전면 매수 서사는 성립하기 어렵다.",
+          "원/달러 1508원은 국내 위험자산 확대 논리를 약화시킨다.",
+          "국내 자산은 밸류에이션 부담 때문에 좋은 뉴스만으로 공격 확대를 정당화하기 어렵다."
+        ],
+        "follow_up_queries": [
+          "관망",
+          "분할매수",
+          "환율",
+          "달러",
+          "KOSPI",
+          "밸류업"
+        ],
+        "status": "validated_with_cautions"
+      }
+    }
+  ],
+  "final_synthesis": {
+    "loop_count": 2,
+    "verification_status": "validated_with_cautions",
+    "research_loop_summary": "2회 루프를 거쳐 핵심 가설을 검증했고, 변동성·환율·국내 밸류에이션 관련 주의 조건을 함께 남겼습니다.",
+    "validated_theses": [
+      {
+        "thesis": "현재 메인 액션은 공격 확대보다 선별 매수다.",
+        "why": "레짐 자체는 붕괴되지 않았지만 VIX/달러/금리 부담이 남아 있어, 공격 확대보다 선별 진입이 자연스럽다.",
+        "evidence": [
+          "현재 레짐은 중립 횡보 국면이며 총점 48.56점, 시장 신호는 관망 유지로 정리된다.",
+          "S&P500 ERP -0.33%, 52주 위치 80.2%, KOSPI valuation 고평가, 시장 배치 가능 비중 15%."
+        ]
+      },
+      {
+        "thesis": "미국 코어 ETF가 국내 위험자산보다 우선순위가 높다.",
+        "why": "정량 데이터는 전면 risk-on보다는 미국 코어 ETF의 저속 분할 진입을 우선 지지한다.",
+        "evidence": [
+          "S&P500 ERP -0.33%, 52주 위치 80.2%, KOSPI valuation 고평가, 시장 배치 가능 비중 15%.",
+          "토스는 미국 코어 우선, ISA는 국내 ETF 속도 조절, 연금저축은 축적형 접근이 적절하다."
+        ]
+      },
+      {
+        "thesis": "금리·연준, 한국 수출/반도체, 유가/원자재가 누적 핵심 축이다.",
+        "why": "최근 누적 문서는 금리·연준, 한국 수출/반도체, 유가/원자재를 반복적으로 가리키며 단발 뉴스보다 누적 흐름 해석이 더 중요하다.",
+        "evidence": [
+          "H-RAG 검색 결과 문서 6건, 청크 12건을 확인했고, Graph 연결상 KODEX_SEMI 축이 반복적으로 등장한다.",
+          "국내주식 마감 시황 (26.04.01) - 코스피, 단 하루만..",
+          "[Morning Brief] 중동 전쟁 종식 기대감으로 미 증시 .."
+        ]
+      }
+    ],
+    "rejected_theses": [
+      {
+        "claim": "배치 가능 비중이 낮아 전면 매수 서사는 성립하기 어렵다.",
+        "reason": "검증자 메모에서 추가 제약 요인으로 지적됨"
+      },
+      {
+        "claim": "원/달러 1508원은 국내 위험자산 확대 논리를 약화시킨다.",
+        "reason": "검증자 메모에서 추가 제약 요인으로 지적됨"
+      },
+      {
+        "claim": "국내 자산은 밸류에이션 부담 때문에 좋은 뉴스만으로 공격 확대를 정당화하기 어렵다.",
+        "reason": "검증자 메모에서 추가 제약 요인으로 지적됨"
+      }
+    ],
+    "action_digest": [
+      {
+        "account": "ISA (신한은행)",
+        "deploy_amount": 2937431,
+        "top_picks": [
+          "TIGER 200 IT",
+          "KODEX 미국달러선물"
+        ]
+      },
+      {
+        "account": "토스증권",
+        "deploy_amount": 1508402,
+        "top_picks": [
+          "미국 장기국채 ETF",
+          "미국 중기국채 ETF"
+        ]
+      },
+      {
+        "account": "연금저축 (신한은행)",
+        "deploy_amount": 1947820,
+        "top_picks": []
+      }
+    ],
+    "citations": [
+      {
+        "source": "네이버 금융 리서치",
+        "title": "국내주식 마감 시황 (26.04.01) - 코스피, 단 하루만..",
+        "doc_id": "031c4cb8723bfb48"
+      },
+      {
+        "source": "네이버 금융 리서치",
+        "title": "[Morning Brief] 중동 전쟁 종식 기대감으로 미 증시 ..",
+        "doc_id": "38d5ed8893cfa446"
+      },
+      {
+        "source": "네이버 금융 리서치",
+        "title": "[Morning Brief] 이란 전쟁 종식 기대감으로 미 증시 ..",
+        "doc_id": "0f1c83a4f30d666d"
+      },
+      {
+        "source": "네이버 금융 리서치",
+        "title": "국내주식 마감 시황 (26.03.30) - 8배 미만의 밸류에..",
+        "doc_id": "c9252dc37bda0dc4"
+      }
+    ],
+    "confidence_note": "정량 시그널과 누적 문서 흐름은 대체로 같은 방향을 가리키지만, 공격적 해석을 막는 반대 신호도 분명하다."
+  }
+}

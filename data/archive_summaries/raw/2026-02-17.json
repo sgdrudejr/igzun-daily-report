@@ -1,0 +1,30 @@
+{
+  "date": "2026-02-17",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "Dollar Index (Trade Weighted) (DTWEXBGS)",
+          "published_date": "2026-02-17",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "WTI Crude Oil (DCOILWTICO)",
+          "published_date": "2026-02-17",
+          "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+          "document_type": "time_series"
+        },
+        {
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-02-17",
+          "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+          "document_type": "time_series"
+        }
+      ]
+    }
+  ],
+  "doc_count": 6
+}

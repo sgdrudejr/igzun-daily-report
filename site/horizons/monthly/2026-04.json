@@ -5,41 +5,42 @@
   "dataStatus": "full",
   "memberDates": [
     "2026-04-01",
-    "2026-04-02"
+    "2026-04-02",
+    "2026-04-03"
   ],
   "fromDate": "2026-04-01",
-  "toDate": "2026-04-02",
-  "updateCount": 2,
-  "avgScore": 50.0,
+  "toDate": "2026-04-03",
+  "updateCount": 3,
+  "avgScore": 49.5,
   "regime": "Neutral",
   "regimeKr": "중립 횡보 국면",
-  "totalScore": 48.31,
+  "totalScore": 48.56,
   "valuation": {
     "marketValuation": "고평가 — 안전자산 비중 유지",
-    "avgScore": 33,
+    "avgScore": 24,
     "sp500": {
-      "grade": "적정",
-      "erp": 0.25,
-      "pe": 22.0,
-      "range52w": 79.8,
-      "vsMa200": -1.0,
-      "erpAssessment": "낮음 (주식 매력도 제한적)"
+      "grade": "고평가",
+      "erp": -0.33,
+      "pe": 25.0,
+      "range52w": 80.2,
+      "vsMa200": -0.93,
+      "erpAssessment": "음수 (채권이 주식보다 유리한 환경)"
     },
     "kospi": {
       "grade": "고평가",
       "pbr": 1.3,
       "pbrAssessment": "고평가 구간",
-      "range52w": 80.1,
-      "vsMa200": 36.03
+      "range52w": 76.5,
+      "vsMa200": 32.05
     },
     "nasdaq": {
       "grade": "다소 고평가",
-      "erp": -0.97,
-      "range52w": 75.6
+      "erp": -1.0,
+      "range52w": 76.1
     },
     "gold": {
       "assessment": "중립",
-      "range52w": 78.7
+      "range52w": 74.0
     }
   },
   "signals": {
@@ -47,17 +48,205 @@
       "action": "관망 유지",
       "note": "리스크 높음 — 대기 현금 확보, 과매도 포착 후 진입",
       "deployablePct": 15,
-      "marketScore": 40.7
+      "marketScore": 36.3
     },
     "signalSummary": {
       "강력매수": 0,
-      "분할매수": 0,
-      "소규모탐색": 2,
-      "관망": 14,
+      "분할매수": 2,
+      "소규모탐색": 6,
+      "관망": 8,
       "비중축소": 3,
       "회피": 0
     },
-    "topBuys": [],
+    "topBuys": [
+      {
+        "id": "TLT",
+        "name": "미국 장기국채 ETF",
+        "ticker": "TLT",
+        "signal": "분할매수",
+        "timingGrade": "B",
+        "timingScore": 50,
+        "rsi": 53.5,
+        "reasons": [
+          "MACD 골든크로스 발생 — 단기 상승 전환 신호",
+          "볼린저 스퀴즈(밴드폭=4.0%) — 변동성 수축, 대형 움직임 예고",
+          "RSI 54 중립 구간"
+        ],
+        "firstAmount": 436709,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+        "microPlan": "1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액",
+        "microStepAmount": 182675,
+        "entryConditions": [
+          "현재 RSI 54 — 진입 가능 구간",
+          "200일선 근접(이격 +0.3%) — 현 수준에서 분할 진입 가능",
+          "MACD 골든크로스 — 즉시 진입 신호"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "accountFit": [
+          "TOSS"
+        ],
+        "timingDetails": {
+          "macd": {
+            "macd_line": -0.4336,
+            "signal_line": -0.4731,
+            "histogram": 0.0395,
+            "crossover": "bullish",
+            "trend": "중립",
+            "divergence": null
+          },
+          "bollinger": {
+            "upper": 88.3767,
+            "middle": 86.6419,
+            "lower": 84.9071,
+            "percent_b": 0.543,
+            "bandwidth": 4.0,
+            "squeeze": true,
+            "position": "중간"
+          },
+          "ma_alignment": {
+            "ma20": 86.64,
+            "ma50": 87.41,
+            "ma120": 87.54,
+            "ma200": 86.54,
+            "alignment": "혼조",
+            "golden_cross": false,
+            "death_cross": false,
+            "price_vs_ma200_pct": 0.29,
+            "score": -5
+          },
+          "rsi": 53.549084223387,
+          "candle": {
+            "pattern": "강세장악형",
+            "sentiment": "강한매수",
+            "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호",
+            "all_patterns": [
+              {
+                "pattern": "강세장악형",
+                "sentiment": "강한매수",
+                "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+              },
+              {
+                "pattern": "샛별형",
+                "sentiment": "강한매수",
+                "description": "하락 후 작은 캔들 + 강한 반등 — 바닥 전환"
+              },
+              {
+                "pattern": "집게형 저점",
+                "sentiment": "매수",
+                "description": "동일한 저점 두 번 — 지지 확인"
+              }
+            ]
+          },
+          "elliott_wave": {
+            "wave_phase": "횡보(판단보류)",
+            "confidence": "낮음",
+            "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+            "entry_timing": "보통",
+            "segment_returns": {
+              "seg1_pct": -1.05,
+              "seg2_pct": 1.83,
+              "seg3_pct": -1.5,
+              "total_pct": -0.03
+            }
+          }
+        }
+      },
+      {
+        "id": "IEF",
+        "name": "미국 중기국채 ETF",
+        "ticker": "IEF",
+        "signal": "분할매수",
+        "timingGrade": "B",
+        "timingScore": 50,
+        "rsi": 49.9,
+        "reasons": [
+          "MACD 골든크로스 발생 — 단기 상승 전환 신호",
+          "볼린저 스퀴즈(밴드폭=2.5%) — 변동성 수축, 대형 움직임 예고",
+          "RSI 50 중립 구간"
+        ],
+        "firstAmount": 349367,
+        "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+        "microPlan": "1회에 총 현금의 1%(182,675원)씩 천천히 시작하고, 눌림목마다 증액",
+        "microStepAmount": 182675,
+        "entryConditions": [
+          "현재 RSI 50 — 진입 가능 구간",
+          "200일선 근접(이격 +0.7%) — 현 수준에서 분할 진입 가능",
+          "MACD 골든크로스 — 즉시 진입 신호"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "accountFit": [
+          "TOSS"
+        ],
+        "timingDetails": {
+          "macd": {
+            "macd_line": -0.285,
+            "signal_line": -0.2983,
+            "histogram": 0.0133,
+            "crossover": "bullish",
+            "trend": "중립",
+            "divergence": null
+          },
+          "bollinger": {
+            "upper": 96.4482,
+            "middle": 95.2692,
+            "lower": 94.0903,
+            "percent_b": 0.496,
+            "bandwidth": 2.48,
+            "squeeze": true,
+            "position": "중간"
+          },
+          "ma_alignment": {
+            "ma20": 95.27,
+            "ma50": 95.66,
+            "ma120": 95.48,
+            "ma200": 94.58,
+            "alignment": "혼조",
+            "golden_cross": false,
+            "death_cross": false,
+            "price_vs_ma200_pct": 0.72,
+            "score": -25
+          },
+          "rsi": 49.873450580829385,
+          "candle": {
+            "pattern": "강세장악형",
+            "sentiment": "강한매수",
+            "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호",
+            "all_patterns": [
+              {
+                "pattern": "강세장악형",
+                "sentiment": "강한매수",
+                "description": "이전 하락봉을 완전히 감싸는 상승봉, 강한 매수 신호"
+              },
+              {
+                "pattern": "집게형 저점",
+                "sentiment": "매수",
+                "description": "동일한 저점 두 번 — 지지 확인"
+              }
+            ]
+          },
+          "elliott_wave": {
+            "wave_phase": "횡보(판단보류)",
+            "confidence": "낮음",
+            "interpretation": "뚜렷한 파동 구조 없음 — 방향성 확인 후 진입 검토",
+            "entry_timing": "보통",
+            "segment_returns": {
+              "seg1_pct": -0.68,
+              "seg2_pct": 0.75,
+              "seg3_pct": -0.9,
+              "total_pct": -0.32
+            }
+          }
+        }
+      }
+    ],
     "avoidList": [],
     "accountPlans": {
       "ISA": {
@@ -78,7 +267,7 @@
             "id": "KODEX_USD",
             "name": "KODEX 미국달러선물",
             "signal": "소규모탐색",
-            "timing_grade": "C",
+            "timing_grade": "B",
             "first_amount": 496878,
             "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
           }
@@ -89,7 +278,32 @@
         "cash": 4309720,
         "deploy_ratio": 0.35,
         "deploy_amount": 1508402,
-        "top_picks": []
+        "top_picks": [
+          {
+            "id": "TLT",
+            "name": "미국 장기국채 ETF",
+            "signal": "분할매수",
+            "timing_grade": "B",
+            "first_amount": 436709,
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+          },
+          {
+            "id": "IEF",
+            "name": "미국 중기국채 ETF",
+            "signal": "분할매수",
+            "timing_grade": "B",
+            "first_amount": 349367,
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+          },
+          {
+            "id": "XLE",
+            "name": "에너지 섹터 ETF",
+            "signal": "소규모탐색",
+            "timing_grade": "C",
+            "first_amount": 621097,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+          }
+        ]
       },
       "PENSION": {
         "label": "연금저축 (신한은행)",
@@ -101,36 +315,91 @@
     },
     "allSignals": [
       {
+        "id": "TLT",
+        "name": "미국 장기국채 ETF",
+        "ticker": "TLT",
+        "signal": "분할매수",
+        "timingGrade": "B",
+        "rsi": 53.5,
+        "volatility": 13.4,
+        "quant_score": 55,
+        "currency": "USD"
+      },
+      {
+        "id": "IEF",
+        "name": "미국 중기국채 ETF",
+        "ticker": "IEF",
+        "signal": "분할매수",
+        "timingGrade": "B",
+        "rsi": 49.9,
+        "volatility": 6.8,
+        "quant_score": 54,
+        "currency": "USD"
+      },
+      {
+        "id": "XLE",
+        "name": "에너지 섹터 ETF",
+        "ticker": "XLE",
+        "signal": "소규모탐색",
+        "timingGrade": "C",
+        "rsi": 59.7,
+        "volatility": 22.6,
+        "quant_score": 79,
+        "currency": "USD"
+      },
+      {
         "id": "TIGER200_IT",
         "name": "TIGER 200 IT",
         "ticker": "371460.KS",
         "signal": "소규모탐색",
         "timingGrade": "C",
-        "rsi": 50.9,
-        "volatility": 23.1,
-        "quant_score": 61,
+        "rsi": 45.1,
+        "volatility": 23.7,
+        "quant_score": 62,
         "currency": "KRW"
+      },
+      {
+        "id": "GLD",
+        "name": "금 ETF",
+        "ticker": "GLD",
+        "signal": "소규모탐색",
+        "timingGrade": "C",
+        "rsi": 38.0,
+        "volatility": 37.3,
+        "quant_score": 58,
+        "currency": "USD"
       },
       {
         "id": "KODEX_USD",
         "name": "KODEX 미국달러선물",
         "ticker": "261240.KS",
         "signal": "소규모탐색",
-        "timingGrade": "C",
-        "rsi": 56.3,
-        "volatility": 15.8,
+        "timingGrade": "B",
+        "rsi": 53.5,
+        "volatility": 16.6,
         "quant_score": 55,
         "currency": "KRW"
       },
       {
-        "id": "XLE",
-        "name": "에너지 섹터 ETF",
-        "ticker": "XLE",
-        "signal": "관망",
-        "timingGrade": "D",
-        "rsi": 59.3,
-        "volatility": 22.6,
-        "quant_score": 79,
+        "id": "UUP",
+        "name": "달러 불리시 ETF",
+        "ticker": "UUP",
+        "signal": "소규모탐색",
+        "timingGrade": "C",
+        "rsi": 49.1,
+        "volatility": 7.4,
+        "quant_score": 53,
+        "currency": "USD"
+      },
+      {
+        "id": "EEM",
+        "name": "이머징마켓 ETF",
+        "ticker": "EEM",
+        "signal": "소규모탐색",
+        "timingGrade": "C",
+        "rsi": 49.3,
+        "volatility": 32.6,
+        "quant_score": 53,
         "currency": "USD"
       },
       {
@@ -139,8 +408,8 @@
         "ticker": "069500.KS",
         "signal": "관망",
         "timingGrade": "C",
-        "rsi": 51.5,
-        "volatility": 63.2,
+        "rsi": 47.0,
+        "volatility": 66.5,
         "quant_score": 64,
         "currency": "KRW"
       },
@@ -150,43 +419,10 @@
         "ticker": "091160.KS",
         "signal": "관망",
         "timingGrade": "C",
-        "rsi": 48.6,
-        "volatility": 72.4,
+        "rsi": 43.2,
+        "volatility": 75.9,
         "quant_score": 64,
         "currency": "KRW"
-      },
-      {
-        "id": "KODEX_US30Y",
-        "name": "KODEX 미국채울트라30년(H)",
-        "ticker": "148020.KS",
-        "signal": "관망",
-        "timingGrade": "C",
-        "rsi": 51.3,
-        "volatility": 63.1,
-        "quant_score": 64,
-        "currency": "KRW"
-      },
-      {
-        "id": "TIGER_JAPAN",
-        "name": "TIGER 일본니케이225",
-        "ticker": "241180.KS",
-        "signal": "관망",
-        "timingGrade": "C",
-        "rsi": 54.9,
-        "volatility": 32.2,
-        "quant_score": 61,
-        "currency": "KRW"
-      },
-      {
-        "id": "GLD",
-        "name": "금 ETF",
-        "ticker": "GLD",
-        "signal": "관망",
-        "timingGrade": "C",
-        "rsi": 38.7,
-        "volatility": 37.0,
-        "quant_score": 60,
-        "currency": "USD"
       },
       {
         "id": "EWJ",
@@ -194,42 +430,9 @@
         "ticker": "EWJ",
         "signal": "관망",
         "timingGrade": "C",
-        "rsi": 56.1,
-        "volatility": 31.2,
-        "quant_score": 60,
-        "currency": "USD"
-      },
-      {
-        "id": "TLT",
-        "name": "미국 장기국채 ETF",
-        "ticker": "TLT",
-        "signal": "관망",
-        "timingGrade": "C",
-        "rsi": 45.9,
-        "volatility": 13.2,
-        "quant_score": 53,
-        "currency": "USD"
-      },
-      {
-        "id": "IEF",
-        "name": "미국 중기국채 ETF",
-        "ticker": "IEF",
-        "signal": "관망",
-        "timingGrade": "C",
-        "rsi": 43.7,
-        "volatility": 6.9,
-        "quant_score": 53,
-        "currency": "USD"
-      },
-      {
-        "id": "EEM",
-        "name": "이머징마켓 ETF",
-        "ticker": "EEM",
-        "signal": "관망",
-        "timingGrade": "C",
-        "rsi": 51.0,
-        "volatility": 33.5,
-        "quant_score": 53,
+        "rsi": 55.0,
+        "volatility": 29.6,
+        "quant_score": 59,
         "currency": "USD"
       },
       {
@@ -238,20 +441,31 @@
         "ticker": "EZU",
         "signal": "관망",
         "timingGrade": "C",
-        "rsi": 51.9,
-        "volatility": 28.5,
+        "rsi": 53.5,
+        "volatility": 27.6,
         "quant_score": 53,
         "currency": "USD"
       },
       {
-        "id": "UUP",
-        "name": "달러 불리시 ETF",
-        "ticker": "UUP",
+        "id": "TIGER_NQ100",
+        "name": "TIGER 미국나스닥100",
+        "ticker": "133690.KS",
         "signal": "관망",
         "timingGrade": "C",
-        "rsi": 51.4,
-        "volatility": 7.3,
-        "quant_score": 52,
+        "rsi": 44.5,
+        "volatility": 16.1,
+        "quant_score": 53,
+        "currency": "KRW"
+      },
+      {
+        "id": "SPY",
+        "name": "S&P 500 ETF",
+        "ticker": "SPY",
+        "signal": "관망",
+        "timingGrade": "C",
+        "rsi": 47.4,
+        "volatility": 18.7,
+        "quant_score": 51,
         "currency": "USD"
       },
       {
@@ -260,9 +474,9 @@
         "ticker": "132030.KS",
         "signal": "관망",
         "timingGrade": "C",
-        "rsi": 40.2,
-        "volatility": 46.4,
-        "quant_score": 50,
+        "rsi": 39.2,
+        "volatility": 47.1,
+        "quant_score": 48,
         "currency": "KRW"
       },
       {
@@ -271,32 +485,32 @@
         "ticker": "XLF",
         "signal": "관망",
         "timingGrade": "C",
-        "rsi": 58.4,
+        "rsi": 58.7,
         "volatility": 16.7,
         "quant_score": 46,
         "currency": "USD"
       },
       {
-        "id": "TIGER_NQ100",
-        "name": "TIGER 미국나스닥100",
-        "ticker": "133690.KS",
+        "id": "KODEX_US30Y",
+        "name": "KODEX 미국채울트라30년(H)",
+        "ticker": "148020.KS",
         "signal": "비중축소",
         "timingGrade": "D",
-        "rsi": 45.9,
-        "volatility": 16.5,
-        "quant_score": 53,
+        "rsi": 47.0,
+        "volatility": 66.5,
+        "quant_score": 64,
         "currency": "KRW"
       },
       {
-        "id": "SPY",
-        "name": "S&P 500 ETF",
-        "ticker": "SPY",
+        "id": "TIGER_JAPAN",
+        "name": "TIGER 일본니케이225",
+        "ticker": "241180.KS",
         "signal": "비중축소",
         "timingGrade": "D",
-        "rsi": 45.2,
-        "volatility": 18.8,
-        "quant_score": 50,
-        "currency": "USD"
+        "rsi": 51.8,
+        "volatility": 32.8,
+        "quant_score": 61,
+        "currency": "KRW"
       },
       {
         "id": "QQQ",
@@ -304,38 +518,38 @@
         "ticker": "QQQ",
         "signal": "비중축소",
         "timingGrade": "D",
-        "rsi": 44.2,
+        "rsi": 46.1,
         "volatility": 22.7,
-        "quant_score": 49,
+        "quant_score": 50,
         "currency": "USD"
       }
     ]
   },
   "llmInsights": {
-    "executiveSummary": "오늘 판단은 '관망 유지' 쪽이 우세합니다. 변동성(VIX, 시장이 얼마나 크게 흔들리는지) 25.2와 원/달러 1510원이 아직 높아 공격적 매수는 부담입니다. 그래서 SPY처럼 넓은 지수는 천천히 시작하고, QQQ는 더 느리게, GLD·TLT는 방어 축으로 남겨두는 접근이 적절합니다.",
+    "executiveSummary": "오늘 판단은 '관망 유지' 쪽이 우세합니다. 변동성(VIX, 시장이 얼마나 크게 흔들리는지) 24.5와 원/달러 1508원이 아직 높아 공격적 매수는 부담입니다. 그래서 SPY처럼 넓은 지수는 천천히 시작하고, QQQ는 더 느리게, GLD·TLT는 방어 축으로 남겨두는 접근이 적절합니다.",
     "soWhat3Lines": [
       "지금은 한 번에 크게 사기보다 '관망 유지' 관점으로 SPY부터 천천히 시작하는 구간입니다.",
-      "금리 4.30%와 달러/원 1510원이 높아 QQQ 같은 성장주는 더 조심해서 1~2%씩 나눠 사는 편이 좋습니다.",
+      "금리 4.33%와 달러/원 1508원이 높아 QQQ 같은 성장주는 더 조심해서 1~2%씩 나눠 사는 편이 좋습니다.",
       "불안이 다시 커질 수 있어서 GLD와 TLT는 완전히 비우기보다 방어용 후보로 계속 보면서 대응하는 편이 좋습니다."
     ],
-    "marketNarrative": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.3점을 기록 중입니다. VIX 25.2로 공포 지수가 높아 단기 변동성이 확대된 상황입니다. 달러/원 1510원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
-    "deepResearchSummary": "최근 7거래일 기준 1025건의 문서가 누적되었고, 단기 주제는 AI/반도체 11건, 금리/연준 7건, 바이오/헬스케어 5건 입니다. 최근 30거래일 누적 주제는 금리/연준 24건, 유가/원자재 23건, 한국 수출/반도체 21건 로 이어지고 있습니다. 시장 총점은 1주 기준 +0.7p 변화했으며, 주간 관점은 중립 횡보 국면, 월간 관점은 중립 횡보 국면 로 해석됩니다.",
+    "marketNarrative": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1508원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
+    "deepResearchSummary": "최근 7거래일 기준 1119건의 문서가 누적되었고, 단기 주제는 AI/반도체 17건, 금리/연준 16건, 유가/원자재 6건 입니다. 최근 30거래일 누적 주제는 유가/원자재 30건, 한국 수출/반도체 18건, 금리/연준 16건 로 이어지고 있습니다. 시장 총점은 1주 기준 +2.3p 변화했으며, 주간 관점은 중립 횡보 국면, 월간 관점은 중립 횡보 국면 로 해석됩니다.",
     "regimeAssessment": "중립 횡보 국면으로 분류된 현재 환경은 고평가 — 안전자산 비중 유지.",
     "causalChains": [
       {
-        "phenomenon": "변동성(VIX, 시장이 얼마나 크게 흔들리는지) 25.2로 높은 편입니다.",
+        "phenomenon": "변동성(VIX, 시장이 얼마나 크게 흔들리는지) 24.5로 높은 편입니다.",
         "reason": "정책 기대와 경기 우려가 같이 남아 있어 투자자들이 한 방향으로 확신하지 못하고 있습니다.",
         "portfolio_impact": "SPY는 분할매수 접근이 맞고, QQQ는 같은 주식이라도 더 크게 흔들릴 수 있습니다. GLD와 TLT는 방어 자산으로 다시 주목받을 여지가 있습니다.",
         "action": "SPY를 먼저 소액으로 시작하고, QQQ는 속도를 늦추며, GLD·TLT는 보조 축으로 지켜봅니다."
       },
       {
-        "phenomenon": "미국 10년물 금리 4.30%로 높은 수준입니다.",
+        "phenomenon": "미국 10년물 금리 4.33%로 높은 수준입니다.",
         "reason": "시중 이자율이 높으면 미래 성장 기대에 의존하는 자산의 현재 가치(지금 가격)가 깎이기 쉽습니다.",
         "portfolio_impact": "QQQ는 금리 부담에 더 민감하고, SPY는 상대적으로 충격이 덜합니다. TLT는 금리가 꺾이면 반등 여지가 생깁니다.",
         "action": "QQQ 추격매수는 피하고, SPY 중심으로 가며, TLT는 급락 시 방어 후보로 체크합니다."
       },
       {
-        "phenomenon": "원/달러 환율이 1510원으로 높습니다.",
+        "phenomenon": "원/달러 환율이 1508원으로 높습니다.",
         "reason": "달러가 강하면 국내 위험자산에는 부담이 남고, 해외 자산은 환차익 측면에서 상대적으로 버팀목이 될 수 있습니다.",
         "portfolio_impact": "ISA의 국내 ETF는 속도 조절이 필요하고, 토스의 SPY·QQQ는 상대적으로 우선순위가 높아질 수 있습니다. GLD는 불안이 커질 때 보완재 역할을 합니다.",
         "action": "ISA는 탐색 수준으로, 토스는 SPY 우선, GLD는 비중을 크게 늘리기보다 헤지 후보로 유지합니다."
@@ -363,19 +577,19 @@
     ],
     "counterSignals": [
       "배치 가능 비중이 낮아 전면 매수 서사는 성립하기 어렵다.",
-      "VIX 25.2로 변동성이 높아 타이밍 설명을 더 보수적으로 잡아야 한다.",
-      "원/달러 1510원은 국내 위험자산 확대 논리를 약화시킨다."
+      "원/달러 1508원은 국내 위험자산 확대 논리를 약화시킨다.",
+      "국내 자산은 밸류에이션 부담 때문에 좋은 뉴스만으로 공격 확대를 정당화하기 어렵다."
     ],
     "whatChanged": [
-      "1주 점수 변화가 +0.7p로 최근 주간 분위기는 악화됐습니다.",
-      "원/달러 상승 (+1.7)",
+      "1주 점수 변화가 +2.3p로 최근 주간 분위기는 악화됐습니다.",
+      "원/달러 큰 변화 없음",
       "주간 해석은 현재 중립 횡보 국면로 유지되고 있습니다."
     ],
     "keySignals": [
-      "VIX 25.2 — 변동성 확대 구간, 추격매수보다 눌림목 분할 접근이 유리",
-      "S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.2% — 주식 매력도는 중립 수준, 과속 진입은 부담",
+      "S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) -0.3% — 채권 대비 주식 매력도 낮음, 선별 진입",
       "KOSPI 밸류에이션 고평가 — 국내 ETF는 비중을 천천히 올리는 편이 적절",
-      "USD/KRW 1510원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요",
+      "미국 장기국채 ETF(TLT) 타이밍 B — 분할 매수 시작 고려",
+      "USD/KRW 1508원 — 원화 약세가 이어져 국내 위험자산 비중 확대 속도 조절 필요",
       "시장 배치 가능 비중 15% — 지금은 전액 진입보다 1%~2% 단위의 탐색 매수가 적합"
     ],
     "sectorCalls": [
@@ -406,11 +620,10 @@
       }
     ],
     "riskFactors": [
-      "단기 변동성 리스크 — VIX 25.2로 급등락 가능성",
-      "환율 리스크 — USD/KRW 1510원, 달러 강세 지속 시 원화 자산 압박"
+      "환율 리스크 — USD/KRW 1508원, 달러 강세 지속 시 원화 자산 압박"
     ],
     "timingGuidance": "현재 시장 신호 '관망 유지'에 따라 전체 현금의 15%(2,740,137원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다.",
-    "portfolioComment": "ISA (신한은행): 현금 8,392,660원 중 2,937,431원 범위에서 TIGER 200 IT(소규모탐색), KODEX 미국달러선물(소규모탐색) 순으로 분할 집행 토스증권: 당장은 신규 진입보다 현금 대기와 다음 신호 확인이 우선 연금저축 (신한은행): 당장은 신규 진입보다 현금 대기와 다음 신호 확인이 우선",
+    "portfolioComment": "ISA (신한은행): 현금 8,392,660원 중 2,937,431원 범위에서 TIGER 200 IT(소규모탐색), KODEX 미국달러선물(소규모탐색) 순으로 분할 집행 토스증권: 현금 4,309,720원 중 1,508,402원 범위에서 미국 장기국채 ETF(분할매수), 미국 중기국채 ETF(분할매수) 순으로 분할 집행 연금저축 (신한은행): 당장은 신규 진입보다 현금 대기와 다음 신호 확인이 우선",
     "accountActions": [
       {
         "account": "ISA (신한은행)",
@@ -420,9 +633,9 @@
       },
       {
         "account": "토스증권",
-        "stance": "관망",
-        "now": "오늘은 신규 진입보다 현금 유지와 확인이 우선",
-        "next_step": "다음 신호와 가격 위치를 확인한 뒤 증액 여부 결정"
+        "stance": "천천히 매수",
+        "now": "현금 4,309,720원 중 1,508,402원 범위에서 미국 장기국채 ETF(분할매수), 미국 중기국채 ETF(분할매수)를 우선 검토",
+        "next_step": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
       },
       {
         "account": "연금저축 (신한은행)",
@@ -441,19 +654,19 @@
       {
         "period": "1주",
         "stance": "선별매수",
-        "focus": "VIX 30.6 — 공포 구간, 분할 매수 진입의 역발상 기회 가능 / S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.2% — 주식 매력도는 중립 수준, 과속 진입은 부담",
+        "focus": "VIX 25.2 — 변동성 확대 구간, 추격매수보다 눌림목 분할 접근이 유리 / S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.2% — 주식 매력도는 중립 수준, 과속 진입은 부담",
         "action": "현재 시장 신호 '관망 유지'에 따라 전체 현금의 15%(2,740,137원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다."
       },
       {
         "period": "1개월",
         "stance": "선별매수",
-        "focus": "VIX 30.6 — 공포 구간, 분할 매수 진입의 역발상 기회 가능 / S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.2% — 주식 매력도는 중립 수준, 과속 진입은 부담",
+        "focus": "VIX 25.2 — 변동성 확대 구간, 추격매수보다 눌림목 분할 접근이 유리 / S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.2% — 주식 매력도는 중립 수준, 과속 진입은 부담",
         "action": "현재 시장 신호 '관망 유지'에 따라 전체 현금의 15%(2,740,137원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다."
       },
       {
         "period": "3개월",
         "stance": "선별매수",
-        "focus": "VIX 30.6 — 공포 구간, 분할 매수 진입의 역발상 기회 가능 / S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.2% — 주식 매력도는 중립 수준, 과속 진입은 부담",
+        "focus": "VIX 25.2 — 변동성 확대 구간, 추격매수보다 눌림목 분할 접근이 유리 / S&P500 ERP(주식이 채권보다 얼마나 더 매력적인지) 0.2% — 주식 매력도는 중립 수준, 과속 진입은 부담",
         "action": "현재 시장 신호 '관망 유지'에 따라 전체 현금의 15%(2,740,137원 수준)까지 배치할 수 있는 환경입니다. 분할 진입 원칙을 준수하고 RSI 35~40 이하 구간을 활용한 역발상 매수를 권장합니다. VIX 25 이상 고공포 구간에서의 소규모 탐색 진입이 중장기 수익률을 높이는 전략입니다."
       }
     ],
@@ -481,15 +694,15 @@
       {
         "claim": "최근 7거래일은 AI/반도체, 금리/연준 주제가 가장 많이 반복되었습니다.",
         "evidence": [
-          "최근 7거래일 문서 1025건",
-          "상위 출처: 네이버 금융 리서치 529건, OpenDART 공시 351건, FRED 거시지표 37건"
+          "최근 7거래일 문서 1119건",
+          "상위 출처: 네이버 금융 리서치 612건, OpenDART 공시 352건, FRED 거시지표 43건"
         ]
       },
       {
         "claim": "주간은 중립 횡보 국면, 월간은 중립 횡보 국면 관점으로 정리됩니다.",
         "evidence": [
-          "주간 평균점수 51.8",
-          "월간 평균점수 51.8"
+          "주간 평균점수 50.0",
+          "월간 평균점수 50.0"
         ]
       }
     ],
@@ -498,7 +711,7 @@
         "claim": "현재 시장은 중립 횡보 국면 해석이 우세하다",
         "packet": "macro_strategist",
         "evidence": [
-          "총점 48.31",
+          "총점 48.56",
           "시장 신호 관망 유지",
           "배치 가능 비중 15%"
         ]
@@ -507,18 +720,18 @@
         "claim": "미국 대형지수는 선별 매수 후보지만 강한 저평가 구간은 아니다",
         "packet": "quant_analyst",
         "evidence": [
-          "S&P500 ERP 0.25",
-          "S&P500 52주 위치 79.8%",
-          "S&P500 valuation 적정"
+          "S&P500 ERP -0.33",
+          "S&P500 52주 위치 80.2%",
+          "S&P500 valuation 고평가"
         ]
       },
       {
         "claim": "최근 해석은 단발 뉴스보다 누적 정책·수출·원자재 흐름을 더 반영한다",
         "packet": "fundamental_researcher",
         "evidence": [
-          "AI/반도체 11건",
-          "금리/연준 7건",
-          "바이오/헬스케어 5건"
+          "AI/반도체 17건",
+          "금리/연준 16건",
+          "유가/원자재 6건"
         ]
       },
       {
@@ -561,31 +774,31 @@
     ],
     "nextCheckpoints": [
       "VIX와 시장 신호가 지금의 관망 유지에서 완화되는지 확인",
-      "S&P500 ERP 0.25와 가격 위치가 추가 매수에 유리하게 바뀌는지 점검",
+      "S&P500 ERP -0.33와 가격 위치가 추가 매수에 유리하게 바뀌는지 점검",
       "원/달러와 한국 반도체 관련 누적 리서치가 국내 ETF 비중 확대를 정당화하는지 확인",
       "시장 배치 가능 비중 15%가 상향되는지 주간 단위로 체크"
     ],
     "apiUsed": false,
     "generatedBy": "fallback_rule_based",
-    "researchContextRef": "data/research_context/2026-04-02.json",
-    "packetRef": "data/research_packets/2026-04-02.json",
-    "hierarchicalIndexRef": "data/research_index/hierarchical/2026-04-02.json",
-    "researchGraphRef": "data/research_graph/2026-04-02.json",
-    "researchLoopRef": "data/research_loops/2026-04-02.json"
+    "researchContextRef": "data/research_context/2026-04-03.json",
+    "packetRef": "data/research_packets/2026-04-03.json",
+    "hierarchicalIndexRef": "data/research_index/hierarchical/2026-04-03.json",
+    "researchGraphRef": "data/research_graph/2026-04-03.json",
+    "researchLoopRef": "data/research_loops/2026-04-03.json"
   },
   "briefing": {
     "sentiment": {
-      "score": 48,
+      "score": 49,
       "status": "중립",
       "label": "종합 시장 점수 (0~100, 50=중립, 높을수록 위험선호 환경 우세)",
-      "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다. | 2026년 4월 누적 2회 업데이트, 평균 점수 50, 최근 점수 48.3, 최고 51.8, 최저 48.3"
+      "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다. | 2026년 4월 누적 3회 업데이트, 평균 점수 49.5, 최근 점수 48.6, 최고 51.8, 최저 48.3"
     },
     "marketDashboard": [
       {
         "name": "SPY",
         "ticker": "SPY",
-        "price": "655.24",
-        "change": "▼3.69%",
+        "price": "655.83",
+        "change": "▼4.28%",
         "isUp": false,
         "direction": "하락",
         "role": "미국 대표지수",
@@ -594,8 +807,8 @@
       {
         "name": "QQQ",
         "ticker": "QQQ",
-        "price": "584.31",
-        "change": "▼2.87%",
+        "price": "584.98",
+        "change": "▼4.22%",
         "isUp": false,
         "direction": "하락",
         "role": "미국 성장주",
@@ -604,8 +817,8 @@
       {
         "name": "GLD",
         "ticker": "GLD",
-        "price": "437.82",
-        "change": "▼6.48%",
+        "price": "429.41",
+        "change": "▼8.98%",
         "isUp": false,
         "direction": "하락",
         "role": "금 헤지",
@@ -614,8 +827,8 @@
       {
         "name": "TLT",
         "ticker": "TLT",
-        "price": "86.26",
-        "change": "▼3.54%",
+        "price": "86.79",
+        "change": "▼2.65%",
         "isUp": false,
         "direction": "하락",
         "role": "장기채 방어",
@@ -625,89 +838,89 @@
     "scoreChips": [
       {
         "label": "총점",
-        "value": "48.3점",
+        "value": "48.6점",
         "tone": "score"
       },
       {
         "label": "매크로",
-        "value": "55.9점",
+        "value": "56.0점",
         "tone": "score"
       },
       {
         "label": "기술",
-        "value": "43.9점",
+        "value": "44.3점",
         "tone": "score"
       },
       {
         "label": "퀀트",
-        "value": "55.1점",
+        "value": "55.5점",
         "tone": "score"
       },
       {
         "label": "FX",
-        "value": "32.5점",
+        "value": "32.6점",
         "tone": "score"
       }
     ],
     "metricChips": [
       {
         "label": "S&P500 1개월",
-        "value": "-3.5%",
+        "value": "-4.2%",
         "tone": "market"
       },
       {
         "label": "KOSPI 1개월",
-        "value": "-4.9%",
+        "value": "+5.3%",
         "tone": "market"
       },
       {
         "label": "금 1개월",
-        "value": "-5.8%",
+        "value": "-8.2%",
         "tone": "macro"
       },
       {
         "label": "유가 1개월",
-        "value": "+31.6%",
+        "value": "+50.1%",
         "tone": "macro"
       },
       {
         "label": "원/달러",
-        "value": "1510",
+        "value": "1508",
         "tone": "macro"
       },
       {
         "label": "3M 모멘텀",
-        "value": "-4.7%",
+        "value": "-3.8%",
         "tone": "signal"
       }
     ],
     "forecast": {
       "title": "2026년 4월 누적 판단",
-      "text": "2026년 4월 동안 2회 일간 업데이트가 누적되었습니다. 평균 점수 50, 최근 점수 48.3, 최고 51.8, 최저 48.3. 누적 문서 327건, 주요 출처 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, BIS 연설. 1개월 관점에서는 단일 기사보다 금리, 달러, 실적과 밸류에이션 부담이 어떤 레짐으로 굳어지는지가 중요합니다. S&P500 -3.5%, KOSPI -4.9%, 닛케이 -6.6%, DAX -8.0%, 금 -5.8%, 유가 +31.6% 흐름을 함께 보면 지금은 중립 횡보 국면 성격이 강합니다. 따라서 3~6개월 투자에서는 추격매수보다 목표 비중을 세우고, 금리와 환율이 완화되는지를 보며 코어 ETF와 위성 테마의 비중을 조절하는 접근이 유효합니다.",
+      "text": "2026년 4월 동안 3회 일간 업데이트가 누적되었습니다. 평균 점수 49.5, 최근 점수 48.6, 최고 51.8, 최저 48.3. 누적 문서 470건, 주요 출처 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, 한국은행 ECOS. 1개월 관점에서는 단일 기사보다 금리, 달러, 실적과 밸류에이션 부담이 어떤 레짐으로 굳어지는지가 중요합니다. S&P500 -4.2%, KOSPI +5.3%, 닛케이 -5.6%, DAX -2.1%, 금 -8.2%, 유가 +50.1% 흐름을 함께 보면 지금은 중립 횡보 국면 성격이 강합니다. 따라서 3~6개월 투자에서는 추격매수보다 목표 비중을 세우고, 금리와 환율이 완화되는지를 보며 코어 ETF와 위성 테마의 비중을 조절하는 접근이 유효합니다.",
       "sources": [
         {
           "label": "네이버 금융 리서치",
           "source": "naver_research",
-          "title": "네이버 금융 리서치 누적 197건",
-          "published_at": "2026-04-02"
+          "title": "네이버 금융 리서치 누적 280건",
+          "published_at": "2026-04-03"
         },
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 누적 100건",
-          "published_at": "2026-04-02"
+          "title": "OpenDART 공시 누적 150건",
+          "published_at": "2026-04-03"
         },
         {
           "label": "FRED 거시지표",
           "source": "fred_api",
-          "title": "FRED 거시지표 누적 10건",
-          "published_at": "2026-04-02"
+          "title": "FRED 거시지표 누적 16건",
+          "published_at": "2026-04-03"
         },
         {
-          "label": "BIS 연설",
-          "source": "bis_speeches",
-          "title": "BIS 연설 누적 8건",
-          "published_at": "2026-04-02"
+          "label": "한국은행 ECOS",
+          "source": "ecos_api",
+          "title": "한국은행 ECOS 누적 12건",
+          "published_at": "2026-04-03"
         }
       ]
     },
@@ -717,11 +930,11 @@
       "considerations": [
         {
           "title": "금리와 할인율",
-          "text": "연준 기준금리 3.64%, 미 10년물 4.30% 조합은 성장주 밸류에이션에 아직 부담입니다. 1개월 시점에서는 금리 하락이 확인되기 전까지 방어형 채권과 현금 비중의 역할을 무시하면 안 됩니다."
+          "text": "연준 기준금리 5.30%, 미 10년물 4.33% 조합은 성장주 밸류에이션에 아직 부담입니다. 1개월 시점에서는 금리 하락이 확인되기 전까지 방어형 채권과 현금 비중의 역할을 무시하면 안 됩니다."
         },
         {
           "title": "달러와 원화",
-          "text": "DXY 120.9, 원/달러 1510원으로 달러 압력은 높음입니다. 한국 위험자산은 환율 부담이 남아 있어 지수 전체보다 수출주·반도체·달러 수혜 자산으로 압축해서 보는 편이 낫습니다."
+          "text": "DXY 120.9, 원/달러 1508원으로 달러 압력은 높음입니다. 한국 위험자산은 환율 부담이 남아 있어 지수 전체보다 수출주·반도체·달러 수혜 자산으로 압축해서 보는 편이 낫습니다."
         },
         {
           "title": "원자재와 인플레이션",
@@ -729,7 +942,7 @@
         },
         {
           "title": "기술적 위치",
-          "text": "RSI 44.9, 3개월 모멘텀 -4.7%, ADX 59.8를 보면 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다."
+          "text": "RSI 47.3, 3개월 모멘텀 -3.8%, ADX 58.0를 보면 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다."
         },
         {
           "title": "투자 방향성",
@@ -746,7 +959,7 @@
             "US 10Y Treasury Yield (DGS10)",
             "Dollar Index (Trade Weighted) (DTWEXBGS)"
           ],
-          "published_at": "2026-04-01",
+          "published_at": "2026-04-02",
           "region": "US",
           "sector": "macro",
           "doc_type": "time_series",
@@ -756,13 +969,13 @@
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+          "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
           "examples": [
-            "[BOK] 한국은행 기준금리: 2.5 %",
-            "[BOK] 국고채수익률(3년): 3.37 %",
-            "[BOK] 원/달러 환율(종가): 1501.3 원"
+            "[BOK] 국고채수익률(3년): 3.477 %",
+            "[BOK] 원/달러 환율(종가): 1519.7 원",
+            "[BOK] 코스피지수: 5234.05 1980.01.04=100"
           ],
-          "published_at": "2026-04-01",
+          "published_at": "2026-04-02",
           "region": "KR",
           "sector": "macro",
           "doc_type": "time_series",
@@ -772,18 +985,18 @@
         {
           "label": "네이버 금융 리서치",
           "source": "naver_research",
-          "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+          "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
           "examples": [
-            "[DS Defense Daily] 2026-04-02",
-            "[DS 시황 데일리] 현시점 2026-04-02",
-            "Yuanta Morning Snapshot (2026.04.02)"
+            "Yuanta Morning Snapshot (2026.04.03)",
+            "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+            "[DS 시황 데일리] 현시점 2026-04-03"
           ],
-          "published_at": "2026-04-02",
+          "published_at": "2026-04-03",
           "region": "KR",
           "sector": "macro",
           "doc_type": "research_report",
-          "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-          "count": 87
+          "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+          "count": 83
         },
         {
           "label": "OpenDART 공시",
@@ -794,79 +1007,79 @@
             "감사보고서 (2025.12)",
             "감사보고서 (2025.12)"
           ],
-          "published_at": "2026-04-02",
+          "published_at": "2026-04-03",
           "region": "KR",
           "sector": "equity",
           "doc_type": "filing",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
           "count": 50
         },
         {
           "label": "퀀트 레짐",
           "source": "macro_analysis",
           "title": "1개월 레짐 분석",
-          "published_at": "2026-04-02"
+          "published_at": "2026-04-03"
         }
       ]
     },
     "insights": [
       {
         "category": "누적요약",
-        "text": "2026년 4월 구간은 2026-04-01~2026-04-02 사이 2회 업데이트를 기준으로 집계했습니다. 평균 점수 50, 최근 점수 48.3, 최고 51.8, 최저 48.3.",
+        "text": "2026년 4월 구간은 2026-04-01~2026-04-03 사이 3회 업데이트를 기준으로 집계했습니다. 평균 점수 49.5, 최근 점수 48.6, 최고 51.8, 최저 48.3.",
         "sources": [
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 누적 197건",
-            "published_at": "2026-04-02"
+            "title": "네이버 금융 리서치 누적 280건",
+            "published_at": "2026-04-03"
           },
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 누적 100건",
-            "published_at": "2026-04-02"
+            "title": "OpenDART 공시 누적 150건",
+            "published_at": "2026-04-03"
           },
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 누적 10건",
-            "published_at": "2026-04-02"
+            "title": "FRED 거시지표 누적 16건",
+            "published_at": "2026-04-03"
           },
           {
-            "label": "BIS 연설",
-            "source": "bis_speeches",
-            "title": "BIS 연설 누적 8건",
-            "published_at": "2026-04-02"
+            "label": "한국은행 ECOS",
+            "source": "ecos_api",
+            "title": "한국은행 ECOS 누적 12건",
+            "published_at": "2026-04-03"
           }
         ]
       },
       {
         "category": "데이터",
-        "text": "누적 문서 327건, 주요 출처는 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, BIS 연설입니다. 매일 결과를 누적해 1개월 관점으로 다시 정리한 뷰입니다.",
+        "text": "누적 문서 470건, 주요 출처는 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, 한국은행 ECOS입니다. 매일 결과를 누적해 1개월 관점으로 다시 정리한 뷰입니다.",
         "sources": [
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 누적 197건",
-            "published_at": "2026-04-02"
+            "title": "네이버 금융 리서치 누적 280건",
+            "published_at": "2026-04-03"
           },
           {
             "label": "OpenDART 공시",
             "source": "opendart",
-            "title": "OpenDART 공시 누적 100건",
-            "published_at": "2026-04-02"
+            "title": "OpenDART 공시 누적 150건",
+            "published_at": "2026-04-03"
           },
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 누적 10건",
-            "published_at": "2026-04-02"
+            "title": "FRED 거시지표 누적 16건",
+            "published_at": "2026-04-03"
           },
           {
-            "label": "BIS 연설",
-            "source": "bis_speeches",
-            "title": "BIS 연설 누적 8건",
-            "published_at": "2026-04-02"
+            "label": "한국은행 ECOS",
+            "source": "ecos_api",
+            "title": "한국은행 ECOS 누적 12건",
+            "published_at": "2026-04-03"
           }
         ]
       },
@@ -878,13 +1091,13 @@
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐 분석",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 ETF 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "포트폴리오 상태",
@@ -896,19 +1109,19 @@
       },
       {
         "category": "레짐",
-        "text": "1개월 기준 시장 레짐은 중립 횡보 국면입니다. 총점 48.3 / 매크로 55.9 / 기술 43.9 / 퀀트 55.1 / FX 32.5.",
+        "text": "1개월 기준 시장 레짐은 중립 횡보 국면입니다. 총점 48.6 / 매크로 56.0 / 기술 44.3 / 퀀트 55.5 / FX 32.6.",
         "sources": [
           {
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐 분석",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           }
         ]
       },
       {
         "category": "미국",
-        "text": "미국 증시는 1개월 기준 S&P500 -3.5%, NASDAQ -3.0%입니다. RSI 44.9, MA 갭 -2.8%, ADX 59.8를 보면 추세 추종보다 선별 접근이 유효합니다.",
+        "text": "미국 증시는 1개월 기준 S&P500 -4.2%, NASDAQ -4.1%입니다. RSI 47.3, MA 갭 -2.9%, ADX 58.0를 보면 추세 추종보다 선별 접근이 유효합니다.",
         "sources": [
           {
             "label": "FRED 거시지표",
@@ -919,7 +1132,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -929,35 +1142,35 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           }
         ]
       },
       {
         "category": "한국",
-        "text": "한국 시장은 1개월 기준 KOSPI -4.9%입니다. 원/달러 1510원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
+        "text": "한국 시장은 1개월 기준 KOSPI +5.3%입니다. 원/달러 1508원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
         "sources": [
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -973,34 +1186,34 @@
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
-            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
             "count": 50
           },
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           }
         ]
       },
       {
         "category": "환율",
-        "text": "달러인덱스 DXY 120.9, 원/달러 1510원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
+        "text": "달러인덱스 DXY 120.9, 원/달러 1508원은 국내 위험자산에 부담으로 해석됩니다. 환율이 높은 구간에서는 환노출 미국 ETF는 비중을 천천히 늘리고, 환헤지 상품과 현금 완충을 함께 가져가는 편이 안전합니다.",
         "sources": [
           {
             "label": "FRED 거시지표",
@@ -1011,7 +1224,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1021,13 +1234,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1038,7 +1251,7 @@
       },
       {
         "category": "금리",
-        "text": "연준 기준금리 3.64%, 미 10년물 4.30%, 하이일드 스프레드 3.00%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
+        "text": "연준 기준금리 5.30%, 미 10년물 4.33%, 하이일드 스프레드 3.16%p 조합은 아직 완전한 위험선호 복귀보다 '고금리 적응 구간'에 가깝습니다. 이 구간에서는 장기채 추격보다 중기채·단기채가 더 안정적입니다.",
         "sources": [
           {
             "label": "FRED 거시지표",
@@ -1049,7 +1262,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1059,24 +1272,24 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           }
         ]
       },
       {
         "category": "원자재",
-        "text": "금은 1개월 -5.8%, 유가는 1개월 +31.6%입니다. 유가 상승은 인플레이션 재자극과 비용 부담을 뜻하고, 금 강세는 위험회피 또는 통화가치 방어 수요를 시사합니다. 따라서 금 ETF는 헤지 자산, 에너지는 전술적 아이디어로 구분해 해석해야 합니다.",
+        "text": "금은 1개월 -8.2%, 유가는 1개월 +50.1%입니다. 유가 상승은 인플레이션 재자극과 비용 부담을 뜻하고, 금 강세는 위험회피 또는 통화가치 방어 수요를 시사합니다. 따라서 금 ETF는 헤지 자산, 에너지는 전술적 아이디어로 구분해 해석해야 합니다.",
         "sources": [
           {
             "label": "FRED 거시지표",
@@ -1087,7 +1300,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1097,18 +1310,18 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "OpenDART 공시",
@@ -1119,34 +1332,34 @@
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
-            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
             "count": 50
           }
         ]
       },
       {
         "category": "해외분산",
-        "text": "일본 -6.6%, 유럽 DAX -8.0% 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
+        "text": "일본 -5.6%, 유럽 DAX -2.1% 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
         "sources": [
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "OpenDART 공시",
@@ -1157,11 +1370,11 @@
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
-            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
             "count": 50
           }
         ]
@@ -1170,50 +1383,50 @@
     "indices": [
       {
         "name": "S&P 500",
-        "price": "6575.32",
-        "change": "▼3.54%",
+        "price": "6582.69",
+        "change": "▼4.18%",
         "isUp": false
       },
       {
         "name": "KOSPI",
-        "price": "5509.21",
-        "change": "▼4.88%",
-        "isUp": false
+        "price": "5364.28",
+        "change": "▲5.32%",
+        "isUp": true
       },
       {
         "name": "NASDAQ",
-        "price": "21840.95",
-        "change": "▼3.00%",
+        "price": "21879.18",
+        "change": "▼4.07%",
         "isUp": false
       },
       {
         "name": "닛케이225",
-        "price": "54206.66",
-        "change": "▼6.63%",
+        "price": "53108.40",
+        "change": "▼5.63%",
         "isUp": false
       },
       {
         "name": "DAX",
-        "price": "22680.04",
-        "change": "▼7.95%",
+        "price": "23298.89",
+        "change": "▼2.07%",
         "isUp": false
       },
       {
         "name": "금",
-        "price": "4813.10",
-        "change": "▼5.76%",
+        "price": "4702.70",
+        "change": "▼8.15%",
         "isUp": false
       },
       {
         "name": "WTI",
         "price": "104.69",
-        "change": "▲31.56%",
+        "change": "▲50.09%",
         "isUp": true
       },
       {
         "name": "USD/KRW",
-        "price": "1510.08",
-        "change": "▲1.82%",
+        "price": "1508.23",
+        "change": "▲3.25%",
         "isUp": true
       }
     ]
@@ -1226,7 +1439,7 @@
         "누적",
         "집계"
       ],
-      "summary": "2026년 4월 동안 2회 업데이트가 쌓였고, 평균 점수 50, 최근 점수 48.3, 최고 51.8, 최저 48.3. 주요 출처는 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, BIS 연설입니다.",
+      "summary": "2026년 4월 동안 3회 업데이트가 쌓였고, 평균 점수 49.5, 최근 점수 48.6, 최고 51.8, 최저 48.3. 주요 출처는 네이버 금융 리서치, OpenDART 공시, FRED 거시지표, 한국은행 ECOS입니다.",
       "impacts": [
         {
           "sector": "거시",
@@ -1248,26 +1461,26 @@
         {
           "label": "네이버 금융 리서치",
           "source": "naver_research",
-          "title": "네이버 금융 리서치 누적 197건",
-          "published_at": "2026-04-02"
+          "title": "네이버 금융 리서치 누적 280건",
+          "published_at": "2026-04-03"
         },
         {
           "label": "OpenDART 공시",
           "source": "opendart",
-          "title": "OpenDART 공시 누적 100건",
-          "published_at": "2026-04-02"
+          "title": "OpenDART 공시 누적 150건",
+          "published_at": "2026-04-03"
         },
         {
           "label": "FRED 거시지표",
           "source": "fred_api",
-          "title": "FRED 거시지표 누적 10건",
-          "published_at": "2026-04-02"
+          "title": "FRED 거시지표 누적 16건",
+          "published_at": "2026-04-03"
         },
         {
-          "label": "BIS 연설",
-          "source": "bis_speeches",
-          "title": "BIS 연설 누적 8건",
-          "published_at": "2026-04-02"
+          "label": "한국은행 ECOS",
+          "source": "ecos_api",
+          "title": "한국은행 ECOS 누적 12건",
+          "published_at": "2026-04-03"
         }
       ]
     },
@@ -1278,7 +1491,7 @@
         "정책",
         "1개월"
       ],
-      "summary": "현재 금리 축은 연준 3.64%, 미 10년물 4.30%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다. 1개월 시점에서는 정책 변화 자체보다 금리 레벨이 실제로 내려오기 시작하는지가 더 중요합니다.",
+      "summary": "현재 금리 축은 연준 5.30%, 미 10년물 4.33%입니다. 레짐은 중립 횡보 국면이며, 고금리가 길어질수록 성장주보다 현금흐름이 안정적인 자산이 상대적으로 유리합니다. 1개월 시점에서는 정책 변화 자체보다 금리 레벨이 실제로 내려오기 시작하는지가 더 중요합니다.",
       "detailPoints": [
         "지금은 정책 기대만으로 위험자산을 공격적으로 늘리기보다, 고금리의 실질 부담이 줄어드는지를 확인해야 합니다.",
         "장기채는 금리 민감도가 높아 단기 흔들림이 크므로 1개월 구간에서는 분할 접근이 적절합니다.",
@@ -1313,7 +1526,7 @@
             "US 10Y Treasury Yield (DGS10)",
             "Dollar Index (Trade Weighted) (DTWEXBGS)"
           ],
-          "published_at": "2026-04-01",
+          "published_at": "2026-04-02",
           "region": "US",
           "sector": "macro",
           "doc_type": "time_series",
@@ -1323,18 +1536,18 @@
         {
           "label": "네이버 금융 리서치",
           "source": "naver_research",
-          "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+          "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
           "examples": [
-            "[DS Defense Daily] 2026-04-02",
-            "[DS 시황 데일리] 현시점 2026-04-02",
-            "Yuanta Morning Snapshot (2026.04.02)"
+            "Yuanta Morning Snapshot (2026.04.03)",
+            "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+            "[DS 시황 데일리] 현시점 2026-04-03"
           ],
-          "published_at": "2026-04-02",
+          "published_at": "2026-04-03",
           "region": "KR",
           "sector": "macro",
           "doc_type": "research_report",
-          "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-          "count": 87
+          "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+          "count": 83
         },
         {
           "label": "OpenDART 공시",
@@ -1345,11 +1558,11 @@
             "감사보고서 (2025.12)",
             "감사보고서 (2025.12)"
           ],
-          "published_at": "2026-04-02",
+          "published_at": "2026-04-03",
           "region": "KR",
           "sector": "equity",
           "doc_type": "filing",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
           "count": 50
         }
       ]
@@ -1361,7 +1574,7 @@
         "달러",
         "1개월"
       ],
-      "summary": "DXY 120.9, 원/달러 1510원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다. 환율은 단순 숫자가 아니라 외국인 수급과 밸류에이션 할인율을 동시에 움직이는 변수입니다.",
+      "summary": "DXY 120.9, 원/달러 1508원은 한국 자산에 여전히 중요한 리스크 요인입니다. 달러 강세가 완화되지 않으면 국내 증시 반등은 지수 전체보다 수출주·방어주 중심으로 제한될 가능성이 큽니다. 환율은 단순 숫자가 아니라 외국인 수급과 밸류에이션 할인율을 동시에 움직이는 변수입니다.",
       "detailPoints": [
         "원화 약세는 수출 대형주에 유리할 수 있지만, 지수 전체로는 외국인 자금 유입을 막는 요인이 됩니다.",
         "그래서 한국 비중을 늘릴 때도 지수 전체보다는 수출/반도체/대형주 ETF로 압축하는 편이 낫습니다.",
@@ -1396,7 +1609,7 @@
             "US 10Y Treasury Yield (DGS10)",
             "Dollar Index (Trade Weighted) (DTWEXBGS)"
           ],
-          "published_at": "2026-04-01",
+          "published_at": "2026-04-02",
           "region": "US",
           "sector": "macro",
           "doc_type": "time_series",
@@ -1406,13 +1619,13 @@
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+          "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
           "examples": [
-            "[BOK] 한국은행 기준금리: 2.5 %",
-            "[BOK] 국고채수익률(3년): 3.37 %",
-            "[BOK] 원/달러 환율(종가): 1501.3 원"
+            "[BOK] 국고채수익률(3년): 3.477 %",
+            "[BOK] 원/달러 환율(종가): 1519.7 원",
+            "[BOK] 코스피지수: 5234.05 1980.01.04=100"
           ],
-          "published_at": "2026-04-01",
+          "published_at": "2026-04-02",
           "region": "KR",
           "sector": "macro",
           "doc_type": "time_series",
@@ -1428,7 +1641,7 @@
         "섹터",
         "1개월"
       ],
-      "summary": "금 -5.8%, 유가 +31.6% 흐름은 단순 가격보다 인플레이션 압력과 방어 수요를 보여줍니다. 에너지·금 ETF는 동일한 '원자재'라도 역할이 다르므로 구분해 접근해야 합니다. 유가가 올라가는 이유가 수요 회복인지 지정학 리스크인지에 따라 해석도 달라집니다.",
+      "summary": "금 -8.2%, 유가 +50.1% 흐름은 단순 가격보다 인플레이션 압력과 방어 수요를 보여줍니다. 에너지·금 ETF는 동일한 '원자재'라도 역할이 다르므로 구분해 접근해야 합니다. 유가가 올라가는 이유가 수요 회복인지 지정학 리스크인지에 따라 해석도 달라집니다.",
       "detailPoints": [
         "금은 불확실성 헤지 자산이고, 에너지는 이익 민감도가 높은 경기·공급 이슈 자산입니다.",
         "따라서 금 ETF는 포트폴리오 안정판, 에너지 ETF는 수익 기회라는 다른 역할로 편입해야 합니다.",
@@ -1463,7 +1676,7 @@
             "US 10Y Treasury Yield (DGS10)",
             "Dollar Index (Trade Weighted) (DTWEXBGS)"
           ],
-          "published_at": "2026-04-01",
+          "published_at": "2026-04-02",
           "region": "US",
           "sector": "macro",
           "doc_type": "time_series",
@@ -1473,18 +1686,18 @@
         {
           "label": "네이버 금융 리서치",
           "source": "naver_research",
-          "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+          "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
           "examples": [
-            "[DS Defense Daily] 2026-04-02",
-            "[DS 시황 데일리] 현시점 2026-04-02",
-            "Yuanta Morning Snapshot (2026.04.02)"
+            "Yuanta Morning Snapshot (2026.04.03)",
+            "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+            "[DS 시황 데일리] 현시점 2026-04-03"
           ],
-          "published_at": "2026-04-02",
+          "published_at": "2026-04-03",
           "region": "KR",
           "sector": "macro",
           "doc_type": "research_report",
-          "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-          "count": 87
+          "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+          "count": 83
         },
         {
           "label": "OpenDART 공시",
@@ -1495,11 +1708,11 @@
             "감사보고서 (2025.12)",
             "감사보고서 (2025.12)"
           ],
-          "published_at": "2026-04-02",
+          "published_at": "2026-04-03",
           "region": "KR",
           "sector": "equity",
           "doc_type": "filing",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
           "count": 50
         }
       ]
@@ -1541,13 +1754,13 @@
           "label": "ETF 추천",
           "source": "etf_recommender",
           "title": "ETF 랭킹 산출",
-          "published_at": "2026-04-02"
+          "published_at": "2026-04-03"
         }
       ]
     }
   ],
   "portfolio": {
-    "accountAlert": "총 투자 대기 현금 18,267,581원 · 현재 레짐은 중립 횡보 국면 · 포트폴리오 점수 31점(개선 필요). | 2026년 4월 누적 2회 업데이트 기준.",
+    "accountAlert": "총 투자 대기 현금 18,267,581원 · 현재 레짐은 중립 횡보 국면 · 포트폴리오 점수 31점(개선 필요). | 2026년 4월 누적 3회 업데이트 기준.",
     "accountDetail": "ISA (신한은행) 8,392,660원 · 세제혜택 계좌로 국내 ETF 중심 배치 | 토스증권 4,309,720원 · 해외 ETF 접근성이 좋아 미국 자산 배치에 적합 | 연금저축 (신한은행) 5,565,201원 · 연금저축은 장기 분산형 ETF 중심이 적합",
     "keyStats": [
       {
@@ -1563,7 +1776,7 @@
       {
         "label": "현재 레짐",
         "value": "중립 횡보 국면",
-        "sub": "시장 점수 48.3점"
+        "sub": "시장 점수 48.6점"
       }
     ],
     "portfolioScore": {
@@ -1761,7 +1974,7 @@
     "holdings": [],
     "weeklyReview": {
       "returnRate": "기본 비중 구축",
-      "desc": "중기 관점에서는 한 번에 진입하기보다 레짐 변화에 맞춰 2~4회로 나눠 집행하는 편이 유리합니다. 같은 포트폴리오라도 1개월 시점에서는 '월간 레짐을 기준으로 어떤 자산군을 중심에 둘 것인가'가 중요하므로, 목표 비중을 미리 정하고 과열 자산은 상한을 두는 구조가 적합합니다. 또한 2026년 4월 누적 흐름 기준으로 최근 점수는 48.3입니다."
+      "desc": "중기 관점에서는 한 번에 진입하기보다 레짐 변화에 맞춰 2~4회로 나눠 집행하는 편이 유리합니다. 같은 포트폴리오라도 1개월 시점에서는 '월간 레짐을 기준으로 어떤 자산군을 중심에 둘 것인가'가 중요하므로, 목표 비중을 미리 정하고 과열 자산은 상한을 두는 구조가 적합합니다. 또한 2026년 4월 누적 흐름 기준으로 최근 점수는 48.6입니다."
     },
     "horizonView": {
       "title": "1개월에서 보는 현재 포트폴리오",
@@ -1776,7 +1989,7 @@
             "US 10Y Treasury Yield (DGS10)",
             "Dollar Index (Trade Weighted) (DTWEXBGS)"
           ],
-          "published_at": "2026-04-01",
+          "published_at": "2026-04-02",
           "region": "US",
           "sector": "macro",
           "doc_type": "time_series",
@@ -1786,13 +1999,13 @@
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+          "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
           "examples": [
-            "[BOK] 한국은행 기준금리: 2.5 %",
-            "[BOK] 국고채수익률(3년): 3.37 %",
-            "[BOK] 원/달러 환율(종가): 1501.3 원"
+            "[BOK] 국고채수익률(3년): 3.477 %",
+            "[BOK] 원/달러 환율(종가): 1519.7 원",
+            "[BOK] 코스피지수: 5234.05 1980.01.04=100"
           ],
-          "published_at": "2026-04-01",
+          "published_at": "2026-04-02",
           "region": "KR",
           "sector": "macro",
           "doc_type": "time_series",
@@ -1846,13 +2059,13 @@
         "label": "퀀트 레짐",
         "source": "macro_analysis",
         "title": "1개월 레짐 분석",
-        "published_at": "2026-04-02"
+        "published_at": "2026-04-03"
       },
       {
         "label": "ETF 추천",
         "source": "etf_recommender",
         "title": "1개월 ETF 점수화",
-        "published_at": "2026-04-02"
+        "published_at": "2026-04-03"
       },
       {
         "label": "포트폴리오 상태",
@@ -1864,8 +2077,8 @@
   },
   "rebalancing": {
     "title": "1개월 실행 가이드",
-    "summary": "1개월 시점의 총 현금은 18,267,581원입니다. 실행 예산은 약 10,047,169원입니다. 대기 자금은 8,220,412원입니다. 이 가이드는 같은 포트폴리오라도 기간에 따라 매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다. 집행 리듬은 '4주 분할 구축'이며, 매주 한 번씩 4회에 걸쳐 기본 비중을 완성 원칙을 따릅니다. 2026년 4월 동안 2회 업데이트, 누적 문서 327건을 반영한 실행 가이드입니다.",
-    "horizonNote": "1개월의 질문은 '월간 레짐을 기준으로 어떤 자산군을 중심에 둘 것인가' 입니다. 그래서 1일 뷰에서는 초기 매수가 가능해 보여도, 6개월 뷰에서는 과열 테마의 최종 비중을 줄이라는 결론이 동시에 나올 수 있습니다. 또한 2026년 4월 동안 2회 업데이트를 누적 반영한 가이드입니다.",
+    "summary": "1개월 시점의 총 현금은 18,267,581원입니다. 실행 예산은 약 10,047,169원입니다. 대기 자금은 8,220,412원입니다. 이 가이드는 같은 포트폴리오라도 기간에 따라 매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다. 집행 리듬은 '4주 분할 구축'이며, 매주 한 번씩 4회에 걸쳐 기본 비중을 완성 원칙을 따릅니다. 2026년 4월 동안 3회 업데이트, 누적 문서 470건을 반영한 실행 가이드입니다.",
+    "horizonNote": "1개월의 질문은 '월간 레짐을 기준으로 어떤 자산군을 중심에 둘 것인가' 입니다. 그래서 1일 뷰에서는 초기 매수가 가능해 보여도, 6개월 뷰에서는 과열 테마의 최종 비중을 줄이라는 결론이 동시에 나올 수 있습니다. 또한 2026년 4월 동안 3회 업데이트를 누적 반영한 가이드입니다.",
     "actions": [
       {
         "account": "ISA (신한은행)",
@@ -1877,7 +2090,7 @@
         "positionHint": "총 투자금의 15~25% 범위 코어 자산",
         "assetRole": "포트폴리오 중심에 놓는 코어 지수 축입니다.",
         "todayAmount": "900,113원",
-        "reason": "1개월 기준 기본 비중 구축 단계입니다. TIGER 200 는 점수 64점, 3개월 모멘텀 +39.9%, RSI 51.5로 'Neutral 레짐 중립 | 3M ▲39.9% 강한 모멘텀 | RSI 51 정상 구간 | 변동성 63% 高' 평가를 받았습니다. 국내 코어 지수 비중을 먼저 세우는 역할입니다.",
+        "reason": "1개월 기준 기본 비중 구축 단계입니다. TIGER 200 는 점수 64점, 3개월 모멘텀 +32.7%, RSI 46.9로 'Neutral 레짐 중립 | 3M ▲32.7% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高' 평가를 받았습니다. 국내 코어 지수 비중을 먼저 세우는 역할입니다.",
         "executionStyle": "4주 분할 구축",
         "executionSummary": "매주 한 번씩 4회에 걸쳐 기본 비중을 완성",
         "splitPlan": [
@@ -1900,7 +2113,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1910,13 +2123,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1926,24 +2139,24 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 TIGER 200 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "포트폴리오 상태",
@@ -1963,7 +2176,7 @@
         "positionHint": "총 투자금의 6~12% 범위 위성 테마",
         "assetRole": "레짐이 맞을 때 알파를 더하는 위성 테마 축입니다.",
         "todayAmount": "484,677원",
-        "reason": "1개월 기준 기본 비중 구축 단계입니다. KODEX 반도체 는 점수 64점, 3개월 모멘텀 +60.7%, RSI 48.5로 'Neutral 레짐 중립 | 3M ▲60.7% 강한 모멘텀 | RSI 49 정상 구간 | 변동성 72% 高' 평가를 받았습니다. 국내 섹터 알파를 소규모 위성 비중으로 붙이는 용도입니다.",
+        "reason": "1개월 기준 기본 비중 구축 단계입니다. KODEX 반도체 는 점수 64점, 3개월 모멘텀 +52.3%, RSI 43.1로 'Neutral 레짐 중립 | 3M ▲52.3% 강한 모멘텀 | RSI 43 정상 구간 | 변동성 76% 高' 평가를 받았습니다. 국내 섹터 알파를 소규모 위성 비중으로 붙이는 용도입니다.",
         "executionStyle": "4주 분할 구축",
         "executionSummary": "매주 한 번씩 4회에 걸쳐 기본 비중을 완성",
         "splitPlan": [
@@ -1986,7 +2199,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1996,13 +2209,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2012,24 +2225,24 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 KODEX 반도체 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "포트폴리오 상태",
@@ -2049,7 +2262,7 @@
         "positionHint": "총 투자금의 8~12% 범위 헤지 축",
         "assetRole": "인플레이션·지정학 리스크를 막아주는 헤지 축입니다.",
         "todayAmount": "284,442원",
-        "reason": "1개월 기준 기본 비중 구축 단계입니다. 금 ETF 는 점수 60점, 3개월 모멘텀 +9.8%, RSI 38.7로 'Neutral 레짐 중립 | 3M ▲9.8% 모멘텀 유지 | RSI 39 정상 구간 | 변동성 37% 高' 평가를 받았습니다. 불확실성 헤지 자산으로 달러/금리 리스크를 완충하는 역할입니다.",
+        "reason": "1개월 기준 기본 비중 구축 단계입니다. 금 ETF 는 점수 58점, 3개월 모멘텀 +8.3%, RSI 38.0로 'Neutral 레짐 중립 | 3M ▲8.4% 모멘텀 유지 | RSI 38 정상 구간 | 변동성 37% 高' 평가를 받았습니다. 불확실성 헤지 자산으로 달러/금리 리스크를 완충하는 역할입니다.",
         "executionStyle": "4주 분할 구축",
         "executionSummary": "매주 한 번씩 4회에 걸쳐 기본 비중을 완성",
         "splitPlan": [
@@ -2072,7 +2285,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2082,13 +2295,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2098,24 +2311,24 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 금 ETF 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "포트폴리오 상태",
@@ -2135,7 +2348,7 @@
         "positionHint": "총 투자금의 12~20% 범위 코어 방어축",
         "assetRole": "변동성 완충과 금리 하락 수혜를 노리는 방어 축입니다.",
         "todayAmount": "248,887원",
-        "reason": "1개월 기준 기본 비중 구축 단계입니다. KODEX 미국채울트라30년(H) 는 점수 64점, 3개월 모멘텀 +39.8%, RSI 51.1로 'Neutral 레짐 중립 | 3M ▲39.8% 강한 모멘텀 | RSI 51 정상 구간 | 변동성 63% 高' 평가를 받았습니다. 고금리 구간 방어와 중기 변동성 완화 축입니다.",
+        "reason": "1개월 기준 기본 비중 구축 단계입니다. KODEX 미국채울트라30년(H) 는 점수 64점, 3개월 모멘텀 +32.9%, RSI 46.9로 'Neutral 레짐 중립 | 3M ▲32.9% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高' 평가를 받았습니다. 고금리 구간 방어와 중기 변동성 완화 축입니다.",
         "executionStyle": "4주 분할 구축",
         "executionSummary": "매주 한 번씩 4회에 걸쳐 기본 비중을 완성",
         "splitPlan": [
@@ -2158,7 +2371,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2168,13 +2381,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2184,24 +2397,24 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 KODEX 미국채울트라30년(H) 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "포트폴리오 상태",
@@ -2221,7 +2434,7 @@
         "positionHint": "총 투자금의 6~12% 범위 위성 테마",
         "assetRole": "레짐이 맞을 때 알파를 더하는 위성 테마 축입니다.",
         "todayAmount": "177,776원",
-        "reason": "1개월 기준 기본 비중 구축 단계입니다. 미국 에너지 섹터 ETF 는 점수 79점, 3개월 모멘텀 +32.0%, RSI 59.3로 'Neutral 레짐 중립 | 3M ▲32.0% 강한 모멘텀 | RSI 59 정상 구간' 평가를 받았습니다. 미국 전술 아이디어는 비중 상한을 두고 분할로 접근하는 편이 안전합니다.",
+        "reason": "1개월 기준 기본 비중 구축 단계입니다. 미국 에너지 섹터 ETF 는 점수 79점, 3개월 모멘텀 +33.4%, RSI 59.7로 'Neutral 레짐 중립 | 3M ▲33.4% 강한 모멘텀 | RSI 60 정상 구간' 평가를 받았습니다. 미국 전술 아이디어는 비중 상한을 두고 분할로 접근하는 편이 안전합니다.",
         "executionStyle": "4주 분할 구축",
         "executionSummary": "매주 한 번씩 4회에 걸쳐 기본 비중을 완성",
         "splitPlan": [
@@ -2244,7 +2457,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2254,13 +2467,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2270,24 +2483,24 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 미국 에너지 섹터 ETF 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "포트폴리오 상태",
@@ -2307,7 +2520,7 @@
         "positionHint": "총 투자금의 12~20% 범위 코어 방어축",
         "assetRole": "변동성 완충과 금리 하락 수혜를 노리는 방어 축입니다.",
         "todayAmount": "505,042원",
-        "reason": "1개월 기준 기본 비중 구축 단계입니다. 미국 장기국채 ETF 는 점수 53점, 3개월 모멘텀 -1.1%, RSI 45.9로 'Neutral 레짐 중립 | 3M ▼1.1% 모멘텀 약함 | RSI 46 정상 구간' 평가를 받았습니다. 연금 계좌에서는 장기 분산과 금리 하락 가능성을 함께 반영합니다.",
+        "reason": "1개월 기준 기본 비중 구축 단계입니다. 미국 장기국채 ETF 는 점수 55점, 3개월 모멘텀 +0.7%, RSI 53.5로 'Neutral 레짐 중립 | 3M ▲0.7% 모멘텀 약함 | RSI 54 정상 구간' 평가를 받았습니다. 연금 계좌에서는 장기 분산과 금리 하락 가능성을 함께 반영합니다.",
         "executionStyle": "4주 분할 구축",
         "executionSummary": "매주 한 번씩 4회에 걸쳐 기본 비중을 완성",
         "splitPlan": [
@@ -2330,7 +2543,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2340,13 +2553,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2356,24 +2569,24 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 미국 장기국채 ETF 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "포트폴리오 상태",
@@ -2393,7 +2606,7 @@
         "positionHint": "총 투자금의 15~25% 범위 코어 자산",
         "assetRole": "포트폴리오 중심에 놓는 코어 지수 축입니다.",
         "todayAmount": "413,217원",
-        "reason": "1개월 기준 기본 비중 구축 단계입니다. TIGER 일본니케이225 는 점수 61점, 3개월 모멘텀 +8.6%, RSI 54.9로 'Neutral 레짐 중립 | 3M ▲8.6% 모멘텀 유지 | RSI 55 정상 구간 | 변동성 32% 高' 평가를 받았습니다. 장기 보유용 해외 broad ETF 성격으로 분산을 보완합니다.",
+        "reason": "1개월 기준 기본 비중 구축 단계입니다. TIGER 일본니케이225 는 점수 61점, 3개월 모멘텀 +8.3%, RSI 51.8로 'Neutral 레짐 중립 | 3M ▲8.3% 모멘텀 유지 | RSI 52 정상 구간 | 변동성 33% 高' 평가를 받았습니다. 장기 보유용 해외 broad ETF 성격으로 분산을 보완합니다.",
         "executionStyle": "4주 분할 구축",
         "executionSummary": "매주 한 번씩 4회에 걸쳐 기본 비중을 완성",
         "splitPlan": [
@@ -2416,7 +2629,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2426,13 +2639,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2442,24 +2655,24 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 TIGER 일본니케이225 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "포트폴리오 상태",
@@ -2487,7 +2700,7 @@
           "US 10Y Treasury Yield (DGS10)",
           "Dollar Index (Trade Weighted) (DTWEXBGS)"
         ],
-        "published_at": "2026-04-01",
+        "published_at": "2026-04-02",
         "region": "US",
         "sector": "macro",
         "doc_type": "time_series",
@@ -2497,13 +2710,13 @@
       {
         "label": "한국은행 ECOS",
         "source": "ecos_api",
-        "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+        "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
         "examples": [
-          "[BOK] 한국은행 기준금리: 2.5 %",
-          "[BOK] 국고채수익률(3년): 3.37 %",
-          "[BOK] 원/달러 환율(종가): 1501.3 원"
+          "[BOK] 국고채수익률(3년): 3.477 %",
+          "[BOK] 원/달러 환율(종가): 1519.7 원",
+          "[BOK] 코스피지수: 5234.05 1980.01.04=100"
         ],
-        "published_at": "2026-04-01",
+        "published_at": "2026-04-02",
         "region": "KR",
         "sector": "macro",
         "doc_type": "time_series",
@@ -2513,18 +2726,18 @@
       {
         "label": "네이버 금융 리서치",
         "source": "naver_research",
-        "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+        "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
         "examples": [
-          "[DS Defense Daily] 2026-04-02",
-          "[DS 시황 데일리] 현시점 2026-04-02",
-          "Yuanta Morning Snapshot (2026.04.02)"
+          "Yuanta Morning Snapshot (2026.04.03)",
+          "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+          "[DS 시황 데일리] 현시점 2026-04-03"
         ],
-        "published_at": "2026-04-02",
+        "published_at": "2026-04-03",
         "region": "KR",
         "sector": "macro",
         "doc_type": "research_report",
-        "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-        "count": 87
+        "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+        "count": 83
       },
       {
         "label": "OpenDART 공시",
@@ -2535,24 +2748,24 @@
           "감사보고서 (2025.12)",
           "감사보고서 (2025.12)"
         ],
-        "published_at": "2026-04-02",
+        "published_at": "2026-04-03",
         "region": "KR",
         "sector": "equity",
         "doc_type": "filing",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
         "count": 50
       },
       {
         "label": "퀀트 레짐",
         "source": "macro_analysis",
         "title": "1개월 레짐 분석",
-        "published_at": "2026-04-02"
+        "published_at": "2026-04-03"
       },
       {
         "label": "ETF 추천",
         "source": "etf_recommender",
         "title": "1개월 ETF 점수화",
-        "published_at": "2026-04-02"
+        "published_at": "2026-04-03"
       },
       {
         "label": "포트폴리오 상태",
@@ -2569,19 +2782,19 @@
         "name": "미국 에너지 섹터 ETF",
         "ticker": "XLE",
         "action": "우선 검토",
-        "signal": "관망",
-        "timingGrade": "D",
-        "timingDetail": "이평선 완전정배열 | BB 중간(%B=0.534) | MACD 데드크로스 | 엘리엇 횡보(판단보류)",
+        "signal": "소규모탐색",
+        "timingGrade": "C",
+        "timingDetail": "이평선 완전정배열 | BB 중간(%B=0.551) | MACD 중립 | 엘리엇 횡보(판단보류)",
         "linkedIssue": "에너지 강세",
         "scoreText": "79점",
-        "reason": "2026년 4월 누적 기준. 1개월 기준 점수 79점입니다. 현재 금리 3.64%, 미 10년물 4.30%, 달러 120.9 조합을 감안할 때 미국 에너지 섹터 ETF 는 'Neutral 레짐 중립 | 3M ▲32.0% 강한 모멘텀 | RSI 59 정상 구간' 평가를 받았습니다.",
-        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +32.0%, RSI 59.3를 보면 코어 비중보다 위성 비중으로 쓰기 좋은 자산입니다.",
+        "reason": "2026년 4월 누적 기준. 1개월 기준 점수 79점입니다. 현재 금리 5.30%, 미 10년물 4.33%, 달러 120.9 조합을 감안할 때 미국 에너지 섹터 ETF 는 'Neutral 레짐 중립 | 3M ▲33.4% 강한 모멘텀 | RSI 60 정상 구간' 평가를 받았습니다.",
+        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +33.4%, RSI 59.7를 보면 코어 비중보다 위성 비중으로 쓰기 좋은 자산입니다.",
         "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
-        "execution": "1개월에서는 목표 비중까지 단계적으로 구축 전략이 적합합니다. 집행 리듬은 4주 분할 구축이며, 과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절 조건에서는 속도를 늦추는 편이 좋습니다. 관망 또는 기존 보유분 관리가 우선",
+        "execution": "1개월에서는 목표 비중까지 단계적으로 구축 전략이 적합합니다. 집행 리듬은 4주 분할 구축이며, 과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절 조건에서는 속도를 늦추는 편이 좋습니다. 탐색 단계이므로 1회에 총 현금의 1%(182,675원) 이내만 진입",
         "entryConditions": [
-          "RSI 59이 45 이하로 내려올 때까지 대기",
-          "200일선 대비 +27.1% 이격 — 200일선 터치 시 분할 매수 강화",
-          "VIX 25.2 경계 — 분할 진입으로 리스크 관리"
+          "RSI 60이 45 이하로 내려올 때까지 대기",
+          "200일선 대비 +27.4% 이격 — 200일선 터치 시 분할 매수 강화",
+          "VIX 24.5 경계 — 분할 진입으로 리스크 관리"
         ],
         "exitConditions": [
           "RSI 75 이상 과매수 구간 진입 시 일부 익절",
@@ -2589,20 +2802,20 @@
           "데드크로스 발생 시 비중 50% 이하로 축소"
         ],
         "positionSizing": {
-          "maxPct": 0,
-          "firstPct": 0,
-          "firstAmount": 0,
-          "schedule": "진입 보류"
+          "maxPct": 3.4,
+          "firstPct": 3.4,
+          "firstAmount": 621097,
+          "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
         },
         "macroContext": "유가 104.69, 달러 120.9 조합은 원자재 자산에 헤지 또는 전술적 강세 논리를 제공합니다.",
         "positioning": "총 투자금의 6~12% 범위 위성 테마",
         "evidencePoints": [
           "유가 104.69, 달러 120.9 조합은 원자재 자산에 헤지 또는 전술적 강세 논리를 제공합니다.",
-          "기술적으로 3개월 모멘텀 +32.0%, RSI 59.3, 20일 변동성 22.6 수준입니다.",
+          "기술적으로 3개월 모멘텀 +33.4%, RSI 59.7, 20일 변동성 22.6 수준입니다.",
           "레짐이 맞을 때 알파를 더하는 위성 테마 축입니다. 포지션 상한은 총 투자금의 6~12% 범위 위성 테마 정도로 두는 편이 안정적입니다.",
-          "MACD 데드크로스 발생 — 단기 하락 전환 신호",
           "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세",
-          "200일선 +27.1% 이격 — 과열 주의"
+          "200일선 +27.4% 이격 — 과열 주의",
+          "RSI 60 강세 구간 — 과열 접근 주의"
         ],
         "watchPoint": "과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절",
         "sources": [
@@ -2615,7 +2828,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2625,13 +2838,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2641,18 +2854,18 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "OpenDART 공시",
@@ -2663,24 +2876,24 @@
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
-            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
             "count": 50
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 미국 에너지 섹터 ETF 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐과 점수 조합",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           }
         ]
       },
@@ -2691,16 +2904,16 @@
         "action": "관심 확대",
         "signal": "관망",
         "timingGrade": "C",
-        "timingDetail": "이평선 완전정배열 | BB 중간(%B=0.493) | MACD 하락추세 | 엘리엇 횡보(판단보류)",
+        "timingDetail": "이평선 완전정배열 | BB 중간(%B=0.361) | MACD 하락추세 | 엘리엇 횡보(판단보류)",
         "linkedIssue": "한국 주식",
         "scoreText": "64점",
-        "reason": "1개월 기준 점수 64점입니다. 현재 금리 3.64%, 미 10년물 4.30%, 달러 120.9 조합을 감안할 때 TIGER 200 는 'Neutral 레짐 중립 | 3M ▲39.9% 강한 모멘텀 | RSI 51 정상 구간 | 변동성 63% 高' 평가를 받았습니다.",
-        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +39.9%, RSI 51.5를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
+        "reason": "1개월 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.33%, 달러 120.9 조합을 감안할 때 TIGER 200 는 'Neutral 레짐 중립 | 3M ▲32.7% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高' 평가를 받았습니다.",
+        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +32.7%, RSI 46.9를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
         "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
         "execution": "1개월에서는 목표 비중까지 단계적으로 구축 전략이 적합합니다. 집행 리듬은 4주 분할 구축이며, 과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절 조건에서는 속도를 늦추는 편이 좋습니다. 관망 또는 기존 보유분 관리가 우선",
         "entryConditions": [
-          "현재 RSI 52 — 진입 가능 구간",
-          "200일선 대비 +43.1% 이격 — 200일선 터치 시 분할 매수 강화",
+          "현재 RSI 47 — 진입 가능 구간",
+          "200일선 대비 +39.1% 이격 — 200일선 터치 시 분할 매수 강화",
           "MACD 하락추세 중 — MACD 전환 확인 후 진입"
         ],
         "exitConditions": [
@@ -2714,13 +2927,13 @@
           "firstAmount": 0,
           "schedule": "진입 보류"
         },
-        "macroContext": "원/달러 1510원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
+        "macroContext": "원/달러 1508원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
         "positioning": "총 투자금의 15~25% 범위 코어 자산",
         "evidencePoints": [
-          "원/달러 1510원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
-          "기술적으로 3개월 모멘텀 +39.9%, RSI 51.5, 20일 변동성 63.2 수준입니다.",
+          "원/달러 1508원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
+          "기술적으로 3개월 모멘텀 +32.7%, RSI 46.9, 20일 변동성 66.4 수준입니다.",
           "포트폴리오 중심에 놓는 코어 지수 축입니다. 포지션 상한은 총 투자금의 15~25% 범위 코어 자산 정도로 두는 편이 안정적입니다.",
-          "밸류에이션 부담 (점수 10)",
+          "밸류에이션 부담 (점수 25)",
           "MACD 하락추세 지속",
           "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세"
         ],
@@ -2735,7 +2948,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2745,13 +2958,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2761,18 +2974,18 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "OpenDART 공시",
@@ -2783,24 +2996,24 @@
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
-            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
             "count": 50
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 TIGER 200 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐과 점수 조합",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           }
         ]
       },
@@ -2811,17 +3024,17 @@
         "action": "관심 확대",
         "signal": "관망",
         "timingGrade": "C",
-        "timingDetail": "이평선 완전정배열 | BB 중간(%B=0.364) | MACD 중립 | 엘리엇 횡보(판단보류)",
+        "timingDetail": "이평선 완전정배열 | BB 중간(%B=0.249) | MACD 하락추세 | 엘리엇 3파(가속)",
         "linkedIssue": "한국 주식",
         "scoreText": "64점",
-        "reason": "1개월 기준 점수 64점입니다. 현재 금리 3.64%, 미 10년물 4.30%, 달러 120.9 조합을 감안할 때 KODEX 반도체 는 'Neutral 레짐 중립 | 3M ▲60.7% 강한 모멘텀 | RSI 49 정상 구간 | 변동성 72% 高' 평가를 받았습니다.",
-        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +60.7%, RSI 48.5를 보면 코어 비중보다 위성 비중으로 쓰기 좋은 자산입니다.",
+        "reason": "1개월 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.33%, 달러 120.9 조합을 감안할 때 KODEX 반도체 는 'Neutral 레짐 중립 | 3M ▲52.3% 강한 모멘텀 | RSI 43 정상 구간 | 변동성 76% 高' 평가를 받았습니다.",
+        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +52.3%, RSI 43.1를 보면 코어 비중보다 위성 비중으로 쓰기 좋은 자산입니다.",
         "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
         "execution": "1개월에서는 목표 비중까지 단계적으로 구축 전략이 적합합니다. 집행 리듬은 4주 분할 구축이며, 과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절 조건에서는 속도를 늦추는 편이 좋습니다. 관망 또는 기존 보유분 관리가 우선",
         "entryConditions": [
-          "현재 RSI 49 — 진입 가능 구간",
-          "200일선 대비 +63.7% 이격 — 200일선 터치 시 분할 매수 강화",
-          "VIX 25.2 경계 — 분할 진입으로 리스크 관리"
+          "현재 RSI 43 — 진입 가능 구간",
+          "200일선 대비 +57.7% 이격 — 200일선 터치 시 분할 매수 강화",
+          "볼린저 하단(%B=0.25) — 반등 확인 후 추가 매수"
         ],
         "exitConditions": [
           "RSI 75 이상 과매수 구간 진입 시 일부 익절",
@@ -2834,133 +3047,13 @@
           "firstAmount": 0,
           "schedule": "진입 보류"
         },
-        "macroContext": "원/달러 1510원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
+        "macroContext": "원/달러 1508원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
         "positioning": "총 투자금의 6~12% 범위 위성 테마",
         "evidencePoints": [
-          "원/달러 1510원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
-          "기술적으로 3개월 모멘텀 +60.7%, RSI 48.5, 20일 변동성 72.4 수준입니다.",
+          "원/달러 1508원, 한국 기준금리 2.50%를 감안하면 한국 ETF는 환율 부담과 수출주 강세를 함께 읽어야 합니다.",
+          "기술적으로 3개월 모멘텀 +52.3%, RSI 43.1, 20일 변동성 75.8 수준입니다.",
           "레짐이 맞을 때 알파를 더하는 위성 테마 축입니다. 포지션 상한은 총 투자금의 6~12% 범위 위성 테마 정도로 두는 편이 안정적입니다.",
-          "밸류에이션 부담 (점수 10)",
-          "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세",
-          "200일선 +63.7% 이격 — 과열 주의"
-        ],
-        "watchPoint": "과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절",
-        "sources": [
-          {
-            "label": "FRED 거시지표",
-            "source": "fred_api",
-            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
-            "examples": [
-              "VIX (VIXCLS)",
-              "US 10Y Treasury Yield (DGS10)",
-              "Dollar Index (Trade Weighted) (DTWEXBGS)"
-            ],
-            "published_at": "2026-04-01",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "time_series",
-            "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 6
-          },
-          {
-            "label": "한국은행 ECOS",
-            "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
-            "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
-            ],
-            "published_at": "2026-04-01",
-            "region": "KR",
-            "sector": "macro",
-            "doc_type": "time_series",
-            "url": "https://ecos.bok.or.kr/",
-            "count": 4
-          },
-          {
-            "label": "네이버 금융 리서치",
-            "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
-            "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
-            ],
-            "published_at": "2026-04-02",
-            "region": "KR",
-            "sector": "macro",
-            "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
-          },
-          {
-            "label": "OpenDART 공시",
-            "source": "opendart",
-            "title": "OpenDART 공시 50건 수집 · 예시: 감사보고서 (2025.12)",
-            "examples": [
-              "감사보고서 (2025.12)",
-              "감사보고서 (2025.12)",
-              "감사보고서 (2025.12)"
-            ],
-            "published_at": "2026-04-02",
-            "region": "KR",
-            "sector": "equity",
-            "doc_type": "filing",
-            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
-            "count": 50
-          },
-          {
-            "label": "ETF 추천",
-            "source": "etf_recommender",
-            "title": "1개월 KODEX 반도체 점수화",
-            "published_at": "2026-04-02"
-          },
-          {
-            "label": "퀀트 레짐",
-            "source": "macro_analysis",
-            "title": "1개월 레짐과 점수 조합",
-            "published_at": "2026-04-02"
-          }
-        ]
-      },
-      {
-        "logo": "🏦",
-        "name": "KODEX 미국채울트라30년(H)",
-        "ticker": "148020.KS",
-        "action": "관심 확대",
-        "signal": "관망",
-        "timingGrade": "C",
-        "timingDetail": "이평선 완전정배열 | BB 중간(%B=0.495) | MACD 하락추세 | 엘리엇 횡보(판단보류)",
-        "linkedIssue": "방어형 채권",
-        "scoreText": "64점",
-        "reason": "1개월 기준 점수 64점입니다. 현재 금리 3.64%, 미 10년물 4.30%, 달러 120.9 조합을 감안할 때 KODEX 미국채울트라30년(H) 는 'Neutral 레짐 중립 | 3M ▲39.8% 강한 모멘텀 | RSI 51 정상 구간 | 변동성 63% 高' 평가를 받았습니다.",
-        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +39.8%, RSI 51.1를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
-        "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
-        "execution": "1개월에서는 목표 비중까지 단계적으로 구축 전략이 적합합니다. 집행 리듬은 4주 분할 구축이며, 과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절 조건에서는 속도를 늦추는 편이 좋습니다. 관망 또는 기존 보유분 관리가 우선",
-        "entryConditions": [
-          "현재 RSI 51 — 진입 가능 구간",
-          "200일선 대비 +43.3% 이격 — 200일선 터치 시 분할 매수 강화",
-          "MACD 하락추세 중 — MACD 전환 확인 후 진입"
-        ],
-        "exitConditions": [
-          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
-          "200일선 대비 +20% 이상 이격 시 이익 실현",
-          "데드크로스 발생 시 비중 50% 이하로 축소"
-        ],
-        "positionSizing": {
-          "maxPct": 0,
-          "firstPct": 0,
-          "firstAmount": 0,
-          "schedule": "진입 보류"
-        },
-        "macroContext": "연준 3.64%, 미 10년물 4.30% 환경에서는 채권 ETF가 방어와 금리 피크아웃 기대를 동시에 반영합니다.",
-        "positioning": "총 투자금의 12~20% 범위 코어 방어축",
-        "evidencePoints": [
-          "연준 3.64%, 미 10년물 4.30% 환경에서는 채권 ETF가 방어와 금리 피크아웃 기대를 동시에 반영합니다.",
-          "기술적으로 3개월 모멘텀 +39.8%, RSI 51.1, 20일 변동성 63.1 수준입니다.",
-          "변동성 완충과 금리 하락 수혜를 노리는 방어 축입니다. 포지션 상한은 총 투자금의 12~20% 범위 코어 방어축 정도로 두는 편이 안정적입니다.",
-          "밸류에이션 부담 (점수 10)",
+          "밸류에이션 부담 (점수 25)",
           "MACD 하락추세 지속",
           "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세"
         ],
@@ -2975,7 +3068,7 @@
               "US 10Y Treasury Yield (DGS10)",
               "Dollar Index (Trade Weighted) (DTWEXBGS)"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "US",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2985,13 +3078,13 @@
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
             "examples": [
-              "[BOK] 한국은행 기준금리: 2.5 %",
-              "[BOK] 국고채수익률(3년): 3.37 %",
-              "[BOK] 원/달러 환율(종가): 1501.3 원"
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
             ],
-            "published_at": "2026-04-01",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -3001,18 +3094,18 @@
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
-            "title": "네이버 금융 리서치 87건 수집 · 예시: [DS Defense Daily] 2026-04-02",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
             "examples": [
-              "[DS Defense Daily] 2026-04-02",
-              "[DS 시황 데일리] 현시점 2026-04-02",
-              "Yuanta Morning Snapshot (2026.04.02)"
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "macro",
             "doc_type": "research_report",
-            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35555&page=1",
-            "count": 87
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
           },
           {
             "label": "OpenDART 공시",
@@ -3023,24 +3116,144 @@
               "감사보고서 (2025.12)",
               "감사보고서 (2025.12)"
             ],
-            "published_at": "2026-04-02",
+            "published_at": "2026-04-03",
             "region": "KR",
             "sector": "equity",
             "doc_type": "filing",
-            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402000387",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
+            "count": 50
+          },
+          {
+            "label": "ETF 추천",
+            "source": "etf_recommender",
+            "title": "1개월 KODEX 반도체 점수화",
+            "published_at": "2026-04-03"
+          },
+          {
+            "label": "퀀트 레짐",
+            "source": "macro_analysis",
+            "title": "1개월 레짐과 점수 조합",
+            "published_at": "2026-04-03"
+          }
+        ]
+      },
+      {
+        "logo": "🏦",
+        "name": "KODEX 미국채울트라30년(H)",
+        "ticker": "148020.KS",
+        "action": "관심 확대",
+        "signal": "비중축소",
+        "timingGrade": "D",
+        "timingDetail": "이평선 완전정배열 | BB 중간(%B=0.361) | MACD 하락추세 | 엘리엇 횡보(판단보류) | 캔들 유성형",
+        "linkedIssue": "방어형 채권",
+        "scoreText": "64점",
+        "reason": "1개월 기준 점수 64점입니다. 현재 금리 5.30%, 미 10년물 4.33%, 달러 120.9 조합을 감안할 때 KODEX 미국채울트라30년(H) 는 'Neutral 레짐 중립 | 3M ▲32.9% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高' 평가를 받았습니다.",
+        "whyBuy": "사는 이유는 레짐 적합도와 모멘텀이 상대적으로 낫기 때문입니다. 3개월 모멘텀 +32.9%, RSI 46.9를 보면 코어 또는 분산 자산으로 쓰기 좋은 후보입니다.",
+        "risk": "우려 지점은 극단적 과열·과매도는 아니어서 레짐 해석과 함께 보는 편이 좋습니다. 레짐 훼손 시 비중 축소 기준을 미리 정해두는 것이 좋습니다.",
+        "execution": "1개월에서는 목표 비중까지 단계적으로 구축 전략이 적합합니다. 집행 리듬은 4주 분할 구축이며, 과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절 조건에서는 속도를 늦추는 편이 좋습니다. 관망 또는 기존 보유분 관리가 우선",
+        "entryConditions": [
+          "현재 RSI 47 — 진입 가능 구간",
+          "200일선 대비 +39.2% 이격 — 200일선 터치 시 분할 매수 강화",
+          "MACD 하락추세 중 — MACD 전환 확인 후 진입"
+        ],
+        "exitConditions": [
+          "RSI 75 이상 과매수 구간 진입 시 일부 익절",
+          "200일선 대비 +20% 이상 이격 시 이익 실현",
+          "데드크로스 발생 시 비중 50% 이하로 축소"
+        ],
+        "positionSizing": {
+          "maxPct": 0,
+          "firstPct": 0,
+          "firstAmount": 0,
+          "schedule": "진입 보류"
+        },
+        "macroContext": "연준 5.30%, 미 10년물 4.33% 환경에서는 채권 ETF가 방어와 금리 피크아웃 기대를 동시에 반영합니다.",
+        "positioning": "총 투자금의 12~20% 범위 코어 방어축",
+        "evidencePoints": [
+          "연준 5.30%, 미 10년물 4.33% 환경에서는 채권 ETF가 방어와 금리 피크아웃 기대를 동시에 반영합니다.",
+          "기술적으로 3개월 모멘텀 +32.9%, RSI 46.9, 20일 변동성 66.5 수준입니다.",
+          "변동성 완충과 금리 하락 수혜를 노리는 방어 축입니다. 포지션 상한은 총 투자금의 12~20% 범위 코어 방어축 정도로 두는 편이 안정적입니다.",
+          "밸류에이션 부담 (점수 25)",
+          "MACD 하락추세 지속",
+          "20/50/120/200 이평선 완전 정배열 — 강한 상승 추세"
+        ],
+        "watchPoint": "과열 섹터 단기 급등, 밸류에이션 부담 확대 시 속도 조절",
+        "sources": [
+          {
+            "label": "FRED 거시지표",
+            "source": "fred_api",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
+            "examples": [
+              "VIX (VIXCLS)",
+              "US 10Y Treasury Yield (DGS10)",
+              "Dollar Index (Trade Weighted) (DTWEXBGS)"
+            ],
+            "published_at": "2026-04-02",
+            "region": "US",
+            "sector": "macro",
+            "doc_type": "time_series",
+            "url": "https://fred.stlouisfed.org/series/VIXCLS",
+            "count": 6
+          },
+          {
+            "label": "한국은행 ECOS",
+            "source": "ecos_api",
+            "title": "한국은행 ECOS 4건 수집 · 예시: [BOK] 국고채수익률(3년): 3.477 %",
+            "examples": [
+              "[BOK] 국고채수익률(3년): 3.477 %",
+              "[BOK] 원/달러 환율(종가): 1519.7 원",
+              "[BOK] 코스피지수: 5234.05 1980.01.04=100"
+            ],
+            "published_at": "2026-04-02",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "time_series",
+            "url": "https://ecos.bok.or.kr/",
+            "count": 4
+          },
+          {
+            "label": "네이버 금융 리서치",
+            "source": "naver_research",
+            "title": "네이버 금융 리서치 83건 수집 · 예시: Yuanta Morning Snapshot (2026.04.03)",
+            "examples": [
+              "Yuanta Morning Snapshot (2026.04.03)",
+              "[주식시황 위클리] 주간:知 - 흔들림 이후를 대비하는..",
+              "[DS 시황 데일리] 현시점 2026-04-03"
+            ],
+            "published_at": "2026-04-03",
+            "region": "KR",
+            "sector": "macro",
+            "doc_type": "research_report",
+            "url": "https://finance.naver.com/research/market_info_read.naver?nid=35577&page=1",
+            "count": 83
+          },
+          {
+            "label": "OpenDART 공시",
+            "source": "opendart",
+            "title": "OpenDART 공시 50건 수집 · 예시: 감사보고서 (2025.12)",
+            "examples": [
+              "감사보고서 (2025.12)",
+              "감사보고서 (2025.12)",
+              "감사보고서 (2025.12)"
+            ],
+            "published_at": "2026-04-03",
+            "region": "KR",
+            "sector": "equity",
+            "doc_type": "filing",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260403000371",
             "count": 50
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 KODEX 미국채울트라30년(H) 점수화",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           },
           {
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐과 점수 조합",
-            "published_at": "2026-04-02"
+            "published_at": "2026-04-03"
           }
         ]
       }
@@ -3051,67 +3264,67 @@
         "name": "미국 에너지 섹터 ETF",
         "ticker": "XLE",
         "score": 79,
-        "commentary": "Neutral 레짐 중립 | 3M ▲32.0% 강한 모멘텀 | RSI 59 정상 구간"
+        "commentary": "Neutral 레짐 중립 | 3M ▲33.4% 강한 모멘텀 | RSI 60 정상 구간"
       },
       {
         "rank": 2,
         "name": "TIGER 200",
         "ticker": "069500.KS",
         "score": 64,
-        "commentary": "Neutral 레짐 중립 | 3M ▲39.9% 강한 모멘텀 | RSI 51 정상 구간 | 변동성 63% 高"
+        "commentary": "Neutral 레짐 중립 | 3M ▲32.7% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高"
       },
       {
         "rank": 3,
         "name": "KODEX 반도체",
         "ticker": "091160.KS",
         "score": 64,
-        "commentary": "Neutral 레짐 중립 | 3M ▲60.7% 강한 모멘텀 | RSI 49 정상 구간 | 변동성 72% 高"
+        "commentary": "Neutral 레짐 중립 | 3M ▲52.3% 강한 모멘텀 | RSI 43 정상 구간 | 변동성 76% 高"
       },
       {
         "rank": 4,
         "name": "KODEX 미국채울트라30년(H)",
         "ticker": "148020.KS",
         "score": 64,
-        "commentary": "Neutral 레짐 중립 | 3M ▲39.8% 강한 모멘텀 | RSI 51 정상 구간 | 변동성 63% 高"
+        "commentary": "Neutral 레짐 중립 | 3M ▲32.9% 강한 모멘텀 | RSI 47 정상 구간 | 변동성 66% 高"
       },
       {
         "rank": 5,
         "name": "TIGER 200 IT",
         "ticker": "371460.KS",
-        "score": 61,
-        "commentary": "Neutral 레짐 중립 | 3M ▲8.0% 모멘텀 유지 | RSI 51 정상 구간"
+        "score": 62,
+        "commentary": "Neutral 레짐 중립 | 3M ▲9.1% 모멘텀 유지 | RSI 45 정상 구간"
       },
       {
         "rank": 6,
         "name": "TIGER 일본니케이225",
         "ticker": "241180.KS",
         "score": 61,
-        "commentary": "Neutral 레짐 중립 | 3M ▲8.6% 모멘텀 유지 | RSI 55 정상 구간 | 변동성 32% 高"
+        "commentary": "Neutral 레짐 중립 | 3M ▲8.3% 모멘텀 유지 | RSI 52 정상 구간 | 변동성 33% 高"
       },
       {
         "rank": 7,
-        "name": "금 ETF",
-        "ticker": "GLD",
-        "score": 60,
-        "commentary": "Neutral 레짐 중립 | 3M ▲9.8% 모멘텀 유지 | RSI 39 정상 구간 | 변동성 37% 高"
+        "name": "일본 ETF",
+        "ticker": "EWJ",
+        "score": 59,
+        "commentary": "Neutral 레짐 중립 | 3M ▲5.6% 모멘텀 유지 | RSI 55 정상 구간"
       },
       {
         "rank": 8,
-        "name": "일본 ETF",
-        "ticker": "EWJ",
-        "score": 60,
-        "commentary": "Neutral 레짐 중립 | 3M ▲6.8% 모멘텀 유지 | RSI 56 정상 구간 | 변동성 31% 高"
+        "name": "금 ETF",
+        "ticker": "GLD",
+        "score": 58,
+        "commentary": "Neutral 레짐 중립 | 3M ▲8.4% 모멘텀 유지 | RSI 38 정상 구간 | 변동성 37% 高"
       }
     ]
   },
   "meta": {
-    "docsTotal": 327,
+    "docsTotal": 470,
     "sourceLabels": [
       "네이버 금융 리서치",
       "OpenDART 공시",
       "FRED 거시지표",
-      "BIS 연설"
+      "한국은행 ECOS"
     ],
-    "latestDailyDate": "2026-04-02"
+    "latestDailyDate": "2026-04-03"
   }
 }
