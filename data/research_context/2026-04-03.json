@@ -148,7 +148,7 @@
   },
   "source_windows": {
     "recent_7d": {
-      "document_count": 1261,
+      "document_count": 1262,
       "sources": [
         {
           "source_id": "naver_research",
@@ -158,7 +158,7 @@
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 486
+          "count": 487
         },
         {
           "source_id": "fred_api",
@@ -184,7 +184,7 @@
       "regions": [
         {
           "label": "KR",
-          "count": 1146
+          "count": 1147
         },
         {
           "label": "US",
@@ -198,7 +198,7 @@
       "sectors": [
         {
           "label": "equity",
-          "count": 771
+          "count": 772
         },
         {
           "label": "macro",
@@ -212,7 +212,7 @@
       "types": [
         {
           "label": "filing",
-          "count": 486
+          "count": 487
         },
         {
           "label": "research_report",
@@ -229,12 +229,12 @@
       ]
     },
     "recent_30d": {
-      "document_count": 2193,
+      "document_count": 2194,
       "sources": [
         {
           "source_id": "opendart",
           "label": "OpenDART 공시",
-          "count": 1314
+          "count": 1315
         },
         {
           "source_id": "naver_research",
@@ -265,7 +265,7 @@
       "regions": [
         {
           "label": "KR",
-          "count": 1974
+          "count": 1975
         },
         {
           "label": "US",
@@ -279,7 +279,7 @@
       "sectors": [
         {
           "label": "equity",
-          "count": 1599
+          "count": 1600
         },
         {
           "label": "macro",
@@ -293,7 +293,7 @@
       "types": [
         {
           "label": "filing",
-          "count": 1314
+          "count": 1315
         },
         {
           "label": "research_report",
@@ -606,7 +606,7 @@
     "fundamental_researcher": {
       "role": "펀더멘털 리서처",
       "recent_7d_coverage": {
-        "document_count": 1261,
+        "document_count": 1262,
         "top_sources": [
           {
             "source_id": "naver_research",
@@ -616,7 +616,7 @@
           {
             "source_id": "opendart",
             "label": "OpenDART 공시",
-            "count": 486
+            "count": 487
           },
           {
             "source_id": "fred_api",
@@ -733,12 +733,12 @@
         ]
       },
       "recent_30d_coverage": {
-        "document_count": 2193,
+        "document_count": 2194,
         "top_sources": [
           {
             "source_id": "opendart",
             "label": "OpenDART 공시",
-            "count": 1314
+            "count": 1315
           },
           {
             "source_id": "naver_research",
