@@ -1,0 +1,92 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-04-04",
+  "_comment": "Signal engine tuning parameters. Edit here only — signal_engine.py reads at runtime. No code change needed for parameter tuning.",
+
+  "position_sizing": {
+    "_comment": "base_max: 해당 자산 유형의 최대 배분 %. signal_multiplier × regime_scale로 실효 배분 산출.",
+    "base_max_by_asset_class": {
+      "equity_broad": 20,
+      "equity_tech": 15,
+      "equity_em": 12,
+      "equity_sector": 10,
+      "bond_long": 15,
+      "bond_mid": 12,
+      "commodity_gold": 10,
+      "fx_dollar": 8,
+      "default": 12
+    },
+    "signal_multiplier": {
+      "강력매수": 1.0,
+      "분할매수": 0.75,
+      "소규모탐색": 0.4,
+      "관망": 0,
+      "비중축소": 0,
+      "회피": 0
+    },
+    "regime_scale": {
+      "Growth": 1.0,
+      "Neutral": 0.85,
+      "Inflationary": 0.7,
+      "Risk-Off DollarStrength": 0.6,
+      "Stagflation/Recession": 0.5,
+      "default": 0.8
+    }
+  },
+
+  "tranching": {
+    "_comment": "signal별 분할매수 비율 배열. 합계는 반드시 1.0.",
+    "강력매수": {
+      "tranches_pct": [0.35, 0.35, 0.30],
+      "schedule": "오늘 1차 진입 → 2~3일 내 눌림목 2차 → 추세 확인 후 3차",
+      "micro_step_pct": 2.0
+    },
+    "분할매수": {
+      "tranches_pct": [0.25, 0.35, 0.25, 0.15],
+      "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+      "micro_step_pct": 1.0
+    },
+    "소규모탐색": {
+      "tranches_pct": [1.0],
+      "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+      "micro_step_pct": 1.0
+    }
+  },
+
+  "deploy_ratio_by_regime": {
+    "_comment": "계좌별 배치 비율. _build_account_plans에서 사용.",
+    "Stagflation/Recession": 0.2,
+    "Risk-Off DollarStrength": 0.2,
+    "Neutral": 0.35,
+    "Growth": 0.55,
+    "Inflationary": 0.3,
+    "default": 0.3
+  },
+
+  "market_signal_thresholds": {
+    "_comment": "전체 시장 진입 타이밍 임계값. market_score = (macro_total + valuation_avg) / 2.",
+    "aggressive_buy": { "min_score": 65, "deploy_pct": 70, "action": "공격적 매수 가능", "note": "레짐·밸류에이션 모두 우호적 — 목표 비중의 70%까지 배치 가능" },
+    "split_buy":      { "min_score": 55, "deploy_pct": 50, "action": "분할 매수 권장",   "note": "긍정 신호 우세 — 월별 분할로 50%까지 배치" },
+    "cautious":       { "min_score": 45, "deploy_pct": 30, "action": "신중한 탐색",     "note": "혼조 구간 — 핵심 ETF만 소규모 탐색, 현금 비중 유지" },
+    "watch":          { "min_score": 35, "deploy_pct": 15, "action": "관망 유지",       "note": "리스크 높음 — 대기 현금 확보, 과매도 포착 후 진입" },
+    "defense":        { "min_score":  0, "deploy_pct":  5, "action": "방어 모드",       "note": "레짐 비우호적 — 안전자산 또는 현금 중심 유지" }
+  },
+
+  "kill_switch": {
+    "_comment": "위험 임계값 초과 시 결정을 자동 차단(BLOCKED).",
+    "vix_hard_block": 40,
+    "vix_soft_warn": 30,
+    "max_single_position_pct": 25,
+    "min_cash_floor_pct": 10,
+    "max_account_deploy_pct": 80
+  },
+
+  "signal_score_thresholds": {
+    "_comment": "ETF 추천 점수 → signal 레이블 매핑.",
+    "강력매수": 65,
+    "매수": 55,
+    "중립": 45,
+    "비중축소": 35,
+    "회피": 0
+  }
+}

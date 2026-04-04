@@ -20,6 +20,33 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from technical_timing import timing_score as compute_timing  # noqa: E402
 from technical_indicators import rsi, volatility  # noqa: E402
 
+
+# ── Config helpers (securities + signal params) ───────────────────────────────
+
+def _load_json_file(path: Path) -> dict:
+    try:
+        return json.loads(path.read_text())
+    except Exception:
+        return {}
+
+
+_SECURITIES = _load_json_file(ROOT / "config" / "securities.json")
+_PARAMS = _load_json_file(ROOT / "config" / "signal_params.json")
+
+# ETF_UNIVERSE은 securities.json에서 자동 생성됩니다. 직접 수정하지 마세요.
+_ETF_UNIVERSE_FROM_CONFIG: list[dict] = [
+    {
+        "id": s["id"],
+        "name": s["name"],
+        "ticker": s["ticker"],
+        "region": s["region"],
+        "type": s["asset_class"],
+        "currency": s.get("currency", "USD"),
+        "allowed_accounts": s.get("allowed_accounts", []),
+    }
+    for s in _SECURITIES.get("securities", [])
+]
+
 try:
     import yfinance as yf
     HAS_YF = True
@@ -44,26 +71,10 @@ ACCOUNT_TYPE_MAP = {
     "PENSION": "장기 해외지수 (연금저축)",
 }
 
-ETF_ACCOUNT_FIT = {
-    "TIGER200":       ["ISA"],
-    "TIGER_NQ100":    ["ISA", "PENSION"],
-    "KODEX_SEMI":     ["ISA"],
-    "KODEX_GOLD":     ["ISA"],
-    "KODEX_USD":      ["ISA"],
-    "TIGER200_IT":    ["ISA"],
-    "KODEX_US30Y":    ["ISA", "PENSION"],
-    "TIGER_JAPAN":    ["ISA", "PENSION"],
-    "SPY":            ["TOSS"],
-    "QQQ":            ["TOSS", "PENSION"],
-    "GLD":            ["TOSS"],
-    "TLT":            ["TOSS"],
-    "IEF":            ["TOSS"],
-    "UUP":            ["TOSS"],
-    "EEM":            ["TOSS"],
-    "XLE":            ["TOSS"],
-    "XLF":            ["TOSS"],
-    "EWJ":            ["TOSS", "PENSION"],
-    "EZU":            ["TOSS", "PENSION"],
+# ETF_ACCOUNT_FIT는 config/securities.json의 allowed_accounts에서 자동 생성됩니다.
+ETF_ACCOUNT_FIT: dict[str, list[str]] = {
+    s["id"]: s.get("allowed_accounts", [])
+    for s in _SECURITIES.get("securities", [])
 }
 
 
@@ -234,36 +245,17 @@ def position_sizing(
     포지션 사이징 가이드라인.
     Returns: max_allocation_pct, first_tranche_pct, tranches, schedule
     """
-    # Base max allocation by asset type and signal
-    base_max = {
-        "equity_broad": 20,
-        "equity_tech": 15,
-        "equity_em": 12,
-        "equity_sector": 10,
-        "bond_long": 15,
-        "bond_mid": 12,
-        "commodity_gold": 10,
-        "fx_dollar": 8,
-    }.get(etf_type, 12)
+    # Base max allocation by asset type — from config/signal_params.json
+    _ps = _PARAMS.get("position_sizing", {})
+    base_max = _ps.get("base_max_by_asset_class", {}).get(etf_type) \
+        or _ps.get("base_max_by_asset_class", {}).get("default", 12)
 
-    # Scale by signal
-    signal_multiplier = {
-        "강력매수": 1.0,
-        "분할매수": 0.75,
-        "소규모탐색": 0.4,
-        "관망": 0,
-        "비중축소": 0,
-        "회피": 0,
-    }.get(signal, 0.5)
+    # Scale by signal — from config/signal_params.json
+    signal_multiplier = _ps.get("signal_multiplier", {}).get(signal, 0.5)
 
-    # Regime scaling
-    regime_scale = {
-        "Growth": 1.0,
-        "Neutral": 0.85,
-        "Inflationary": 0.7,
-        "Risk-Off DollarStrength": 0.6,
-        "Stagflation/Recession": 0.5,
-    }.get(regime, 0.8)
+    # Regime scaling — from config/signal_params.json
+    regime_scale = _ps.get("regime_scale", {}).get(regime) \
+        or _ps.get("regime_scale", {}).get("default", 0.8)
 
     effective_max = base_max * signal_multiplier * regime_scale
 
@@ -279,28 +271,19 @@ def position_sizing(
             "micro_plan": "관망 또는 기존 보유분 관리가 우선",
         }
 
-    # Tranches
-    if signal == "강력매수":
-        tranches_pct = [0.35, 0.35, 0.30]
-        schedule = "오늘 1차 진입 → 2~3일 내 눌림목 2차 → 추세 확인 후 3차"
-    elif signal == "분할매수":
-        tranches_pct = [0.25, 0.35, 0.25, 0.15]
-        schedule = "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
-    elif signal == "소규모탐색":
-        tranches_pct = [1.0]
-        schedule = "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+    # Tranches — from config/signal_params.json
+    _tr = _PARAMS.get("tranching", {}).get(signal)
+    if _tr:
+        tranches_pct = _tr.get("tranches_pct", [])
+        schedule = _tr.get("schedule", "진입 보류")
     else:
         tranches_pct = []
         schedule = "진입 보류"
 
     first_tranche_pct = effective_max * (tranches_pct[0] if tranches_pct else 0)
     first_amount = int(total_cash * first_tranche_pct / 100)
-    if signal == "강력매수":
-        micro_step_pct = 2.0
-    elif signal in ("분할매수", "소규모탐색"):
-        micro_step_pct = 1.0
-    else:
-        micro_step_pct = 0
+    _tr_cfg = _PARAMS.get("tranching", {}).get(signal, {})
+    micro_step_pct = _tr_cfg.get("micro_step_pct", 0) if tranches_pct else 0
     micro_step_amount = int(total_cash * micro_step_pct / 100)
     if signal == "강력매수":
         micro_plan = f"지금은 1회에 총 현금의 2%({micro_step_amount:,}원)씩 2~3번 나눠 진입하는 방식이 적합"
@@ -519,28 +502,8 @@ def run_signals(root: Path, date_str: str) -> dict:
     # Load price history cache
     price_cache = _load_price_cache(root)
 
-    # ETF universe (must match etf_recommender.py)
-    ETF_UNIVERSE = [
-        {"id": "SPY", "name": "S&P 500 ETF", "ticker": "SPY", "region": "US", "type": "equity_broad", "currency": "USD"},
-        {"id": "QQQ", "name": "나스닥 100 ETF", "ticker": "QQQ", "region": "US", "type": "equity_tech", "currency": "USD"},
-        {"id": "GLD", "name": "금 ETF", "ticker": "GLD", "region": "US", "type": "commodity_gold", "currency": "USD"},
-        {"id": "TLT", "name": "미국 장기국채 ETF", "ticker": "TLT", "region": "US", "type": "bond_long", "currency": "USD"},
-        {"id": "IEF", "name": "미국 중기국채 ETF", "ticker": "IEF", "region": "US", "type": "bond_mid", "currency": "USD"},
-        {"id": "UUP", "name": "달러 불리시 ETF", "ticker": "UUP", "region": "US", "type": "fx_dollar", "currency": "USD"},
-        {"id": "EEM", "name": "이머징마켓 ETF", "ticker": "EEM", "region": "EM", "type": "equity_em", "currency": "USD"},
-        {"id": "XLE", "name": "에너지 섹터 ETF", "ticker": "XLE", "region": "US", "type": "equity_sector", "currency": "USD"},
-        {"id": "XLF", "name": "금융 섹터 ETF", "ticker": "XLF", "region": "US", "type": "equity_sector", "currency": "USD"},
-        {"id": "EWJ", "name": "iShares MSCI Japan", "ticker": "EWJ", "region": "JP", "type": "equity_broad", "currency": "USD"},
-        {"id": "EZU", "name": "iShares MSCI Eurozone", "ticker": "EZU", "region": "EU", "type": "equity_broad", "currency": "USD"},
-        {"id": "TIGER200", "name": "TIGER 200", "ticker": "069500.KS", "region": "KR", "type": "equity_broad", "currency": "KRW"},
-        {"id": "TIGER_NQ100", "name": "TIGER 미국나스닥100", "ticker": "133690.KS", "region": "US", "type": "equity_tech", "currency": "KRW"},
-        {"id": "KODEX_SEMI", "name": "KODEX 반도체", "ticker": "091160.KS", "region": "KR", "type": "equity_sector", "currency": "KRW"},
-        {"id": "KODEX_GOLD", "name": "KODEX 골드선물(H)", "ticker": "132030.KS", "region": "US", "type": "commodity_gold", "currency": "KRW"},
-        {"id": "KODEX_USD", "name": "KODEX 미국달러선물", "ticker": "261240.KS", "region": "US", "type": "fx_dollar", "currency": "KRW"},
-        {"id": "TIGER200_IT", "name": "TIGER 200 IT", "ticker": "371460.KS", "region": "KR", "type": "equity_sector", "currency": "KRW"},
-        {"id": "KODEX_US30Y", "name": "KODEX 미국채울트라30년(H)", "ticker": "148020.KS", "region": "US", "type": "bond_long", "currency": "KRW"},
-        {"id": "TIGER_JAPAN", "name": "TIGER 일본니케이225", "ticker": "241180.KS", "region": "JP", "type": "equity_broad", "currency": "KRW"},
-    ]
+    # ETF universe — config/securities.json에서 자동 로드 (etf_recommender.py와 동일 소스)
+    ETF_UNIVERSE = _ETF_UNIVERSE_FROM_CONFIG or []
 
     signals = []
     end_dt = _parse_date(date_str)
@@ -565,14 +528,30 @@ def run_signals(root: Path, date_str: str) -> dict:
             total_cash=total_cash,
             valuation_data=valuation,
         )
+
+        # 개별 신호에도 risk_checks 첨부
+        sig_ledger = _run_risk_checks(
+            etf_id=etf_id,
+            etf_type=etf.get("type", "equity_broad"),
+            signal=sig["signal"],
+            sizing=sig.get("position_sizing", {}),
+            portfolio=portfolio,
+            macro=macro,
+            regime=regime,
+        )
+        sig["decision_status"] = sig_ledger["status"]
+        sig["blocked"] = sig_ledger["blocked"]
+        sig["block_reasons"] = sig_ledger["block_reasons"]
+        sig["risk_checks"] = sig_ledger["risk_checks"]
+
         signals.append(sig)
 
     # Sort: 강력매수 first, 회피 last
     order = ["강력매수", "분할매수", "소규모탐색", "관망", "비중축소", "회피"]
     signals.sort(key=lambda x: (order.index(x["signal"]) if x["signal"] in order else 99, -(x.get("etf_quant_score") or 0)))
 
-    # Account-based action plan
-    account_plans = _build_account_plans(signals, portfolio, regime)
+    # Account-based action plan (macro 전달 → VIX kill-switch 적용)
+    account_plans = _build_account_plans(signals, portfolio, regime, macro=macro)
 
     # Market overview signals
     market_signal = _overall_market_signal(macro, valuation, regime)
@@ -584,7 +563,7 @@ def run_signals(root: Path, date_str: str) -> dict:
         "market_signal": market_signal,
         "signals": signals,
         "account_plans": account_plans,
-        "top_buys": [s for s in signals if s["signal"] in ("강력매수", "분할매수")][:5],
+        "top_buys": [s for s in signals if s["signal"] in ("강력매수", "분할매수") and not s.get("blocked")][:5],
         "avoid_list": [s for s in signals if s["signal"] == "회피"],
         "summary": {
             "강력매수": sum(1 for s in signals if s["signal"] == "강력매수"),
@@ -636,28 +615,121 @@ def _overall_market_signal(macro: dict, valuation: dict, regime: str) -> dict:
     }
 
 
-def _build_account_plans(signals: list[dict], portfolio: dict, regime: str) -> dict:
+def _run_risk_checks(
+    etf_id: str,
+    etf_type: str,
+    signal: str,
+    sizing: dict,
+    portfolio: dict,
+    macro: dict,
+    regime: str,
+) -> dict:
+    """
+    의사결정 원장(decision ledger) 리스크 체크.
+    각 결정에 대해 APPROVED / BLOCKED 판정과 차단 이유를 기록합니다.
+    config/signal_params.json의 kill_switch 임계값을 사용합니다.
+    """
+    ks = _PARAMS.get("kill_switch", {})
+    vix_hard = ks.get("vix_hard_block", 40)
+    vix_soft = ks.get("vix_soft_warn", 30)
+    max_single = ks.get("max_single_position_pct", 25)
+    min_cash_floor = ks.get("min_cash_floor_pct", 10)
+    max_deploy = ks.get("max_account_deploy_pct", 80)
+
+    checks: list[dict] = []
+    blocked = False
+    block_reasons: list[str] = []
+
+    # 1) VIX hard block
+    vix = (macro.get("scores") or {}).get("vix") or (macro.get("indicators") or {}).get("vix") or 0
+    if vix >= vix_hard:
+        checks.append({"rule": "VIX_HARD_BLOCK", "value": vix, "threshold": vix_hard, "result": "BLOCKED"})
+        blocked = True
+        block_reasons.append(f"VIX {vix:.0f} ≥ {vix_hard} (극단적 공포 — 진입 금지)")
+    elif vix >= vix_soft:
+        checks.append({"rule": "VIX_SOFT_WARN", "value": vix, "threshold": vix_soft, "result": "WARN"})
+    else:
+        checks.append({"rule": "VIX_SOFT_WARN", "value": vix, "threshold": vix_soft, "result": "PASS"})
+
+    # 2) 단일 포지션 상한
+    alloc_pct = sizing.get("max_allocation_pct", 0)
+    if alloc_pct > max_single:
+        checks.append({"rule": "MAX_SINGLE_POSITION", "value": alloc_pct, "threshold": max_single, "result": "BLOCKED"})
+        blocked = True
+        block_reasons.append(f"단일 포지션 {alloc_pct:.1f}% > 상한 {max_single}%")
+    else:
+        checks.append({"rule": "MAX_SINGLE_POSITION", "value": alloc_pct, "threshold": max_single, "result": "PASS"})
+
+    # 3) 레짐 부적합 (equity 매수 신호 + 방어 레짐)
+    is_risk_off = regime in ("Stagflation/Recession", "Risk-Off DollarStrength")
+    is_equity_buy = etf_type.startswith("equity") and signal in ("강력매수", "분할매수")
+    if is_risk_off and is_equity_buy:
+        checks.append({"rule": "REGIME_EQUITY_BUY", "value": regime, "threshold": "Growth/Neutral", "result": "WARN"})
+        # 경고만, 차단은 안함 (레짐 스케일로 이미 조정됨)
+    else:
+        checks.append({"rule": "REGIME_EQUITY_BUY", "value": regime, "threshold": "Growth/Neutral", "result": "PASS"})
+
+    # 4) 신호 없음 / 회피 확인
+    if signal == "회피":
+        checks.append({"rule": "SIGNAL_AVOID", "value": signal, "threshold": "비회피", "result": "BLOCKED"})
+        blocked = True
+        block_reasons.append("신호 = 회피 (진입 금지)")
+    else:
+        checks.append({"rule": "SIGNAL_AVOID", "value": signal, "threshold": "비회피", "result": "PASS"})
+
+    status = "BLOCKED" if blocked else "APPROVED"
+    return {
+        "status": status,
+        "blocked": blocked,
+        "block_reasons": block_reasons,
+        "risk_checks": checks,
+    }
+
+
+def _build_account_plans(signals: list[dict], portfolio: dict, regime: str, macro: dict | None = None) -> dict:
     accounts = portfolio.get("accounts", {})
+    _macro = macro or {}
     plans = {}
 
     for acc_key, acc_data in accounts.items():
         cash = acc_data.get("cash", 0)
         label = acc_data.get("label", acc_key)
 
-        # Filter ETFs suitable for this account
-        suitable = [s for s in signals if acc_key in s.get("account_fit", []) and s["signal"] in ("강력매수", "분할매수", "소규모탐색")]
-        top = suitable[:3]
+        # Filter ETFs suitable for this account with decision ledger
+        candidates = [s for s in signals if acc_key in s.get("account_fit", []) and s["signal"] in ("강력매수", "분할매수", "소규모탐색")]
 
-        # Recommended deployment
-        if regime in ("Stagflation/Recession", "Risk-Off DollarStrength"):
-            deploy_ratio = 0.2
-        elif regime == "Neutral":
-            deploy_ratio = 0.35
-        elif regime == "Growth":
-            deploy_ratio = 0.55
-        else:
-            deploy_ratio = 0.3
+        # Attach risk_checks + BLOCKED/APPROVED to each candidate
+        decisions = []
+        for s in candidates:
+            ledger = _run_risk_checks(
+                etf_id=s["id"],
+                etf_type=s.get("etf_type", s.get("type", "equity_broad")),
+                signal=s["signal"],
+                sizing=s.get("position_sizing", {}),
+                portfolio=portfolio,
+                macro=_macro,
+                regime=regime,
+            )
+            decisions.append({
+                "id": s["id"],
+                "name": s["name"],
+                "signal": s["signal"],
+                "timing_grade": s.get("timing_grade"),
+                "first_amount": s.get("position_sizing", {}).get("first_amount", 0),
+                "schedule": s.get("position_sizing", {}).get("schedule", ""),
+                "decision_status": ledger["status"],
+                "blocked": ledger["blocked"],
+                "block_reasons": ledger["block_reasons"],
+                "risk_checks": ledger["risk_checks"],
+            })
 
+        # top_picks = APPROVED만 상위 3개
+        approved = [d for d in decisions if not d["blocked"]]
+        top = approved[:3]
+
+        # Recommended deployment — from config/signal_params.json
+        _dr = _PARAMS.get("deploy_ratio_by_regime", {})
+        deploy_ratio = _dr.get(regime) or _dr.get("default", 0.3)
         deploy_amount = int(cash * deploy_ratio)
 
         plans[acc_key] = {
@@ -665,17 +737,9 @@ def _build_account_plans(signals: list[dict], portfolio: dict, regime: str) -> d
             "cash": cash,
             "deploy_ratio": deploy_ratio,
             "deploy_amount": deploy_amount,
-            "top_picks": [
-                {
-                    "id": s["id"],
-                    "name": s["name"],
-                    "signal": s["signal"],
-                    "timing_grade": s.get("timing_grade"),
-                    "first_amount": s.get("position_sizing", {}).get("first_amount", 0),
-                    "schedule": s.get("position_sizing", {}).get("schedule", ""),
-                }
-                for s in top
-            ],
+            "top_picks": top,
+            "all_decisions": decisions,  # BLOCKED 포함 전체 — 귀인(attribution) 용도
+            "blocked_count": sum(1 for d in decisions if d["blocked"]),
         }
 
     return plans

@@ -23,80 +23,40 @@ except ImportError:
     HAS_YF = False
 
 
-ETF_UNIVERSE = [
-    {"id": "SPY", "name": "S&P 500 ETF", "ticker": "SPY", "region": "US", "type": "equity_broad", "currency": "USD"},
-    {"id": "QQQ", "name": "나스닥 100 ETF", "ticker": "QQQ", "region": "US", "type": "equity_tech", "currency": "USD"},
-    {"id": "GLD", "name": "금 ETF", "ticker": "GLD", "region": "US", "type": "commodity_gold", "currency": "USD"},
-    {"id": "TLT", "name": "미국 장기국채 ETF", "ticker": "TLT", "region": "US", "type": "bond_long", "currency": "USD"},
-    {"id": "IEF", "name": "미국 중기국채 ETF", "ticker": "IEF", "region": "US", "type": "bond_mid", "currency": "USD"},
-    {"id": "UUP", "name": "달러 불리시 ETF", "ticker": "UUP", "region": "US", "type": "fx_dollar", "currency": "USD"},
-    {"id": "EEM", "name": "이머징마켓 ETF", "ticker": "EEM", "region": "EM", "type": "equity_em", "currency": "USD"},
-    {"id": "XLE", "name": "에너지 섹터 ETF", "ticker": "XLE", "region": "US", "type": "equity_sector", "currency": "USD"},
-    {"id": "XLF", "name": "금융 섹터 ETF", "ticker": "XLF", "region": "US", "type": "equity_sector", "currency": "USD"},
-    {"id": "EWJ", "name": "iShares MSCI Japan", "ticker": "EWJ", "region": "JP", "type": "equity_broad", "currency": "USD"},
-    {"id": "EZU", "name": "iShares MSCI Eurozone", "ticker": "EZU", "region": "EU", "type": "equity_broad", "currency": "USD"},
-    {"id": "TIGER200", "name": "TIGER 200", "ticker": "069500.KS", "region": "KR", "type": "equity_broad", "currency": "KRW"},
-    {"id": "TIGER_NQ100", "name": "TIGER 미국나스닥100", "ticker": "133690.KS", "region": "US", "type": "equity_tech", "currency": "KRW"},
-    {"id": "KODEX_SEMI", "name": "KODEX 반도체", "ticker": "091160.KS", "region": "KR", "type": "equity_sector", "currency": "KRW"},
-    {"id": "KODEX_GOLD", "name": "KODEX 골드선물(H)", "ticker": "132030.KS", "region": "US", "type": "commodity_gold", "currency": "KRW"},
-    {"id": "KODEX_USD", "name": "KODEX 미국달러선물", "ticker": "261240.KS", "region": "US", "type": "fx_dollar", "currency": "KRW"},
-    {"id": "TIGER200_IT", "name": "TIGER 200 IT", "ticker": "371460.KS", "region": "KR", "type": "equity_sector", "currency": "KRW"},
-    {"id": "KODEX_US30Y", "name": "KODEX 미국채울트라30년(H)", "ticker": "148020.KS", "region": "US", "type": "bond_long", "currency": "KRW"},
-    {"id": "TIGER_JAPAN", "name": "TIGER 일본니케이225", "ticker": "241180.KS", "region": "JP", "type": "equity_broad", "currency": "KRW"},
+def _load_securities_master(root: Path) -> dict:
+    """config/securities.json을 로드. 없으면 빈 dict 반환."""
+    p = root / "config" / "securities.json"
+    try:
+        return json.loads(p.read_text())
+    except Exception:
+        return {}
+
+
+# ── Securities master 로드 (모듈 레벨) ────────────────────────────────────────
+# ETF_UNIVERSE / REGIME_BIAS는 config/securities.json에서 자동 생성됩니다.
+# 직접 수정하지 마세요 — config/securities.json을 편집하세요.
+_SM = _load_securities_master(ROOT)
+
+ETF_UNIVERSE: list[dict] = [
+    {
+        "id": s["id"],
+        "name": s["name"],
+        "ticker": s["ticker"],
+        "region": s["region"],
+        "type": s["asset_class"],
+        "currency": s.get("currency", "USD"),
+        "allowed_accounts": s.get("allowed_accounts", []),
+        "theme_tags": s.get("theme_tags", []),
+    }
+    for s in _SM.get("securities", [])
 ]
 
-REGIME_BIAS: dict[str, dict[str, int]] = {
-    "Growth": {
-        "equity_broad": 25,
-        "equity_tech": 30,
-        "equity_em": 20,
-        "equity_sector": 15,
-        "commodity_gold": -10,
-        "bond_long": -20,
-        "bond_mid": -15,
-        "fx_dollar": -15,
-    },
-    "Stagflation/Recession": {
-        "equity_broad": -20,
-        "equity_tech": -25,
-        "equity_em": -20,
-        "equity_sector": -5,
-        "commodity_gold": 25,
-        "bond_long": 20,
-        "bond_mid": 15,
-        "fx_dollar": 20,
-    },
-    "Inflationary": {
-        "equity_broad": 0,
-        "equity_tech": -10,
-        "equity_em": -5,
-        "equity_sector": 20,
-        "commodity_gold": 25,
-        "bond_long": -25,
-        "bond_mid": -10,
-        "fx_dollar": 10,
-    },
-    "Risk-Off DollarStrength": {
-        "equity_broad": -15,
-        "equity_tech": -15,
-        "equity_em": -25,
-        "equity_sector": -5,
-        "commodity_gold": 20,
-        "bond_long": 10,
-        "bond_mid": 10,
-        "fx_dollar": 25,
-    },
+REGIME_BIAS: dict[str, dict[str, int]] = _SM.get("regime_bias", {
     "Neutral": {
-        "equity_broad": 5,
-        "equity_tech": 5,
-        "equity_em": 0,
-        "equity_sector": 5,
-        "commodity_gold": 5,
-        "bond_long": 5,
-        "bond_mid": 5,
-        "fx_dollar": 0,
-    },
-}
+        "equity_broad": 5, "equity_tech": 5, "equity_em": 0, "equity_sector": 5,
+        "commodity_gold": 5, "bond_long": 5, "bond_mid": 5, "fx_dollar": 0,
+    }
+})
 
 TIER_LABELS = {
     (65, 101): "강력매수",
@@ -262,13 +222,15 @@ def recommend(
     else:
         end = parse_iso_date(history_end_date or date_str)
         start = parse_iso_date(history_start_date) if history_start_date else end - timedelta(days=270)
-        print(f"ETF 가격 데이터 수집 중 ({len(ETF_UNIVERSE)}개)…")
-        history_rows = fetch_etf_prices([etf["ticker"] for etf in ETF_UNIVERSE], start, end)
+        universe = ETF_UNIVERSE or []
+        print(f"ETF 가격 데이터 수집 중 ({len(universe)}개)…")
+        history_rows = fetch_etf_prices([etf["ticker"] for etf in universe], start, end)
         if write_history_file:
             write_price_history(write_history_file, start, end, history_rows)
 
+    universe = ETF_UNIVERSE or []
     scored = []
-    for etf in ETF_UNIVERSE:
+    for etf in universe:
         closes = slice_closes(history_rows.get(etf["ticker"], []), date_str)
         scored.append(score_etf(etf, regime, closes))
     scored.sort(key=lambda item: item["score"], reverse=True)

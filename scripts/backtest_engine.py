@@ -265,6 +265,9 @@ def backtest_symbol(symbol: str, df: pd.DataFrame, initial_capital: float) -> di
     benchmark_return = (float(df["Close"].iloc[-1]) / float(df["Close"].iloc[LOOKBACK_BARS]) - 1) * 100
     win_rate, wins, total_trades = trade_stats(trades)
     total_days = max((df.index[-1] - df.index[LOOKBACK_BARS]).days, 1)
+    ann_vol = annualized_volatility(equity_curve)
+    freq = execution_frequency(trades, total_days)
+    total_cost, cost_bps = apply_transaction_costs(trades)
 
     return {
         "symbol": symbol,
@@ -273,12 +276,140 @@ def backtest_symbol(symbol: str, df: pd.DataFrame, initial_capital: float) -> di
         "total_return_pct": round((final_equity / initial_capital - 1) * 100, 2),
         "cagr_pct": round(cagr(initial_capital, final_equity, total_days), 2),
         "mdd_pct": round(max_drawdown(equity_curve), 2),
+        "annualized_vol_pct": round(ann_vol, 2),
+        "sharpe_approx": round((cagr(initial_capital, final_equity, total_days) / ann_vol), 2) if ann_vol > 0 else None,
         "win_rate_pct": round(win_rate, 2),
         "wins": wins,
         "total_trades": total_trades,
         "benchmark_return_pct": round(benchmark_return, 2),
+        "execution_frequency": freq,
+        "transaction_cost_est": {
+            "cost_bps_oneway": cost_bps,
+            "total_cost_usd": total_cost,
+            "cost_adjusted_return_pct": round((final_equity - total_cost) / initial_capital * 100 - 100, 2),
+        },
         "trades": [trade.as_dict() for trade in trades],
         "equity_curve": equity_curve,
+    }
+
+
+def annualized_volatility(equity_curve: list[dict]) -> float:
+    """연간화 변동성 (일별 수익률 표준편차 × √252)."""
+    if len(equity_curve) < 2:
+        return 0.0
+    equities = [p["equity"] for p in equity_curve]
+    daily_returns = [(equities[i] / equities[i - 1]) - 1 for i in range(1, len(equities))]
+    if not daily_returns:
+        return 0.0
+    n = len(daily_returns)
+    mean = sum(daily_returns) / n
+    variance = sum((r - mean) ** 2 for r in daily_returns) / max(n - 1, 1)
+    return math.sqrt(variance) * math.sqrt(252) * 100
+
+
+def execution_frequency(trades: list[Trade], total_days: int) -> dict:
+    """거래 빈도 지표."""
+    if not trades or total_days <= 0:
+        return {"trades_per_year": 0.0, "avg_hold_days": 0.0, "max_exposure_pct": 0.0}
+    trades_per_year = len(trades) / (total_days / 365.25)
+    avg_hold_days = sum(t.hold_days for t in trades) / len(trades)
+    # max_exposure: 포지션 보유 일수 / 전체 일수
+    total_hold_days = sum(t.hold_days for t in trades)
+    max_exposure_pct = min(total_hold_days / total_days * 100, 100.0)
+    return {
+        "trades_per_year": round(trades_per_year, 2),
+        "avg_hold_days": round(avg_hold_days, 1),
+        "max_exposure_pct": round(max_exposure_pct, 1),
+    }
+
+
+def apply_transaction_costs(trades: list[Trade], cost_bps: float = 10.0) -> tuple[float, float]:
+    """
+    왕복 거래비용 적용 후 총 PnL 감소분과 비용 조정 수익률 변화.
+    cost_bps: 편도 거래비용 (basis points). 기본 10bp = 0.10%
+    """
+    cost_rate = cost_bps / 10000.0
+    total_cost = 0.0
+    for t in trades:
+        cost = (t.entry_price + t.exit_price) * t.shares * cost_rate
+        total_cost += cost
+    return round(total_cost, 2), round(cost_bps, 1)
+
+
+def walk_forward_backtest(
+    symbol: str,
+    df: pd.DataFrame,
+    initial_capital: float,
+    train_months: int = 18,
+    test_months: int = 6,
+) -> dict:
+    """
+    워크-포워드(Walk-Forward) 백테스트.
+    - 훈련 기간(train_months)으로 신호 체계 적용 후 테스트 기간(test_months)에서 성과 평가.
+    - 최소 LOOKBACK_BARS + 30일 데이터가 필요한 구간만 평가.
+    - 각 폴드의 결과를 반환 (실제로 임계값 학습은 없지만 시간분할 성과 검증 역할).
+    """
+    train_bars = train_months * 21  # 대략 거래일 계산
+    test_bars = test_months * 21
+
+    folds = []
+    total_bars = len(df)
+    start = LOOKBACK_BARS + train_bars
+
+    fold_idx = 0
+    while start + test_bars <= total_bars:
+        train_start = max(0, start - train_bars)
+        train_end = start
+        test_end = min(start + test_bars, total_bars)
+
+        # 테스트 구간만 백테스트 (훈련 구간 기록은 lookback 전제)
+        test_df = df.iloc[train_start:test_end].copy()
+        if len(test_df) <= LOOKBACK_BARS + 2:
+            start += test_bars
+            continue
+
+        fold_result = backtest_symbol(symbol, test_df, initial_capital)
+        fold_result["fold"] = fold_idx
+        fold_result["train_start"] = df.index[train_start].strftime("%Y-%m-%d")
+        fold_result["train_end"] = df.index[train_end - 1].strftime("%Y-%m-%d")
+        fold_result["test_start"] = df.index[train_end].strftime("%Y-%m-%d") if train_end < total_bars else None
+        fold_result["test_end"] = df.index[test_end - 1].strftime("%Y-%m-%d")
+
+        folds.append(fold_result)
+        fold_idx += 1
+        start += test_bars
+
+    if not folds:
+        return {"symbol": symbol, "folds": [], "note": "데이터 부족으로 워크-포워드 불가"}
+
+    avg_return = sum(f["total_return_pct"] for f in folds) / len(folds)
+    avg_mdd = sum(f["mdd_pct"] for f in folds) / len(folds)
+    avg_win_rate = sum(f["win_rate_pct"] for f in folds) / len(folds)
+    profitable_folds = sum(1 for f in folds if f["total_return_pct"] > 0)
+
+    return {
+        "symbol": symbol,
+        "fold_count": len(folds),
+        "train_months": train_months,
+        "test_months": test_months,
+        "avg_return_pct": round(avg_return, 2),
+        "avg_mdd_pct": round(avg_mdd, 2),
+        "avg_win_rate_pct": round(avg_win_rate, 2),
+        "profitable_folds": profitable_folds,
+        "profitable_folds_pct": round(profitable_folds / len(folds) * 100, 1),
+        "folds": [
+            {
+                "fold": f["fold"],
+                "train_start": f.get("train_start"),
+                "test_start": f.get("test_start"),
+                "test_end": f.get("test_end"),
+                "return_pct": f["total_return_pct"],
+                "mdd_pct": f["mdd_pct"],
+                "win_rate_pct": f["win_rate_pct"],
+                "total_trades": f["total_trades"],
+            }
+            for f in folds
+        ],
     }
 
 
@@ -330,50 +461,84 @@ def build_portfolio_summary(per_symbol: dict[str, dict], initial_capital: float)
 
 
 def write_report(root: Path, results: dict) -> None:
+    portfolio = results["portfolio"]
     lines = [
         "# BACKTEST_REPORT",
         "",
         "## 개요",
-        "- 대상: SPY, QQQ",
-        "- 기간: 최근 5년 일봉",
+        f"- 대상: {', '.join(results.get('config', {}).get('symbols', ['SPY', 'QQQ']))}",
+        f"- 기간: 최근 {results.get('config', {}).get('years', 5)}년 일봉",
         "- 규칙: A/B 등급이면 다음 날 시가 매수, D/F 등급이면 다음 날 시가 매도",
-        "- 초기 자본금: $10,000 (SPY/QQQ 동일 비중 분배)",
-        "- 체결 방식: 수수료/슬리피지 미반영, 소수점 단위 매수 허용",
+        f"- 초기 자본금: ${results.get('config', {}).get('initial_capital', 10000):,.0f}",
+        "- 체결 방식: 편도 10bp 수수료 추정 포함",
         "",
         "## 포트폴리오 결과",
-        f"- 최종 자산: ${results['portfolio']['final_equity']:,.2f}",
-        f"- 총수익률: {results['portfolio']['total_return_pct']:.2f}%",
-        f"- CAGR: {results['portfolio']['cagr_pct']:.2f}%",
-        f"- MDD: {results['portfolio']['mdd_pct']:.2f}%",
-        f"- 승률: {results['portfolio']['win_rate_pct']:.2f}% ({results['portfolio']['wins']}/{results['portfolio']['total_trades']})",
+        f"| 지표 | 값 |",
+        f"|------|-----|",
+        f"| 최종 자산 | ${portfolio['final_equity']:,.2f} |",
+        f"| 총수익률 | {portfolio['total_return_pct']:.2f}% |",
+        f"| CAGR | {portfolio['cagr_pct']:.2f}% |",
+        f"| MDD | {portfolio['mdd_pct']:.2f}% |",
+        f"| 연간 변동성 | {portfolio.get('annualized_vol_pct', 0):.2f}% |",
+        f"| 샤프비율 (근사) | {portfolio.get('sharpe_approx') or 'N/A'} |",
+        f"| 승률 | {portfolio['win_rate_pct']:.2f}% ({portfolio['wins']}/{portfolio['total_trades']}) |",
         "",
         "## 종목별 결과",
     ]
 
     for symbol, result in results["per_symbol"].items():
-        lines.extend(
-            [
-                f"### {symbol}",
-                f"- 최종 자산: ${result['final_equity']:,.2f}",
-                f"- 총수익률: {result['total_return_pct']:.2f}%",
-                f"- CAGR: {result['cagr_pct']:.2f}%",
-                f"- MDD: {result['mdd_pct']:.2f}%",
-                f"- 승률: {result['win_rate_pct']:.2f}% ({result['wins']}/{result['total_trades']})",
-                f"- Buy & Hold 비교: {result['benchmark_return_pct']:.2f}%",
-                "",
-            ]
-        )
-
-    lines.extend(
-        [
-            "## 해석",
-            "- 이 백테스트는 현재 기술적 등급 체계가 과거 5년의 추세/과매도 구간에서 어느 정도 방어력과 수익성을 가졌는지 보는 1차 검증입니다.",
-            "- 레짐, 밸류에이션, 계좌 제약, 분할매수 스케줄까지 완전 반영한 정식 포트폴리오 백테스트는 추가 단계가 필요합니다.",
-            "- 다음 개선 후보는 수수료/슬리피지 반영, 다중 포지션 허용, 분할 진입 규칙 반영입니다.",
+        freq = result.get("execution_frequency", {})
+        cost = result.get("transaction_cost_est", {})
+        lines.extend([
+            f"### {symbol}",
+            f"| 지표 | 값 |",
+            f"|------|-----|",
+            f"| 최종 자산 | ${result['final_equity']:,.2f} |",
+            f"| 총수익률 | {result['total_return_pct']:.2f}% |",
+            f"| CAGR | {result['cagr_pct']:.2f}% |",
+            f"| MDD | {result['mdd_pct']:.2f}% |",
+            f"| 연간 변동성 | {result.get('annualized_vol_pct', 0):.2f}% |",
+            f"| 샤프비율 (근사) | {result.get('sharpe_approx') or 'N/A'} |",
+            f"| 승률 | {result['win_rate_pct']:.2f}% ({result['wins']}/{result['total_trades']}) |",
+            f"| Buy & Hold | {result['benchmark_return_pct']:.2f}% |",
+            f"| 연간 거래 횟수 | {freq.get('trades_per_year', 0):.1f}회 |",
+            f"| 평균 보유 기간 | {freq.get('avg_hold_days', 0):.1f}일 |",
+            f"| 최대 노출도 | {freq.get('max_exposure_pct', 0):.1f}% |",
+            f"| 거래비용 추정 | ${cost.get('total_cost_usd', 0):,.2f} (편도 {cost.get('cost_bps_oneway', 10):.0f}bp) |",
+            f"| 비용 조정 수익률 | {cost.get('cost_adjusted_return_pct', 0):.2f}% |",
             "",
-            f"_generated_at: {datetime.now(timezone.utc).isoformat()}_",
-        ]
-    )
+        ])
+
+    # Walk-forward 결과
+    if results.get("walk_forward"):
+        lines.extend(["## 워크-포워드(Walk-Forward) 검증", ""])
+        for symbol, wf in results["walk_forward"].items():
+            lines.extend([
+                f"### {symbol} — {wf.get('fold_count', 0)}개 폴드 ({wf.get('train_months', 18)}M 훈련 / {wf.get('test_months', 6)}M 테스트)",
+                f"- 평균 수익률: {wf.get('avg_return_pct', 0):.2f}%",
+                f"- 평균 MDD: {wf.get('avg_mdd_pct', 0):.2f}%",
+                f"- 평균 승률: {wf.get('avg_win_rate_pct', 0):.2f}%",
+                f"- 수익 폴드 비율: {wf.get('profitable_folds_pct', 0):.1f}% ({wf.get('profitable_folds', 0)}/{wf.get('fold_count', 0)})",
+                "",
+                "| 폴드 | 테스트 시작 | 테스트 종료 | 수익률 | MDD | 승률 | 거래수 |",
+                "|------|-----------|-----------|--------|-----|------|------|",
+            ])
+            for f in wf.get("folds", []):
+                lines.append(
+                    f"| {f['fold']} | {f.get('test_start','?')} | {f.get('test_end','?')} "
+                    f"| {f['return_pct']:.1f}% | {f['mdd_pct']:.1f}% | {f['win_rate_pct']:.1f}% | {f['total_trades']} |"
+                )
+            lines.append("")
+
+    lines.extend([
+        "## 해석",
+        "- 이 백테스트는 현재 기술적 등급 체계(timing_score)가 과거 데이터에서 어느 정도 방어력과 수익성을 가졌는지 검증합니다.",
+        "- 워크-포워드 검증: 과적합(overfitting) 여부 확인 — 수익 폴드 비율이 60% 이상이면 전략의 범용성 신호.",
+        "- 거래비용 추정: 편도 10bp(증권사 수수료 + 슬리피지)로 실제 수익률 하한을 추정합니다.",
+        "- 레짐, 밸류에이션, 계좌 제약, 분할매수 스케줄까지 완전 반영한 풀 시뮬레이션은 추가 단계가 필요합니다.",
+        "",
+        f"_generated_at: {datetime.now(timezone.utc).isoformat()}_",
+    ])
 
     (root / "BACKTEST_REPORT.md").write_text("\n".join(lines) + "\n")
 
@@ -384,6 +549,9 @@ def main() -> None:
     parser.add_argument("--years", type=int, default=5)
     parser.add_argument("--symbols", default="SPY,QQQ")
     parser.add_argument("--initial-capital", type=float, default=10000)
+    parser.add_argument("--walk-forward", action="store_true", help="워크-포워드 검증 실행")
+    parser.add_argument("--train-months", type=int, default=18, help="워크-포워드 훈련 기간 (개월)")
+    parser.add_argument("--test-months", type=int, default=6, help="워크-포워드 테스트 기간 (개월)")
     args = parser.parse_args()
 
     root = Path(args.base_dir)
@@ -392,13 +560,34 @@ def main() -> None:
 
     histories: dict[str, pd.DataFrame] = {}
     for symbol in symbols:
+        print(f"{symbol} 데이터 다운로드 중…")
         histories[symbol] = download_history(symbol, args.years)
         if histories[symbol].empty:
             raise RuntimeError(f"{symbol} 데이터 다운로드 실패")
 
     per_symbol = {}
     for symbol in symbols:
+        print(f"{symbol} 백테스트 실행 중…")
         per_symbol[symbol] = backtest_symbol(symbol, histories[symbol], per_symbol_capital)
+
+    portfolio = build_portfolio_summary(per_symbol, args.initial_capital)
+    # portfolio에도 확장 메트릭 추가
+    portfolio["annualized_vol_pct"] = annualized_volatility(portfolio.get("equity_curve", []))
+    ann_vol = portfolio["annualized_vol_pct"]
+    portfolio["sharpe_approx"] = round(portfolio["cagr_pct"] / ann_vol, 2) if ann_vol > 0 else None
+
+    # 워크-포워드 (--walk-forward 플래그 또는 5년 이상 데이터)
+    walk_forward_results = {}
+    if args.walk_forward or args.years >= 3:
+        for symbol in symbols:
+            print(f"{symbol} 워크-포워드 검증 중…")
+            walk_forward_results[symbol] = walk_forward_backtest(
+                symbol=symbol,
+                df=histories[symbol],
+                initial_capital=per_symbol_capital,
+                train_months=args.train_months,
+                test_months=args.test_months,
+            )
 
     results = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -407,6 +596,7 @@ def main() -> None:
             "exit_rule": "timing_score grade D/F -> next open sell",
             "execution": "next_open",
             "lookback_bars": LOOKBACK_BARS,
+            "transaction_cost_bps_oneway": 10,
         },
         "config": {
             "symbols": symbols,
@@ -415,7 +605,8 @@ def main() -> None:
             "per_symbol_capital": round(per_symbol_capital, 2),
         },
         "per_symbol": per_symbol,
-        "portfolio": build_portfolio_summary(per_symbol, args.initial_capital),
+        "portfolio": portfolio,
+        "walk_forward": walk_forward_results,
     }
 
     out_dir = root / "data"
@@ -424,10 +615,15 @@ def main() -> None:
     out_file.write_text(json.dumps(results, ensure_ascii=False, indent=2))
     write_report(root, results)
 
-    print(f"wrote {out_file}")
+    print(f"\nwrote {out_file}")
     print(f"wrote {root / 'BACKTEST_REPORT.md'}")
     print()
-    print(json.dumps(results["portfolio"], ensure_ascii=False, indent=2))
+
+    pf = results["portfolio"]
+    print(f"[포트폴리오] 수익률: {pf['total_return_pct']:.2f}% | CAGR: {pf['cagr_pct']:.2f}% | MDD: {pf['mdd_pct']:.2f}% | 변동성: {pf.get('annualized_vol_pct', 0):.2f}%")
+    if walk_forward_results:
+        for sym, wf in walk_forward_results.items():
+            print(f"[{sym} 워크-포워드] 폴드: {wf.get('fold_count', 0)} | 수익 비율: {wf.get('profitable_folds_pct', 0):.1f}% | 평균 수익률: {wf.get('avg_return_pct', 0):.2f}%")
 
 
 if __name__ == "__main__":

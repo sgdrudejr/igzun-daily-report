@@ -1,0 +1,268 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-04-04",
+  "_comment": "Single Source of Truth for all security/ETF metadata. Edit here only. etf_recommender.py, signal_engine.py, backtest_engine.py read from this file.",
+  "securities": [
+    {
+      "id": "SPY",
+      "name": "S&P 500 ETF",
+      "ticker": "SPY",
+      "region": "US",
+      "asset_class": "equity_broad",
+      "currency": "USD",
+      "benchmark": "S&P 500",
+      "allowed_accounts": ["TOSS"],
+      "theme_tags": ["미국대형주", "지수", "S&P500"]
+    },
+    {
+      "id": "QQQ",
+      "name": "나스닥 100 ETF",
+      "ticker": "QQQ",
+      "region": "US",
+      "asset_class": "equity_tech",
+      "currency": "USD",
+      "benchmark": "NASDAQ-100",
+      "allowed_accounts": ["TOSS", "PENSION"],
+      "theme_tags": ["기술주", "나스닥", "빅테크"]
+    },
+    {
+      "id": "GLD",
+      "name": "금 ETF",
+      "ticker": "GLD",
+      "region": "US",
+      "asset_class": "commodity_gold",
+      "currency": "USD",
+      "benchmark": "Gold Spot",
+      "allowed_accounts": ["TOSS"],
+      "theme_tags": ["금", "원자재", "안전자산"]
+    },
+    {
+      "id": "TLT",
+      "name": "미국 장기국채 ETF",
+      "ticker": "TLT",
+      "region": "US",
+      "asset_class": "bond_long",
+      "currency": "USD",
+      "benchmark": "ICE US Treasury 20+ Year",
+      "allowed_accounts": ["TOSS"],
+      "theme_tags": ["장기채", "미국국채", "안전자산"]
+    },
+    {
+      "id": "IEF",
+      "name": "미국 중기국채 ETF",
+      "ticker": "IEF",
+      "region": "US",
+      "asset_class": "bond_mid",
+      "currency": "USD",
+      "benchmark": "ICE US Treasury 7-10 Year",
+      "allowed_accounts": ["TOSS"],
+      "theme_tags": ["중기채", "미국국채"]
+    },
+    {
+      "id": "UUP",
+      "name": "달러 불리시 ETF",
+      "ticker": "UUP",
+      "region": "US",
+      "asset_class": "fx_dollar",
+      "currency": "USD",
+      "benchmark": "Deutsche Bank Long USD Future Index",
+      "allowed_accounts": ["TOSS"],
+      "theme_tags": ["달러", "환율", "FX"]
+    },
+    {
+      "id": "EEM",
+      "name": "이머징마켓 ETF",
+      "ticker": "EEM",
+      "region": "EM",
+      "asset_class": "equity_em",
+      "currency": "USD",
+      "benchmark": "MSCI Emerging Markets",
+      "allowed_accounts": ["TOSS"],
+      "theme_tags": ["이머징", "신흥국", "EM"]
+    },
+    {
+      "id": "XLE",
+      "name": "에너지 섹터 ETF",
+      "ticker": "XLE",
+      "region": "US",
+      "asset_class": "equity_sector",
+      "currency": "USD",
+      "benchmark": "S&P 500 Energy Sector",
+      "allowed_accounts": ["TOSS"],
+      "theme_tags": ["에너지", "원유", "섹터"]
+    },
+    {
+      "id": "XLF",
+      "name": "금융 섹터 ETF",
+      "ticker": "XLF",
+      "region": "US",
+      "asset_class": "equity_sector",
+      "currency": "USD",
+      "benchmark": "S&P 500 Financials Sector",
+      "allowed_accounts": ["TOSS"],
+      "theme_tags": ["금융", "은행", "섹터"]
+    },
+    {
+      "id": "EWJ",
+      "name": "iShares MSCI Japan",
+      "ticker": "EWJ",
+      "region": "JP",
+      "asset_class": "equity_broad",
+      "currency": "USD",
+      "benchmark": "MSCI Japan",
+      "allowed_accounts": ["TOSS", "PENSION"],
+      "theme_tags": ["일본", "닛케이", "해외주식"]
+    },
+    {
+      "id": "EZU",
+      "name": "iShares MSCI Eurozone",
+      "ticker": "EZU",
+      "region": "EU",
+      "asset_class": "equity_broad",
+      "currency": "USD",
+      "benchmark": "MSCI EMU",
+      "allowed_accounts": ["TOSS", "PENSION"],
+      "theme_tags": ["유럽", "유로존", "해외주식"]
+    },
+    {
+      "id": "TIGER200",
+      "name": "TIGER 200",
+      "ticker": "069500.KS",
+      "region": "KR",
+      "asset_class": "equity_broad",
+      "currency": "KRW",
+      "benchmark": "KOSPI 200",
+      "allowed_accounts": ["ISA"],
+      "theme_tags": ["국내대형주", "코스피200", "코어ETF"]
+    },
+    {
+      "id": "TIGER_NQ100",
+      "name": "TIGER 미국나스닥100",
+      "ticker": "133690.KS",
+      "region": "US",
+      "asset_class": "equity_tech",
+      "currency": "KRW",
+      "benchmark": "NASDAQ-100",
+      "allowed_accounts": ["ISA", "PENSION"],
+      "theme_tags": ["나스닥", "기술주", "해외ETF"]
+    },
+    {
+      "id": "KODEX_SEMI",
+      "name": "KODEX 반도체",
+      "ticker": "091160.KS",
+      "region": "KR",
+      "asset_class": "equity_sector",
+      "currency": "KRW",
+      "benchmark": "KRX Semiconductor",
+      "allowed_accounts": ["ISA"],
+      "theme_tags": ["반도체", "IT", "섹터"]
+    },
+    {
+      "id": "KODEX_GOLD",
+      "name": "KODEX 골드선물(H)",
+      "ticker": "132030.KS",
+      "region": "US",
+      "asset_class": "commodity_gold",
+      "currency": "KRW",
+      "benchmark": "Gold Futures",
+      "allowed_accounts": ["ISA"],
+      "theme_tags": ["금", "원자재", "안전자산"]
+    },
+    {
+      "id": "KODEX_USD",
+      "name": "KODEX 미국달러선물",
+      "ticker": "261240.KS",
+      "region": "US",
+      "asset_class": "fx_dollar",
+      "currency": "KRW",
+      "benchmark": "USD/KRW Futures",
+      "allowed_accounts": ["ISA"],
+      "theme_tags": ["달러", "환율", "FX"]
+    },
+    {
+      "id": "TIGER200_IT",
+      "name": "TIGER 200 IT",
+      "ticker": "371460.KS",
+      "region": "KR",
+      "asset_class": "equity_sector",
+      "currency": "KRW",
+      "benchmark": "KOSPI 200 IT",
+      "allowed_accounts": ["ISA"],
+      "theme_tags": ["IT", "기술주", "반도체", "섹터"]
+    },
+    {
+      "id": "KODEX_US30Y",
+      "name": "KODEX 미국채울트라30년(H)",
+      "ticker": "148020.KS",
+      "region": "US",
+      "asset_class": "bond_long",
+      "currency": "KRW",
+      "benchmark": "ICE US Treasury 20+ Year",
+      "allowed_accounts": ["ISA", "PENSION"],
+      "theme_tags": ["장기채", "미국국채", "안전자산"]
+    },
+    {
+      "id": "TIGER_JAPAN",
+      "name": "TIGER 일본니케이225",
+      "ticker": "241180.KS",
+      "region": "JP",
+      "asset_class": "equity_broad",
+      "currency": "KRW",
+      "benchmark": "Nikkei 225",
+      "allowed_accounts": ["ISA", "PENSION"],
+      "theme_tags": ["일본", "닛케이", "해외ETF"]
+    }
+  ],
+  "regime_bias": {
+    "Growth": {
+      "equity_broad": 25,
+      "equity_tech": 30,
+      "equity_em": 20,
+      "equity_sector": 15,
+      "commodity_gold": -10,
+      "bond_long": -20,
+      "bond_mid": -15,
+      "fx_dollar": -15
+    },
+    "Stagflation/Recession": {
+      "equity_broad": -20,
+      "equity_tech": -25,
+      "equity_em": -20,
+      "equity_sector": -5,
+      "commodity_gold": 25,
+      "bond_long": 20,
+      "bond_mid": 15,
+      "fx_dollar": 20
+    },
+    "Inflationary": {
+      "equity_broad": 0,
+      "equity_tech": -10,
+      "equity_em": -5,
+      "equity_sector": 20,
+      "commodity_gold": 25,
+      "bond_long": -25,
+      "bond_mid": -10,
+      "fx_dollar": 10
+    },
+    "Risk-Off DollarStrength": {
+      "equity_broad": -15,
+      "equity_tech": -15,
+      "equity_em": -25,
+      "equity_sector": -5,
+      "commodity_gold": 20,
+      "bond_long": 10,
+      "bond_mid": 10,
+      "fx_dollar": 25
+    },
+    "Neutral": {
+      "equity_broad": 5,
+      "equity_tech": 5,
+      "equity_em": 0,
+      "equity_sector": 5,
+      "commodity_gold": 5,
+      "bond_long": 5,
+      "bond_mid": 5,
+      "fx_dollar": 0
+    }
+  }
+}
