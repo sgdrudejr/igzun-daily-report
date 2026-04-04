@@ -1,0 +1,16 @@
+{
+  "date": "2026-01-19",
+  "doc_count": 51,
+  "sources": {
+    "fred_api": 1,
+    "opendart": 50
+  },
+  "regions": {
+    "US": 1,
+    "KR": 50
+  },
+  "types": {
+    "time_series": 1,
+    "filing": 50
+  }
+}
