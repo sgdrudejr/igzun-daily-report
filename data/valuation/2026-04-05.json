@@ -1,0 +1,47 @@
+{
+  "date": "2026-04-05",
+  "us10y_used": 4.31,
+  "sp500": {
+    "price": 6582.69,
+    "range_52w_pct": 80.2,
+    "vs_ma200_pct": -0.93,
+    "estimated_pe": 25.0,
+    "earnings_yield_pct": 4.0,
+    "us10y_yield_pct": 4.31,
+    "erp_pct": -0.31,
+    "erp_assessment": "음수 (채권이 주식보다 유리한 환경)",
+    "shiller_cape": null,
+    "valuation_grade": "고평가",
+    "valuation_score": 10
+  },
+  "kospi": {
+    "price": 5377.3,
+    "range_52w_pct": 76.8,
+    "vs_ma200_pct": 31.99,
+    "estimated_pbr": 1.3,
+    "pbr_assessment": "고평가 구간",
+    "valuation_grade": "고평가",
+    "valuation_score": 25
+  },
+  "nasdaq": {
+    "price": 21879.18,
+    "range_52w_pct": 76.1,
+    "vs_ma200_pct": -2.06,
+    "estimated_pe": 30.0,
+    "earnings_yield_pct": 3.33,
+    "erp_pct": -0.98,
+    "valuation_grade": "다소 고평가",
+    "valuation_score": 39
+  },
+  "gold": {
+    "price": 4651.5,
+    "range_52w_pct": 71.8,
+    "vs_ma200_pct": 13.01,
+    "assessment": "중립",
+    "valuation_score": 50
+  },
+  "summary": {
+    "avg_score": 24,
+    "market_valuation": "고평가 — 안전자산 비중 유지"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-04T10:02:17.468265",
+  "generated_at": "2026-04-05T10:02:09.643877",
   "policy": {
     "raw_days": 45,
     "normalized_days": 75,
@@ -12,25 +12,30 @@
   "archived": {
     "raw": [
       {
-        "date": "2026-02-18",
-        "summary": "/Users/seo/igzun-daily-report/data/archive_summaries/raw/2026-02-18.json",
-        "archive": "/Users/seo/igzun-daily-report/data/archives/raw/2026-02-18.tar.gz",
-        "compact_docs": 6,
-        "chunk_docs": 6,
-        "compact_path": "/Users/seo/igzun-daily-report/data/archives/compact_raw/2026-02-18.jsonl.gz",
-        "chunks_path": "/Users/seo/igzun-daily-report/data/archives/chunks/2026-02-18.jsonl.gz"
+        "date": "2026-02-19",
+        "summary": "/Users/seo/igzun-daily-report/data/archive_summaries/raw/2026-02-19.json",
+        "archive": "/Users/seo/igzun-daily-report/data/archives/raw/2026-02-19.tar.gz",
+        "compact_docs": 56,
+        "chunk_docs": 56,
+        "compact_path": "/Users/seo/igzun-daily-report/data/archives/compact_raw/2026-02-19.jsonl.gz",
+        "chunks_path": "/Users/seo/igzun-daily-report/data/archives/chunks/2026-02-19.jsonl.gz"
       }
     ],
     "normalized": [
       {
-        "date": "2026-01-19",
-        "summary": "/Users/seo/igzun-daily-report/data/archive_summaries/normalized/2026-01-19.json",
-        "archive": "/Users/seo/igzun-daily-report/data/archives/normalized/2026-01-19.jsonl.gz",
-        "compact_docs": 51,
-        "compact_path": "/Users/seo/igzun-daily-report/data/archives/compact_normalized/2026-01-19.jsonl.gz"
+        "date": "2026-01-20",
+        "summary": "/Users/seo/igzun-daily-report/data/archive_summaries/normalized/2026-01-20.json",
+        "archive": "/Users/seo/igzun-daily-report/data/archives/normalized/2026-01-20.jsonl.gz",
+        "compact_docs": 43,
+        "compact_path": "/Users/seo/igzun-daily-report/data/archives/compact_normalized/2026-01-20.jsonl.gz"
       }
     ],
-    "manifests": []
+    "manifests": [
+      {
+        "date": "2026-01-05",
+        "archive": "/Users/seo/igzun-daily-report/data/archives/manifests/2026-01-05_run.json.gz"
+      }
+    ]
   },
   "skipped": []
 }

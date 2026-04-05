@@ -7,12 +7,13 @@
     "2026-04-01",
     "2026-04-02",
     "2026-04-03",
-    "2026-04-04"
+    "2026-04-04",
+    "2026-04-05"
   ],
   "fromDate": "2026-04-01",
-  "toDate": "2026-04-04",
-  "updateCount": 4,
-  "avgScore": 49.3,
+  "toDate": "2026-04-05",
+  "updateCount": 5,
+  "avgScore": 49.2,
   "regime": "Neutral",
   "regimeKr": "중립 횡보 국면",
   "totalScore": 48.56,
@@ -31,8 +32,8 @@
       "grade": "고평가",
       "pbr": 1.3,
       "pbrAssessment": "고평가 구간",
-      "range52w": 73.3,
-      "vsMa200": 28.87
+      "range52w": 76.8,
+      "vsMa200": 31.99
     },
     "nasdaq": {
       "grade": "다소 고평가",
@@ -262,7 +263,36 @@
             "signal": "소규모탐색",
             "timing_grade": "C",
             "first_amount": 621097,
-            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 3.4,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "소규모탐색",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
           },
           {
             "id": "TIGER200_IT",
@@ -270,9 +300,115 @@
             "signal": "소규모탐색",
             "timing_grade": "B",
             "first_amount": 621097,
-            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 3.4,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "소규모탐색",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
           }
-        ]
+        ],
+        "all_decisions": [
+          {
+            "id": "KODEX_SEMI",
+            "name": "KODEX 반도체",
+            "signal": "소규모탐색",
+            "timing_grade": "C",
+            "first_amount": 621097,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 3.4,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "소규모탐색",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
+          },
+          {
+            "id": "TIGER200_IT",
+            "name": "TIGER 200 IT",
+            "signal": "소규모탐색",
+            "timing_grade": "B",
+            "first_amount": 621097,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 3.4,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "소규모탐색",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
+          }
+        ],
+        "blocked_count": 0
       },
       "TOSS": {
         "label": "토스증권",
@@ -286,7 +422,36 @@
             "signal": "분할매수",
             "timing_grade": "B",
             "first_amount": 436709,
-            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 9.6,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "분할매수",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
           },
           {
             "id": "IEF",
@@ -294,7 +459,36 @@
             "signal": "분할매수",
             "timing_grade": "B",
             "first_amount": 349367,
-            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성"
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 7.6,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "분할매수",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
           },
           {
             "id": "XLE",
@@ -302,16 +496,272 @@
             "signal": "소규모탐색",
             "timing_grade": "C",
             "first_amount": 621097,
-            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량"
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 3.4,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "소규모탐색",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
           }
-        ]
+        ],
+        "all_decisions": [
+          {
+            "id": "TLT",
+            "name": "미국 장기국채 ETF",
+            "signal": "분할매수",
+            "timing_grade": "B",
+            "first_amount": 436709,
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 9.6,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "분할매수",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
+          },
+          {
+            "id": "IEF",
+            "name": "미국 중기국채 ETF",
+            "signal": "분할매수",
+            "timing_grade": "B",
+            "first_amount": 349367,
+            "schedule": "이번 주 1차 → 다음 주 확인 2차 → 2주 내 3~4차 완성",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 7.6,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "분할매수",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
+          },
+          {
+            "id": "XLE",
+            "name": "에너지 섹터 ETF",
+            "signal": "소규모탐색",
+            "timing_grade": "C",
+            "first_amount": 621097,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 3.4,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "소규모탐색",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
+          },
+          {
+            "id": "GLD",
+            "name": "금 ETF",
+            "signal": "소규모탐색",
+            "timing_grade": "C",
+            "first_amount": 621097,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 3.4,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "소규모탐색",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
+          },
+          {
+            "id": "UUP",
+            "name": "달러 불리시 ETF",
+            "signal": "소규모탐색",
+            "timing_grade": "C",
+            "first_amount": 496878,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 2.7,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "소규모탐색",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
+          },
+          {
+            "id": "EEM",
+            "name": "이머징마켓 ETF",
+            "signal": "소규모탐색",
+            "timing_grade": "C",
+            "first_amount": 745317,
+            "schedule": "소량 탐색 진입 (1%) → RSI 35 이하 혹은 추가 확인 신호 시 증량",
+            "decision_status": "APPROVED",
+            "blocked": false,
+            "block_reasons": [],
+            "risk_checks": [
+              {
+                "rule": "VIX_SOFT_WARN",
+                "value": 0,
+                "threshold": 30,
+                "result": "PASS"
+              },
+              {
+                "rule": "MAX_SINGLE_POSITION",
+                "value": 4.1,
+                "threshold": 25,
+                "result": "PASS"
+              },
+              {
+                "rule": "REGIME_EQUITY_BUY",
+                "value": "Neutral",
+                "threshold": "Growth/Neutral",
+                "result": "PASS"
+              },
+              {
+                "rule": "SIGNAL_AVOID",
+                "value": "소규모탐색",
+                "threshold": "비회피",
+                "result": "PASS"
+              }
+            ]
+          }
+        ],
+        "blocked_count": 0
       },
       "PENSION": {
         "label": "연금저축 (신한은행)",
         "cash": 5565201,
         "deploy_ratio": 0.35,
         "deploy_amount": 1947820,
-        "top_picks": []
+        "top_picks": [],
+        "all_decisions": [],
+        "blocked_count": 0
       }
     },
     "allSignals": [
@@ -534,7 +984,7 @@
       "불안이 다시 커질 수 있어서 GLD와 TLT는 완전히 비우기보다 방어용 후보로 계속 보면서 대응하는 편이 좋습니다."
     ],
     "marketNarrative": "현재 시장은 중립 횡보 국면에 위치하며 종합 점수 48.6점을 기록 중입니다. 달러/원 1511원은 원화 약세 기조로 국내 자산의 상대 수익률을 압박합니다.",
-    "deepResearchSummary": "최근 7거래일 기준 1217건의 문서가 누적되었고, 단기 주제는 금리/연준 30건, AI/반도체 26건, 유가/원자재 6건 입니다. 최근 30거래일 누적 주제는 유가/원자재 30건, 한국 수출/반도체 20건, 금리/연준 14건 로 이어지고 있습니다. 시장 총점은 1주 기준 +1.0p 변화했으며, 주간 관점은 중립 횡보 국면, 월간 관점은 중립 횡보 국면 로 해석됩니다.",
+    "deepResearchSummary": "최근 7거래일 기준 1083건의 문서가 누적되었고, 단기 주제는 유가/원자재 11건, AI/반도체 7건, 금리/연준 6건 입니다. 최근 30거래일 누적 주제는 유가/원자재 36건, 한국 수출/반도체 27건, 배당/밸류업 10건 로 이어지고 있습니다. 시장 총점은 1주 기준 +1.4p 변화했으며, 주간 관점은 중립 횡보 국면, 월간 관점은 중립 횡보 국면 로 해석됩니다.",
     "regimeAssessment": "중립 횡보 국면으로 분류된 현재 환경은 고평가 — 안전자산 비중 유지.",
     "causalChains": [
       {
@@ -582,8 +1032,8 @@
       "국내 자산은 밸류에이션 부담 때문에 좋은 뉴스만으로 공격 확대를 정당화하기 어렵다."
     ],
     "whatChanged": [
-      "1주 점수 변화가 +1.0p로 최근 주간 분위기는 악화됐습니다.",
-      "원/달러 하락 (-2.6)",
+      "1주 점수 변화가 +1.4p로 최근 주간 분위기는 악화됐습니다.",
+      "원/달러 하락 (-14.8)",
       "주간 해석은 현재 중립 횡보 국면로 유지되고 있습니다."
     ],
     "keySignals": [
@@ -693,17 +1143,17 @@
     ],
     "sourceBackedView": [
       {
-        "claim": "최근 7거래일은 금리/연준, AI/반도체 주제가 가장 많이 반복되었습니다.",
+        "claim": "최근 7거래일은 유가/원자재, AI/반도체 주제가 가장 많이 반복되었습니다.",
         "evidence": [
-          "최근 7거래일 문서 1217건",
-          "상위 출처: 네이버 금융 리서치 617건, OpenDART 공시 438건, FRED 거시지표 45건"
+          "최근 7거래일 문서 1083건",
+          "상위 출처: 네이버 금융 리서치 557건, OpenDART 공시 438건, FRED 거시지표 41건"
         ]
       },
       {
         "claim": "주간은 중립 횡보 국면, 월간은 중립 횡보 국면 관점으로 정리됩니다.",
         "evidence": [
-          "주간 평균점수 49.6",
-          "월간 평균점수 49.6"
+          "주간 평균점수 49.3",
+          "월간 평균점수 49.3"
         ]
       }
     ],
@@ -730,9 +1180,9 @@
         "claim": "최근 해석은 단발 뉴스보다 누적 정책·수출·원자재 흐름을 더 반영한다",
         "packet": "fundamental_researcher",
         "evidence": [
-          "금리/연준 30건",
-          "AI/반도체 26건",
-          "유가/원자재 6건"
+          "유가/원자재 11건",
+          "AI/반도체 7건",
+          "금리/연준 6건"
         ]
       },
       {
@@ -769,9 +1219,9 @@
     "researchLoopSummary": "2회 루프를 거쳐 핵심 가설을 검증했고, 변동성·환율·국내 밸류에이션 관련 주의 조건을 함께 남겼습니다.",
     "verificationStatus": "validated_with_cautions",
     "newsHighlights": [
-      "[fed_press_rss] Federal Reserve Board issues enforcement action with former employee of United Bank",
       "[fred_api] VIX (VIXCLS)",
-      "[fred_api] US 10Y Treasury Yield (DGS10)"
+      "[fred_api] US 10Y Treasury Yield (DGS10)",
+      "[fred_api] Dollar Index (Trade Weighted) (DTWEXBGS)"
     ],
     "nextCheckpoints": [
       "VIX와 시장 신호가 지금의 관망 유지에서 완화되는지 확인",
@@ -781,18 +1231,18 @@
     ],
     "apiUsed": false,
     "generatedBy": "fallback_rule_based",
-    "researchContextRef": "data/research_context/2026-04-04.json",
-    "packetRef": "data/research_packets/2026-04-04.json",
-    "hierarchicalIndexRef": "data/research_index/hierarchical/2026-04-04.json",
-    "researchGraphRef": "data/research_graph/2026-04-04.json",
-    "researchLoopRef": "data/research_loops/2026-04-04.json"
+    "researchContextRef": "data/research_context/2026-04-05.json",
+    "packetRef": "data/research_packets/2026-04-05.json",
+    "hierarchicalIndexRef": "data/research_index/hierarchical/2026-04-05.json",
+    "researchGraphRef": "data/research_graph/2026-04-05.json",
+    "researchLoopRef": "data/research_loops/2026-04-05.json"
   },
   "briefing": {
     "sentiment": {
       "score": 49,
       "status": "중립",
       "label": "종합 시장 점수 (0~100, 50=중립, 높을수록 위험선호 환경 우세)",
-      "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다. | 2026년 4월 누적 4회 업데이트, 평균 점수 49.3, 최근 점수 48.6, 최고 51.8, 최저 48.3"
+      "desc": "상승·하락 재료가 혼재된 구간입니다. 현재 해석은 중립 횡보 국면 기준입니다. | 2026년 4월 누적 5회 업데이트, 평균 점수 49.2, 최근 점수 48.6, 최고 51.8, 최저 48.3"
     },
     "marketDashboard": [
       {
@@ -871,7 +1321,7 @@
       },
       {
         "label": "KOSPI 1개월",
-        "value": "+2.8%",
+        "value": "-3.7%",
         "tone": "market"
       },
       {
@@ -897,31 +1347,31 @@
     ],
     "forecast": {
       "title": "2026년 4월 누적 판단",
-      "text": "2026년 4월 동안 4회 일간 업데이트가 누적되었습니다. 평균 점수 49.3, 최근 점수 48.6, 최고 51.8, 최저 48.3. 누적 문서 624건, 주요 출처 OpenDART 공시, 네이버 금융 리서치, FRED 거시지표, 한국은행 ECOS. 1개월 관점에서는 단일 기사보다 금리, 달러, 실적과 밸류에이션 부담이 어떤 레짐으로 굳어지는지가 중요합니다. S&P500 -4.2%, KOSPI +2.8%, 닛케이 -6.8%, DAX -4.3%, 금 -9.2%, 유가 +49.4% 흐름을 함께 보면 지금은 중립 횡보 국면 성격이 강합니다. 따라서 3~6개월 투자에서는 추격매수보다 목표 비중을 세우고, 금리와 환율이 완화되는지를 보며 코어 ETF와 위성 테마의 비중을 조절하는 접근이 유효합니다.",
+      "text": "2026년 4월 동안 5회 일간 업데이트가 누적되었습니다. 평균 점수 49.2, 최근 점수 48.6, 최고 51.8, 최저 48.3. 누적 문서 631건, 주요 출처 OpenDART 공시, 네이버 금융 리서치, FRED 거시지표, 한국은행 ECOS. 1개월 관점에서는 단일 기사보다 금리, 달러, 실적과 밸류에이션 부담이 어떤 레짐으로 굳어지는지가 중요합니다. S&P500 -4.2%, KOSPI -3.7%, 닛케이 -2.1%, DAX -4.3%, 금 -9.2%, 유가 +49.4% 흐름을 함께 보면 지금은 중립 횡보 국면 성격이 강합니다. 따라서 3~6개월 투자에서는 추격매수보다 목표 비중을 세우고, 금리와 환율이 완화되는지를 보며 코어 ETF와 위성 테마의 비중을 조절하는 접근이 유효합니다.",
       "sources": [
         {
           "label": "OpenDART 공시",
           "source": "opendart",
           "title": "OpenDART 공시 누적 286건",
-          "published_at": "2026-04-04"
+          "published_at": "2026-04-05"
         },
         {
           "label": "네이버 금융 리서치",
           "source": "naver_research",
           "title": "네이버 금융 리서치 누적 285건",
-          "published_at": "2026-04-04"
+          "published_at": "2026-04-05"
         },
         {
           "label": "FRED 거시지표",
           "source": "fred_api",
-          "title": "FRED 거시지표 누적 24건",
-          "published_at": "2026-04-04"
+          "title": "FRED 거시지표 누적 30건",
+          "published_at": "2026-04-05"
         },
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 누적 15건",
-          "published_at": "2026-04-04"
+          "title": "한국은행 ECOS 누적 16건",
+          "published_at": "2026-04-05"
         }
       ]
     },
@@ -954,7 +1404,7 @@
         {
           "label": "FRED 거시지표",
           "source": "fred_api",
-          "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+          "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
           "examples": [
             "VIX (VIXCLS)",
             "US 10Y Treasury Yield (DGS10)",
@@ -965,16 +1415,16 @@
           "sector": "macro",
           "doc_type": "time_series",
           "url": "https://fred.stlouisfed.org/series/VIXCLS",
-          "count": 8
+          "count": 6
         },
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
           "examples": [
-            "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+            "[BOK] 한국은행 기준금리: 2.5 %"
           ],
-          "published_at": "2026-04-03",
+          "published_at": "2026-04-02",
           "region": "KR",
           "sector": "macro",
           "doc_type": "time_series",
@@ -982,85 +1432,71 @@
           "count": 1
         },
         {
-          "label": "연준 보도자료",
-          "source": "fed_press_rss",
-          "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-          "examples": [
-            "Federal Reserve Board issues enforcement action with former employee of United Bank"
-          ],
-          "published_at": "2026-04-03",
-          "region": "US",
-          "sector": "macro",
-          "doc_type": "news",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-          "count": 1
-        },
-        {
           "label": "퀀트 레짐",
           "source": "macro_analysis",
           "title": "1개월 레짐 분석",
-          "published_at": "2026-04-04"
+          "published_at": "2026-04-05"
         }
       ]
     },
     "insights": [
       {
         "category": "누적요약",
-        "text": "2026년 4월 구간은 2026-04-01~2026-04-04 사이 4회 업데이트를 기준으로 집계했습니다. 평균 점수 49.3, 최근 점수 48.6, 최고 51.8, 최저 48.3.",
+        "text": "2026년 4월 구간은 2026-04-01~2026-04-05 사이 5회 업데이트를 기준으로 집계했습니다. 평균 점수 49.2, 최근 점수 48.6, 최고 51.8, 최저 48.3.",
         "sources": [
           {
             "label": "OpenDART 공시",
             "source": "opendart",
             "title": "OpenDART 공시 누적 286건",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
             "title": "네이버 금융 리서치 누적 285건",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 누적 24건",
-            "published_at": "2026-04-04"
+            "title": "FRED 거시지표 누적 30건",
+            "published_at": "2026-04-05"
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 누적 15건",
-            "published_at": "2026-04-04"
+            "title": "한국은행 ECOS 누적 16건",
+            "published_at": "2026-04-05"
           }
         ]
       },
       {
         "category": "데이터",
-        "text": "누적 문서 624건, 주요 출처는 OpenDART 공시, 네이버 금융 리서치, FRED 거시지표, 한국은행 ECOS입니다. 매일 결과를 누적해 1개월 관점으로 다시 정리한 뷰입니다.",
+        "text": "누적 문서 631건, 주요 출처는 OpenDART 공시, 네이버 금융 리서치, FRED 거시지표, 한국은행 ECOS입니다. 매일 결과를 누적해 1개월 관점으로 다시 정리한 뷰입니다.",
         "sources": [
           {
             "label": "OpenDART 공시",
             "source": "opendart",
             "title": "OpenDART 공시 누적 286건",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "네이버 금융 리서치",
             "source": "naver_research",
             "title": "네이버 금융 리서치 누적 285건",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 누적 24건",
-            "published_at": "2026-04-04"
+            "title": "FRED 거시지표 누적 30건",
+            "published_at": "2026-04-05"
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 누적 15건",
-            "published_at": "2026-04-04"
+            "title": "한국은행 ECOS 누적 16건",
+            "published_at": "2026-04-05"
           }
         ]
       },
@@ -1072,13 +1508,13 @@
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐 분석",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 ETF 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "포트폴리오 상태",
@@ -1096,7 +1532,7 @@
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐 분석",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           }
         ]
       },
@@ -1107,7 +1543,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -1118,36 +1554,36 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
+            "label": "한국은행 ECOS",
+            "source": "ecos_api",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
-            "region": "US",
+            "published_at": "2026-04-02",
+            "region": "KR",
             "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
+            "doc_type": "time_series",
+            "url": "https://ecos.bok.or.kr/",
             "count": 1
           }
         ]
       },
       {
         "category": "한국",
-        "text": "한국 시장은 1개월 기준 KOSPI +2.8%입니다. 원/달러 1511원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
+        "text": "한국 시장은 1개월 기준 KOSPI -3.7%입니다. 원/달러 1511원, 기준금리 2.50%는 외국인 수급과 밸류에이션에 직접 영향을 줍니다. 원화 약세가 길어질수록 지수 전반보다 수출주·반도체와 방어형 자산을 함께 보는 편이 유리합니다.",
         "sources": [
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1157,7 +1593,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -1168,21 +1604,7 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
-          },
-          {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
+            "count": 6
           }
         ]
       },
@@ -1193,7 +1615,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -1204,16 +1626,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1229,7 +1651,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -1240,20 +1662,20 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
+            "label": "한국은행 ECOS",
+            "source": "ecos_api",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
-            "region": "US",
+            "published_at": "2026-04-02",
+            "region": "KR",
             "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
+            "doc_type": "time_series",
+            "url": "https://ecos.bok.or.kr/",
             "count": 1
           }
         ]
@@ -1265,7 +1687,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -1276,30 +1698,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
-          },
-          {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -1310,12 +1718,12 @@
       },
       {
         "category": "해외분산",
-        "text": "일본 -6.8%, 유럽 DAX -4.3% 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
+        "text": "일본 -2.1%, 유럽 DAX -4.3% 흐름을 보면 지역별 체력 차이가 있습니다. 미국이 흔들릴 때 일본·유럽 ETF를 소규모 섞으면 포트폴리오 변동성을 낮추는 데 도움이 됩니다.",
         "sources": [
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -1326,20 +1734,20 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
+            "label": "한국은행 ECOS",
+            "source": "ecos_api",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
-            "region": "US",
+            "published_at": "2026-04-02",
+            "region": "KR",
             "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
+            "doc_type": "time_series",
+            "url": "https://ecos.bok.or.kr/",
             "count": 1
           }
         ]
@@ -1354,9 +1762,9 @@
       },
       {
         "name": "KOSPI",
-        "price": "5234.05",
-        "change": "▲2.76%",
-        "isUp": true
+        "price": "5377.30",
+        "change": "▼3.70%",
+        "isUp": false
       },
       {
         "name": "NASDAQ",
@@ -1366,8 +1774,8 @@
       },
       {
         "name": "닛케이225",
-        "price": "52463.27",
-        "change": "▼6.78%",
+        "price": "53123.49",
+        "change": "▼2.07%",
         "isUp": false
       },
       {
@@ -1404,7 +1812,7 @@
         "누적",
         "집계"
       ],
-      "summary": "2026년 4월 동안 4회 업데이트가 쌓였고, 평균 점수 49.3, 최근 점수 48.6, 최고 51.8, 최저 48.3. 주요 출처는 OpenDART 공시, 네이버 금융 리서치, FRED 거시지표, 한국은행 ECOS입니다.",
+      "summary": "2026년 4월 동안 5회 업데이트가 쌓였고, 평균 점수 49.2, 최근 점수 48.6, 최고 51.8, 최저 48.3. 주요 출처는 OpenDART 공시, 네이버 금융 리서치, FRED 거시지표, 한국은행 ECOS입니다.",
       "impacts": [
         {
           "sector": "거시",
@@ -1427,25 +1835,25 @@
           "label": "OpenDART 공시",
           "source": "opendart",
           "title": "OpenDART 공시 누적 286건",
-          "published_at": "2026-04-04"
+          "published_at": "2026-04-05"
         },
         {
           "label": "네이버 금융 리서치",
           "source": "naver_research",
           "title": "네이버 금융 리서치 누적 285건",
-          "published_at": "2026-04-04"
+          "published_at": "2026-04-05"
         },
         {
           "label": "FRED 거시지표",
           "source": "fred_api",
-          "title": "FRED 거시지표 누적 24건",
-          "published_at": "2026-04-04"
+          "title": "FRED 거시지표 누적 30건",
+          "published_at": "2026-04-05"
         },
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 누적 15건",
-          "published_at": "2026-04-04"
+          "title": "한국은행 ECOS 누적 16건",
+          "published_at": "2026-04-05"
         }
       ]
     },
@@ -1485,7 +1893,7 @@
         {
           "label": "FRED 거시지표",
           "source": "fred_api",
-          "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+          "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
           "examples": [
             "VIX (VIXCLS)",
             "US 10Y Treasury Yield (DGS10)",
@@ -1496,30 +1904,16 @@
           "sector": "macro",
           "doc_type": "time_series",
           "url": "https://fred.stlouisfed.org/series/VIXCLS",
-          "count": 8
-        },
-        {
-          "label": "연준 보도자료",
-          "source": "fed_press_rss",
-          "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-          "examples": [
-            "Federal Reserve Board issues enforcement action with former employee of United Bank"
-          ],
-          "published_at": "2026-04-03",
-          "region": "US",
-          "sector": "macro",
-          "doc_type": "news",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-          "count": 1
+          "count": 6
         },
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
           "examples": [
-            "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+            "[BOK] 한국은행 기준금리: 2.5 %"
           ],
-          "published_at": "2026-04-03",
+          "published_at": "2026-04-02",
           "region": "KR",
           "sector": "macro",
           "doc_type": "time_series",
@@ -1564,7 +1958,7 @@
         {
           "label": "FRED 거시지표",
           "source": "fred_api",
-          "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+          "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
           "examples": [
             "VIX (VIXCLS)",
             "US 10Y Treasury Yield (DGS10)",
@@ -1575,16 +1969,16 @@
           "sector": "macro",
           "doc_type": "time_series",
           "url": "https://fred.stlouisfed.org/series/VIXCLS",
-          "count": 8
+          "count": 6
         },
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
           "examples": [
-            "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+            "[BOK] 한국은행 기준금리: 2.5 %"
           ],
-          "published_at": "2026-04-03",
+          "published_at": "2026-04-02",
           "region": "KR",
           "sector": "macro",
           "doc_type": "time_series",
@@ -1629,7 +2023,7 @@
         {
           "label": "FRED 거시지표",
           "source": "fred_api",
-          "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+          "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
           "examples": [
             "VIX (VIXCLS)",
             "US 10Y Treasury Yield (DGS10)",
@@ -1640,30 +2034,16 @@
           "sector": "macro",
           "doc_type": "time_series",
           "url": "https://fred.stlouisfed.org/series/VIXCLS",
-          "count": 8
-        },
-        {
-          "label": "연준 보도자료",
-          "source": "fed_press_rss",
-          "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-          "examples": [
-            "Federal Reserve Board issues enforcement action with former employee of United Bank"
-          ],
-          "published_at": "2026-04-03",
-          "region": "US",
-          "sector": "macro",
-          "doc_type": "news",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-          "count": 1
+          "count": 6
         },
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
           "examples": [
-            "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+            "[BOK] 한국은행 기준금리: 2.5 %"
           ],
-          "published_at": "2026-04-03",
+          "published_at": "2026-04-02",
           "region": "KR",
           "sector": "macro",
           "doc_type": "time_series",
@@ -1709,13 +2089,13 @@
           "label": "ETF 추천",
           "source": "etf_recommender",
           "title": "ETF 랭킹 산출",
-          "published_at": "2026-04-04"
+          "published_at": "2026-04-05"
         }
       ]
     }
   ],
   "portfolio": {
-    "accountAlert": "총 투자 대기 현금 18,267,581원 · 현재 레짐은 중립 횡보 국면 · 포트폴리오 점수 31점(개선 필요). | 2026년 4월 누적 4회 업데이트 기준.",
+    "accountAlert": "총 투자 대기 현금 18,267,581원 · 현재 레짐은 중립 횡보 국면 · 포트폴리오 점수 31점(개선 필요). | 2026년 4월 누적 5회 업데이트 기준.",
     "accountDetail": "ISA (신한은행) 8,392,660원 · 세제혜택 계좌로 국내 ETF 중심 배치 | 토스증권 4,309,720원 · 해외 ETF 접근성이 좋아 미국 자산 배치에 적합 | 연금저축 (신한은행) 5,565,201원 · 연금저축은 장기 분산형 ETF 중심이 적합",
     "keyStats": [
       {
@@ -1938,7 +2318,7 @@
         {
           "label": "FRED 거시지표",
           "source": "fred_api",
-          "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+          "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
           "examples": [
             "VIX (VIXCLS)",
             "US 10Y Treasury Yield (DGS10)",
@@ -1949,16 +2329,16 @@
           "sector": "macro",
           "doc_type": "time_series",
           "url": "https://fred.stlouisfed.org/series/VIXCLS",
-          "count": 8
+          "count": 6
         },
         {
           "label": "한국은행 ECOS",
           "source": "ecos_api",
-          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+          "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
           "examples": [
-            "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+            "[BOK] 한국은행 기준금리: 2.5 %"
           ],
-          "published_at": "2026-04-03",
+          "published_at": "2026-04-02",
           "region": "KR",
           "sector": "macro",
           "doc_type": "time_series",
@@ -2012,13 +2392,13 @@
         "label": "퀀트 레짐",
         "source": "macro_analysis",
         "title": "1개월 레짐 분석",
-        "published_at": "2026-04-04"
+        "published_at": "2026-04-05"
       },
       {
         "label": "ETF 추천",
         "source": "etf_recommender",
         "title": "1개월 ETF 점수화",
-        "published_at": "2026-04-04"
+        "published_at": "2026-04-05"
       },
       {
         "label": "포트폴리오 상태",
@@ -2030,8 +2410,8 @@
   },
   "rebalancing": {
     "title": "1개월 실행 가이드",
-    "summary": "1개월 시점의 총 현금은 18,267,581원입니다. 실행 예산은 약 10,047,169원입니다. 대기 자금은 8,220,412원입니다. 이 가이드는 같은 포트폴리오라도 기간에 따라 매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다. 집행 리듬은 '4주 분할 구축'이며, 매주 한 번씩 4회에 걸쳐 기본 비중을 완성 원칙을 따릅니다. 2026년 4월 동안 4회 업데이트, 누적 문서 624건을 반영한 실행 가이드입니다.",
-    "horizonNote": "1개월의 질문은 '월간 레짐을 기준으로 어떤 자산군을 중심에 둘 것인가' 입니다. 그래서 1일 뷰에서는 초기 매수가 가능해 보여도, 6개월 뷰에서는 과열 테마의 최종 비중을 줄이라는 결론이 동시에 나올 수 있습니다. 또한 2026년 4월 동안 4회 업데이트를 누적 반영한 가이드입니다.",
+    "summary": "1개월 시점의 총 현금은 18,267,581원입니다. 실행 예산은 약 10,047,169원입니다. 대기 자금은 8,220,412원입니다. 이 가이드는 같은 포트폴리오라도 기간에 따라 매수 속도와 비중 상한이 달라져야 한다는 전제에서 작성되었습니다. 집행 리듬은 '4주 분할 구축'이며, 매주 한 번씩 4회에 걸쳐 기본 비중을 완성 원칙을 따릅니다. 2026년 4월 동안 5회 업데이트, 누적 문서 631건을 반영한 실행 가이드입니다.",
+    "horizonNote": "1개월의 질문은 '월간 레짐을 기준으로 어떤 자산군을 중심에 둘 것인가' 입니다. 그래서 1일 뷰에서는 초기 매수가 가능해 보여도, 6개월 뷰에서는 과열 테마의 최종 비중을 줄이라는 결론이 동시에 나올 수 있습니다. 또한 2026년 4월 동안 5회 업데이트를 누적 반영한 가이드입니다.",
     "actions": [
       {
         "account": "ISA (신한은행)",
@@ -2060,7 +2440,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2071,16 +2451,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2088,24 +2468,10 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 TIGER 200 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "포트폴리오 상태",
@@ -2142,7 +2508,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2153,16 +2519,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2170,24 +2536,10 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 KODEX 반도체 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "포트폴리오 상태",
@@ -2224,7 +2576,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2235,16 +2587,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2252,24 +2604,10 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 금 ETF 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "포트폴리오 상태",
@@ -2306,7 +2644,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2317,16 +2655,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2334,24 +2672,10 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 KODEX 미국채울트라30년(H) 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "포트폴리오 상태",
@@ -2388,7 +2712,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2399,16 +2723,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2416,24 +2740,10 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 미국 에너지 섹터 ETF 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "포트폴리오 상태",
@@ -2470,7 +2780,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2481,16 +2791,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2498,24 +2808,10 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 미국 장기국채 ETF 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "포트폴리오 상태",
@@ -2552,7 +2848,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2563,16 +2859,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2580,24 +2876,10 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 TIGER 일본니케이225 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "포트폴리오 상태",
@@ -2619,7 +2901,7 @@
       {
         "label": "FRED 거시지표",
         "source": "fred_api",
-        "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+        "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
         "examples": [
           "VIX (VIXCLS)",
           "US 10Y Treasury Yield (DGS10)",
@@ -2630,16 +2912,16 @@
         "sector": "macro",
         "doc_type": "time_series",
         "url": "https://fred.stlouisfed.org/series/VIXCLS",
-        "count": 8
+        "count": 6
       },
       {
         "label": "한국은행 ECOS",
         "source": "ecos_api",
-        "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+        "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
         "examples": [
-          "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+          "[BOK] 한국은행 기준금리: 2.5 %"
         ],
-        "published_at": "2026-04-03",
+        "published_at": "2026-04-02",
         "region": "KR",
         "sector": "macro",
         "doc_type": "time_series",
@@ -2647,30 +2929,16 @@
         "count": 1
       },
       {
-        "label": "연준 보도자료",
-        "source": "fed_press_rss",
-        "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-        "examples": [
-          "Federal Reserve Board issues enforcement action with former employee of United Bank"
-        ],
-        "published_at": "2026-04-03",
-        "region": "US",
-        "sector": "macro",
-        "doc_type": "news",
-        "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-        "count": 1
-      },
-      {
         "label": "퀀트 레짐",
         "source": "macro_analysis",
         "title": "1개월 레짐 분석",
-        "published_at": "2026-04-04"
+        "published_at": "2026-04-05"
       },
       {
         "label": "ETF 추천",
         "source": "etf_recommender",
         "title": "1개월 ETF 점수화",
-        "published_at": "2026-04-04"
+        "published_at": "2026-04-05"
       },
       {
         "label": "포트폴리오 상태",
@@ -2727,7 +2995,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2738,16 +3006,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2755,30 +3023,16 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 미국 에너지 섹터 ETF 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐과 점수 조합",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           }
         ]
       },
@@ -2827,7 +3081,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2838,16 +3092,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2855,30 +3109,16 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 TIGER 200 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐과 점수 조합",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           }
         ]
       },
@@ -2927,7 +3167,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -2938,16 +3178,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -2955,30 +3195,16 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 KODEX 반도체 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐과 점수 조합",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           }
         ]
       },
@@ -3027,7 +3253,7 @@
           {
             "label": "FRED 거시지표",
             "source": "fred_api",
-            "title": "FRED 거시지표 8건 수집 · 예시: VIX (VIXCLS)",
+            "title": "FRED 거시지표 6건 수집 · 예시: VIX (VIXCLS)",
             "examples": [
               "VIX (VIXCLS)",
               "US 10Y Treasury Yield (DGS10)",
@@ -3038,16 +3264,16 @@
             "sector": "macro",
             "doc_type": "time_series",
             "url": "https://fred.stlouisfed.org/series/VIXCLS",
-            "count": 8
+            "count": 6
           },
           {
             "label": "한국은행 ECOS",
             "source": "ecos_api",
-            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 코스피지수: 5377.3 1980.01.04=100",
+            "title": "한국은행 ECOS 1건 수집 · 예시: [BOK] 한국은행 기준금리: 2.5 %",
             "examples": [
-              "[BOK] 코스피지수: 5377.3 1980.01.04=100"
+              "[BOK] 한국은행 기준금리: 2.5 %"
             ],
-            "published_at": "2026-04-03",
+            "published_at": "2026-04-02",
             "region": "KR",
             "sector": "macro",
             "doc_type": "time_series",
@@ -3055,30 +3281,16 @@
             "count": 1
           },
           {
-            "label": "연준 보도자료",
-            "source": "fed_press_rss",
-            "title": "연준 보도자료 1건 수집 · 예시: Federal Reserve Board issues enforcement",
-            "examples": [
-              "Federal Reserve Board issues enforcement action with former employee of United Bank"
-            ],
-            "published_at": "2026-04-03",
-            "region": "US",
-            "sector": "macro",
-            "doc_type": "news",
-            "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260403a.htm",
-            "count": 1
-          },
-          {
             "label": "ETF 추천",
             "source": "etf_recommender",
             "title": "1개월 KODEX 미국채울트라30년(H) 점수화",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           },
           {
             "label": "퀀트 레짐",
             "source": "macro_analysis",
             "title": "1개월 레짐과 점수 조합",
-            "published_at": "2026-04-04"
+            "published_at": "2026-04-05"
           }
         ]
       }
@@ -3143,13 +3355,13 @@
     ]
   },
   "meta": {
-    "docsTotal": 624,
+    "docsTotal": 631,
     "sourceLabels": [
       "OpenDART 공시",
       "네이버 금융 리서치",
       "FRED 거시지표",
       "한국은행 ECOS"
     ],
-    "latestDailyDate": "2026-04-04"
+    "latestDailyDate": "2026-04-05"
   }
 }

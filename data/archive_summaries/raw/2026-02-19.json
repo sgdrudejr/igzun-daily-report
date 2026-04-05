@@ -1,0 +1,54 @@
+{
+  "date": "2026-02-19",
+  "sources": [
+    {
+      "source_id": "fred_api",
+      "count": 6,
+      "examples": [
+        {
+          "title": "US 10Y Treasury Yield (DGS10)",
+          "published_date": "2026-02-19",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "document_type": "time_series"
+        },
+        {
+          "title": "VIX (VIXCLS)",
+          "published_date": "2026-02-19",
+          "url": "https://fred.stlouisfed.org/series/VIXCLS",
+          "document_type": "time_series"
+        },
+        {
+          "title": "High Yield Credit Spread (BAMLH0A0HYM2)",
+          "published_date": "2026-02-19",
+          "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+          "document_type": "time_series"
+        }
+      ]
+    },
+    {
+      "source_id": "opendart",
+      "count": 50,
+      "examples": [
+        {
+          "title": "일괄신고서(집합투자증권-신탁형)(삼성글로벌6G성장플러스배당증권자투자신탁UH[주식])",
+          "published_date": "2026-02-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260219002447",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(삼성KODEX미국원자력SMR증권상장지수투자신탁[주식])",
+          "published_date": "2026-02-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260219000395",
+          "document_type": "filing"
+        },
+        {
+          "title": "[기재정정]일괄신고서(집합투자증권-신탁형)(삼성KODEX미국10년국채액티브증권상장지수투자신탁[채권-재간접형](H))",
+          "published_date": "2026-02-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260219000689",
+          "document_type": "filing"
+        }
+      ]
+    }
+  ],
+  "doc_count": 56
+}

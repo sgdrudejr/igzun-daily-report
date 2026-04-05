@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-04-04T10:02:17.604189",
-  "latestDailyDate": "2026-04-04",
+  "generatedAt": "2026-04-05T10:02:09.792271",
+  "latestDailyDate": "2026-04-05",
   "horizons": {
     "1일": [
+      {
+        "id": "2026-04-05",
+        "label": "4/5(일)",
+        "source": "horizons/daily/2026-04-05.json",
+        "fromDate": "2026-04-05",
+        "toDate": "2026-04-05",
+        "updateCount": 1,
+        "dataStatus": "full"
+      },
       {
         "id": "2026-04-04",
         "label": "4/4(토)",
@@ -649,8 +658,8 @@
         "label": "2026년 4월 1주",
         "source": "horizons/weekly/2026-04-w1.json",
         "fromDate": "2026-04-01",
-        "toDate": "2026-04-04",
-        "updateCount": 4,
+        "toDate": "2026-04-05",
+        "updateCount": 5,
         "dataStatus": "full"
       },
       {
@@ -786,8 +795,8 @@
         "label": "2026년 4월",
         "source": "horizons/monthly/2026-04.json",
         "fromDate": "2026-04-01",
-        "toDate": "2026-04-04",
-        "updateCount": 4,
+        "toDate": "2026-04-05",
+        "updateCount": 5,
         "dataStatus": "full"
       },
       {
@@ -824,8 +833,8 @@
         "label": "2026년 2분기",
         "source": "horizons/quarterly/2026-q2.json",
         "fromDate": "2026-04-01",
-        "toDate": "2026-04-04",
-        "updateCount": 4,
+        "toDate": "2026-04-05",
+        "updateCount": 5,
         "dataStatus": "full"
       },
       {
@@ -844,14 +853,14 @@
         "label": "2026년 상반기",
         "source": "horizons/halfyearly/2026-h1.json",
         "fromDate": "2026-01-01",
-        "toDate": "2026-04-04",
-        "updateCount": 71,
+        "toDate": "2026-04-05",
+        "updateCount": 72,
         "dataStatus": "full"
       }
     ]
   },
   "storageRetention": {
-    "generatedAt": "2026-04-04T10:02:17.468265",
+    "generatedAt": "2026-04-05T10:02:09.643877",
     "policy": {
       "raw_days": 45,
       "normalized_days": 75,
@@ -864,7 +873,7 @@
     "archivedCounts": {
       "raw": 1,
       "normalized": 1,
-      "manifests": 0
+      "manifests": 1
     }
   },
   "backfillRuns": [
